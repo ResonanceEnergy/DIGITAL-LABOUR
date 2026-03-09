@@ -1,0 +1,62 @@
+{
+  "source_type": "product_launch",
+  "source_title": "Introducing FlowSync: Real-Time Collaboration for Remote Engineering Teams",
+  "analysis": {
+    "title": "Introducing FlowSync: Real-Time Collaboration for Remote Engineering Teams",
+    "core_message": "FlowSync is a new real-time collaboration tool designed specifically for remote engineering teams, combining live code sharing, async video standups, and integrated project tracking.",
+    "key_points": [
+      "Built for engineering teams, not generic collaboration",
+      "Live code sharing with syntax highlighting and inline comments",
+      "Async video standups — record and watch on your own schedule",
+      "Integrated with GitHub, GitLab, Jira, and Linear",
+      "End-to-end encrypted — SOC 2 Type II compliant",
+      "Free tier for teams up to 5, Pro at $12/user/mo"
+    ],
+    "target_audience": "Engineering managers, remote-first CTOs, developer advocates, tech journalists",
+    "tone": "confident, technical but accessible, launch energy",
+    "hooks": [
+      "Slack for chat. Zoom for calls. Nothing built for how engineers actually work.",
+      "We built the tool we wished existed for remote engineering.",
+      "Real-time code sharing meets async standups."
+    ],
+    "stats_or_quotes": [
+      "500 beta teams, 4.8/5 satisfaction",
+      "Free for teams ≤5, Pro $12/user/mo",
+      "SOC 2 Type II compliant"
+    ],
+    "word_count": 1580
+  },
+  "content": {
+    "linkedin_post": "We just launched FlowSync. 🚀\n\nAfter 14 months of building with 500 beta teams, we're live.\n\nFlowSync is real-time collaboration built specifically for remote engineering teams.\n\nWhat makes it different:\n\n💻 Live code sharing — syntax highlighting, inline comments, pair programming without screen share lag\n\n📹 Async video standups — record your update in 2 minutes, team watches when they're ready. No more scheduling 9 people across 4 time zones.\n\n🔗 Native integrations — GitHub, GitLab, Jira, Linear. Your work context lives where your conversations happen.\n\n🔒 Enterprise ready — end-to-end encrypted, SOC 2 Type II compliant\n\nPricing:\n• Free for teams up to 5\n• Pro: $12/user/mo\n• Enterprise: custom\n\nBeta results:\n→ 4.8/5 satisfaction score\n→ 23% reduction in meeting time\n→ Teams shipping 15% faster\n\nWe built the tool we wished existed.\n\nTry it free → flowsync.dev\n\n#ProductLaunch #RemoteWork #DevTools #Engineering #Startup",
+
+    "twitter_thread": [
+      "Introducing FlowSync — real-time collaboration built for how engineers actually work.\n\nWe're live today. Here's what we built 🧵",
+      "1/ Engineers have Slack, Zoom, Notion, Jira... but nothing designed for engineering workflows. Code sharing still means screen share. Standups still mean meetings.",
+      "2/ FlowSync combines:\n→ Live code sharing (syntax highlighting, inline comments)\n→ Async video standups (record & watch on your schedule)\n→ Integration with GitHub, GitLab, Jira, Linear",
+      "3/ Built by a remote-first team, for remote-first teams. 500 beta teams tested it for 6 months.\n\nResults:\n- 4.8/5 satisfaction\n- 23% fewer meetings\n- 15% faster shipping",
+      "4/ Pricing:\n• Free for teams ≤ 5\n• Pro: $12/user/mo\n• Enterprise: custom\n\nE2E encrypted. SOC 2 Type II.\n\nTry it free → flowsync.dev"
+    ],
+
+    "email_newsletter": "Subject: Introducing FlowSync — built for remote engineering teams\n\nHey [First Name],\n\nWe've been heads-down for 14 months building something we wish existed: a collaboration tool designed specifically for remote engineering teams.\n\nToday we're launching FlowSync.\n\nWhat it does:\n• Live code sharing with syntax highlighting and inline comments — no more laggy screen shares\n• Async video standups — record in 2 minutes, team watches on their schedule\n• Native integration with GitHub, GitLab, Jira, and Linear\n\nWhat our 500 beta teams told us:\n→ 4.8/5 satisfaction score\n→ 23% reduction in meeting time\n→ 15% faster feature shipping\n\nPricing:\n• Free for teams up to 5\n• Pro: $12/user/month\n• Enterprise: custom\n\nEverything is end-to-end encrypted and SOC 2 Type II compliant.\n\nWe'd love for you to try it: flowsync.dev\n\n— The FlowSync Team",
+
+    "instagram_caption": "🚀 Launch day!\n\nIntroducing FlowSync — real-time collaboration built for remote engineering teams.\n\n💻 Live code sharing\n📹 Async video standups\n🔗 GitHub + Jira integration\n🔒 SOC 2 Type II certified\n\n500 beta teams. 4.8/5 satisfaction.\nFree for teams up to 5.\n\nLink in bio → flowsync.dev\n\n#LaunchDay #DevTools #RemoteWork #Startup #ProductLaunch #Engineering",
+
+    "summary_blurb": "FlowSync launches as a purpose-built collaboration tool for remote engineering teams, featuring live code sharing, async video standups, and deep integrations with GitHub, GitLab, Jira, and Linear. After 14 months of development with 500 beta teams (4.8/5 satisfaction), it's available free for teams up to 5 and $12/user/month for Pro."
+  },
+  "qa": {
+    "status": "PASS",
+    "score": 97,
+    "checks": {
+      "accuracy": true,
+      "format_compliance": true,
+      "tone_consistency": true,
+      "key_points_coverage": true,
+      "tweet_length": true
+    },
+    "issues": [],
+    "suggestions": []
+  },
+  "qa_status": "PASS",
+  "provider": "anthropic",
+  "duration_s": 18.5
+}

@@ -1,0 +1,62 @@
+{
+  "source_type": "agency_post",
+  "source_title": "How We 5x'd Client Retention by Productizing Our Agency Services",
+  "analysis": {
+    "title": "How We 5x'd Client Retention by Productizing Our Agency Services",
+    "core_message": "A digital marketing agency transformed from custom project work to productized services, dramatically improving client retention and recurring revenue.",
+    "key_points": [
+      "Churn was 35%/quarter on custom projects — clients left after deliverables",
+      "Productized 3 core services with fixed scope, fixed price, recurring delivery",
+      "Client retention jumped from 65% to 94% quarterly",
+      "Revenue predictability improved — 70% MRR vs 100% project-based before",
+      "Team utilization went from 60% to 85% with standardized workflows"
+    ],
+    "target_audience": "Agency owners, marketing consultants, freelancers scaling to agencies",
+    "tone": "conversational, founder-to-founder, results-focused",
+    "hooks": [
+      "We were the best agency on the block. Clients still left every quarter.",
+      "35% churn was killing us. Productizing fixed it overnight.",
+      "Stop trading hours for dollars. Here's exactly how."
+    ],
+    "stats_or_quotes": [
+      "Churn: 35% → 6% quarterly",
+      "Revenue: $45K/mo project → $120K/mo MRR",
+      "Team utilization: 60% → 85%"
+    ],
+    "word_count": 2100
+  },
+  "content": {
+    "linkedin_post": "We 5x'd our client retention rate.\n\nNot with better work. Not with client gifts.\n\nBy productizing our agency.\n\nHere's what we did:\n\nWe stopped selling \"custom marketing projects.\"\nWe started selling 3 fixed-scope packages:\n\n📦 Growth Engine — $3K/mo\n→ 8 blog posts, 20 social posts, 1 email sequence\n\n📦 Lead Machine — $5K/mo\n→ Everything above + paid ads management + landing pages\n\n📦 Full Stack — $8K/mo\n→ Everything + SEO + analytics + monthly strategy call\n\nResults after 6 months:\n✅ Retention: 65% → 94%\n✅ MRR: $45K → $120K\n✅ Team utilization: 60% → 85%\n✅ Scope creep: virtually eliminated\n\nThe shift? Clients stopped seeing us as vendors.\nThey started seeing us as infrastructure.\n\nProductize or perish.\n\n#AgencyLife #ProductizedServices #MRR #Marketing #BusinessGrowth",
+
+    "twitter_thread": [
+      "We 5x'd agency client retention by productizing our services.\n\nFrom 65% to 94% quarterly retention. Here's the playbook 🧵",
+      "1/ The problem: 35% of clients churned every quarter. They'd hire us for a project, get the deliverable, and leave. We were a revolving door.",
+      "2/ The fix: We killed custom proposals. Built 3 fixed-scope packages at $3K, $5K, and $8K/mo. Standardized everything — deliverables, timelines, reporting.",
+      "3/ What changed: Clients stopped thinking of us as 'the logo people' or 'the ads agency.' We became their marketing department. Infrastructure, not vendor.",
+      "4/ The numbers don't lie:\n- Retention: 65% → 94%\n- MRR: $45K → $120K  \n- Utilization: 60% → 85%\n- Scope creep: gone",
+      "5/ If you run an agency and you're still doing custom everything: you're making it harder on yourself AND your clients.\n\nProductize. Standardize. Scale."
+    ],
+
+    "email_newsletter": "Subject: We 5x'd client retention with one change\n\nHey [First Name],\n\nOur agency had a dirty secret: 35% of clients left every quarter.\n\nNot because the work was bad. Because we were structured like a project shop. Client hires us → we deliver → they leave. Repeat.\n\nSo we burned it down and rebuilt around 3 productized packages:\n\n• Growth Engine ($3K/mo) — content + social\n• Lead Machine ($5K/mo) — above + ads + landing pages\n• Full Stack ($8K/mo) — above + SEO + strategy\n\nFixed scope. Fixed price. Recurring. No custom proposals.\n\n6 months later:\n→ Retention jumped from 65% to 94%\n→ MRR went from $45K to $120K\n→ Team utilization hit 85%\n→ Scope creep basically disappeared\n\nThe mindset shift was huge. Clients stopped seeing us as a vendor. We became their marketing infrastructure.\n\nIf you run a service business and you're still doing custom everything — this might be the highest-leverage change you can make.\n\nCheers,\n[Team]",
+
+    "instagram_caption": "From 35% churn to 94% retention. 💪\n\nWe productized our agency and everything changed:\n\n📈 MRR: $45K → $120K\n🤝 Retention: 65% → 94%\n⚡ Utilization: 60% → 85%\n\n3 fixed packages. No custom proposals. Recurring revenue.\n\nProductize or perish. 🚀\n\n#AgencyGrowth #ProductizedServices #MRR #MarketingAgency #BusinessStrategy #Entrepreneurship",
+
+    "summary_blurb": "A digital marketing agency transformed from custom project work to three productized service tiers, boosting quarterly client retention from 65% to 94%, growing MRR from $45K to $120K, and increasing team utilization to 85% — proving that standardization beats customization for agency scale."
+  },
+  "qa": {
+    "status": "PASS",
+    "score": 95,
+    "checks": {
+      "accuracy": true,
+      "format_compliance": true,
+      "tone_consistency": true,
+      "key_points_coverage": true,
+      "tweet_length": true
+    },
+    "issues": [],
+    "suggestions": []
+  },
+  "qa_status": "PASS",
+  "provider": "grok",
+  "duration_s": 12.8
+}

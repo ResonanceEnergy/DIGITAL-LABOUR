@@ -145,6 +145,20 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 .cta-section::before{content:'';position:absolute;bottom:-200px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,var(--accent2-glow) 0%,transparent 70%);pointer-events:none;opacity:0.3}
 .cta-section h2{font-size:2.4rem;margin-bottom:16px}
 
+/* Lead Form */
+.lead-form{max-width:480px;margin:32px auto 0;text-align:left}
+.lead-form .form-row{display:flex;gap:12px;margin-bottom:12px}
+.lead-form input,.lead-form select{flex:1;padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.95rem;transition:border .2s}
+.lead-form input:focus,.lead-form select:focus{outline:none;border-color:var(--accent)}
+.lead-form input::placeholder{color:var(--muted)}
+.lead-form select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238888a0' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.lead-form select option{background:var(--card);color:var(--text)}
+.lead-form .btn{width:100%;margin-top:4px}
+.lead-form .form-note{text-align:center;color:var(--muted);font-size:0.8rem;margin-top:12px}
+.lead-form .form-success{display:none;text-align:center;padding:24px;background:var(--card);border:1px solid var(--accent);border-radius:12px;margin-top:16px}
+.lead-form .form-success h3{color:var(--accent);margin-bottom:8px}
+.lead-form .form-success p{color:var(--muted);font-size:0.9rem}
+
 /* Footer */
 .footer{padding:48px 0 32px;border-top:1px solid var(--border)}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
@@ -361,7 +375,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>JSON/CSV export</li>
         <li>QA-verified delivery</li>
       </ul>
-      <a class="btn btn-outline btn-sm" href="#start" style="width:100%">Start Free</a>
+      <a class="btn btn-outline btn-sm" href="#start" style="width:100%" onclick="preselect('sales_outreach')">Start Free</a>
     </div>
     <div class="price-card featured">
       <h3>Support Resolver</h3>
@@ -374,7 +388,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>~9.6s avg resolution</li>
         <li>Policy compliance checks</li>
       </ul>
-      <a class="btn btn-primary btn-sm" href="#start" style="width:100%">Start Free</a>
+      <a class="btn btn-primary btn-sm" href="#start" style="width:100%" onclick="preselect('support_ticket')">Start Free</a>
     </div>
     <div class="price-card">
       <h3>Content + Docs</h3>
@@ -387,7 +401,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>Blog &rarr; social in seconds</li>
         <li>Bulk discounts available</li>
       </ul>
-      <a class="btn btn-outline btn-sm" href="#start" style="width:100%">Start Free</a>
+      <a class="btn btn-outline btn-sm" href="#start" style="width:100%" onclick="preselect('content_repurpose')">Start Free</a>
     </div>
   </div>
   <div style="text-align:center;margin-top:40px">
@@ -439,10 +453,33 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 <section id="start" class="cta-section">
 <div class="container">
   <h2>Ready to Put AI Agents to Work?</h2>
-  <p class="subtitle">Send a company name. Get back a full enrichment + 3 personalized emails. Free. No sign-up required.</p>
-  <div class="btn-row" style="justify-content:center">
-    <a class="btn btn-primary" href="mailto:gripa@resonanceenergy.co?subject=Free%20Demo%20-%20Bit%20Rage%20Labour&body=Company:%0ATarget%20Role:%0AYour%20Product:%0A%0A(We'll send back a full lead enrichment and 3-email sequence within 24 hours)">Get 2 Free Leads</a>
-    <a class="btn btn-secondary" href="mailto:gripa@resonanceenergy.co?subject=Custom%20Agent%20Inquiry&body=What%20I%20need:%0A">Request Custom Agent</a>
+  <p class="subtitle">Enter your email. Pick a service. Get 2 free leads — delivered within 24 hours.</p>
+  <div class="lead-form" id="leadForm">
+    <div class="form-row">
+      <input type="email" id="leadEmail" placeholder="you@company.com" required>
+    </div>
+    <div class="form-row">
+      <input type="text" id="leadName" placeholder="Your name (optional)">
+      <input type="text" id="leadCompany" placeholder="Company (optional)">
+    </div>
+    <div class="form-row">
+      <select id="leadService">
+        <option value="sales_outreach">Sales Ops — Get 2 Free Leads</option>
+        <option value="support_ticket">Support Resolver — Free Ticket Demo</option>
+        <option value="content_repurpose">Content Repurposer — Free Sample</option>
+        <option value="doc_extract">Document Extractor — Free Extract</option>
+        <option value="custom">Custom Agent — Tell Us What You Need</option>
+      </select>
+    </div>
+    <div class="form-row" id="customRow" style="display:none">
+      <input type="text" id="leadCustom" placeholder="Describe what you need...">
+    </div>
+    <button class="btn btn-primary" type="button" onclick="submitLead()">Get Started Free</button>
+    <p class="form-note">No credit card required. We'll deliver results to your inbox.</p>
+    <div class="form-success" id="formSuccess">
+      <h3>&#10003; You're In!</h3>
+      <p>We'll deliver your free demo to <strong id="confirmEmail"></strong> within 24 hours.</p>
+    </div>
   </div>
   <p style="color:var(--muted);margin-top:24px;font-size:0.9rem">Or email directly: <a href="mailto:gripa@resonanceenergy.co">gripa@resonanceenergy.co</a></p>
 </div>
@@ -482,5 +519,68 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 </div>
 </footer>
 
+<script>
+function preselect(service) {
+  document.getElementById('leadService').value = service;
+  document.getElementById('customRow').style.display = service === 'custom' ? 'flex' : 'none';
+}
+
+document.getElementById('leadService').addEventListener('change', function() {
+  document.getElementById('customRow').style.display = this.value === 'custom' ? 'flex' : 'none';
+});
+
+function submitLead() {
+  var email = document.getElementById('leadEmail');
+  if (!email.value || !email.value.includes('@') || !email.value.includes('.')) {
+    email.style.borderColor = '#ff4466';
+    email.focus();
+    email.setAttribute('placeholder', 'Email is required');
+    return;
+  }
+  email.style.borderColor = '';
+
+  var data = {
+    email: email.value,
+    name: document.getElementById('leadName').value,
+    company: document.getElementById('leadCompany').value,
+    service: document.getElementById('leadService').value,
+    custom_request: document.getElementById('leadCustom').value,
+    source: 'website',
+    timestamp: new Date().toISOString()
+  };
+
+  // Store lead locally and send via mailto as fallback
+  try {
+    var leads = JSON.parse(localStorage.getItem('brl_leads') || '[]');
+    leads.push(data);
+    localStorage.setItem('brl_leads', JSON.stringify(leads));
+  } catch(e) {}
+
+  // Send email notification
+  var subject = encodeURIComponent('New Lead - ' + data.service + ' - ' + data.email);
+  var body = encodeURIComponent('Email: ' + data.email + '\nName: ' + (data.name || 'N/A') + '\nCompany: ' + (data.company || 'N/A') + '\nService: ' + data.service + '\nCustom: ' + (data.custom_request || 'N/A') + '\nTime: ' + data.timestamp);
+  
+  // Open mailto in background iframe to avoid navigation
+  var a = document.createElement('a');
+  a.href = 'mailto:gripa@resonanceenergy.co?subject=' + subject + '&body=' + body;
+  a.target = '_blank';
+  a.click();
+
+  // Show success
+  document.getElementById('confirmEmail').textContent = data.email;
+  document.getElementById('formSuccess').style.display = 'block';
+  document.querySelector('.lead-form .btn').textContent = 'Submitted!';
+  document.querySelector('.lead-form .btn').disabled = true;
+  document.querySelector('.lead-form .btn').style.opacity = '0.6';
+}
+
+// Mobile nav toggle
+var toggle = document.querySelector('.mobile-toggle');
+if (toggle) {
+  toggle.addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('open');
+  });
+}
+</script>
 </body>
 </html>

@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Digital Labour Event",
+  "description": "Standard event schema for all agent tasks — intake through delivery and billing.",
+  "type": "object",
+  "required": ["event_id", "timestamp", "task_type", "inputs", "outputs", "qa", "billing"],
+  "properties": {
+    "event_id": { "type": "string", "format": "uuid" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "client_id": { "type": "string" },
+    "task_type": {
+      "type": "string",
+      "enum": ["sales_outreach", "support_ticket", "ops_brief", "doc_extract"]
+    },
+    "inputs": { "type": "object" },
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "time_budget_sec": { "type": "integer", "default": 300 },
+        "max_retries": { "type": "integer", "default": 1 },
+        "token_budget": { "type": "integer", "default": 20000 }
+      }
+    },
+    "outputs": { "type": "object" },
+    "qa": {
+      "type": "object",
+      "properties": {
+        "status": { "type": "string", "enum": ["PASS", "FAIL"] },
+        "issues": { "type": "array", "items": { "type": "string" } },
+        "revision_notes": { "type": "string" }
+      },
+      "required": ["status"]
+    },
+    "billing": {
+      "type": "object",
+      "properties": {
+        "pricing_unit": {
+          "type": "string",
+          "enum": ["per_lead", "per_resolution", "per_workflow", "retainer"]
+        },
+        "amount": { "type": "number" },
+        "currency": { "type": "string", "enum": ["USD", "CAD", "USDC"] },
+        "status": { "type": "string", "enum": ["unbilled", "invoiced", "paid"] }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "latency_ms": { "type": "integer" },
+        "cost_estimate": { "type": "number" },
+        "tokens_used": { "type": "integer" }
+      }
+    }
+  }
+}

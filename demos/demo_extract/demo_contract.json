@@ -1,0 +1,86 @@
+{
+  "source_type": "contract",
+  "source_text": "CONSULTING SERVICES AGREEMENT\n\nThis Agreement is entered into as of January 8, 2024 (\"Effective Date\") by and between:\n\nClient: Meridian Healthcare Group, a Delaware corporation, with principal offices at 789 Medical Center Blvd, Austin, TX 78701 (\"Client\")\n\nConsultant: NextWave Analytics LLC, an Oregon limited liability company, with principal offices at 321 Data Drive, Portland, OR 97209 (\"Consultant\")\n\n1. SCOPE OF SERVICES\nConsultant shall provide data analytics and machine learning consulting services including:\na) Patient flow optimization modeling\nb) Revenue cycle analytics dashboard development\nc) Predictive readmission risk scoring\nd) Monthly reporting and recommendations\n\n2. TERM\nThis Agreement shall commence on February 1, 2024 and continue for twelve (12) months through January 31, 2025, unless earlier terminated per Section 7.\n\n3. COMPENSATION\nClient shall pay Consultant:\n- Monthly retainer: $18,000/month\n- Performance bonus: 10% of documented cost savings exceeding $500,000\n- Expenses: Reimbursed at cost, pre-approved, capped at $2,500/month\nPayment due within 15 days of invoice receipt.\n\n4. INTELLECTUAL PROPERTY\nAll work product, deliverables, models, and code created under this Agreement shall be the sole property of Client upon full payment. Consultant retains rights to pre-existing tools and methodologies.\n\n5. CONFIDENTIALITY\nBoth parties agree to maintain strict confidentiality of proprietary information. HIPAA compliance required for all patient data handling. NDA executed separately.\n\n6. NON-COMPETE\nConsultant agrees not to provide substantially similar services to competing healthcare organizations within a 50-mile radius of Client's facilities for 12 months following termination.\n\n7. TERMINATION\nEither party may terminate with 30 days written notice. Client may terminate immediately for cause. Upon termination, all unpaid fees for completed work become due.\n\nIN WITNESS WHEREOF, the parties have executed this Agreement:\n\nClient: Dr. Rebecca Torres, CEO, Meridian Healthcare Group\nDate: January 8, 2024\n\nConsultant: James Park, Managing Partner, NextWave Analytics LLC\nDate: January 8, 2024",
+  "extraction": {
+    "doc_type": "contract",
+    "confidence": 0.97,
+    "extracted": {
+      "contract_type": "Consulting Services Agreement",
+      "effective_date": "2024-01-08",
+      "parties": {
+        "client": {
+          "name": "Meridian Healthcare Group",
+          "entity_type": "Delaware corporation",
+          "address": "789 Medical Center Blvd, Austin, TX 78701",
+          "signatory": "Dr. Rebecca Torres",
+          "signatory_title": "CEO"
+        },
+        "consultant": {
+          "name": "NextWave Analytics LLC",
+          "entity_type": "Oregon limited liability company",
+          "address": "321 Data Drive, Portland, OR 97209",
+          "signatory": "James Park",
+          "signatory_title": "Managing Partner"
+        }
+      },
+      "term": {
+        "start_date": "2024-02-01",
+        "end_date": "2025-01-31",
+        "duration_months": 12,
+        "early_termination": "30 days written notice; immediate for cause"
+      },
+      "scope": [
+        "Patient flow optimization modeling",
+        "Revenue cycle analytics dashboard development",
+        "Predictive readmission risk scoring",
+        "Monthly reporting and recommendations"
+      ],
+      "compensation": {
+        "monthly_retainer": 18000.00,
+        "total_contract_value": 216000.00,
+        "performance_bonus": "10% of documented cost savings exceeding $500,000",
+        "expense_cap_monthly": 2500.00,
+        "payment_terms": "15 days from invoice receipt"
+      },
+      "ip_ownership": "Client owns all work product upon full payment; Consultant retains pre-existing tools",
+      "confidentiality": "Mutual NDA; HIPAA compliance required for patient data",
+      "non_compete": {
+        "radius": "50 miles from Client facilities",
+        "duration": "12 months post-termination",
+        "scope": "Substantially similar services to competing healthcare organizations"
+      }
+    },
+    "raw_entities": [
+      {"type": "organization", "value": "Meridian Healthcare Group", "context": "client party"},
+      {"type": "organization", "value": "NextWave Analytics LLC", "context": "consultant party"},
+      {"type": "person", "value": "Dr. Rebecca Torres", "context": "client signatory, CEO"},
+      {"type": "person", "value": "James Park", "context": "consultant signatory, Managing Partner"},
+      {"type": "monetary", "value": "$18,000/month", "context": "monthly retainer"},
+      {"type": "monetary", "value": "$216,000", "context": "total contract value (calculated)"},
+      {"type": "date", "value": "January 8, 2024", "context": "effective/signing date"},
+      {"type": "date", "value": "February 1, 2024", "context": "term start"},
+      {"type": "date", "value": "January 31, 2025", "context": "term end"},
+      {"type": "regulation", "value": "HIPAA", "context": "compliance requirement"}
+    ],
+    "summary": "12-month consulting agreement between Meridian Healthcare Group and NextWave Analytics LLC for data analytics/ML services at $18,000/month ($216K total). Includes performance bonus, HIPAA compliance, 50-mile non-compete, and client IP ownership. Term: Feb 2024 – Jan 2025.",
+    "warnings": ["Non-compete clause may have enforceability limitations depending on jurisdiction"]
+  },
+  "qa": {
+    "status": "PASS",
+    "score": 96,
+    "checks": {
+      "completeness": true,
+      "accuracy": true,
+      "no_hallucination": true,
+      "parties_identified": true,
+      "dates_consistent": true,
+      "financial_terms_captured": true
+    },
+    "missed_entities": [],
+    "errors": [],
+    "suggestions": ["Could flag that total contract value is calculated, not stated"]
+  },
+  "qa_status": "PASS",
+  "provider": "anthropic",
+  "duration_s": 22.1
+}

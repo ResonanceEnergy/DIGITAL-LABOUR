@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Labour — Client Signup</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh}
+.container{max-width:640px;margin:0 auto;padding:40px 24px}
+h1{font-size:1.8em;color:#fff;margin-bottom:4px;letter-spacing:-0.5px}
+.subtitle{color:#666;font-size:0.95em;margin-bottom:32px}
+.brand{color:#00ff88;font-weight:700}
+form{display:flex;flex-direction:column;gap:20px}
+label{font-size:0.85em;color:#999;margin-bottom:4px;display:block}
+input,select,textarea{width:100%;padding:12px 14px;background:#111;border:1px solid #2a2a2a;border-radius:8px;color:#e0e0e0;font-size:0.95em;transition:border 0.2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#00ff88}
+input::placeholder{color:#444}
+textarea{resize:vertical;min-height:60px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.services{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.services label{display:flex;align-items:center;gap:8px;cursor:pointer;color:#ccc;font-size:0.9em}
+.services input[type=checkbox]{width:auto;accent-color:#00ff88}
+.pricing-toggle{display:flex;gap:12px}
+.pricing-toggle label{display:flex;align-items:center;gap:6px;cursor:pointer;color:#ccc;font-size:0.9em}
+.pricing-toggle input[type=radio]{width:auto;accent-color:#00ff88}
+.tier-select{display:none}
+.tier-select.show{display:block}
+button{padding:14px;background:#00ff88;color:#000;border:none;border-radius:8px;font-size:1em;font-weight:600;cursor:pointer;transition:background 0.2s}
+button:hover{background:#00cc6e}
+button:disabled{background:#333;color:#666;cursor:not-allowed}
+.result{margin-top:24px;padding:20px;border:1px solid #2a2a2a;border-radius:8px;background:#111;display:none}
+.result.success{border-color:#00ff88}
+.result.error{border-color:#ff4444}
+.result h3{margin-bottom:8px}
+.key-box{padding:12px;background:#0a0a0a;border:1px solid #333;border-radius:6px;font-family:monospace;font-size:0.9em;word-break:break-all;color:#00ff88;margin:8px 0}
+.copy-btn{padding:6px 12px;background:#222;border:1px solid #333;border-radius:4px;color:#ccc;font-size:0.8em;cursor:pointer}
+.copy-btn:hover{background:#333}
+.pricing-table{margin:8px 0;font-size:0.85em;color:#888}
+.pricing-table td{padding:2px 12px 2px 0}
+.pricing-table .price{color:#00ff88}
+</style>
+</head>
+<body>
+<div class="container">
+<h1><span class="brand">DIGITAL LABOUR</span></h1>
+<p class="subtitle">AI workforce on demand — sign up and start submitting tasks in minutes.</p>
+
+<form id="signupForm" onsubmit="return handleSubmit(event)">
+
+  <div class="row">
+    <div>
+      <label for="client_id">Client ID (lowercase, no spaces)</label>
+      <input id="client_id" name="client_id" required pattern="^[a-z0-9_-]+$"
+             placeholder="acme-corp" title="lowercase letters, numbers, hyphens, underscores">
+    </div>
+    <div>
+      <label for="company">Company Name</label>
+      <input id="company" name="company" required placeholder="Acme Corp">
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <label for="contact_name">Contact Name</label>
+      <input id="contact_name" name="contact_name" required placeholder="Jane Smith">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required placeholder="jane@acme.com">
+    </div>
+  </div>
+
+  <div>
+    <label>Services</label>
+    <div class="services">
+      <label><input type="checkbox" name="services" value="sales_outreach" checked> Sales Outreach</label>
+      <label><input type="checkbox" name="services" value="support_ticket" checked> Support Ticket</label>
+      <label><input type="checkbox" name="services" value="content_repurpose"> Content Repurpose</label>
+      <label><input type="checkbox" name="services" value="doc_extract"> Doc Extract</label>
+    </div>
+  </div>
+
+  <div>
+    <label>Pricing Model</label>
+    <div class="pricing-toggle">
+      <label><input type="radio" name="pricing_model" value="per_task" checked onchange="toggleTier()"> Pay Per Task</label>
+      <label><input type="radio" name="pricing_model" value="retainer" onchange="toggleTier()"> Monthly Retainer</label>
+    </div>
+    <table class="pricing-table" id="perTaskPricing">
+      <tr><td>Sales Outreach</td><td class="price">$2.40/task</td></tr>
+      <tr><td>Support Ticket</td><td class="price">$1.00/task</td></tr>
+      <tr><td>Content Repurpose</td><td class="price">$3.00/task</td></tr>
+      <tr><td>Doc Extract</td><td class="price">$1.50/task</td></tr>
+    </table>
+  </div>
+
+  <div class="tier-select" id="tierSection">
+    <label for="retainer_tier">Retainer Tier</label>
+    <select id="retainer_tier" name="retainer_tier">
+      <option value="">— Select tier —</option>
+      <optgroup label="Sales Outreach">
+        <option value="sales_starter">Starter — $750/mo (50 tasks, $12 overage)</option>
+        <option value="sales_growth">Growth — $1,400/mo (100 tasks, $10 overage)</option>
+        <option value="sales_scale">Scale — $2,500/mo (200 tasks, $8 overage)</option>
+      </optgroup>
+      <optgroup label="Support">
+        <option value="support_starter">Starter — $400/mo (200 tasks, $1.50 overage)</option>
+        <option value="support_growth">Growth — $800/mo (500 tasks, $1.20 overage)</option>
+        <option value="support_scale">Scale — $1,400/mo (1,000 tasks, $1.00 overage)</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <div>
+    <label for="delivery_method">Delivery Method</label>
+    <select id="delivery_method" name="delivery_method">
+      <option value="file">File Download</option>
+      <option value="webhook">Webhook POST</option>
+      <option value="email">Email</option>
+    </select>
+  </div>
+
+  <div id="webhookSection" style="display:none">
+    <label for="webhook_url">Webhook URL</label>
+    <input id="webhook_url" name="webhook_url" type="url" placeholder="https://your-app.com/webhook">
+  </div>
+
+  <div>
+    <label for="notes">Notes (optional)</label>
+    <textarea id="notes" name="notes" placeholder="Any special requirements..."></textarea>
+  </div>
+
+  <button type="submit" id="submitBtn">Create Account</button>
+</form>
+
+<div id="result" class="result">
+  <h3 id="resultTitle"></h3>
+  <p id="resultMsg"></p>
+  <div id="apiKeySection" style="display:none">
+    <p style="margin-top:12px;font-size:0.85em;color:#999">Your API Key (save this — shown only once):</p>
+    <div class="key-box" id="apiKey"></div>
+    <button class="copy-btn" onclick="copyKey()">Copy Key</button>
+  </div>
+</div>
+
+</div>
+
+<script>
+function toggleTier() {
+  const model = document.querySelector('input[name=pricing_model]:checked').value;
+  document.getElementById('tierSection').classList.toggle('show', model === 'retainer');
+  document.getElementById('perTaskPricing').style.display = model === 'per_task' ? '' : 'none';
+}
+
+document.getElementById('delivery_method').addEventListener('change', (e) => {
+  document.getElementById('webhookSection').style.display = e.target.value === 'webhook' ? '' : 'none';
+});
+
+async function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Creating...';
+
+  const form = document.getElementById('signupForm');
+  const services = [...form.querySelectorAll('input[name=services]:checked')].map(cb => cb.value);
+  const pricing_model = form.querySelector('input[name=pricing_model]:checked').value;
+
+  const body = {
+    client_id: form.client_id.value.trim(),
+    company: form.company.value.trim(),
+    contact_name: form.contact_name.value.trim(),
+    email: form.email.value.trim(),
+    services,
+    pricing_model,
+    retainer_tier: pricing_model === 'retainer' ? form.retainer_tier.value : '',
+    delivery_method: form.delivery_method.value,
+    webhook_url: form.webhook_url.value.trim(),
+    notes: form.notes.value.trim(),
+  };
+
+  try {
+    const res = await fetch('/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    const el = document.getElementById('result');
+
+    if (res.ok) {
+      el.className = 'result success';
+      document.getElementById('resultTitle').textContent = 'Account Created';
+      document.getElementById('resultMsg').textContent = data.message;
+      document.getElementById('apiKey').textContent = data.api_key;
+      document.getElementById('apiKeySection').style.display = '';
+      form.style.display = 'none';
+    } else {
+      el.className = 'result error';
+      document.getElementById('resultTitle').textContent = 'Error';
+      document.getElementById('resultMsg').textContent = data.detail || 'Something went wrong.';
+      document.getElementById('apiKeySection').style.display = 'none';
+      btn.disabled = false;
+      btn.textContent = 'Create Account';
+    }
+    el.style.display = '';
+  } catch (err) {
+    alert('Network error: ' + err.message);
+    btn.disabled = false;
+    btn.textContent = 'Create Account';
+  }
+}
+
+function copyKey() {
+  const key = document.getElementById('apiKey').textContent;
+  navigator.clipboard.writeText(key).then(() => {
+    const btn = event.target;
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy Key', 2000);
+  });
+}
+</script>
+</body>
+</html>

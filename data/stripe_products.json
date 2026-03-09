@@ -1,0 +1,72 @@
+{
+  "sales_outreach": {
+    "product_id": "prod_U7GjvrzXJLzXzc",
+    "price_id": "price_1T92C2IZXv1iM307HRVyggIf",
+    "name": "Sales Ops Agent - Per Lead",
+    "cents": 240,
+    "mode": "one_time"
+  },
+  "support_ticket": {
+    "product_id": "prod_U7GjcroHpPIjli",
+    "price_id": "price_1T92C3IZXv1iM307wWi0fUK2",
+    "name": "Support Resolver - Per Ticket",
+    "cents": 100,
+    "mode": "one_time"
+  },
+  "content_repurpose": {
+    "product_id": "prod_U7GjDpohMxRepz",
+    "price_id": "price_1T92C3IZXv1iM307fMOtYOdX",
+    "name": "Content Repurposer - Per Piece",
+    "cents": 300,
+    "mode": "one_time"
+  },
+  "doc_extract": {
+    "product_id": "prod_U7GjRH70UwIJmY",
+    "price_id": "price_1T92C4IZXv1iM307DhNadZYh",
+    "name": "Document Extractor - Per Document",
+    "cents": 150,
+    "mode": "one_time"
+  },
+  "sales_starter": {
+    "product_id": "prod_U7Gjc3TjWYXRK4",
+    "price_id": "price_1T92C4IZXv1iM307c8AA0ABo",
+    "name": "Sales Retainer - Starter (50/mo)",
+    "cents": 75000,
+    "mode": "recurring"
+  },
+  "sales_growth": {
+    "product_id": "prod_U7Gj4sYUSPUOfY",
+    "price_id": "price_1T92C4IZXv1iM307UmApWxdH",
+    "name": "Sales Retainer - Growth (100/mo)",
+    "cents": 140000,
+    "mode": "recurring"
+  },
+  "sales_scale": {
+    "product_id": "prod_U7GjX1TX6zeDn0",
+    "price_id": "price_1T92C5IZXv1iM3070EJFf1xp",
+    "name": "Sales Retainer - Scale (200/mo)",
+    "cents": 250000,
+    "mode": "recurring"
+  },
+  "support_starter": {
+    "product_id": "prod_U7Gj8B4Siz24Ez",
+    "price_id": "price_1T92C5IZXv1iM307EWqPdRXH",
+    "name": "Support Retainer - Starter (200/mo)",
+    "cents": 40000,
+    "mode": "recurring"
+  },
+  "support_growth": {
+    "product_id": "prod_U7GjUNJM5GEvCf",
+    "price_id": "price_1T92C6IZXv1iM3070wlOAVFZ",
+    "name": "Support Retainer - Growth (500/mo)",
+    "cents": 80000,
+    "mode": "recurring"
+  },
+  "support_scale": {
+    "product_id": "prod_U7GjrS737llRBN",
+    "price_id": "price_1T92C6IZXv1iM307qc7qNJSi",
+    "name": "Support Retainer - Scale (1000/mo)",
+    "cents": 140000,
+    "mode": "recurring"
+  }
+}

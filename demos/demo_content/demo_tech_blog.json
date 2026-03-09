@@ -1,0 +1,62 @@
+{
+  "source_type": "tech_blog",
+  "source_title": "Why We Migrated from Kubernetes to Serverless — And Cut Our Cloud Bill by 60%",
+  "analysis": {
+    "title": "Why We Migrated from Kubernetes to Serverless — And Cut Our Cloud Bill by 60%",
+    "core_message": "A mid-stage SaaS company reduced infrastructure costs by 60% and developer overhead by migrating from self-managed Kubernetes to serverless architecture.",
+    "key_points": [
+      "K8s operational overhead consumed 40% of one engineer's time",
+      "Serverless auto-scaling eliminated over-provisioning waste",
+      "Cloud bill dropped from $12K/mo to $4.8K/mo within 3 months",
+      "Cold starts were a concern but solved with provisioned concurrency",
+      "Team velocity increased — 2x faster feature shipping"
+    ],
+    "target_audience": "SaaS CTOs, DevOps engineers, startup founders managing cloud costs",
+    "tone": "practical, data-driven, slightly opinionated",
+    "hooks": [
+      "Our K8s cluster was costing us $144K/year — and most of it was waste.",
+      "We thought we needed Kubernetes. We were wrong.",
+      "60% cost reduction. 2x shipping speed. One migration."
+    ],
+    "stats_or_quotes": [
+      "$12K/mo → $4.8K/mo cloud spend",
+      "40% of one engineer's time on K8s ops",
+      "2x faster feature deployment post-migration"
+    ],
+    "word_count": 1847
+  },
+  "content": {
+    "linkedin_post": "We just cut our cloud bill by 60%.\n\nNot by negotiating. Not by downsizing.\n\nBy killing our Kubernetes cluster.\n\nHere's what happened:\n→ $12K/mo on K8s (most of it wasted on idle capacity)\n→ 40% of one engineer's time babysitting configs\n→ Scaling? Manual. Painful. Slow.\n\nSo we migrated to serverless.\n\nResults after 3 months:\n✅ Cloud bill: $4.8K/mo (down from $12K)\n✅ Zero ops overhead — no more YAML nightmares\n✅ 2x faster feature shipping\n✅ Auto-scaling that actually scales\n\nThe cold start concern? Solved with provisioned concurrency.\n\nKubernetes is powerful. But for a 30-person SaaS company?\nIt was like driving a semi truck to the grocery store.\n\nSometimes the best infrastructure decision is using less of it.\n\n#DevOps #Serverless #CloudCosts #SaaS #StartupOps",
+
+    "twitter_thread": [
+      "We cut our cloud bill by 60% by killing Kubernetes.\n\nThread on what we learned 🧵",
+      "1/ Our K8s setup cost $12K/mo. Most clusters were over-provisioned. We were paying for capacity we never used.",
+      "2/ One engineer spent 40% of their time on K8s ops. Helm charts, config drift, node scaling, networking issues. That's not shipping product.",
+      "3/ We migrated to serverless (Lambda + API Gateway + DynamoDB). Took 6 weeks. The scariest part? Cold starts. We solved it with provisioned concurrency — $200/mo extra, still massive savings.",
+      "4/ Results after 90 days:\n- $12K → $4.8K/mo cloud spend\n- Zero ops overhead\n- 2x faster deploys\n- Auto-scaling that actually works",
+      "5/ K8s is incredible for companies at scale. But for most startups under 50 people? You're over-engineering. Ship product, not YAML.\n\nFull write-up on our blog."
+    ],
+
+    "email_newsletter": "Subject: We cut our cloud bill by 60% (here's how)\n\nHey [First Name],\n\nQuick story from the trenches.\n\nOur Kubernetes cluster was costing us $12K/month. One engineer was spending nearly half their time on ops. We were scaling manually and over-provisioning everything.\n\nSo we did something that felt radical: we killed it.\n\nMigrated to serverless in 6 weeks. Here's what happened:\n\n• Cloud bill dropped to $4.8K/mo\n• Zero ops overhead (no more config drift nightmares)\n• Feature shipping speed doubled\n• Auto-scaling that just works\n\nThe catch everyone worries about — cold starts — was solved with provisioned concurrency. Cost us an extra $200/mo. Worth every penny.\n\nIf you're running K8s at a startup under 50 people, it might be worth asking: is this complexity actually helping us ship faster?\n\nFor us, the answer was no.\n\nFull breakdown on the blog → [link]\n\nCheers,\n[Team]",
+
+    "instagram_caption": "60% cloud cost reduction in 3 months. 📉\n\nWe migrated from Kubernetes to serverless and here's what changed:\n\n💰 $12K/mo → $4.8K/mo\n⚡ 2x faster deploys\n🛠️ Zero ops overhead\n📈 Auto-scaling that works\n\nKubernetes is powerful — but sometimes simpler wins.\n\n#CloudComputing #DevOps #Serverless #StartupLife #SaaS #TechOps #CloudCosts",
+
+    "summary_blurb": "A mid-stage SaaS company shares their journey from self-managed Kubernetes to serverless, achieving a 60% cloud cost reduction ($12K to $4.8K/month), eliminating DevOps overhead, and doubling feature shipping speed — with practical advice on handling cold starts and when K8s might be overkill."
+  },
+  "qa": {
+    "status": "PASS",
+    "score": 93,
+    "checks": {
+      "accuracy": true,
+      "format_compliance": true,
+      "tone_consistency": true,
+      "key_points_coverage": true,
+      "tweet_length": true
+    },
+    "issues": [],
+    "suggestions": ["Could add a CTA in the LinkedIn post"]
+  },
+  "qa_status": "PASS",
+  "provider": "openai",
+  "duration_s": 14.2
+}

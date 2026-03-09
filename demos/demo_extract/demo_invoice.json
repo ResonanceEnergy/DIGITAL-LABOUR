@@ -1,0 +1,68 @@
+{
+  "source_type": "invoice",
+  "source_text": "INVOICE #INV-2024-0847\nDate: March 15, 2024\nDue: April 14, 2024\n\nFrom: Pinnacle Design Studio LLC\n123 Creative Ave, Suite 400\nPortland, OR 97201\nEIN: 83-4291056\nEmail: billing@pinnacledesign.co\n\nBill To: Greenfield Properties Inc.\n456 Oak Street\nSeattle, WA 98101\nAttn: Sarah Chen, VP Operations\n\nDescription                          Qty    Rate      Amount\n────────────────────────────────────────────────────────────\nBrand Identity Package                 1   $8,500.00  $8,500.00\nWebsite Redesign (12 pages)            1  $15,000.00 $15,000.00\nSocial Media Templates (set of 20)     1   $2,400.00  $2,400.00\nProject Management                    40h    $150.00  $6,000.00\n────────────────────────────────────────────────────────────\n                              Subtotal:              $31,900.00\n                           Tax (8.5%):                $2,711.50\n                               TOTAL:               $34,611.50\n\nPayment Terms: Net 30\nPayment Method: Wire transfer or check\nLate Fee: 1.5% per month on overdue balance\n\nThank you for your business!",
+  "extraction": {
+    "doc_type": "invoice",
+    "confidence": 0.98,
+    "extracted": {
+      "invoice_number": "INV-2024-0847",
+      "date": "2024-03-15",
+      "due_date": "2024-04-14",
+      "vendor": {
+        "name": "Pinnacle Design Studio LLC",
+        "address": "123 Creative Ave, Suite 400, Portland, OR 97201",
+        "ein": "83-4291056",
+        "email": "billing@pinnacledesign.co"
+      },
+      "customer": {
+        "name": "Greenfield Properties Inc.",
+        "address": "456 Oak Street, Seattle, WA 98101",
+        "contact": "Sarah Chen",
+        "contact_role": "VP Operations"
+      },
+      "line_items": [
+        {"description": "Brand Identity Package", "quantity": 1, "unit_price": 8500.00, "amount": 8500.00},
+        {"description": "Website Redesign (12 pages)", "quantity": 1, "unit_price": 15000.00, "amount": 15000.00},
+        {"description": "Social Media Templates (set of 20)", "quantity": 1, "unit_price": 2400.00, "amount": 2400.00},
+        {"description": "Project Management", "quantity": 40, "unit": "hours", "unit_price": 150.00, "amount": 6000.00}
+      ],
+      "subtotal": 31900.00,
+      "tax_rate": 0.085,
+      "tax_amount": 2711.50,
+      "total": 34611.50,
+      "currency": "USD",
+      "payment_terms": "Net 30",
+      "payment_method": "Wire transfer or check",
+      "late_fee": "1.5% per month on overdue balance"
+    },
+    "raw_entities": [
+      {"type": "organization", "value": "Pinnacle Design Studio LLC", "context": "vendor/issuer"},
+      {"type": "organization", "value": "Greenfield Properties Inc.", "context": "customer/recipient"},
+      {"type": "person", "value": "Sarah Chen", "context": "customer contact"},
+      {"type": "monetary", "value": "$34,611.50", "context": "invoice total"},
+      {"type": "date", "value": "March 15, 2024", "context": "invoice date"},
+      {"type": "date", "value": "April 14, 2024", "context": "due date"},
+      {"type": "identifier", "value": "INV-2024-0847", "context": "invoice number"},
+      {"type": "identifier", "value": "83-4291056", "context": "EIN/tax ID"}
+    ],
+    "summary": "Invoice #INV-2024-0847 from Pinnacle Design Studio LLC to Greenfield Properties Inc. for $34,611.50 (including 8.5% tax) covering brand identity, website redesign, social media templates, and project management services. Due April 14, 2024.",
+    "warnings": []
+  },
+  "qa": {
+    "status": "PASS",
+    "score": 98,
+    "checks": {
+      "completeness": true,
+      "accuracy": true,
+      "no_hallucination": true,
+      "math_verified": true,
+      "entities_captured": true
+    },
+    "missed_entities": [],
+    "errors": [],
+    "suggestions": []
+  },
+  "qa_status": "PASS",
+  "provider": "openai",
+  "duration_s": 8.4
+}

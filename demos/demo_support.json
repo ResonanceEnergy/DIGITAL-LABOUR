@@ -1,0 +1,137 @@
+[
+  {
+    "original_ticket": "I was charged 49.99 twice this month for the same subscription. My bank statement shows two identical charges on March 1 and March 3. I need the duplicate charge refunded immediately.",
+    "agent_output": {
+      "category": "billing",
+      "severity": "medium",
+      "sentiment": "frustrated",
+      "summary": "Customer was charged twice for the same subscription and requests a refund for the duplicate charge.",
+      "draft_reply": "I'm sorry to hear about the duplicate charge. I'll look into this for you right away. Could you please confirm the subscription ID or the email associated with your account? This will help me expedite the resolution.",
+      "next_actions": [
+        {
+          "action": "ask_clarifying_question",
+          "details": "Request subscription ID or account email to locate the charges."
+        },
+        {
+          "action": "escalate",
+          "details": "Duplicate charge issue requires billing team intervention for refund processing."
+        }
+      ],
+      "escalation": {
+        "required": true,
+        "reason": "Refund request for duplicate charge",
+        "team": "billing"
+      },
+      "confidence": 0.9,
+      "citations": []
+    }
+  },
+  {
+    "original_ticket": "This is the third time reaching out about order 4521. I received a damaged monitor and nobody has responded to my emails. If I dont get a full refund by end of day Im filing a chargeback.",
+    "agent_output": {
+      "category": "billing",
+      "severity": "high",
+      "sentiment": "frustrated",
+      "summary": "Customer received a damaged monitor and is threatening a chargeback due to lack of response.",
+      "draft_reply": "I'm truly sorry for the inconvenience you've faced with your order #4521. I understand how frustrating this must be. I assure you that we are looking into this matter urgently. Please allow me to escalate this to our billing team to expedite your refund process. Thank you for your patience.",
+      "next_actions": [
+        {
+          "action": "escalate",
+          "details": "Escalate to billing for refund processing"
+        },
+        {
+          "action": "create_ticket",
+          "details": "Document issue and previous contact attempts"
+        }
+      ],
+      "escalation": {
+        "required": true,
+        "reason": "Refund or chargeback threat",
+        "team": "billing"
+      },
+      "confidence": 0.9,
+      "citations": [
+        {
+          "source": "ticket_history",
+          "link_or_id": "4521",
+          "quote": "This is the third time I'm reaching out about order #4521."
+        }
+      ]
+    }
+  },
+  {
+    "original_ticket": "Hi I just signed up for the Pro plan and Im trying to set up my team workspace. I invited 3 team members but they say they never received the invitation emails. The emails are correct.",
+    "agent_output": {
+      "category": "onboarding",
+      "severity": "medium",
+      "sentiment": "calm",
+      "summary": "Customer's team members did not receive invitation emails for Pro plan workspace.",
+      "draft_reply": "Thank you for reaching out and welcome to the Pro plan! I'm sorry to hear your team members haven't received the invitation emails. Please ask them to check their spam or junk folders. If the emails are not there, you can try resending the invitations from the team management page. Let me know if the issue persists, and we'll investigate further.",
+      "next_actions": [
+        {
+          "action": "ask_clarifying_question",
+          "details": "Confirm if resending invitations resolves the issue."
+        }
+      ],
+      "escalation": {
+        "required": false,
+        "reason": "",
+        "team": ""
+      },
+      "confidence": 0.9,
+      "citations": []
+    }
+  },
+  {
+    "original_ticket": "I cant log into my account. Ive tried resetting my password 3 times but I never receive the reset email. Ive checked spam. My email is sarah@example.com. I need access urgently for a presentation tomorrow.",
+    "agent_output": {
+      "category": "account",
+      "severity": "high",
+      "sentiment": "frustrated",
+      "summary": "Customer unable to log into account and not receiving password reset emails.",
+      "draft_reply": "Hi Sarah, I'm sorry to hear you're having trouble accessing your account. Let's get this sorted quickly. Please confirm if the email address sarah@example.com is correct and check if there are any filters blocking our emails. I'll escalate this issue to ensure you receive the reset email promptly. Thank you for your patience.",
+      "next_actions": [
+        {
+          "action": "escalate",
+          "details": "Investigate email delivery issues for sarah@example.com and ensure password reset email is sent."
+        }
+      ],
+      "escalation": {
+        "required": true,
+        "reason": "Urgent access needed for presentation; password reset emails not received.",
+        "team": "email support"
+      },
+      "confidence": 0.85,
+      "citations": [
+        {
+          "source": "kb",
+          "link_or_id": "KB-Email-Delivery",
+          "quote": "Check for filters or blocks on emails from our domain."
+        }
+      ]
+    }
+  },
+  {
+    "original_ticket": "Would it be possible to add dark mode to the dashboard? I work late nights and the bright white interface is really hard on my eyes. I know several other users have asked for this too.",
+    "agent_output": {
+      "category": "feature_request",
+      "severity": "low",
+      "sentiment": "calm",
+      "summary": "Customer requests a dark mode feature for the dashboard to reduce eye strain during late-night work.",
+      "draft_reply": "Thank you for your suggestion regarding a dark mode for the dashboard. We understand how a darker interface can be beneficial for late-night work. While I can't promise immediate changes, I will pass your request to our product team for consideration. Your feedback is valuable, and we appreciate your input.",
+      "next_actions": [
+        {
+          "action": "create_ticket",
+          "details": "Log feature request for dark mode in product backlog."
+        }
+      ],
+      "escalation": {
+        "required": false,
+        "reason": "",
+        "team": ""
+      },
+      "confidence": 0.9,
+      "citations": []
+    }
+  }
+]

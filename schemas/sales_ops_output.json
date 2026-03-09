@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sales Ops Output",
+  "description": "Output schema for the Sales Ops Agent — lead enrichment + outreach sequence.",
+  "type": "object",
+  "required": ["lead_enrichment", "emails", "qa_status"],
+  "properties": {
+    "lead_enrichment": {
+      "type": "object",
+      "required": ["company_name", "industry", "recent_signal", "personalization_angle"],
+      "properties": {
+        "company_name": { "type": "string" },
+        "company_website": { "type": "string", "format": "uri" },
+        "industry": { "type": "string" },
+        "company_size_estimate": { "type": "string" },
+        "recent_signal": { "type": "string", "minLength": 10 },
+        "signal_source": { "type": "string" },
+        "contact_name": { "type": "string" },
+        "contact_role": { "type": "string" },
+        "contact_email_guess": { "type": "string" },
+        "linkedin_url": { "type": "string" },
+        "role_relevant_pain": { "type": "string" },
+        "personalization_angle": { "type": "string", "minLength": 10 }
+      }
+    },
+    "emails": {
+      "type": "object",
+      "required": ["primary_email", "follow_up_1", "follow_up_2"],
+      "properties": {
+        "primary_email": {
+          "type": "object",
+          "properties": {
+            "subject": { "type": "string" },
+            "body": { "type": "string", "maxLength": 800 }
+          }
+        },
+        "follow_up_1": {
+          "type": "object",
+          "properties": {
+            "subject": { "type": "string" },
+            "body": { "type": "string", "maxLength": 500 }
+          }
+        },
+        "follow_up_2": {
+          "type": "object",
+          "properties": {
+            "subject": { "type": "string" },
+            "body": { "type": "string", "maxLength": 500 }
+          }
+        }
+      }
+    },
+    "qa_status": { "type": "string", "enum": ["PASS", "FAIL"] }
+  }
+}

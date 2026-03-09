@@ -1,0 +1,111 @@
+{
+  "source_type": "resume",
+  "source_text": "ALEJANDRA REYES\nalejandra.reyes@email.com | (512) 555-0184 | linkedin.com/in/alejandra-reyes\nAustin, TX\n\nSENIOR DATA ENGINEER\n\nResults-driven data engineer with 7+ years building scalable data pipelines and analytics platforms. Expertise in real-time streaming, cloud data warehousing, and ML infrastructure. Led teams of up to 8 engineers.\n\nEXPERIENCE\n\nSenior Data Engineer | Stripe | San Francisco, CA (Remote)\nMarch 2022 – Present\n• Designed and deployed real-time fraud detection pipeline processing 2M+ events/hour using Apache Kafka and Flink\n• Reduced data warehouse query costs by 45% through partition optimization and materialized views on Snowflake\n• Led migration from Airflow to Dagster for 200+ data pipelines, improving observability and reducing failures by 60%\n• Mentored 3 junior engineers; conducted 50+ technical interviews\n\nData Engineer II | Shopify | Ottawa, ON (Remote)\nJune 2019 – February 2022\n• Built merchant analytics platform serving real-time dashboards to 1.7M+ merchants\n• Implemented CDC pipelines using Debezium + Kafka Connect, reducing data freshness from 4 hours to <5 minutes\n• Developed PySpark ETL jobs processing 15TB daily across multi-region AWS clusters\n• Collaborated with ML team to build feature store serving 12 production models\n\nData Engineer | Dell Technologies | Austin, TX\nJuly 2017 – May 2019\n• Built automated data quality framework monitoring 500+ data sources\n• Developed internal dashboards using Tableau + dbt reducing report generation from 2 days to 2 hours\n• Migrated legacy Oracle data warehouse to AWS Redshift, cutting annual costs by $180K\n\nEDUCATION\nM.S. Computer Science | University of Texas at Austin | 2017\nB.S. Mathematics | University of California, Berkeley | 2015\n\nSKILLS\nLanguages: Python, SQL, Scala, Java\nData: Snowflake, Redshift, BigQuery, PostgreSQL, MongoDB\nStreaming: Kafka, Flink, Spark Streaming, Kinesis\nOrchestration: Dagster, Airflow, Prefect\nCloud: AWS (certified), GCP, Azure\nTools: dbt, Terraform, Docker, Kubernetes, Git\nML: Feature stores, MLflow, model serving infrastructure\n\nCERTIFICATIONS\n• AWS Certified Data Analytics – Specialty (2023)\n• Snowflake SnowPro Core (2022)\n• Google Cloud Professional Data Engineer (2021)",
+  "extraction": {
+    "doc_type": "resume",
+    "confidence": 0.99,
+    "extracted": {
+      "personal": {
+        "name": "Alejandra Reyes",
+        "email": "alejandra.reyes@email.com",
+        "phone": "(512) 555-0184",
+        "linkedin": "linkedin.com/in/alejandra-reyes",
+        "location": "Austin, TX"
+      },
+      "title": "Senior Data Engineer",
+      "years_experience": 7,
+      "summary": "Results-driven data engineer with 7+ years building scalable data pipelines and analytics platforms. Expertise in real-time streaming, cloud data warehousing, and ML infrastructure.",
+      "experience": [
+        {
+          "role": "Senior Data Engineer",
+          "company": "Stripe",
+          "location": "San Francisco, CA (Remote)",
+          "start_date": "2022-03",
+          "end_date": "present",
+          "highlights": [
+            "Real-time fraud detection pipeline: 2M+ events/hour (Kafka + Flink)",
+            "45% reduction in data warehouse query costs (Snowflake optimization)",
+            "Led Airflow → Dagster migration for 200+ pipelines, 60% fewer failures",
+            "Mentored 3 engineers, 50+ technical interviews"
+          ]
+        },
+        {
+          "role": "Data Engineer II",
+          "company": "Shopify",
+          "location": "Ottawa, ON (Remote)",
+          "start_date": "2019-06",
+          "end_date": "2022-02",
+          "highlights": [
+            "Merchant analytics platform: 1.7M+ merchants served",
+            "CDC pipelines: data freshness from 4 hours to <5 minutes",
+            "PySpark ETL: 15TB daily across multi-region AWS",
+            "Feature store for 12 production ML models"
+          ]
+        },
+        {
+          "role": "Data Engineer",
+          "company": "Dell Technologies",
+          "location": "Austin, TX",
+          "start_date": "2017-07",
+          "end_date": "2019-05",
+          "highlights": [
+            "Data quality framework: 500+ monitored sources",
+            "Report generation: 2 days → 2 hours (Tableau + dbt)",
+            "Oracle → Redshift migration: $180K annual savings"
+          ]
+        }
+      ],
+      "education": [
+        {"degree": "M.S. Computer Science", "institution": "University of Texas at Austin", "year": 2017},
+        {"degree": "B.S. Mathematics", "institution": "University of California, Berkeley", "year": 2015}
+      ],
+      "skills": {
+        "languages": ["Python", "SQL", "Scala", "Java"],
+        "data_platforms": ["Snowflake", "Redshift", "BigQuery", "PostgreSQL", "MongoDB"],
+        "streaming": ["Kafka", "Flink", "Spark Streaming", "Kinesis"],
+        "orchestration": ["Dagster", "Airflow", "Prefect"],
+        "cloud": ["AWS", "GCP", "Azure"],
+        "tools": ["dbt", "Terraform", "Docker", "Kubernetes", "Git"],
+        "ml": ["Feature stores", "MLflow", "model serving infrastructure"]
+      },
+      "certifications": [
+        {"name": "AWS Certified Data Analytics – Specialty", "year": 2023},
+        {"name": "Snowflake SnowPro Core", "year": 2022},
+        {"name": "Google Cloud Professional Data Engineer", "year": 2021}
+      ]
+    },
+    "raw_entities": [
+      {"type": "person", "value": "Alejandra Reyes", "context": "candidate"},
+      {"type": "organization", "value": "Stripe", "context": "current employer"},
+      {"type": "organization", "value": "Shopify", "context": "previous employer"},
+      {"type": "organization", "value": "Dell Technologies", "context": "previous employer"},
+      {"type": "organization", "value": "University of Texas at Austin", "context": "graduate school"},
+      {"type": "organization", "value": "University of California, Berkeley", "context": "undergraduate"},
+      {"type": "email", "value": "alejandra.reyes@email.com", "context": "contact"},
+      {"type": "phone", "value": "(512) 555-0184", "context": "contact"},
+      {"type": "metric", "value": "2M+ events/hour", "context": "fraud pipeline throughput"},
+      {"type": "metric", "value": "15TB daily", "context": "ETL processing volume"},
+      {"type": "metric", "value": "$180K savings", "context": "migration cost reduction"}
+    ],
+    "summary": "Senior Data Engineer with 7+ years at Stripe, Shopify, and Dell Technologies. Specializes in real-time streaming (Kafka/Flink), cloud data warehousing (Snowflake/Redshift), and ML infrastructure. MS CS from UT Austin, 3 cloud certifications. Currently at Stripe building fraud detection pipelines processing 2M+ events/hour.",
+    "warnings": []
+  },
+  "qa": {
+    "status": "PASS",
+    "score": 99,
+    "checks": {
+      "completeness": true,
+      "accuracy": true,
+      "no_hallucination": true,
+      "dates_consistent": true,
+      "skills_captured": true,
+      "experience_complete": true
+    },
+    "missed_entities": [],
+    "errors": [],
+    "suggestions": []
+  },
+  "qa_status": "PASS",
+  "provider": "grok",
+  "duration_s": 10.7
+}
