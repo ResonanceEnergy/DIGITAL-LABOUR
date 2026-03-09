@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Labour — AI Agents That Do Real Work</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0f;--card:#12121a;--border:#1e1e2e;--accent:#00d4aa;--accent2:#7c5cfc;--text:#e0e0e8;--muted:#8888a0;--danger:#ff4466}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+
+.container{max-width:960px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+.hero{padding:80px 0 60px;text-align:center}
+.hero h1{font-size:2.8rem;font-weight:800;letter-spacing:-1px;margin-bottom:16px}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:1.15rem;color:var(--muted);max-width:600px;margin:0 auto 32px}
+.hero-stats{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.hero-stats .stat{text-align:center}
+.hero-stats .stat .num{font-size:2rem;font-weight:700;color:var(--accent)}
+.hero-stats .stat .label{font-size:0.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 32px;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.btn-primary{background:var(--accent);color:#000}.btn-primary:hover{background:#00eabb;text-decoration:none}
+.btn-outline{background:transparent;border:2px solid var(--border);color:var(--text)}.btn-outline:hover{border-color:var(--accent);text-decoration:none}
+
+/* Sections */
+section{padding:60px 0}
+section h2{font-size:1.8rem;font-weight:700;margin-bottom:12px;text-align:center}
+section .subtitle{text-align:center;color:var(--muted);margin-bottom:40px;font-size:1.05rem}
+
+/* Agents grid */
+.agents{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:640px){.agents{grid-template-columns:1fr}}
+.agent-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:32px;transition:border-color .2s}
+.agent-card:hover{border-color:var(--accent)}
+.agent-card h3{font-size:1.3rem;margin-bottom:8px}
+.agent-card .tag{display:inline-block;font-size:0.75rem;background:var(--accent2);color:#fff;padding:2px 10px;border-radius:20px;margin-bottom:12px}
+.agent-card ul{list-style:none;padding:0}
+.agent-card ul li{padding:4px 0;color:var(--muted);font-size:0.95rem}
+.agent-card ul li::before{content:"→ ";color:var(--accent)}
+
+/* Demo */
+.demo-block{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:32px;margin-bottom:24px}
+.demo-block .demo-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:8px}
+.demo-block h3{font-size:1.2rem;margin-bottom:4px}
+.demo-block .meta{font-size:0.85rem;color:var(--muted);margin-bottom:16px}
+.demo-block .signal{background:#1a1a2e;padding:12px 16px;border-radius:8px;border-left:3px solid var(--accent);font-size:0.9rem;margin-bottom:16px}
+.demo-block .email-preview{background:#1a1a2e;padding:16px;border-radius:8px;margin-bottom:12px}
+.demo-block .email-preview .subj{font-weight:600;margin-bottom:6px;font-size:0.95rem}
+.demo-block .email-preview .body-text{font-size:0.9rem;color:var(--muted);line-height:1.5}
+
+/* Pricing */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:720px){.pricing-grid{grid-template-columns:1fr}}
+.price-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;text-align:center;transition:border-color .2s}
+.price-card:hover{border-color:var(--accent)}
+.price-card.featured{border-color:var(--accent);position:relative}
+.price-card.featured::after{content:"POPULAR";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;font-size:0.7rem;font-weight:700;padding:3px 12px;border-radius:20px;letter-spacing:1px}
+.price-card h3{font-size:1.1rem;margin-bottom:8px}
+.price-card .price{font-size:2.2rem;font-weight:800;color:var(--accent);margin-bottom:4px}
+.price-card .unit{font-size:0.85rem;color:var(--muted);margin-bottom:16px}
+.price-card ul{list-style:none;text-align:left;padding:0}
+.price-card ul li{padding:4px 0;font-size:0.9rem;color:var(--muted)}
+.price-card ul li::before{content:"✓ ";color:var(--accent)}
+
+/* How it works */
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:720px){.steps-grid{grid-template-columns:1fr 1fr}}
+.step-box{text-align:center;padding:24px 16px}
+.step-box .step-num{width:40px;height:40px;border-radius:50%;background:var(--accent2);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-weight:700;font-size:1.1rem}
+.step-box h4{margin-bottom:6px;font-size:1rem}
+.step-box p{font-size:0.85rem;color:var(--muted)}
+
+/* Footer */
+.footer{padding:40px 0;text-align:center;border-top:1px solid var(--border);margin-top:40px}
+.footer p{color:var(--muted);font-size:0.85rem}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+<div class="container">
+  <h1>AI Agents That Do <span>Real Work</span></h1>
+  <p>Lead enrichment, outreach, support resolution, content repurposing, and document extraction — delivered in seconds. No hiring. No templates. Real results.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="num">4</div><div class="label">Live Agents</div></div>
+    <div class="stat"><div class="num">80%+</div><div class="label">QA Pass Rate</div></div>
+    <div class="stat"><div class="num">&lt;14s</div><div class="label">Avg Per Task</div></div>
+    <div class="stat"><div class="num">4</div><div class="label">LLM Providers</div></div>
+  </div>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="#pricing">See Pricing</a>
+    <a class="btn btn-outline" href="#demos">View Demo Outputs</a>
+  </div>
+</div>
+</header>
+
+<!-- AGENTS -->
+<section id="agents">
+<div class="container">
+  <h2>The Agents</h2>
+  <p class="subtitle">Four production-ready agents. REST API included.</p>
+  <div class="agents">
+    <div class="agent-card">
+      <span class="tag">LIVE</span>
+      <h3>Sales Ops Agent</h3>
+      <ul>
+        <li>Deep company research &amp; enrichment</li>
+        <li>Role-specific pain point analysis</li>
+        <li>3-email personalized outreach sequence</li>
+        <li>QA-verified before delivery</li>
+        <li>CRM-ready JSON/CSV export</li>
+      </ul>
+    </div>
+    <div class="agent-card">
+      <span class="tag">LIVE</span>
+      <h3>Support Resolver Agent</h3>
+      <ul>
+        <li>Ticket classification &amp; severity scoring</li>
+        <li>Ready-to-send draft responses</li>
+        <li>Automatic escalation flagging</li>
+        <li>Policy compliance checking</li>
+        <li>Confidence scores on every response</li>
+      </ul>
+    </div>
+    <div class="agent-card">
+      <span class="tag">LIVE</span>
+      <h3>Content Repurposer Agent</h3>
+      <ul>
+        <li>Blog → LinkedIn, Twitter, Email, Instagram</li>
+        <li>Analyzes source for tone &amp; key points</li>
+        <li>5 output formats per piece</li>
+        <li>Tweet length enforcement (&le;280 chars)</li>
+        <li>QA-verified accuracy &amp; completeness</li>
+      </ul>
+    </div>
+    <div class="agent-card">
+      <span class="tag">LIVE</span>
+      <h3>Document Extraction Agent</h3>
+      <ul>
+        <li>Invoices, contracts, resumes, reports</li>
+        <li>Auto-detect document type</li>
+        <li>Structured JSON with confidence scores</li>
+        <li>Entity extraction (dates, amounts, names)</li>
+        <li>QA verification on every extraction</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+<div class="container">
+  <h2>How It Works</h2>
+  <p class="subtitle">Multi-agent pipeline. Not a prompt in a chat box.</p>
+  <div class="steps-grid">
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <h4>You Send Input</h4>
+      <p>Company name, target role, and your product. Or a support ticket.</p>
+    </div>
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <h4>Research Agent</h4>
+      <p>Finds real signals — funding, hiring, launches, tech stack changes.</p>
+    </div>
+    <div class="step-box">
+      <div class="step-num">3</div>
+      <h4>Writer Agent</h4>
+      <p>Generates personalized copy referencing those signals directly.</p>
+    </div>
+    <div class="step-box">
+      <div class="step-num">4</div>
+      <h4>QA Agent</h4>
+      <p>Validates tone, structure, banned phrases, signal accuracy. Fails? Auto-retries.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- DEMOS -->
+<section id="demos">
+<div class="container">
+  <h2>Real Outputs</h2>
+  <p class="subtitle">These are actual agent outputs. Not mock-ups.</p>
+
+  <!-- Demo 1: Stripe -->
+  <div class="demo-block">
+    <div class="demo-label">Sales Ops Agent — SaaS</div>
+    <h3>Stripe → Head of Growth</h3>
+    <div class="meta">Industry: Fintech/Payments &bull; Size: 5,000-10,000 &bull; Processed in 13.3s</div>
+    <div class="signal"><strong>Signal found:</strong> Stripe recently launched new embedded finance products for platforms, expanding their revenue tools for SaaS companies beyond basic payments.</div>
+    <div class="email-preview">
+      <div class="subj">Subject: Stripe's embedded finance push — quick thought</div>
+      <div class="body-text">I noticed Stripe just expanded its embedded finance suite for platforms — a big move beyond core payments. As Head of Growth, you're likely thinking about how to drive adoption of these new revenue tools across your platform partners. Our AI agents handle the repetitive research and outreach that bogs down growth teams, so your people can focus on strategy. Worth a 15-minute look?</div>
+    </div>
+  </div>
+
+  <!-- Demo 2: Joe's Plumbing -->
+  <div class="demo-block">
+    <div class="demo-label">Sales Ops Agent — Local Business</div>
+    <h3>Joe's Plumbing &amp; HVAC → Owner</h3>
+    <div class="meta">Industry: Home Services &bull; Size: 1-50 &bull; Processed in 14.1s</div>
+    <div class="signal"><strong>Signal found:</strong> Recent Google Business reviews mention long wait times for emergency calls — opportunity to pitch scheduling automation.</div>
+    <div class="email-preview">
+      <div class="subj">Subject: Cutting wait times at Joe's Plumbing</div>
+      <div class="body-text">I came across Joe's Plumbing and noticed some recent reviews mentioning wait times on emergency calls. As the owner, that's the kind of thing that can cost you repeat business. We help service businesses automate their scheduling and follow-up so your techs stay booked and customers stay happy. Can I show you how one HVAC company cut response times by 40%?</div>
+    </div>
+  </div>
+
+  <!-- Demo 3: Ramp -->
+  <div class="demo-block">
+    <div class="demo-label">Sales Ops Agent — Fintech B2B</div>
+    <h3>Ramp → VP of Sales</h3>
+    <div class="meta">Industry: Fintech/Corporate Cards &bull; Size: 500-1,000 &bull; Processed in 12.8s</div>
+    <div class="signal"><strong>Signal found:</strong> Ramp announced new expense management integrations with NetSuite and Sage — targeting mid-market finance teams.</div>
+    <div class="email-preview">
+      <div class="subj">Subject: Ramp's mid-market push — sales team keeping up?</div>
+      <div class="body-text">Saw Ramp just launched NetSuite and Sage integrations — clearly making a play for mid-market finance teams. As VP of Sales, you're probably scaling outbound to match that product momentum. Our AI agents generate deeply personalized outreach for each target account — with real company signals, not templates. Interested in seeing sample outputs for 3 of your target accounts?</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+<div class="container">
+  <h2>Pricing</h2>
+  <p class="subtitle">Pay per task. No subscriptions required. Retainers available.</p>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <h3>Sales Ops</h3>
+      <div class="price">$2.40</div>
+      <div class="unit">per lead</div>
+      <ul>
+        <li>Full company enrichment</li>
+        <li>3-email sequence</li>
+        <li>JSON/CSV output</li>
+        <li>QA-verified delivery</li>
+        <li>Retainer: 50/mo → $750</li>
+      </ul>
+    </div>
+    <div class="price-card featured">
+      <h3>Support</h3>
+      <div class="price">$1.00</div>
+      <div class="unit">per ticket</div>
+      <ul>
+        <li>Ticket triage + response</li>
+        <li>Escalation flagging</li>
+        <li>100% QA pass rate</li>
+        <li>~9.6s avg resolution</li>
+        <li>Retainer: 200/mo → $400</li>
+      </ul>
+    </div>
+    <div class="price-card">
+      <h3>Content + Docs</h3>
+      <div class="price">$1.50</div>
+      <div class="unit">per task</div>
+      <ul>
+        <li>Content: $3/piece (5 formats)</li>
+        <li>Doc Extract: $1.50/document</li>
+        <li>Invoices, contracts, resumes</li>
+        <li>Blog → social in seconds</li>
+        <li>Bulk discounts available</li>
+      </ul>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:32px">
+    <p style="color:var(--muted)">Monthly retainers available for all agents. API access included.</p>
+    <p style="color:var(--muted);margin-top:8px">REST API: POST /tasks → get results via webhook or poll. Budget enforcement built in.</p>
+  </div>
+</div>
+</section>
+
+<!-- CTA -->
+<section style="text-align:center;padding:60px 0">
+<div class="container">
+  <h2>Ready to Stop Writing Cold Emails?</h2>
+  <p class="subtitle">Send me a company name. I'll send you back a full enrichment + 3 personalized emails. Free.</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="mailto:gripa@resonanceenergy.co?subject=Free%20Demo%20Lead&body=Company:%0ATarget%20Role:%0AYour%20Product:">Get 2 Free Leads</a>
+    <a class="btn btn-outline" href="https://fiverr.com" target="_blank">Hire on Fiverr</a>
+    <a class="btn btn-outline" href="https://upwork.com" target="_blank">Hire on Upwork</a>
+  </div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+  <p>Digital Labour &mdash; AI Agents That Do Real Work &mdash; Resonance Energy</p>
+  <p style="margin-top:8px">Built with 4 LLM providers. QA-verified. Ship ugly, fix live.</p>
+</div>
+</footer>
+
+</body>
+</html>

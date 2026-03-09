@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bit Rage Labour — AI Agents That Do Real Work</title>
+<meta name="description" content="AI-powered digital workers for sales outreach, support resolution, content repurposing, and document extraction. Pay per task. No hiring. Real results.">
+<meta name="keywords" content="AI agents, digital labour, sales automation, support automation, content repurposing, document extraction, AI workers, bit rage labour">
+<meta property="og:title" content="Bit Rage Labour — AI Agents That Do Real Work">
+<meta property="og:description" content="Four production-ready AI agents. Sales outreach, support resolution, content repurposing, document extraction. Pay per task.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bit-rage-labour.com">
+<link rel="canonical" href="https://bit-rage-labour.com">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08080e;--card:#10101a;--card2:#141420;--border:#1a1a2a;
+  --accent:#00d4aa;--accent-glow:#00d4aa33;--accent2:#7c5cfc;--accent2-glow:#7c5cfc33;
+  --text:#e4e4ec;--muted:#8888a0;--white:#fff;--danger:#ff4466;
+  --gradient:linear-gradient(135deg,#00d4aa,#7c5cfc);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none;transition:color .2s}
+a:hover{color:#00eabb}
+
+/* Layout */
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:768px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(8,8,14,0.85);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-brand{font-size:1.15rem;font-weight:700;letter-spacing:-0.5px;color:var(--white)}
+.nav-brand span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:0.9rem;color:var(--muted);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#000 !important;padding:8px 20px;border-radius:6px;font-weight:600;font-size:0.85rem}
+.nav-cta:hover{background:#00eabb;color:#000 !important}
+.mobile-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(8,8,14,0.97);padding:20px 24px;gap:16px;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .mobile-toggle{display:block}
+}
+
+/* Buttons */
+.btn{display:inline-block;padding:14px 32px;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;border:none;transition:all .25s;text-align:center}
+.btn-primary{background:var(--gradient);color:#000;box-shadow:0 4px 20px var(--accent-glow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow);color:#000}
+.btn-secondary{background:var(--accent2);color:#fff;box-shadow:0 4px 20px var(--accent2-glow)}
+.btn-secondary:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--accent2-glow);color:#fff}
+.btn-outline{background:transparent;border:2px solid var(--border);color:var(--text)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-sm{padding:10px 22px;font-size:0.9rem}
+.btn-row{display:flex;gap:16px;flex-wrap:wrap}
+
+/* Hero */
+.hero{padding:140px 0 80px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none;opacity:0.4}
+.hero-badge{display:inline-block;background:var(--card);border:1px solid var(--border);padding:6px 16px;border-radius:20px;font-size:0.8rem;color:var(--accent);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px}
+.hero h1{font-size:3.2rem;font-weight:800;letter-spacing:-1.5px;line-height:1.15;margin-bottom:20px;max-width:720px;margin-left:auto;margin-right:auto}
+.hero h1 em{font-style:normal;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.2rem;color:var(--muted);max-width:580px;margin:0 auto 36px;line-height:1.6}
+.hero-metrics{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin-top:48px}
+.hero-metrics .num{font-size:2.4rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-metrics .label{font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
+.hero-metrics .metric{text-align:center}
+@media(max-width:768px){.hero h1{font-size:2.2rem}.hero-metrics{gap:24px}.hero-metrics .num{font-size:1.8rem}}
+
+/* Sections */
+section{padding:80px 0}
+.section-tag{font-size:0.75rem;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:600;margin-bottom:12px;text-align:center}
+section h2{font-size:2.2rem;font-weight:700;letter-spacing:-1px;margin-bottom:12px;text-align:center}
+section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-size:1.1rem;max-width:600px;margin-left:auto;margin-right:auto}
+.section-dark{background:var(--card)}
+
+/* Trust bar */
+.trust-bar{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;padding:40px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.trust-item{text-align:center}
+.trust-item .val{font-size:1.6rem;font-weight:700;color:var(--white)}
+.trust-item .desc{font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+
+/* Agent Cards */
+.agent-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:36px;transition:all .3s;position:relative;overflow:hidden}
+.agent-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,212,170,0.08)}
+.agent-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:16px}
+.icon-sales{background:rgba(0,212,170,0.12);color:var(--accent)}
+.icon-support{background:rgba(124,92,252,0.12);color:var(--accent2)}
+.icon-content{background:rgba(255,68,102,0.12);color:var(--danger)}
+.icon-docs{background:rgba(255,180,0,0.12);color:#ffb400}
+.agent-card .badge{display:inline-block;font-size:0.7rem;background:var(--accent);color:#000;padding:3px 10px;border-radius:20px;font-weight:700;letter-spacing:0.5px;margin-bottom:12px}
+.agent-card h3{font-size:1.3rem;margin-bottom:10px;font-weight:700}
+.agent-card p{color:var(--muted);font-size:0.95rem;margin-bottom:16px}
+.agent-card ul{list-style:none;padding:0}
+.agent-card ul li{padding:5px 0;color:var(--muted);font-size:0.9rem}
+.agent-card ul li::before{content:"\2192 ";color:var(--accent);font-weight:600}
+
+/* Pipeline steps */
+.pipeline{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;max-width:900px;margin:0 auto}
+.pipe-step{text-align:center;padding:28px 20px;flex:1;min-width:160px}
+.pipe-step .step-icon{width:56px;height:56px;border-radius:50%;background:var(--card);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.3rem;font-weight:700;color:var(--accent);transition:all .3s}
+.pipe-step:hover .step-icon{border-color:var(--accent);box-shadow:0 0 20px var(--accent-glow)}
+.pipe-step h4{font-size:0.95rem;font-weight:600;margin-bottom:6px}
+.pipe-step p{font-size:0.82rem;color:var(--muted)}
+.pipe-arrow{color:var(--border);font-size:1.5rem;margin:0 -8px}
+@media(max-width:768px){.pipe-arrow{display:none}.pipe-step{min-width:140px}}
+
+/* Demo cards */
+.demo-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;margin-bottom:24px;transition:border-color .3s}
+.demo-card:hover{border-color:var(--accent2)}
+.demo-type{font-size:0.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);font-weight:700}
+.demo-target{font-size:1.15rem;font-weight:700;margin:8px 0}
+.demo-meta{font-size:0.82rem;color:var(--muted)}
+.demo-signal{background:var(--card2);padding:14px 18px;border-radius:10px;border-left:3px solid var(--accent);font-size:0.9rem;margin:16px 0;line-height:1.5}
+.demo-email{background:var(--card2);padding:18px;border-radius:10px}
+.demo-email .subj{font-weight:700;margin-bottom:8px;font-size:0.95rem}
+.demo-email .body{font-size:0.9rem;color:var(--muted);line-height:1.6}
+
+/* Pricing */
+.price-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:36px;text-align:center;transition:all .3s;position:relative}
+.price-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.price-card.featured{border-color:var(--accent);box-shadow:0 0 40px var(--accent-glow)}
+.price-card.featured::before{content:"MOST POPULAR";position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gradient);color:#000;font-size:0.7rem;font-weight:800;padding:5px 16px;border-radius:20px;letter-spacing:1px}
+.price-card h3{font-size:1.15rem;margin-bottom:8px;font-weight:700}
+.price-card .price{font-size:2.8rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+.price-card .unit{font-size:0.85rem;color:var(--muted);margin-bottom:20px}
+.price-card ul{list-style:none;text-align:left;padding:0;margin-bottom:24px}
+.price-card ul li{padding:6px 0;font-size:0.9rem;color:var(--muted)}
+.price-card ul li::before{content:"\2713 ";color:var(--accent);font-weight:700}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:20px 0}
+.faq-q{font-size:1.05rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--white)}
+.faq-q::after{content:"+";font-size:1.4rem;color:var(--accent);transition:transform .3s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:0.95rem;line-height:1.6}
+.faq-item.open .faq-a{max-height:300px;padding-top:12px}
+
+/* CTA Section */
+.cta-section{text-align:center;padding:100px 0;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;bottom:-200px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,var(--accent2-glow) 0%,transparent 70%);pointer-events:none;opacity:0.3}
+.cta-section h2{font-size:2.4rem;margin-bottom:16px}
+
+/* Footer */
+.footer{padding:48px 0 32px;border-top:1px solid var(--border)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:24px}}
+.footer h4{font-size:0.85rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--white);margin-bottom:16px}
+.footer p,.footer a{font-size:0.88rem;color:var(--muted);line-height:1.8}
+.footer a:hover{color:var(--accent)}
+.footer-bottom{text-align:center;padding-top:32px;margin-top:32px;border-top:1px solid var(--border)}
+.footer-bottom p{font-size:0.8rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="container nav-inner">
+  <a href="#" class="nav-brand">Bit Rage <span>Labour</span></a>
+  <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+  <div class="nav-links">
+    <a href="#agents">Agents</a>
+    <a href="#how">How It Works</a>
+    <a href="#demos">Demos</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#start" class="nav-cta">Get Started Free</a>
+  </div>
+</div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+<div class="container">
+  <div class="hero-badge">Now Accepting Clients</div>
+  <h1>AI Workers That Do <em>Real Work</em></h1>
+  <p>Sales outreach, support resolution, content repurposing, and document extraction &mdash; delivered in seconds. No hiring. No templates. Verified results.</p>
+  <div class="btn-row" style="justify-content:center">
+    <a class="btn btn-primary" href="#start">Get 2 Free Leads</a>
+    <a class="btn btn-outline" href="#demos">See Real Outputs</a>
+  </div>
+  <div class="hero-metrics">
+    <div class="metric"><div class="num">4</div><div class="label">Live Agents</div></div>
+    <div class="metric"><div class="num">80%+</div><div class="label">QA Pass Rate</div></div>
+    <div class="metric"><div class="num">&lt;14s</div><div class="label">Avg Delivery</div></div>
+    <div class="metric"><div class="num">4</div><div class="label">LLM Providers</div></div>
+  </div>
+</div>
+</header>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><div class="val">REST API</div><div class="desc">Integration</div></div>
+  <div class="trust-item"><div class="val">Webhook</div><div class="desc">Delivery</div></div>
+  <div class="trust-item"><div class="val">QA Verified</div><div class="desc">Every Output</div></div>
+  <div class="trust-item"><div class="val">Pay Per Task</div><div class="desc">No Lock-In</div></div>
+</div>
+
+<!-- AGENTS -->
+<section id="agents">
+<div class="container">
+  <div class="section-tag">The Workforce</div>
+  <h2>Four Agents. Zero Employees.</h2>
+  <p class="subtitle">Each agent is a multi-step pipeline &mdash; research, generate, verify, deliver. Not a prompt in a chat box.</p>
+  <div class="grid-2">
+    <div class="agent-card">
+      <div class="agent-icon icon-sales">&#9993;</div>
+      <span class="badge">LIVE</span>
+      <h3>Sales Ops Agent</h3>
+      <p>Deep company research, signal detection, and personalized 3-email outreach sequences.</p>
+      <ul>
+        <li>Company enrichment &amp; real-time signals</li>
+        <li>Role-specific pain point analysis</li>
+        <li>3-email personalized sequences</li>
+        <li>QA-verified before delivery</li>
+        <li>CRM-ready JSON/CSV export</li>
+      </ul>
+    </div>
+    <div class="agent-card">
+      <div class="agent-icon icon-support">&#128172;</div>
+      <span class="badge">LIVE</span>
+      <h3>Support Resolver</h3>
+      <p>Ticket classification, severity scoring, and draft responses in under 10 seconds.</p>
+      <ul>
+        <li>Auto-triage &amp; severity scoring</li>
+        <li>Ready-to-send draft responses</li>
+        <li>Escalation flagging</li>
+        <li>Policy compliance checking</li>
+        <li>Confidence scores on every output</li>
+      </ul>
+    </div>
+    <div class="agent-card">
+      <div class="agent-icon icon-content">&#9998;</div>
+      <span class="badge">LIVE</span>
+      <h3>Content Repurposer</h3>
+      <p>One blog post becomes LinkedIn, Twitter, email, and Instagram content instantly.</p>
+      <ul>
+        <li>Blog &rarr; 5 platform formats</li>
+        <li>Tone &amp; key point analysis</li>
+        <li>Platform-specific optimization</li>
+        <li>Tweet length enforcement (&le;280)</li>
+        <li>QA-verified accuracy</li>
+      </ul>
+    </div>
+    <div class="agent-card">
+      <div class="agent-icon icon-docs">&#128196;</div>
+      <span class="badge">LIVE</span>
+      <h3>Document Extractor</h3>
+      <p>Invoices, contracts, resumes &mdash; structured data with confidence scores.</p>
+      <ul>
+        <li>Auto-detect document type</li>
+        <li>Structured JSON output</li>
+        <li>Entity extraction (dates, amounts, names)</li>
+        <li>Confidence scoring</li>
+        <li>QA verification on every extraction</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="section-dark">
+<div class="container">
+  <div class="section-tag">Pipeline</div>
+  <h2>How It Works</h2>
+  <p class="subtitle">Multi-agent pipeline with quality gates. Not a wrapper around ChatGPT.</p>
+  <div class="pipeline">
+    <div class="pipe-step">
+      <div class="step-icon">1</div>
+      <h4>You Send Input</h4>
+      <p>Company name, ticket text, blog URL, or document. Via API or form.</p>
+    </div>
+    <div class="pipe-arrow">&#10132;</div>
+    <div class="pipe-step">
+      <div class="step-icon">2</div>
+      <h4>Research Agent</h4>
+      <p>Finds real signals &mdash; funding, hiring, launches, tech stack changes.</p>
+    </div>
+    <div class="pipe-arrow">&#10132;</div>
+    <div class="pipe-step">
+      <div class="step-icon">3</div>
+      <h4>Writer Agent</h4>
+      <p>Generates personalized output referencing real signals directly.</p>
+    </div>
+    <div class="pipe-arrow">&#10132;</div>
+    <div class="pipe-step">
+      <div class="step-icon">4</div>
+      <h4>QA Agent</h4>
+      <p>Validates tone, structure, accuracy. Fails? Auto-retries until it passes.</p>
+    </div>
+  </div>
+  <div style="max-width:640px;margin:48px auto 0;text-align:center">
+    <p style="color:var(--muted);font-size:0.95rem">Every task runs through the full pipeline. No shortcuts. Every output is QA-verified before delivery. Results delivered via webhook, API poll, or email.</p>
+  </div>
+</div>
+</section>
+
+<!-- DEMOS -->
+<section id="demos">
+<div class="container">
+  <div class="section-tag">Proof</div>
+  <h2>Real Agent Outputs</h2>
+  <p class="subtitle">These are actual outputs generated by our agents. Not mock-ups.</p>
+
+  <div class="demo-card">
+    <div class="demo-type">Sales Ops Agent &mdash; SaaS</div>
+    <div class="demo-target">Stripe &rarr; Head of Growth</div>
+    <div class="demo-meta">Industry: Fintech/Payments &bull; 5,000-10,000 employees &bull; Processed in 13.3s</div>
+    <div class="demo-signal"><strong>Signal found:</strong> Stripe recently launched new embedded finance products for platforms, expanding their revenue tools for SaaS companies beyond basic payments.</div>
+    <div class="demo-email">
+      <div class="subj">Subject: Stripe's embedded finance push &mdash; quick thought</div>
+      <div class="body">I noticed Stripe just expanded its embedded finance suite for platforms &mdash; a big move beyond core payments. As Head of Growth, you're likely thinking about how to drive adoption of these new revenue tools across your platform partners. Our AI agents handle the repetitive research and outreach that bogs down growth teams, so your people can focus on strategy. Worth a 15-minute look?</div>
+    </div>
+  </div>
+
+  <div class="demo-card">
+    <div class="demo-type">Sales Ops Agent &mdash; Local Business</div>
+    <div class="demo-target">Joe's Plumbing &amp; HVAC &rarr; Owner</div>
+    <div class="demo-meta">Industry: Home Services &bull; 1-50 employees &bull; Processed in 14.1s</div>
+    <div class="demo-signal"><strong>Signal found:</strong> Recent Google Business reviews mention long wait times for emergency calls &mdash; opportunity to pitch scheduling automation.</div>
+    <div class="demo-email">
+      <div class="subj">Subject: Cutting wait times at Joe's Plumbing</div>
+      <div class="body">I came across Joe's Plumbing and noticed some recent reviews mentioning wait times on emergency calls. As the owner, that's the kind of thing that can cost you repeat business. We help service businesses automate their scheduling and follow-up so your techs stay booked and customers stay happy. Can I show you how one HVAC company cut response times by 40%?</div>
+    </div>
+  </div>
+
+  <div class="demo-card">
+    <div class="demo-type">Sales Ops Agent &mdash; Fintech B2B</div>
+    <div class="demo-target">Ramp &rarr; VP of Sales</div>
+    <div class="demo-meta">Industry: Fintech/Corporate Cards &bull; 500-1,000 employees &bull; Processed in 12.8s</div>
+    <div class="demo-signal"><strong>Signal found:</strong> Ramp announced new expense management integrations with NetSuite and Sage &mdash; targeting mid-market finance teams.</div>
+    <div class="demo-email">
+      <div class="subj">Subject: Ramp's mid-market push &mdash; sales team keeping up?</div>
+      <div class="body">Saw Ramp just launched NetSuite and Sage integrations &mdash; clearly making a play for mid-market finance teams. As VP of Sales, you're probably scaling outbound to match that product momentum. Our AI agents generate deeply personalized outreach for each target account &mdash; with real company signals, not templates. Interested in seeing sample outputs for 3 of your target accounts?</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section-dark">
+<div class="container">
+  <div class="section-tag">Pricing</div>
+  <h2>Pay Per Task. No Contracts.</h2>
+  <p class="subtitle">Start with a free trial. Scale with retainers. API access included on every plan.</p>
+  <div class="grid-3">
+    <div class="price-card">
+      <h3>Sales Ops</h3>
+      <div class="price">$2.40</div>
+      <div class="unit">per lead</div>
+      <ul>
+        <li>Full company enrichment</li>
+        <li>3-email outreach sequence</li>
+        <li>Signal-based personalization</li>
+        <li>JSON/CSV export</li>
+        <li>QA-verified delivery</li>
+      </ul>
+      <a class="btn btn-outline btn-sm" href="#start" style="width:100%">Start Free</a>
+    </div>
+    <div class="price-card featured">
+      <h3>Support Resolver</h3>
+      <div class="price">$1.00</div>
+      <div class="unit">per ticket</div>
+      <ul>
+        <li>Ticket triage + draft response</li>
+        <li>Severity scoring</li>
+        <li>Escalation flagging</li>
+        <li>~9.6s avg resolution</li>
+        <li>Policy compliance checks</li>
+      </ul>
+      <a class="btn btn-primary btn-sm" href="#start" style="width:100%">Start Free</a>
+    </div>
+    <div class="price-card">
+      <h3>Content + Docs</h3>
+      <div class="price">$1.50</div>
+      <div class="unit">per task</div>
+      <ul>
+        <li>Content: $3/piece (5 formats)</li>
+        <li>Doc Extract: $1.50/document</li>
+        <li>Invoices, contracts, resumes</li>
+        <li>Blog &rarr; social in seconds</li>
+        <li>Bulk discounts available</li>
+      </ul>
+      <a class="btn btn-outline btn-sm" href="#start" style="width:100%">Start Free</a>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:40px">
+    <p style="color:var(--muted);font-size:0.95rem"><strong>Monthly retainers:</strong> Sales 50/mo $750 &bull; Support 200/mo $400 &bull; Custom bulk pricing on request.</p>
+    <p style="color:var(--muted);margin-top:8px;font-size:0.9rem">All plans include REST API access, webhook delivery, and budget enforcement.</p>
+  </div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+<div class="container" style="max-width:720px">
+  <div class="section-tag">FAQ</div>
+  <h2>Common Questions</h2>
+  <p class="subtitle">Everything you need to know before getting started.</p>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How is this different from ChatGPT?</div>
+    <div class="faq-a">ChatGPT is a general chat interface. Bit Rage Labour runs purpose-built multi-agent pipelines &mdash; research, generate, QA verify &mdash; that produce structured, ready-to-use outputs. Every task goes through quality gates. You get JSON/CSV outputs, not chat responses.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What LLMs do you use?</div>
+    <div class="faq-a">We use four providers &mdash; OpenAI GPT-4o, Anthropic Claude, Google Gemini, and Grok &mdash; with automatic failover. Each agent selects the best model for its task stage. You never worry about model selection.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How fast is delivery?</div>
+    <div class="faq-a">Average delivery is under 14 seconds per task. Sales outreach takes 12-15s. Support resolution averages 9.6s. Results are delivered via webhook callback, API polling, or email.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I integrate this into my existing tools?</div>
+    <div class="faq-a">Yes. We provide a REST API (POST /tasks) with webhook callbacks. Send a task, get structured JSON/CSV back. Works with any CRM, helpdesk, or automation tool. API key included with every account.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is there a free trial?</div>
+    <div class="faq-a">Yes. Every new account gets 2 free sales leads (full enrichment + 3-email sequence) and 5 free support ticket resolutions. No credit card required to start.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What about data privacy?</div>
+    <div class="faq-a">Your data is processed in real-time and not stored after delivery. We don't train models on your data. All API communications are encrypted via TLS.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do you offer custom agents?</div>
+    <div class="faq-a">Yes. If you need a specialized agent for your workflow &mdash; custom research, domain-specific extraction, or unique output formats &mdash; contact us for a custom build quote.</div>
+  </div>
+</div>
+</section>
+
+<!-- CTA -->
+<section id="start" class="cta-section">
+<div class="container">
+  <h2>Ready to Put AI Agents to Work?</h2>
+  <p class="subtitle">Send a company name. Get back a full enrichment + 3 personalized emails. Free. No sign-up required.</p>
+  <div class="btn-row" style="justify-content:center">
+    <a class="btn btn-primary" href="mailto:gripa@resonanceenergy.co?subject=Free%20Demo%20-%20Bit%20Rage%20Labour&body=Company:%0ATarget%20Role:%0AYour%20Product:%0A%0A(We'll send back a full lead enrichment and 3-email sequence within 24 hours)">Get 2 Free Leads</a>
+    <a class="btn btn-secondary" href="mailto:gripa@resonanceenergy.co?subject=Custom%20Agent%20Inquiry&body=What%20I%20need:%0A">Request Custom Agent</a>
+  </div>
+  <p style="color:var(--muted);margin-top:24px;font-size:0.9rem">Or email directly: <a href="mailto:gripa@resonanceenergy.co">gripa@resonanceenergy.co</a></p>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+  <div class="footer-grid">
+    <div>
+      <h4 style="font-size:1.1rem;text-transform:none;letter-spacing:0">Bit Rage <span style="color:var(--accent)">Labour</span></h4>
+      <p style="margin-top:8px">AI agents that do real work. Built by Resonance Energy.</p>
+      <p style="margin-top:12px">Four production-ready agents. REST API. QA-verified outputs. Pay per task.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <p><a href="#agents">Agents</a></p>
+      <p><a href="#pricing">Pricing</a></p>
+      <p><a href="#demos">Demo Outputs</a></p>
+      <p><a href="#how">How It Works</a></p>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <p><a href="#faq">FAQ</a></p>
+      <p><a href="mailto:gripa@resonanceenergy.co">API Documentation</a></p>
+      <p><a href="mailto:gripa@resonanceenergy.co">Support</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p><a href="mailto:gripa@resonanceenergy.co">gripa@resonanceenergy.co</a></p>
+      <p style="margin-top:8px;font-size:0.82rem;color:var(--muted)">Bit Rage Labour<br>A Resonance Energy Company<br>Montevideo, Uruguay</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Bit Rage Labour. A Resonance Energy company. All rights reserved.</p>
+  </div>
+</div>
+</footer>
+
+</body>
+</html>
