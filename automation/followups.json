@@ -78,5 +78,425 @@
     "follow_up_2_due": "2026-03-17T11:31:16.255536+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Pipedrive_6a00fa.json"
+  },
+  {
+    "company": "Directive",
+    "role": "CEO",
+    "contact_email": "garrett@directiveconsulting.com",
+    "follow_up_1_due": "2026-03-13T11:34:07.061030+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:34:07.061030+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Directive_eea3c9.json"
+  },
+  {
+    "company": "WebFX",
+    "role": "Director of Operations",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:34:07.099250+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:34:07.099250+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_WebFX_a830e3.json"
+  },
+  {
+    "company": "Brex",
+    "role": "Head of Sales",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:38:47.111943+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:38:47.111943+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Brex_d13a07.json"
+  },
+  {
+    "company": "Deel",
+    "role": "Head of Sales",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:38:47.124744+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:38:47.124744+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Deel_5747e1.json"
+  },
+  {
+    "company": "Lattice",
+    "role": "VP of Sales",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:38:47.138817+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:38:47.138817+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Lattice_9b26d7.json"
+  },
+  {
+    "company": "Omniscient Digital",
+    "role": "Founder",
+    "contact_email": "alex@omniscientdigital.com",
+    "follow_up_1_due": "2026-03-13T11:38:50.021417+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:38:50.021417+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Omniscient_Digital_5b7e98.json"
+  },
+  {
+    "company": "Ramp",
+    "role": "VP of Growth",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:38:50.033711+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:38:50.033711+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Ramp_67b2bc.json"
+  },
+  {
+    "company": "Rippling",
+    "role": "Director of SDR",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:38:50.046085+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:38:50.046085+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Rippling_23906a.json"
+  },
+  {
+    "company": "Salesloft",
+    "role": "VP of Revenue",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:38:50.058609+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:38:50.058609+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Salesloft_061d48.json"
+  },
+  {
+    "company": "Siege Media",
+    "role": "Head of Content",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:38:50.073541+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:38:50.073541+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Siege_Media_417f5f.json"
+  },
+  {
+    "company": "Single Grain",
+    "role": "Founder",
+    "contact_email": "eric@singlegrain.com",
+    "follow_up_1_due": "2026-03-13T11:38:51.326343+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:38:51.326343+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Single_Grain_cdbec6.json"
+  },
+  {
+    "company": "ZoomInfo",
+    "role": "Head of Growth",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:38:51.343040+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:38:51.343040+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_ZoomInfo_65aa62.json"
+  },
+  {
+    "company": "Clearbit",
+    "role": "VP of Marketing",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:41:02.385713+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:41:02.385713+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Clearbit_32207b.json"
+  },
+  {
+    "company": "Drift",
+    "role": "Head of Growth",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:41:02.400089+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:41:02.400089+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Drift_9590bd.json"
+  },
+  {
+    "company": "Freshdesk",
+    "role": "Head of Support",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:41:02.412934+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:41:02.412934+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Freshdesk_590512.json"
+  },
+  {
+    "company": "Front",
+    "role": "Head of Sales",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:41:02.425410+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:41:02.425410+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Front_b730d0.json"
+  },
+  {
+    "company": "Help Scout",
+    "role": "VP of Customer Success",
+    "contact_email": "vp.customersuccess@helpscout.com",
+    "follow_up_1_due": "2026-03-13T11:41:03.887173+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:41:03.887173+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Help_Scout_4c345b.json"
+  },
+  {
+    "company": "Hunter.io",
+    "role": "CEO",
+    "contact_email": "antoine@hunter.io",
+    "follow_up_1_due": "2026-03-13T11:41:05.314736+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:41:05.314736+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Hunter.io_d32c91.json"
+  },
+  {
+    "company": "Intercom",
+    "role": "VP of Support",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:41:05.335713+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:41:05.335713+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Intercom_52615f.json"
+  },
+  {
+    "company": "Lusha",
+    "role": "Head of Growth",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:41:05.348291+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:41:05.348291+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Lusha_c28b12.json"
+  },
+  {
+    "company": "Seamless.AI",
+    "role": "VP of Sales",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:41:05.363621+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:41:05.363621+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Seamless.AI_edfb43.json"
+  },
+  {
+    "company": "Zendesk",
+    "role": "Director of CS",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:41:05.379081+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:41:05.379081+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Zendesk_2178ee.json"
+  },
+  {
+    "company": "Calendly",
+    "role": "VP of Sales",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:45:28.390529+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:45:28.390529+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Calendly_3ace85.json"
+  },
+  {
+    "company": "Convertkit",
+    "role": "Head of Growth",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:45:28.404473+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:45:28.404473+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Convertkit_d6eb96.json"
+  },
+  {
+    "company": "Mailshake",
+    "role": "Head of Growth",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:45:28.429990+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:45:28.429990+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Mailshake_97271c.json"
+  },
+  {
+    "company": "Snov.io",
+    "role": "Head of Growth",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:45:28.443520+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:45:28.443520+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Snov.io_73b41e.json"
+  },
+  {
+    "company": "Typeform",
+    "role": "Head of Growth",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:45:28.457199+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:45:28.457199+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Typeform_cbdc35.json"
+  },
+  {
+    "company": "Unbounce",
+    "role": "VP of Marketing",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:45:28.469769+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:45:28.469769+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Unbounce_5f0571.json"
+  },
+  {
+    "company": "Woodpecker",
+    "role": "CEO",
+    "contact_email": "matt@woodpecker.co",
+    "follow_up_1_due": "2026-03-13T11:45:29.910113+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:45:29.910113+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Woodpecker_0c9c44.json"
+  },
+  {
+    "company": "Yesware",
+    "role": "Head of Revenue",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:45:29.927614+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:45:29.927614+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Yesware_cf280e.json"
+  },
+  {
+    "company": "Animalz",
+    "role": "Founder",
+    "contact_email": "devon@animalz.co",
+    "follow_up_1_due": "2026-03-13T11:48:47.881165+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:48:47.881165+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Animalz_842466.json"
+  },
+  {
+    "company": "Foundation Marketing",
+    "role": "CEO",
+    "contact_email": "ross@foundationinc.co",
+    "follow_up_1_due": "2026-03-13T11:48:49.333190+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:48:49.333190+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Foundation_Marketing_153ccb.json"
+  },
+  {
+    "company": "Grow and Convert",
+    "role": "CEO",
+    "contact_email": "benji@growandconvert.com",
+    "follow_up_1_due": "2026-03-13T11:48:50.736977+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:48:50.736977+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Grow_and_Convert_687280.json"
+  },
+  {
+    "company": "Gusto",
+    "role": "VP of Marketing",
+    "contact_email": "vp.marketing@gusto.com",
+    "follow_up_1_due": "2026-03-13T11:48:52.094227+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:48:52.094227+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Gusto_9913f2.json"
+  },
+  {
+    "company": "Linear",
+    "role": "CEO",
+    "contact_email": "kari@linear.app",
+    "follow_up_1_due": "2026-03-13T11:48:53.477231+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:48:53.477231+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Linear_e97e2b.json"
+  },
+  {
+    "company": "Loom",
+    "role": "VP of Marketing",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:48:53.510317+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:48:53.510317+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Loom_61005e.json"
+  },
+  {
+    "company": "Mixmax",
+    "role": "VP of Sales",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:48:53.540404+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:48:53.540404+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Mixmax_a3b471.json"
+  },
+  {
+    "company": "Notion",
+    "role": "Head of Growth",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:48:53.566737+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:48:53.566737+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Notion_c80a23.json"
+  },
+  {
+    "company": "Soapbox",
+    "role": "Founder",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:48:53.608107+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:48:53.608107+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Soapbox_2fa9e1.json"
+  },
+  {
+    "company": "Supabase",
+    "role": "Head of Growth",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:48:53.638269+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:48:53.638269+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Supabase_0c45f5.json"
+  },
+  {
+    "company": "Velocity Partners",
+    "role": "Managing Director",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:48:53.663431+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:48:53.663431+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Velocity_Partners_8b8584.json"
+  },
+  {
+    "company": "Vercel",
+    "role": "Head of Sales",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:48:53.689949+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:48:53.689949+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Vercel_be7ef2.json"
   }
 ]

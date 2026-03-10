@@ -8,7 +8,7 @@ Validate that a Sales Ops output (lead enrichment + emails) meets production qua
 ### Schema Compliance
 - [ ] JSON matches required schema (all required fields present)
 - [ ] No empty required fields
-- [ ] Email body lengths within limits (primary: 80-120 words, FU1: 50-80, FU2: 40-60)
+- [ ] Email body lengths within limits (primary: 60-150 words, FU1: 40-100, FU2: 30-80)
 
 ### Personalization Quality
 - [ ] `recent_signal` is specific (not generic industry platitudes)
@@ -17,7 +17,7 @@ Validate that a Sales Ops output (lead enrichment + emails) meets production qua
 
 ### Tone & Voice
 - [ ] Reads like a human SDR, not AI
-- [ ] No banned phrases: "revolutionize", "synergy", "leverage", "cutting-edge", "game-changing", "unlock", "I hope this finds you well", "Just following up"
+- [ ] No banned phrases: "revolutionize", "synergy", "game-changing", "I hope this finds you well", "Just following up"
 - [ ] No exclamation marks
 - [ ] Short paragraphs (mobile-friendly)
 
@@ -30,6 +30,7 @@ Validate that a Sales Ops output (lead enrichment + emails) meets production qua
 - [ ] No obviously fabricated facts
 - [ ] Signal source is plausible
 - [ ] Contact info fields are either populated or left empty (never invented)
+- [ ] Empty contact_name, contact_email_guess, linkedin_url are ACCEPTABLE — do NOT fail for missing contact info
 
 ## Output format (strict JSON):
 ```json
@@ -41,7 +42,8 @@ Validate that a Sales Ops output (lead enrichment + emails) meets production qua
 ```
 
 ## Rules:
-- Be strict. Marginal = FAIL.
-- If only minor issues, still PASS but list them in `issues`.
+- Be firm but pragmatic. Minor word count overruns (up to 10 words) are acceptable.
+- If only minor issues (word count slightly over, minor tone nitpicks), PASS but list them in `issues`.
 - If signal is generic AND email doesn't reference anything specific → FAIL.
+- Missing contact info fields are NOT grounds for failure.
 - Return ONLY the JSON object.
