@@ -322,7 +322,7 @@ No commitments either way.
 ## SENDING RULES
 
 1. **Personalize the first line** — always reference something real about their company
-2. **Send from a warmed domain** — use gripa@resonanceenergy.co (not a new domain)
+2. **Send from a warmed domain** — use sales@bit-rage-labour.com (dedicated sales domain)
 3. **Volume**: 10-15 emails/day max to start (avoid spam filters)
 4. **Time**: Send at 8-9 AM in the prospect's timezone
 5. **Track**: Use a simple spreadsheet — sent, opened, replied, converted

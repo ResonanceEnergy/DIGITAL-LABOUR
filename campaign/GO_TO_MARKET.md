@@ -281,7 +281,7 @@ Retainer pitch → Close
 | Asset | Status | Location |
 |-------|--------|----------|
 | Website | ✅ LIVE | bit-rage-labour.com |
-| Lead capture form | ✅ FIXED | FormSubmit → gripa@resonanceenergy.co |
+| Lead capture form | ✅ FIXED | FormSubmit → hello@bit-rage-labour.com |
 | Fiverr gig — Sales | ✅ READY | listings/fiverr_upwork_ready.md |
 | Fiverr gig — Support | ✅ READY | listings/fiverr_upwork_ready.md |
 | Fiverr gig — Content | ✅ READY | campaign/FIVERR_CONTENT_DOCS.md |

@@ -1,0 +1,52 @@
+[
+  {
+    "company": "Gorgias",
+    "role": "VP of Sales",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T05:06:45.677857+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T05:06:45.677857+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Gorgias_838caa.json"
+  },
+  {
+    "company": "Lemlist",
+    "role": "Head of Growth",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T05:06:45.695542+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T05:06:45.695542+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Lemlist_c5def2.json"
+  },
+  {
+    "company": "Reply.io",
+    "role": "CEO",
+    "contact_email": "oleg.bilozor@reply.io",
+    "follow_up_1_due": "2026-03-13T05:06:45.712667+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T05:06:45.712667+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Reply.io_3583a5.json"
+  },
+  {
+    "company": "Outreach",
+    "role": "Director of SDR",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T05:33:16.791487+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T05:33:16.791487+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Outreach_2d9245.json"
+  },
+  {
+    "company": "Vidyard",
+    "role": "VP of Sales",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T05:33:16.817549+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T05:33:16.817549+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Vidyard_b82bce.json"
+  }
+]

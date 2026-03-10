@@ -244,7 +244,7 @@ Time: 22.7s
 1. Open each JSON file
 2. Copy the `primary_email.subject` and `primary_email.body`
 3. Find the prospect on LinkedIn → get their email
-4. Send via your email client (gripa@resonanceenergy.co)
+4. Send via your email client (sales@bit-rage-labour.com)
 5. Schedule follow_up_1 for Day 3, follow_up_2 for Day 7
 
 ---
