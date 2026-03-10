@@ -48,5 +48,35 @@
     "follow_up_2_due": "2026-03-17T05:33:16.817549+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Vidyard_b82bce.json"
+  },
+  {
+    "company": "Apollo.io",
+    "role": "Head of Sales",
+    "contact_email": "head_of_sales@apollo.io",
+    "follow_up_1_due": "2026-03-13T11:31:16.110026+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:31:16.110026+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Apollo.io_0e0223.json"
+  },
+  {
+    "company": "Close",
+    "role": "VP of Sales",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:31:16.149113+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:31:16.149113+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Close_c92c1e.json"
+  },
+  {
+    "company": "Pipedrive",
+    "role": "VP of Sales",
+    "contact_email": "",
+    "follow_up_1_due": "2026-03-13T11:31:16.255536+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-17T11:31:16.255536+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Pipedrive_6a00fa.json"
   }
 ]
