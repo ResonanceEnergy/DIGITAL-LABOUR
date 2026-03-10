@@ -70,7 +70,7 @@ a:hover{color:var(--orange)}
 .hero{padding:140px 0 80px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-300px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,var(--red-glow) 0%,transparent 65%);pointer-events:none;opacity:0.5}
 .hero-logo{width:120px;height:120px;margin:0 auto 28px;animation:pulse 3s ease-in-out infinite}
-.hero-logo img{width:100%;height:100%;border-radius:50%;box-shadow:0 0 60px var(--red-glow),0 0 120px rgba(224,27,36,0.1)}
+.hero-logo img,.hero-logo video{width:100%;height:100%;border-radius:50%;box-shadow:0 0 60px var(--red-glow),0 0 120px rgba(224,27,36,0.1);object-fit:cover}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 .hero-badge{display:inline-block;background:rgba(224,27,36,0.1);border:1px solid var(--red);padding:6px 18px;border-radius:20px;font-size:0.8rem;color:var(--red-bright);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px}
 .hero h1{font-size:3.4rem;font-weight:900;letter-spacing:-2px;line-height:1.1;margin-bottom:20px;max-width:750px;margin-left:auto;margin-right:auto;text-transform:uppercase}
@@ -81,6 +81,10 @@ a:hover{color:var(--orange)}
 .hero-metrics .label{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-top:4px}
 .hero-metrics .metric{text-align:center}
 @media(max-width:768px){.hero h1{font-size:2.2rem}.hero-metrics{gap:24px}.hero-metrics .num{font-size:1.8rem}.hero-logo{width:90px;height:90px}}
+
+/* Video processing icons */
+.agent-icon video{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.cta-logo video{width:100%;height:100%;border-radius:50%;box-shadow:0 0 40px var(--red-glow);object-fit:cover}
 
 /* Sections */
 section{padding:80px 0}
@@ -232,7 +236,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 <!-- HERO -->
 <header class="hero">
 <div class="container">
-  <div class="hero-logo"><img src="logo.png" alt="Bit Rage Labour — Angry Fish Logo"></div>
+  <div class="hero-logo"><video src="rage-spin-1.mp4" autoplay muted loop playsinline aria-label="Bit Rage Labour — Animated Logo"></video></div>
   <div class="hero-badge">Now Accepting Clients</div>
   <h1>AI Agents That <em>Bite Back</em></h1>
   <p>Relentless AI workers for sales, support, content, and document extraction. They don't sleep. They don't complain. They just deliver.</p>
@@ -297,7 +301,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
   <p class="subtitle">Each one is a multi-step pipeline — research, generate, verify, deliver. Not a prompt in a chat box.</p>
   <div class="grid-2">
     <div class="agent-card">
-      <div class="agent-icon icon-sales">&#9993;</div>
+      <div class="agent-icon icon-sales"><video src="rage-spin-1.mp4" autoplay muted loop playsinline></video></div>
       <span class="badge">Live</span>
       <h3>Sales Ops Agent</h3>
       <p>Deep company research, signal detection, and personalized 3-email outreach sequences.</p>
@@ -311,7 +315,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
       <a class="agent-email" href="mailto:gripa@resonanceenergy.co?subject=Sales%20Ops%20Agent%20—%20Free%20Trial&body=I%20want%20to%20try%20the%20Sales%20Ops%20Agent.%0A%0ACompany%20to%20target%3A%20%0ATarget%20role%3A%20%0AMy%20company%3A%20">&#9993; Get 2 Free Leads &rarr;</a>
     </div>
     <div class="agent-card">
-      <div class="agent-icon icon-support">&#128172;</div>
+      <div class="agent-icon icon-support"><video src="rage-spin-2.mp4" autoplay muted loop playsinline></video></div>
       <span class="badge">Live</span>
       <h3>Support Resolver</h3>
       <p>Ticket classification, severity scoring, and draft responses in under 10 seconds.</p>
@@ -325,7 +329,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
       <a class="agent-email" href="mailto:gripa@resonanceenergy.co?subject=Support%20Resolver%20—%20Free%20Trial&body=I%20want%20to%20try%20the%20Support%20Resolver.%0A%0ASample%20ticket%3A%20%0AMy%20company%3A%20">&#9993; Try Free Demo &rarr;</a>
     </div>
     <div class="agent-card">
-      <div class="agent-icon icon-content">&#9998;</div>
+      <div class="agent-icon icon-content"><video src="rage-spin-1.mp4" autoplay muted loop playsinline></video></div>
       <span class="badge">Live</span>
       <h3>Content Repurposer</h3>
       <p>One blog post becomes LinkedIn, Twitter, email, and Instagram content instantly.</p>
@@ -339,7 +343,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
       <a class="agent-email" href="mailto:gripa@resonanceenergy.co?subject=Content%20Repurposer%20—%20Free%20Sample&body=I%20want%20to%20try%20the%20Content%20Repurposer.%0A%0ABlog%20URL%3A%20%0AMy%20company%3A%20">&#9993; Get Free Sample &rarr;</a>
     </div>
     <div class="agent-card">
-      <div class="agent-icon icon-docs">&#128196;</div>
+      <div class="agent-icon icon-docs"><video src="rage-spin-2.mp4" autoplay muted loop playsinline></video></div>
       <span class="badge">Live</span>
       <h3>Document Extractor</h3>
       <p>Invoices, contracts, resumes &mdash; structured data with confidence scores.</p>
@@ -543,7 +547,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 <!-- CTA -->
 <section id="start" class="cta-section">
 <div class="container">
-  <div class="cta-logo"><img src="logo.png" alt="Bit Rage"></div>
+  <div class="cta-logo"><video src="rage-spin-2.mp4" autoplay muted loop playsinline aria-label="Bit Rage"></video></div>
   <h2>Ready to Unleash the Agents?</h2>
   <p class="subtitle">Enter your email. Pick a service. Get results — delivered within 24 hours.</p>
   <div class="lead-form" id="leadForm">
