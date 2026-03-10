@@ -186,7 +186,7 @@ def show_status():
 
     # Outbox depth
     outbox = PROJECT_ROOT / "data" / "ncc_outbox"
-    queued = sum(1 for f in outbox.glob("*.ndjson") for _ in open(f)) if outbox.exists() else 0
+    queued = sum(1 for f in outbox.glob("*.ndjson") for _ in open(f, encoding="utf-8")) if outbox.exists() else 0
     print(f"  Outbox:    {queued} queued events")
     print("═════════════════════════════")
 

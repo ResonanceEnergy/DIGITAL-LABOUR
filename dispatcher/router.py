@@ -28,6 +28,7 @@ load_dotenv(PROJECT_ROOT / ".env")
 DAILY_LIMITS = {
     "sales_outreach": 50,
     "support_ticket": 100,
+    "content_repurpose": 40,
     "ops_brief": 10,
     "doc_extract": 30,
 }
@@ -35,6 +36,7 @@ DAILY_LIMITS = {
 TOKEN_BUDGETS = {
     "sales_outreach": 25000,
     "support_ticket": 15000,
+    "content_repurpose": 20000,
     "ops_brief": 20000,
     "doc_extract": 15000,
 }

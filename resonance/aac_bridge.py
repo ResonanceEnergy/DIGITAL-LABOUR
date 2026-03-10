@@ -16,11 +16,12 @@ Usage:
 
 import asyncio
 import logging
+import os
 import sys
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-AAC_ROOT = Path(r"C:\dev\AAC_fresh")
+AAC_ROOT = Path(os.getenv("AAC_ROOT", r"C:\dev\AAC_fresh"))
 sys.path.insert(0, str(AAC_ROOT))
 
 logger = logging.getLogger(__name__)

@@ -17,12 +17,13 @@ Usage:
 
 import json
 import logging
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-NCL_DATA = Path.home() / "NCL" / "data"
+NCL_DATA = Path(os.getenv("NCL_DATA_PATH", str(Path.home() / "NCL" / "data")))
 
 
 class NCLBridge:
