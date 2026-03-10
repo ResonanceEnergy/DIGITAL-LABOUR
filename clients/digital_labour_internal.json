@@ -1,0 +1,11 @@
+{
+  "client_id": "digital_labour_internal",
+  "name": "Digital Labour (Internal)",
+  "email": "gripa@resonanceenergy.co",
+  "status": "active",
+  "retainer_tier": "sales_starter",
+  "provider": "",
+  "delivery_method": "file",
+  "delivery_destination": "",
+  "notes": "Internal dogfood client — DL uses its own sales pipeline to land business. Generates outreach leads daily via meta/self_sell.py."
+}
