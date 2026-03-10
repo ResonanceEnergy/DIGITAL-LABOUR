@@ -94,15 +94,17 @@ def run_daily_cycle(lead_count: int = 5, auto_approve: bool = True):
     # Step 4: Health check
     print(f"\n[STEP 4] Running health check...")
     try:
-        from dashboard.health import run_checks
-        health = run_checks()
-        passing = sum(1 for c in health if c.get("status") == "ok")
+        from dashboard.health import full_dashboard
+        dashboard = full_dashboard()
+        health = dashboard.get("system", {})
+        providers_up = sum(1 for v in health.get("llm_providers", {}).values() if v)
         results["steps"]["health"] = {
             "status": "ok",
-            "passing": passing,
-            "total": len(health),
+            "providers_up": providers_up,
+            "queue": dashboard.get("queue", {}),
         }
-        print(f"  -> {passing}/{len(health)} checks passing")
+        print(f"  -> {providers_up}/4 LLM providers up")
+        print(f"  -> Queue: {dashboard.get('queue', {})}")
     except Exception as e:
         results["steps"]["health"] = {"status": "error", "error": str(e)}
         print(f"  -> Health check error: {e}")
