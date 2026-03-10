@@ -652,23 +652,35 @@ function submitLead() {
     timestamp: new Date().toISOString()
   };
 
-  // Store lead locally
+  // Store lead locally as backup
   try {
     var leads = JSON.parse(localStorage.getItem('brl_leads') || '[]');
     leads.push(data);
     localStorage.setItem('brl_leads', JSON.stringify(leads));
   } catch(e) {}
 
-  // Send email notification
-  var subject = encodeURIComponent('New Lead - ' + data.service + ' - ' + data.email);
-  var body = encodeURIComponent('Email: ' + data.email + '\nName: ' + (data.name || 'N/A') + '\nCompany: ' + (data.company || 'N/A') + '\nService: ' + data.service + '\nCustom: ' + (data.custom_request || 'N/A') + '\nTime: ' + data.timestamp);
-  
-  var a = document.createElement('a');
-  a.href = 'mailto:gripa@resonanceenergy.co?subject=' + subject + '&body=' + body;
-  a.target = '_blank';
-  a.click();
+  // Submit to FormSubmit (delivers to gripa@resonanceenergy.co)
+  var formData = new FormData();
+  formData.append('email', data.email);
+  formData.append('name', data.name || 'Not provided');
+  formData.append('company', data.company || 'Not provided');
+  formData.append('service', data.service);
+  formData.append('custom_request', data.custom_request || '');
+  formData.append('_subject', 'NEW LEAD — ' + data.service + ' — ' + data.email);
+  formData.append('_template', 'table');
+  formData.append('_captcha', 'false');
 
-  // Show success
+  fetch('https://formsubmit.co/ajax/gripa@resonanceenergy.co', {
+    method: 'POST',
+    body: formData
+  }).catch(function() {
+    // Fallback to mailto if FormSubmit fails
+    var subject = encodeURIComponent('New Lead - ' + data.service + ' - ' + data.email);
+    var body = encodeURIComponent('Email: ' + data.email + '\nName: ' + (data.name || 'N/A') + '\nCompany: ' + (data.company || 'N/A') + '\nService: ' + data.service + '\nCustom: ' + (data.custom_request || 'N/A'));
+    window.location.href = 'mailto:gripa@resonanceenergy.co?subject=' + subject + '&body=' + body;
+  });
+
+  // Show success immediately
   document.getElementById('confirmEmail').textContent = data.email;
   document.getElementById('formSuccess').style.display = 'block';
   document.querySelector('.lead-form .btn').textContent = 'Submitted!';
