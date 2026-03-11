@@ -1,0 +1,178 @@
+{
+  "created": "2026-03-11T09:31:04.229121+00:00",
+  "updated": "2026-03-11T09:31:04.229148+00:00",
+  "total_revenue": 0,
+  "sources": {
+    "stripe_direct": {
+      "name": "Stripe Direct Sales",
+      "category": "direct",
+      "status": "configured",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://dashboard.stripe.com",
+      "notes": "10 products created. Test mode."
+    },
+    "freelancer": {
+      "name": "Freelancer.com",
+      "category": "freelance",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://freelancer.com",
+      "notes": "21 active AI agent jobs"
+    },
+    "fiverr": {
+      "name": "Fiverr AI Services",
+      "category": "freelance",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://fiverr.com",
+      "notes": "4 gigs ready to post"
+    },
+    "email_outreach": {
+      "name": "Email Outreach",
+      "category": "direct",
+      "status": "configured",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "",
+      "notes": "50 enriched prospects. Zoho SMTP ready."
+    },
+    "virtuals": {
+      "name": "Virtuals Protocol ACP",
+      "category": "crypto_agent",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://virtuals.io",
+      "notes": "$479M aGDP, $3.3M agent revenue"
+    },
+    "agentverse": {
+      "name": "Fetch.ai Agentverse",
+      "category": "crypto_agent",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://agentverse.ai",
+      "notes": "2.7M agents registered"
+    },
+    "olas": {
+      "name": "Olas Network",
+      "category": "crypto_agent",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://olas.network",
+      "notes": "$1M grants, 62 builders"
+    },
+    "elizaos": {
+      "name": "ElizaOS / Eliza Cloud",
+      "category": "crypto_agent",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://elizaos.ai",
+      "notes": "90+ plugins, 2-command deploy"
+    },
+    "singularitynet": {
+      "name": "SingularityNET",
+      "category": "crypto_agent",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://singularitynet.io",
+      "notes": "ASI token, DEEP Funding"
+    },
+    "morpheus": {
+      "name": "Morpheus Network",
+      "category": "crypto_agent",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://mor.org",
+      "notes": "320K+ staked ETH, MOR rewards"
+    },
+    "chatbase": {
+      "name": "Chatbase White-Label",
+      "category": "platform",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://chatbase.co",
+      "notes": "Free tier. White-label bots."
+    },
+    "botpress": {
+      "name": "Botpress Managed",
+      "category": "platform",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://botpress.com",
+      "notes": "Free PAYG tier."
+    },
+    "relevance_ai": {
+      "name": "Relevance AI",
+      "category": "platform",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://relevanceai.com",
+      "notes": "Used by Canva, Databricks"
+    },
+    "zapier": {
+      "name": "Zapier Agents",
+      "category": "platform",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://zapier.com",
+      "notes": "2.2M companies"
+    },
+    "wayfinder": {
+      "name": "Wayfinder DeFi",
+      "category": "defi",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://wayfinder.ai",
+      "notes": "$PROMPT token rewards"
+    },
+    "xrp_ledger": {
+      "name": "XRP Ledger Agents",
+      "category": "defi",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://xrpl.org",
+      "notes": "Low fees, fast settlement"
+    },
+    "upwork": {
+      "name": "Upwork Premium",
+      "category": "freelance",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://upwork.com",
+      "notes": "$50-200/hr for AI agent dev"
+    },
+    "consulting": {
+      "name": "Direct Consulting",
+      "category": "enterprise",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "",
+      "notes": "$2K setup + $750/mo retainer"
+    },
+    "rapidapi": {
+      "name": "RapidAPI Hub",
+      "category": "api_marketplace",
+      "status": "not_started",
+      "revenue_total": 0,
+      "revenue_log": [],
+      "url": "https://rapidapi.com",
+      "notes": "30M+ developers"
+    }
+  }
+}

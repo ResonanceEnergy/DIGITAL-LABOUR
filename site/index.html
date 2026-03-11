@@ -228,6 +228,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
     <a href="mailto:hello@bit-rage-labour.com">Contact</a>
+    <a href="dashboard.html">Dashboard</a>
     <a href="#start" class="nav-cta">Get Started</a>
   </div>
 </div>
@@ -465,7 +466,8 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>JSON/CSV export</li>
         <li>QA-verified delivery</li>
       </ul>
-      <a class="btn btn-outline btn-sm" href="mailto:sales@bit-rage-labour.com?subject=Sales%20Ops%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Sales%20Ops%20Agent.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
+      <a class="btn btn-outline btn-sm" id="btn-sales" href="mailto:sales@bit-rage-labour.com?subject=Sales%20Ops%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Sales%20Ops%20Agent.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
+      <a class="btn btn-ghost btn-sm buy-now" href="#start" data-product="sales_outreach" style="width:100%;margin-top:8px">Buy Now — $2.40/lead</a>
     </div>
     <div class="price-card featured">
       <h3>Support Resolver</h3>
@@ -478,7 +480,8 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>~9.6s avg resolution</li>
         <li>Policy compliance checks</li>
       </ul>
-      <a class="btn btn-primary btn-sm" href="mailto:sales@bit-rage-labour.com?subject=Support%20Resolver%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Support%20Resolver.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
+      <a class="btn btn-primary btn-sm" id="btn-support" href="mailto:sales@bit-rage-labour.com?subject=Support%20Resolver%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Support%20Resolver.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
+      <a class="btn btn-ghost btn-sm buy-now" href="#start" data-product="support_ticket" style="width:100%;margin-top:8px">Buy Now — $1.00/ticket</a>
     </div>
     <div class="price-card">
       <h3>Content + Docs</h3>
@@ -491,11 +494,59 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>Blog &rarr; social in seconds</li>
         <li>Bulk discounts available</li>
       </ul>
-      <a class="btn btn-outline btn-sm" href="mailto:sales@bit-rage-labour.com?subject=Content%20%2B%20Docs%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Content%20%2B%20Doc%20agents.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
+      <a class="btn btn-outline btn-sm" id="btn-content" href="mailto:sales@bit-rage-labour.com?subject=Content%20%2B%20Docs%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Content%20%2B%20Doc%20agents.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
+      <a class="btn btn-ghost btn-sm buy-now" href="#start" data-product="content_repurpose" style="width:100%;margin-top:8px">Buy Now — $3.00/piece</a>
     </div>
   </div>
+
+  <!-- Retainer Plans -->
+  <div style="margin-top:48px">
+    <h3 style="text-align:center;font-size:1.3rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px">Monthly Retainer Plans</h3>
+    <div class="grid-3">
+      <div class="price-card">
+        <h3>Sales Starter</h3>
+        <div class="price">$750</div>
+        <div class="unit">per month</div>
+        <ul>
+          <li>50 leads/month</li>
+          <li>Full 3-email sequences</li>
+          <li>Priority processing</li>
+          <li>Weekly performance report</li>
+          <li>Dedicated Slack channel</li>
+        </ul>
+        <a class="btn btn-ghost btn-sm buy-now" href="#start" data-product="sales_starter" style="width:100%">Subscribe — $750/mo</a>
+      </div>
+      <div class="price-card featured">
+        <h3>Sales Growth</h3>
+        <div class="price">$1,400</div>
+        <div class="unit">per month</div>
+        <ul>
+          <li>100 leads/month</li>
+          <li>Full 3-email sequences</li>
+          <li>A/B testing on emails</li>
+          <li>CRM integration</li>
+          <li>Priority + dedicated support</li>
+        </ul>
+        <a class="btn btn-primary btn-sm buy-now" href="#start" data-product="sales_growth" style="width:100%">Subscribe — $1,400/mo</a>
+      </div>
+      <div class="price-card">
+        <h3>Sales Scale</h3>
+        <div class="price">$2,500</div>
+        <div class="unit">per month</div>
+        <ul>
+          <li>200 leads/month</li>
+          <li>Full outreach automation</li>
+          <li>Custom signal triggers</li>
+          <li>Webhook delivery</li>
+          <li>Account manager</li>
+        </ul>
+        <a class="btn btn-ghost btn-sm buy-now" href="#start" data-product="sales_scale" style="width:100%">Subscribe — $2,500/mo</a>
+      </div>
+    </div>
+  </div>
+
   <div style="text-align:center;margin-top:40px">
-    <p style="color:var(--muted);font-size:0.95rem"><strong style="color:var(--white)">Monthly retainers:</strong> Sales 50/mo $750 &bull; Support 200/mo $400 &bull; Custom bulk pricing on request.</p>
+    <p style="color:var(--muted);font-size:0.95rem"><strong style="color:var(--white)">Support retainers also available:</strong> Starter 200/mo $400 &bull; Growth 500/mo $800 &bull; Scale 1000/mo $1,400</p>
     <p style="color:var(--muted);margin-top:8px;font-size:0.9rem">All plans include REST API access, webhook delivery, and budget enforcement.</p>
     <a class="email-cta" href="mailto:sales@bit-rage-labour.com?subject=Retainer%20Inquiry&body=I%27m%20interested%20in%20a%20monthly%20retainer.%0A%0AAgent%3A%20%0AVolume%3A%20%0ACompany%3A%20" style="margin-top:16px">&#128176; Ask about retainer pricing &rarr;</a>
   </div>
@@ -692,6 +743,32 @@ function submitLead() {
 document.querySelectorAll('.nav-links a').forEach(function(link) {
   link.addEventListener('click', function() {
     document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+
+// Stripe Payment Link integration — generated by: python -m billing.payment_links
+var PAYMENT_LINKS = {
+  "sales_outreach": "https://buy.stripe.com/test_3cI28s4mX6NZ1WjfILe3e00",
+  "support_ticket": "https://buy.stripe.com/test_bJefZibPpgoz1WjfILe3e01",
+  "content_repurpose": "https://buy.stripe.com/test_8x2fZi4mX2xJcAXaore3e02",
+  "doc_extract": "https://buy.stripe.com/test_28EdRa4mXegr44reEHe3e03",
+  "sales_starter": "https://buy.stripe.com/test_5kQ3cwaLl3BNcAXaore3e04",
+  "sales_growth": "https://buy.stripe.com/test_9B6dRaf1B4FR58vcwze3e05",
+  "sales_scale": "https://buy.stripe.com/test_bJe5kEcTtdcndF17cfe3e06",
+  "support_starter": "https://buy.stripe.com/test_eVq00kdXx0pB0SfdADe3e07",
+  "support_growth": "https://buy.stripe.com/test_dRm14o6v52xJdF17cfe3e08",
+  "support_scale": "https://buy.stripe.com/test_14A9AU9Hhdcn30n8gje3e09"
+};
+
+// Buy Now button handler
+document.querySelectorAll('.buy-now').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    var product = this.getAttribute('data-product');
+    if (PAYMENT_LINKS[product]) {
+      e.preventDefault();
+      window.open(PAYMENT_LINKS[product], '_blank');
+    }
+    // Otherwise falls through to href="#start" (lead form)
   });
 });
 </script>

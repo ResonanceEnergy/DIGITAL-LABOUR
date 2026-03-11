@@ -1,0 +1,82 @@
+{
+  "sales_outreach": {
+    "url": "https://buy.stripe.com/test_3cI28s4mX6NZ1WjfILe3e00",
+    "link_id": "plink_1T9j6tIZXv1iM307gB8befU6",
+    "product_name": "Sales Ops Agent - Per Lead",
+    "cents": 240,
+    "mode": "one_time",
+    "stripe_mode": "test"
+  },
+  "support_ticket": {
+    "url": "https://buy.stripe.com/test_bJefZibPpgoz1WjfILe3e01",
+    "link_id": "plink_1T9j6tIZXv1iM307M8Ocn0Fr",
+    "product_name": "Support Resolver - Per Ticket",
+    "cents": 100,
+    "mode": "one_time",
+    "stripe_mode": "test"
+  },
+  "content_repurpose": {
+    "url": "https://buy.stripe.com/test_8x2fZi4mX2xJcAXaore3e02",
+    "link_id": "plink_1T9j6uIZXv1iM307oQD8kv4A",
+    "product_name": "Content Repurposer - Per Piece",
+    "cents": 300,
+    "mode": "one_time",
+    "stripe_mode": "test"
+  },
+  "doc_extract": {
+    "url": "https://buy.stripe.com/test_28EdRa4mXegr44reEHe3e03",
+    "link_id": "plink_1T9j6uIZXv1iM3071j8ydfYU",
+    "product_name": "Document Extractor - Per Document",
+    "cents": 150,
+    "mode": "one_time",
+    "stripe_mode": "test"
+  },
+  "sales_starter": {
+    "url": "https://buy.stripe.com/test_5kQ3cwaLl3BNcAXaore3e04",
+    "link_id": "plink_1T9j6uIZXv1iM307ByVPnndm",
+    "product_name": "Sales Retainer - Starter (50/mo)",
+    "cents": 75000,
+    "mode": "recurring",
+    "stripe_mode": "test"
+  },
+  "sales_growth": {
+    "url": "https://buy.stripe.com/test_9B6dRaf1B4FR58vcwze3e05",
+    "link_id": "plink_1T9j6vIZXv1iM307cyxOVhwj",
+    "product_name": "Sales Retainer - Growth (100/mo)",
+    "cents": 140000,
+    "mode": "recurring",
+    "stripe_mode": "test"
+  },
+  "sales_scale": {
+    "url": "https://buy.stripe.com/test_bJe5kEcTtdcndF17cfe3e06",
+    "link_id": "plink_1T9j6vIZXv1iM307fercNwHg",
+    "product_name": "Sales Retainer - Scale (200/mo)",
+    "cents": 250000,
+    "mode": "recurring",
+    "stripe_mode": "test"
+  },
+  "support_starter": {
+    "url": "https://buy.stripe.com/test_eVq00kdXx0pB0SfdADe3e07",
+    "link_id": "plink_1T9j6vIZXv1iM3073eX5ivDG",
+    "product_name": "Support Retainer - Starter (200/mo)",
+    "cents": 40000,
+    "mode": "recurring",
+    "stripe_mode": "test"
+  },
+  "support_growth": {
+    "url": "https://buy.stripe.com/test_dRm14o6v52xJdF17cfe3e08",
+    "link_id": "plink_1T9j6wIZXv1iM307SXk10cLm",
+    "product_name": "Support Retainer - Growth (500/mo)",
+    "cents": 80000,
+    "mode": "recurring",
+    "stripe_mode": "test"
+  },
+  "support_scale": {
+    "url": "https://buy.stripe.com/test_14A9AU9Hhdcn30n8gje3e09",
+    "link_id": "plink_1T9j6wIZXv1iM307f6T3JArT",
+    "product_name": "Support Retainer - Scale (1000/mo)",
+    "cents": 140000,
+    "mode": "recurring",
+    "stripe_mode": "test"
+  }
+}
