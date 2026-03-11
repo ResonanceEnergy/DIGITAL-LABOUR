@@ -260,6 +260,78 @@ Happy to adapt it to your specific format requirements.
 
 # ── Output Functions ────────────────────────────────────────────
 
+UPWORK_PROFILE = {
+    "title": "AI Agent Developer | Multi-Agent Pipelines | GPT-4o, Claude, Gemini",
+    "headline": "Production AI Agent Systems — Sales, Support, Content & Data Extraction Automation",
+    "hourly_rate": "$85-200/hr",
+    "overview": """I build production AI agent pipelines that actually work in business — not ChatGPT wrappers or prompt-only demos.
+
+**What I Build:**
+• Sales Outreach Agents — real-time company research → personalized 3-email sequences → QA verification → delivery in <60s
+• Support Resolution Agents — ticket triage, severity scoring, draft responses, policy compliance checks
+• Content Repurposing Agents — blog post → LinkedIn, Twitter/X, email newsletter, Instagram, TikTok scripts
+• Document Extraction Agents — invoices, contracts, resumes → structured JSON/CSV with confidence scores
+
+**My Tech Stack:**
+Python | FastAPI | OpenAI GPT-4o | Anthropic Claude | Google Gemini | xAI Grok | Multi-agent orchestration | QA verification pipelines | Webhook delivery | Stripe billing integration | Docker
+
+**What Makes Me Different:**
+→ I run a live AI agent agency (Bit Rage Labour) — these agents are in production RIGHT NOW serving paying clients
+→ Multi-LLM architecture with automatic failover (if OpenAI is down, Claude takes over instantly)
+→ Every output passes through automated QA before delivery
+→ Full API-first architecture — your agents ship with REST endpoints, not just scripts
+
+**Engagement Models:**
+• Hourly ($85-200/hr) — for custom agent builds
+• Fixed price — for well-scoped projects
+• Retainer ($750-2,500/mo) — ongoing agent management + optimization
+
+Based in Canada. Built by Resonance Energy.""",
+    "skills": [
+        "Artificial Intelligence", "Machine Learning", "Python", "FastAPI",
+        "OpenAI API", "Claude API", "LangChain", "Natural Language Processing",
+        "Chatbot Development", "Data Extraction", "Automation", "API Development",
+        "Web Scraping", "Sales Automation", "Customer Support Automation",
+    ],
+    "portfolio_items": [
+        {
+            "title": "AI Sales Outreach Pipeline",
+            "description": "Multi-agent system: research agent → writer agent → QA agent. Processes 50+ leads/hour with personalized 3-email sequences using real company signals.",
+            "url": "https://bit-rage-labour.com",
+        },
+        {
+            "title": "AI Support Ticket Resolver",
+            "description": "Automated triage + severity scoring + draft responses. Handles 200+ tickets/hour with <10s response time per ticket.",
+            "url": "https://bit-rage-labour.com",
+        },
+        {
+            "title": "Content Repurposing Engine",
+            "description": "One blog post → 5 platform-optimized formats (LinkedIn, Twitter/X, email, Instagram, TikTok) with tone matching and character limits.",
+            "url": "https://bit-rage-labour.com",
+        },
+        {
+            "title": "Document Extraction Agent",
+            "description": "Invoice, contract, and resume parser → structured JSON with entity extraction and confidence scoring.",
+            "url": "https://bit-rage-labour.com",
+        },
+    ],
+    "specialized_profiles": [
+        {
+            "category": "AI & Machine Learning",
+            "title": "AI Agent Developer — Production Multi-Agent Systems",
+            "skills": ["Python", "OpenAI API", "FastAPI", "NLP", "Chatbot Development"],
+        },
+        {
+            "category": "Sales & Marketing Automation",
+            "title": "AI Sales Automation Specialist — Outreach & Lead Generation",
+            "skills": ["Sales Automation", "Lead Generation", "Cold Email", "CRM Integration"],
+        },
+    ],
+}
+
+
+
+
 def print_fiverr_gigs():
     """Print all Fiverr gig listings."""
     print(f"\n{'='*70}")
@@ -302,6 +374,32 @@ def print_freelancer_profile():
     print(f"\n{'='*70}\n")
 
 
+def print_upwork_profile():
+    """Print Upwork profile content."""
+    p = UPWORK_PROFILE
+    print(f"\n{'='*70}")
+    print("  UPWORK PROFILE — Ready to Create")
+    print(f"{'='*70}")
+    print(f"\n  Title: {p['title']}")
+    print(f"  Headline: {p['headline']}")
+    print(f"  Rate: {p['hourly_rate']}")
+    print(f"\n  Overview:\n{p['overview']}")
+    print(f"\n  Skills: {', '.join(p['skills'])}")
+    print(f"\n{'─'*70}")
+    print("  PORTFOLIO ITEMS:")
+    for item in p["portfolio_items"]:
+        print(f"\n  [{item['title']}]")
+        print(f"  {item['description']}")
+        print(f"  URL: {item['url']}")
+    print(f"\n{'─'*70}")
+    print("  SPECIALIZED PROFILES:")
+    for sp in p["specialized_profiles"]:
+        print(f"\n  Category: {sp['category']}")
+        print(f"  Title: {sp['title']}")
+        print(f"  Skills: {', '.join(sp['skills'])}")
+    print(f"\n{'='*70}\n")
+
+
 def save_listings():
     """Save all listing content to files."""
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -318,6 +416,11 @@ def save_listings():
     filepath.write_text(json.dumps(FREELANCER_PROFILE, indent=2), encoding="utf-8")
     print(f"  [SAVED] {filepath.name}")
 
+    # Save Upwork profile
+    filepath = OUTPUT_DIR / "upwork_profile.json"
+    filepath.write_text(json.dumps(UPWORK_PROFILE, indent=2), encoding="utf-8")
+    print(f"  [SAVED] {filepath.name}")
+
     print(f"\n  Listings saved to: {OUTPUT_DIR}")
 
 
@@ -328,6 +431,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Freelance Platform Listings")
     parser.add_argument("--fiverr", action="store_true", help="Show Fiverr gigs")
     parser.add_argument("--freelancer", action="store_true", help="Show Freelancer.com profile")
+    parser.add_argument("--upwork", action="store_true", help="Show Upwork profile")
     parser.add_argument("--save", action="store_true", help="Save listings to files")
     args = parser.parse_args()
 
@@ -335,8 +439,11 @@ if __name__ == "__main__":
         print_fiverr_gigs()
     elif args.freelancer:
         print_freelancer_profile()
+    elif args.upwork:
+        print_upwork_profile()
     elif args.save:
         save_listings()
     else:
         print_fiverr_gigs()
         print_freelancer_profile()
+        print_upwork_profile()
