@@ -1,16 +1,16 @@
 {
   "created": "2026-03-11T09:31:04.229121+00:00",
-  "updated": "2026-03-11T09:31:04.229148+00:00",
+  "updated": "2026-03-11T09:41:57.398036+00:00",
   "total_revenue": 0,
   "sources": {
     "stripe_direct": {
       "name": "Stripe Direct Sales",
       "category": "direct",
-      "status": "configured",
+      "status": "active",
       "revenue_total": 0,
       "revenue_log": [],
       "url": "https://dashboard.stripe.com",
-      "notes": "10 products created. Test mode."
+      "notes": "10 products. 10 payment links live (test mode)."
     },
     "freelancer": {
       "name": "Freelancer.com",
@@ -33,11 +33,11 @@
     "email_outreach": {
       "name": "Email Outreach",
       "category": "direct",
-      "status": "configured",
+      "status": "active",
       "revenue_total": 0,
       "revenue_log": [],
       "url": "",
-      "notes": "50 enriched prospects. Zoho SMTP ready."
+      "notes": "50 emails sent. 50 follow-ups scheduled."
     },
     "virtuals": {
       "name": "Virtuals Protocol ACP",
