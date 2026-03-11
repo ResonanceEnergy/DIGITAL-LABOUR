@@ -1,0 +1,22 @@
+{
+  "last_check": "2026-03-11T10:03:41.100780+00:00",
+  "total_logged": 60.0,
+  "charges": [
+    {
+      "id": "ch_3T92JJIZXv1iM30709bnqSQO",
+      "amount": 30.0,
+      "currency": "usd",
+      "description": "",
+      "created": "2026-03-09T11:49:21+00:00",
+      "customer_email": ""
+    },
+    {
+      "id": "ch_3T92JEIZXv1iM3072SBLyZlc",
+      "amount": 30.0,
+      "currency": "usd",
+      "description": "",
+      "created": "2026-03-09T11:49:16+00:00",
+      "customer_email": ""
+    }
+  ]
+}

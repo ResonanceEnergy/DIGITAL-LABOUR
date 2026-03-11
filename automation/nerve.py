@@ -231,6 +231,51 @@ def run_cycle() -> dict:
     except Exception as e:
         print(f"  [ERROR] Health snapshot failed: {e}")
 
+    # ── Phase 7: Revenue Check ─────────────────────────────────
+    print(f"\n[PHASE 7] Revenue Check...")
+    try:
+        from automation.revenue_daemon import check_stripe_revenue
+        rev = check_stripe_revenue()
+        new_charges = rev.get("new_charges", 0)
+        total = rev.get("total", 0)
+        print(f"  Stripe total: ${total:.2f} | New charges: {new_charges}")
+        if new_charges > 0:
+            log_decision(
+                actor="NERVE",
+                action="revenue_detected",
+                reasoning=f"Cycle #{cycle_num} — {new_charges} new Stripe charges",
+                outcome=f"${total:.2f} total revenue logged",
+            )
+            cycle_report["decisions_made"] += 1
+        cycle_report["phases"]["revenue"] = {"total": total, "new": new_charges}
+    except Exception as e:
+        print(f"  [ERROR] Revenue check failed: {e}")
+        cycle_report["phases"]["revenue"] = {"error": str(e)}
+
+    # ── Phase 8: FAIL Reprocessing (every 6 cycles) ────────────
+    if cycle_num % 6 == 0:
+        print(f"\n[PHASE 8] FAIL Reprocessing...")
+        try:
+            from automation.reprocess import find_fail_files, reprocess
+            fails = find_fail_files()
+            if fails:
+                print(f"  Found {len(fails)} FAIL files. Reprocessing up to 5...")
+                result = reprocess(count=5)
+                log_decision(
+                    actor="NERVE",
+                    action="reprocess_fails",
+                    reasoning=f"Cycle #{cycle_num} — periodic FAIL reprocessing",
+                    outcome=f"{result.get('success', 0)} fixed, {result.get('still_fail', 0)} still failing",
+                )
+                cycle_report["decisions_made"] += 1
+                cycle_report["phases"]["reprocess"] = result
+            else:
+                print(f"  No FAIL files to reprocess.")
+                cycle_report["phases"]["reprocess"] = {"status": "none_found"}
+        except Exception as e:
+            print(f"  [ERROR] Reprocessing failed: {e}")
+            cycle_report["phases"]["reprocess"] = {"error": str(e)}
+
     # ── Finalize ───────────────────────────────────────────────
     cycle_report["finished"] = datetime.now(timezone.utc).isoformat()
     elapsed = (datetime.now(timezone.utc) - now).total_seconds()

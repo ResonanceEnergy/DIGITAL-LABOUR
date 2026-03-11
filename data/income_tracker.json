@@ -1,14 +1,25 @@
 {
   "created": "2026-03-11T09:31:04.229121+00:00",
-  "updated": "2026-03-11T09:49:39.711285+00:00",
-  "total_revenue": 0,
+  "updated": "2026-03-11T10:03:17.968258+00:00",
+  "total_revenue": 60.0,
   "sources": {
     "stripe_direct": {
       "name": "Stripe Direct Sales",
       "category": "direct",
-      "status": "active",
-      "revenue_total": 0,
-      "revenue_log": [],
+      "status": "earning",
+      "revenue_total": 60.0,
+      "revenue_log": [
+        {
+          "amount": 30.0,
+          "date": "2026-03-11T10:03:17.880465+00:00",
+          "description": "Stripe charge ch_3T92JJIZXv1iM30709bnqSQO: "
+        },
+        {
+          "amount": 30.0,
+          "date": "2026-03-11T10:03:17.968222+00:00",
+          "description": "Stripe charge ch_3T92JEIZXv1iM3072SBLyZlc: "
+        }
+      ],
       "url": "https://dashboard.stripe.com",
       "notes": "10 products. 10 payment links live (test mode)."
     },
