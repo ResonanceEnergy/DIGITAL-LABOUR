@@ -70,3 +70,5 @@
 {"ts": "2026-03-12T07:14:36.108422+00:00", "event_id": "eddea368-0346-419c-bd73-6f9e2bbf4a1e", "task_type": "qa_manager", "client_id": "pipeline_test", "qa_status": "REJECTED", "latency_ms": 11}
 {"ts": "2026-03-12T07:14:36.156066+00:00", "event_id": "76b3d5ea-7a2d-469a-9f6a-3062f0aad49a", "task_type": "production_manager", "client_id": "pipeline_test", "qa_status": "PASS", "latency_ms": 7}
 {"ts": "2026-03-12T07:14:36.193133+00:00", "event_id": "39b6da5c-3a89-49c0-956d-106d19f9c27b", "task_type": "automation_manager", "client_id": "pipeline_test", "qa_status": "PASS", "latency_ms": 10}
+{"ts": "2026-03-12T11:41:47.415015+00:00", "event_id": "0e50b99b-419b-4877-9d3d-13ec9748c953", "task_type": "email_marketing", "client_id": "direct", "qa_status": "PASS", "latency_ms": 20494}
+{"ts": "2026-03-12T11:42:12.054912+00:00", "event_id": "23d7a876-40c0-44fd-a02b-42afbc252309", "task_type": "ad_copy", "client_id": "direct", "qa_status": "PASS", "latency_ms": 15339}
