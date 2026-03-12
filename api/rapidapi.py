@@ -362,7 +362,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="RapidAPI Integration")
     parser.add_argument("--spec", action="store_true", help="Print OpenAPI spec as JSON")
     parser.add_argument("--serve", action="store_true", help="Run standalone server")
-    parser.add_argument("--port", type=int, default=8001, help="Port for standalone server")
+    parser.add_argument("--port", type=int, default=int(os.environ.get("PORT", "8001")), help="Port for standalone server")
     args = parser.parse_args()
 
     if args.spec:

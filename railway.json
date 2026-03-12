@@ -5,7 +5,7 @@
     "dockerfilePath": "Dockerfile"
   },
   "deploy": {
-    "startCommand": "python -m api.rapidapi --serve --port $PORT",
+    "startCommand": "python -m api.rapidapi --serve",
     "healthcheckPath": "/docs",
     "restartPolicyType": "ON_FAILURE"
   }
