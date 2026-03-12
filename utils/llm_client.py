@@ -161,18 +161,20 @@ _CALLERS = {
 
 def call_llm(
     system_prompt: str,
-    user_message: str,
+    user_message: str = "",
     provider: str | None = None,
     model: str | None = None,
     temperature: float = 0.7,
     json_mode: bool = True,
     fallback: bool = True,
+    *,
+    user_prompt: str = "",
 ) -> str:
     """Call any configured LLM provider with automatic fallback.
 
     Args:
         system_prompt: System/instruction prompt
-        user_message: User input
+        user_message: User input (alias: user_prompt)
         provider: "openai" | "anthropic" | "gemini" | "grok" (None = default)
         model: Override model name (None = use env/default)
         temperature: Sampling temperature
@@ -182,6 +184,7 @@ def call_llm(
     Returns:
         Raw string response from the LLM.
     """
+    user_message = user_message or user_prompt
     provider = provider or get_default_provider()
     model = model or _get_model(provider)
     caller = _CALLERS.get(provider)
