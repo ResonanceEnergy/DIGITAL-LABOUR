@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny-ps" viewBox="0 0 100 100">
+  <title>Bit Rage Labour</title>
+  <!-- BIMI SVG Tiny PS — no gradients, no scripts, no external refs, square -->
+  <!-- Brand: red #E01B24 + orange #FF6B35 on dark #0A0A0A -->
+
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="50" fill="#0A0A0A"/>
+
+  <!-- Outer ring — red -->
+  <circle cx="50" cy="50" r="44" fill="none" stroke="#E01B24" stroke-width="4"/>
+
+  <!-- Lightning bolt left — red -->
+  <polygon points="38,22 28,52 38,48 30,78 50,42 40,46" fill="#E01B24"/>
+
+  <!-- Lightning bolt right — orange -->
+  <polygon points="62,22 52,52 62,48 54,78 74,42 64,46" fill="#FF6B35"/>
+
+  <!-- Center connector bar -->
+  <rect x="36" y="46" width="28" height="6" rx="3" fill="#E8E8E8"/>
+
+  <!-- Letters B R L — bottom arc -->
+  <text x="50" y="92" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#E8E8E8">BRL</text>
+</svg>
