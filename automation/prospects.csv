@@ -1,51 +1,51 @@
-company,role,vertical,priority
-Gorgias,VP of Sales,SaaS,high
-Lemlist,Head of Growth,SaaS,high
-Reply.io,CEO,SaaS,high
-Vidyard,VP of Sales,SaaS,high
-Apollo.io,Head of Sales,SaaS,high
-Outreach,Director of SDR,SaaS,high
-Salesloft,VP of Revenue,SaaS,high
-ZoomInfo,Head of Growth,SaaS,high
-Pipedrive,VP of Sales,SaaS,high
-Close,VP of Sales,SaaS,high
-Drift,Head of Growth,SaaS,medium
-Intercom,VP of Support,SaaS,medium
-Zendesk,Director of CS,SaaS,medium
-Freshdesk,Head of Support,SaaS,medium
-Help Scout,VP of Customer Success,SaaS,medium
-Front,Head of Sales,SaaS,medium
-Clearbit,VP of Marketing,SaaS,medium
-Lusha,Head of Growth,SaaS,medium
-Seamless.AI,VP of Sales,SaaS,medium
-Hunter.io,CEO,SaaS,medium
-Snov.io,Head of Growth,SaaS,medium
-Woodpecker,CEO,SaaS,medium
-Mailshake,Head of Growth,SaaS,medium
-Mixmax,VP of Sales,SaaS,medium
-Yesware,Head of Revenue,SaaS,medium
-Loom,VP of Marketing,SaaS,medium
-Calendly,VP of Sales,SaaS,medium
-Typeform,Head of Growth,SaaS,medium
-Unbounce,VP of Marketing,SaaS,medium
-Convertkit,Head of Growth,SaaS,medium
-Single Grain,Founder,Agency,high
-WebFX,Director of Operations,Agency,high
-Directive,CEO,Agency,high
-Omniscient Digital,Founder,Agency,high
-Siege Media,Head of Content,Agency,high
-Animalz,Founder,Agency,medium
-Grow and Convert,CEO,Agency,medium
-Foundation Marketing,CEO,Agency,medium
-Velocity Partners,Managing Director,Agency,medium
-Soapbox,Founder,Agency,medium
-Deel,Head of Sales,Startup,high
-Ramp,VP of Growth,Startup,high
-Brex,Head of Sales,Startup,high
-Lattice,VP of Sales,Startup,high
-Rippling,Director of SDR,Startup,high
-Gusto,VP of Marketing,Startup,medium
-Notion,Head of Growth,Startup,medium
-Linear,CEO,Startup,medium
-Vercel,Head of Sales,Startup,medium
-Supabase,Head of Growth,Startup,medium
+company,role,vertical,priority,contact_name,contact_email,email_confidence,domain
+Gorgias,VP of Sales,SaaS,high,Tommy Gaessler,tommy@gorgias.com,85,gorgias.com
+Lemlist,Head of Growth,SaaS,high,Guillaume Moubeche,guillaume@lemlist.com,85,lemlist.com
+Reply.io,CEO,SaaS,high,Oleg Campbell,oleg@reply.io,85,reply.io
+Vidyard,VP of Sales,SaaS,high,Carl Ferreira,carl.ferreira@vidyard.com,85,vidyard.com
+Apollo.io,Head of Sales,SaaS,high,Todd Abbott,todd@apollo.io,85,apollo.io
+Outreach,Director of SDR,SaaS,high,Dan Ahmadian,dan.ahmadian@outreach.io,85,outreach.io
+Salesloft,VP of Revenue,SaaS,high,Steve Goldberg,steve@salesloft.com,85,salesloft.com
+ZoomInfo,Head of Growth,SaaS,high,Derek Schoettle,derek.schoettle@zoominfo.com,85,zoominfo.com
+Pipedrive,VP of Sales,SaaS,high,Julien Lesaicherre,julien@pipedrive.com,85,pipedrive.com
+Close,VP of Sales,SaaS,high,Steli Efti,steli@close.com,85,close.com
+Drift,Head of Growth,SaaS,medium,Justin Keller,justin.keller@drift.com,85,drift.com
+Intercom,VP of Support,SaaS,medium,Sharon Moore,sharon@intercom.com,85,intercom.com
+Zendesk,Director of CS,SaaS,medium,Nancy Porte,nancy.porte@zendesk.com,85,zendesk.com
+Freshdesk,Head of Support,SaaS,medium,Srikrishnan Ganesan,srikrishnan@freshworks.com,75,freshworks.com
+Help Scout,VP of Customer Success,SaaS,medium,Mathew Patterson,mathew@helpscout.com,85,helpscout.com
+Front,Head of Sales,SaaS,medium,Anthony Kennada,anthony@front.com,85,front.com
+Clearbit,VP of Marketing,SaaS,medium,Harlow Ward,harlow@clearbit.com,85,clearbit.com
+Lusha,Head of Growth,SaaS,medium,Nir Cohen,nir.cohen@lusha.com,85,lusha.com
+Seamless.AI,VP of Sales,SaaS,medium,Brandon Bornancin,brandon@seamless.ai,85,seamless.ai
+Hunter.io,CEO,SaaS,medium,François Grante,francois@hunter.io,90,hunter.io
+Snov.io,Head of Growth,SaaS,medium,Liubomyr Kachmarskyi,liubomyr.kachmarskyi@snov.io,85,snov.io
+Woodpecker,CEO,SaaS,medium,Matt Tarczynski,matt@woodpecker.co,85,woodpecker.co
+Mailshake,Head of Growth,SaaS,medium,Colin Mathews,colin@mailshake.com,85,mailshake.com
+Mixmax,VP of Sales,SaaS,medium,Brian Flores,brian@mixmax.com,85,mixmax.com
+Yesware,Head of Revenue,SaaS,medium,Andy Pitre,andy.pitre@yesware.com,85,yesware.com
+Loom,VP of Marketing,SaaS,medium,Ashley Anderson,ashley@loom.com,85,loom.com
+Calendly,VP of Sales,SaaS,medium,Kate Ahlering,kate@calendly.com,85,calendly.com
+Typeform,Head of Growth,SaaS,medium,Sasha Joslin,sasha.joslin@typeform.com,85,typeform.com
+Unbounce,VP of Marketing,SaaS,medium,Leah Tharin,leah.tharin@unbounce.com,85,unbounce.com
+Convertkit,Head of Growth,SaaS,medium,Ashley Alexander,ashley@kit.com,85,kit.com
+Single Grain,Founder,Agency,high,Eric Siu,eric@singlegrain.com,85,singlegrain.com
+WebFX,Director of Operations,Agency,high,Chris Diller,chris.diller@webfx.com,85,webfx.com
+Directive,CEO,Agency,high,Garrett Mehrguth,garrett@directiveconsulting.com,90,directiveconsulting.com
+Omniscient Digital,Founder,Agency,high,Alex Birkett,alex@beomniscient.com,85,beomniscient.com
+Siege Media,Head of Content,Agency,high,Caroline Gilbert,caroline@siegemedia.com,85,siegemedia.com
+Animalz,Founder,Agency,medium,Walter Chen,walter@animalz.co,85,animalz.co
+Grow and Convert,CEO,Agency,medium,Benji Hyam,benji@growandconvert.com,85,growandconvert.com
+Foundation Marketing,CEO,Agency,medium,Ross Simmonds,ross@foundationinc.co,85,foundationinc.co
+Velocity Partners,Managing Director,Agency,medium,Ryan Murtagh,ryan.murtagh@velocitypartners.com,85,velocitypartners.com
+Soapbox,Founder,Agency,medium,Chris Savage,chris@wistia.com,85,wistia.com
+Deel,Head of Sales,Startup,high,Ross Hale,ross.hale@deel.com,85,deel.com
+Ramp,VP of Growth,Startup,high,Colleen Wong,colleen@ramp.com,85,ramp.com
+Brex,Head of Sales,Startup,high,Doug Adamic,doug.adamic@brex.com,85,brex.com
+Lattice,VP of Sales,Startup,high,Steve Bullington,steve@lattice.com,85,lattice.com
+Rippling,Director of SDR,Startup,high,John Doe,john.doe@rippling.com,85,rippling.com
+Gusto,VP of Marketing,Startup,medium,Tolithia Kornweibel,tolithia@gusto.com,85,gusto.com
+Notion,Head of Growth,Startup,medium,Camille Ricketts,camille@notion.so,85,notion.so
+Linear,CEO,Startup,medium,Karri Saarinen,karri@linear.app,85,linear.app
+Vercel,Head of Sales,Startup,medium,Guillermo Rauch,guillermo@vercel.com,85,vercel.com
+Supabase,Head of Growth,Startup,medium,Ant Wilson,ant@supabase.com,85,supabase.com

@@ -230,7 +230,6 @@ class PaymentGateway:
 
         session = stripe.checkout.Session.create(
             customer=customer_id,
-            payment_method_types=["card"],
             line_items=[{
                 "price_data": {
                     "currency": "usd",
@@ -287,11 +286,16 @@ class PaymentGateway:
 
         session = stripe.checkout.Session.create(
             customer=customer_id,
-            payment_method_types=["card"],
             line_items=[{"price": products[price_key]["price_id"], "quantity": 1}],
             mode="subscription",
             success_url="http://127.0.0.1:8000/payments/success?session_id={CHECKOUT_SESSION_ID}",
             cancel_url="http://127.0.0.1:8000/payments/cancel",
+            subscription_data={
+                "metadata": {"dl_client_id": client, "tier": tier},
+            },
+            saved_payment_method_options={
+                "payment_method_save": "enabled",
+            },
             metadata={"dl_client_id": client, "tier": tier},
         )
 
@@ -335,8 +339,12 @@ class PaymentGateway:
             return self._handle_checkout_completed(data)
         elif event_type == "invoice.paid":
             return self._handle_invoice_paid(data)
+        elif event_type == "invoice.payment_failed":
+            return self._handle_invoice_failed(data)
         elif event_type == "customer.subscription.created":
             return self._handle_subscription_created(data)
+        elif event_type == "customer.subscription.updated":
+            return self._handle_subscription_updated(data)
         elif event_type == "customer.subscription.deleted":
             return self._handle_subscription_cancelled(data)
 
@@ -401,6 +409,55 @@ class PaymentGateway:
 
         return {"status": "recorded", "amount_cents": amount}
 
+    def _handle_invoice_failed(self, invoice: dict) -> dict:
+        """Handle failed subscription renewal payment."""
+        customer_id = invoice.get("customer", "")
+        sub_id = invoice.get("subscription", "")
+        amount = invoice.get("amount_due", 0)
+        attempt = invoice.get("attempt_count", 0)
+
+        conn = self._conn()
+        # Mark subscription as past_due
+        if sub_id:
+            conn.execute(
+                "UPDATE subscriptions SET status = 'past_due' WHERE stripe_sub_id = ?",
+                (sub_id,),
+            )
+        conn.commit()
+        conn.close()
+
+        logger.warning(
+            f"Invoice payment failed: customer={customer_id} sub={sub_id} "
+            f"amount={amount} attempt={attempt}"
+        )
+        return {
+            "status": "payment_failed",
+            "subscription_id": sub_id,
+            "amount_cents": amount,
+            "attempt_count": attempt,
+        }
+
+    def _handle_subscription_updated(self, subscription: dict) -> dict:
+        """Handle subscription changes (plan change, status change, etc)."""
+        sub_id = subscription.get("id", "")
+        status = subscription.get("status", "")
+        cancel_at = subscription.get("cancel_at_period_end", False)
+
+        conn = self._conn()
+        if status in ("active", "past_due", "canceled", "unpaid", "trialing"):
+            new_status = "cancelled" if status == "canceled" else status
+            if cancel_at and status == "active":
+                new_status = "cancelling"  # will cancel at period end
+            conn.execute(
+                "UPDATE subscriptions SET status = ? WHERE stripe_sub_id = ?",
+                (new_status, sub_id),
+            )
+        conn.commit()
+        conn.close()
+
+        logger.info(f"Subscription updated: {sub_id} → {status} (cancel_at_period_end={cancel_at})")
+        return {"status": "updated", "subscription_id": sub_id, "new_status": status}
+
     def _handle_subscription_created(self, subscription: dict) -> dict:
         """Handle new subscription activation."""
         sub_id = subscription.get("id", "")
@@ -460,6 +517,150 @@ class PaymentGateway:
             "subscriptions": [dict(s) for s in subs],
             "has_active_subscription": any(s["status"] == "active" for s in subs),
         }
+
+    # ── Customer Portal ──────────────────────────────────────────
+
+    def create_portal_session(self, client: str, return_url: str = "") -> dict:
+        """Create a Stripe Customer Portal session for billing management."""
+        if not self.configured:
+            return {"error": "Stripe not configured. Set STRIPE_API_KEY in .env"}
+
+        stripe = self._get_stripe()
+
+        # Look up customer ID for this client
+        conn = self._conn()
+        row = conn.execute(
+            "SELECT stripe_customer FROM subscriptions WHERE client = ? AND stripe_customer != '' ORDER BY created_at DESC LIMIT 1",
+            (client,),
+        ).fetchone()
+        if not row:
+            row = conn.execute(
+                "SELECT stripe_customer FROM payments WHERE client = ? AND stripe_customer != '' ORDER BY created_at DESC LIMIT 1",
+                (client,),
+            ).fetchone()
+        conn.close()
+
+        if not row or not row["stripe_customer"]:
+            return {"error": f"No Stripe customer found for client: {client}"}
+
+        if not return_url:
+            return_url = "http://127.0.0.1:8000/payments/success"
+
+        portal = stripe.billing_portal.Session.create(
+            customer=row["stripe_customer"],
+            return_url=return_url,
+        )
+
+        return {"portal_url": portal.url, "client": client}
+
+    # ── Subscription Management ─────────────────────────────────
+
+    def cancel_subscription(self, client: str, at_period_end: bool = True) -> dict:
+        """Cancel a client's active subscription."""
+        if not self.configured:
+            return {"error": "Stripe not configured. Set STRIPE_API_KEY in .env"}
+
+        stripe = self._get_stripe()
+        conn = self._conn()
+        row = conn.execute(
+            "SELECT stripe_sub_id FROM subscriptions WHERE client = ? AND status = 'active' ORDER BY created_at DESC LIMIT 1",
+            (client,),
+        ).fetchone()
+        conn.close()
+
+        if not row or not row["stripe_sub_id"]:
+            return {"error": f"No active subscription found for client: {client}"}
+
+        sub_id = row["stripe_sub_id"]
+        if at_period_end:
+            stripe.Subscription.modify(sub_id, cancel_at_period_end=True)
+            status = "cancelling"
+        else:
+            stripe.Subscription.cancel(sub_id)
+            status = "cancelled"
+
+        conn = self._conn()
+        conn.execute(
+            "UPDATE subscriptions SET status = ? WHERE stripe_sub_id = ?",
+            (status, sub_id),
+        )
+        conn.commit()
+        conn.close()
+
+        logger.info(f"Subscription {sub_id} → {status} for {client}")
+        return {"status": status, "subscription_id": sub_id, "client": client, "at_period_end": at_period_end}
+
+    def update_subscription(self, client: str, new_tier: str) -> dict:
+        """Change a client's subscription to a different tier."""
+        if not self.configured:
+            return {"error": "Stripe not configured. Set STRIPE_API_KEY in .env"}
+
+        from billing.tracker import RETAINER_TIERS
+        if new_tier not in RETAINER_TIERS:
+            return {"error": f"Unknown tier: {new_tier}. Options: {list(RETAINER_TIERS.keys())}"}
+
+        products = self._load_products()
+        price_key = f"retainer_{new_tier}"
+        if price_key not in products:
+            return {"error": f"Stripe product not created for tier: {new_tier}"}
+
+        stripe = self._get_stripe()
+        conn = self._conn()
+        row = conn.execute(
+            "SELECT stripe_sub_id FROM subscriptions WHERE client = ? AND status IN ('active', 'cancelling') ORDER BY created_at DESC LIMIT 1",
+            (client,),
+        ).fetchone()
+        conn.close()
+
+        if not row or not row["stripe_sub_id"]:
+            return {"error": f"No active subscription found for client: {client}"}
+
+        sub_id = row["stripe_sub_id"]
+        subscription = stripe.Subscription.retrieve(sub_id)
+        item_id = subscription["items"]["data"][0]["id"]
+
+        stripe.Subscription.modify(
+            sub_id,
+            items=[{"id": item_id, "price": products[price_key]["price_id"]}],
+            proration_behavior="create_prorations",
+            cancel_at_period_end=False,
+        )
+
+        tier_data = RETAINER_TIERS[new_tier]
+        conn = self._conn()
+        conn.execute(
+            "UPDATE subscriptions SET tier = ?, price_cents = ?, status = 'active' WHERE stripe_sub_id = ?",
+            (new_tier, int(tier_data["price"] * 100), sub_id),
+        )
+        conn.commit()
+        conn.close()
+
+        logger.info(f"Subscription {sub_id} tier changed to {new_tier} for {client}")
+        return {
+            "status": "updated",
+            "subscription_id": sub_id,
+            "new_tier": new_tier,
+            "new_price": tier_data["price"],
+            "client": client,
+        }
+
+    def get_session_status(self, session_id: str) -> dict:
+        """Retrieve Checkout Session status (for embedded/redirect flow confirmation)."""
+        if not self.configured:
+            return {"error": "Stripe not configured. Set STRIPE_API_KEY in .env"}
+
+        stripe = self._get_stripe()
+        session = stripe.checkout.Session.retrieve(session_id)
+
+        result = {
+            "session_id": session.id,
+            "status": session.status,
+            "payment_status": session.payment_status,
+            "customer_email": session.customer_details.email if session.customer_details else None,
+        }
+        if session.subscription:
+            result["subscription_id"] = session.subscription
+        return result
 
     def revenue_collected(self, days: int = 30) -> dict:
         """Total revenue actually collected via Stripe."""

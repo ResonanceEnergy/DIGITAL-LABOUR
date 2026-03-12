@@ -190,8 +190,8 @@ REGISTRATIONS = {
         "priority": 10,
         "time": "2-4 hours",
         "steps": [
-            "1. Go to https://olas.network",
-            "2. Read: https://olas.network/build",
+            "1. Go to https://build.olas.network/monetize",
+            "2. Read: https://stack.olas.network/mech-server/",
             "3. Install Olas SDK: pip install open-aea",
             "4. Create Olas agent package (wrap existing agents)",
             "5. Register agent on Mech Marketplace",
@@ -199,7 +199,7 @@ REGISTRATIONS = {
             "7. Apply for grants: https://olas.network/build ($100K available per agent)",
             "8. Deploy sovereign agent",
         ],
-        "url": "https://olas.network/build",
+        "url": "https://build.olas.network/monetize",
         "requires": ["Olas SDK", "OLAS tokens for staking", "Deployed agent code"],
     },
 }

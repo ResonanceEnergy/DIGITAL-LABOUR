@@ -1,0 +1,58 @@
+{
+  "events": [
+    {
+      "time": "2026-03-11T10:39:11.194566+00:00",
+      "platform": "freelancer",
+      "action": "researched",
+      "details": "batch mode \u2014 URL opened"
+    },
+    {
+      "time": "2026-03-11T10:39:11.269080+00:00",
+      "platform": "fiverr",
+      "action": "researched",
+      "details": "batch mode \u2014 URL opened"
+    },
+    {
+      "time": "2026-03-11T10:39:11.400334+00:00",
+      "platform": "upwork",
+      "action": "researched",
+      "details": "batch mode \u2014 URL opened"
+    },
+    {
+      "time": "2026-03-11T10:39:11.612417+00:00",
+      "platform": "rapidapi",
+      "action": "researched",
+      "details": "batch mode \u2014 URL opened"
+    },
+    {
+      "time": "2026-03-11T10:39:11.765908+00:00",
+      "platform": "chatbase",
+      "action": "researched",
+      "details": "batch mode \u2014 URL opened"
+    },
+    {
+      "time": "2026-03-11T10:39:11.901250+00:00",
+      "platform": "botpress",
+      "action": "researched",
+      "details": "batch mode \u2014 URL opened"
+    },
+    {
+      "time": "2026-03-11T10:39:11.993109+00:00",
+      "platform": "virtuals",
+      "action": "researched",
+      "details": "batch mode \u2014 URL opened"
+    },
+    {
+      "time": "2026-03-11T10:39:12.076539+00:00",
+      "platform": "agentverse",
+      "action": "researched",
+      "details": "batch mode \u2014 URL opened"
+    },
+    {
+      "time": "2026-03-11T10:39:12.238335+00:00",
+      "platform": "olas",
+      "action": "researched",
+      "details": "batch mode \u2014 URL opened"
+    }
+  ]
+}

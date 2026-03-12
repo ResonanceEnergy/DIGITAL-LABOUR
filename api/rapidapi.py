@@ -41,10 +41,11 @@ from typing import Optional
 
 rapid_app = FastAPI(
     title="Bit Rage Labour — AI Agents API",
-    version="1.0.0",
+    version="2.0.0",
     description=(
-        "Four AI agents for sales outreach, support resolution, "
-        "content repurposing, and document extraction. "
+        "24 AI agents for sales outreach, lead generation, content creation, "
+        "data entry, web scraping, bookkeeping, proposals, SEO, ad copy, "
+        "market research, business plans, tech docs, and more. "
         "Multi-agent pipelines with QA verification on every output."
     ),
     docs_url="/docs",
@@ -57,6 +58,10 @@ rapid_app.add_middleware(
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
+
+# ── Mount the full intake API (all 24 agents via /tasks) ────────
+from api.intake import app as intake_app
+rapid_app.mount("/intake", intake_app)
 
 
 # ── Models ──────────────────────────────────────────────────────
@@ -106,7 +111,6 @@ async def verify_api_key(
 
     # Direct API key for non-RapidAPI usage
     if x_api_key:
-        # For now accept any key — will add key management later
         return True
 
     # In development/test, allow unauthenticated
@@ -116,14 +120,102 @@ async def verify_api_key(
     raise HTTPException(status_code=401, detail="API key required")
 
 
-# ── Endpoints ───────────────────────────────────────────────────
+# ── Unified Run Endpoint (ALL 24 agents) ────────────────────────
+
+ALL_AGENTS = [
+    "sales_outreach", "support_ticket", "content_repurpose", "doc_extract",
+    "lead_gen", "email_marketing", "seo_content", "social_media",
+    "data_entry", "web_scraper", "crm_ops", "bookkeeping",
+    "proposal_writer", "product_desc", "resume_writer", "ad_copy",
+    "market_research", "business_plan", "press_release", "tech_docs",
+    "context_manager", "qa_manager", "production_manager", "automation_manager",
+]
+
+
+class UnifiedRequest(BaseModel):
+    agent: str = Field(..., description=f"Agent name. One of: {', '.join(ALL_AGENTS)}")
+    inputs: dict = Field(default_factory=dict, description="Agent-specific inputs (see /agents for details)")
+    provider: str = Field(default="", description="LLM provider: openai|anthropic|gemini|grok")
+    client: str = Field(default="direct", description="Client identifier for billing/tracking")
+
+
+@rapid_app.post("/v1/run", response_model=AgentResponse)
+async def run_agent(req: UnifiedRequest):
+    """Run any of the 24 AI agents. Send the agent name + inputs dict.
+
+    This is the universal endpoint — use /agents to see input schemas per agent.
+    """
+    await verify_api_key()
+    if req.agent not in ALL_AGENTS:
+        raise HTTPException(status_code=400, detail=f"Unknown agent: {req.agent}. Must be one of: {ALL_AGENTS}")
+
+    start = time.time()
+    try:
+        from dispatcher.router import create_event, route_task
+        inputs = {**req.inputs}
+        if req.provider:
+            inputs["provider"] = req.provider
+        event = create_event(
+            task_type=req.agent,
+            inputs=inputs,
+            client_id=req.client,
+        )
+        result = route_task(event)
+        elapsed = int((time.time() - start) * 1000)
+        return AgentResponse(
+            task_id=result.get("task_id", f"rapid_{int(time.time())}"),
+            agent=req.agent,
+            status="completed",
+            processing_time_ms=elapsed,
+            result=result.get("outputs", result),
+            qa_status=result.get("qa", {}).get("status", "UNKNOWN"),
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@rapid_app.get("/agents")
+def list_agents():
+    """List all available agents with their expected input fields."""
+    agent_info = {
+        "sales_outreach": {"inputs": {"company": "Target company name", "role": "Target role/title"}},
+        "support_ticket": {"inputs": {"ticket_text": "Support ticket content"}},
+        "content_repurpose": {"inputs": {"content": "Blog/article text to repurpose"}},
+        "doc_extract": {"inputs": {"document_text": "Document text", "doc_type": "invoice|contract|resume|auto"}},
+        "lead_gen": {"inputs": {"industry": "Target industry", "region": "Geographic region"}},
+        "email_marketing": {"inputs": {"product": "Product/service name", "audience": "Target audience"}},
+        "seo_content": {"inputs": {"keyword": "Target keyword", "content_type": "blog|landing|pillar"}},
+        "social_media": {"inputs": {"topic": "Post topic", "platform": "linkedin|twitter|instagram", "cta_goal": "Call to action"}},
+        "data_entry": {"inputs": {"source_data": "Raw data to process", "output_format": "structured format spec"}},
+        "web_scraper": {"inputs": {"source_url": "URL to scrape", "extraction_target": "What data to extract"}},
+        "crm_ops": {"inputs": {"contact_data": "Contact info", "action": "update|segment|report"}},
+        "bookkeeping": {"inputs": {"transactions": "Transaction data", "period": "monthly|quarterly|annual"}},
+        "proposal_writer": {"inputs": {"project": "Project description", "client_name": "Client"}},
+        "product_desc": {"inputs": {"product_specs": "Product details", "tone": "professional|casual|luxury"}},
+        "resume_writer": {"inputs": {"career_data": "Career history + skills", "target_industry": "Target industry"}},
+        "ad_copy": {"inputs": {"product": "Product/brand info", "platform": "google|facebook|instagram"}},
+        "market_research": {"inputs": {"topic": "Research topic", "depth": "overview|detailed|comprehensive"}},
+        "business_plan": {"inputs": {"business_idea": "Business concept", "market": "Target market"}},
+        "press_release": {"inputs": {"announcement": "News/announcement", "company": "Company name"}},
+        "tech_docs": {"inputs": {"code_or_api": "Code/API to document", "doc_type": "api|readme|tutorial"}},
+    }
+    return {"agents": agent_info, "total": len(ALL_AGENTS), "endpoint": "POST /v1/run"}
+
+
+# ── Endpoints (Legacy v1 typed) ─────────────────────────────────
 
 @rapid_app.get("/")
 def api_root():
     return {
         "name": "Bit Rage Labour — AI Agents API",
-        "version": "1.0.0",
-        "agents": ["sales_ops", "support", "content_repurpose", "doc_extract"],
+        "version": "2.0.0",
+        "agents": ALL_AGENTS,
+        "endpoints": {
+            "universal": "POST /v1/run",
+            "agents_list": "GET /agents",
+            "full_api": "/intake/docs",
+            "health": "GET /health",
+        },
         "docs": "/docs",
     }
 

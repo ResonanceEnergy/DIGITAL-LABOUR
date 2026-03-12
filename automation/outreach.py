@@ -171,10 +171,27 @@ def send_approved(auto_approve: bool = False) -> list[dict]:
         if not body:
             continue
 
-        # Get contact email if available
+        # Get contact email — auto-discover if missing
         enrichment = data.get("enrichment", {})
         contact_email = enrichment.get("contact_email_guess", "")
         contact_name = enrichment.get("contact_name", "")
+
+        if not contact_email or "@" not in contact_email or any(
+            x in contact_email.lower() for x in ["head_of", "vp.", "director_", "ceo@", "cfo@"]
+        ):
+            try:
+                from automation.email_discovery import discover_email
+                result = discover_email(company, data["target"]["role"])
+                contact_email = result.get("contact_email", "")
+                contact_name = result.get("contact_name", "") or contact_name
+                # Persist back to file
+                enrichment["contact_email_guess"] = contact_email
+                enrichment["contact_name"] = contact_name
+                enrichment["email_confidence"] = result.get("email_confidence", 0)
+                data["enrichment"] = enrichment
+                f.write_text(json.dumps(data, indent=2), encoding="utf-8")
+            except Exception as e:
+                print(f"  [WARN] Email discovery failed for {company}: {e}")
         role = data["target"]["role"]
 
         record = {

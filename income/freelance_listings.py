@@ -180,6 +180,565 @@ Send me invoices, contracts, or resumes and get clean, structured JSON data back
             ("How accurate is extraction?", "85%+ accuracy with confidence scores on every field."),
         ],
     },
+    # ── Gig 5: Lead Generation ──
+    {
+        "title": "I will find qualified B2B leads with AI-powered research and scoring",
+        "category": "Programming & Tech > AI Services > AI Agents",
+        "tags": ["lead generation", "b2b leads", "ai lead gen", "prospect research", "lead scoring", "sales leads", "lead list"],
+        "description": """## AI Lead Generation Agent
+
+Get a scored list of qualified B2B leads — researched, enriched, and ready for outreach.
+
+### What You Get:
+- **ICP-matched leads** -- filtered by industry, size, geo, and role
+- **Lead scoring** -- 1-100 score based on fit + buying signals
+- **Company enrichment** -- tech stack, funding, headcount, recent news
+- **Contact predictions** -- email patterns + LinkedIn URLs
+- **Export-ready** -- JSON, CSV, or CRM-import format
+
+### How It Works:
+1. Define your Ideal Customer Profile (industry, size, role, region)
+2. AI scans databases and web sources for matching companies
+3. Each lead is scored and enriched with real signals
+4. QA verification filters out low-quality matches
+5. Delivered as a scored, ranked list
+
+**50+ qualified leads per batch. Delivered in minutes.**""",
+        "packages": {
+            "Basic ($5)": "10 qualified leads -- scored + enriched + CSV export",
+            "Standard ($20)": "50 leads -- full enrichment + priority scoring + CRM format",
+            "Premium ($75)": "200 leads -- deep research + custom scoring + dedicated batch",
+        },
+        "faq": [
+            ("What info do you need?", "Industry, company size range, target role, and geography."),
+            ("How do you score leads?", "Combination of ICP fit, buying signals, company growth indicators."),
+            ("Can you find emails?", "Email pattern predictions + LinkedIn URLs. Not verified emails."),
+        ],
+    },
+    # ── Gig 6: Email Marketing ──
+    {
+        "title": "I will create a complete AI-generated email marketing sequence",
+        "category": "Programming & Tech > AI Services > AI Agents",
+        "tags": ["email marketing", "email sequence", "drip campaign", "email automation", "ai copywriting", "newsletter", "email funnel"],
+        "description": """## AI Email Marketing Sequence Builder
+
+Complete email sequences -- welcome, nurture, re-engagement, or launch campaigns. AI-written, QA-verified.
+
+### What You Get:
+- **5-10 email sequence** -- subject lines + body copy + CTAs
+- **Segmentation strategy** -- who gets what, when
+- **A/B variants** -- 2 subject line options per email
+- **Platform-ready** -- Mailchimp, ConvertKit, or plain HTML
+- **Performance predictions** -- expected open/click rates
+
+### Campaign Types:
+- Welcome/onboarding sequences
+- Nurture drips (education-first selling)
+- Product launch announcements
+- Re-engagement (win-back) campaigns
+- Cart abandonment sequences
+
+**Professional email campaigns in under 5 minutes.**""",
+        "packages": {
+            "Basic ($5)": "3-email sequence -- subject + body + CTAs",
+            "Standard ($20)": "7-email sequence + A/B variants + segmentation notes",
+            "Premium ($60)": "Full funnel (10 emails) + strategy doc + platform setup guide",
+        },
+        "faq": [
+            ("What info do I provide?", "Your business, target audience, goal, and preferred tone."),
+            ("Which platforms do you support?", "Any platform. I provide copy you paste in."),
+            ("Do you handle design?", "Text/HTML copy only. You handle design in your platform."),
+        ],
+    },
+    # ── Gig 7: SEO Content ──
+    {
+        "title": "I will write SEO-optimized blog posts and articles using AI research",
+        "category": "Writing & Translation > Content Writing > SEO Writing",
+        "tags": ["seo writing", "blog post", "ai content", "seo article", "content marketing", "keyword optimization", "long form content"],
+        "description": """## AI SEO Content Writer
+
+Long-form, keyword-optimized blog posts and articles -- researched, written, and QA-checked by AI agents.
+
+### What You Get:
+- **Keyword research** -- primary + secondary + LSI keywords
+- **SEO-optimized article** -- title, meta description, H2/H3 structure
+- **Internal linking suggestions** -- boost your existing content
+- **Readability score** -- Flesch-Kincaid optimized
+- **QA-verified** -- no fluff, no AI artifacts, no plagiarism signals
+
+### Content Types:
+- Blog posts (1500-3000 words)
+- Pillar pages (3000-5000 words)
+- How-to guides
+- Listicles
+- Comparison articles
+
+**Rank-ready content. Not AI slop.**""",
+        "packages": {
+            "Basic ($5)": "1 blog post (1500 words) -- keyword optimized + meta description",
+            "Standard ($20)": "3 articles + keyword research report + internal linking map",
+            "Premium ($60)": "10 articles + content calendar + pillar page strategy",
+        },
+        "faq": [
+            ("Do you do keyword research?", "Yes. Primary, secondary, and LSI keywords included."),
+            ("What about images?", "Text content only. I suggest image placements and alt text."),
+            ("Can I request specific topics?", "Absolutely. Give me the topic, audience, and target keyword."),
+        ],
+    },
+    # ── Gig 8: Social Media ──
+    {
+        "title": "I will create a month of AI-generated social media content for any platform",
+        "category": "Digital Marketing > Social Media Marketing > Social Media Content",
+        "tags": ["social media content", "social media posts", "linkedin posts", "twitter content", "instagram captions", "ai social media", "content calendar"],
+        "description": """## AI Social Media Content Generator
+
+30 days of platform-optimized social media posts -- scheduled, hashtagged, and ready to post.
+
+### What You Get:
+- **30 unique posts** per platform -- no repeats
+- **Platform optimization** -- length, hashtags, format per network
+- **Content mix** -- educational, promotional, engagement, storytelling
+- **Hashtag research** -- relevant, trending, niche-specific
+- **Content calendar** -- date + time suggestions for optimal reach
+
+### Platforms Covered:
+- LinkedIn (professional, thought leadership)
+- Twitter/X (threads, single tweets, engagement hooks)
+- Instagram (captions, carousel outlines, Reels scripts)
+- Facebook (community posts, event promos)
+- TikTok (scripts with hooks and CTAs)
+
+**A full month of content in under 10 minutes.**""",
+        "packages": {
+            "Basic ($5)": "1 week (7 posts) for 1 platform -- captions + hashtags",
+            "Standard ($20)": "30 posts for 2 platforms + content calendar",
+            "Premium ($50)": "30 posts for 5 platforms + strategy + engagement templates",
+        },
+        "faq": [
+            ("Which platforms?", "LinkedIn, Twitter/X, Instagram, Facebook, TikTok."),
+            ("Do you create images?", "Text/captions only. Image suggestions included."),
+            ("Can I pick the content mix?", "Yes. Default is 40% educational, 30% promotional, 30% engagement."),
+        ],
+    },
+    # ── Gig 9: Data Entry ──
+    {
+        "title": "I will process and clean your messy data using AI -- spreadsheets, CSVs, databases",
+        "category": "Programming & Tech > AI Services > AI Agents",
+        "tags": ["data entry", "data cleaning", "data processing", "spreadsheet", "csv processing", "data formatting", "ai data entry"],
+        "description": """## AI Data Entry & Cleaning Agent
+
+Messy spreadsheets, inconsistent formats, duplicate records -- fixed and standardized by AI in minutes.
+
+### What You Get:
+- **Data cleaning** -- fix typos, standardize formats, remove duplicates
+- **Data transformation** -- convert between formats (CSV, JSON, Excel)
+- **Field extraction** -- pull specific data from unstructured text
+- **Validation** -- flag impossible values, missing fields, outliers
+- **Quality report** -- summary of changes made + confidence scores
+
+### Common Tasks:
+- Clean and deduplicate contact lists
+- Standardize address/phone/email formats
+- Categorize products or transactions
+- Merge data from multiple sources
+- Convert between file formats
+
+**Hours of manual work done in minutes.**""",
+        "packages": {
+            "Basic ($5)": "Up to 500 rows -- clean + deduplicate + export",
+            "Standard ($15)": "Up to 5,000 rows -- full cleaning + transformation + report",
+            "Premium ($40)": "Up to 50,000 rows -- batch processing + custom rules + validation",
+        },
+        "faq": [
+            ("What formats do you accept?", "CSV, JSON, Excel (.xlsx), plain text, TSV."),
+            ("How do you handle duplicates?", "Fuzzy matching on key fields. You choose merge strategy."),
+            ("Can you handle large files?", "Up to 50K rows per batch. Larger files split automatically."),
+        ],
+    },
+    # ── Gig 10: Web Scraper ──
+    {
+        "title": "I will scrape and structure web data using AI -- contacts, products, listings",
+        "category": "Programming & Tech > AI Services > AI Agents",
+        "tags": ["web scraping", "data scraping", "lead scraping", "contact extraction", "price scraping", "ai scraper", "data collection"],
+        "description": """## AI Web Scraping Agent
+
+Extract structured data from any website -- contacts, products, reviews, listings. Cleaned, formatted, and delivered.
+
+### What You Get:
+- **Structured extraction** -- contacts, products, prices, reviews
+- **Multi-page support** -- handles pagination and listing pages
+- **Data cleaning** -- normalized formats, removed duplicates
+- **Multiple export formats** -- JSON, CSV, Excel
+- **Extraction schema** -- reusable template for repeat jobs
+
+### Common Scraping Targets:
+- Business directories (contacts + emails)
+- E-commerce sites (products + prices)
+- Job boards (listings + requirements)
+- Review sites (ratings + text)
+- Real estate listings (prices + details)
+
+**Clean data from any website. No coding required.**""",
+        "packages": {
+            "Basic ($5)": "1 source -- up to 100 records extracted + CSV",
+            "Standard ($20)": "3 sources -- up to 1,000 records + deduplication",
+            "Premium ($50)": "10 sources -- up to 10,000 records + custom schema",
+        },
+        "faq": [
+            ("Is this legal?", "I scrape publicly available data only. No login-walled content."),
+            ("What if the site changes?", "Schemas are adaptable. I include update instructions."),
+            ("Can you schedule recurring scrapes?", "I provide the schema. You can automate with our API."),
+        ],
+    },
+    # ── Gig 11: CRM Operations ──
+    {
+        "title": "I will clean, enrich and optimize your CRM data using AI",
+        "category": "Programming & Tech > AI Services > AI Agents",
+        "tags": ["crm data", "crm cleanup", "salesforce cleanup", "hubspot data", "crm optimization", "contact enrichment", "data hygiene"],
+        "description": """## AI CRM Operations Agent
+
+Clean, deduplicate, enrich, and score your CRM contacts -- HubSpot, Salesforce, or spreadsheet-based.
+
+### What You Get:
+- **Deduplication** -- merge duplicate contacts intelligently
+- **Data enrichment** -- add missing company info, titles, LinkedIn
+- **Lead scoring** -- rank contacts by engagement potential
+- **Segmentation** -- auto-tag by industry, size, stage
+- **Health report** -- CRM data quality score + recommendations
+
+### Supported CRMs:
+- HubSpot (CSV export/import)
+- Salesforce (CSV export/import)
+- Pipedrive, Zoho, or any spreadsheet-based CRM
+
+**Turn your messy CRM into a sales machine.**""",
+        "packages": {
+            "Basic ($5)": "Up to 500 contacts -- deduplicate + clean + export",
+            "Standard ($20)": "Up to 5,000 contacts -- full enrichment + scoring + segmentation",
+            "Premium ($50)": "Up to 25,000 contacts -- deep clean + custom scoring + strategy",
+        },
+        "faq": [
+            ("Which CRMs?", "Any that exports to CSV. HubSpot and Salesforce preferred."),
+            ("Do you access my CRM directly?", "No. You export CSV, I process, you re-import."),
+            ("How accurate is enrichment?", "Company data 85%+. Individual enrichment varies."),
+        ],
+    },
+    # ── Gig 12: Bookkeeping ──
+    {
+        "title": "I will categorize and reconcile your financial transactions using AI",
+        "category": "Programming & Tech > AI Services > AI Agents",
+        "tags": ["bookkeeping", "expense categorization", "financial data", "transaction sorting", "ai bookkeeping", "accounting automation", "reconciliation"],
+        "description": """## AI Bookkeeping Agent
+
+Categorize expenses, reconcile transactions, and generate financial summaries -- formatted for your accountant.
+
+### What You Get:
+- **Auto-categorization** -- income, expenses, transfers classified
+- **Tax category mapping** -- aligned with standard tax categories
+- **Reconciliation** -- match bank statements to invoices
+- **Summary reports** -- monthly P&L, expense breakdown
+- **Export-ready** -- QuickBooks, Xero, or CSV format
+
+### Common Tasks:
+- Categorize bank statement transactions
+- Match invoices to payments
+- Generate expense reports
+- Prepare data for tax filing
+- Monthly financial summaries
+
+**Your bookkeeping done in minutes, not hours.**""",
+        "packages": {
+            "Basic ($5)": "Up to 100 transactions -- categorized + summary",
+            "Standard ($20)": "Up to 500 transactions -- full categorization + P&L report",
+            "Premium ($50)": "Up to 2,000 transactions -- reconciliation + tax prep + export",
+        },
+        "faq": [
+            ("What format?", "CSV bank statements, spreadsheets, or plain text transaction lists."),
+            ("Do you do actual accounting?", "Data processing only. I categorize and summarize -- your CPA does the rest."),
+            ("Which accounting software?", "QuickBooks, Xero, Wave, or plain CSV export."),
+        ],
+    },
+    # ── Gig 13: Proposal Writer ──
+    {
+        "title": "I will write professional business proposals and project bids using AI",
+        "category": "Writing & Translation > Business & Marketing Copy > Business Plans & Proposals",
+        "tags": ["business proposal", "project proposal", "proposal writing", "bid writing", "rfp response", "ai proposal", "grant proposal"],
+        "description": """## AI Proposal Writer Agent
+
+Professional proposals that win -- project bids, RFP responses, grant applications, partnership proposals.
+
+### What You Get:
+- **Executive summary** -- compelling overview of your offering
+- **Scope of work** -- detailed deliverables, timeline, milestones
+- **Budget breakdown** -- itemized pricing with justification
+- **Team/capability section** -- why you're the right choice
+- **QA-verified** -- grammar, formatting, persuasion checked
+
+### Proposal Types:
+- Project proposals (freelance/agency bids)
+- RFP/RFQ responses
+- Grant applications
+- Partnership proposals
+- Internal project pitches
+
+**Win more deals with proposals that close.**""",
+        "packages": {
+            "Basic ($5)": "1 proposal (2-3 pages) -- executive summary + scope + pricing",
+            "Standard ($20)": "1 detailed proposal (5-8 pages) + budget table + timeline",
+            "Premium ($60)": "3 proposals + customization per recipient + follow-up email",
+        },
+        "faq": [
+            ("What do you need?", "The project brief, your company info, and your pricing."),
+            ("Can you respond to RFPs?", "Yes. Send the RFP document and I'll draft a tailored response."),
+            ("What industries?", "Any industry. AI adapts to your sector's language and norms."),
+        ],
+    },
+    # ── Gig 14: Product Descriptions ──
+    {
+        "title": "I will write compelling product descriptions for any e-commerce platform",
+        "category": "Writing & Translation > Business & Marketing Copy > Product Descriptions",
+        "tags": ["product descriptions", "ecommerce copy", "amazon listing", "shopify copy", "product copywriting", "ai product writer", "listing optimization"],
+        "description": """## AI Product Description Writer
+
+Conversion-optimized product descriptions for Amazon, Shopify, Etsy, eBay, or any e-commerce platform.
+
+### What You Get:
+- **Platform-optimized copy** -- formatted for your marketplace
+- **SEO keywords** -- naturally woven into descriptions
+- **Benefit-focused** -- features translated into customer value
+- **Bullet points** -- scannable highlights for quick reading
+- **A/B variants** -- 2 versions to test which converts better
+
+### Platforms:
+- Amazon (title, bullets, A+ content)
+- Shopify (product page copy)
+- Etsy (listing description + tags)
+- eBay (item description)
+- General e-commerce / DTC
+
+**Descriptions that sell, not just describe.**""",
+        "packages": {
+            "Basic ($5)": "5 product descriptions -- title + description + bullets",
+            "Standard ($20)": "20 products -- SEO-optimized + A/B variants",
+            "Premium ($50)": "50 products -- full catalog copy + keyword research",
+        },
+        "faq": [
+            ("What do I provide?", "Product name, key features, target audience. Photos optional."),
+            ("Which platforms?", "Amazon, Shopify, Etsy, eBay, or custom."),
+            ("Do you do A+ / Enhanced content?", "Yes, for Amazon A+ and Shopify rich text."),
+        ],
+    },
+    # ── Gig 15: Resume Writer ──
+    {
+        "title": "I will write or rewrite your resume and cover letter using AI optimization",
+        "category": "Writing & Translation > Resume Writing",
+        "tags": ["resume writing", "cv writing", "cover letter", "resume optimization", "ats resume", "ai resume", "job application"],
+        "description": """## AI Resume & Cover Letter Writer
+
+ATS-optimized resumes and tailored cover letters -- designed to get past screening and impress hiring managers.
+
+### What You Get:
+- **ATS-optimized resume** -- formatted to pass applicant tracking systems
+- **Keyword optimization** -- matched to your target role/industry
+- **Achievement-focused** -- quantified accomplishments, not just duties
+- **Cover letter** -- personalized to company and role
+- **Multiple formats** -- PDF-ready text, JSON, and plain text
+
+### Resume Styles:
+- Modern (clean, minimal, tech-friendly)
+- Executive (senior leadership focus)
+- Creative (design/marketing roles)
+- Academic (research/education focus)
+
+**Stand out from 300+ applicants per job posting.**""",
+        "packages": {
+            "Basic ($5)": "Resume rewrite -- ATS-optimized + keyword targeted",
+            "Standard ($20)": "Resume + cover letter + LinkedIn summary",
+            "Premium ($50)": "Resume + cover letter + LinkedIn + 3 role-specific variants",
+        },
+        "faq": [
+            ("What do I provide?", "Your current resume or experience details + target role."),
+            ("Is it ATS-friendly?", "Yes. Optimized formatting and keywords for ATS systems."),
+            ("Can I target multiple roles?", "Premium package includes 3 role-specific variants."),
+        ],
+    },
+    # ── Gig 16: Ad Copy ──
+    {
+        "title": "I will write high-converting ad copy for Google, Meta, and LinkedIn ads",
+        "category": "Digital Marketing > Search Engine Marketing (SEM) > PPC Campaign Management",
+        "tags": ["ad copy", "google ads", "facebook ads", "linkedin ads", "ppc copy", "ai ad writer", "ad copywriting"],
+        "description": """## AI Ad Copy Writer
+
+High-converting ad copy for Google Search, Meta (Facebook/Instagram), LinkedIn, and display ads.
+
+### What You Get:
+- **Platform-specific copy** -- character limits and format rules enforced
+- **Multiple variants** -- 3-5 ad versions per campaign for A/B testing
+- **Headline + description** -- hooks + value props + CTAs
+- **Keyword alignment** -- copy matches your target keywords
+- **QA-verified** -- no policy violations, no clickbait
+
+### Ad Types:
+- Google Search Ads (responsive search ads, headlines + descriptions)
+- Meta Ads (primary text + headline + description)
+- LinkedIn Ads (sponsored content + message ads)
+- Display Ads (banner copy, responsive display)
+- YouTube pre-roll scripts
+
+**Ads that convert. Not ads that burn budget.**""",
+        "packages": {
+            "Basic ($5)": "1 campaign -- 5 ad variants for 1 platform",
+            "Standard ($20)": "3 campaigns -- 15 variants across 2 platforms",
+            "Premium ($50)": "10 campaigns -- 50 variants across all platforms + strategy notes",
+        },
+        "faq": [
+            ("Which platforms?", "Google, Meta (Facebook/IG), LinkedIn, YouTube, Display."),
+            ("Do you run the ads?", "I write copy. You handle platform setup and budget."),
+            ("Can you match my brand voice?", "Yes. Send brand guidelines and I'll match tone."),
+        ],
+    },
+    # ── Gig 17: Market Research ──
+    {
+        "title": "I will conduct AI-powered market research and competitive analysis",
+        "category": "Programming & Tech > AI Services > AI Agents",
+        "tags": ["market research", "competitive analysis", "industry analysis", "market sizing", "ai research", "business intelligence", "market report"],
+        "description": """## AI Market Research Agent
+
+Comprehensive market research reports -- competitor analysis, market sizing, trend identification, and strategic recommendations.
+
+### What You Get:
+- **Market overview** -- size, growth rate, key players
+- **Competitor analysis** -- top 5-10 competitors mapped
+- **SWOT analysis** -- strengths, weaknesses, opportunities, threats
+- **Trend identification** -- emerging patterns and disruptions
+- **Strategic recommendations** -- actionable next steps
+
+### Report Types:
+- Market overview (industry landscape)
+- Competitive analysis (head-to-head comparison)
+- Market entry assessment (new market feasibility)
+- Trend analysis (emerging opportunities)
+- Customer analysis (segment profiling)
+
+**Research that took weeks, delivered in minutes.**""",
+        "packages": {
+            "Basic ($5)": "Market snapshot -- overview + top 5 competitors + trends",
+            "Standard ($25)": "Full market report -- sizing + SWOT + competitor deep-dive",
+            "Premium ($75)": "Strategic report -- full analysis + recommendations + presentation",
+        },
+        "faq": [
+            ("What industries?", "Any industry. AI adapts research to your sector."),
+            ("How deep is the analysis?", "Based on publicly available data + AI synthesis."),
+            ("Do you include data sources?", "Yes. All claims include source references."),
+        ],
+    },
+    # ── Gig 18: Business Plan ──
+    {
+        "title": "I will write a professional business plan with financials using AI",
+        "category": "Writing & Translation > Business & Marketing Copy > Business Plans & Proposals",
+        "tags": ["business plan", "startup plan", "financial projections", "investor pitch", "ai business plan", "business strategy", "funding proposal"],
+        "description": """## AI Business Plan Writer
+
+Investor-ready business plans with financial projections, market analysis, and strategic roadmaps.
+
+### What You Get:
+- **Executive summary** -- elevator pitch in writing
+- **Market analysis** -- TAM/SAM/SOM, competitor landscape
+- **Business model** -- revenue streams, pricing strategy
+- **Financial projections** -- 3-year P&L, cash flow, break-even
+- **Go-to-market strategy** -- launch plan + customer acquisition
+- **Team section** -- organizational structure + key hires
+
+### Plan Types:
+- Startup business plan (seed/Series A)
+- Small business plan (SBA/bank loan ready)
+- Growth plan (expansion/scaling strategy)
+- Internal strategic plan (operational roadmap)
+
+**The plan investors actually want to read.**""",
+        "packages": {
+            "Basic ($10)": "Lean plan -- executive summary + model + 1-year financials",
+            "Standard ($30)": "Full plan (15-20 pages) -- market analysis + 3-year financials",
+            "Premium ($75)": "Investor-ready plan + pitch deck outline + financial model spreadsheet",
+        },
+        "faq": [
+            ("What do I provide?", "Business idea, target market, revenue model, and funding goal."),
+            ("Are financials realistic?", "AI generates projections based on industry benchmarks."),
+            ("Can I use this for investors?", "Yes. Formatted for investor/bank submission."),
+        ],
+    },
+    # ── Gig 19: Press Release ──
+    {
+        "title": "I will write a professional press release for your announcement",
+        "category": "Writing & Translation > Business & Marketing Copy > Press Releases",
+        "tags": ["press release", "media release", "pr writing", "news release", "product launch", "ai press release", "media announcement"],
+        "description": """## AI Press Release Writer
+
+AP-style press releases for product launches, partnerships, funding, events, and company news.
+
+### What You Get:
+- **AP-style format** -- standard press release structure
+- **Compelling headline** -- newsworthy angle that grabs attention
+- **Boilerplate** -- company description paragraph
+- **Quote sections** -- spokesperson quotes ready for attribution
+- **Distribution-ready** -- formatted for PR Newswire, Business Wire, etc.
+
+### Release Types:
+- Product/service launch
+- Partnership/collaboration announcement
+- Funding/investment news
+- Event announcement
+- Company milestone
+- Executive hire/promotion
+
+**Newsworthy press releases in under 5 minutes.**""",
+        "packages": {
+            "Basic ($5)": "1 press release -- 400-600 words + boilerplate",
+            "Standard ($15)": "1 press release + media pitch email + distribution guide",
+            "Premium ($40)": "3 press releases + media list suggestions + pitch emails",
+        },
+        "faq": [
+            ("What format?", "Standard AP-style press release. Distribution-ready."),
+            ("Do you distribute?", "I write the release. You handle distribution (I suggest platforms)."),
+            ("Can you write for my industry?", "Yes. AI adapts tone and terminology to any sector."),
+        ],
+    },
+    # ── Gig 20: Technical Documentation ──
+    {
+        "title": "I will write technical documentation, API docs, and user guides using AI",
+        "category": "Programming & Tech > AI Services > AI Agents",
+        "tags": ["technical writing", "api documentation", "user guide", "developer docs", "ai tech docs", "software documentation", "readme"],
+        "description": """## AI Technical Documentation Agent
+
+API references, user guides, README files, SDK docs, and developer onboarding materials -- clear, accurate, professional.
+
+### What You Get:
+- **API documentation** -- endpoints, parameters, examples, error codes
+- **User guides** -- step-by-step instructions with screenshots placeholders
+- **README files** -- installation, quickstart, configuration
+- **SDK integration guides** -- code samples in multiple languages
+- **Changelog/release notes** -- versioned update summaries
+
+### Documentation Types:
+- REST API reference
+- SDK/library documentation
+- User/admin guides
+- Installation/deployment docs
+- Architecture overviews
+- Release notes / changelogs
+
+**Documentation your developers will actually read.**""",
+        "packages": {
+            "Basic ($5)": "1 document (up to 2000 words) -- formatted + code samples",
+            "Standard ($20)": "3 documents -- API ref + quickstart + README",
+            "Premium ($60)": "Full documentation suite -- API + guides + architecture + changelog",
+        },
+        "faq": [
+            ("What do you need?", "Source code, API specs (OpenAPI/Swagger), or raw notes."),
+            ("What languages for code samples?", "Python, JavaScript, curl, and any requested language."),
+            ("Do you maintain docs?", "I generate docs. You maintain. Premium includes update process."),
+        ],
+    },
 ]
 
 
@@ -262,29 +821,29 @@ Happy to adapt it to your specific format requirements.
 
 UPWORK_PROFILE = {
     "title": "AI Agent Developer | Multi-Agent Pipelines | GPT-4o, Claude, Gemini",
-    "headline": "Production AI Agent Systems — Sales, Support, Content & Data Extraction Automation",
+    "headline": "Production AI Agent Systems -- Sales, Support, Content & Data Extraction Automation",
     "hourly_rate": "$85-200/hr",
-    "overview": """I build production AI agent pipelines that actually work in business — not ChatGPT wrappers or prompt-only demos.
+    "overview": """I build production AI agent pipelines that actually work in business -- not ChatGPT wrappers or prompt-only demos.
 
 **What I Build:**
-• Sales Outreach Agents — real-time company research → personalized 3-email sequences → QA verification → delivery in <60s
-• Support Resolution Agents — ticket triage, severity scoring, draft responses, policy compliance checks
-• Content Repurposing Agents — blog post → LinkedIn, Twitter/X, email newsletter, Instagram, TikTok scripts
-• Document Extraction Agents — invoices, contracts, resumes → structured JSON/CSV with confidence scores
+- Sales Outreach Agents -- real-time company research -> personalized 3-email sequences -> QA verification -> delivery in <60s
+- Support Resolution Agents -- ticket triage, severity scoring, draft responses, policy compliance checks
+- Content Repurposing Agents -- blog post -> LinkedIn, Twitter/X, email newsletter, Instagram, TikTok scripts
+- Document Extraction Agents -- invoices, contracts, resumes -> structured JSON/CSV with confidence scores
 
 **My Tech Stack:**
 Python | FastAPI | OpenAI GPT-4o | Anthropic Claude | Google Gemini | xAI Grok | Multi-agent orchestration | QA verification pipelines | Webhook delivery | Stripe billing integration | Docker
 
 **What Makes Me Different:**
-→ I run a live AI agent agency (Bit Rage Labour) — these agents are in production RIGHT NOW serving paying clients
-→ Multi-LLM architecture with automatic failover (if OpenAI is down, Claude takes over instantly)
-→ Every output passes through automated QA before delivery
-→ Full API-first architecture — your agents ship with REST endpoints, not just scripts
+-> I run a live AI agent agency (Bit Rage Labour) -- these agents are in production RIGHT NOW serving paying clients
+-> Multi-LLM architecture with automatic failover (if OpenAI is down, Claude takes over instantly)
+-> Every output passes through automated QA before delivery
+-> Full API-first architecture -- your agents ship with REST endpoints, not just scripts
 
 **Engagement Models:**
-• Hourly ($85-200/hr) — for custom agent builds
-• Fixed price — for well-scoped projects
-• Retainer ($750-2,500/mo) — ongoing agent management + optimization
+- Hourly ($85-200/hr) -- for custom agent builds
+- Fixed price -- for well-scoped projects
+- Retainer ($750-2,500/mo) -- ongoing agent management + optimization
 
 Based in Canada. Built by Resonance Energy.""",
     "skills": [
@@ -296,37 +855,638 @@ Based in Canada. Built by Resonance Energy.""",
     "portfolio_items": [
         {
             "title": "AI Sales Outreach Pipeline",
-            "description": "Multi-agent system: research agent → writer agent → QA agent. Processes 50+ leads/hour with personalized 3-email sequences using real company signals.",
-            "url": "https://bit-rage-labour.com",
+            "description": "Multi-agent system: research agent -> writer agent -> QA agent. Processes 50+ leads/hour with personalized 3-email sequences using real company signals.",
         },
         {
             "title": "AI Support Ticket Resolver",
             "description": "Automated triage + severity scoring + draft responses. Handles 200+ tickets/hour with <10s response time per ticket.",
-            "url": "https://bit-rage-labour.com",
         },
         {
             "title": "Content Repurposing Engine",
-            "description": "One blog post → 5 platform-optimized formats (LinkedIn, Twitter/X, email, Instagram, TikTok) with tone matching and character limits.",
-            "url": "https://bit-rage-labour.com",
+            "description": "One blog post -> 5 platform-optimized formats (LinkedIn, Twitter/X, email, Instagram, TikTok) with tone matching and character limits.",
         },
         {
             "title": "Document Extraction Agent",
-            "description": "Invoice, contract, and resume parser → structured JSON with entity extraction and confidence scoring.",
-            "url": "https://bit-rage-labour.com",
+            "description": "Invoice, contract, and resume parser -> structured JSON with entity extraction and confidence scoring.",
+        },
+        {
+            "title": "AI Lead Generation System",
+            "description": "ICP-matched B2B lead finder with scoring, enrichment, and CRM-ready export. 50+ qualified leads per batch.",
+        },
+        {
+            "title": "Email Marketing Automation",
+            "description": "AI-generated 5-10 email sequences -- welcome, nurture, re-engagement, launch campaigns with A/B variants.",
+        },
+        {
+            "title": "SEO Content Pipeline",
+            "description": "Keyword-researched, long-form articles with H2/H3 structure, meta descriptions, and internal linking suggestions.",
+        },
+        {
+            "title": "Social Media Content Engine",
+            "description": "30-day content calendars for 5 platforms -- LinkedIn, Twitter/X, Instagram, Facebook, TikTok with hashtag research.",
+        },
+        {
+            "title": "AI Data Entry & Cleaning",
+            "description": "Batch data processing -- deduplication, format standardization, validation for up to 50K rows.",
+        },
+        {
+            "title": "Web Scraping Agent",
+            "description": "Structured data extraction from any website -- contacts, products, listings with multi-page support.",
+        },
+        {
+            "title": "CRM Data Operations",
+            "description": "CRM cleanup, enrichment, lead scoring, and segmentation for HubSpot, Salesforce, or spreadsheet CRMs.",
+        },
+        {
+            "title": "AI Bookkeeping Assistant",
+            "description": "Transaction categorization, reconciliation, and financial summaries -- QuickBooks/Xero/CSV export ready.",
+        },
+        {
+            "title": "Proposal Writer Agent",
+            "description": "Professional business proposals, RFP responses, and grant applications with budget breakdowns and timelines.",
+        },
+        {
+            "title": "Product Description Writer",
+            "description": "Conversion-optimized product copy for Amazon, Shopify, Etsy, eBay with SEO keywords and A/B variants.",
+        },
+        {
+            "title": "Resume & Cover Letter Writer",
+            "description": "ATS-optimized resumes, targeted cover letters, and LinkedIn summaries for any industry and level.",
+        },
+        {
+            "title": "Ad Copy Generator",
+            "description": "High-converting ad copy for Google, Meta, LinkedIn, YouTube -- multiple variants per campaign for A/B testing.",
+        },
+        {
+            "title": "Market Research Agent",
+            "description": "Competitor analysis, market sizing, SWOT, trend identification with actionable strategic recommendations.",
+        },
+        {
+            "title": "Business Plan Writer",
+            "description": "Investor-ready business plans with 3-year financials, market analysis, go-to-market strategy.",
+        },
+        {
+            "title": "Press Release Writer",
+            "description": "AP-style press releases for product launches, partnerships, funding -- distribution-ready format.",
+        },
+        {
+            "title": "Technical Documentation Agent",
+            "description": "API references, user guides, README files, SDK docs with code samples in multiple languages.",
         },
     ],
     "specialized_profiles": [
         {
             "category": "AI & Machine Learning",
-            "title": "AI Agent Developer — Production Multi-Agent Systems",
+            "title": "AI Agent Developer -- Production Multi-Agent Systems",
             "skills": ["Python", "OpenAI API", "FastAPI", "NLP", "Chatbot Development"],
         },
         {
             "category": "Sales & Marketing Automation",
-            "title": "AI Sales Automation Specialist — Outreach & Lead Generation",
+            "title": "AI Sales Automation Specialist -- Outreach & Lead Generation",
             "skills": ["Sales Automation", "Lead Generation", "Cold Email", "CRM Integration"],
         },
+        {
+            "category": "Content & SEO",
+            "title": "AI Content Writer -- SEO, Social Media, Email Marketing",
+            "skills": ["SEO Writing", "Content Marketing", "Social Media", "Email Marketing"],
+        },
+        {
+            "category": "Data Processing & Analysis",
+            "title": "AI Data Processing -- Extraction, Cleaning, Scraping",
+            "skills": ["Data Entry", "Web Scraping", "Data Cleaning", "Document Processing"],
+        },
+        {
+            "category": "Business Writing",
+            "title": "AI Business Writer -- Proposals, Plans, Press Releases",
+            "skills": ["Business Plan Writing", "Proposal Writing", "Press Release Writing", "Technical Writing"],
+        },
     ],
+    "service_catalog": [
+        {
+            "agent": "sales_ops",
+            "service_title": "AI Sales Outreach Sequences",
+            "description": "Personalized 3-email outreach sequences using real-time company research and signal detection.",
+            "fixed_price": "$25-500",
+            "delivery": "Same day",
+        },
+        {
+            "agent": "support",
+            "service_title": "AI Support Ticket Resolution",
+            "description": "Automated ticket triage, severity scoring, and draft response generation.",
+            "fixed_price": "$20-200",
+            "delivery": "Same day",
+        },
+        {
+            "agent": "content_repurpose",
+            "service_title": "Content Repurposing (Blog to Social)",
+            "description": "Transform one content piece into 5 platform-optimized versions.",
+            "fixed_price": "$15-250",
+            "delivery": "Same day",
+        },
+        {
+            "agent": "doc_extract",
+            "service_title": "Document Data Extraction",
+            "description": "Extract structured data from invoices, contracts, resumes into JSON/CSV.",
+            "fixed_price": "$15-200",
+            "delivery": "Same day",
+        },
+        {
+            "agent": "lead_gen",
+            "service_title": "B2B Lead Generation & Scoring",
+            "description": "ICP-matched lead lists with scoring, enrichment, and CRM-ready export.",
+            "fixed_price": "$25-500",
+            "delivery": "1-2 days",
+        },
+        {
+            "agent": "email_marketing",
+            "service_title": "Email Marketing Sequence Builder",
+            "description": "Complete email campaigns -- welcome, nurture, launch, re-engagement.",
+            "fixed_price": "$20-300",
+            "delivery": "Same day",
+        },
+        {
+            "agent": "seo_content",
+            "service_title": "SEO Blog Posts & Articles",
+            "description": "Keyword-optimized long-form content with meta descriptions and internal linking.",
+            "fixed_price": "$15-300",
+            "delivery": "Same day",
+        },
+        {
+            "agent": "social_media",
+            "service_title": "Social Media Content Calendar",
+            "description": "30 days of platform-optimized posts for LinkedIn, Twitter/X, Instagram, Facebook, TikTok.",
+            "fixed_price": "$20-250",
+            "delivery": "Same day",
+        },
+        {
+            "agent": "data_entry",
+            "service_title": "Data Entry & Cleaning",
+            "description": "Batch data processing -- cleaning, deduplication, format standardization.",
+            "fixed_price": "$10-200",
+            "delivery": "Same day",
+        },
+        {
+            "agent": "web_scraper",
+            "service_title": "Web Data Extraction",
+            "description": "Structured data scraping from websites -- contacts, products, listings.",
+            "fixed_price": "$15-250",
+            "delivery": "1-2 days",
+        },
+        {
+            "agent": "crm_ops",
+            "service_title": "CRM Data Optimization",
+            "description": "CRM cleanup, enrichment, lead scoring, and segmentation.",
+            "fixed_price": "$20-250",
+            "delivery": "1-2 days",
+        },
+        {
+            "agent": "bookkeeping",
+            "service_title": "Transaction Categorization & Reconciliation",
+            "description": "Expense categorization, reconciliation, and financial summaries.",
+            "fixed_price": "$15-250",
+            "delivery": "Same day",
+        },
+        {
+            "agent": "proposal_writer",
+            "service_title": "Business Proposal & RFP Writing",
+            "description": "Professional proposals with scope, budget, timeline, and team sections.",
+            "fixed_price": "$25-300",
+            "delivery": "1-2 days",
+        },
+        {
+            "agent": "product_desc",
+            "service_title": "E-commerce Product Descriptions",
+            "description": "Conversion-optimized product copy for Amazon, Shopify, Etsy, eBay.",
+            "fixed_price": "$10-250",
+            "delivery": "Same day",
+        },
+        {
+            "agent": "resume_writer",
+            "service_title": "Resume & Cover Letter Writing",
+            "description": "ATS-optimized resumes, cover letters, and LinkedIn profiles.",
+            "fixed_price": "$15-250",
+            "delivery": "Same day",
+        },
+        {
+            "agent": "ad_copy",
+            "service_title": "Ad Copy for Google, Meta & LinkedIn",
+            "description": "High-converting ad variants for PPC, social ads, and display campaigns.",
+            "fixed_price": "$15-250",
+            "delivery": "Same day",
+        },
+        {
+            "agent": "market_research",
+            "service_title": "Market Research & Competitive Analysis",
+            "description": "Market sizing, competitor mapping, SWOT analysis, trend reports.",
+            "fixed_price": "$25-500",
+            "delivery": "1-3 days",
+        },
+        {
+            "agent": "business_plan",
+            "service_title": "Business Plan with Financials",
+            "description": "Investor-ready business plans with 3-year projections and go-to-market strategy.",
+            "fixed_price": "$50-500",
+            "delivery": "2-5 days",
+        },
+        {
+            "agent": "press_release",
+            "service_title": "Press Release Writing",
+            "description": "AP-style press releases for launches, partnerships, funding announcements.",
+            "fixed_price": "$15-200",
+            "delivery": "Same day",
+        },
+        {
+            "agent": "tech_docs",
+            "service_title": "Technical Documentation & API Docs",
+            "description": "API references, user guides, README files, SDK docs with code samples.",
+            "fixed_price": "$25-300",
+            "delivery": "1-3 days",
+        },
+    ],
+}
+
+
+# ── PeoplePerHour Profile ──────────────────────────────────────
+
+PEOPLEPERHOUR_PROFILE = {
+    "agency_name": "Bit Rage Labour",
+    "tagline": "AI Agent Agency -- 20 Specialized Agents for Business Automation",
+    "hourly_rate": "GBP60-150/hr",
+    "about": """We deploy production AI agent pipelines for sales, content, data, and business operations.
+
+20 specialized agents covering: sales outreach, support tickets, content repurposing, document extraction, lead generation, email marketing, SEO content, social media, data entry, web scraping, CRM operations, bookkeeping, proposal writing, product descriptions, resume writing, ad copy, market research, business plans, press releases, and technical documentation.
+
+Multi-LLM architecture (GPT-4o, Claude, Gemini, Grok) with QA verification on every output. Built by Resonance Energy, Canada.""",
+    "hourlies": [
+        {
+            "title": "AI Sales Outreach -- Personalized Email Sequences",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "1 company researched + 3-email personalized outreach sequence + JSON export. Real-time company signals, not templates.",
+        },
+        {
+            "title": "AI Content Repurposing -- Blog to 5 Social Formats",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "Transform 1 blog post into LinkedIn, Twitter/X, email newsletter, Instagram caption, and TikTok script.",
+        },
+        {
+            "title": "AI SEO Blog Post (1500 words)",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "Keyword-optimized blog post with meta description, H2/H3 structure, and internal linking suggestions.",
+        },
+        {
+            "title": "AI Resume Rewrite -- ATS Optimized",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "ATS-optimized resume rewrite with keyword targeting for your specific role and industry.",
+        },
+        {
+            "title": "AI Product Descriptions (5 products)",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "5 conversion-optimized product descriptions for Amazon, Shopify, Etsy, or eBay.",
+        },
+        {
+            "title": "AI Ad Copy -- 5 Variants for Any Platform",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "5 high-converting ad copy variants for Google, Meta, LinkedIn, or YouTube.",
+        },
+        {
+            "title": "AI Data Cleaning -- Up to 500 Rows",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "Clean, deduplicate, and standardize up to 500 rows of data. CSV/JSON export.",
+        },
+        {
+            "title": "AI Document Extraction -- 5 Documents",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "Extract structured data from 5 invoices, contracts, or resumes into JSON.",
+        },
+        {
+            "title": "AI Press Release Writing",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "AP-style press release for product launches, partnerships, or company news.",
+        },
+        {
+            "title": "AI Business Proposal (2-3 pages)",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "Professional business proposal with executive summary, scope, and pricing.",
+        },
+        # ── 11-20: Remaining agents ────────────────────────────
+        {
+            "title": "AI Support Ticket Triage & Draft Responses",
+            "agent": "support",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "5 support tickets triaged with severity scoring + draft responses + escalation flags. Works with any helpdesk.",
+        },
+        {
+            "title": "AI Lead Generation -- 10 Qualified B2B Leads",
+            "agent": "lead_gen",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "10 ICP-matched B2B leads with company size, tech stack, funding signals, and decision-maker contacts.",
+        },
+        {
+            "title": "AI Email Marketing -- 5-Email Sequence",
+            "agent": "email_marketing",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "Complete 5-email sequence (welcome, nurture, or launch) with subject lines, preview text, and CTAs.",
+        },
+        {
+            "title": "AI Social Media Calendar -- 7 Days, 5 Platforms",
+            "agent": "social_media",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "7-day content calendar for LinkedIn, Twitter/X, Instagram, Facebook, TikTok with hashtag research.",
+        },
+        {
+            "title": "AI Web Scraping -- Extract Data from Any Website",
+            "agent": "web_scraper",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "Scrape structured data from up to 5 URLs -- contacts, products, listings. JSON/CSV output.",
+        },
+        {
+            "title": "AI CRM Cleanup & Lead Scoring",
+            "agent": "crm_ops",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "Clean, deduplicate, and score up to 200 CRM contacts. Segmentation tags included.",
+        },
+        {
+            "title": "AI Bookkeeping -- Transaction Categorization",
+            "agent": "bookkeeping",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "Categorize up to 100 transactions with reconciliation notes. QuickBooks/Xero/CSV export.",
+        },
+        {
+            "title": "AI Market Research Report",
+            "agent": "market_research",
+            "price": "GBP10",
+            "delivery": "2 days",
+            "description": "Competitor analysis, market sizing, SWOT, and trend report with actionable recommendations.",
+        },
+        {
+            "title": "AI Business Plan with Financials",
+            "agent": "business_plan",
+            "price": "GBP15",
+            "delivery": "3 days",
+            "description": "Investor-ready business plan with executive summary, market analysis, and 3-year financial projections.",
+        },
+        {
+            "title": "AI Technical Documentation & API Docs",
+            "agent": "tech_docs",
+            "price": "GBP5",
+            "delivery": "1 day",
+            "description": "API reference, user guide, or README with code samples. Markdown or HTML output.",
+        },
+    ],
+}
+
+
+# ── Guru Profile ────────────────────────────────────────────────
+
+GURU_PROFILE = {
+    "agency_name": "Bit Rage Labour -- AI Agent Agency",
+    "tagline": "20 AI Agents for Sales, Content, Data & Business Automation",
+    "hourly_rate": "$75-175/hr",
+    "about": """Production AI agent agency with 20 specialized agents covering every major business automation category.
+
+Our agents don't just generate text -- they run multi-step pipelines with research, generation, QA verification, and structured output. Every deliverable passes quality gates before reaching you.
+
+Services: Sales outreach, support resolution, content repurposing, document extraction, lead generation, email marketing, SEO content, social media management, data entry/cleaning, web scraping, CRM operations, bookkeeping, proposal writing, product descriptions, resume/CV writing, ad copy, market research, business plans, press releases, technical documentation.
+
+Tech: Python, FastAPI, GPT-4o, Claude, Gemini, Grok. Multi-LLM with failover.
+Location: Canada | Agency: Resonance Energy""",
+    "skills": [
+        "Artificial Intelligence", "Python", "Machine Learning",
+        "Data Extraction", "Content Writing", "Sales Automation",
+        "SEO", "Chatbot Development", "API Development",
+        "Business Analysis", "Technical Writing", "Ad Copywriting",
+    ],
+    "service_listings": [
+        {
+            "agent": "sales_ops",
+            "title": "AI Sales Outreach Pipeline",
+            "category": "Programming & Development",
+            "price": "$25-500",
+            "description": "Personalized 3-email sequences with real-time company research. 50+ leads/hour.",
+        },
+        {
+            "agent": "support",
+            "title": "AI Support Ticket Resolution",
+            "category": "Programming & Development",
+            "price": "$20-200",
+            "description": "Ticket triage, severity scoring, draft responses in <10s. Any helpdesk.",
+        },
+        {
+            "agent": "content_repurpose",
+            "title": "AI Content Repurposing",
+            "category": "Writing & Translation",
+            "price": "$15-250",
+            "description": "Blog -> LinkedIn + Twitter + Email + Instagram + TikTok. 5 formats from 1 piece.",
+        },
+        {
+            "agent": "doc_extract",
+            "title": "AI Document Data Extraction",
+            "category": "Admin Support",
+            "price": "$15-200",
+            "description": "Invoices, contracts, resumes -> structured JSON/CSV with confidence scores.",
+        },
+        {
+            "agent": "lead_gen",
+            "title": "AI B2B Lead Generation",
+            "category": "Sales & Marketing",
+            "price": "$25-500",
+            "description": "ICP-matched leads with scoring, enrichment, and CRM-ready export.",
+        },
+        {
+            "agent": "email_marketing",
+            "title": "AI Email Marketing Sequences",
+            "category": "Sales & Marketing",
+            "price": "$20-300",
+            "description": "Welcome, nurture, launch, re-engagement sequences with A/B subject lines.",
+        },
+        {
+            "agent": "seo_content",
+            "title": "AI SEO Content Writing",
+            "category": "Writing & Translation",
+            "price": "$15-300",
+            "description": "Keyword-optimized blog posts, articles, and pillar pages. 1500-5000 words.",
+        },
+        {
+            "agent": "social_media",
+            "title": "AI Social Media Content Calendar",
+            "category": "Sales & Marketing",
+            "price": "$20-250",
+            "description": "30-day calendars for 5 platforms with hashtag research and engagement hooks.",
+        },
+        {
+            "agent": "data_entry",
+            "title": "AI Data Entry & Cleaning",
+            "category": "Admin Support",
+            "price": "$10-200",
+            "description": "Data cleaning, deduplication, standardization -- up to 50K rows per batch.",
+        },
+        {
+            "agent": "web_scraper",
+            "title": "AI Web Scraping & Data Mining",
+            "category": "Programming & Development",
+            "price": "$15-250",
+            "description": "Structured extraction from any website -- contacts, products, pricing, listings.",
+        },
+        {
+            "agent": "crm_ops",
+            "title": "AI CRM Data Operations",
+            "category": "Admin Support",
+            "price": "$20-250",
+            "description": "CRM cleanup, enrichment, lead scoring, segmentation for any CRM.",
+        },
+        {
+            "agent": "bookkeeping",
+            "title": "AI Bookkeeping & Reconciliation",
+            "category": "Finance & Management",
+            "price": "$15-250",
+            "description": "Transaction categorization, reconciliation, financial summaries. QBO/Xero/CSV.",
+        },
+        {
+            "agent": "proposal_writer",
+            "title": "AI Proposal & RFP Writing",
+            "category": "Writing & Translation",
+            "price": "$25-300",
+            "description": "Business proposals, RFP responses, grant applications with timelines and budgets.",
+        },
+        {
+            "agent": "product_desc",
+            "title": "AI Product Descriptions",
+            "category": "Writing & Translation",
+            "price": "$10-250",
+            "description": "Conversion-optimized copy for Amazon, Shopify, Etsy, eBay with SEO keywords.",
+        },
+        {
+            "agent": "resume_writer",
+            "title": "AI Resume & Cover Letter Writing",
+            "category": "Writing & Translation",
+            "price": "$15-250",
+            "description": "ATS-optimized resumes, cover letters, LinkedIn summaries for any industry.",
+        },
+        {
+            "agent": "ad_copy",
+            "title": "AI Ad Copy -- Google, Meta, LinkedIn",
+            "category": "Sales & Marketing",
+            "price": "$15-250",
+            "description": "High-converting ad variants for PPC, social, display. Multiple A/B options.",
+        },
+        {
+            "agent": "market_research",
+            "title": "AI Market Research & Competitive Analysis",
+            "category": "Business & Management",
+            "price": "$25-500",
+            "description": "Competitor analysis, market sizing, SWOT, financial projections.",
+        },
+        {
+            "agent": "business_plan",
+            "title": "AI Business Plan with Financials",
+            "category": "Business & Management",
+            "price": "$50-500",
+            "description": "Investor-ready plans with 3-year projections, market analysis, GTM strategy.",
+        },
+        {
+            "agent": "press_release",
+            "title": "AI Press Release Writing",
+            "category": "Writing & Translation",
+            "price": "$15-200",
+            "description": "AP-style press releases for launches, partnerships, funding. Distribution-ready.",
+        },
+        {
+            "agent": "tech_docs",
+            "title": "AI Technical Documentation",
+            "category": "Programming & Development",
+            "price": "$25-300",
+            "description": "API references, user guides, README, SDK docs with code samples.",
+        },
+    ],
+}
+
+
+# ── Toptal Profile ──────────────────────────────────────────────
+
+TOPTAL_PROFILE = {
+    "agency_name": "Bit Rage Labour (Resonance Energy)",
+    "vertical": "AI & Machine Learning",
+    "hourly_rate": "$100-250/hr",
+    "engagement_types": ["Hourly", "Part-time", "Full-time"],
+    "headline": "AI Agent Systems Architect -- Production Multi-Agent Pipelines",
+    "bio": """I architect and deploy production AI agent systems for businesses -- multi-agent pipelines with research, generation, QA, and delivery stages.
+
+Currently operating 20 specialized AI agents in production serving paying clients across sales automation, content generation, data processing, and business intelligence.
+
+Key differentiators:
+- Multi-LLM architecture (GPT-4o, Claude, Gemini, Grok) with automatic failover
+- Every output passes through automated QA verification before delivery
+- API-first FastAPI architecture with webhook delivery and Stripe billing
+- Sub-60-second delivery on most agent tasks
+
+Technical depth: Python, FastAPI, OpenAI/Anthropic/Google/xAI APIs, Pydantic data models, multi-agent orchestration, Docker, CI/CD. I build systems that run autonomously in production, not demos.
+
+Based in Canada. Founded Resonance Energy -- building the intersection of AI, energy, and autonomous systems.""",
+    "skills": [
+        "Python", "FastAPI", "OpenAI API", "Anthropic Claude",
+        "Multi-Agent Systems", "NLP", "Machine Learning",
+        "System Architecture", "API Design", "Docker",
+    ],
+    "project_types": [
+        {"agent": "sales_ops", "title": "AI Sales Outreach Pipeline", "rate": "$150-250/hr",
+         "description": "Multi-agent sales research + personalized email sequences at scale."},
+        {"agent": "support", "title": "AI Support Resolution System", "rate": "$125-200/hr",
+         "description": "Automated ticket triage, severity scoring, and draft response generation."},
+        {"agent": "content_repurpose", "title": "Content Repurposing Engine", "rate": "$100-175/hr",
+         "description": "Transform one content piece into 5 platform-optimized formats."},
+        {"agent": "doc_extract", "title": "Document Extraction Pipeline", "rate": "$125-200/hr",
+         "description": "Invoice, contract, resume parsing into structured JSON with confidence scores."},
+        {"agent": "lead_gen", "title": "B2B Lead Generation System", "rate": "$150-250/hr",
+         "description": "ICP-matched lead research with scoring, enrichment, and CRM integration."},
+        {"agent": "email_marketing", "title": "Email Marketing Automation", "rate": "$100-175/hr",
+         "description": "AI-generated campaign sequences with A/B variants and performance optimization."},
+        {"agent": "seo_content", "title": "SEO Content Pipeline", "rate": "$100-175/hr",
+         "description": "Keyword-researched long-form articles with semantic structure and internal linking."},
+        {"agent": "social_media", "title": "Social Media Content Engine", "rate": "$100-175/hr",
+         "description": "Multi-platform content calendars with engagement optimization and hashtag strategy."},
+        {"agent": "data_entry", "title": "Data Processing & Migration", "rate": "$100-150/hr",
+         "description": "Large-scale data cleaning, deduplication, format standardization up to 50K rows."},
+        {"agent": "web_scraper", "title": "Web Data Extraction System", "rate": "$125-200/hr",
+         "description": "Custom scrapers for contacts, products, pricing, or listings from any website."},
+        {"agent": "crm_ops", "title": "CRM Data Optimization", "rate": "$125-200/hr",
+         "description": "CRM cleanup, enrichment, lead scoring, and advanced segmentation."},
+        {"agent": "bookkeeping", "title": "AI Bookkeeping & Financial Processing", "rate": "$100-175/hr",
+         "description": "Transaction categorization, reconciliation, and financial summary generation."},
+        {"agent": "proposal_writer", "title": "Proposal & RFP Automation", "rate": "$125-200/hr",
+         "description": "AI-generated business proposals, RFP responses, and grant applications."},
+        {"agent": "product_desc", "title": "E-commerce Product Copy Engine", "rate": "$100-150/hr",
+         "description": "Conversion-optimized product descriptions for all major marketplaces."},
+        {"agent": "resume_writer", "title": "Resume & Career Document System", "rate": "$100-150/hr",
+         "description": "ATS-optimized resumes, cover letters, and LinkedIn profiles at scale."},
+        {"agent": "ad_copy", "title": "Ad Copy Generation Engine", "rate": "$125-200/hr",
+         "description": "Multi-variant ad copy for Google, Meta, LinkedIn with performance targeting."},
+        {"agent": "market_research", "title": "Market Intelligence & Analysis", "rate": "$150-250/hr",
+         "description": "Competitor mapping, market sizing, SWOT, trend analysis with strategic recommendations."},
+        {"agent": "business_plan", "title": "Business Plan Automation", "rate": "$150-250/hr",
+         "description": "Investor-ready plans with financials, market validation, and go-to-market strategy."},
+        {"agent": "press_release", "title": "Press Release Pipeline", "rate": "$100-175/hr",
+         "description": "AP-style press releases for launches, funding, partnerships. Distribution-ready."},
+        {"agent": "tech_docs", "title": "Technical Documentation System", "rate": "$125-200/hr",
+         "description": "API references, user guides, SDK docs with code samples in multiple languages."},
+    ],
+    "note": "Toptal requires screening -- apply at toptal.com/talent/apply. This profile is for post-acceptance use.",
 }
 
 

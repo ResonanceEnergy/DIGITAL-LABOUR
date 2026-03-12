@@ -26,7 +26,7 @@ from pydantic import BaseModel, Field
 load_dotenv(PROJECT_ROOT / ".env")
 
 from dispatcher.queue import TaskQueue
-from dispatcher.router import DAILY_LIMITS, route_task
+from dispatcher.router import DAILY_LIMITS, create_event, route_task
 from api.monitor import router as monitor_router
 from api.payments import router as payment_router
 
@@ -57,13 +57,27 @@ def ops_dashboard():
     html_path = Path(__file__).parent / "ops_dashboard.html"
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
+
+@app.get("/subscribe", response_class=HTMLResponse)
+def subscribe_page():
+    """Serve the subscription pricing page."""
+    html_path = Path(__file__).resolve().parent.parent / "site" / "subscribe.html"
+    return HTMLResponse(html_path.read_text(encoding="utf-8"))
+
 queue = TaskQueue()
 
 
 # ── Request / Response Models ───────────────────────────────────────────────
 
 class TaskRequest(BaseModel):
-    task_type: Literal["sales_outreach", "support_ticket", "content_repurpose", "doc_extract"]
+    task_type: Literal[
+        "sales_outreach", "support_ticket", "content_repurpose", "doc_extract",
+        "lead_gen", "email_marketing", "seo_content", "social_media",
+        "data_entry", "web_scraper", "crm_ops", "bookkeeping",
+        "proposal_writer", "product_desc", "resume_writer", "ad_copy",
+        "market_research", "business_plan", "press_release", "tech_docs",
+        "context_manager", "qa_manager", "production_manager", "automation_manager",
+    ]
     client: str = ""
     provider: str = ""
     priority: int = Field(default=0, ge=0, le=10)
@@ -121,14 +135,16 @@ def submit_task(req: TaskRequest):
         task = queue.dequeue()
         if task:
             try:
-                event = route_task(
+                from dispatcher.router import create_event
+                event = create_event(
                     task_type=req.task_type,
                     inputs={**req.inputs, "provider": req.provider} if req.provider else req.inputs,
-                    client=req.client,
+                    client_id=req.client or "direct",
                 )
-                qa = event.get("qa", {}).get("status", "")
-                outputs = event.get("outputs", {})
-                cost = event.get("cost_usd", 0.0)
+                result = route_task(event)
+                qa = result.get("qa", {}).get("status", "")
+                outputs = result.get("outputs", {})
+                cost = result.get("billing", {}).get("amount", 0.0)
                 queue.complete(task_id, outputs=outputs, qa_status=qa, cost_usd=cost)
                 return TaskResponse(task_id=task_id, status="completed", message=f"QA: {qa}")
             except Exception as e:

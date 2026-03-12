@@ -1,0 +1,12 @@
+{
+  "active_jobs": [
+    {
+      "job_id": "7e9f977f",
+      "client_id": "test_client",
+      "task_type": "sales_outreach",
+      "started": "2026-03-12T07:12:17.774039+00:00"
+    }
+  ],
+  "queued_jobs": [],
+  "last_updated": "2026-03-12T07:12:17.775963+00:00"
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subscribe — Digital Labour</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh}
+.header{text-align:center;padding:60px 20px 30px}
+.header h1{font-size:2.4em;color:#fff}
+.header p{color:#888;font-size:1.1em;margin-top:8px}
+.badge{display:inline-block;background:#ff3300;color:#fff;padding:3px 10px;border-radius:4px;font-size:0.7em;vertical-align:middle;margin-left:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:960px;margin:0 auto;padding:20px}
+.card{background:#111;border:1px solid #2a2a2a;border-radius:12px;padding:32px 24px;text-align:center;transition:border-color 0.2s}
+.card:hover{border-color:#ff3300}
+.card h2{font-size:1.3em;color:#fff;margin-bottom:4px}
+.card .type{color:#666;font-size:0.85em;text-transform:uppercase;letter-spacing:1px}
+.card .price{font-size:2.8em;color:#ff3300;font-weight:700;margin:16px 0 4px}
+.card .price span{font-size:0.35em;color:#888;font-weight:400}
+.card .tasks{color:#999;margin-bottom:20px}
+.card .overage{color:#555;font-size:0.85em;margin-bottom:24px}
+.btn{display:inline-block;padding:12px 32px;background:#ff3300;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:1em;border:none;cursor:pointer;transition:background 0.2s}
+.btn:hover{background:#cc2900}
+.btn:disabled{background:#333;cursor:not-allowed}
+.section-label{text-align:center;padding:40px 20px 10px;color:#555;text-transform:uppercase;letter-spacing:2px;font-size:0.9em}
+.footer{text-align:center;padding:40px;color:#444;font-size:0.85em}
+.footer a{color:#ff3300;text-decoration:none}
+#status{text-align:center;padding:20px;color:#00ff88;display:none}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Digital Labour<span class="badge">Subscribe</span></h1>
+  <p>AI-powered sales, support, and content — on retainer</p>
+</div>
+
+<div class="section-label">Sales Outreach</div>
+<div class="grid">
+  <div class="card">
+    <h2>Starter</h2>
+    <div class="type">Sales Outreach</div>
+    <div class="price">$750<span>/mo</span></div>
+    <div class="tasks">50 tasks/month</div>
+    <div class="overage">$12.00/task overage</div>
+    <button class="btn" onclick="subscribe('sales_starter')">Subscribe</button>
+  </div>
+  <div class="card">
+    <h2>Growth</h2>
+    <div class="type">Sales Outreach</div>
+    <div class="price">$1,400<span>/mo</span></div>
+    <div class="tasks">100 tasks/month</div>
+    <div class="overage">$10.00/task overage</div>
+    <button class="btn" onclick="subscribe('sales_growth')">Subscribe</button>
+  </div>
+  <div class="card">
+    <h2>Scale</h2>
+    <div class="type">Sales Outreach</div>
+    <div class="price">$2,500<span>/mo</span></div>
+    <div class="tasks">200 tasks/month</div>
+    <div class="overage">$8.00/task overage</div>
+    <button class="btn" onclick="subscribe('sales_scale')">Subscribe</button>
+  </div>
+</div>
+
+<div class="section-label">Support Tickets</div>
+<div class="grid">
+  <div class="card">
+    <h2>Starter</h2>
+    <div class="type">Support Tickets</div>
+    <div class="price">$400<span>/mo</span></div>
+    <div class="tasks">200 tasks/month</div>
+    <div class="overage">$1.50/task overage</div>
+    <button class="btn" onclick="subscribe('support_starter')">Subscribe</button>
+  </div>
+  <div class="card">
+    <h2>Growth</h2>
+    <div class="type">Support Tickets</div>
+    <div class="price">$800<span>/mo</span></div>
+    <div class="tasks">500 tasks/month</div>
+    <div class="overage">$1.20/task overage</div>
+    <button class="btn" onclick="subscribe('support_growth')">Subscribe</button>
+  </div>
+  <div class="card">
+    <h2>Scale</h2>
+    <div class="type">Support Tickets</div>
+    <div class="price">$1,400<span>/mo</span></div>
+    <div class="tasks">1,000 tasks/month</div>
+    <div class="overage">$1.00/task overage</div>
+    <button class="btn" onclick="subscribe('support_scale')">Subscribe</button>
+  </div>
+</div>
+
+<div id="status"></div>
+
+<div class="footer">
+  <p>&copy; 2026 Digital Labour — Resonance Energy</p>
+  <p><a href="mailto:sales@bit-rage-labour.com">sales@bit-rage-labour.com</a></p>
+</div>
+
+<script>
+async function subscribe(tier) {
+  const el = document.getElementById('status');
+  el.style.display = 'block';
+  el.textContent = 'Creating checkout session...';
+  el.style.color = '#888';
+
+  const client = prompt('Enter your client ID (e.g. acme-corp):');
+  if (!client) { el.style.display = 'none'; return; }
+  const email = prompt('Enter your email:');
+  if (!email) { el.style.display = 'none'; return; }
+
+  try {
+    const res = await fetch('/payments/subscribe', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({client, tier, email}),
+    });
+    const data = await res.json();
+    if (data.checkout_url) {
+      el.textContent = 'Redirecting to Stripe...';
+      el.style.color = '#00ff88';
+      window.location.href = data.checkout_url;
+    } else {
+      el.textContent = data.detail || 'Error creating session';
+      el.style.color = '#ff6644';
+    }
+  } catch (err) {
+    el.textContent = 'Network error: ' + err.message;
+    el.style.color = '#ff6644';
+  }
+}
+</script>
+</body>
+</html>

@@ -31,6 +31,27 @@ DAILY_LIMITS = {
     "content_repurpose": 40,
     "ops_brief": 10,
     "doc_extract": 30,
+    "lead_gen": 40,
+    "email_marketing": 30,
+    "seo_content": 20,
+    "social_media": 40,
+    "data_entry": 60,
+    "web_scraper": 40,
+    "crm_ops": 30,
+    "bookkeeping": 30,
+    "proposal_writer": 20,
+    "product_desc": 40,
+    "resume_writer": 30,
+    "ad_copy": 40,
+    "market_research": 15,
+    "business_plan": 10,
+    "press_release": 25,
+    "tech_docs": 20,
+    # Management agents
+    "context_manager": 100,
+    "qa_manager": 50,
+    "production_manager": 50,
+    "automation_manager": 30,
 }
 
 TOKEN_BUDGETS = {
@@ -39,6 +60,27 @@ TOKEN_BUDGETS = {
     "content_repurpose": 20000,
     "ops_brief": 20000,
     "doc_extract": 15000,
+    "lead_gen": 25000,
+    "email_marketing": 20000,
+    "seo_content": 30000,
+    "social_media": 20000,
+    "data_entry": 15000,
+    "web_scraper": 15000,
+    "crm_ops": 20000,
+    "bookkeeping": 20000,
+    "proposal_writer": 30000,
+    "product_desc": 20000,
+    "resume_writer": 25000,
+    "ad_copy": 20000,
+    "market_research": 35000,
+    "business_plan": 40000,
+    "press_release": 20000,
+    "tech_docs": 30000,
+    # Management agents
+    "context_manager": 15000,
+    "qa_manager": 20000,
+    "production_manager": 15000,
+    "automation_manager": 15000,
 }
 
 
@@ -167,6 +209,268 @@ def route_task(event: dict) -> dict:
                 event["outputs"] = result.model_dump()
                 event["qa"]["status"] = result.qa_status
 
+        elif task_type == "lead_gen":
+            from agents.lead_gen.runner import run_pipeline as lead_gen_pipeline
+            result = lead_gen_pipeline(
+                industry=inputs.get("industry", ""),
+                icp=inputs.get("icp", ""),
+                geo=inputs.get("geo", ""),
+                company_size=inputs.get("company_size", ""),
+                count=inputs.get("count", 10),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "email_marketing":
+            from agents.email_marketing.runner import run_pipeline as email_mkt_pipeline
+            result = email_mkt_pipeline(
+                business=inputs.get("business", ""),
+                audience=inputs.get("audience", ""),
+                goal=inputs.get("goal", "nurture"),
+                tone=inputs.get("tone", "professional"),
+                email_count=inputs.get("email_count", 5),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "seo_content":
+            from agents.seo_content.runner import run_pipeline as seo_pipeline
+            result = seo_pipeline(
+                topic=inputs.get("topic", ""),
+                content_type=inputs.get("content_type", "blog_post"),
+                tone=inputs.get("tone", "professional"),
+                audience=inputs.get("audience", ""),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "social_media":
+            from agents.social_media.runner import run_pipeline as social_pipeline
+            result = social_pipeline(
+                topic=inputs.get("topic", ""),
+                platforms=inputs.get("platforms", ["linkedin", "twitter"]),
+                tone=inputs.get("tone", "professional"),
+                cta_goal=inputs.get("cta", "engagement"),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "data_entry":
+            from agents.data_entry.runner import run_pipeline as data_entry_pipeline
+            result = data_entry_pipeline(
+                raw_data=inputs.get("raw_data", ""),
+                task_type=inputs.get("data_task", "clean"),
+                output_format=inputs.get("output_format", "json"),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "web_scraper":
+            from agents.web_scraper.runner import run_pipeline as scraper_pipeline
+            result = scraper_pipeline(
+                page_content=inputs.get("page_content", ""),
+                source_url=inputs.get("url", ""),
+                extraction_target=inputs.get("target", "company_info"),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "crm_ops":
+            from agents.crm_ops.runner import run_pipeline as crm_pipeline
+            result = crm_pipeline(
+                crm_data=inputs.get("crm_data", ""),
+                task_type=inputs.get("crm_task", "clean"),
+                crm_platform=inputs.get("crm_platform", "spreadsheet"),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "bookkeeping":
+            from agents.bookkeeping.runner import run_pipeline as books_pipeline
+            result = books_pipeline(
+                financial_data=inputs.get("financial_data", ""),
+                task_type=inputs.get("books_task", "categorize"),
+                currency=inputs.get("currency", "USD"),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "proposal_writer":
+            from agents.proposal_writer.runner import run_pipeline as proposal_pipeline
+            result = proposal_pipeline(
+                brief=inputs.get("brief", ""),
+                proposal_type=inputs.get("proposal_type", "project_proposal"),
+                company_name=inputs.get("company_name", "Digital Labour"),
+                budget_range=inputs.get("budget_range", ""),
+                deadline=inputs.get("deadline", ""),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "product_desc":
+            from agents.product_desc.runner import run_pipeline as prod_desc_pipeline
+            result = prod_desc_pipeline(
+                product_specs=inputs.get("raw_input", ""),
+                platform=inputs.get("platform", "general"),
+                audience=inputs.get("audience", ""),
+                tone=inputs.get("tone", "persuasive"),
+                keywords=inputs.get("keywords", ""),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "resume_writer":
+            from agents.resume_writer.runner import run_pipeline as resume_pipeline
+            result = resume_pipeline(
+                career_data=inputs.get("raw_input", ""),
+                target_role=inputs.get("target_role", ""),
+                target_industry=inputs.get("industry", ""),
+                style=inputs.get("style", "combination"),
+                level=inputs.get("level", "mid"),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "ad_copy":
+            from agents.ad_copy.runner import run_pipeline as ad_copy_pipeline
+            result = ad_copy_pipeline(
+                product=inputs.get("brief", ""),
+                platform=inputs.get("platform", "google_search"),
+                audience=inputs.get("audience", ""),
+                goal=inputs.get("goal", "conversions"),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "market_research":
+            from agents.market_research.runner import run_pipeline as mktresearch_pipeline
+            result = mktresearch_pipeline(
+                topic=inputs.get("brief", ""),
+                report_type=inputs.get("report_type", "market_overview"),
+                depth=inputs.get("depth", "standard"),
+                region=inputs.get("region", "global"),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "business_plan":
+            from agents.business_plan.runner import run_pipeline as bizplan_pipeline
+            result = bizplan_pipeline(
+                business_idea=inputs.get("business_idea", ""),
+                plan_type=inputs.get("plan_type", "startup"),
+                industry=inputs.get("industry", ""),
+                funding_goal=inputs.get("funding_goal", ""),
+                timeline=inputs.get("timeline", "3 years"),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "press_release":
+            from agents.press_release.runner import run_pipeline as pr_pipeline
+            result = pr_pipeline(
+                announcement=inputs.get("announcement", ""),
+                company_name=inputs.get("company_name", ""),
+                release_type=inputs.get("release_type", "product_launch"),
+                tone=inputs.get("tone", "professional"),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "tech_docs":
+            from agents.tech_docs.runner import run_pipeline as techdocs_pipeline
+            result = techdocs_pipeline(
+                content=inputs.get("content", ""),
+                doc_type=inputs.get("doc_type", "api_reference"),
+                audience=inputs.get("audience", "developers"),
+                framework=inputs.get("framework", ""),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "context_manager":
+            from agents.context_manager.runner import run_pipeline as ctx_pipeline
+            result = ctx_pipeline(
+                action=inputs.get("action", "enrich"),
+                task_type=inputs.get("target_task_type", ""),
+                client_id=inputs.get("client_id", ""),
+                inputs=inputs.get("task_inputs", {}),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump() if hasattr(result, "model_dump") else result
+                event["qa"]["status"] = "FAIL" if (hasattr(result, "deny") and result.deny) else "PASS"
+
+        elif task_type == "qa_manager":
+            from agents.qa_manager.runner import run_pipeline as qam_pipeline
+            result = qam_pipeline(
+                action=inputs.get("action", "verify"),
+                task_type=inputs.get("target_task_type", ""),
+                deliverable=inputs.get("deliverable", {}),
+                qa_result=inputs.get("qa_result"),
+                client_id=inputs.get("client_id", ""),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump() if hasattr(result, "model_dump") else result
+                event["qa"]["status"] = result.verdict if hasattr(result, "verdict") else "PASS"
+
+        elif task_type == "production_manager":
+            from agents.production_manager.runner import run_pipeline as prod_pipeline
+            result = prod_pipeline(
+                action=inputs.get("action", "capacity_check"),
+                tasks=inputs.get("tasks", []),
+                task_type=inputs.get("target_task_type", ""),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump() if hasattr(result, "model_dump") else result
+                event["qa"]["status"] = "PASS"
+
+        elif task_type == "automation_manager":
+            from agents.automation_manager.runner import run_pipeline as auto_pipeline
+            result = auto_pipeline(
+                action=inputs.get("action", "status"),
+                platform=inputs.get("platform", "all"),
+                config=inputs.get("config", {}),
+                metrics_window=inputs.get("metrics_window", "7d"),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump() if hasattr(result, "model_dump") else result
+                event["qa"]["status"] = "PASS"
+
         else:
             event["qa"]["status"] = "FAIL"
             event["qa"]["issues"] = [f"Unknown task type: {task_type}"]
@@ -291,7 +595,7 @@ def interactive():
     print("=== DIGITAL LABOUR DISPATCHER ===")
     print(f"Daily limits: {tracker.status()}\n")
 
-    task_type = input("Task type (sales_outreach / support_ticket): ").strip()
+    task_type = input(f"Task type ({' / '.join(DAILY_LIMITS.keys())}): ").strip()
     if task_type not in DAILY_LIMITS:
         print(f"Unknown task type: {task_type}")
         return

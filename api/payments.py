@@ -1,15 +1,19 @@
 """Payment & Client Signup API routes.
 
 Endpoints:
-    POST /payments/checkout      — Create Stripe checkout for invoice
-    POST /payments/subscribe     — Create Stripe subscription for retainer
-    POST /payments/webhook       — Stripe webhook receiver
-    GET  /payments/status/{client} — Payment status for client
-    GET  /payments/gateway       — Gateway health
-    GET  /payments/success       — Checkout success page
-    GET  /payments/cancel        — Checkout cancel page
-    POST /signup                 — Self-serve client registration
-    GET  /signup                 — Signup form page
+    POST /payments/checkout          — Create Stripe checkout for invoice
+    POST /payments/subscribe         — Create Stripe subscription for retainer
+    POST /payments/webhook           — Stripe webhook receiver
+    POST /payments/customer-portal   — Create Stripe Customer Portal session
+    POST /payments/cancel-subscription — Cancel client subscription
+    POST /payments/update-subscription — Change subscription tier
+    GET  /payments/session-status    — Retrieve Checkout Session status
+    GET  /payments/status/{client}   — Payment status for client
+    GET  /payments/gateway           — Gateway health
+    GET  /payments/success           — Checkout success page
+    GET  /payments/cancel            — Checkout cancel page
+    POST /signup                     — Self-serve client registration
+    GET  /signup                     — Signup form page
 """
 
 import json
@@ -39,6 +43,18 @@ class SubscribeRequest(BaseModel):
     client: str
     tier: str
     email: str = ""
+
+class PortalRequest(BaseModel):
+    client: str
+    return_url: str = ""
+
+class CancelSubscriptionRequest(BaseModel):
+    client: str
+    at_period_end: bool = True
+
+class UpdateSubscriptionRequest(BaseModel):
+    client: str
+    new_tier: str
 
 class SignupRequest(BaseModel):
     client_id: str = Field(..., min_length=2, max_length=50, pattern=r"^[a-z0-9_-]+$")
@@ -105,6 +121,67 @@ async def stripe_webhook(request: Request):
     return result
 
 
+@router.post("/payments/customer-portal")
+def customer_portal(req: PortalRequest):
+    """Create a Stripe Customer Portal session for billing management."""
+    from billing.payments import payments
+    if not payments.configured:
+        raise HTTPException(status_code=503, detail="Payment gateway not configured")
+
+    result = payments.create_portal_session(
+        client=req.client,
+        return_url=req.return_url,
+    )
+    if "error" in result:
+        raise HTTPException(status_code=400, detail=result["error"])
+    return result
+
+
+@router.post("/payments/cancel-subscription")
+def cancel_subscription(req: CancelSubscriptionRequest):
+    """Cancel a client's active subscription."""
+    from billing.payments import payments
+    if not payments.configured:
+        raise HTTPException(status_code=503, detail="Payment gateway not configured")
+
+    result = payments.cancel_subscription(
+        client=req.client,
+        at_period_end=req.at_period_end,
+    )
+    if "error" in result:
+        raise HTTPException(status_code=400, detail=result["error"])
+    return result
+
+
+@router.post("/payments/update-subscription")
+def update_subscription(req: UpdateSubscriptionRequest):
+    """Change a client's subscription to a different tier."""
+    from billing.payments import payments
+    if not payments.configured:
+        raise HTTPException(status_code=503, detail="Payment gateway not configured")
+
+    result = payments.update_subscription(
+        client=req.client,
+        new_tier=req.new_tier,
+    )
+    if "error" in result:
+        raise HTTPException(status_code=400, detail=result["error"])
+    return result
+
+
+@router.get("/payments/session-status")
+def session_status(session_id: str):
+    """Retrieve Checkout Session status (for post-checkout confirmation)."""
+    from billing.payments import payments
+    if not payments.configured:
+        raise HTTPException(status_code=503, detail="Payment gateway not configured")
+
+    result = payments.get_session_status(session_id)
+    if "error" in result:
+        raise HTTPException(status_code=400, detail=result["error"])
+    return result
+
+
 @router.get("/payments/status/{client}")
 def payment_status(client: str):
     """Get payment history and subscription status for a client."""
@@ -122,14 +199,19 @@ def gateway_health():
 @router.get("/payments/success", response_class=HTMLResponse)
 def payment_success(session_id: str = ""):
     """Payment success landing page."""
+    display_id = session_id[:20] if session_id else ""
     return HTMLResponse(f"""<!DOCTYPE html>
 <html><head><title>Payment Successful</title>
 <style>body{{font-family:system-ui;background:#0a0a0a;color:#e0e0e0;display:flex;justify-content:center;align-items:center;height:100vh;margin:0}}
-.box{{text-align:center;padding:40px;border:1px solid #2a2a2a;border-radius:12px;background:#111}}
-h1{{color:#00ff88;font-size:2em}}p{{color:#999}}</style></head>
+.box{{text-align:center;padding:40px;border:1px solid #2a2a2a;border-radius:12px;background:#111;max-width:480px}}
+h1{{color:#00ff88;font-size:2em}}p{{color:#999}}
+a.btn{{display:inline-block;margin-top:20px;padding:12px 28px;background:#00ff88;color:#0a0a0a;text-decoration:none;border-radius:6px;font-weight:700}}
+a.btn:hover{{background:#00cc66}}</style></head>
 <body><div class="box"><h1>Payment Received</h1>
 <p>Thank you. Your payment has been processed successfully.</p>
-<p style="font-size:0.8em;color:#555">Session: {session_id[:20]}...</p></div></body></html>""")
+<p style="font-size:0.8em;color:#555">Session: {display_id}...</p>
+<a class="btn" href="mailto:sales@bit-rage-labour.com?subject=Manage%20Billing">Manage Billing</a>
+</div></body></html>""")
 
 
 @router.get("/payments/cancel", response_class=HTMLResponse)

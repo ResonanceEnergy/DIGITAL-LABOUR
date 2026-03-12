@@ -1,0 +1,12 @@
+{
+  "type": "reply",
+  "from_name": "",
+  "from_email": "mailer-daemon@mail.zohocloud.ca",
+  "company": "mail.zohocloud.ca",
+  "subject": "Undelivered Mail Returned to Sender",
+  "body_preview": "This message was created automatically by mail delivery software.\r\n A message that you sent could not be delivered to one or more of its recipients. This is a permanent error. \r\n\r\nleah.tharin@unbounce.com, ERROR CODE :550 - 5.1.1 The email account that you tried to reach does not exist. Please try\r\n\t\t\t5.1.1 double-checking the recipient's email address for typos or\r\n\t\t\t5.1.1 unnecessary spaces. For more information, go to\r\n\t\t\t5.1.1  https://support.google.com/mail/?p=NoSuchUser 00721157ae682-799",
+  "received_at": "2026-03-11T05:40:47-04:00",
+  "processed_at": "2026-03-11T11:24:06.741156+00:00",
+  "status": "new",
+  "notes": ""
+}

@@ -249,6 +249,32 @@ def show_full_status():
     # Outreach pipeline
     outreach_status()
 
+    # Inbox status
+    try:
+        from automation.inbox_reader import _load_inbox_log, INBOX_DIR
+        inbox_log = _load_inbox_log()
+        leads_count = len(list(INBOX_DIR.glob("lead_*.json"))) if INBOX_DIR.exists() else 0
+        cats = {}
+        for entry in inbox_log:
+            cat = entry.get("category", "unknown")
+            cats[cat] = cats.get(cat, 0) + 1
+        print(f"\n  Inbox: {len(inbox_log)} processed | {leads_count} leads saved | "
+              f"{cats.get('reply', 0)} replies | {cats.get('spam', 0)} spam")
+    except Exception:
+        print(f"\n  Inbox: not yet checked (run: python -m automation.inbox_reader --status)")
+
+    # Registration progress
+    try:
+        from income.tracker import _load_tracker
+        tracker_data = _load_tracker()
+        src = tracker_data["sources"]
+        reg_done = sum(1 for s in src.values() if s["status"] in ("registered", "configured", "active", "earning"))
+        reg_total = len(src)
+        earning = sum(1 for s in src.values() if s["status"] == "earning")
+        print(f"\n  Platforms: {reg_done}/{reg_total} registered | {earning} earning | ${tracker_data.get('total_revenue', 0):,.2f} revenue")
+    except Exception:
+        print(f"\n  Platforms: unable to read tracker")
+
     # Queue depth
     try:
         from dispatcher.queue import TaskQueue

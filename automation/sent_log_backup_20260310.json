@@ -1,0 +1,502 @@
+[
+  {
+    "company": "Gorgias",
+    "role": "VP of Sales",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance Your Sales with Instagram DMs Integration",
+    "sent_at": "2026-03-10T05:06:45.675458+00:00",
+    "method": "file",
+    "source_file": "meta_Gorgias_838caa.json"
+  },
+  {
+    "company": "Lemlist",
+    "role": "Head of Growth",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhancing Growth with AI Support",
+    "sent_at": "2026-03-10T05:06:45.693701+00:00",
+    "method": "file",
+    "source_file": "meta_Lemlist_c5def2.json"
+  },
+  {
+    "company": "Reply.io",
+    "role": "CEO",
+    "contact_name": "Oleg Bilozor",
+    "contact_email": "oleg.bilozor@reply.io",
+    "subject": "Enhance Your LinkedIn Integration ROI",
+    "sent_at": "2026-03-10T05:06:45.710266+00:00",
+    "method": "file",
+    "source_file": "meta_Reply.io_3583a5.json"
+  },
+  {
+    "company": "Outreach",
+    "role": "Director of SDR",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Optimizing SDR Efficiency with AI",
+    "sent_at": "2026-03-10T05:33:16.789427+00:00",
+    "method": "file",
+    "source_file": "meta_Outreach_2d9245.json"
+  },
+  {
+    "company": "Vidyard",
+    "role": "VP of Sales",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance Sales with AI + Video Analytics",
+    "sent_at": "2026-03-10T05:33:16.815562+00:00",
+    "method": "file",
+    "source_file": "meta_Vidyard_b82bce.json"
+  },
+  {
+    "company": "Apollo.io",
+    "role": "Head of Sales",
+    "contact_name": "",
+    "contact_email": "head_of_sales@apollo.io",
+    "subject": "Boost Your AI Engagement at Apollo.io",
+    "sent_at": "2026-03-10T11:31:13.829507+00:00",
+    "method": "email",
+    "source_file": "meta_Apollo.io_0e0223.json"
+  },
+  {
+    "company": "Close",
+    "role": "VP of Sales",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Boost Sales Productivity with AI",
+    "sent_at": "2026-03-10T11:31:16.146360+00:00",
+    "method": "file",
+    "source_file": "meta_Close_c92c1e.json"
+  },
+  {
+    "company": "Pipedrive",
+    "role": "VP of Sales",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance Your Sales Efficiency with AI",
+    "sent_at": "2026-03-10T11:31:16.253899+00:00",
+    "method": "file",
+    "source_file": "meta_Pipedrive_6a00fa.json"
+  },
+  {
+    "company": "Directive",
+    "role": "CEO",
+    "contact_name": "Garrett Mehrguth",
+    "contact_email": "garrett@directiveconsulting.com",
+    "subject": "Scaling 'Customer Generation'",
+    "sent_at": "2026-03-10T11:34:05.617309+00:00",
+    "method": "email",
+    "source_file": "meta_Directive_eea3c9.json"
+  },
+  {
+    "company": "WebFX",
+    "role": "Director of Operations",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Streamline Your New Tampa Office Operations",
+    "sent_at": "2026-03-10T11:34:07.097978+00:00",
+    "method": "file",
+    "source_file": "meta_WebFX_a830e3.json"
+  },
+  {
+    "company": "Brex",
+    "role": "Head of Sales",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance Your Global Sales Strategy",
+    "sent_at": "2026-03-10T11:38:47.110183+00:00",
+    "method": "file",
+    "source_file": "meta_Brex_d13a07.json"
+  },
+  {
+    "company": "Deel",
+    "role": "Head of Sales",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance Your Sales Pitch with AI Support",
+    "sent_at": "2026-03-10T11:38:47.123249+00:00",
+    "method": "file",
+    "source_file": "meta_Deel_5747e1.json"
+  },
+  {
+    "company": "Lattice",
+    "role": "VP of Sales",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Boost Sales Team Efficiency with AI Support",
+    "sent_at": "2026-03-10T11:38:47.137201+00:00",
+    "method": "file",
+    "source_file": "meta_Lattice_9b26d7.json"
+  },
+  {
+    "company": "Omniscient Digital",
+    "role": "Founder",
+    "contact_name": "Alex Birkett",
+    "contact_email": "alex@omniscientdigital.com",
+    "subject": "Optimizing Content Clustering at Omniscient Digital",
+    "sent_at": "2026-03-10T11:38:47.152314+00:00",
+    "method": "email",
+    "source_file": "meta_Omniscient_Digital_5b7e98.json"
+  },
+  {
+    "company": "Ramp",
+    "role": "VP of Growth",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance Ramp\u2019s Growth with AI Support",
+    "sent_at": "2026-03-10T11:38:50.032395+00:00",
+    "method": "file",
+    "source_file": "meta_Ramp_67b2bc.json"
+  },
+  {
+    "company": "Rippling",
+    "role": "Director of SDR",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Scaling SDR Operations Post-Funding",
+    "sent_at": "2026-03-10T11:38:50.044895+00:00",
+    "method": "file",
+    "source_file": "meta_Rippling_23906a.json"
+  },
+  {
+    "company": "Salesloft",
+    "role": "VP of Revenue",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "AI Enhancements at Salesloft",
+    "sent_at": "2026-03-10T11:38:50.057297+00:00",
+    "method": "file",
+    "source_file": "meta_Salesloft_061d48.json"
+  },
+  {
+    "company": "Siege Media",
+    "role": "Head of Content",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Streamline Your Content Refreshing Process",
+    "sent_at": "2026-03-10T11:38:50.072245+00:00",
+    "method": "file",
+    "source_file": "meta_Siege_Media_417f5f.json"
+  },
+  {
+    "company": "Single Grain",
+    "role": "Founder",
+    "contact_name": "Eric Siu",
+    "contact_email": "eric@singlegrain.com",
+    "subject": "AI Strategies at Single Grain",
+    "sent_at": "2026-03-10T11:38:50.085092+00:00",
+    "method": "email",
+    "source_file": "meta_Single_Grain_cdbec6.json"
+  },
+  {
+    "company": "ZoomInfo",
+    "role": "Head of Growth",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance Growth with AI-Powered Efficiency",
+    "sent_at": "2026-03-10T11:38:51.341455+00:00",
+    "method": "file",
+    "source_file": "meta_ZoomInfo_65aa62.json"
+  },
+  {
+    "company": "Clearbit",
+    "role": "VP of Marketing",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance 'Clearbit Capture' with AI Support",
+    "sent_at": "2026-03-10T11:41:02.384343+00:00",
+    "method": "file",
+    "source_file": "meta_Clearbit_32207b.json"
+  },
+  {
+    "company": "Drift",
+    "role": "Head of Growth",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance Your Salesforce Integration with AI Workforce",
+    "sent_at": "2026-03-10T11:41:02.398419+00:00",
+    "method": "file",
+    "source_file": "meta_Drift_9590bd.json"
+  },
+  {
+    "company": "Freshdesk",
+    "role": "Head of Support",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance 'Freddy Self Service' with AI Support",
+    "sent_at": "2026-03-10T11:41:02.411674+00:00",
+    "method": "file",
+    "source_file": "meta_Freshdesk_590512.json"
+  },
+  {
+    "company": "Front",
+    "role": "Head of Sales",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Scaling Sales with AI Support",
+    "sent_at": "2026-03-10T11:41:02.424191+00:00",
+    "method": "file",
+    "source_file": "meta_Front_b730d0.json"
+  },
+  {
+    "company": "Help Scout",
+    "role": "VP of Customer Success",
+    "contact_name": "N/A",
+    "contact_email": "vp.customersuccess@helpscout.com",
+    "subject": "Enhancing Your Team's Use of Beacon 2.0",
+    "sent_at": "2026-03-10T11:41:02.437602+00:00",
+    "method": "email",
+    "source_file": "meta_Help_Scout_4c345b.json"
+  },
+  {
+    "company": "Hunter.io",
+    "role": "CEO",
+    "contact_name": "Antoine Finkelstein",
+    "contact_email": "antoine@hunter.io",
+    "subject": "Enhance Communication for 'Author Finder'",
+    "sent_at": "2026-03-10T11:41:03.900285+00:00",
+    "method": "email",
+    "source_file": "meta_Hunter.io_d32c91.json"
+  },
+  {
+    "company": "Intercom",
+    "role": "VP of Support",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance AI Efficiency at Intercom",
+    "sent_at": "2026-03-10T11:41:05.334455+00:00",
+    "method": "file",
+    "source_file": "meta_Intercom_52615f.json"
+  },
+  {
+    "company": "Lusha",
+    "role": "Head of Growth",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance Growth with AI-driven Accuracy",
+    "sent_at": "2026-03-10T11:41:05.347264+00:00",
+    "method": "file",
+    "source_file": "meta_Lusha_c28b12.json"
+  },
+  {
+    "company": "Seamless.AI",
+    "role": "VP of Sales",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhancing Efficiency with AI",
+    "sent_at": "2026-03-10T11:41:05.362202+00:00",
+    "method": "file",
+    "source_file": "meta_Seamless.AI_edfb43.json"
+  },
+  {
+    "company": "Zendesk",
+    "role": "Director of CS",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Navigating Zendesk's Transition",
+    "sent_at": "2026-03-10T11:41:05.377572+00:00",
+    "method": "file",
+    "source_file": "meta_Zendesk_2178ee.json"
+  },
+  {
+    "company": "Calendly",
+    "role": "VP of Sales",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Optimizing Lead Routing at Calendly",
+    "sent_at": "2026-03-10T11:45:28.389128+00:00",
+    "method": "file",
+    "source_file": "meta_Calendly_3ace85.json"
+  },
+  {
+    "company": "Convertkit",
+    "role": "Head of Growth",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Boosting User Acquisition with AI Support",
+    "sent_at": "2026-03-10T11:45:28.402713+00:00",
+    "method": "file",
+    "source_file": "meta_Convertkit_d6eb96.json"
+  },
+  {
+    "company": "Mailshake",
+    "role": "Head of Growth",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance Mailshake's Growth with AI",
+    "sent_at": "2026-03-10T11:45:28.428684+00:00",
+    "method": "file",
+    "source_file": "meta_Mailshake_97271c.json"
+  },
+  {
+    "company": "Snov.io",
+    "role": "Head of Growth",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Boost Engagement with AI Support",
+    "sent_at": "2026-03-10T11:45:28.442213+00:00",
+    "method": "file",
+    "source_file": "meta_Snov.io_73b41e.json"
+  },
+  {
+    "company": "Typeform",
+    "role": "Head of Growth",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance Typeform's New Integrations",
+    "sent_at": "2026-03-10T11:45:28.455722+00:00",
+    "method": "file",
+    "source_file": "meta_Typeform_cbdc35.json"
+  },
+  {
+    "company": "Unbounce",
+    "role": "VP of Marketing",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Streamlining Content Creation with AI",
+    "sent_at": "2026-03-10T11:45:28.468365+00:00",
+    "method": "file",
+    "source_file": "meta_Unbounce_5f0571.json"
+  },
+  {
+    "company": "Woodpecker",
+    "role": "CEO",
+    "contact_name": "Matt Tarczynski",
+    "contact_email": "matt@woodpecker.co",
+    "subject": "Enhancing Woodpecker's Email Campaigns",
+    "sent_at": "2026-03-10T11:45:28.481619+00:00",
+    "method": "email",
+    "source_file": "meta_Woodpecker_0c9c44.json"
+  },
+  {
+    "company": "Yesware",
+    "role": "Head of Revenue",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Maximize Your Microsoft Teams Integration",
+    "sent_at": "2026-03-10T11:45:29.925996+00:00",
+    "method": "file",
+    "source_file": "meta_Yesware_cf280e.json"
+  },
+  {
+    "company": "Animalz",
+    "role": "Founder",
+    "contact_name": "Devon Price",
+    "contact_email": "devon@animalz.co",
+    "subject": "Enhance Your Content Strategy with AI Support",
+    "sent_at": "2026-03-10T11:48:46.308456+00:00",
+    "method": "email",
+    "source_file": "meta_Animalz_842466.json"
+  },
+  {
+    "company": "Foundation Marketing",
+    "role": "CEO",
+    "contact_name": "Ross Simmonds",
+    "contact_email": "ross@foundationinc.co",
+    "subject": "AI Workforce for Your Content Strategy",
+    "sent_at": "2026-03-10T11:48:47.922719+00:00",
+    "method": "email",
+    "source_file": "meta_Foundation_Marketing_153ccb.json"
+  },
+  {
+    "company": "Grow and Convert",
+    "role": "CEO",
+    "contact_name": "Benji Hyam",
+    "contact_email": "benji@growandconvert.com",
+    "subject": "Aligning Marketing with Revenue Goals",
+    "sent_at": "2026-03-10T11:48:49.361925+00:00",
+    "method": "email",
+    "source_file": "meta_Grow_and_Convert_687280.json"
+  },
+  {
+    "company": "Gusto",
+    "role": "VP of Marketing",
+    "contact_name": "N/A",
+    "contact_email": "vp.marketing@gusto.com",
+    "subject": "Enhancing Gusto Wallet's Launch Impact",
+    "sent_at": "2026-03-10T11:48:50.775609+00:00",
+    "method": "email",
+    "source_file": "meta_Gusto_9913f2.json"
+  },
+  {
+    "company": "Linear",
+    "role": "CEO",
+    "contact_name": "Kari M\u00e4kel\u00e4inen",
+    "contact_email": "kari@linear.app",
+    "subject": "Enhance Linear's Integration Strategy",
+    "sent_at": "2026-03-10T11:48:52.125720+00:00",
+    "method": "email",
+    "source_file": "meta_Linear_e97e2b.json"
+  },
+  {
+    "company": "Loom",
+    "role": "VP of Marketing",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance Loom's Integration Campaigns",
+    "sent_at": "2026-03-10T11:48:53.503950+00:00",
+    "method": "file",
+    "source_file": "meta_Loom_61005e.json"
+  },
+  {
+    "company": "Mixmax",
+    "role": "VP of Sales",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Enhance Your New Analytics with AI Support",
+    "sent_at": "2026-03-10T11:48:53.537109+00:00",
+    "method": "file",
+    "source_file": "meta_Mixmax_a3b471.json"
+  },
+  {
+    "company": "Notion",
+    "role": "Head of Growth",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Boost User Acquisition with AI",
+    "sent_at": "2026-03-10T11:48:53.563953+00:00",
+    "method": "file",
+    "source_file": "meta_Notion_c80a23.json"
+  },
+  {
+    "company": "Soapbox",
+    "role": "Founder",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Driving Growth with Your New Feature",
+    "sent_at": "2026-03-10T11:48:53.604888+00:00",
+    "method": "file",
+    "source_file": "meta_Soapbox_2fa9e1.json"
+  },
+  {
+    "company": "Supabase",
+    "role": "Head of Growth",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Boost User Engagement with AI Support",
+    "sent_at": "2026-03-10T11:48:53.636113+00:00",
+    "method": "file",
+    "source_file": "meta_Supabase_0c45f5.json"
+  },
+  {
+    "company": "Velocity Partners",
+    "role": "Managing Director",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Streamlining Innovation at Velocity Partners",
+    "sent_at": "2026-03-10T11:48:53.661327+00:00",
+    "method": "file",
+    "source_file": "meta_Velocity_Partners_8b8584.json"
+  },
+  {
+    "company": "Vercel",
+    "role": "Head of Sales",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Expanding Vercel's E-commerce Reach",
+    "sent_at": "2026-03-10T11:48:53.687546+00:00",
+    "method": "file",
+    "source_file": "meta_Vercel_be7ef2.json"
+  }
+]

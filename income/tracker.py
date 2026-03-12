@@ -50,7 +50,7 @@ def _init_tracker() -> dict:
         # Tier 2 — Crypto Agent Economy
         "virtuals": {"name": "Virtuals Protocol ACP", "category": "crypto_agent", "status": "not_started", "revenue_total": 0, "revenue_log": [], "url": "https://virtuals.io", "notes": "$479M aGDP, $3.3M agent revenue"},
         "agentverse": {"name": "Fetch.ai Agentverse", "category": "crypto_agent", "status": "not_started", "revenue_total": 0, "revenue_log": [], "url": "https://agentverse.ai", "notes": "2.7M agents registered"},
-        "olas": {"name": "Olas Network", "category": "crypto_agent", "status": "not_started", "revenue_total": 0, "revenue_log": [], "url": "https://olas.network", "notes": "$1M grants, 62 builders"},
+        "olas": {"name": "Olas Network", "category": "crypto_agent", "status": "not_started", "revenue_total": 0, "revenue_log": [], "url": "https://build.olas.network/monetize", "notes": "$1M grants, 62 builders"},
         "elizaos": {"name": "ElizaOS / Eliza Cloud", "category": "crypto_agent", "status": "not_started", "revenue_total": 0, "revenue_log": [], "url": "https://elizaos.ai", "notes": "90+ plugins, 2-command deploy"},
         "singularitynet": {"name": "SingularityNET", "category": "crypto_agent", "status": "not_started", "revenue_total": 0, "revenue_log": [], "url": "https://singularitynet.io", "notes": "ASI token, DEEP Funding"},
         "morpheus": {"name": "Morpheus Network", "category": "crypto_agent", "status": "not_started", "revenue_total": 0, "revenue_log": [], "url": "https://mor.org", "notes": "320K+ staked ETH, MOR rewards"},
@@ -206,6 +206,7 @@ if __name__ == "__main__":
     parser.add_argument("--summary", action="store_true", help="Quick summary")
     parser.add_argument("--notes", default="", help="Notes for --update")
     parser.add_argument("--desc", default="", help="Description for --revenue")
+    parser.add_argument("--auto", action="store_true", help="Run auto-registration prep + status")
     args = parser.parse_args()
 
     if args.update:
@@ -214,5 +215,9 @@ if __name__ == "__main__":
         log_revenue(args.revenue[0], float(args.revenue[1]), args.desc)
     elif args.summary:
         print_summary()
+    elif args.auto:
+        from income.auto_register import show_status as auto_status, prepare_all
+        prepare_all()
+        auto_status()
     else:
         print_status()
