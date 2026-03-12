@@ -1,0 +1,14 @@
+{
+  "domain": "bit-rage-labour.com",
+  "checked_at": "2026-03-12T15:08:04.866098",
+  "results": {
+    "MX": "PASS",
+    "SPF": "PASS",
+    "DKIM": "PASS",
+    "DMARC": "MISSING",
+    "BIMI": "MISSING",
+    "Logo File": "PASS",
+    "Logo Hosted": "FAIL"
+  },
+  "score": "4/7"
+}
