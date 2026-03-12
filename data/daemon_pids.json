@@ -1,0 +1,22 @@
+{
+  "NERVE": {
+    "pid": 29356,
+    "started": "2026-03-12T07:43:36.688000+00:00",
+    "cmd": "C:\\dev\\DIGITAL LABOUR\\DIGITAL LABOUR\\.venv\\Scripts\\python.exe -m automation.nerve --daemon"
+  },
+  "C-Suite Scheduler": {
+    "pid": 25612,
+    "started": "2026-03-12T07:43:36.698784+00:00",
+    "cmd": "C:\\dev\\DIGITAL LABOUR\\DIGITAL LABOUR\\.venv\\Scripts\\python.exe c_suite/scheduler.py --daemon"
+  },
+  "Task Scheduler": {
+    "pid": 10060,
+    "started": "2026-03-12T07:43:36.708759+00:00",
+    "cmd": "C:\\dev\\DIGITAL LABOUR\\DIGITAL LABOUR\\.venv\\Scripts\\python.exe scheduler/runner.py --daemon"
+  },
+  "Revenue Daemon": {
+    "pid": 6336,
+    "started": "2026-03-12T07:43:36.721127+00:00",
+    "cmd": "C:\\dev\\DIGITAL LABOUR\\DIGITAL LABOUR\\.venv\\Scripts\\python.exe -m automation.revenue_daemon --daemon"
+  }
+}
