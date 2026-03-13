@@ -63,7 +63,7 @@ async def security_headers(request: Request, call_next):
         "camera=(), microphone=(), geolocation=(), payment=()"
     )
     response.headers["Strict-Transport-Security"] = (
-        "max-age=31536000; includeSubDomains"
+        "max-age=31536000; includeSubDomains; preload"
     )
     response.headers["Content-Security-Policy"] = (
         "default-src 'self'; "
