@@ -498,5 +498,115 @@
     "sent_at": "2026-03-11T09:41:17.130029+00:00",
     "method": "email",
     "source_file": "meta_ZoomInfo_65aa62.json"
+  },
+  {
+    "company": "Amplitude",
+    "role": "VP of Sales",
+    "contact_name": "Colleen Knuff",
+    "contact_email": "colleen.knuff@amplitude.com",
+    "subject": "Optimizing Sales with Amplitude Data",
+    "sent_at": "2026-03-12T20:05:23.899346+00:00",
+    "method": "failed",
+    "source_file": "meta_Amplitude_800e61.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 19: character maps to <undefined>"
+  },
+  {
+    "company": "Flexport",
+    "role": "Head of Sales",
+    "contact_name": "Erik Malin",
+    "contact_email": "erik.malin@flexport.com",
+    "subject": "Leveraging Your Shopify Partnership",
+    "sent_at": "2026-03-12T20:06:10.874080+00:00",
+    "method": "failed",
+    "source_file": "meta_Flexport_6977a5.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 18: character maps to <undefined>"
+  },
+  {
+    "company": "Shipbob",
+    "role": "Director of Operations",
+    "contact_name": "Akhil Piplani",
+    "contact_email": "akhil.piplani@shipbob.com",
+    "subject": "Enhancing Fulfillment Post-Walmart Partnership",
+    "sent_at": "2026-03-12T20:06:22.936619+00:00",
+    "method": "failed",
+    "source_file": "meta_Shipbob_b9cbb7.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 17: character maps to <undefined>"
+  },
+  {
+    "company": "Thrasio",
+    "role": "VP of Business Development",
+    "contact_name": "Carlos Cashman",
+    "contact_email": "carlos.cashman@thrasio.com",
+    "subject": "Enhancing Thrasio's Market Penetration",
+    "sent_at": "2026-03-12T20:06:29.771357+00:00",
+    "method": "failed",
+    "source_file": "meta_Thrasio_4b56a9.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 17: character maps to <undefined>"
+  },
+  {
+    "company": "VaynerMedia",
+    "role": "VP of Client Services",
+    "contact_name": "Rob Lenois",
+    "contact_email": "rob.lenois@vaynermedia.com",
+    "subject": "Enhance Your Web3 Client Success",
+    "sent_at": "2026-03-12T20:06:37.645038+00:00",
+    "method": "failed",
+    "source_file": "meta_VaynerMedia_74411b.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 21: character maps to <undefined>"
+  },
+  {
+    "company": "Jungle Scout",
+    "role": "Head of Growth",
+    "contact_name": "Michael Scheschuk",
+    "contact_email": "michael@junglescout.com",
+    "subject": "Expanding Reach with AI Support",
+    "sent_at": "2026-03-12T22:34:07.209141+00:00",
+    "method": "failed",
+    "source_file": "meta_Jungle_Scout_5b4833.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 22: character maps to <undefined>"
+  },
+  {
+    "company": "Pattern",
+    "role": "VP of Marketing",
+    "contact_name": "Sarah Jones",
+    "contact_email": "sarah.jones@pattern.com",
+    "subject": "Scaling Marketing Efforts at Pattern",
+    "sent_at": "2026-03-12T22:34:14.215049+00:00",
+    "method": "failed",
+    "source_file": "meta_Pattern_deb2e9.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 17: character maps to <undefined>"
+  },
+  {
+    "company": "PlanetScale",
+    "role": "VP of Sales",
+    "contact_name": "Sam Lambert",
+    "contact_email": "sam@planetscale.com",
+    "subject": "Enhance Sales with AI Support",
+    "sent_at": "2026-03-12T22:34:21.092182+00:00",
+    "method": "failed",
+    "source_file": "meta_PlanetScale_8c5230.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 21: character maps to <undefined>"
+  },
+  {
+    "company": "Segment",
+    "role": "VP of Sales",
+    "contact_name": "Katrina Wong",
+    "contact_email": "katrina.wong@segment.com",
+    "subject": "Leveraging Segment's New Enhancements",
+    "sent_at": "2026-03-12T22:34:25.269679+00:00",
+    "method": "failed",
+    "source_file": "meta_Segment_1b607e.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 17: character maps to <undefined>"
+  },
+  {
+    "company": "Stord",
+    "role": "VP of Sales",
+    "contact_name": "Josh Broehl",
+    "contact_email": "josh.broehl@stord.com",
+    "subject": "Enhance Your Sales Strategy with AI Support",
+    "sent_at": "2026-03-12T22:35:25.245131+00:00",
+    "method": "failed",
+    "source_file": "meta_Stord_dc6fee.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 15: character maps to <undefined>"
   }
 ]

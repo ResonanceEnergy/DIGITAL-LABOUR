@@ -42,40 +42,80 @@ REQUIRED_RECORDS = [
 
 
 def _load_token() -> str:
-    """Load CF_API_TOKEN from .env file."""
+    """Load Cloudflare auth token. Checks (in order):
+    1. CF_API_TOKEN in .env
+    2. CF_API_TOKEN env var
+    3. Wrangler OAuth token (from wrangler login)
+    """
+    # 1. .env file
     env_path = Path(__file__).resolve().parent.parent / ".env"
     if env_path.exists():
         for line in env_path.read_text(encoding="utf-8").splitlines():
             line = line.strip()
-            if line.startswith("CF_API_TOKEN="):
+            if line.startswith("CF_API_TOKEN=") and not line.startswith("#"):
                 val = line.split("=", 1)[1].strip().strip('"').strip("'")
                 if val:
                     return val
+
+    # 2. Environment variable
     token = os.environ.get("CF_API_TOKEN", "")
     if token:
         return token
-    print("ERROR: CF_API_TOKEN not found in .env or environment.")
-    print("  1. Go to https://dash.cloudflare.com/profile/api-tokens")
-    print("  2. Create Token → 'Edit zone DNS' template")
-    print(f"  3. Zone = {DOMAIN}")
-    print("  4. Add to .env: CF_API_TOKEN=your_token_here")
+
+    # 3. Wrangler OAuth token
+    wrangler_paths = [
+        Path(os.environ.get("APPDATA", "")) / "xdg.config" / ".wrangler" / "config" / "default.toml",
+        Path.home() / ".wrangler" / "config" / "default.toml",
+    ]
+    for wp in wrangler_paths:
+        if wp.exists():
+            for line in wp.read_text(encoding="utf-8").splitlines():
+                if line.strip().startswith("oauth_token"):
+                    val = line.split('"')[1] if '"' in line else ""
+                    if val:
+                        print("  Using wrangler OAuth token")
+                        return val
+
+    print("ERROR: No Cloudflare token found.")
+    print("  Option A: Run 'wrangler login' to authenticate via browser")
+    print("  Option B: Add CF_API_TOKEN=your_token to .env")
     sys.exit(1)
 
 
-def _api(method: str, path: str, token: str, data: dict | None = None) -> dict:
-    """Make Cloudflare API request."""
+def _api(method: str, path: str, token: str, data: dict | None = None, retries: int = 3) -> dict:
+    """Make Cloudflare API request with retry on transient errors."""
     url = f"{API_BASE}{path}"
     body = json.dumps(data).encode("utf-8") if data else None
-    req = urllib.request.Request(url, data=body, method=method)
-    req.add_header("Authorization", f"Bearer {token}")
-    req.add_header("Content-Type", "application/json")
-    try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            return json.loads(resp.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        err = json.loads(e.read().decode("utf-8"))
-        print(f"  API Error ({e.code}): {json.dumps(err.get('errors', []), indent=2)}")
-        return {"success": False, "errors": err.get("errors", []), "result": None}
+    import time
+    for attempt in range(retries):
+        req = urllib.request.Request(url, data=body, method=method)
+        req.add_header("Authorization", f"Bearer {token}")
+        req.add_header("Content-Type", "application/json")
+        try:
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            if e.code in (502, 503, 504) and attempt < retries - 1:
+                wait = 5 * (attempt + 1)
+                print(f"  API returned {e.code}, retrying in {wait}s... ({attempt + 1}/{retries})")
+                time.sleep(wait)
+                continue
+            try:
+                err = json.loads(e.read().decode("utf-8"))
+            except Exception:
+                err = {"errors": [{"message": f"HTTP {e.code}"}]}
+            print(f"  API Error ({e.code}): {json.dumps(err.get('errors', []), indent=2)}")
+            return {"success": False, "errors": err.get("errors", []), "result": None}
+        except (TimeoutError, OSError) as e:
+            if attempt < retries - 1:
+                wait = 10 * (attempt + 1)
+                print(f"  Timeout/connection error, retrying in {wait}s... ({attempt + 1}/{retries})")
+                time.sleep(wait)
+                continue
+            print(f"  API unreachable after {retries} attempts: {e}")
+            print("  Cloudflare API may be experiencing an outage.")
+            print("  Check https://www.cloudflarestatus.com/ and retry later.")
+            sys.exit(1)
 
 
 def get_zone_id(token: str) -> str:
