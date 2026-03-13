@@ -18,9 +18,9 @@ from datetime import datetime, timezone
 from typing import Literal
 
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, Response
 from pydantic import BaseModel, Field
 
 load_dotenv(PROJECT_ROOT / ".env")
@@ -36,13 +36,45 @@ app = FastAPI(
     description="Submit tasks to the AI workforce. Returns structured outputs.",
 )
 
-# CORS for dashboard
+# CORS — restrict to known origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://bit-rage-labour.com",
+        "https://www.bit-rage-labour.com",
+        "https://bitrage-labour-api-production.up.railway.app",
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
+    ],
     allow_methods=["GET", "POST"],
-    allow_headers=["*"],
+    allow_headers=["Content-Type", "Authorization", "X-API-Key"],
 )
+
+
+@app.middleware("http")
+async def security_headers(request: Request, call_next):
+    """Add OWASP-recommended security headers to every response."""
+    response: Response = await call_next(request)
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["X-XSS-Protection"] = "1; mode=block"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    response.headers["Permissions-Policy"] = (
+        "camera=(), microphone=(), geolocation=(), payment=()"
+    )
+    response.headers["Strict-Transport-Security"] = (
+        "max-age=31536000; includeSubDomains"
+    )
+    response.headers["Content-Security-Policy"] = (
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline'; "
+        "style-src 'self' 'unsafe-inline'; "
+        "img-src 'self' data:; "
+        "connect-src 'self'; "
+        "frame-ancestors 'none'; "
+        "base-uri 'self'"
+    )
+    return response
 
 # Monitoring endpoints
 app.include_router(monitor_router)

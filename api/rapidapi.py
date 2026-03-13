@@ -33,6 +33,7 @@ load_dotenv(PROJECT_ROOT / ".env")
 from datetime import datetime, timezone
 from fastapi import FastAPI, HTTPException, Header, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import Response
 from pydantic import BaseModel, Field
 from typing import Optional
 
@@ -54,10 +55,34 @@ rapid_app = FastAPI(
 
 rapid_app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://bit-rage-labour.com",
+        "https://www.bit-rage-labour.com",
+        "https://bitrage-labour-api-production.up.railway.app",
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
+    ],
     allow_methods=["GET", "POST"],
-    allow_headers=["*"],
+    allow_headers=["Content-Type", "Authorization", "X-API-Key",
+                    "X-RapidAPI-Proxy-Secret", "X-RapidAPI-Key"],
 )
+
+
+@rapid_app.middleware("http")
+async def security_headers(request: Request, call_next):
+    """Add OWASP-recommended security headers to every response."""
+    response: Response = await call_next(request)
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["X-XSS-Protection"] = "1; mode=block"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    response.headers["Permissions-Policy"] = (
+        "camera=(), microphone=(), geolocation=(), payment=()"
+    )
+    response.headers["Strict-Transport-Security"] = (
+        "max-age=31536000; includeSubDomains"
+    )
+    return response
 
 # ── Mount the full intake API (all 24 agents via /tasks) ────────
 from api.intake import app as intake_app

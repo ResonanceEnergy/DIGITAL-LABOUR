@@ -1,0 +1,8 @@
+# Security Policy for Bit Rage Labour
+# https://securitytxt.org/
+
+Contact: mailto:security@bit-rage-labour.com
+Expires: 2027-03-13T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://bit-rage-labour.com/.well-known/security.txt
+Policy: https://bit-rage-labour.com/.well-known/security.txt

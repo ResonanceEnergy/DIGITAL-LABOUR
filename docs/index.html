@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'self' https://formsubmit.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Bit Rage Labour — AI Agents That Bite Back</title>
 <meta name="description" content="Aggressive AI workers for sales outreach, support resolution, content repurposing, and document extraction. Pay per task. No hiring. No mercy on your workload.">
 <meta name="keywords" content="AI agents, digital labour, sales automation, support automation, content repurposing, document extraction, AI workers, bit rage labour">
@@ -632,7 +634,15 @@ document.getElementById('leadService').addEventListener('change', function() {
   document.getElementById('customRow').style.display = this.value === 'custom' ? 'flex' : 'none';
 });
 
+var _lastSubmit = 0;
+function sanitize(str) {
+  var d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
 function submitLead() {
+  var now = Date.now();
+  if (now - _lastSubmit < 10000) { alert('Please wait before submitting again.'); return; }
   var email = document.getElementById('leadEmail');
   if (!email.value || !email.value.includes('@') || !email.value.includes('.')) {
     email.style.borderColor = 'var(--red)';
@@ -640,14 +650,16 @@ function submitLead() {
     email.setAttribute('placeholder', 'Email is required');
     return;
   }
+  if (email.value.length > 254) { alert('Email too long.'); return; }
   email.style.borderColor = '';
+  _lastSubmit = now;
 
   var data = {
-    email: email.value,
-    name: document.getElementById('leadName').value,
-    company: document.getElementById('leadCompany').value,
+    email: sanitize(email.value.trim()),
+    name: sanitize(document.getElementById('leadName').value.trim().slice(0, 200)),
+    company: sanitize(document.getElementById('leadCompany').value.trim().slice(0, 200)),
     service: document.getElementById('leadService').value,
-    custom_request: document.getElementById('leadCustom').value,
+    custom_request: sanitize(document.getElementById('leadCustom').value.trim().slice(0, 500)),
     source: 'website',
     timestamp: new Date().toISOString()
   };
