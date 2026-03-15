@@ -13,11 +13,54 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Optional
 
-from fastapi import APIRouter, HTTPException
+import hashlib
+import hmac
+
+from fastapi import APIRouter, Depends, HTTPException, Header, Request
 from pydantic import BaseModel, Field
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
+
+from dotenv import load_dotenv
+load_dotenv(PROJECT_ROOT / ".env")
+
+# ── Authentication ──────────────────────────────────────────────────────────
+# Set MATRIX_AUTH_TOKEN in .env to secure C2 endpoints.
+# Pass via header: Authorization: Bearer <token> or X-Matrix-Token: <token>
+
+MATRIX_AUTH_TOKEN = os.environ.get("MATRIX_AUTH_TOKEN", "")
+
+
+async def verify_matrix_auth(
+    authorization: Optional[str] = Header(None),
+    x_matrix_token: Optional[str] = Header(None),
+    x_api_key: Optional[str] = Header(None),
+):
+    """Require authentication for Matrix C2 endpoints."""
+    if not MATRIX_AUTH_TOKEN:
+        # No token configured — block access entirely in production
+        if os.environ.get("RAILWAY_ENVIRONMENT"):
+            raise HTTPException(status_code=503, detail="MATRIX_AUTH_TOKEN not configured")
+        # Local dev — allow unauthenticated
+        return True
+
+    # Check Authorization: Bearer <token>
+    if authorization and authorization.startswith("Bearer "):
+        token = authorization[7:]
+        if hmac.compare_digest(token, MATRIX_AUTH_TOKEN):
+            return True
+
+    # Check X-Matrix-Token header
+    if x_matrix_token and hmac.compare_digest(x_matrix_token, MATRIX_AUTH_TOKEN):
+        return True
+
+    # Check X-API-Key header
+    if x_api_key and hmac.compare_digest(x_api_key, MATRIX_AUTH_TOKEN):
+        return True
+
+    raise HTTPException(status_code=401, detail="Invalid or missing authentication token")
+
 
 router = APIRouter(prefix="/matrix", tags=["matrix-monitor"])
 
@@ -50,10 +93,11 @@ class AlertConfig(BaseModel):
 # ── SITREP — Single call to know everything ─────────────────────────────────
 
 @router.get("/sitrep")
-def sitrep():
+def sitrep(_auth=Depends(verify_matrix_auth)):
     """Command & Control situation report — everything you need in one payload.
 
     Designed for mobile: one fetch, all data. No subsequent calls needed.
+    Requires authentication via Bearer token or X-Matrix-Token header.
     """
     from dashboard.health import system_health, queue_status, kpi_summary, revenue_summary
 
@@ -106,8 +150,8 @@ def sitrep():
 # ── C2 Commands ─────────────────────────────────────────────────────────────
 
 @router.post("/command")
-def execute_command(cmd: C2Command):
-    """Execute a command & control action from mobile."""
+def execute_command(cmd: C2Command, _auth=Depends(verify_matrix_auth)):
+    """Execute a command & control action from mobile. Requires authentication."""
     timestamp = datetime.now(timezone.utc).isoformat()
 
     actions = {
@@ -142,16 +186,16 @@ def execute_command(cmd: C2Command):
 
 
 @router.get("/decisions")
-def decisions(limit: int = 20):
-    """Recent C2 decisions log."""
+def decisions(limit: int = 20, _auth=Depends(verify_matrix_auth)):
+    """Recent C2 decisions log. Requires authentication."""
     return {"decisions": _recent_decisions(limit)}
 
 
 # ── Alert Configuration ────────────────────────────────────────────────────
 
 @router.get("/alerts/config")
-def get_alert_config():
-    """Get current alert configuration."""
+def get_alert_config(_auth=Depends(verify_matrix_auth)):
+    """Get current alert configuration. Requires authentication."""
     if ALERT_CONFIG.exists():
         data = json.loads(ALERT_CONFIG.read_text(encoding="utf-8"))
         # Mask token for security
@@ -162,16 +206,16 @@ def get_alert_config():
 
 
 @router.post("/alerts/config")
-def set_alert_config(config: AlertConfig):
-    """Update alert configuration (Telegram bot setup)."""
+def set_alert_config(config: AlertConfig, _auth=Depends(verify_matrix_auth)):
+    """Update alert configuration (Telegram bot setup). Requires authentication."""
     ALERT_CONFIG.parent.mkdir(parents=True, exist_ok=True)
     ALERT_CONFIG.write_text(json.dumps(config.model_dump(), indent=2), encoding="utf-8")
     return {"status": "saved", "config": config.model_dump()}
 
 
 @router.post("/alerts/test")
-def test_alert():
-    """Send a test alert to verify Telegram notifications work."""
+def test_alert(_auth=Depends(verify_matrix_auth)):
+    """Send a test alert to verify Telegram notifications work. Requires authentication."""
     result = _send_telegram_alert("🧪 BITRAGE MATRIX TEST — Notifications are working!")
     return result
 

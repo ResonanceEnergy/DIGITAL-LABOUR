@@ -6,7 +6,7 @@
   },
   "deploy": {
     "startCommand": "python -m api.rapidapi --serve",
-    "healthcheckPath": "/docs",
+    "healthcheckPath": "/health",
     "restartPolicyType": "ON_FAILURE"
   }
 }

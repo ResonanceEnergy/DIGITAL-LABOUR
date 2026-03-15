@@ -401,7 +401,8 @@ body {
     <span id="meta-time">--:--</span>
     <span>|</span>
     <span id="meta-refresh">Auto 15s</span>
-    <span style="margin-left:auto;cursor:pointer" onclick="openSettings()">&#9881; ALERTS</span>
+    <span style="margin-left:auto;cursor:pointer" onclick="promptAuth()">&#128274;</span>
+    <span style="cursor:pointer;margin-left:8px" onclick="openSettings()">&#9881; ALERTS</span>
   </div>
 </div>
 
@@ -538,10 +539,34 @@ body {
 const BASE = window.location.origin;
 let refreshTimer;
 
+// ── Auth Token ──
+function getAuthToken() {
+  return localStorage.getItem('matrix_auth_token') || '';
+}
+function authHeaders() {
+  const token = getAuthToken();
+  const h = {'Content-Type': 'application/json'};
+  if (token) h['Authorization'] = 'Bearer ' + token;
+  return h;
+}
+function promptAuth() {
+  const current = getAuthToken();
+  const token = prompt('Enter Matrix Auth Token:', current);
+  if (token !== null) {
+    localStorage.setItem('matrix_auth_token', token.trim());
+    showToast('Token saved');
+    fetchSitrep();
+  }
+}
+
 // ── Data Fetch ──
 async function fetchSitrep() {
   try {
-    const res = await fetch(BASE + '/matrix/sitrep');
+    const res = await fetch(BASE + '/matrix/sitrep', {headers: authHeaders()});
+    if (res.status === 401 || res.status === 403) {
+      promptAuth();
+      return;
+    }
     if (!res.ok) throw new Error(res.status);
     const data = await res.json();
     render(data);
@@ -664,7 +689,7 @@ async function c2(action, target, reason) {
   try {
     const res = await fetch(BASE + '/matrix/command', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: authHeaders(),
       body: JSON.stringify({action, target: target||'', reason: reason||'', operator:'mobile'})
     });
     const data = await res.json();
@@ -702,7 +727,7 @@ async function saveAlerts() {
   try {
     await fetch(BASE + '/matrix/alerts/config', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: authHeaders(),
       body: JSON.stringify({telegram_token:token, telegram_chat_id:chatId})
     });
     showToast('Alerts configured!');
@@ -719,7 +744,7 @@ async function testAlert() {
   // Save first, then test
   await saveAlerts();
   try {
-    const res = await fetch(BASE + '/matrix/alerts/test', {method:'POST'});
+    const res = await fetch(BASE + '/matrix/alerts/test', {method:'POST', headers: authHeaders()});
     const data = await res.json();
     showToast('Test: ' + data.status);
   } catch(e) {

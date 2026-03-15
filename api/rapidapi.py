@@ -22,6 +22,7 @@ import json
 import os
 import sys
 import time
+from collections import defaultdict
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -40,6 +41,9 @@ from typing import Optional
 
 # ── RapidAPI-Ready App ──────────────────────────────────────────
 
+# Hide docs in production — no need to expose API schema to attackers
+_on_railway = bool(os.environ.get("RAILWAY_ENVIRONMENT"))
+
 rapid_app = FastAPI(
     title="Bit Rage Labour — AI Agents API",
     version="2.0.0",
@@ -49,8 +53,9 @@ rapid_app = FastAPI(
         "market research, business plans, tech docs, and more. "
         "Multi-agent pipelines with QA verification on every output."
     ),
-    docs_url="/docs",
-    redoc_url="/redoc",
+    docs_url=None if _on_railway else "/docs",
+    redoc_url=None if _on_railway else "/redoc",
+    openapi_url=None if _on_railway else "/openapi.json",
 )
 
 rapid_app.add_middleware(
@@ -64,8 +69,38 @@ rapid_app.add_middleware(
     ],
     allow_methods=["GET", "POST"],
     allow_headers=["Content-Type", "Authorization", "X-API-Key",
-                    "X-RapidAPI-Proxy-Secret", "X-RapidAPI-Key"],
+                    "X-RapidAPI-Proxy-Secret", "X-RapidAPI-Key",
+                    "X-Matrix-Token"],
 )
+
+
+# ── Rate Limiting (in-memory sliding window) ─────────────────────
+_rate_buckets: dict[str, list[float]] = defaultdict(list)
+RATE_LIMIT = 60       # requests per window
+RATE_WINDOW = 60.0    # seconds
+
+
+@rapid_app.middleware("http")
+async def rate_limit_middleware(request: Request, call_next):
+    """Simple IP-based rate limiting."""
+    client_ip = request.client.host if request.client else "unknown"
+    now = time.time()
+    bucket = _rate_buckets[client_ip]
+    # Prune old entries
+    cutoff = now - RATE_WINDOW
+    _rate_buckets[client_ip] = [t for t in bucket if t > cutoff]
+    bucket = _rate_buckets[client_ip]
+    if len(bucket) >= RATE_LIMIT:
+        return JSONResponse(
+            status_code=429,
+            content={"detail": "Rate limit exceeded. Try again later."},
+            headers={"Retry-After": str(int(RATE_WINDOW))}
+        )
+    bucket.append(now)
+    response = await call_next(request)
+    response.headers["X-RateLimit-Limit"] = str(RATE_LIMIT)
+    response.headers["X-RateLimit-Remaining"] = str(max(0, RATE_LIMIT - len(bucket)))
+    return response
 
 
 @rapid_app.middleware("http")

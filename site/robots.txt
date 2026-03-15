@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard.html
+Disallow: /subscribe.html
+
+Sitemap: https://bit-rage-labour.com/sitemap.xml
