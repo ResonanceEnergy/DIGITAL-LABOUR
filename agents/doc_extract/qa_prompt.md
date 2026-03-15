@@ -29,8 +29,10 @@ You receive the original document text AND the extracted data.
 ```
 
 ## Rules
-- PASS requires score ≥ 80 and no accuracy errors
+- PASS requires score ≥ 80 AND accuracy = true AND no_hallucination = true
+- Completeness failures alone (missing minor entities like bank details) do NOT cause FAIL if score ≥ 80
 - FAIL if any hallucinated data detected
-- FAIL if major entities (totals, names, dates) were missed
+- FAIL if MAJOR entities (totals, names, dates, invoice numbers) were missed
+- Minor entities (bank details, routing numbers, payment methods) are optional — flag in suggestions, not errors
 - Be strict on amounts — they must match exactly
 - Do NOT wrap output in markdown fences

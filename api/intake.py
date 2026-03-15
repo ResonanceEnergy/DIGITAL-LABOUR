@@ -20,7 +20,7 @@ from typing import Literal
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, Response
+from fastapi.responses import HTMLResponse, JSONResponse, Response
 from pydantic import BaseModel, Field
 
 load_dotenv(PROJECT_ROOT / ".env")
@@ -29,6 +29,7 @@ from dispatcher.queue import TaskQueue
 from dispatcher.router import DAILY_LIMITS, create_event, route_task
 from api.monitor import router as monitor_router
 from api.payments import router as payment_router
+from api.matrix_monitor import router as matrix_router
 
 app = FastAPI(
     title="Digital Labour Intake API",
@@ -82,6 +83,9 @@ app.include_router(monitor_router)
 # Payment & signup endpoints
 app.include_router(payment_router)
 
+# BITRAGE MATRIX MONITOR — Mobile C2
+app.include_router(matrix_router)
+
 
 @app.get("/ops", response_class=HTMLResponse)
 def ops_dashboard():
@@ -90,11 +94,64 @@ def ops_dashboard():
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
 
+@app.get("/matrix", response_class=HTMLResponse)
+def matrix_dashboard():
+    """Serve the BITRAGE MATRIX MONITOR — mobile C2 dashboard."""
+    html_path = Path(__file__).parent / "matrix_dashboard.html"
+    return HTMLResponse(html_path.read_text(encoding="utf-8"))
+
+
+@app.get("/matrix/manifest.json")
+def matrix_manifest():
+    """PWA manifest for BITRAGE MATRIX — Add to Home Screen support."""
+    return JSONResponse({
+        "name": "BITRAGE MATRIX",
+        "short_name": "MATRIX",
+        "start_url": "/matrix",
+        "display": "standalone",
+        "background_color": "#0a0a0f",
+        "theme_color": "#0a0a0f",
+        "icons": [
+            {"src": "/matrix/icon-192.png", "sizes": "192x192", "type": "image/png"},
+            {"src": "/matrix/icon-512.png", "sizes": "512x512", "type": "image/png"}
+        ]
+    })
+
+
 @app.get("/subscribe", response_class=HTMLResponse)
 def subscribe_page():
     """Serve the subscription pricing page."""
     html_path = Path(__file__).resolve().parent.parent / "site" / "subscribe.html"
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
+
+
+# ── Blog routes ─────────────────────────────────────────────────────────────
+
+BLOG_SLUGS = {
+    "building-24-agent-ai-workforce",
+    "multi-llm-failover",
+    "nerve-autonomous-outreach",
+    "chatgpt-wrappers-vs-production-agents",
+}
+
+
+@app.get("/blog", response_class=HTMLResponse)
+def blog_index():
+    """Serve the blog index page."""
+    html_path = PROJECT_ROOT / "site" / "blog" / "index.html"
+    return HTMLResponse(html_path.read_text(encoding="utf-8"))
+
+
+@app.get("/blog/{slug}", response_class=HTMLResponse)
+def blog_post(slug: str):
+    """Serve an individual blog post."""
+    if slug not in BLOG_SLUGS:
+        raise HTTPException(status_code=404, detail="Post not found")
+    html_path = PROJECT_ROOT / "site" / "blog" / f"{slug}.html"
+    if not html_path.is_file():
+        raise HTTPException(status_code=404, detail="Post not found")
+    return HTMLResponse(html_path.read_text(encoding="utf-8"))
+
 
 queue = TaskQueue()
 

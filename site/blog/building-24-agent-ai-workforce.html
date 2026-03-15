@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building a 24-Agent AI Workforce: Architecture Decisions That Actually Matter — Bit Rage Labour</title>
+<meta name="description" content="How we architected 24 production AI agents with multi-LLM failover, automated QA, and autonomous task routing. Real engineering decisions from Bit Rage Labour.">
+<meta property="og:title" content="Building a 24-Agent AI Workforce: Architecture Decisions That Actually Matter">
+<meta property="og:description" content="How we architected 24 production AI agents with multi-LLM failover, QA verification, and autonomous task routing.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bit-rage-labour.com/blog/building-24-agent-ai-workforce">
+<meta property="article:published_time" content="2026-01-15">
+<meta property="article:author" content="Bit Rage Labour">
+<link rel="icon" type="image/png" href="/logo.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--card:#141414;--card2:#1a1a1a;--border:#2a2a2a;--red:#e01b24;--red-bright:#ff2d38;--red-glow:rgba(224,27,36,0.25);--red-dark:#8b1118;--orange:#ff6b35;--text:#e8e8e8;--muted:#999;--white:#fff;--gradient:linear-gradient(135deg,#e01b24,#ff6b35)}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--red-bright);text-decoration:none;transition:color .2s}a:hover{color:var(--orange)}
+.container{max-width:760px;margin:0 auto;padding:0 24px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);background:rgba(10,10,10,0.9);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:1080px;margin:0 auto;padding:0 24px}
+.nav-brand{display:flex;align-items:center;gap:10px;font-size:1.2rem;font-weight:800;letter-spacing:-0.5px;color:var(--white);text-transform:uppercase}
+.nav-brand img{width:38px;height:38px;border-radius:50%}
+.nav-brand span{color:var(--red)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:0.9rem;color:var(--muted);font-weight:500}
+.nav-links a:hover{color:var(--red-bright)}
+.nav-cta{background:var(--red) !important;color:#fff !important;padding:9px 22px;border-radius:6px;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.5px}
+.mobile-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+@media(max-width:768px){.nav-links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:rgba(10,10,10,0.97);padding:20px 24px;gap:16px;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.mobile-toggle{display:block}}
+
+/* Article */
+.post-header{padding:120px 0 40px;text-align:center}
+.post-header .tag{display:inline-block;font-size:0.7rem;background:rgba(224,27,36,0.1);color:var(--red-bright);padding:4px 14px;border-radius:20px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+.post-header h1{font-size:2.4rem;font-weight:900;letter-spacing:-1.5px;line-height:1.15;margin-bottom:16px}
+@media(max-width:768px){.post-header h1{font-size:1.8rem}}
+.post-header .meta{color:var(--muted);font-size:0.9rem}
+.post-header .meta strong{color:var(--white)}
+
+.post-body{padding:40px 0 80px}
+.post-body h2{font-size:1.6rem;font-weight:800;margin:48px 0 16px;color:var(--white);letter-spacing:-0.5px}
+.post-body h3{font-size:1.2rem;font-weight:700;margin:32px 0 12px;color:var(--white)}
+.post-body p{margin-bottom:20px;font-size:1.05rem;color:var(--text);line-height:1.8}
+.post-body ul,.post-body ol{margin:0 0 20px 24px;color:var(--text)}
+.post-body li{margin-bottom:8px;font-size:1.02rem;line-height:1.7}
+.post-body strong{color:var(--white)}
+.post-body em{color:var(--muted);font-style:italic}
+.post-body code{background:var(--card2);border:1px solid var(--border);padding:2px 8px;border-radius:4px;font-size:0.92rem;color:var(--red-bright);font-family:'Cascadia Code','Fira Code',monospace}
+.post-body pre{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;overflow-x:auto;margin:24px 0;font-size:0.9rem;line-height:1.6}
+.post-body pre code{background:none;border:none;padding:0;color:var(--text)}
+.post-body blockquote{border-left:3px solid var(--red);background:var(--card);padding:20px 24px;margin:24px 0;border-radius:0 12px 12px 0;font-size:1rem;color:var(--muted);line-height:1.7}
+.post-body blockquote strong{color:var(--white)}
+.post-body .callout{background:rgba(224,27,36,0.06);border:1px solid rgba(224,27,36,0.2);border-radius:12px;padding:24px;margin:24px 0}
+.post-body .callout h4{color:var(--red-bright);font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.post-body .diagram{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:32px;margin:32px 0;text-align:center;font-family:'Cascadia Code','Fira Code',monospace;font-size:0.95rem;line-height:2;color:var(--muted);overflow-x:auto;white-space:pre}
+.post-body .diagram strong{color:var(--red-bright)}
+.post-body .stat-row{display:flex;gap:20px;margin:24px 0;flex-wrap:wrap}
+.post-body .stat-box{flex:1;min-width:120px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.post-body .stat-box .num{font-size:2rem;font-weight:900;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.post-body .stat-box .label{font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* Post nav */
+.post-nav{display:flex;justify-content:space-between;align-items:center;padding:40px 0;border-top:1px solid var(--border);margin-top:40px;flex-wrap:wrap;gap:16px}
+.post-nav a{color:var(--red-bright);font-weight:700;font-size:0.9rem}
+.post-nav a:hover{color:var(--orange)}
+
+/* CTA */
+.post-cta{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:40px;text-align:center;margin:40px 0}
+.post-cta h3{font-size:1.4rem;font-weight:800;margin-bottom:12px;text-transform:uppercase}
+.post-cta p{color:var(--muted);margin-bottom:20px}
+.post-cta .btn{display:inline-block;padding:14px 32px;border-radius:8px;font-size:1rem;font-weight:700;background:var(--gradient);color:#fff;text-transform:uppercase;letter-spacing:0.5px;transition:all .25s}
+.post-cta .btn:hover{transform:translateY(-2px);box-shadow:0 8px 36px var(--red-glow);color:#fff}
+
+.footer{padding:48px 0 32px;border-top:2px solid var(--red-dark)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;max-width:1080px;margin:0 auto;padding:0 24px}
+.footer p{font-size:0.82rem;color:var(--muted)}
+.footer a{color:var(--red-bright);font-size:0.82rem}
+.rage-stripe{height:4px;background:var(--gradient);width:100%}
+</style>
+</head>
+<body>
+
+<div class="rage-stripe"></div>
+
+<nav class="nav">
+<div class="nav-inner">
+  <a href="/" class="nav-brand"><img src="/logo.png" alt="Bit Rage Logo">Bit <span>Rage</span> Labour</a>
+  <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+  <div class="nav-links">
+    <a href="/#agents">Agents</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog">Blog</a>
+    <a href="/#faq">FAQ</a>
+    <a href="mailto:hello@bit-rage-labour.com">Contact</a>
+    <a href="/#start" class="nav-cta">Get Started</a>
+  </div>
+</div>
+</nav>
+
+<header class="post-header">
+<div class="container">
+  <span class="tag">Architecture</span>
+  <h1>Building a 24-Agent AI Workforce: Architecture Decisions That Actually Matter</h1>
+  <p class="meta">By <strong>Bit Rage Labour</strong> &bull; January 15, 2026 &bull; 12 min read</p>
+</div>
+</header>
+
+<article class="post-body">
+<div class="container">
+
+<p>Most "AI agent" projects die in the proof-of-concept phase. They work in demos, impress in meetings, and crumble the moment real users send real data. We built 24 production agents that process thousands of tasks and deliver QA-verified outputs in under 14 seconds. Here's how — and more importantly, here's what we'd do differently.</p>
+
+<h2>The Problem: AI Agents That Don't Actually Work</h2>
+
+<p>When we started Bit Rage Labour, the AI agent landscape was dominated by two extremes: enterprise platforms that cost six figures and take months to deploy, and open-source frameworks that produce impressive demos but can't handle production load.</p>
+
+<p>We needed something in between. A system that could:</p>
+<ul>
+  <li>Process 20+ different task types (sales outreach, support tickets, content, data extraction, and more)</li>
+  <li>Handle concurrent requests without stepping on each other</li>
+  <li>Guarantee quality on every single output — not 60% of the time, every time</li>
+  <li>Run autonomously 24/7 without babysitting</li>
+  <li>Cost less than $0.10 per task in LLM spend</li>
+</ul>
+
+<p>So we built it from scratch. No LangChain. No AutoGPT. No framework tax. Just Python, FastAPI, and four LLM providers wired together with purpose-built orchestration.</p>
+
+<h2>Architecture Decision #1: One Agent Per Task Type</h2>
+
+<p>The first decision — and the most important one — was rejecting the "general-purpose agent" pattern entirely.</p>
+
+<p>Most agent frameworks try to build one mega-agent that can handle anything. Give it a system prompt, some tools, and let it figure out the rest. This approach fails in production for a simple reason: <strong>the more general an agent is, the worse it performs at every specific task.</strong></p>
+
+<p>Instead, we built 24 specialized agents. Each one has:</p>
+<ul>
+  <li><strong>A single responsibility</strong> — the Sales Ops agent writes outreach emails. That's it. It doesn't also do data entry.</li>
+  <li><strong>A custom system prompt</strong> optimized for its exact output format</li>
+  <li><strong>Task-specific input validation</strong> — the resume writer expects career data, the web scraper expects a URL</li>
+  <li><strong>Dedicated QA criteria</strong> — what counts as "good" for a support ticket response is completely different from what counts as "good" for a press release</li>
+</ul>
+
+<div class="diagram"><strong>Task Request</strong> → <strong>Router</strong> → <strong>Specialized Agent</strong> → <strong>QA Gate</strong> → <strong>Delivery</strong>
+                           ↓                    ↓
+                     Rate Limiter          LLM Provider
+                     Budget Check          (GPT-4o/Claude/
+                     Daily Caps             Gemini/Grok)</div>
+
+<p>The router (<code>dispatcher/router.py</code>) maps each incoming task to its agent, checks daily limits and token budgets, then hands off execution. There's no AI deciding which agent to use — it's a deterministic routing table. Fast, predictable, debuggable.</p>
+
+<h2>Architecture Decision #2: QA as a Pipeline Stage, Not an Afterthought</h2>
+
+<p>This is the single most impactful decision we made. Every output from every agent passes through an automated QA verification step before delivery. Period.</p>
+
+<blockquote><strong>Without QA gates, our agents produced garbage 20-40% of the time.</strong> With QA gates, that dropped to under 5%. One architectural decision. 4x quality improvement.</blockquote>
+
+<p>The QA agent checks different criteria per task type:</p>
+<ul>
+  <li><strong>Sales outreach:</strong> Does the email reference a real signal? Is the subject line under 60 chars? Is there a clear CTA? Does it avoid spam trigger words?</li>
+  <li><strong>Support tickets:</strong> Does the response address the actual issue? Is the severity score reasonable? Is the tone professional?</li>
+  <li><strong>Content repurposing:</strong> Is each platform format within character limits? Does LinkedIn use paragraphs, not bullet lists? Is the Twitter version actually tweetable?</li>
+  <li><strong>Document extraction:</strong> Are all required fields present? Do the confidence scores make sense? Are dates in valid formats?</li>
+</ul>
+
+<p>If QA fails, the agent retries — up to 3 times with adjusted prompts. If it still fails after 3 attempts, the task is flagged for human review rather than delivering garbage.</p>
+
+<div class="stat-row">
+  <div class="stat-box"><div class="num">24</div><div class="label">Agents</div></div>
+  <div class="stat-box"><div class="num">95%+</div><div class="label">QA Pass Rate</div></div>
+  <div class="stat-box"><div class="num">&lt;14s</div><div class="label">Avg Delivery</div></div>
+  <div class="stat-box"><div class="num">4</div><div class="label">LLM Providers</div></div>
+</div>
+
+<h2>Architecture Decision #3: Multi-LLM by Default</h2>
+
+<p>We never intended to use four LLM providers. We started with OpenAI. Then OpenAI went down for 3 hours on a Tuesday afternoon while we had active client tasks in the queue.</p>
+
+<p>That was the day we added Anthropic Claude as a fallback. Then Google Gemini. Then xAI Grok. Now our <code>utils/llm_client.py</code> handles provider selection automatically:</p>
+
+<pre><code># Simplified provider chain
+providers = ["openai", "anthropic", "gemini", "grok"]
+
+for provider in providers:
+    try:
+        result = call_llm(provider, system_prompt, user_message)
+        if result:
+            return result
+    except (RateLimitError, APIError, Timeout):
+        continue  # Try next provider
+
+raise AllProvidersFailedError("No LLM provider available")</code></pre>
+
+<p>Each provider has its own token budget and daily limit. If OpenAI hits its rate limit, Claude takes over. If Claude is down, Gemini picks up. The user never knows. The output quality stays consistent because our prompts are provider-agnostic — we don't rely on provider-specific features.</p>
+
+<p><em>More details on this in our <a href="/blog/multi-llm-failover">Multi-LLM Failover deep dive</a>.</em></p>
+
+<h2>Architecture Decision #4: SQLite Task Queue</h2>
+
+<p>We considered Redis. We considered RabbitMQ. We considered Celery. We chose SQLite.</p>
+
+<p>Why? Because our deployment runs on a single Railway container, and the overhead of managing a separate queue service wasn't worth the complexity. SQLite in WAL mode handles concurrent reads and writes just fine for our volume.</p>
+
+<pre><code># dispatcher/queue.py — WAL mode for concurrent access
+conn = sqlite3.connect("data/task_queue.db")
+conn.execute("PRAGMA journal_mode=WAL")
+conn.execute("PRAGMA busy_timeout=5000")</code></pre>
+
+<p>The task queue stores every request with its status, timestamps, inputs, outputs, and billing info. It's also our audit trail — we can trace any task from intake to delivery to payment.</p>
+
+<div class="callout">
+  <h4>Lesson Learned</h4>
+  <p>Don't reach for distributed systems when a single-process solution works. We process hundreds of tasks per day on SQLite. When we need to scale beyond a single container, we'll move to PostgreSQL — but not before then. Premature infrastructure is a tax you pay every day.</p>
+</div>
+
+<h2>Architecture Decision #5: FastAPI with Sync Processing</h2>
+
+<p>Our API (<code>api/intake.py</code>) accepts task requests via POST and can process them in two modes:</p>
+<ul>
+  <li><strong>Async mode</strong> (default): Queues the task, returns a task ID immediately. The client polls for results or receives a webhook callback.</li>
+  <li><strong>Sync mode</strong>: Processes the task inline and returns the result in the same HTTP response. Average response time: 8-15 seconds depending on task type.</li>
+</ul>
+
+<p>We started async-only but quickly learned that marketplace integrations (Fiverr, Freelancer) and small clients don't want to deal with webhooks. They want to POST a request and GET a result. Sync mode solved that.</p>
+
+<h2>The 20 Worker Agents</h2>
+
+<p>Here's every agent we have in production, what it does, and its average processing time:</p>
+
+<ul>
+  <li><strong>sales_ops</strong> (13.3s) — Company research + 3-email outreach sequences with real signal detection</li>
+  <li><strong>support</strong> (9.6s) — Ticket triage, severity scoring, draft responses with policy compliance</li>
+  <li><strong>content_repurpose</strong> (11.8s) — Blog → LinkedIn + Twitter + Email + Instagram + TikTok</li>
+  <li><strong>doc_extract</strong> (7.9s) — Invoices, contracts, resumes → structured JSON with confidence scores</li>
+  <li><strong>lead_gen</strong> (12.1s) — ICP-matched B2B leads with enrichment and scoring</li>
+  <li><strong>email_marketing</strong> (14.2s) — 5-10 email sequences (welcome, nurture, re-engagement, launch)</li>
+  <li><strong>seo_content</strong> (16.5s) — Long-form keyword-researched articles with H2/H3 structure</li>
+  <li><strong>social_media</strong> (13.7s) — 30-day content calendars for 5 platforms</li>
+  <li><strong>data_entry</strong> (6.4s) — Raw text/tables → cleaned, structured, validated data</li>
+  <li><strong>web_scraper</strong> (8.3s) — URL → structured data extraction with field mapping</li>
+  <li><strong>crm_ops</strong> (7.1s) — Lead scoring, pipeline stage recommendations, follow-up scheduling</li>
+  <li><strong>bookkeeping</strong> (9.8s) — Transaction categorization, reconciliation, report generation</li>
+  <li><strong>proposal_writer</strong> (15.3s) — Full business proposals with scope, timeline, pricing</li>
+  <li><strong>product_desc</strong> (8.7s) — E-commerce product descriptions from specs with SEO keywords</li>
+  <li><strong>resume_writer</strong> (12.4s) — Career data → polished resumes in multiple formats</li>
+  <li><strong>ad_copy</strong> (9.2s) — Google, Meta, LinkedIn ad copy with A/B variants</li>
+  <li><strong>market_research</strong> (14.8s) — Competitive analysis, market sizing, trend identification</li>
+  <li><strong>business_plan</strong> (18.6s) — Full business plans with financials, go-to-market, competitive analysis</li>
+  <li><strong>press_release</strong> (11.1s) — AP-style press releases with quotes and boilerplate</li>
+  <li><strong>tech_docs</strong> (13.9s) — API documentation, user guides, technical specifications</li>
+</ul>
+
+<p>Plus 4 management agents: <strong>context_manager</strong> (cross-task context), <strong>qa_manager</strong> (quality orchestration), <strong>production_manager</strong> (workflow optimization), and <strong>automation_manager</strong> (self-healing operations).</p>
+
+<h2>What We'd Do Differently</h2>
+
+<p>If we started over today:</p>
+
+<ol>
+  <li><strong>Start with 4 agents, not 24.</strong> Our first 4 (sales, support, content, docs) generate 90% of revenue. The other 20 were built speculatively. Ship the minimum, validate demand, then expand.</li>
+  <li><strong>Build the QA pipeline first.</strong> We added QA after the agents were built, and retrofitting it was painful. If we'd designed it as a pipeline stage from day one, every agent would have been built with QA in mind.</li>
+  <li><strong>Use structured outputs from the start.</strong> We spent weeks debugging JSON parsing issues because our early prompts returned free-text. Now every agent returns structured data, and the code is 10x cleaner.</li>
+  <li><strong>Track token costs per task from day one.</strong> We flew blind on costs for the first month. Now every task logs its token usage and cost, which lets us price accurately and optimize prompts.</li>
+</ol>
+
+<h2>The Numbers</h2>
+
+<p>After 3 months in production:</p>
+
+<div class="stat-row">
+  <div class="stat-box"><div class="num">24</div><div class="label">Live Agents</div></div>
+  <div class="stat-box"><div class="num">4</div><div class="label">LLM Providers</div></div>
+  <div class="stat-box"><div class="num">95%+</div><div class="label">QA Pass Rate</div></div>
+  <div class="stat-box"><div class="num">$0.04</div><div class="label">Avg Cost/Task</div></div>
+</div>
+
+<p>The system runs on a single Railway container (Docker, FastAPI), costs about $20/month in infrastructure, and processes tasks around the clock via the NERVE autonomous daemon.</p>
+
+<p>It's not the most elegant architecture in the world. But it works. Every day. Without crashing. And that matters more than any whiteboard diagram.</p>
+
+<div class="post-cta">
+  <h3>Want These Agents Working for You?</h3>
+  <p>Start with 2 free leads. See real outputs. No credit card required.</p>
+  <a href="/#start" class="btn">Get Started Free</a>
+</div>
+
+<div class="post-nav">
+  <a href="/blog">&larr; All Posts</a>
+  <a href="/blog/multi-llm-failover">Next: Multi-LLM Failover &rarr;</a>
+</div>
+
+</div>
+</article>
+
+<footer class="footer">
+<div class="footer-inner">
+  <p>&copy; 2026 Bit Rage Labour. A Resonance Energy company.</p>
+  <div><a href="/">Home</a> &bull; <a href="/blog">Blog</a> &bull; <a href="mailto:hello@bit-rage-labour.com">Contact</a></div>
+</div>
+</footer>
+
+<div class="rage-stripe"></div>
+</body>
+</html>

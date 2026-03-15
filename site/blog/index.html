@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Bit Rage Labour</title>
+<meta name="description" content="Technical blog from Bit Rage Labour — production AI agent architecture, multi-LLM systems, autonomous outreach, and real-world deployment insights.">
+<meta property="og:title" content="Blog — Bit Rage Labour">
+<meta property="og:description" content="Production AI agent insights. Architecture decisions, multi-LLM failover, autonomous outreach, and lessons from building 24 production agents.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bit-rage-labour.com/blog">
+<link rel="icon" type="image/png" href="/logo.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0a;--card:#141414;--card2:#1a1a1a;--border:#2a2a2a;
+  --red:#e01b24;--red-bright:#ff2d38;--red-glow:rgba(224,27,36,0.25);--red-dark:#8b1118;
+  --orange:#ff6b35;--orange-glow:rgba(255,107,53,0.2);
+  --text:#e8e8e8;--muted:#999;--white:#fff;--black:#000;
+  --gradient:linear-gradient(135deg,#e01b24,#ff6b35);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--red-bright);text-decoration:none;transition:color .2s}
+a:hover{color:var(--orange)}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);background:rgba(10,10,10,0.9);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-brand{display:flex;align-items:center;gap:10px;font-size:1.2rem;font-weight:800;letter-spacing:-0.5px;color:var(--white);text-transform:uppercase}
+.nav-brand img{width:38px;height:38px;border-radius:50%}
+.nav-brand span{color:var(--red)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:0.9rem;color:var(--muted);font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--red-bright)}
+.nav-cta{background:var(--red) !important;color:#fff !important;padding:9px 22px;border-radius:6px;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.5px}
+.nav-cta:hover{background:var(--red-bright) !important;color:#fff !important}
+.mobile-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:rgba(10,10,10,0.97);padding:20px 24px;gap:16px;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .mobile-toggle{display:block}
+}
+
+/* Hero */
+.blog-hero{padding:120px 0 60px;text-align:center;position:relative}
+.blog-hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,var(--red-glow) 0%,transparent 65%);pointer-events:none;opacity:0.3}
+.blog-hero .section-tag{font-size:0.75rem;text-transform:uppercase;letter-spacing:3px;color:var(--red);font-weight:700;margin-bottom:12px}
+.blog-hero h1{font-size:2.8rem;font-weight:900;letter-spacing:-2px;text-transform:uppercase;margin-bottom:12px}
+.blog-hero h1 em{font-style:normal;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.blog-hero p{color:var(--muted);font-size:1.1rem;max-width:560px;margin:0 auto}
+
+/* Blog Cards */
+.blog-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:60px 0 80px}
+@media(max-width:768px){.blog-grid{grid-template-columns:1fr}}
+.blog-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:36px;transition:all .3s;position:relative;overflow:hidden}
+.blog-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient);opacity:0;transition:opacity .3s}
+.blog-card:hover{border-color:var(--red);transform:translateY(-4px);box-shadow:0 12px 40px rgba(224,27,36,0.08)}
+.blog-card:hover::before{opacity:1}
+.blog-card .tag{display:inline-block;font-size:0.7rem;background:rgba(224,27,36,0.1);color:var(--red-bright);padding:4px 12px;border-radius:20px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.blog-card h2{font-size:1.3rem;font-weight:700;margin-bottom:12px;line-height:1.3}
+.blog-card h2 a{color:var(--white);transition:color .2s}
+.blog-card h2 a:hover{color:var(--red-bright)}
+.blog-card .excerpt{color:var(--muted);font-size:0.95rem;line-height:1.6;margin-bottom:20px}
+.blog-card .meta{display:flex;justify-content:space-between;align-items:center;font-size:0.82rem;color:var(--muted);border-top:1px solid var(--border);padding-top:16px}
+.blog-card .read-more{color:var(--red-bright);font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.5px}
+.blog-card .read-more:hover{color:var(--orange)}
+
+/* Footer */
+.footer{padding:48px 0 32px;border-top:2px solid var(--red-dark)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer p{font-size:0.82rem;color:var(--muted)}
+.footer a{color:var(--red-bright);font-size:0.82rem}
+
+.rage-stripe{height:4px;background:var(--gradient);width:100%}
+</style>
+</head>
+<body>
+
+<div class="rage-stripe"></div>
+
+<nav class="nav">
+<div class="container nav-inner">
+  <a href="/" class="nav-brand"><img src="/logo.png" alt="Bit Rage Logo">Bit <span>Rage</span> Labour</a>
+  <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+  <div class="nav-links">
+    <a href="/#agents">Agents</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog" class="active">Blog</a>
+    <a href="/#faq">FAQ</a>
+    <a href="mailto:hello@bit-rage-labour.com">Contact</a>
+    <a href="/#start" class="nav-cta">Get Started</a>
+  </div>
+</div>
+</nav>
+
+<header class="blog-hero">
+<div class="container">
+  <div class="section-tag">Technical Blog</div>
+  <h1>From the <em>War Room</em></h1>
+  <p>Architecture decisions, production lessons, and real engineering insights from building a 24-agent AI workforce.</p>
+</div>
+</header>
+
+<main class="container">
+<div class="blog-grid">
+
+  <article class="blog-card">
+    <span class="tag">Architecture</span>
+    <h2><a href="/blog/building-24-agent-ai-workforce">Building a 24-Agent AI Workforce: Architecture Decisions That Actually Matter</a></h2>
+    <p class="excerpt">How we architected Bit Rage Labour's production AI workforce — 24 specialized agents with multi-LLM failover, automated QA verification, and autonomous task routing. The real engineering decisions, not the hype.</p>
+    <div class="meta">
+      <span>January 15, 2026 &bull; 12 min read</span>
+      <a href="/blog/building-24-agent-ai-workforce" class="read-more">Read &rarr;</a>
+    </div>
+  </article>
+
+  <article class="blog-card">
+    <span class="tag">Reliability</span>
+    <h2><a href="/blog/multi-llm-failover">Multi-LLM Failover: Zero-Downtime AI Systems with GPT-4o, Claude, Gemini &amp; Grok</a></h2>
+    <p class="excerpt">Deep dive into building resilient AI systems that never go down. Automatic provider switching, token budget management across four LLM providers, and cost optimization strategies.</p>
+    <div class="meta">
+      <span>February 10, 2026 &bull; 10 min read</span>
+      <a href="/blog/multi-llm-failover" class="read-more">Read &rarr;</a>
+    </div>
+  </article>
+
+  <article class="blog-card">
+    <span class="tag">Automation</span>
+    <h2><a href="/blog/nerve-autonomous-outreach">The NERVE Architecture: Autonomous Outreach at Machine Speed</a></h2>
+    <p class="excerpt">How our NERVE daemon automates the entire sales pipeline — from prospecting and company research to personalized email sequences, follow-ups, and revenue tracking. 24/7 autonomous operation.</p>
+    <div class="meta">
+      <span>March 1, 2026 &bull; 14 min read</span>
+      <a href="/blog/nerve-autonomous-outreach" class="read-more">Read &rarr;</a>
+    </div>
+  </article>
+
+  <article class="blog-card">
+    <span class="tag">Industry</span>
+    <h2><a href="/blog/chatgpt-wrappers-vs-production-agents">From ChatGPT Wrappers to Production AI Agents: What Most Developers Get Wrong</a></h2>
+    <p class="excerpt">Why 90% of "AI agents" are just prompt wrappers, and what it actually takes to build production systems — QA verification, error recovery, multi-step pipelines, and real deployment.</p>
+    <div class="meta">
+      <span>November 20, 2025 &bull; 9 min read</span>
+      <a href="/blog/chatgpt-wrappers-vs-production-agents" class="read-more">Read &rarr;</a>
+    </div>
+  </article>
+
+</div>
+</main>
+
+<footer class="footer">
+<div class="container footer-inner">
+  <p>&copy; 2026 Bit Rage Labour. A Resonance Energy company.</p>
+  <div>
+    <a href="/">Home</a> &bull;
+    <a href="/#agents">Agents</a> &bull;
+    <a href="/#pricing">Pricing</a> &bull;
+    <a href="mailto:hello@bit-rage-labour.com">Contact</a>
+  </div>
+</div>
+</footer>
+
+<div class="rage-stripe"></div>
+
+</body>
+</html>

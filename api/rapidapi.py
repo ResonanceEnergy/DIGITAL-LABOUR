@@ -33,7 +33,7 @@ load_dotenv(PROJECT_ROOT / ".env")
 from datetime import datetime, timezone
 from fastapi import FastAPI, HTTPException, Header, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import Response
+from fastapi.responses import HTMLResponse, JSONResponse, Response
 from pydantic import BaseModel, Field
 from typing import Optional
 
@@ -83,7 +83,8 @@ async def security_headers(request: Request, call_next):
         "max-age=31536000; includeSubDomains; preload"
     )
     response.headers["Content-Security-Policy"] = (
-        "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; "
+        "default-src 'self'; script-src 'self' 'unsafe-inline'; "
+        "style-src 'self' 'unsafe-inline'; "
         "img-src 'self' data:; font-src 'self'; connect-src 'self'; "
         "frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
     )
@@ -92,6 +93,41 @@ async def security_headers(request: Request, call_next):
 # ── Mount the full intake API (all 24 agents via /tasks) ────────
 from api.intake import app as intake_app
 rapid_app.mount("/intake", intake_app)
+
+# ── BITRAGE MATRIX MONITOR (mobile C2 dashboard) ────────────────
+from api.matrix_monitor import router as matrix_router
+rapid_app.include_router(matrix_router)
+
+
+@rapid_app.get("/matrix", response_class=HTMLResponse)
+def matrix_dashboard():
+    """Serve the BITRAGE MATRIX MONITOR — mobile C2 dashboard."""
+    html_path = Path(__file__).parent / "matrix_dashboard.html"
+    return HTMLResponse(html_path.read_text(encoding="utf-8"))
+
+
+@rapid_app.get("/matrix/manifest.json")
+def matrix_manifest():
+    """PWA manifest for Add to Home Screen."""
+    return JSONResponse({
+        "name": "BITRAGE MATRIX",
+        "short_name": "MATRIX",
+        "start_url": "/matrix",
+        "display": "standalone",
+        "background_color": "#0a0a0f",
+        "theme_color": "#0a0a0f",
+        "icons": [
+            {"src": "/matrix/icon-192.png", "sizes": "192x192", "type": "image/png"},
+            {"src": "/matrix/icon-512.png", "sizes": "512x512", "type": "image/png"}
+        ]
+    })
+
+
+@rapid_app.get("/ops", response_class=HTMLResponse)
+def ops_dashboard():
+    """Serve the live operations dashboard."""
+    html_path = Path(__file__).parent / "ops_dashboard.html"
+    return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
 
 # ── Models ──────────────────────────────────────────────────────

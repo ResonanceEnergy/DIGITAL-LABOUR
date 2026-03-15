@@ -24,7 +24,8 @@ from pydantic import BaseModel, Field
 
 load_dotenv(PROJECT_ROOT / ".env")
 
-from utils.llm_client import call_llm as llm_call
+from utils.super_agent import make_bridge
+llm_call = make_bridge("automation_manager", self_reflect=False)
 
 
 # -- Data paths ---------------------------------------------------------------

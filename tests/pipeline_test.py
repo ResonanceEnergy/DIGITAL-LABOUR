@@ -134,7 +134,7 @@ def run_test(task_type: str, provider: str | None = None) -> dict:
     print("[5/5] Recording billing...")
     try:
         bt = BillingTracker()
-        bt.record_usage("pipeline-test", task_type, cost_usd=0.03)
+        bt.record_usage("pipeline-test", task_type, llm_cost=0.03)
         print("  Billing recorded ✓")
     except Exception as e:
         print(f"  Billing error: {e}")

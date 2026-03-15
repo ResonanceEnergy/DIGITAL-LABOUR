@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0a0f">
+<title>BITRAGE MATRIX</title>
+<link rel="manifest" href="/matrix/manifest.json">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --card: #1a1a28;
+  --border: #2a2a3a;
+  --text: #e0e0e8;
+  --dim: #888899;
+  --green: #00ff88;
+  --red: #ff4466;
+  --amber: #ffaa22;
+  --blue: #4488ff;
+  --purple: #aa66ff;
+  --cyan: #00ccdd;
+  --glow-green: 0 0 20px rgba(0,255,136,0.3);
+  --glow-red: 0 0 20px rgba(255,68,102,0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'SF Mono','Fira Code','Cascadia Code',monospace;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Header ── */
+.header {
+  background: linear-gradient(135deg, #0d0d18 0%, #1a0a2e 100%);
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+}
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--cyan);
+  text-transform: uppercase;
+}
+.status-pill {
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.status-GREEN { background: rgba(0,255,136,0.15); color: var(--green); box-shadow: var(--glow-green); }
+.status-AMBER { background: rgba(255,170,34,0.15); color: var(--amber); }
+.status-RED { background: rgba(255,68,102,0.15); color: var(--red); box-shadow: var(--glow-red); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+.meta-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 10px;
+  color: var(--dim);
+}
+
+/* ── Alerts Bar ── */
+.alerts-bar {
+  background: rgba(255,68,102,0.08);
+  border-bottom: 1px solid rgba(255,68,102,0.2);
+  padding: 10px 16px;
+  display: none;
+}
+.alerts-bar.active { display: block; }
+.alert-item {
+  font-size: 11px;
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.alert-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.alert-HIGH .alert-dot { background: var(--red); }
+.alert-MEDIUM .alert-dot { background: var(--amber); }
+.alert-action {
+  margin-left: auto;
+  font-size: 10px;
+  padding: 2px 10px;
+  border-radius: 10px;
+  background: rgba(0,204,221,0.15);
+  color: var(--cyan);
+  border: 1px solid rgba(0,204,221,0.3);
+  cursor: pointer;
+}
+
+/* ── Metrics Grid ── */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 12px;
+}
+.metric {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 10px;
+  text-align: center;
+}
+.metric-value {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.metric-label {
+  font-size: 9px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* ── Section Cards ── */
+.section {
+  margin: 8px 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+.section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+.section-badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: rgba(0,255,136,0.1);
+  color: var(--green);
+  font-weight: 600;
+}
+.section-body { padding: 12px 14px; }
+.section.collapsed .section-body { display: none; }
+
+/* ── Daemon Grid ── */
+.daemon-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.daemon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--surface);
+}
+.daemon-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.daemon-dot.alive { background: var(--green); box-shadow: 0 0 8px rgba(0,255,136,0.5); }
+.daemon-dot.dead { background: var(--red); box-shadow: 0 0 8px rgba(255,68,102,0.5); }
+.daemon-name { font-size: 10px; color: var(--text); }
+
+/* ── Agent Fleet ── */
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 6px;
+}
+.fleet-agent {
+  font-size: 10px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fleet-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+.fleet-dot.READY { background: var(--green); }
+.fleet-dot.OFFLINE { background: var(--red); }
+
+/* ── Outreach Stats ── */
+.outreach-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.stat-block {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+.stat-val { font-size: 20px; font-weight: 700; }
+.stat-label { font-size: 9px; color: var(--dim); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* ── Decision Log ── */
+.decision-list { max-height: 200px; overflow-y: auto; }
+.decision {
+  font-size: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+}
+.decision:last-child { border-bottom: none; }
+.decision-time { color: var(--dim); flex-shrink: 0; }
+.decision-action { color: var(--cyan); font-weight: 600; }
+
+/* ── C2 Command Bar ── */
+.c2-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, #0d0d18 0%, rgba(13,13,24,0.95) 100%);
+  border-top: 1px solid var(--border);
+  padding: 12px;
+  backdrop-filter: blur(20px);
+  z-index: 100;
+}
+.c2-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.c2-btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.c2-btn:active {
+  transform: scale(0.95);
+  border-color: var(--cyan);
+}
+.c2-icon { font-size: 18px; margin-bottom: 4px; }
+.c2-label { font-size: 9px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* ── Toast ── */
+.toast {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card);
+  border: 1px solid var(--cyan);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 11px;
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.toast.show { opacity: 1; }
+
+/* ── Bottom spacer for fixed C2 bar ── */
+.spacer { height: 100px; }
+
+/* ── Loading ── */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: var(--dim);
+  font-size: 12px;
+}
+.spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border);
+  border-top-color: var(--cyan);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 8px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Revenue accent ── */
+.revenue-up { color: var(--green); }
+.revenue-zero { color: var(--dim); }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* Settings panel */
+.settings-panel {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 300;
+  padding: 20px;
+  overflow-y: auto;
+}
+.settings-panel.active { display: block; }
+.settings-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 40px auto;
+}
+.settings-card h3 {
+  font-size: 13px;
+  color: var(--cyan);
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+.form-group {
+  margin-bottom: 12px;
+}
+.form-group label {
+  display: block;
+  font-size: 10px;
+  color: var(--dim);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.form-group input {
+  width: 100%;
+  padding: 8px 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 12px;
+}
+.settings-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+.settings-actions button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+.btn-save { background: rgba(0,255,136,0.15); color: var(--green); }
+.btn-cancel { background: var(--surface); color: var(--dim); }
+.btn-test { background: rgba(0,204,221,0.15); color: var(--cyan); }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-row">
+    <div class="logo">BITRAGE MATRIX</div>
+    <span class="status-pill" id="status-pill">---</span>
+  </div>
+  <div class="meta-row">
+    <span id="meta-time">--:--</span>
+    <span>|</span>
+    <span id="meta-refresh">Auto 15s</span>
+    <span style="margin-left:auto;cursor:pointer" onclick="openSettings()">&#9881; ALERTS</span>
+  </div>
+</div>
+
+<!-- Alerts -->
+<div class="alerts-bar" id="alerts-bar"></div>
+
+<!-- Quick Metrics -->
+<div class="metrics" id="metrics">
+  <div class="metric"><div class="metric-value" id="m-revenue">$0</div><div class="metric-label">Revenue</div></div>
+  <div class="metric"><div class="metric-value" id="m-tasks">0</div><div class="metric-label">Tasks 7d</div></div>
+  <div class="metric"><div class="metric-value" id="m-pass">0%</div><div class="metric-label">Pass Rate</div></div>
+  <div class="metric"><div class="metric-value" id="m-sent">0</div><div class="metric-label">Emails</div></div>
+  <div class="metric"><div class="metric-value" id="m-inbox">0</div><div class="metric-label">Inbox</div></div>
+  <div class="metric"><div class="metric-value" id="m-agents">0</div><div class="metric-label">Agents</div></div>
+</div>
+
+<!-- Daemons -->
+<div class="section" id="sec-daemons">
+  <div class="section-header" onclick="toggleSection('sec-daemons')">
+    <span class="section-title">Daemons</span>
+    <span class="section-badge" id="daemon-badge">--</span>
+  </div>
+  <div class="section-body">
+    <div class="daemon-grid" id="daemon-grid"></div>
+  </div>
+</div>
+
+<!-- Outreach Pipeline -->
+<div class="section" id="sec-outreach">
+  <div class="section-header" onclick="toggleSection('sec-outreach')">
+    <span class="section-title">Outreach</span>
+    <span class="section-badge" id="outreach-badge">--</span>
+  </div>
+  <div class="section-body">
+    <div class="outreach-row" id="outreach-stats"></div>
+  </div>
+</div>
+
+<!-- Agent Fleet -->
+<div class="section collapsed" id="sec-fleet">
+  <div class="section-header" onclick="toggleSection('sec-fleet')">
+    <span class="section-title">Agent Fleet</span>
+    <span class="section-badge" id="fleet-badge">--</span>
+  </div>
+  <div class="section-body">
+    <div class="fleet-grid" id="fleet-grid"></div>
+  </div>
+</div>
+
+<!-- Queue -->
+<div class="section collapsed" id="sec-queue">
+  <div class="section-header" onclick="toggleSection('sec-queue')">
+    <span class="section-title">Queue</span>
+    <span class="section-badge" id="queue-badge">--</span>
+  </div>
+  <div class="section-body" id="queue-body"></div>
+</div>
+
+<!-- Decision Log -->
+<div class="section collapsed" id="sec-decisions">
+  <div class="section-header" onclick="toggleSection('sec-decisions')">
+    <span class="section-title">Decision Log</span>
+    <span class="section-badge" id="decision-badge">0</span>
+  </div>
+  <div class="section-body">
+    <div class="decision-list" id="decision-list"></div>
+  </div>
+</div>
+
+<!-- Health -->
+<div class="section collapsed" id="sec-health">
+  <div class="section-header" onclick="toggleSection('sec-health')">
+    <span class="section-title">System Health</span>
+    <span class="section-badge" id="health-badge">--</span>
+  </div>
+  <div class="section-body" id="health-body"></div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- C2 Command Bar -->
+<div class="c2-bar">
+  <div class="c2-actions">
+    <div class="c2-btn" onclick="c2('restart_daemons')">
+      <div class="c2-icon">&#9889;</div>
+      <div class="c2-label">Restart</div>
+    </div>
+    <div class="c2-btn" onclick="c2('check_inbox')">
+      <div class="c2-icon">&#128233;</div>
+      <div class="c2-label">Inbox</div>
+    </div>
+    <div class="c2-btn" onclick="c2('send_followups')">
+      <div class="c2-icon">&#128232;</div>
+      <div class="c2-label">Follow Up</div>
+    </div>
+    <div class="c2-btn" onclick="c2('system_check')">
+      <div class="c2-icon">&#128269;</div>
+      <div class="c2-label">Sys Check</div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Settings Panel -->
+<div class="settings-panel" id="settings-panel">
+  <div class="settings-card">
+    <h3>TELEGRAM ALERTS</h3>
+    <p style="font-size:10px;color:var(--dim);margin-bottom:16px">
+      1. Message @BotFather on Telegram &rarr; /newbot<br>
+      2. Copy the token below<br>
+      3. Start a chat with your bot, then visit<br>
+      <code style="color:var(--cyan)">api.telegram.org/bot{TOKEN}/getUpdates</code><br>
+      to find your chat_id
+    </p>
+    <div class="form-group">
+      <label>Bot Token</label>
+      <input type="text" id="tg-token" placeholder="123456:ABC-DEF...">
+    </div>
+    <div class="form-group">
+      <label>Chat ID</label>
+      <input type="text" id="tg-chatid" placeholder="123456789">
+    </div>
+    <div class="settings-actions">
+      <button class="btn-cancel" onclick="closeSettings()">Cancel</button>
+      <button class="btn-test" onclick="testAlert()">Test</button>
+      <button class="btn-save" onclick="saveAlerts()">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const BASE = window.location.origin;
+let refreshTimer;
+
+// ── Data Fetch ──
+async function fetchSitrep() {
+  try {
+    const res = await fetch(BASE + '/matrix/sitrep');
+    if (!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    render(data);
+  } catch (e) {
+    document.getElementById('status-pill').textContent = 'OFFLINE';
+    document.getElementById('status-pill').className = 'status-pill status-RED';
+  }
+}
+
+function render(d) {
+  // Status pill
+  const pill = document.getElementById('status-pill');
+  pill.textContent = d.status;
+  pill.className = 'status-pill status-' + d.status;
+
+  // Time
+  const now = new Date();
+  document.getElementById('meta-time').textContent = now.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+
+  // Metrics
+  const rev = d.revenue?.total_revenue || 0;
+  document.getElementById('m-revenue').textContent = '$' + rev.toFixed(0);
+  document.getElementById('m-revenue').className = 'metric-value ' + (rev > 0 ? 'revenue-up' : 'revenue-zero');
+  document.getElementById('m-tasks').textContent = d.kpi_7d?.total_tasks || 0;
+  document.getElementById('m-pass').textContent = (d.kpi_7d?.pass_rate || 0) + '%';
+  document.getElementById('m-sent').textContent = d.outreach?.emails_sent || 0;
+  document.getElementById('m-inbox').textContent = d.inbox?.unread || 0;
+  const readyAgents = (d.fleet || []).filter(a => a.operational).length;
+  document.getElementById('m-agents').textContent = readyAgents;
+
+  // Daemons
+  const dGrid = document.getElementById('daemon-grid');
+  const alive = (d.daemons || []).filter(x => x.alive).length;
+  const total = (d.daemons || []).length;
+  document.getElementById('daemon-badge').textContent = alive + '/' + total;
+  document.getElementById('daemon-badge').style.background = alive === total ? 'rgba(0,255,136,0.1)' : 'rgba(255,68,102,0.1)';
+  document.getElementById('daemon-badge').style.color = alive === total ? 'var(--green)' : 'var(--red)';
+  dGrid.innerHTML = (d.daemons || []).map(dm =>
+    `<div class="daemon">
+      <div class="daemon-dot ${dm.alive ? 'alive' : 'dead'}"></div>
+      <div class="daemon-name">${dm.name.replace(/_/g,' ').toUpperCase()}</div>
+    </div>`
+  ).join('');
+
+  // Outreach
+  const o = d.outreach || {};
+  document.getElementById('outreach-badge').textContent = (o.emails_sent || 0) + ' sent';
+  document.getElementById('outreach-stats').innerHTML = `
+    <div class="stat-block"><div class="stat-val">${o.emails_sent || 0}</div><div class="stat-label">Sent</div></div>
+    <div class="stat-block"><div class="stat-val">${o.followups_due || 0}</div><div class="stat-label">F/U Due</div></div>
+    <div class="stat-block"><div class="stat-val">${o.followups_scheduled || 0}</div><div class="stat-label">Scheduled</div></div>
+    <div class="stat-block"><div class="stat-val">${o.prospects_remaining || 0}</div><div class="stat-label">Prospects</div></div>
+  `;
+
+  // Fleet
+  const fleet = d.fleet || [];
+  document.getElementById('fleet-badge').textContent = readyAgents + '/' + fleet.length;
+  document.getElementById('fleet-grid').innerHTML = fleet.map(a =>
+    `<div class="fleet-agent"><div class="fleet-dot ${a.status}"></div>${a.name.replace(/_/g,' ')}</div>`
+  ).join('');
+
+  // Queue
+  const q = d.queue || {};
+  document.getElementById('queue-badge').textContent = (q.queued || 0) + ' queued';
+  document.getElementById('queue-body').innerHTML = `
+    <div class="outreach-row">
+      <div class="stat-block"><div class="stat-val">${q.queued || 0}</div><div class="stat-label">Queued</div></div>
+      <div class="stat-block"><div class="stat-val">${q.running || 0}</div><div class="stat-label">Running</div></div>
+      <div class="stat-block"><div class="stat-val">${q.completed || 0}</div><div class="stat-label">Done</div></div>
+      <div class="stat-block"><div class="stat-val" style="color:${(q.failed||0)>0?'var(--red)':'var(--text)'}">${q.failed || 0}</div><div class="stat-label">Failed</div></div>
+    </div>
+  `;
+
+  // Decisions
+  const decs = d.recent_decisions || [];
+  document.getElementById('decision-badge').textContent = decs.length;
+  document.getElementById('decision-list').innerHTML = decs.length === 0 ?
+    '<div style="font-size:10px;color:var(--dim)">No decisions yet</div>' :
+    decs.reverse().map(dec => {
+      const t = new Date(dec.timestamp);
+      return `<div class="decision">
+        <span class="decision-time">${t.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</span>
+        <span class="decision-action">${dec.action}</span>
+        <span>${dec.target || ''}</span>
+      </div>`;
+    }).join('');
+
+  // Health
+  const checks = d.health?.checks || [];
+  const okCount = checks.filter(c => c.ok).length;
+  document.getElementById('health-badge').textContent = okCount + '/' + checks.length;
+  document.getElementById('health-badge').style.color = okCount === checks.length ? 'var(--green)' : 'var(--amber)';
+  document.getElementById('health-body').innerHTML = checks.map(c =>
+    `<div style="font-size:10px;padding:3px 0;display:flex;gap:6px;align-items:center">
+      <span style="color:${c.ok ? 'var(--green)' : 'var(--red)'}">${c.ok ? '&#10003;' : '&#10007;'}</span>
+      ${c.name}
+    </div>`
+  ).join('');
+
+  // Alerts
+  const alerts = d.alerts_pending || [];
+  const alertBar = document.getElementById('alerts-bar');
+  if (alerts.length > 0) {
+    alertBar.classList.add('active');
+    alertBar.innerHTML = alerts.map(a =>
+      `<div class="alert-item alert-${a.severity}">
+        <div class="alert-dot"></div>
+        <span>${a.message}</span>
+        <span class="alert-action" onclick="c2('${a.action}')">${a.action.replace(/_/g,' ')}</span>
+      </div>`
+    ).join('');
+  } else {
+    alertBar.classList.remove('active');
+  }
+}
+
+// ── C2 Commands ──
+async function c2(action, target, reason) {
+  showToast('Executing ' + action + '...');
+  try {
+    const res = await fetch(BASE + '/matrix/command', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({action, target: target||'', reason: reason||'', operator:'mobile'})
+    });
+    const data = await res.json();
+    showToast(action + ': ' + (data.result?.status || 'done'));
+    setTimeout(fetchSitrep, 2000);
+  } catch(e) {
+    showToast('Error: ' + e.message);
+  }
+}
+
+// ── UI Helpers ──
+function toggleSection(id) {
+  document.getElementById(id).classList.toggle('collapsed');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ── Settings ──
+function openSettings() {
+  document.getElementById('settings-panel').classList.add('active');
+}
+function closeSettings() {
+  document.getElementById('settings-panel').classList.remove('active');
+}
+
+async function saveAlerts() {
+  const token = document.getElementById('tg-token').value.trim();
+  const chatId = document.getElementById('tg-chatid').value.trim();
+  if (!token || !chatId) { showToast('Token and Chat ID required'); return; }
+  try {
+    await fetch(BASE + '/matrix/alerts/config', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({telegram_token:token, telegram_chat_id:chatId})
+    });
+    showToast('Alerts configured!');
+    closeSettings();
+  } catch(e) {
+    showToast('Error: ' + e.message);
+  }
+}
+
+async function testAlert() {
+  const token = document.getElementById('tg-token').value.trim();
+  const chatId = document.getElementById('tg-chatid').value.trim();
+  if (!token || !chatId) { showToast('Save config first'); return; }
+  // Save first, then test
+  await saveAlerts();
+  try {
+    const res = await fetch(BASE + '/matrix/alerts/test', {method:'POST'});
+    const data = await res.json();
+    showToast('Test: ' + data.status);
+  } catch(e) {
+    showToast('Error: ' + e.message);
+  }
+}
+
+// ── Boot ──
+fetchSitrep();
+refreshTimer = setInterval(fetchSitrep, 15000);
+
+// Visibility API — pause when hidden, resume when visible
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    clearInterval(refreshTimer);
+  } else {
+    fetchSitrep();
+    refreshTimer = setInterval(fetchSitrep, 15000);
+  }
+});
+</script>
+</body>
+</html>

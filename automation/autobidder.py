@@ -98,23 +98,103 @@ def _reset_daily_if_needed(state: dict) -> dict:
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 def poll_freelancer_projects() -> list[dict]:
-    """Poll Freelancer.com API for new projects.
+    """Poll for Freelancer.com projects from multiple sources.
 
-    TODO: Replace with real Freelancer API v0.1 integration:
-        GET https://www.freelancer.com/api/projects/0.1/projects/active/
-        Headers: freelancer-oauth-v1: <token>
-        Params: compact, limit=20, sort_field=time_submitted
+    Priority order:
+    1. Freelancer API (if FREELANCER_API_TOKEN is set in .env)
+    2. Browser-scraped project log from freelancer_jobhunt.py
 
-    Returns list of project dicts with: id, title, description,
-    budget_min, budget_max, currency, skills, time_submitted
+    Returns list of normalized project dicts with: id, title, description,
+    budget_min, budget_max, currency, skills, platform, url
     """
-    # Placeholder — returns empty until API key is configured
-    # When real API is wired:
-    # 1. Set FREELANCER_API_TOKEN in .env
-    # 2. GET active projects with skills matching our agent capabilities
-    # 3. Filter out seen project IDs
-    # 4. Return normalized project dicts
+    import os
+
+    # Source 1: Freelancer API (when token is available)
+    api_token = os.getenv("FREELANCER_API_TOKEN", "")
+    if api_token:
+        return _poll_freelancer_api(api_token)
+
+    # Source 2: Browser-scraped project data from freelancer_jobhunt
+    scraped_log = PROJECT_ROOT / "data" / "freelancer_jobs" / "project_log.jsonl"
+    if scraped_log.exists():
+        return _load_scraped_projects(scraped_log)
+
     return []
+
+
+def _poll_freelancer_api(token: str) -> list[dict]:
+    """Poll Freelancer.com API v0.1 for active projects.
+
+    GET https://www.freelancer.com/api/projects/0.1/projects/active/
+    Headers: freelancer-oauth-v1: <token>
+    """
+    import urllib.request
+    import urllib.error
+
+    url = (
+        "https://www.freelancer.com/api/projects/0.1/projects/active/"
+        "?compact=true&limit=20&sort_field=time_submitted"
+        "&job_details=true&project_types[]=fixed&project_types[]=hourly"
+    )
+    req = urllib.request.Request(url, headers={
+        "freelancer-oauth-v1": token,
+        "Content-Type": "application/json",
+    })
+
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
+        print(f"    [WARN] Freelancer API poll failed: {e}")
+        return []
+
+    projects = []
+    for p in data.get("result", {}).get("projects", []):
+        projects.append({
+            "id": str(p.get("id", "")),
+            "title": p.get("title", ""),
+            "description": p.get("preview_description", p.get("description", "")),
+            "budget_min": p.get("budget", {}).get("minimum", 0),
+            "budget_max": p.get("budget", {}).get("maximum", 0),
+            "currency": p.get("currency", {}).get("code", "USD"),
+            "skills": [j.get("name", "") for j in p.get("jobs", [])],
+            "platform": "freelancer",
+            "url": f"https://www.freelancer.com/projects/{p.get('seo_url', '')}",
+        })
+    return projects
+
+
+def _load_scraped_projects(log_path: Path) -> list[dict]:
+    """Load projects from the browser-scraped JSONL log."""
+    projects = []
+    lines = log_path.read_text(encoding="utf-8").strip().split("\n")
+    # Only use projects from the last 24 hours
+    cutoff = (datetime.now(timezone.utc) - timedelta(hours=24)).isoformat()
+
+    for line in lines:
+        if not line.strip():
+            continue
+        try:
+            p = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+
+        scraped_at = p.get("scraped_at", "")
+        if scraped_at < cutoff:
+            continue
+
+        projects.append({
+            "id": str(p.get("id", "")),
+            "title": p.get("title", ""),
+            "description": p.get("description", ""),
+            "budget_min": 0,
+            "budget_max": p.get("budget_max", 0),
+            "currency": "USD",
+            "skills": p.get("skills", []),
+            "platform": "freelancer",
+            "url": p.get("url", ""),
+        })
+    return projects
 
 
 def poll_platform_projects(platform: str) -> list[dict]:

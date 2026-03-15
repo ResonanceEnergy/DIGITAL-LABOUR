@@ -20,7 +20,8 @@ from pydantic import BaseModel, Field
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from utils.llm_client import call_llm
+from utils.super_agent import make_bridge
+call_llm = make_bridge("doc_extract")
 
 PROMPT_DIR = Path(__file__).resolve().parent
 

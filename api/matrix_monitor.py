@@ -1,0 +1,500 @@
+"""BITRAGE MATRIX MONITOR — Command & Control API.
+
+Mobile-first C2 endpoints for real-time monitoring and decision-making.
+Mounted as /matrix on the main FastAPI app.
+"""
+
+import json
+import os
+import signal
+import subprocess
+import sys
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+from typing import Optional
+
+from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel, Field
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
+
+router = APIRouter(prefix="/matrix", tags=["matrix-monitor"])
+
+DATA_DIR = PROJECT_ROOT / "data"
+DAEMON_PIDS = DATA_DIR / "daemon_pids.json"
+DECISION_LOG = DATA_DIR / "matrix_decisions.json"
+ALERT_CONFIG = DATA_DIR / "matrix_alerts.json"
+
+
+# ── Models ──────────────────────────────────────────────────────────────────
+
+class C2Command(BaseModel):
+    action: str  # approve, reject, escalate, kill, restart, pause, custom
+    target: str = ""  # agent name, daemon name, task_id
+    reason: str = ""
+    operator: str = "mobile"
+
+
+class AlertConfig(BaseModel):
+    telegram_token: str = ""
+    telegram_chat_id: str = ""
+    alert_on_failure: bool = True
+    alert_on_revenue: bool = True
+    alert_on_escalation: bool = True
+    alert_interval_minutes: int = 30
+    quiet_hours_start: int = 23  # 11 PM
+    quiet_hours_end: int = 7    # 7 AM
+
+
+# ── SITREP — Single call to know everything ─────────────────────────────────
+
+@router.get("/sitrep")
+def sitrep():
+    """Command & Control situation report — everything you need in one payload.
+
+    Designed for mobile: one fetch, all data. No subsequent calls needed.
+    """
+    from dashboard.health import system_health, queue_status, kpi_summary, revenue_summary
+
+    # Daemon status
+    daemons = _daemon_status()
+
+    # Health
+    health = system_health()
+
+    # Queue
+    queue = queue_status()
+
+    # KPIs
+    kpi = kpi_summary()
+
+    # Revenue
+    rev = revenue_summary()
+
+    # Outreach pipeline
+    outreach = _outreach_status()
+
+    # Inbox
+    inbox = _inbox_status()
+
+    # Recent decisions
+    decisions = _recent_decisions(5)
+
+    # Alerts pending
+    alerts = _pending_alerts()
+
+    # Agent fleet status
+    fleet = _fleet_status()
+
+    return {
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "status": _overall_status(daemons, health, queue),
+        "daemons": daemons,
+        "health": health,
+        "queue": queue,
+        "kpi_7d": kpi,
+        "revenue": rev,
+        "outreach": outreach,
+        "inbox": inbox,
+        "fleet": fleet,
+        "recent_decisions": decisions,
+        "alerts_pending": alerts,
+    }
+
+
+# ── C2 Commands ─────────────────────────────────────────────────────────────
+
+@router.post("/command")
+def execute_command(cmd: C2Command):
+    """Execute a command & control action from mobile."""
+    timestamp = datetime.now(timezone.utc).isoformat()
+
+    actions = {
+        "restart_daemons": _restart_daemons,
+        "kill_daemons": _kill_daemons,
+        "pause_agent": _pause_agent,
+        "resume_agent": _resume_agent,
+        "approve_task": _approve_task,
+        "reject_task": _reject_task,
+        "send_followups": _send_followups,
+        "check_inbox": _check_inbox,
+        "run_proposals": _run_proposals,
+        "system_check": _system_check,
+    }
+
+    handler = actions.get(cmd.action)
+    if not handler:
+        raise HTTPException(400, f"Unknown action: {cmd.action}. Valid: {list(actions.keys())}")
+
+    result = handler(cmd)
+
+    # Log decision
+    _log_decision(cmd, result, timestamp)
+
+    return {
+        "timestamp": timestamp,
+        "action": cmd.action,
+        "target": cmd.target,
+        "result": result,
+        "operator": cmd.operator,
+    }
+
+
+@router.get("/decisions")
+def decisions(limit: int = 20):
+    """Recent C2 decisions log."""
+    return {"decisions": _recent_decisions(limit)}
+
+
+# ── Alert Configuration ────────────────────────────────────────────────────
+
+@router.get("/alerts/config")
+def get_alert_config():
+    """Get current alert configuration."""
+    if ALERT_CONFIG.exists():
+        data = json.loads(ALERT_CONFIG.read_text(encoding="utf-8"))
+        # Mask token for security
+        if data.get("telegram_token"):
+            data["telegram_token"] = data["telegram_token"][:10] + "..."
+        return data
+    return AlertConfig().model_dump()
+
+
+@router.post("/alerts/config")
+def set_alert_config(config: AlertConfig):
+    """Update alert configuration (Telegram bot setup)."""
+    ALERT_CONFIG.parent.mkdir(parents=True, exist_ok=True)
+    ALERT_CONFIG.write_text(json.dumps(config.model_dump(), indent=2), encoding="utf-8")
+    return {"status": "saved", "config": config.model_dump()}
+
+
+@router.post("/alerts/test")
+def test_alert():
+    """Send a test alert to verify Telegram notifications work."""
+    result = _send_telegram_alert("🧪 BITRAGE MATRIX TEST — Notifications are working!")
+    return result
+
+
+# ── Internal Helpers ────────────────────────────────────────────────────────
+
+def _daemon_status() -> list[dict]:
+    """Check which daemons are alive."""
+    daemons = []
+    if DAEMON_PIDS.exists():
+        pids = json.loads(DAEMON_PIDS.read_text(encoding="utf-8"))
+        for name, info in pids.items():
+            pid = info["pid"] if isinstance(info, dict) else info
+            alive = _is_pid_alive(pid)
+            daemons.append({"name": name, "pid": pid, "alive": alive})
+    else:
+        for name in ["nerve", "csuite_scheduler", "task_scheduler", "revenue_daemon"]:
+            daemons.append({"name": name, "pid": 0, "alive": False})
+    return daemons
+
+
+def _is_pid_alive(pid: int) -> bool:
+    """Check if a process is running."""
+    if not pid:
+        return False
+    try:
+        os.kill(pid, 0)
+        return True
+    except (ProcessLookupError, PermissionError, OSError):
+        return False
+
+
+def _overall_status(daemons, health, queue) -> str:
+    """RED / AMBER / GREEN overall status."""
+    dead_daemons = sum(1 for d in daemons if not d["alive"])
+    failed_checks = sum(1 for c in health.get("checks", []) if not c.get("ok"))
+    failed_tasks = queue.get("failed", 0)
+
+    if dead_daemons >= 3 or failed_checks >= 3:
+        return "RED"
+    elif dead_daemons >= 1 or failed_checks >= 1 or failed_tasks > 5:
+        return "AMBER"
+    return "GREEN"
+
+
+def _outreach_status() -> dict:
+    """Outreach pipeline stats."""
+    sent_log = PROJECT_ROOT / "automation" / "sent_log.json"
+    followups = PROJECT_ROOT / "automation" / "followups.json"
+    prospects = PROJECT_ROOT / "automation" / "prospects.csv"
+
+    sent_count = 0
+    if sent_log.exists():
+        try:
+            sent_count = len(json.loads(sent_log.read_text(encoding="utf-8")))
+        except Exception:
+            pass
+
+    followup_count = 0
+    followup_due = 0
+    if followups.exists():
+        try:
+            fu = json.loads(followups.read_text(encoding="utf-8"))
+            followup_count = len(fu)
+            now = datetime.now(timezone.utc).isoformat()
+            followup_due = sum(1 for f in fu if f.get("send_after", "") <= now and not f.get("sent"))
+        except Exception:
+            pass
+
+    prospect_count = 0
+    if prospects.exists():
+        try:
+            prospect_count = sum(1 for _ in open(prospects, encoding="utf-8")) - 1
+        except Exception:
+            pass
+
+    return {
+        "emails_sent": sent_count,
+        "followups_scheduled": followup_count,
+        "followups_due": followup_due,
+        "prospects_remaining": max(0, prospect_count),
+    }
+
+
+def _inbox_status() -> dict:
+    """Inbox stats."""
+    inbox_log = PROJECT_ROOT / "automation" / "inbox_log.json"
+    if inbox_log.exists():
+        try:
+            entries = json.loads(inbox_log.read_text(encoding="utf-8"))
+            return {"total_emails": len(entries), "unread": sum(1 for e in entries if not e.get("processed"))}
+        except Exception:
+            pass
+    return {"total_emails": 0, "unread": 0}
+
+
+def _fleet_status() -> list[dict]:
+    """Agent fleet — which agents are operational."""
+    agents_dir = PROJECT_ROOT / "agents"
+    fleet = []
+    for name in sorted(os.listdir(agents_dir)):
+        agent_path = agents_dir / name
+        if not agent_path.is_dir() or name.startswith("_"):
+            continue
+        has_runner = (agent_path / "runner.py").exists()
+        fleet.append({"name": name, "operational": has_runner, "status": "READY" if has_runner else "OFFLINE"})
+    return fleet
+
+
+def _recent_decisions(limit: int = 10) -> list[dict]:
+    """Load recent C2 decisions."""
+    if not DECISION_LOG.exists():
+        return []
+    try:
+        entries = json.loads(DECISION_LOG.read_text(encoding="utf-8"))
+        return entries[-limit:]
+    except Exception:
+        return []
+
+
+def _pending_alerts() -> list[dict]:
+    """Check for conditions that need operator attention."""
+    alerts = []
+    daemons = _daemon_status()
+    dead = [d for d in daemons if not d["alive"]]
+    if dead:
+        alerts.append({
+            "severity": "HIGH",
+            "message": f"{len(dead)} daemon(s) dead: {', '.join(d['name'] for d in dead)}",
+            "action": "restart_daemons",
+        })
+
+    outreach = _outreach_status()
+    if outreach["followups_due"] > 0:
+        alerts.append({
+            "severity": "MEDIUM",
+            "message": f"{outreach['followups_due']} follow-ups due now",
+            "action": "send_followups",
+        })
+
+    return alerts
+
+
+def _log_decision(cmd: C2Command, result: dict, timestamp: str):
+    """Persist a C2 decision."""
+    DECISION_LOG.parent.mkdir(parents=True, exist_ok=True)
+    entries = []
+    if DECISION_LOG.exists():
+        try:
+            entries = json.loads(DECISION_LOG.read_text(encoding="utf-8"))
+        except Exception:
+            entries = []
+
+    entries.append({
+        "timestamp": timestamp,
+        "action": cmd.action,
+        "target": cmd.target,
+        "reason": cmd.reason,
+        "operator": cmd.operator,
+        "result": result,
+    })
+
+    # Keep last 500
+    entries = entries[-500:]
+    DECISION_LOG.write_text(json.dumps(entries, indent=2), encoding="utf-8")
+
+
+# ── C2 Action Handlers ─────────────────────────────────────────────────────
+
+def _restart_daemons(cmd: C2Command) -> dict:
+    """Kill existing daemons and restart them."""
+    _kill_daemons(cmd)
+    try:
+        proc = subprocess.Popen(
+            [sys.executable, "launch.py", "--daemons"],
+            cwd=str(PROJECT_ROOT),
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        proc.wait(timeout=15)
+        return {"status": "restarted", "output": proc.stdout.read().decode(errors="replace")[:500]}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _kill_daemons(cmd: C2Command) -> dict:
+    """Kill all daemons."""
+    killed = []
+    if DAEMON_PIDS.exists():
+        pids = json.loads(DAEMON_PIDS.read_text(encoding="utf-8"))
+        for name, pid in pids.items():
+            try:
+                os.kill(pid, signal.SIGTERM)
+                killed.append(name)
+            except (ProcessLookupError, PermissionError, OSError):
+                pass
+    return {"status": "killed", "daemons": killed}
+
+
+def _pause_agent(cmd: C2Command) -> dict:
+    """Pause an agent by adding to pause list."""
+    pause_file = DATA_DIR / "paused_agents.json"
+    paused = []
+    if pause_file.exists():
+        paused = json.loads(pause_file.read_text(encoding="utf-8"))
+    if cmd.target and cmd.target not in paused:
+        paused.append(cmd.target)
+    pause_file.write_text(json.dumps(paused), encoding="utf-8")
+    return {"status": "paused", "agent": cmd.target}
+
+
+def _resume_agent(cmd: C2Command) -> dict:
+    """Resume a paused agent."""
+    pause_file = DATA_DIR / "paused_agents.json"
+    paused = []
+    if pause_file.exists():
+        paused = json.loads(pause_file.read_text(encoding="utf-8"))
+    if cmd.target in paused:
+        paused.remove(cmd.target)
+    pause_file.write_text(json.dumps(paused), encoding="utf-8")
+    return {"status": "resumed", "agent": cmd.target}
+
+
+def _approve_task(cmd: C2Command) -> dict:
+    """Approve a task for delivery."""
+    return {"status": "approved", "task_id": cmd.target, "note": "Task released for delivery"}
+
+
+def _reject_task(cmd: C2Command) -> dict:
+    """Reject a task — flag for human rework."""
+    return {"status": "rejected", "task_id": cmd.target, "reason": cmd.reason}
+
+
+def _send_followups(cmd: C2Command) -> dict:
+    """Trigger follow-up email batch."""
+    try:
+        result = subprocess.run(
+            [sys.executable, "-m", "automation.outreach", "--followups"],
+            cwd=str(PROJECT_ROOT),
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
+        return {"status": "sent", "output": result.stdout[:500]}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _check_inbox(cmd: C2Command) -> dict:
+    """Check inbox for new replies."""
+    try:
+        result = subprocess.run(
+            [sys.executable, "-m", "automation.inbox_reader", "--process"],
+            cwd=str(PROJECT_ROOT),
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        return {"status": "checked", "output": result.stdout[:500]}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _run_proposals(cmd: C2Command) -> dict:
+    """Generate fresh Upwork proposals."""
+    try:
+        result = subprocess.run(
+            [sys.executable, "-m", "automation.gen_proposals", "--top", "5"],
+            cwd=str(PROJECT_ROOT),
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        return {"status": "generated", "output": result.stdout[:500]}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _system_check(cmd: C2Command) -> dict:
+    """Run full system check."""
+    try:
+        result = subprocess.run(
+            [sys.executable, "launch.py", "--checks"],
+            cwd=str(PROJECT_ROOT),
+            capture_output=True,
+            text=True,
+            timeout=120,
+        )
+        return {"status": "completed", "output": result.stdout[:1000]}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+# ── Telegram Notifications ──────────────────────────────────────────────────
+
+def _send_telegram_alert(message: str) -> dict:
+    """Send alert via Telegram bot."""
+    if not ALERT_CONFIG.exists():
+        return {"status": "not_configured", "message": "Set up alerts first via /matrix/alerts/config"}
+
+    config = json.loads(ALERT_CONFIG.read_text(encoding="utf-8"))
+    token = config.get("telegram_token", "")
+    chat_id = config.get("telegram_chat_id", "")
+
+    if not token or not chat_id:
+        return {"status": "not_configured", "message": "telegram_token and telegram_chat_id required"}
+
+    import urllib.request
+    import urllib.parse
+
+    url = f"https://api.telegram.org/bot{urllib.parse.quote(token, safe='')}/sendMessage"
+    payload = json.dumps({"chat_id": chat_id, "text": message, "parse_mode": "HTML"}).encode()
+    req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"}, method="POST")
+
+    try:
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            return {"status": "sent", "response": json.loads(resp.read())}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def send_alert(message: str, severity: str = "INFO"):
+    """Public function — other modules can import this to send alerts."""
+    prefix = {"CRITICAL": "🔴", "HIGH": "🟠", "MEDIUM": "🟡", "INFO": "🔵"}.get(severity, "⚪")
+    full_msg = f"{prefix} <b>BITRAGE MATRIX</b>\n\n{message}\n\n<i>{datetime.now(timezone.utc).strftime('%H:%M UTC')}</i>"
+    return _send_telegram_alert(full_msg)

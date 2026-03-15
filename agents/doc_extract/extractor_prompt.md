@@ -16,7 +16,7 @@ If doc_type is "auto", first determine the document type from:
     // Fields depend on doc_type — see below
   },
   "raw_entities": [
-    {"type": "date|amount|name|email|phone|address|company|id_number", "value": "...", "context": "surrounding text"}
+    {"type": "date|amount|name|email|phone|address|company|id_number|bank_detail", "value": "...", "context": "surrounding text"}
   ],
   "summary": "2-3 sentence summary of the document",
   "warnings": ["any extraction uncertainties"]
@@ -26,7 +26,7 @@ If doc_type is "auto", first determine the document type from:
 ## doc_type-specific extracted fields:
 
 ### invoice/receipt
-- vendor, invoice_number, date, due_date, total_amount, currency, tax, line_items[], payment_terms
+- vendor, invoice_number, date, due_date, total_amount, currency, tax, line_items[], payment_terms, payment_info
 
 ### contract
 - parties[], effective_date, termination_date, key_terms[], governing_law, signatures[]
