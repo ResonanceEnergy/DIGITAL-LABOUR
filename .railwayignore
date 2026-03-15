@@ -1,0 +1,14 @@
+.venv
+__pycache__
+*.pyc
+.git
+.vscode
+.github
+.ralphy
+output
+tests/results
+data/platform_browser
+data/nerve_logs
+data/csuite_feed
+data/upwork_jobs
+*.log
