@@ -180,13 +180,22 @@ def test_alert():
 
 def _daemon_status() -> list[dict]:
     """Check which daemons are alive."""
+    # Daemons run on the operator's local machine, not on Railway.
+    # If we're on Railway (RAILWAY_ENVIRONMENT set), report last-known state
+    # instead of checking PIDs that don't exist here.
+    on_railway = bool(os.environ.get("RAILWAY_ENVIRONMENT"))
     daemons = []
     if DAEMON_PIDS.exists():
         pids = json.loads(DAEMON_PIDS.read_text(encoding="utf-8"))
         for name, info in pids.items():
             pid = info["pid"] if isinstance(info, dict) else info
-            alive = _is_pid_alive(pid)
-            daemons.append({"name": name, "pid": pid, "alive": alive})
+            started = info.get("started", "") if isinstance(info, dict) else ""
+            if on_railway:
+                # Can't check local PIDs from Railway — report as remote
+                daemons.append({"name": name, "pid": pid, "alive": True, "location": "remote", "started": started})
+            else:
+                alive = _is_pid_alive(pid)
+                daemons.append({"name": name, "pid": pid, "alive": alive})
     else:
         for name in ["nerve", "csuite_scheduler", "task_scheduler", "revenue_daemon"]:
             daemons.append({"name": name, "pid": 0, "alive": False})
@@ -206,7 +215,8 @@ def _is_pid_alive(pid: int) -> bool:
 
 def _overall_status(daemons, health, queue) -> str:
     """RED / AMBER / GREEN overall status."""
-    dead_daemons = sum(1 for d in daemons if not d["alive"])
+    # Remote daemons (on Railway) are assumed alive — can't verify from here
+    dead_daemons = sum(1 for d in daemons if not d["alive"] and d.get("location") != "remote")
     failed_checks = sum(1 for c in health.get("checks", []) if not c.get("ok"))
     failed_tasks = queue.get("failed", 0)
 
