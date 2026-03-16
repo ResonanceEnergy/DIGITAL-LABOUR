@@ -1,0 +1,137 @@
+{
+  "name": "Pocket Pulsar - DIGITAL LABOUR iPhone",
+  "short_name": "Pocket Pulsar",
+  "description": "iPhone 15/iOS 26 optimized mobile command center with Liquid Glass design",
+  "start_url": "/iphone",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "background_color": "#0a0a14",
+  "theme_color": "#007aff",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "categories": ["productivity", "business", "utilities", "developer-tools"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "handle_links": "preferred",
+  "file_handlers": [
+    {
+      "action": "/iphone",
+      "accept": {
+        "application/json": [".json"],
+        "text/plain": [".txt", ".log"]
+      }
+    }
+  ],
+  "share_target": {
+    "action": "/iphone",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "files",
+          "accept": ["application/json", "text/*"]
+        }
+      ]
+    }
+  },
+  "shortcuts": [
+    {
+      "name": "Matrix Monitor",
+      "short_name": "Matrix",
+      "description": "View system matrix",
+      "url": "/iphone#matrix",
+      "icons": [
+        {
+          "src": "/static/icons/matrix-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Agent Status",
+      "short_name": "Agents",
+      "description": "Check agent health",
+      "url": "/iphone#agents",
+      "icons": [
+        {
+          "src": "/static/icons/agents-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "System Health",
+      "short_name": "Systems",
+      "description": "Monitor system status",
+      "url": "/iphone#systems",
+      "icons": [
+        {
+          "src": "/static/icons/systems-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "icons": [
+    {
+      "src": "/static/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/icons/icon-monochrome.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "monochrome"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/static/screenshots/dashboard-iphone15.png",
+      "sizes": "393x852",
+      "type": "image/png",
+      "label": "Pocket Pulsar Dashboard - iPhone 15",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/static/screenshots/matrix-iphone15.png",
+      "sizes": "393x852",
+      "type": "image/png",
+      "label": "Matrix Monitor - iPhone 15",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/static/screenshots/dashboard-iphone15-pro-max.png",
+      "sizes": "430x932",
+      "type": "image/png",
+      "label": "Pocket Pulsar Dashboard - iPhone 15 Pro Max",
+      "form_factor": "narrow"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/app/pocket-pulsar/id123456789",
+      "id": "123456789"
+    }
+  ],
+  "prefer_related_applications": false,
+  "iarc_rating_id": ""
+}

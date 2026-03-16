@@ -1,0 +1,1321 @@
+{
+  "generated_at": "2026-03-15T13:46:49.780006-07:00",
+  "elapsed_ms": 615.3,
+  "cross_pollinations": [
+    {
+      "project_a": "digital-products",
+      "repo_a": "future-predictor-council",
+      "project_b": "knowledge-pipeline",
+      "repo_b": "demo",
+      "shared_concepts": [
+        "author",
+        "built",
+        "classifiers",
+        "depot",
+        "description",
+        "email",
+        "energy",
+        "engine",
+        "enterprise",
+        "find",
+        "generated",
+        "install",
+        "language",
+        "license",
+        "openclaw",
+        "optimus",
+        "packages",
+        "part",
+        "portfolio",
+        "programming",
+        "requires",
+        "resonance",
+        "resonanceenergy",
+        "setuptools",
+        "version"
+      ],
+      "concept_count": 25,
+      "relevance_pct": 83.3
+    },
+    {
+      "project_a": "digital-products",
+      "repo_a": "future-predictor-council",
+      "project_b": "civil-forge",
+      "repo_b": "CIVIL-FORGE-TECHNOLOGIES-",
+      "shared_concepts": [
+        "author",
+        "built",
+        "classifiers",
+        "depot",
+        "description",
+        "email",
+        "energy",
+        "engine",
+        "enterprise",
+        "find",
+        "generated",
+        "install",
+        "language",
+        "license",
+        "openclaw",
+        "optimus",
+        "packages",
+        "part",
+        "portfolio",
+        "programming",
+        "requires",
+        "resonance",
+        "resonanceenergy",
+        "setuptools",
+        "version"
+      ],
+      "concept_count": 25,
+      "relevance_pct": 83.3
+    },
+    {
+      "project_a": "knowledge-pipeline",
+      "repo_a": "demo",
+      "project_b": "civil-forge",
+      "repo_b": "CIVIL-FORGE-TECHNOLOGIES-",
+      "shared_concepts": [
+        "author",
+        "built",
+        "classifiers",
+        "depot",
+        "description",
+        "email",
+        "energy",
+        "engine",
+        "enterprise",
+        "find",
+        "generated",
+        "install",
+        "language",
+        "license",
+        "openclaw",
+        "optimus",
+        "packages",
+        "part",
+        "portfolio",
+        "programming",
+        "requires",
+        "resonance",
+        "resonanceenergy",
+        "setuptools",
+        "version"
+      ],
+      "concept_count": 25,
+      "relevance_pct": 83.3
+    },
+    {
+      "project_a": "energy-research",
+      "repo_a": "Resonance-Energy-Systems",
+      "project_b": "platform-infra",
+      "repo_b": "ResonanceEnergy_Enterprise",
+      "shared_concepts": [
+        "autonomy",
+        "built",
+        "category",
+        "depot",
+        "enterprise",
+        "files",
+        "flywheel",
+        "level",
+        "optimus",
+        "overview",
+        "part",
+        "portfolio",
+        "repo",
+        "resonanceenergy",
+        "risk",
+        "scripts",
+        "status",
+        "tier",
+        "visibility"
+      ],
+      "concept_count": 19,
+      "relevance_pct": 63.3
+    },
+    {
+      "project_a": "energy-research",
+      "repo_a": "Resonance-Energy-Systems",
+      "project_b": "digital-products",
+      "repo_b": "future-predictor-council",
+      "shared_concepts": [
+        "author",
+        "built",
+        "depot",
+        "energy",
+        "enterprise",
+        "find",
+        "license",
+        "optimus",
+        "packages",
+        "part",
+        "portfolio",
+        "requires",
+        "resonance",
+        "resonanceenergy"
+      ],
+      "concept_count": 14,
+      "relevance_pct": 46.7
+    },
+    {
+      "project_a": "energy-research",
+      "repo_a": "Resonance-Energy-Systems",
+      "project_b": "knowledge-pipeline",
+      "repo_b": "demo",
+      "shared_concepts": [
+        "author",
+        "built",
+        "depot",
+        "energy",
+        "enterprise",
+        "find",
+        "license",
+        "optimus",
+        "packages",
+        "part",
+        "portfolio",
+        "requires",
+        "resonance",
+        "resonanceenergy"
+      ],
+      "concept_count": 14,
+      "relevance_pct": 46.7
+    },
+    {
+      "project_a": "energy-research",
+      "repo_a": "Resonance-Energy-Systems",
+      "project_b": "civil-forge",
+      "repo_b": "CIVIL-FORGE-TECHNOLOGIES-",
+      "shared_concepts": [
+        "author",
+        "built",
+        "depot",
+        "energy",
+        "enterprise",
+        "find",
+        "license",
+        "optimus",
+        "packages",
+        "part",
+        "portfolio",
+        "requires",
+        "resonance",
+        "resonanceenergy"
+      ],
+      "concept_count": 14,
+      "relevance_pct": 46.7
+    },
+    {
+      "project_a": "platform-infra",
+      "repo_a": "ResonanceEnergy_Enterprise",
+      "project_b": "digital-products",
+      "repo_b": "future-predictor-council",
+      "shared_concepts": [
+        "built",
+        "depot",
+        "enterprise",
+        "optimus",
+        "part",
+        "portfolio",
+        "resonanceenergy"
+      ],
+      "concept_count": 7,
+      "relevance_pct": 23.3
+    },
+    {
+      "project_a": "platform-infra",
+      "repo_a": "ResonanceEnergy_Enterprise",
+      "project_b": "knowledge-pipeline",
+      "repo_b": "demo",
+      "shared_concepts": [
+        "built",
+        "depot",
+        "enterprise",
+        "optimus",
+        "part",
+        "portfolio",
+        "resonanceenergy"
+      ],
+      "concept_count": 7,
+      "relevance_pct": 23.3
+    },
+    {
+      "project_a": "platform-infra",
+      "repo_a": "ResonanceEnergy_Enterprise",
+      "project_b": "civil-forge",
+      "repo_b": "CIVIL-FORGE-TECHNOLOGIES-",
+      "shared_concepts": [
+        "built",
+        "depot",
+        "enterprise",
+        "optimus",
+        "part",
+        "portfolio",
+        "resonanceenergy"
+      ],
+      "concept_count": 7,
+      "relevance_pct": 23.3
+    },
+    {
+      "project_a": "energy-research",
+      "repo_a": "perpetual-flow-cube",
+      "project_b": "platform-infra",
+      "repo_b": "ResonanceEnergy_Enterprise",
+      "shared_concepts": [
+        "code",
+        "docs",
+        "documentation",
+        "files"
+      ],
+      "concept_count": 4,
+      "relevance_pct": 13.3
+    },
+    {
+      "project_a": "energy-research",
+      "repo_a": "perpetual-flow-cube",
+      "project_b": "digital-products",
+      "repo_b": "QDFG1",
+      "shared_concepts": [
+        "code",
+        "design",
+        "docs",
+        "project"
+      ],
+      "concept_count": 4,
+      "relevance_pct": 13.3
+    },
+    {
+      "project_a": "platform-infra",
+      "repo_a": "NCC-Doctrine",
+      "project_b": "digital-products",
+      "repo_b": "Crimson-Compass",
+      "shared_concepts": [
+        "build",
+        "notes",
+        "scene",
+        "title"
+      ],
+      "concept_count": 4,
+      "relevance_pct": 13.3
+    },
+    {
+      "project_a": "energy-research",
+      "repo_a": "Resonance-Energy-Systems",
+      "project_b": "platform-infra",
+      "repo_b": "NCC-Doctrine",
+      "shared_concepts": [
+        "category",
+        "files",
+        "status"
+      ],
+      "concept_count": 3,
+      "relevance_pct": 10.0
+    },
+    {
+      "project_a": "platform-infra",
+      "repo_a": "NCC-Doctrine",
+      "project_b": "digital-products",
+      "repo_b": "AAC",
+      "shared_concepts": [
+        "args",
+        "check",
+        "venv"
+      ],
+      "concept_count": 3,
+      "relevance_pct": 10.0
+    },
+    {
+      "project_a": "platform-infra",
+      "repo_a": "NCC-Doctrine",
+      "project_b": "digital-products",
+      "repo_b": "DUBFORGE",
+      "shared_concepts": [
+        "build",
+        "drop",
+        "start"
+      ],
+      "concept_count": 3,
+      "relevance_pct": 10.0
+    },
+    {
+      "project_a": "platform-infra",
+      "repo_a": "ResonanceEnergy_Enterprise",
+      "project_b": "digital-products",
+      "repo_b": "QDFG1",
+      "shared_concepts": [
+        "code",
+        "docs",
+        "repo"
+      ],
+      "concept_count": 3,
+      "relevance_pct": 10.0
+    }
+  ],
+  "gaps": [
+    {
+      "type": "incomplete_milestones",
+      "project": "energy-research",
+      "severity": "HIGH",
+      "detail": "2/4 milestones not started",
+      "milestones": [
+        "Research knowledge base seeded",
+        "Cross-repo insight generation"
+      ]
+    },
+    {
+      "type": "incomplete_milestones",
+      "project": "health-research",
+      "severity": "HIGH",
+      "detail": "2/3 milestones not started",
+      "milestones": [
+        "YouTube intelligence agents connected",
+        "Health protocol knowledge base"
+      ]
+    },
+    {
+      "type": "incomplete_milestones",
+      "project": "platform-infra",
+      "severity": "HIGH",
+      "detail": "2/6 milestones not started",
+      "milestones": [
+        "Portfolio auto-tiered",
+        "Scheduled operations running"
+      ]
+    },
+    {
+      "type": "incomplete_milestones",
+      "project": "digital-products",
+      "severity": "HIGH",
+      "detail": "3/3 milestones not started",
+      "milestones": [
+        "Portfolio classified",
+        "MVP candidates identified",
+        "Revenue model defined"
+      ]
+    },
+    {
+      "type": "incomplete_milestones",
+      "project": "knowledge-pipeline",
+      "severity": "HIGH",
+      "detail": "3/4 milestones not started",
+      "milestones": [
+        "Enrichment pipeline functional",
+        "Knowledge base searchable",
+        "Auto-routing to research projects"
+      ]
+    },
+    {
+      "type": "incomplete_milestones",
+      "project": "media-marketing",
+      "severity": "HIGH",
+      "detail": "3/3 milestones not started",
+      "milestones": [
+        "Repos onboarded and baselined",
+        "Content pipeline defined",
+        "Marketing automation active"
+      ]
+    },
+    {
+      "type": "incomplete_milestones",
+      "project": "alternative-research",
+      "severity": "HIGH",
+      "detail": "2/2 milestones not started",
+      "milestones": [
+        "Repos onboarded and baselined",
+        "Knowledge base seeded"
+      ]
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "energy-research",
+      "repo": "TESLA-TECH",
+      "severity": "MEDIUM",
+      "detail": "TESLA-TECH has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "energy-research",
+      "repo": "GEET-PLASMA-PROJECT",
+      "severity": "MEDIUM",
+      "detail": "GEET-PLASMA-PROJECT has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "energy-research",
+      "repo": "ELECTRIC-UNIVERSE",
+      "severity": "MEDIUM",
+      "detail": "ELECTRIC-UNIVERSE has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "energy-research",
+      "repo": "VORTEX-HUNTER",
+      "severity": "MEDIUM",
+      "detail": "VORTEX-HUNTER has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "energy-research",
+      "repo": "electric-ice",
+      "severity": "MEDIUM",
+      "detail": "electric-ice has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "energy-research",
+      "repo": "Resonance-Energy-Systems",
+      "severity": "MEDIUM",
+      "detail": "Resonance-Energy-Systems has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "energy-research",
+      "repo": "MircoHydro",
+      "severity": "MEDIUM",
+      "detail": "MircoHydro has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "energy-research",
+      "repo": "ELECTRIC-BODY-AND-PARAMAGNETISM",
+      "severity": "MEDIUM",
+      "detail": "ELECTRIC-BODY-AND-PARAMAGNETISM has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "energy-research",
+      "repo": "FRACTAL-FUTURE",
+      "severity": "MEDIUM",
+      "detail": "FRACTAL-FUTURE has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "health-research",
+      "repo": "HUMAN-HEALTH",
+      "severity": "MEDIUM",
+      "detail": "HUMAN-HEALTH has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "platform-infra",
+      "repo": "NCL",
+      "severity": "MEDIUM",
+      "detail": "NCL has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "platform-infra",
+      "repo": "NCC",
+      "severity": "MEDIUM",
+      "detail": "NCC has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "platform-infra",
+      "repo": "NATEBJONES",
+      "severity": "MEDIUM",
+      "detail": "NATEBJONES has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "platform-infra",
+      "repo": "resonance-uy-py",
+      "severity": "MEDIUM",
+      "detail": "resonance-uy-py has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "platform-infra",
+      "repo": "DIGITAL-LABOUR",
+      "severity": "MEDIUM",
+      "detail": "DIGITAL-LABOUR has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "platform-infra",
+      "repo": "ResonanceEnergy_Enterprise",
+      "severity": "MEDIUM",
+      "detail": "ResonanceEnergy_Enterprise has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "platform-infra",
+      "repo": "ENTERPRISE-EXCELERATION",
+      "severity": "MEDIUM",
+      "detail": "ENTERPRISE-EXCELERATION has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "digital-products",
+      "repo": "ADVENTUREHEROAUTO",
+      "severity": "MEDIUM",
+      "detail": "ADVENTUREHEROAUTO has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "digital-products",
+      "repo": "SUPERSTONK-TRADER",
+      "severity": "MEDIUM",
+      "detail": "SUPERSTONK-TRADER has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "digital-products",
+      "repo": "TESLACALLS2026",
+      "severity": "MEDIUM",
+      "detail": "TESLACALLS2026 has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "digital-products",
+      "repo": "future-predictor-council",
+      "severity": "MEDIUM",
+      "detail": "future-predictor-council has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "digital-products",
+      "repo": "Adventure-Hero-Chronicles-Of-Glory",
+      "severity": "MEDIUM",
+      "detail": "Adventure-Hero-Chronicles-Of-Glory has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "knowledge-pipeline",
+      "repo": "demo",
+      "severity": "MEDIUM",
+      "detail": "demo has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "civil-forge",
+      "repo": "CIVIL-FORGE-TECHNOLOGIES-",
+      "severity": "MEDIUM",
+      "detail": "CIVIL-FORGE-TECHNOLOGIES- has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "media-marketing",
+      "repo": "MEGALITHIC-MEDIA",
+      "severity": "MEDIUM",
+      "detail": "MEGALITHIC-MEDIA has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "media-marketing",
+      "repo": "MAGNUM-MARKETING",
+      "severity": "MEDIUM",
+      "detail": "MAGNUM-MARKETING has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "no_knowledge_links",
+      "project": "alternative-research",
+      "repo": "TARTARIA",
+      "severity": "MEDIUM",
+      "detail": "TARTARIA has no knowledge links to Second Brain content"
+    },
+    {
+      "type": "small_project",
+      "project": "health-research",
+      "severity": "LOW",
+      "detail": "health-research has only 1 repo(s) \u2014 consider expanding scope"
+    },
+    {
+      "type": "small_project",
+      "project": "civil-forge",
+      "severity": "LOW",
+      "detail": "civil-forge has only 1 repo(s) \u2014 consider expanding scope"
+    },
+    {
+      "type": "small_project",
+      "project": "alternative-research",
+      "severity": "LOW",
+      "detail": "alternative-research has only 1 repo(s) \u2014 consider expanding scope"
+    }
+  ],
+  "hypotheses": [
+    {
+      "hypothesis": "If concepts (author, built, classifiers, depot, description) are relevant in future-predictor-council (digital-products), they may also apply to demo (knowledge-pipeline)",
+      "basis": {
+        "project_a": "digital-products",
+        "repo_a": "future-predictor-council",
+        "project_b": "knowledge-pipeline",
+        "repo_b": "demo",
+        "shared_concepts": [
+          "author",
+          "built",
+          "classifiers",
+          "depot",
+          "description",
+          "email",
+          "energy",
+          "engine",
+          "enterprise",
+          "find",
+          "generated",
+          "install",
+          "language",
+          "license",
+          "openclaw",
+          "optimus",
+          "packages",
+          "part",
+          "portfolio",
+          "programming",
+          "requires",
+          "resonance",
+          "resonanceenergy",
+          "setuptools",
+          "version"
+        ],
+        "concept_count": 25,
+        "relevance_pct": 83.3
+      },
+      "confidence": "high",
+      "suggested_action": "Cross-reference findings from future-predictor-council with demo; look for overlapping experiments or data on: author, built, classifiers, depot, description"
+    },
+    {
+      "hypothesis": "If concepts (author, built, classifiers, depot, description) are relevant in future-predictor-council (digital-products), they may also apply to CIVIL-FORGE-TECHNOLOGIES- (civil-forge)",
+      "basis": {
+        "project_a": "digital-products",
+        "repo_a": "future-predictor-council",
+        "project_b": "civil-forge",
+        "repo_b": "CIVIL-FORGE-TECHNOLOGIES-",
+        "shared_concepts": [
+          "author",
+          "built",
+          "classifiers",
+          "depot",
+          "description",
+          "email",
+          "energy",
+          "engine",
+          "enterprise",
+          "find",
+          "generated",
+          "install",
+          "language",
+          "license",
+          "openclaw",
+          "optimus",
+          "packages",
+          "part",
+          "portfolio",
+          "programming",
+          "requires",
+          "resonance",
+          "resonanceenergy",
+          "setuptools",
+          "version"
+        ],
+        "concept_count": 25,
+        "relevance_pct": 83.3
+      },
+      "confidence": "high",
+      "suggested_action": "Cross-reference findings from future-predictor-council with CIVIL-FORGE-TECHNOLOGIES-; look for overlapping experiments or data on: author, built, classifiers, depot, description"
+    },
+    {
+      "hypothesis": "If concepts (author, built, classifiers, depot, description) are relevant in demo (knowledge-pipeline), they may also apply to CIVIL-FORGE-TECHNOLOGIES- (civil-forge)",
+      "basis": {
+        "project_a": "knowledge-pipeline",
+        "repo_a": "demo",
+        "project_b": "civil-forge",
+        "repo_b": "CIVIL-FORGE-TECHNOLOGIES-",
+        "shared_concepts": [
+          "author",
+          "built",
+          "classifiers",
+          "depot",
+          "description",
+          "email",
+          "energy",
+          "engine",
+          "enterprise",
+          "find",
+          "generated",
+          "install",
+          "language",
+          "license",
+          "openclaw",
+          "optimus",
+          "packages",
+          "part",
+          "portfolio",
+          "programming",
+          "requires",
+          "resonance",
+          "resonanceenergy",
+          "setuptools",
+          "version"
+        ],
+        "concept_count": 25,
+        "relevance_pct": 83.3
+      },
+      "confidence": "high",
+      "suggested_action": "Cross-reference findings from demo with CIVIL-FORGE-TECHNOLOGIES-; look for overlapping experiments or data on: author, built, classifiers, depot, description"
+    },
+    {
+      "hypothesis": "If concepts (autonomy, built, category, depot, enterprise) are relevant in Resonance-Energy-Systems (energy-research), they may also apply to ResonanceEnergy_Enterprise (platform-infra)",
+      "basis": {
+        "project_a": "energy-research",
+        "repo_a": "Resonance-Energy-Systems",
+        "project_b": "platform-infra",
+        "repo_b": "ResonanceEnergy_Enterprise",
+        "shared_concepts": [
+          "autonomy",
+          "built",
+          "category",
+          "depot",
+          "enterprise",
+          "files",
+          "flywheel",
+          "level",
+          "optimus",
+          "overview",
+          "part",
+          "portfolio",
+          "repo",
+          "resonanceenergy",
+          "risk",
+          "scripts",
+          "status",
+          "tier",
+          "visibility"
+        ],
+        "concept_count": 19,
+        "relevance_pct": 63.3
+      },
+      "confidence": "high",
+      "suggested_action": "Cross-reference findings from Resonance-Energy-Systems with ResonanceEnergy_Enterprise; look for overlapping experiments or data on: autonomy, built, category, depot, enterprise"
+    },
+    {
+      "hypothesis": "If concepts (author, built, depot, energy, enterprise) are relevant in Resonance-Energy-Systems (energy-research), they may also apply to future-predictor-council (digital-products)",
+      "basis": {
+        "project_a": "energy-research",
+        "repo_a": "Resonance-Energy-Systems",
+        "project_b": "digital-products",
+        "repo_b": "future-predictor-council",
+        "shared_concepts": [
+          "author",
+          "built",
+          "depot",
+          "energy",
+          "enterprise",
+          "find",
+          "license",
+          "optimus",
+          "packages",
+          "part",
+          "portfolio",
+          "requires",
+          "resonance",
+          "resonanceenergy"
+        ],
+        "concept_count": 14,
+        "relevance_pct": 46.7
+      },
+      "confidence": "high",
+      "suggested_action": "Cross-reference findings from Resonance-Energy-Systems with future-predictor-council; look for overlapping experiments or data on: author, built, depot, energy, enterprise"
+    },
+    {
+      "hypothesis": "If concepts (author, built, depot, energy, enterprise) are relevant in Resonance-Energy-Systems (energy-research), they may also apply to demo (knowledge-pipeline)",
+      "basis": {
+        "project_a": "energy-research",
+        "repo_a": "Resonance-Energy-Systems",
+        "project_b": "knowledge-pipeline",
+        "repo_b": "demo",
+        "shared_concepts": [
+          "author",
+          "built",
+          "depot",
+          "energy",
+          "enterprise",
+          "find",
+          "license",
+          "optimus",
+          "packages",
+          "part",
+          "portfolio",
+          "requires",
+          "resonance",
+          "resonanceenergy"
+        ],
+        "concept_count": 14,
+        "relevance_pct": 46.7
+      },
+      "confidence": "high",
+      "suggested_action": "Cross-reference findings from Resonance-Energy-Systems with demo; look for overlapping experiments or data on: author, built, depot, energy, enterprise"
+    },
+    {
+      "hypothesis": "If concepts (author, built, depot, energy, enterprise) are relevant in Resonance-Energy-Systems (energy-research), they may also apply to CIVIL-FORGE-TECHNOLOGIES- (civil-forge)",
+      "basis": {
+        "project_a": "energy-research",
+        "repo_a": "Resonance-Energy-Systems",
+        "project_b": "civil-forge",
+        "repo_b": "CIVIL-FORGE-TECHNOLOGIES-",
+        "shared_concepts": [
+          "author",
+          "built",
+          "depot",
+          "energy",
+          "enterprise",
+          "find",
+          "license",
+          "optimus",
+          "packages",
+          "part",
+          "portfolio",
+          "requires",
+          "resonance",
+          "resonanceenergy"
+        ],
+        "concept_count": 14,
+        "relevance_pct": 46.7
+      },
+      "confidence": "high",
+      "suggested_action": "Cross-reference findings from Resonance-Energy-Systems with CIVIL-FORGE-TECHNOLOGIES-; look for overlapping experiments or data on: author, built, depot, energy, enterprise"
+    },
+    {
+      "hypothesis": "If concepts (built, depot, enterprise, optimus, part) are relevant in ResonanceEnergy_Enterprise (platform-infra), they may also apply to future-predictor-council (digital-products)",
+      "basis": {
+        "project_a": "platform-infra",
+        "repo_a": "ResonanceEnergy_Enterprise",
+        "project_b": "digital-products",
+        "repo_b": "future-predictor-council",
+        "shared_concepts": [
+          "built",
+          "depot",
+          "enterprise",
+          "optimus",
+          "part",
+          "portfolio",
+          "resonanceenergy"
+        ],
+        "concept_count": 7,
+        "relevance_pct": 23.3
+      },
+      "confidence": "medium",
+      "suggested_action": "Cross-reference findings from ResonanceEnergy_Enterprise with future-predictor-council; look for overlapping experiments or data on: built, depot, enterprise, optimus, part"
+    },
+    {
+      "hypothesis": "If concepts (built, depot, enterprise, optimus, part) are relevant in ResonanceEnergy_Enterprise (platform-infra), they may also apply to demo (knowledge-pipeline)",
+      "basis": {
+        "project_a": "platform-infra",
+        "repo_a": "ResonanceEnergy_Enterprise",
+        "project_b": "knowledge-pipeline",
+        "repo_b": "demo",
+        "shared_concepts": [
+          "built",
+          "depot",
+          "enterprise",
+          "optimus",
+          "part",
+          "portfolio",
+          "resonanceenergy"
+        ],
+        "concept_count": 7,
+        "relevance_pct": 23.3
+      },
+      "confidence": "medium",
+      "suggested_action": "Cross-reference findings from ResonanceEnergy_Enterprise with demo; look for overlapping experiments or data on: built, depot, enterprise, optimus, part"
+    },
+    {
+      "hypothesis": "If concepts (built, depot, enterprise, optimus, part) are relevant in ResonanceEnergy_Enterprise (platform-infra), they may also apply to CIVIL-FORGE-TECHNOLOGIES- (civil-forge)",
+      "basis": {
+        "project_a": "platform-infra",
+        "repo_a": "ResonanceEnergy_Enterprise",
+        "project_b": "civil-forge",
+        "repo_b": "CIVIL-FORGE-TECHNOLOGIES-",
+        "shared_concepts": [
+          "built",
+          "depot",
+          "enterprise",
+          "optimus",
+          "part",
+          "portfolio",
+          "resonanceenergy"
+        ],
+        "concept_count": 7,
+        "relevance_pct": 23.3
+      },
+      "confidence": "medium",
+      "suggested_action": "Cross-reference findings from ResonanceEnergy_Enterprise with CIVIL-FORGE-TECHNOLOGIES-; look for overlapping experiments or data on: built, depot, enterprise, optimus, part"
+    },
+    {
+      "hypothesis": "If concepts (code, docs, documentation, files) are relevant in perpetual-flow-cube (energy-research), they may also apply to ResonanceEnergy_Enterprise (platform-infra)",
+      "basis": {
+        "project_a": "energy-research",
+        "repo_a": "perpetual-flow-cube",
+        "project_b": "platform-infra",
+        "repo_b": "ResonanceEnergy_Enterprise",
+        "shared_concepts": [
+          "code",
+          "docs",
+          "documentation",
+          "files"
+        ],
+        "concept_count": 4,
+        "relevance_pct": 13.3
+      },
+      "confidence": "low",
+      "suggested_action": "Cross-reference findings from perpetual-flow-cube with ResonanceEnergy_Enterprise; look for overlapping experiments or data on: code, docs, documentation, files"
+    },
+    {
+      "hypothesis": "If concepts (code, design, docs, project) are relevant in perpetual-flow-cube (energy-research), they may also apply to QDFG1 (digital-products)",
+      "basis": {
+        "project_a": "energy-research",
+        "repo_a": "perpetual-flow-cube",
+        "project_b": "digital-products",
+        "repo_b": "QDFG1",
+        "shared_concepts": [
+          "code",
+          "design",
+          "docs",
+          "project"
+        ],
+        "concept_count": 4,
+        "relevance_pct": 13.3
+      },
+      "confidence": "low",
+      "suggested_action": "Cross-reference findings from perpetual-flow-cube with QDFG1; look for overlapping experiments or data on: code, design, docs, project"
+    },
+    {
+      "hypothesis": "If concepts (build, notes, scene, title) are relevant in NCC-Doctrine (platform-infra), they may also apply to Crimson-Compass (digital-products)",
+      "basis": {
+        "project_a": "platform-infra",
+        "repo_a": "NCC-Doctrine",
+        "project_b": "digital-products",
+        "repo_b": "Crimson-Compass",
+        "shared_concepts": [
+          "build",
+          "notes",
+          "scene",
+          "title"
+        ],
+        "concept_count": 4,
+        "relevance_pct": 13.3
+      },
+      "confidence": "low",
+      "suggested_action": "Cross-reference findings from NCC-Doctrine with Crimson-Compass; look for overlapping experiments or data on: build, notes, scene, title"
+    },
+    {
+      "hypothesis": "If concepts (category, files, status) are relevant in Resonance-Energy-Systems (energy-research), they may also apply to NCC-Doctrine (platform-infra)",
+      "basis": {
+        "project_a": "energy-research",
+        "repo_a": "Resonance-Energy-Systems",
+        "project_b": "platform-infra",
+        "repo_b": "NCC-Doctrine",
+        "shared_concepts": [
+          "category",
+          "files",
+          "status"
+        ],
+        "concept_count": 3,
+        "relevance_pct": 10.0
+      },
+      "confidence": "low",
+      "suggested_action": "Cross-reference findings from Resonance-Energy-Systems with NCC-Doctrine; look for overlapping experiments or data on: category, files, status"
+    },
+    {
+      "hypothesis": "If concepts (args, check, venv) are relevant in NCC-Doctrine (platform-infra), they may also apply to AAC (digital-products)",
+      "basis": {
+        "project_a": "platform-infra",
+        "repo_a": "NCC-Doctrine",
+        "project_b": "digital-products",
+        "repo_b": "AAC",
+        "shared_concepts": [
+          "args",
+          "check",
+          "venv"
+        ],
+        "concept_count": 3,
+        "relevance_pct": 10.0
+      },
+      "confidence": "low",
+      "suggested_action": "Cross-reference findings from NCC-Doctrine with AAC; look for overlapping experiments or data on: args, check, venv"
+    },
+    {
+      "hypothesis": "If concepts (build, drop, start) are relevant in NCC-Doctrine (platform-infra), they may also apply to DUBFORGE (digital-products)",
+      "basis": {
+        "project_a": "platform-infra",
+        "repo_a": "NCC-Doctrine",
+        "project_b": "digital-products",
+        "repo_b": "DUBFORGE",
+        "shared_concepts": [
+          "build",
+          "drop",
+          "start"
+        ],
+        "concept_count": 3,
+        "relevance_pct": 10.0
+      },
+      "confidence": "low",
+      "suggested_action": "Cross-reference findings from NCC-Doctrine with DUBFORGE; look for overlapping experiments or data on: build, drop, start"
+    },
+    {
+      "hypothesis": "If concepts (code, docs, repo) are relevant in ResonanceEnergy_Enterprise (platform-infra), they may also apply to QDFG1 (digital-products)",
+      "basis": {
+        "project_a": "platform-infra",
+        "repo_a": "ResonanceEnergy_Enterprise",
+        "project_b": "digital-products",
+        "repo_b": "QDFG1",
+        "shared_concepts": [
+          "code",
+          "docs",
+          "repo"
+        ],
+        "concept_count": 3,
+        "relevance_pct": 10.0
+      },
+      "confidence": "low",
+      "suggested_action": "Cross-reference findings from ResonanceEnergy_Enterprise with QDFG1; look for overlapping experiments or data on: code, docs, repo"
+    }
+  ],
+  "research_questions": [
+    {
+      "question": "What blockers prevent milestone 'Research knowledge base seeded' in energy-research?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'Cross-repo insight generation' in energy-research?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'YouTube intelligence agents connected' in health-research?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'Health protocol knowledge base' in health-research?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'Portfolio auto-tiered' in platform-infra?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'Scheduled operations running' in platform-infra?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'Portfolio classified' in digital-products?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'MVP candidates identified' in digital-products?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'Revenue model defined' in digital-products?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'Enrichment pipeline functional' in knowledge-pipeline?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'Knowledge base searchable' in knowledge-pipeline?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'Auto-routing to research projects' in knowledge-pipeline?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'Repos onboarded and baselined' in media-marketing?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'Content pipeline defined' in media-marketing?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'Marketing automation active' in media-marketing?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'Repos onboarded and baselined' in alternative-research?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What blockers prevent milestone 'Knowledge base seeded' in alternative-research?",
+      "source": "gap_analysis",
+      "priority": "HIGH"
+    },
+    {
+      "question": "What Second Brain content is relevant to TESLA-TECH? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to GEET-PLASMA-PROJECT? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to ELECTRIC-UNIVERSE? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to VORTEX-HUNTER? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to electric-ice? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to Resonance-Energy-Systems? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to MircoHydro? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to ELECTRIC-BODY-AND-PARAMAGNETISM? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to FRACTAL-FUTURE? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to HUMAN-HEALTH? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to NCL? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to NCC? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to NATEBJONES? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to resonance-uy-py? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to DIGITAL-LABOUR? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to ResonanceEnergy_Enterprise? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to ENTERPRISE-EXCELERATION? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to ADVENTUREHEROAUTO? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to SUPERSTONK-TRADER? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to TESLACALLS2026? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to future-predictor-council? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to Adventure-Hero-Chronicles-Of-Glory? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to demo? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to CIVIL-FORGE-TECHNOLOGIES-? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to MEGALITHIC-MEDIA? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to MAGNUM-MARKETING? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "What Second Brain content is relevant to TARTARIA? Are we missing ingestion sources?",
+      "source": "gap_analysis",
+      "priority": "MEDIUM"
+    },
+    {
+      "question": "Should health-research be expanded with additional repos, or merged into another project?",
+      "source": "gap_analysis",
+      "priority": "LOW"
+    },
+    {
+      "question": "Should civil-forge be expanded with additional repos, or merged into another project?",
+      "source": "gap_analysis",
+      "priority": "LOW"
+    },
+    {
+      "question": "Should alternative-research be expanded with additional repos, or merged into another project?",
+      "source": "gap_analysis",
+      "priority": "LOW"
+    }
+  ],
+  "summary": {
+    "total_cross_links": 17,
+    "total_gaps": 37,
+    "high_severity_gaps": 7,
+    "total_hypotheses": 17,
+    "total_questions": 47
+  }
+}

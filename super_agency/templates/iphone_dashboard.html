@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Pocket Pulsar">
+    <title>Pocket Pulsar - Digital Labour iPhone</title>
+    <link rel="stylesheet" href="/static/css/iphone.css">
+    <link rel="manifest" href="/static/manifest_iphone.json">
+    <link rel="icon" href="/static/favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🚀 Pocket Pulsar</h1>
+            <div class="status-indicator" id="connection-status">
+                <span class="status-dot"></span>
+                <span class="status-text">Connected</span>
+            </div>
+        </header>
+
+        <nav class="nav-tabs">
+            <button class="tab-button active" data-tab="dashboard">Dashboard</button>
+            <button class="tab-button" data-tab="agents">Agents</button>
+            <button class="tab-button" data-tab="systems">Systems</button>
+            <button class="tab-button" data-tab="matrix">Matrix</button>
+            <button class="tab-button" data-tab="finance">Finance</button>
+        </nav>
+
+        <main class="main-content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h3>System Health</h3>
+                        <div class="metric-value" id="system-health">98%</div>
+                        <div class="metric-trend">↑ 2%</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <h3>Active Agents</h3>
+                        <div class="metric-value" id="active-agents">23</div>
+                        <div class="metric-trend">All Online</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <h3>CPU Usage</h3>
+                        <div class="metric-value" id="cpu-usage">75%</div>
+                        <div class="metric-trend">Optimized</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <h3>Memory</h3>
+                        <div class="metric-value" id="memory-usage">45%</div>
+                        <div class="metric-trend">256MB</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <h3>Financial Health</h3>
+                        <div class="metric-value" id="financial-score">92</div>
+                        <div class="metric-trend">Strong</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <h3>Repos Monitored</h3>
+                        <div class="metric-value" id="repos-count">47</div>
+                        <div class="metric-trend">Active</div>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <button class="action-button" onclick="sendCommand('status')">System Status</button>
+                    <button class="action-button" onclick="sendCommand('sync')">Sync All</button>
+                    <button class="action-button" onclick="sendCommand('optimize')">Optimize</button>
+                </div>
+            </div>
+
+            <!-- Agents Tab -->
+            <div id="agents" class="tab-content">
+                <div class="agents-list">
+                    <div class="agent-card online">
+                        <div class="agent-icon">🤖</div>
+                        <div class="agent-info">
+                            <h4>Repo Sentry</h4>
+                            <span class="agent-status">Monitoring 47 repos</span>
+                        </div>
+                        <div class="agent-metric">98%</div>
+                    </div>
+
+                    <div class="agent-card online">
+                        <div class="agent-icon">📊</div>
+                        <div class="agent-info">
+                            <h4>Daily Brief</h4>
+                            <span class="agent-status">Intelligence compiled</span>
+                        </div>
+                        <div class="agent-metric">95%</div>
+                    </div>
+
+                    <div class="agent-card online">
+                        <div class="agent-icon">🧠</div>
+                        <div class="agent-info">
+                            <h4>Council</h4>
+                            <span class="agent-status">Decision autonomy</span>
+                        </div>
+                        <div class="agent-metric">100%</div>
+                    </div>
+
+                    <!-- More agent cards would be dynamically loaded -->
+                </div>
+            </div>
+
+            <!-- Systems Tab -->
+            <div id="systems" class="tab-content">
+                <div class="system-status">
+                    <div class="system-card">
+                        <h4>Quantum Quasar (Mac)</h4>
+                        <div class="system-metrics">
+                            <span>CPU: 75%</span>
+                            <span>RAM: 45%</span>
+                            <span>Status: Online</span>
+                        </div>
+                    </div>
+
+                    <div class="system-card">
+                        <h4>Tablet Titan (iPad)</h4>
+                        <div class="system-metrics">
+                            <span>CPU: 60%</span>
+                            <span>RAM: 35%</span>
+                            <span>Status: Online</span>
+                        </div>
+                    </div>
+
+                    <div class="system-card">
+                        <h4>Windows Companion</h4>
+                        <div class="system-metrics">
+                            <span>CPU: 85%</span>
+                            <span>RAM: 70%</span>
+                            <span>Status: Online</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="system-controls">
+                    <button class="control-button" onclick="sendCommand('restart_agents')">Restart Agents</button>
+                    <button class="control-button" onclick="sendCommand('backup')">Backup Data</button>
+                    <button class="control-button" onclick="sendCommand('diagnostics')">Run Diagnostics</button>
+                </div>
+            </div>
+
+            <!-- Matrix Tab -->
+            <div id="matrix" class="tab-content">
+                <div class="matrix-container">
+                    <div class="matrix-header">
+                        <h3>🕸️ System Matrix Monitor</h3>
+                        <div class="matrix-controls">
+                            <button class="matrix-control-btn" onclick="toggleMatrixView('grid')">Grid</button>
+                            <button class="matrix-control-btn active" onclick="toggleMatrixView('nodes')">Nodes</button>
+                            <button class="matrix-control-btn" onclick="toggleMatrixView('heatmap')">Heatmap</button>
+                        </div>
+                    </div>
+
+                    <div class="matrix-grid" id="matrix-grid">
+                        <!-- Matrix nodes will be dynamically generated -->
+                        <div class="matrix-node" data-type="quantum-quasar" data-status="online">
+                            <div class="node-core">
+                                <div class="node-icon">⚛️</div>
+                                <div class="node-label">QUASAR</div>
+                            </div>
+                            <div class="node-metrics">
+                                <span class="metric">CPU: 75%</span>
+                                <span class="metric">MEM: 45%</span>
+                            </div>
+                            <div class="node-status online"></div>
+                        </div>
+
+                        <div class="matrix-node" data-type="pocket-pulsar" data-status="online">
+                            <div class="node-core">
+                                <div class="node-icon">📱</div>
+                                <div class="node-label">PULSAR</div>
+                            </div>
+                            <div class="node-metrics">
+                                <span class="metric">BAT: 87%</span>
+                                <span class="metric">NET: LTE</span>
+                            </div>
+                            <div class="node-status online"></div>
+                        </div>
+
+                        <div class="matrix-node" data-type="tablet-titan" data-status="online">
+                            <div class="node-core">
+                                <div class="node-icon">📱</div>
+                                <div class="node-label">TITAN</div>
+                            </div>
+                            <div class="node-metrics">
+                                <span class="metric">CPU: 60%</span>
+                                <span class="metric">MEM: 35%</span>
+                            </div>
+                            <div class="node-status online"></div>
+                        </div>
+
+                        <div class="matrix-node" data-type="agent" data-status="online">
+                            <div class="node-core">
+                                <div class="node-icon">🤖</div>
+                                <div class="node-label">SENTRY</div>
+                            </div>
+                            <div class="node-metrics">
+                                <span class="metric">REPOS: 47</span>
+                                <span class="metric">HEALTH: 98%</span>
+                            </div>
+                            <div class="node-status online"></div>
+                        </div>
+
+                        <div class="matrix-node" data-type="agent" data-status="online">
+                            <div class="node-core">
+                                <div class="node-icon">📊</div>
+                                <div class="node-label">BRIEF</div>
+                            </div>
+                            <div class="node-metrics">
+                                <span class="metric">REPORTS: 12</span>
+                                <span class="metric">QUALITY: 95%</span>
+                            </div>
+                            <div class="node-status online"></div>
+                        </div>
+
+                        <div class="matrix-node" data-type="agent" data-status="online">
+                            <div class="node-core">
+                                <div class="node-icon">🧠</div>
+                                <div class="node-label">COUNCIL</div>
+                            </div>
+                            <div class="node-metrics">
+                                <span class="metric">DECISIONS: 23</span>
+                                <span class="metric">ACCURACY: 100%</span>
+                            </div>
+                            <div class="node-status online"></div>
+                        </div>
+
+                        <div class="matrix-node" data-type="memory" data-status="active">
+                            <div class="node-core">
+                                <div class="node-icon">🧠</div>
+                                <div class="node-label">QUASMEM</div>
+                            </div>
+                            <div class="node-metrics">
+                                <span class="metric">POOL: 256MB</span>
+                                <span class="metric">EFFICIENCY: 92%</span>
+                            </div>
+                            <div class="node-status active"></div>
+                        </div>
+
+                        <div class="matrix-node" data-type="finance" data-status="healthy">
+                            <div class="node-core">
+                                <div class="node-icon">💰</div>
+                                <div class="node-label">FINANCE</div>
+                            </div>
+                            <div class="node-metrics">
+                                <span class="metric">BALANCE: $127K</span>
+                                <span class="metric">SCORE: 92</span>
+                            </div>
+                            <div class="node-status healthy"></div>
+                        </div>
+
+                        <div class="matrix-node" data-type="network" data-status="online">
+                            <div class="node-core">
+                                <div class="node-icon">🌐</div>
+                                <div class="node-label">SASP</div>
+                            </div>
+                            <div class="node-metrics">
+                                <span class="metric">CONNECTIONS: 3</span>
+                                <span class="metric">LATENCY: 45ms</span>
+                            </div>
+                            <div class="node-status online"></div>
+                        </div>
+                    </div>
+
+                    <div class="matrix-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Total Nodes:</span>
+                            <span class="stat-value" id="total-nodes">9</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Online:</span>
+                            <span class="stat-value" id="online-nodes">9</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">System Health:</span>
+                            <span class="stat-value" id="system-health-matrix">98%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Finance Tab -->
+            <div id="finance" class="tab-content">
+                <div class="finance-overview">
+                    <div class="finance-card">
+                        <h4>Account Balance</h4>
+                        <div class="finance-value">$127,543.89</div>
+                        <div class="finance-change">+2.3%</div>
+                    </div>
+
+                    <div class="finance-card">
+                        <h4>Monthly Revenue</h4>
+                        <div class="finance-value">$15,234.56</div>
+                        <div class="finance-change">+12.1%</div>
+                    </div>
+
+                    <div class="finance-card">
+                        <h4>Compliance Score</h4>
+                        <div class="finance-value">98%</div>
+                        <div class="finance-change">Excellent</div>
+                    </div>
+                </div>
+
+                <div class="recent-transactions">
+                    <h4>Recent Transactions</h4>
+                    <div class="transaction-list">
+                        <div class="transaction-item">
+                            <span>Investment Return</span>
+                            <span class="amount positive">+$2,345.67</span>
+                        </div>
+                        <div class="transaction-item">
+                            <span>Server Costs</span>
+                            <span class="amount negative">-$156.23</span>
+                        </div>
+                        <div class="transaction-item">
+                            <span>Client Payment</span>
+                            <span class="amount positive">+$5,000.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-info">
+                <span>Last updated: <span id="last-update">Just now</span></span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/static/js/iphone.js"></script>
+</body>
+</html></content>
+<parameter name="filePath">$HOME/repos/ELECTRIC ICE/Digital-Labour/templates/iphone_dashboard.html

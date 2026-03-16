@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="MATRIX MONITOR">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>MATRIX MONITOR v4.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/matrix_monitor_v4.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">M</div>
+            <div>
+                <h1>MATRIX MONITOR</h1>
+                <span>v4.0 | ENTERPRISE COMMAND CENTER</span>
+            </div>
+        </div>
+        <div class="header-status">
+            <div class="live-indicator">
+                <div class="live-dot"></div>
+                <span>LIVE</span>
+            </div>
+            <div class="clock" id="clock">--:--:--</div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-tabs">
+        <div class="nav-tab active" data-tab="overview">Overview</div>
+        <div class="nav-tab" data-tab="repo-depot">Repo Depot</div>
+        <div class="nav-tab" data-tab="agents">Agents</div>
+        <div class="nav-tab" data-tab="logs">Activity Log</div>
+        <div class="nav-tab" data-tab="system">System</div>
+        <div class="nav-tab" data-tab="controls">Controls</div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- OVERVIEW TAB -->
+        <div class="tab-panel active" id="panel-overview">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">CPU Usage</div>
+                    <div class="metric-value" style="color: var(--accent-cyan);" id="cpu-value">0%</div>
+                    <canvas class="metric-sparkline" id="cpu-sparkline"></canvas>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Memory</div>
+                    <div class="metric-value" style="color: var(--accent-purple);" id="ram-value">0%</div>
+                    <canvas class="metric-sparkline" id="ram-sparkline"></canvas>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Repo Depot</div>
+                    <div class="metric-value" id="depot-status">--</div>
+                    <div class="metric-change" id="depot-detail">Checking...</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Repos Built</div>
+                    <div class="metric-value" style="color: var(--accent-green);" id="repos-built">0/0</div>
+                    <div class="metric-change" id="repos-detail">Loading...</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">QFORGE</div>
+                    <div class="metric-value" id="qforge-status">--</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">QUSAR</div>
+                    <div class="metric-value" id="qusar-status">--</div>
+                </div>
+                <div class="metric-card" id="pulsar-card">
+                    <div class="metric-label">📱 PULSAR <small>(iPhone)</small></div>
+                    <div class="metric-value" id="pulsar-status">--</div>
+                    <div class="metric-change" id="pulsar-detail">Checking...</div>
+                </div>
+                <div class="metric-card" id="titan-card">
+                    <div class="metric-label">📋 TITAN <small>(iPad)</small></div>
+                    <div class="metric-value" id="titan-status">--</div>
+                    <div class="metric-change" id="titan-detail">Checking...</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">📊 System Performance</div>
+                        <span class="status-badge active">Real-time</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="performance-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">⚡ Recent Activity</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-feed" id="activity-feed">
+                            <div class="activity-item">
+                                <div class="activity-icon info">📡</div>
+                                <div class="activity-content">
+                                    <div class="activity-message">Matrix Monitor v4.0 initialized</div>
+                                    <div class="activity-time">Just now</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REPO DEPOT TAB -->
+        <div class="tab-panel" id="panel-repo-depot">
+            <div class="metrics-grid" style="margin-bottom: 24px;">
+                <div class="metric-card">
+                    <div class="metric-label">Status</div>
+                    <div class="metric-value" id="rd-status">--</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Total Repos</div>
+                    <div class="metric-value" id="rd-total">0</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Completed</div>
+                    <div class="metric-value" style="color: var(--accent-green);" id="rd-completed">0</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Building</div>
+                    <div class="metric-value" style="color: var(--accent-yellow);" id="rd-building">0</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Flywheel Cycles</div>
+                    <div class="metric-value" style="color: var(--accent-cyan);" id="rd-flywheel">0</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Files Created</div>
+                    <div class="metric-value" id="rd-files">0</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📦 Repository Portfolio</div>
+                </div>
+                <div class="card-body">
+                    <div class="repo-grid" id="repo-grid">
+                        <!-- Repos will be populated dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AGENTS TAB -->
+        <div class="tab-panel" id="panel-agents">
+            <div class="agents-grid" id="agents-grid">
+                <!-- Agent cards will be populated dynamically -->
+            </div>
+        </div>
+
+        <!-- LOGS TAB -->
+        <div class="tab-panel" id="panel-logs">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📝 Activity Log</div>
+                    <button class="btn btn-secondary" onclick="clearLogs()">Clear</button>
+                </div>
+                <div class="card-body" style="max-height: 600px; overflow-y: auto;">
+                    <div class="activity-feed" id="full-activity-log">
+                        <!-- Full logs here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SYSTEM TAB -->
+        <div class="tab-panel" id="panel-system">
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">💻 System Information</div>
+                    </div>
+                    <div class="card-body">
+                        <table class="info-table" id="system-info">
+                            <tr><td>Platform</td><td id="sys-platform">--</td></tr>
+                            <tr><td>CPU Cores</td><td id="sys-cores">--</td></tr>
+                            <tr><td>Total RAM</td><td id="sys-ram">--</td></tr>
+                            <tr><td>Python Version</td><td id="sys-python">--</td></tr>
+                            <tr><td>Uptime</td><td id="sys-uptime">--</td></tr>
+                            <tr><td>Monitor Version</td><td>v4.0</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">🔌 Services</div>
+                    </div>
+                    <div class="card-body">
+                        <table class="info-table" id="services-info">
+                            <tr><td>Matrix Monitor</td><td><span class="status-badge active">Active</span></td></tr>
+                            <tr><td>Repo Depot</td><td id="svc-repodepot">--</td></tr>
+                            <tr><td>Watchdog</td><td id="svc-watchdog">--</td></tr>
+                            <tr><td>QFORGE</td><td id="svc-qforge">--</td></tr>
+                            <tr><td>QUSAR</td><td id="svc-qusar">--</td></tr>
+                            <tr><td>📱 PULSAR (iPhone)</td><td id="svc-pulsar">--</td></tr>
+                            <tr><td>📋 TITAN (iPad)</td><td id="svc-titan">--</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTROLS TAB -->
+        <div class="tab-panel" id="panel-controls">
+            <div class="card" style="margin-bottom: 20px;">
+                <div class="card-header">
+                    <div class="card-title">🚀 Repo Depot Controls</div>
+                </div>
+                <div class="card-body">
+                    <div class="controls">
+                        <button class="btn btn-success" onclick="startRepoDepot()">▶ Start Repo Depot</button>
+                        <button class="btn btn-danger" onclick="stopRepoDepot()">■ Stop Repo Depot</button>
+                        <button class="btn btn-secondary" onclick="restartRepoDepot()">↻ Restart</button>
+                        <button class="btn btn-secondary" onclick="checkStatus()">📊 Check Status</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-bottom: 20px;">
+                <div class="card-header">
+                    <div class="card-title">🤖 Agent Controls</div>
+                </div>
+                <div class="card-body">
+                    <div class="controls">
+                        <button class="btn btn-success" onclick="startAgents()">▶ Start Agents</button>
+                        <button class="btn btn-danger" onclick="stopAgents()">■ Stop Agents</button>
+                        <button class="btn btn-secondary" onclick="runQforge()">⚡ Run QFORGE</button>
+                        <button class="btn btn-secondary" onclick="runQusar()">🔄 Run QUSAR</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🛠 System Utilities</div>
+                </div>
+                <div class="card-body">
+                    <div class="controls">
+                        <button class="btn btn-secondary" onclick="refreshData()">↻ Force Refresh</button>
+                        <button class="btn btn-secondary" onclick="exportLogs()">📥 Export Logs</button>
+                        <button class="btn btn-secondary" onclick="openDocs()">📖 Documentation</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/matrix_monitor_v4.js') }}"></script>
+</body>
+</html>

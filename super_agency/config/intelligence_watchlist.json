@@ -1,0 +1,70 @@
+{
+  "description": "YouTube channels and playlists for weekly intelligence scans",
+  "scan_interval_days": 7,
+  "sources": [
+    {
+      "id": "huberman-lab",
+      "type": "youtube_channel",
+      "name": "Huberman Lab",
+      "url": "https://www.youtube.com/@hubaborlab",
+      "project": "health-research",
+      "tags": ["neuroscience", "health", "longevity"]
+    },
+    {
+      "id": "peter-attia",
+      "type": "youtube_channel",
+      "name": "Peter Attia MD",
+      "url": "https://www.youtube.com/@PeterAttiaMD",
+      "project": "health-research",
+      "tags": ["longevity", "medicine", "health"]
+    },
+    {
+      "id": "thunderbolts-project",
+      "type": "youtube_channel",
+      "name": "Thunderbolts Project",
+      "url": "https://www.youtube.com/@ThunderboltsProject",
+      "project": "energy-research",
+      "tags": ["electric-universe", "plasma", "cosmology"]
+    },
+    {
+      "id": "suspicious-observers",
+      "type": "youtube_channel",
+      "name": "Suspicious0bservers",
+      "url": "https://www.youtube.com/@Suspicious0bservers",
+      "project": "energy-research",
+      "tags": ["space-weather", "electric-universe", "earth-science"]
+    },
+    {
+      "id": "tesla-tech",
+      "type": "youtube_channel",
+      "name": "Tesla Tech / ExtraOrdinary Technology",
+      "url": "https://www.youtube.com/@TeslaTech",
+      "project": "energy-research",
+      "tags": ["tesla", "energy", "technology"]
+    },
+    {
+      "id": "two-minute-papers",
+      "type": "youtube_channel",
+      "name": "Two Minute Papers",
+      "url": "https://www.youtube.com/@TwoMinutePapers",
+      "project": "ai-ml-research",
+      "tags": ["AI", "machine-learning", "research"]
+    },
+    {
+      "id": "fireship",
+      "type": "youtube_channel",
+      "name": "Fireship",
+      "url": "https://www.youtube.com/@Fireship",
+      "project": "platform-infra",
+      "tags": ["dev", "technology", "architecture"]
+    },
+    {
+      "id": "lex-fridman",
+      "type": "youtube_channel",
+      "name": "Lex Fridman Podcast",
+      "url": "https://www.youtube.com/@lexfridman",
+      "project": "cross-domain",
+      "tags": ["AI", "science", "technology", "interviews"]
+    }
+  ]
+}

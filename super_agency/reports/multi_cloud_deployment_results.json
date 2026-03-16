@@ -1,0 +1,631 @@
+{
+  "orchestration_results": {
+    "latency_based": [
+      {
+        "strategy": "latency_based",
+        "provider": "gcp",
+        "deployment": {
+          "id": "dd917a91-add2-4c1b-8ccb-7a4850ccb399",
+          "service": "web_app",
+          "region": "asia-southeast1",
+          "status": "running",
+          "resources": {
+            "cpu": 2,
+            "memory": 4,
+            "storage": 20
+          },
+          "cost_per_hour": 0.26301487543053015,
+          "deployed_at": "2026-02-21T03:52:16.167516+00:00"
+        },
+        "estimated_latency_ms": 46.1013546374694
+      },
+      {
+        "strategy": "latency_based",
+        "provider": "azure",
+        "deployment": {
+          "id": "50f565e8-dc6b-4322-8163-f28e1360854f",
+          "service": "database",
+          "region": "southeastasia",
+          "status": "running",
+          "resources": {
+            "cpu": 4,
+            "memory": 8,
+            "storage": 100
+          },
+          "cost_per_hour": 1.243757201239506,
+          "deployed_at": "2026-02-21T03:52:16.269301+00:00"
+        },
+        "estimated_latency_ms": 21.378833922538284
+      },
+      {
+        "strategy": "latency_based",
+        "provider": "linode",
+        "deployment": {
+          "id": "05f10aca-abfd-4409-a024-88225cd134a2",
+          "service": "ai_model",
+          "region": "ap-south",
+          "status": "running",
+          "resources": {
+            "cpu": 8,
+            "memory": 16,
+            "storage": 50
+          },
+          "cost_per_hour": 1.7086683529468356,
+          "deployed_at": "2026-02-21T03:52:16.370605+00:00"
+        },
+        "estimated_latency_ms": 24.603082838807744
+      }
+    ],
+    "cost_optimized": [
+      {
+        "strategy": "cost_optimized",
+        "provider": "azure",
+        "deployment": {
+          "id": "ee136e9a-5e4c-40b1-99a4-3889d2846956",
+          "service": "web_app",
+          "region": "eastus",
+          "status": "running",
+          "resources": {
+            "cpu": 2,
+            "memory": 4,
+            "storage": 20
+          },
+          "cost_per_hour": 0.7085448442676439,
+          "deployed_at": "2026-02-21T03:52:16.484226+00:00"
+        },
+        "estimated_cost_per_hour": 0.17020824478975455
+      },
+      {
+        "strategy": "cost_optimized",
+        "provider": "digitalocean",
+        "deployment": {
+          "id": "75a36526-7e0a-4fbd-b975-816a43db1b4e",
+          "service": "database",
+          "region": "lon1",
+          "status": "running",
+          "resources": {
+            "cpu": 4,
+            "memory": 8,
+            "storage": 100
+          },
+          "cost_per_hour": 1.4262295986131281,
+          "deployed_at": "2026-02-21T03:52:16.599865+00:00"
+        },
+        "estimated_cost_per_hour": 0.07062686863903114
+      },
+      {
+        "strategy": "cost_optimized",
+        "provider": "aws",
+        "deployment": {
+          "id": "9b8740a6-0669-401d-90b6-b9fcad55359f",
+          "service": "ai_model",
+          "region": "us-west-2",
+          "status": "running",
+          "resources": {
+            "cpu": 8,
+            "memory": 16,
+            "storage": 50
+          },
+          "cost_per_hour": 0.11509504967557081,
+          "deployed_at": "2026-02-21T03:52:16.702054+00:00"
+        },
+        "estimated_cost_per_hour": 0.2838031215413238
+      }
+    ],
+    "performance_maximized": [
+      {
+        "strategy": "performance_maximized",
+        "provider": "gcp",
+        "deployment": {
+          "id": "f61f4da6-1d94-49c0-a81b-eb4f1c7575b8",
+          "service": "web_app",
+          "region": "us-west1",
+          "status": "running",
+          "resources": {
+            "cpu": 2,
+            "memory": 4,
+            "storage": 20
+          },
+          "cost_per_hour": 1.4997147736070509,
+          "deployed_at": "2026-02-21T03:52:16.817516+00:00"
+        },
+        "performance_score": 0.9471296776485749
+      },
+      {
+        "strategy": "performance_maximized",
+        "provider": "aws",
+        "deployment": {
+          "id": "4883a648-e04d-49b9-b487-b4d243f2d821",
+          "service": "database",
+          "region": "eu-west-1",
+          "status": "running",
+          "resources": {
+            "cpu": 4,
+            "memory": 8,
+            "storage": 100
+          },
+          "cost_per_hour": 1.5262305663489402,
+          "deployed_at": "2026-02-21T03:52:16.919391+00:00"
+        },
+        "performance_score": 0.8980433243560003
+      },
+      {
+        "strategy": "performance_maximized",
+        "provider": "digitalocean",
+        "deployment": {
+          "id": "a4c21166-6a12-4db2-88ea-073f030ebd04",
+          "service": "ai_model",
+          "region": "nyc1",
+          "status": "running",
+          "resources": {
+            "cpu": 8,
+            "memory": 16,
+            "storage": 50
+          },
+          "cost_per_hour": 1.1965453539856177,
+          "deployed_at": "2026-02-21T03:52:17.022078+00:00"
+        },
+        "performance_score": 0.8074967100536863
+      }
+    ],
+    "geo_distributed": [
+      {
+        "strategy": "geo_distributed",
+        "deployments": [
+          {
+            "provider": "azure",
+            "deployment": {
+              "id": "2f7925f3-181a-491f-8138-31e50523292a",
+              "service": "web_app",
+              "region": "eastus",
+              "status": "running",
+              "resources": {
+                "cpu": 2,
+                "memory": 4,
+                "storage": 20
+              },
+              "cost_per_hour": 0.30179607440617073,
+              "deployed_at": "2026-02-21T03:52:17.131062+00:00"
+            }
+          },
+          {
+            "provider": "aws",
+            "deployment": {
+              "id": "9382118b-95c8-4d47-a552-8da322869233",
+              "service": "web_app",
+              "region": "us-west-2",
+              "status": "running",
+              "resources": {
+                "cpu": 2,
+                "memory": 4,
+                "storage": 20
+              },
+              "cost_per_hour": 0.9327009372555249,
+              "deployed_at": "2026-02-21T03:52:17.231436+00:00"
+            }
+          },
+          {
+            "provider": "digitalocean",
+            "deployment": {
+              "id": "002f48b6-2209-4dbe-ad13-702dd83d4aae",
+              "service": "web_app",
+              "region": "lon1",
+              "status": "running",
+              "resources": {
+                "cpu": 2,
+                "memory": 4,
+                "storage": 20
+              },
+              "cost_per_hour": 1.5603227143944123,
+              "deployed_at": "2026-02-21T03:52:17.332741+00:00"
+            }
+          }
+        ],
+        "regions_covered": 3
+      },
+      {
+        "strategy": "geo_distributed",
+        "deployments": [
+          {
+            "provider": "aws",
+            "deployment": {
+              "id": "f619e80c-df54-473f-b2a4-56e05e739373",
+              "service": "database",
+              "region": "us-west-2",
+              "status": "running",
+              "resources": {
+                "cpu": 4,
+                "memory": 8,
+                "storage": 100
+              },
+              "cost_per_hour": 0.5020357449530268,
+              "deployed_at": "2026-02-21T03:52:17.447603+00:00"
+            }
+          },
+          {
+            "provider": "linode",
+            "deployment": {
+              "id": "2abb58bc-6aef-420f-8ef3-8846c6928340",
+              "service": "database",
+              "region": "ap-south",
+              "status": "running",
+              "resources": {
+                "cpu": 4,
+                "memory": 8,
+                "storage": 100
+              },
+              "cost_per_hour": 1.8928506935494918,
+              "deployed_at": "2026-02-21T03:52:17.547894+00:00"
+            }
+          },
+          {
+            "provider": "azure",
+            "deployment": {
+              "id": "8e214bda-babe-4425-8567-a11be2a1b921",
+              "service": "database",
+              "region": "eastus",
+              "status": "running",
+              "resources": {
+                "cpu": 4,
+                "memory": 8,
+                "storage": 100
+              },
+              "cost_per_hour": 1.4394443801524752,
+              "deployed_at": "2026-02-21T03:52:17.649328+00:00"
+            }
+          }
+        ],
+        "regions_covered": 3
+      },
+      {
+        "strategy": "geo_distributed",
+        "deployments": [
+          {
+            "provider": "linode",
+            "deployment": {
+              "id": "9d190175-bf32-494d-9a13-4baa82db7b2a",
+              "service": "ai_model",
+              "region": "us-east",
+              "status": "running",
+              "resources": {
+                "cpu": 8,
+                "memory": 16,
+                "storage": 50
+              },
+              "cost_per_hour": 1.7214878560355862,
+              "deployed_at": "2026-02-21T03:52:17.764422+00:00"
+            }
+          },
+          {
+            "provider": "gcp",
+            "deployment": {
+              "id": "92dcebc2-758b-4f2a-adb8-2adef0cd84f2",
+              "service": "ai_model",
+              "region": "us-west1",
+              "status": "running",
+              "resources": {
+                "cpu": 8,
+                "memory": 16,
+                "storage": 50
+              },
+              "cost_per_hour": 0.6700564844670497,
+              "deployed_at": "2026-02-21T03:52:17.867501+00:00"
+            }
+          },
+          {
+            "provider": "aws",
+            "deployment": {
+              "id": "0053e7d6-d83b-4be3-a070-c7c2868278ef",
+              "service": "ai_model",
+              "region": "ap-southeast-1",
+              "status": "running",
+              "resources": {
+                "cpu": 8,
+                "memory": 16,
+                "storage": 50
+              },
+              "cost_per_hour": 1.4438518222505654,
+              "deployed_at": "2026-02-21T03:52:17.968426+00:00"
+            }
+          }
+        ],
+        "regions_covered": 3
+      }
+    ],
+    "disaster_recovery": [
+      {
+        "strategy": "disaster_recovery",
+        "primary": {
+          "provider": "azure",
+          "deployment": {
+            "id": "76986971-b2d8-4aad-9e93-0c38e70f0546",
+            "service": "web_app",
+            "region": "westus2",
+            "status": "running",
+            "resources": {
+              "cpu": 2,
+              "memory": 4,
+              "storage": 20
+            },
+            "cost_per_hour": 0.8367308473201334,
+            "deployed_at": "2026-02-21T03:52:18.084083+00:00"
+          }
+        },
+        "backup": {
+          "provider": "digitalocean",
+          "deployment": {
+            "id": "6c7da5a9-c754-41ac-8afa-7632e2655e73",
+            "service": "web_app",
+            "region": "sgp1",
+            "status": "running",
+            "resources": {
+              "cpu": 2,
+              "memory": 4,
+              "storage": 20
+            },
+            "cost_per_hour": 1.8841473837116227,
+            "deployed_at": "2026-02-21T03:52:18.185475+00:00"
+          }
+        },
+        "failover_time_seconds": 153.566250696755
+      },
+      {
+        "strategy": "disaster_recovery",
+        "primary": {
+          "provider": "gcp",
+          "deployment": {
+            "id": "3749a77e-db14-4558-be1e-34550af93fe2",
+            "service": "database",
+            "region": "asia-southeast1",
+            "status": "running",
+            "resources": {
+              "cpu": 4,
+              "memory": 8,
+              "storage": 100
+            },
+            "cost_per_hour": 0.10810629925635618,
+            "deployed_at": "2026-02-21T03:52:18.300811+00:00"
+          }
+        },
+        "backup": {
+          "provider": "linode",
+          "deployment": {
+            "id": "441f49b5-bb11-4b88-9820-d070ebf7820e",
+            "service": "database",
+            "region": "eu-west",
+            "status": "running",
+            "resources": {
+              "cpu": 4,
+              "memory": 8,
+              "storage": 100
+            },
+            "cost_per_hour": 0.31109399441114,
+            "deployed_at": "2026-02-21T03:52:18.401767+00:00"
+          }
+        },
+        "failover_time_seconds": 183.19407491013231
+      },
+      {
+        "strategy": "disaster_recovery",
+        "primary": {
+          "provider": "linode",
+          "deployment": {
+            "id": "35d28bbc-3823-4bf0-adf1-cc4a5a5d325d",
+            "service": "ai_model",
+            "region": "us-east",
+            "status": "running",
+            "resources": {
+              "cpu": 8,
+              "memory": 16,
+              "storage": 50
+            },
+            "cost_per_hour": 0.22476398603015127,
+            "deployed_at": "2026-02-21T03:52:18.516395+00:00"
+          }
+        },
+        "backup": {
+          "provider": "aws",
+          "deployment": {
+            "id": "10134cf2-39c5-4d62-8342-219312aa9f14",
+            "service": "ai_model",
+            "region": "ap-southeast-1",
+            "status": "running",
+            "resources": {
+              "cpu": 8,
+              "memory": 16,
+              "storage": 50
+            },
+            "cost_per_hour": 1.0155860857703265,
+            "deployed_at": "2026-02-21T03:52:18.618168+00:00"
+          }
+        },
+        "failover_time_seconds": 188.03058281618937
+      }
+    ]
+  },
+  "deployment_results": {
+    "web_server_latency_based": {
+      "strategy": "latency_based",
+      "provider": "aws",
+      "deployment": {
+        "id": "e041e521-06fa-47e5-b01d-0907eb44c6eb",
+        "service": "web_server",
+        "region": "us-east-1",
+        "status": "running",
+        "resources": {
+          "cpu": 2,
+          "memory": 4,
+          "storage": 20
+        },
+        "cost_per_hour": 0.49820419838435814,
+        "deployed_at": "2026-02-21T03:52:18.836516+00:00"
+      },
+      "estimated_latency_ms": 19.93876394299532
+    },
+    "web_server_cost_optimized": {
+      "strategy": "cost_optimized",
+      "provider": "gcp",
+      "deployment": {
+        "id": "ed960e4a-3039-4c31-a65f-8de6d07c43f7",
+        "service": "web_server",
+        "region": "europe-west1",
+        "status": "running",
+        "resources": {
+          "cpu": 2,
+          "memory": 4,
+          "storage": 20
+        },
+        "cost_per_hour": 1.4451131823671748,
+        "deployed_at": "2026-02-21T03:52:18.950891+00:00"
+      },
+      "estimated_cost_per_hour": 0.0842945119019107
+    },
+    "web_server_performance_maximized": {
+      "strategy": "performance_maximized",
+      "provider": "digitalocean",
+      "deployment": {
+        "id": "872faeb4-52c2-459c-9acb-c4e54b1564fc",
+        "service": "web_server",
+        "region": "sgp1",
+        "status": "running",
+        "resources": {
+          "cpu": 2,
+          "memory": 4,
+          "storage": 20
+        },
+        "cost_per_hour": 0.555548602544332,
+        "deployed_at": "2026-02-21T03:52:19.052506+00:00"
+      },
+      "performance_score": 0.8881929500916443
+    },
+    "ai_inference_latency_based": {
+      "strategy": "latency_based",
+      "provider": "gcp",
+      "deployment": {
+        "id": "a7bb79f1-8a88-4827-81e4-082b4d60bd45",
+        "service": "ai_inference",
+        "region": "asia-southeast1",
+        "status": "running",
+        "resources": {
+          "cpu": 8,
+          "memory": 16,
+          "storage": 100
+        },
+        "cost_per_hour": 0.5710664182318462,
+        "deployed_at": "2026-02-21T03:52:19.167454+00:00"
+      },
+      "estimated_latency_ms": 7.297131601339766
+    },
+    "ai_inference_cost_optimized": {
+      "strategy": "cost_optimized",
+      "provider": "linode",
+      "deployment": {
+        "id": "8d25c0ae-cd7e-4c2e-a8f2-d1f66a0b5046",
+        "service": "ai_inference",
+        "region": "us-east",
+        "status": "running",
+        "resources": {
+          "cpu": 8,
+          "memory": 16,
+          "storage": 100
+        },
+        "cost_per_hour": 0.14553676985505762,
+        "deployed_at": "2026-02-21T03:52:19.268597+00:00"
+      },
+      "estimated_cost_per_hour": 0.09536365271975597
+    },
+    "ai_inference_performance_maximized": {
+      "strategy": "performance_maximized",
+      "provider": "azure",
+      "deployment": {
+        "id": "069a3ef7-f6c6-4214-87b8-89008a6ae932",
+        "service": "ai_inference",
+        "region": "southeastasia",
+        "status": "running",
+        "resources": {
+          "cpu": 8,
+          "memory": 16,
+          "storage": 100
+        },
+        "cost_per_hour": 0.5769826829640488,
+        "deployed_at": "2026-02-21T03:52:19.384149+00:00"
+      },
+      "performance_score": 0.8318667141751029
+    }
+  },
+  "cloud_status": {
+    "total_providers": 5,
+    "configured_providers": 5,
+    "total_deployments": 30,
+    "orchestration_strategies": [
+      "latency_based",
+      "cost_optimized",
+      "performance_maximized",
+      "geo_distributed",
+      "disaster_recovery"
+    ],
+    "provider_status": {
+      "aws": {
+        "configured": true,
+        "deployments": 7,
+        "resource_usage": {
+          "cpu_used": 36,
+          "memory_used": 72,
+          "storage_used": 390,
+          "active_deployments": 7,
+          "total_cost_per_hour": 6.033704404638312
+        }
+      },
+      "azure": {
+        "configured": true,
+        "deployments": 6,
+        "resource_usage": {
+          "cpu_used": 22,
+          "memory_used": 44,
+          "storage_used": 360,
+          "active_deployments": 6,
+          "total_cost_per_hour": 5.107256030349978
+        }
+      },
+      "gcp": {
+        "configured": true,
+        "deployments": 6,
+        "resource_usage": {
+          "cpu_used": 26,
+          "memory_used": 52,
+          "storage_used": 310,
+          "active_deployments": 6,
+          "total_cost_per_hour": 4.557072033360008
+        }
+      },
+      "digitalocean": {
+        "configured": true,
+        "deployments": 5,
+        "resource_usage": {
+          "cpu_used": 18,
+          "memory_used": 36,
+          "storage_used": 210,
+          "active_deployments": 5,
+          "total_cost_per_hour": 6.622793653249113
+        }
+      },
+      "linode": {
+        "configured": true,
+        "deployments": 6,
+        "resource_usage": {
+          "cpu_used": 40,
+          "memory_used": 80,
+          "storage_used": 450,
+          "active_deployments": 6,
+          "total_cost_per_hour": 6.004401652828262
+        }
+      }
+    },
+    "optimization_features": {
+      "auto_scaling": true,
+      "cost_optimization": true,
+      "performance_optimization": true
+    }
+  },
+  "timestamp": 1771645939.3843658
+}

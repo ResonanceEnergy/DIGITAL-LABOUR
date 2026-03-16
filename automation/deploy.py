@@ -19,8 +19,8 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-IMAGE_NAME = "bitrage-labour-api"
-CONTAINER_NAME = "bitrage-api"
+IMAGE_NAME = "digital-labour-api"
+CONTAINER_NAME = "Digital Labour-api"
 
 
 def build_docker():
@@ -88,8 +88,8 @@ def export_spec():
 
 def generate_fly_config():
     """Generate fly.io deployment config."""
-    config = """# fly.toml — Fly.io deployment for Bit Rage Labour API
-app = "bitrage-labour-api"
+    config = """# fly.toml — Fly.io deployment for Digital Labour API
+app = "digital-labour-api"
 primary_region = "yyz"  # Toronto
 
 [build]

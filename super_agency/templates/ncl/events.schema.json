@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NCL Repo Events",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "commit",
+        "pull_request",
+        "issue",
+        "pipeline",
+        "incident",
+        "release",
+        "plan",
+        "proposal",
+        "arena_eval",
+        "consent_receipt"
+      ]
+    },
+    "actor": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "event_id",
+    "type",
+    "timestamp"
+  ]
+}

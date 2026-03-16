@@ -1,0 +1,9 @@
+@echo off
+REM Deploy CI/CD workflows to resonance-uy-py
+echo Deploying CI/CD workflows to resonance-uy-py...
+
+REM Copy workflow files to repository
+xcopy ".github" "c:\path\to\resonance-uy-py\.github\" /E /I /Y
+
+echo Workflows deployed! Push to GitHub to activate.
+pause

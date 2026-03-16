@@ -212,7 +212,7 @@ def send_approved(auto_approve: bool = False) -> list[dict]:
             outfile = send_dir / f"email_{company.replace(' ', '_')}.json"
             outfile.write_text(json.dumps({
                 "to": contact_email or f"[FIND EMAIL for {role} at {company}]",
-                "from": smtp_from or "sales@bit-rage-labour.com",
+                "from": smtp_from or "sales@digital-labour.com",
                 "subject": subject,
                 "body": body,
                 "follow_up_1": emails.get("follow_up_1", {}),
@@ -334,7 +334,7 @@ def _queue_followup(fu: dict, email_data: dict, fu_type: str):
     outfile = send_dir / f"{fu_type}_{company}.json"
     outfile.write_text(json.dumps({
         "to": fu.get("contact_email") or f"[FIND EMAIL for {fu['role']} at {fu['company']}]",
-        "from": "sales@bit-rage-labour.com",
+        "from": "sales@digital-labour.com",
         "subject": email_data.get("subject", f"Following up — {fu['company']}"),
         "body": email_data.get("body", ""),
         "type": fu_type,

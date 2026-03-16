@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Tablet Titan">
+    <title>Tablet Titan - Digital Labour iPad Pro</title>
+    <link rel="stylesheet" href="/static/css/ipad.css">
+    <link rel="manifest" href="/static/manifest_ipad.json">
+    <link rel="icon" href="/static/favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <h1>🚀 Tablet Titan</h1>
+                <div class="device-info">
+                    <span class="device-model">iPad Pro MU202VC/A</span>
+                    <span class="ios-version">iOS 18.5</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="status-indicator" id="connection-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Connected</span>
+                </div>
+                <div class="bluetooth-info">
+                    <span class="bluetooth-icon">📶</span>
+                    <span class="bluetooth-id">34:42:62:2C:5D:9D</span>
+                </div>
+            </div>
+        </header>
+
+        <nav class="nav-tabs">
+            <button class="tab-button active" data-tab="dashboard">Dashboard</button>
+            <button class="tab-button" data-tab="agents">Agents</button>
+            <button class="tab-button" data-tab="systems">Systems</button>
+            <button class="tab-button" data-tab="matrix">Matrix</button>
+            <button class="tab-button" data-tab="finance">Finance</button>
+            <button class="tab-button" data-tab="analytics">Analytics</button>
+        </nav>
+
+        <main class="main-content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <div class="dashboard-grid">
+                    <div class="metrics-section">
+                        <h2>System Metrics</h2>
+                        <div class="metrics-grid">
+                            <div class="metric-card large">
+                                <h3>System Health</h3>
+                                <div class="metric-value" id="system-health">98%</div>
+                                <div class="metric-trend">↑ 2%</div>
+                                <div class="metric-chart">
+                                    <canvas id="health-chart" width="200" height="100"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="metric-card">
+                                <h3>Active Agents</h3>
+                                <div class="metric-value" id="active-agents">23</div>
+                                <div class="metric-trend">All Online</div>
+                            </div>
+
+                            <div class="metric-card">
+                                <h3>CPU Usage</h3>
+                                <div class="metric-value" id="cpu-usage">45%</div>
+                                <div class="metric-trend">↓ 5%</div>
+                            </div>
+
+                            <div class="metric-card">
+                                <h3>Memory</h3>
+                                <div class="metric-value" id="memory-usage">67%</div>
+                                <div class="metric-trend">Stable</div>
+                            </div>
+
+                            <div class="metric-card">
+                                <h3>Network</h3>
+                                <div class="metric-value" id="network-status">LTE</div>
+                                <div class="metric-trend">Strong</div>
+                            </div>
+
+                            <div class="metric-card">
+                                <h3>Battery</h3>
+                                <div class="metric-value" id="battery-level">89%</div>
+                                <div class="metric-trend">Charging</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-section">
+                        <h2>Recent Activity</h2>
+                        <div class="activity-feed" id="activity-feed">
+                            <div class="activity-item">
+                                <div class="activity-icon">🤖</div>
+                                <div class="activity-content">
+                                    <div class="activity-title">Agent Council Meeting</div>
+                                    <div class="activity-time">2 minutes ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">💰</div>
+                                <div class="activity-content">
+                                    <div class="activity-title">Portfolio Update</div>
+                                    <div class="activity-time">5 minutes ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">🔧</div>
+                                <div class="activity-content">
+                                    <div class="activity-title">System Optimization</div>
+                                    <div class="activity-time">12 minutes ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agents Tab -->
+            <div id="agents" class="tab-content">
+                <div class="agents-grid">
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <div class="agent-avatar">🎯</div>
+                            <div class="agent-info">
+                                <h3>Operations Agent</h3>
+                                <span class="agent-status online">Online</span>
+                            </div>
+                        </div>
+                        <div class="agent-metrics">
+                            <div class="agent-metric">
+                                <span class="metric-label">Tasks</span>
+                                <span class="metric-value">12</span>
+                            </div>
+                            <div class="agent-metric">
+                                <span class="metric-label">Success</span>
+                                <span class="metric-value">98%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <div class="agent-avatar">💼</div>
+                            <div class="agent-info">
+                                <h3>Business Agent</h3>
+                                <span class="agent-status online">Online</span>
+                            </div>
+                        </div>
+                        <div class="agent-metrics">
+                            <div class="agent-metric">
+                                <span class="metric-label">Deals</span>
+                                <span class="metric-value">8</span>
+                            </div>
+                            <div class="agent-metric">
+                                <span class="metric-label">Revenue</span>
+                                <span class="metric-value">$2.3M</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <div class="agent-avatar">🔬</div>
+                            <div class="agent-info">
+                                <h3>Research Agent</h3>
+                                <span class="agent-status online">Online</span>
+                            </div>
+                        </div>
+                        <div class="agent-metrics">
+                            <div class="agent-metric">
+                                <span class="metric-label">Reports</span>
+                                <span class="metric-value">15</span>
+                            </div>
+                            <div class="agent-metric">
+                                <span class="metric-label">Insights</span>
+                                <span class="metric-value">23</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Systems Tab -->
+            <div id="systems" class="tab-content">
+                <div class="systems-overview">
+                    <div class="system-card">
+                        <h3>Quantum Quasar</h3>
+                        <div class="system-status online">
+                            <span class="status-indicator"></span>
+                            Online - Mac Workstation
+                        </div>
+                        <div class="system-specs">
+                            <div class="spec">M1 Chip • 16GB RAM</div>
+                            <div class="spec">macOS • Monterey</div>
+                        </div>
+                    </div>
+
+                    <div class="system-card">
+                        <h3>Pocket Pulsar</h3>
+                        <div class="system-status online">
+                            <span class="status-indicator"></span>
+                            Online - iPhone 15
+                        </div>
+                        <div class="system-specs">
+                            <div class="spec">A17 Pro • 8GB RAM</div>
+                            <div class="spec">iOS 18.5 • Liquid Glass</div>
+                        </div>
+                    </div>
+
+                    <div class="system-card active">
+                        <h3>Tablet Titan</h3>
+                        <div class="system-status online">
+                            <span class="status-indicator"></span>
+                            Online - iPad Pro MU202VC/A
+                        </div>
+                        <div class="system-specs">
+                            <div class="spec">M2 Chip • 8GB RAM</div>
+                            <div class="spec">iOS 18.5 • Modern Firmware 7.03.01</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Matrix Tab -->
+            <div id="matrix" class="tab-content">
+                <div class="matrix-container">
+                    <h2>Digital Labour Matrix</h2>
+                    <div class="matrix-grid" id="matrix-grid">
+                        <!-- Matrix nodes will be dynamically generated -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Finance Tab -->
+            <div id="finance" class="tab-content">
+                <div class="finance-overview">
+                    <div class="finance-metrics">
+                        <div class="finance-card">
+                            <h3>Total Portfolio</h3>
+                            <div class="finance-value">$12.5M</div>
+                            <div class="finance-change positive">+8.2%</div>
+                        </div>
+                        <div class="finance-card">
+                            <h3>Monthly Revenue</h3>
+                            <div class="finance-value">$450K</div>
+                            <div class="finance-change positive">+12.1%</div>
+                        </div>
+                        <div class="finance-card">
+                            <h3>Active Projects</h3>
+                            <div class="finance-value">23</div>
+                            <div class="finance-change neutral">Stable</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div id="analytics" class="tab-content">
+                <div class="analytics-dashboard">
+                    <div class="chart-container">
+                        <h3>Performance Analytics</h3>
+                        <canvas id="performance-chart" width="800" height="400"></canvas>
+                    </div>
+                    <div class="insights-container">
+                        <h3>AI Insights</h3>
+                        <div class="insight-card">
+                            <div class="insight-icon">🎯</div>
+                            <div class="insight-content">
+                                <h4>Optimization Opportunity</h4>
+                                <p>Memory usage can be reduced by 15% with QUASMEM optimization</p>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">📈</div>
+                            <div class="insight-content">
+                                <h4>Growth Trend</h4>
+                                <p>Revenue growth accelerating at 12% monthly rate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/ipad.js"></script>
+</body>
+</html>

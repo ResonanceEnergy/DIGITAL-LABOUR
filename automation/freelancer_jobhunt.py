@@ -253,7 +253,7 @@ I reviewed your project requirements and this matches my production capabilities
 
 {chr(10).join(relevant)}
 
-I run Bit Rage Labour — an AI agent agency with 20 specialized agents. Every deliverable passes automated QA verification before delivery.
+I run Digital Labour — an AI agent agency with 20 specialized agents. Every deliverable passes automated QA verification before delivery.
 
 **How I'd handle this:**
 1. Quick scope confirmation (async or call)
@@ -262,7 +262,7 @@ I run Bit Rage Labour — an AI agent agency with 20 specialized agents. Every d
 
 Happy to start with a small sample to demonstrate quality.
 
-— Bit Rage Labour (Canada)"""
+— Digital Labour (Canada)"""
 
 
 def search_projects(page, query: str, max_results: int = 10) -> list[dict]:

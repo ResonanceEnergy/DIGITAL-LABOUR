@@ -1,0 +1,107 @@
+{
+  "autonomous_decisions": [
+    {
+      "action": "update_procedures",
+      "category": "operational",
+      "confidence": 0.8715120304134116,
+      "rationale": "Operational analysis shows update_procedures will improve efficiency",
+      "resource_requirements": {
+        "personnel": 2,
+        "budget": 21638.63761228104,
+        "time_days": 60,
+        "technical_resources": 3
+      },
+      "expected_completion": "19 days",
+      "adjusted_confidence": 0.6901800038492709,
+      "confidence_factors": {
+        "base_confidence": 0.8715120304134116,
+        "complexity_penalty": 0.07950542393322724,
+        "risk_penalty": 0.10182660263091349,
+        "urgency_bonus": 0
+      }
+    },
+    {
+      "action": "update_procedures",
+      "category": "operational",
+      "confidence": 0.9127112383536579,
+      "rationale": "Operational analysis shows update_procedures will improve efficiency",
+      "resource_requirements": {
+        "personnel": 2,
+        "budget": 22004.191412580767,
+        "time_days": 30,
+        "technical_resources": 4
+      },
+      "expected_completion": "11 days",
+      "adjusted_confidence": 0.9023293033074671,
+      "confidence_factors": {
+        "base_confidence": 0.9127112383536579,
+        "complexity_penalty": 0.044075724311870706,
+        "risk_penalty": 0.06630621073432012,
+        "urgency_bonus": 0.1
+      }
+    },
+    {
+      "action": "implement_monitoring",
+      "category": "operational",
+      "confidence": 0.7537344238133973,
+      "rationale": "Operational analysis shows implement_monitoring will improve efficiency",
+      "resource_requirements": {
+        "personnel": 5,
+        "budget": 68150.20401052643,
+        "time_days": 49,
+        "technical_resources": 10
+      },
+      "expected_completion": "26 days",
+      "adjusted_confidence": 0.7122730758915301,
+      "confidence_factors": {
+        "base_confidence": 0.7537344238133973,
+        "complexity_penalty": 0.06921860951321261,
+        "risk_penalty": 0.07224273840865462,
+        "urgency_bonus": 0.1
+      }
+    }
+  ],
+  "governance_audit": {
+    "audit_timestamp": "2026-02-21T03:54:50.953111+00:00",
+    "domains_audited": [
+      "security",
+      "compliance",
+      "ethics",
+      "performance",
+      "resource_management"
+    ],
+    "overall_compliance_score": 0.9624701050682231,
+    "critical_findings": 0,
+    "recommendations": [
+      "Improve performance monitoring capabilities",
+      "Implement additional security controls"
+    ],
+    "next_audit_due": "2026-05-22T03:54:50.953180+00:00"
+  },
+  "autonomy_status": {
+    "autonomy_level": "high",
+    "self_sufficiency_score": 0.7177756616891515,
+    "decision_autonomy": 4,
+    "governance_status": 5,
+    "independence_measures": 5,
+    "autonomy_metrics": {
+      "decisions_made": 3,
+      "autonomous_actions": 0,
+      "governance_compliance": 0.92,
+      "independence_score": 0.7177756616891515,
+      "uptime_autonomous": 0.98,
+      "human_interventions": 2,
+      "last_updated": "2026-02-21T03:54:50.952149+00:00"
+    },
+    "overall_status": "partially_autonomous"
+  },
+  "independence_metrics": {
+    "external_dependency_ratio": 0.26402881626247904,
+    "self_sufficiency_score": 0.7177756616891515,
+    "autonomy_level": "high",
+    "redundancy_coverage": 0.9248038507799861,
+    "independence_trend": "improving",
+    "last_measured": "2026-02-21T03:54:48.935505+00:00"
+  },
+  "timestamp": 1771646090.9532027
+}

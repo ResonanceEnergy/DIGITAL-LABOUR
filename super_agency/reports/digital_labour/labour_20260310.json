@@ -1,0 +1,58 @@
+{
+  "system": "DigitalLabour",
+  "status": "operational",
+  "checked_at": "2026-03-10T05:34:25.684150-06:00",
+  "workforce": {
+    "managed_repos": 36,
+    "repos_by_tier": {
+      "L": 13,
+      "M": 23
+    },
+    "stage_history": {
+      "done": 126,
+      "fail": 24,
+      "skip": 0
+    },
+    "completion_rate_pct": 84.0
+  },
+  "mandates": {
+    "efficiency": {
+      "owner": "OPTIMUS",
+      "target": "95% completion within SLA",
+      "description": "Maximize task completion rate"
+    },
+    "reliability": {
+      "owner": "GASKET",
+      "target": "99.9% uptime",
+      "description": "Maintain system uptime"
+    },
+    "coordination": {
+      "owner": "AZ",
+      "target": "Zero conflicting actions",
+      "description": "Ensure agent alignment"
+    },
+    "innovation": {
+      "owner": "AZ",
+      "target": "1+ process improvement per week",
+      "description": "Continuous improvement"
+    }
+  },
+  "protocols": {
+    "task_prioritization": {
+      "rule": "HIGH > MEDIUM > LOW",
+      "owner": "OPTIMUS"
+    },
+    "escalation_chain": {
+      "rule": "GASKET -> OPTIMUS -> AZ -> CEO",
+      "owner": "AZ"
+    },
+    "sync_frequency": {
+      "rule": "Every 15 minutes",
+      "owner": "AZ"
+    },
+    "error_handling": {
+      "rule": "Log, retry 3x, then escalate",
+      "owner": "GASKET"
+    }
+  }
+}

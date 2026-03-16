@@ -1,0 +1,5 @@
+{"type": "inner_council_analysis", "timestamp": "2026-02-20T12:04:31.471754", "data": {"council_member": "Test Member", "content_title": "Test Content", "key_insights": ["Test insight"]}}
+{"type": "test_insight", "data": {"test": "data"}, "timestamp": "2026-02-20T12:04:38.708987"}
+{"type": "test_insight", "data": {"test": "data"}, "timestamp": "2026-02-20T12:05:23.622539"}
+{"type": "test_insight", "data": {"test": "data"}, "timestamp": "2026-02-20T12:05:40.379762"}
+{"type": "test_insight", "data": {"test": "data"}, "timestamp": "2026-02-20T12:05:54.485451"}

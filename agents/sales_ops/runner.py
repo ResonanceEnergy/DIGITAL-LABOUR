@@ -24,7 +24,7 @@ from pydantic import BaseModel, Field
 load_dotenv(PROJECT_ROOT / ".env")
 
 sys.path.insert(0, str(PROJECT_ROOT))
-from utils.super_agent import make_bridge
+from utils.dl_agent import make_bridge
 llm_call = make_bridge("sales_ops")
 
 

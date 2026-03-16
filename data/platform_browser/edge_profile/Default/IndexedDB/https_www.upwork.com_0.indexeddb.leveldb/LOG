@@ -1,0 +1,7 @@
+2026/03/14-19:08:32.303 986c Reusing MANIFEST C:\dev\DIGITAL LABOUR\DIGITAL LABOUR\data\platform_browser\edge_profile\Default\IndexedDB\https_www.upwork.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/03/14-19:08:32.304 986c Recovering log #4
+2026/03/14-19:08:32.305 986c Reusing old log C:\dev\DIGITAL LABOUR\DIGITAL LABOUR\data\platform_browser\edge_profile\Default\IndexedDB\https_www.upwork.com_0.indexeddb.leveldb/000004.log 
+2026/03/14-19:08:33.836 21e8 Level-0 table #8: started
+2026/03/14-19:08:33.850 21e8 Level-0 table #8: 30754 bytes OK
+2026/03/14-19:08:33.854 21e8 Delete type=0 #4
+2026/03/14-19:08:33.856 986c Manual compaction at level-0 from '\x00\x04\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x05\x00\x00\x00' @ 0 : 0; will stop at (end)

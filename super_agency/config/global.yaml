@@ -1,0 +1,40 @@
+{
+    "system": {
+        "name": "Digital Labour",
+        "version": "1.0",
+        "environment": "development"
+    },
+    "communication": {
+        "qusar_host": "192.168.1.100",
+        "qusar_port": 8888,
+        "qforge_host": "192.168.1.200",
+        "qforge_port": 8888,
+        "protocol": "sasp",
+        "encryption": "tls"
+    },
+    "security": {
+        "encryption_enabled": true,
+        "auth_required": true,
+        "cert_path": "/etc/ssl/certs/"
+    },
+    "qusar": {
+        "platform": "macos",
+        "optimization_level": "high",
+        "feedback_sources": ["pulsar", "titan", "qforge"],
+        "orchestration": {
+            "max_concurrent_tasks": 10,
+            "task_timeout": 300,
+            "cycle_interval": 30
+        }
+    },
+    "qforge": {
+        "platform": "windows",
+        "performance_mode": "ultra_high",
+        "execution": {
+            "max_workers": 8,
+            "memory_limit": "16GB",
+            "task_timeout": 600
+        },
+        "tools": ["performance_optimizer", "memory_manager", "task_scheduler"]
+    }
+}

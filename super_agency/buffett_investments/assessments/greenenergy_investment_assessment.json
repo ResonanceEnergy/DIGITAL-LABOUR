@@ -1,0 +1,56 @@
+{
+  "timestamp": "2026-02-22T19:59:30.000000",
+  "investment_opportunity": {
+    "company": "GreenEnergy Corp",
+    "sector": "Renewable Energy",
+    "investment_type": "Private Equity",
+    "proposed_investment": 500000000,
+    "ownership_stake": 0.25
+  },
+  "value_assessment": {
+    "intrinsic_value_score": 8.1,
+    "competitive_advantage": {
+      "score": 8.5,
+      "factors": [
+        "Proprietary battery technology",
+        "Established supply chain",
+        "Strong patent portfolio",
+        "First-mover advantage in key markets"
+      ]
+    },
+    "management_quality": {
+      "score": 7.8,
+      "assessment": "Experienced leadership team with proven track record in scaling energy businesses"
+    },
+    "financial_health": {
+      "score": 8.2,
+      "metrics": {
+        "revenue_growth": "45% CAGR",
+        "profit_margin": "18%",
+        "debt_to_equity": "0.3",
+        "cash_flow_stability": "Strong"
+      }
+    },
+    "market_opportunity": {
+      "score": 9.0,
+      "size": "$2.5T global energy transition market",
+      "growth_rate": "12% annually",
+      "competitive_position": "Market leader in residential solar-plus-storage"
+    },
+    "risk_factors": [
+      "Policy dependency on government incentives",
+      "Commodity price volatility for raw materials",
+      "Technological disruption from new entrants"
+    ]
+  },
+  "investment_recommendation": {
+    "decision": "APPROVE",
+    "rationale": "Strong competitive moat, excellent management, attractive market dynamics. Investment represents value creation opportunity with reasonable downside protection.",
+    "key_considerations": [
+      "Long-term hold strategy (5-10 years)",
+      "Active board participation to ensure strategic alignment",
+      "Potential for follow-on investments as company scales"
+    ]
+  },
+  "agent": "Warren Buffett Agent"
+}

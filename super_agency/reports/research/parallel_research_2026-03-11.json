@@ -1,0 +1,1605 @@
+{
+  "date": "2026-03-11",
+  "generated_at": "2026-03-11T02:57:05.453695-06:00",
+  "elapsed_seconds": 3.3,
+  "projects_total": 8,
+  "projects_analysed": 8,
+  "execution": {
+    "project_workers": 4,
+    "repo_workers_per_project": 4,
+    "total_swarm_workers": 8,
+    "swarm_succeeded": 8,
+    "swarm_failed": 0
+  },
+  "projects": [
+    {
+      "project_id": "health-research",
+      "project_name": "Human Health & Longevity",
+      "status": "active",
+      "priority": "high",
+      "description": "Research into human health, longevity, neuroscience, and performance optimization",
+      "progress_pct": 33,
+      "milestones_done": 1,
+      "milestones_total": 3,
+      "repos_analysed": 1,
+      "repos_total": 1,
+      "aggregate": {
+        "code_changes": 0,
+        "test_changes": 0,
+        "doc_changes": 0,
+        "total_files": 42,
+        "total_size_mb": 0.03,
+        "languages": {
+          "Markdown": 27,
+          "JSON": 7
+        }
+      },
+      "knowledge_links": [],
+      "next_actions": [
+        "[HUMAN-HEALTH] Increase test coverage for modified code."
+      ],
+      "goals": [
+        "Aggregate health research from YouTube intelligence pipeline",
+        "Build structured knowledge base of health protocols",
+        "Track actionable insights from research agents (Huberman, Attia)"
+      ],
+      "repos": [
+        {
+          "repo": "HUMAN-HEALTH",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 4,
+            "latest": "2026-02-08 13:33:37 -0700"
+          },
+          "metrics": {
+            "files": 42,
+            "size_mb": 0.03,
+            "languages": {
+              "Markdown": 27,
+              "JSON": 7
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "fca0a62f44c7c76eeb99b769d8b949b95cf87804",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        }
+      ],
+      "swarm_stats": {
+        "workers": 1,
+        "succeeded": 1,
+        "failed": 0,
+        "worker_ms": 932.7
+      }
+    },
+    {
+      "project_id": "knowledge-pipeline",
+      "project_name": "Second Brain & Knowledge Pipeline",
+      "status": "active",
+      "priority": "high",
+      "description": "YouTube transcript ingestion, enrichment, and knowledge base management",
+      "progress_pct": 25,
+      "milestones_done": 1,
+      "milestones_total": 4,
+      "repos_analysed": 2,
+      "repos_total": 2,
+      "aggregate": {
+        "code_changes": 0,
+        "test_changes": 0,
+        "doc_changes": 0,
+        "total_files": 96,
+        "total_size_mb": 0.14,
+        "languages": {
+          "Markdown": 29,
+          "Python": 30,
+          "JSON": 18
+        }
+      },
+      "knowledge_links": [
+        "architecture",
+        "new"
+      ],
+      "next_actions": [
+        "[demo] Increase test coverage for modified code.",
+        "[YOUTUBEDROP] Increase test coverage for modified code."
+      ],
+      "goals": [
+        "Reliable YouTube ingestion pipeline",
+        "LLM-powered enrichment of transcripts",
+        "Searchable knowledge base across all ingested content"
+      ],
+      "repos": [
+        {
+          "repo": "demo",
+          "exists": true,
+          "health": {
+            "score": 4,
+            "issues": []
+          },
+          "activity": {
+            "recent_commits": 10,
+            "latest": "2026-03-01 09:13:56 -0700"
+          },
+          "metrics": {
+            "files": 39,
+            "size_mb": 0.04,
+            "languages": {
+              "Markdown": 19,
+              "Python": 4,
+              "JSON": 9
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "e0048e973b4267bf79c717c1771b0be4a2d2293c",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "YOUTUBEDROP",
+          "exists": true,
+          "health": {
+            "score": 3,
+            "issues": [
+              "no CI"
+            ]
+          },
+          "activity": {
+            "recent_commits": 3,
+            "latest": "2026-02-28 05:42:38 -0700"
+          },
+          "metrics": {
+            "files": 57,
+            "size_mb": 0.1,
+            "languages": {
+              "Markdown": 10,
+              "Python": 26,
+              "JSON": 9
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "f83728ccd5a13a9f33203d4eb07c8dd5c363e53a",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [
+            "architecture",
+            "new"
+          ],
+          "status": "ok"
+        }
+      ],
+      "swarm_stats": {
+        "workers": 2,
+        "succeeded": 2,
+        "failed": 0,
+        "worker_ms": 2236.8
+      }
+    },
+    {
+      "project_id": "civil-forge",
+      "project_name": "CIVIL FORGE Technologies",
+      "status": "paused",
+      "priority": "low",
+      "description": "Civil engineering / infrastructure technology platform",
+      "progress_pct": 0,
+      "milestones_done": 0,
+      "milestones_total": 0,
+      "repos_analysed": 1,
+      "repos_total": 1,
+      "aggregate": {
+        "code_changes": 0,
+        "test_changes": 0,
+        "doc_changes": 0,
+        "total_files": 38,
+        "total_size_mb": 0.02,
+        "languages": {
+          "Markdown": 17,
+          "Python": 4,
+          "JSON": 10
+        }
+      },
+      "knowledge_links": [],
+      "next_actions": [
+        "[CIVIL-FORGE-TECHNOLOGIES-] Increase test coverage for modified code."
+      ],
+      "goals": [],
+      "repos": [
+        {
+          "repo": "CIVIL-FORGE-TECHNOLOGIES-",
+          "exists": true,
+          "health": {
+            "score": 4,
+            "issues": []
+          },
+          "activity": {
+            "recent_commits": 10,
+            "latest": "2026-03-01 09:13:43 -0700"
+          },
+          "metrics": {
+            "files": 38,
+            "size_mb": 0.02,
+            "languages": {
+              "Markdown": 17,
+              "Python": 4,
+              "JSON": 10
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "68e9279e29ec4254455b74fca6f5b6f224d71fd0",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        }
+      ],
+      "swarm_stats": {
+        "workers": 1,
+        "succeeded": 1,
+        "failed": 0,
+        "worker_ms": 434.5
+      }
+    },
+    {
+      "project_id": "energy-research",
+      "project_name": "Alternative Energy Systems",
+      "status": "active",
+      "priority": "high",
+      "description": "Research into alternative energy technologies including plasma, vortex, hydro, and Tesla-inspired systems",
+      "progress_pct": 50,
+      "milestones_done": 2,
+      "milestones_total": 4,
+      "repos_analysed": 10,
+      "repos_total": 10,
+      "aggregate": {
+        "code_changes": 0,
+        "test_changes": 0,
+        "doc_changes": 0,
+        "total_files": 531,
+        "total_size_mb": 19.38,
+        "languages": {
+          "Markdown": 232,
+          "JSON": 81,
+          "Python": 46,
+          "JavaScript": 7
+        }
+      },
+      "knowledge_links": [
+        "new",
+        "second",
+        "using"
+      ],
+      "next_actions": [
+        "[TESLA-TECH] Increase test coverage for modified code.",
+        "[perpetual-flow-cube] Increase test coverage for modified code.",
+        "[GEET-PLASMA-PROJECT] Increase test coverage for modified code.",
+        "[ELECTRIC-UNIVERSE] Increase test coverage for modified code.",
+        "[VORTEX-HUNTER] Increase test coverage for modified code.",
+        "[electric-ice] Increase test coverage for modified code.",
+        "[Resonance-Energy-Systems] Increase test coverage for modified code.",
+        "[MircoHydro] Increase test coverage for modified code."
+      ],
+      "goals": [
+        "Document all energy research findings in structured format",
+        "Cross-reference discoveries across repos",
+        "Build knowledge base of experimental results"
+      ],
+      "repos": [
+        {
+          "repo": "TESLA-TECH",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 1,
+            "latest": "2026-02-13 12:35:28 -0700"
+          },
+          "metrics": {
+            "files": 19,
+            "size_mb": 0.01,
+            "languages": {
+              "Markdown": 9,
+              "JSON": 7
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "e2e12fb305ecb894c803083b1f3ae755e9c26be2",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "perpetual-flow-cube",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 10,
+            "latest": "2026-01-26 04:48:05 -0700"
+          },
+          "metrics": {
+            "files": 145,
+            "size_mb": 2.16,
+            "languages": {
+              "Markdown": 47,
+              "JSON": 10,
+              "Python": 30
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "0560d8194d2490937db068890a637bf955969985",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [
+            "new",
+            "second",
+            "using"
+          ],
+          "status": "ok"
+        },
+        {
+          "repo": "GEET-PLASMA-PROJECT",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 2,
+            "latest": "2026-02-13 14:53:28 -0700"
+          },
+          "metrics": {
+            "files": 108,
+            "size_mb": 17.01,
+            "languages": {
+              "Markdown": 28,
+              "Python": 11,
+              "JSON": 8
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "1f7409941491ea2e00272fcb0f6a00bc809a1fa4",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "ELECTRIC-UNIVERSE",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 1,
+            "latest": "2026-02-13 12:34:03 -0700"
+          },
+          "metrics": {
+            "files": 19,
+            "size_mb": 0.01,
+            "languages": {
+              "Markdown": 9,
+              "JSON": 7
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "606909ee336da35b2b478cf43670c08778fb3f22",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "VORTEX-HUNTER",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 1,
+            "latest": "2026-02-13 12:29:25 -0700"
+          },
+          "metrics": {
+            "files": 19,
+            "size_mb": 0.01,
+            "languages": {
+              "Markdown": 9,
+              "JSON": 7
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "f5842cfc1d0c372a47246ae98669a4650e12ca12",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "electric-ice",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 2,
+            "latest": "2026-02-28 05:53:02 -0700"
+          },
+          "metrics": {
+            "files": 31,
+            "size_mb": 0.1,
+            "languages": {
+              "Markdown": 10,
+              "JSON": 9,
+              "JavaScript": 7
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "a2621e42c0be057d75e81ec813ab6f59cd04bd0d",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "Resonance-Energy-Systems",
+          "exists": true,
+          "health": {
+            "score": 4,
+            "issues": []
+          },
+          "activity": {
+            "recent_commits": 9,
+            "latest": "2026-02-27 06:19:57 -0700"
+          },
+          "metrics": {
+            "files": 34,
+            "size_mb": 0.02,
+            "languages": {
+              "Markdown": 14,
+              "Python": 4,
+              "JSON": 9
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "377e3bfe7268fd75e56dd3a6cb9c336634147ff8",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "MircoHydro",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 10,
+            "latest": "2026-02-13 02:54:45 -0700"
+          },
+          "metrics": {
+            "files": 140,
+            "size_mb": 0.06,
+            "languages": {
+              "JSON": 20,
+              "Markdown": 98,
+              "Python": 1
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "0d588b69cd15e4c324de84e966df2783a2080fc8",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "ELECTRIC-BODY-AND-PARAMAGNETISM",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 1,
+            "latest": "2026-03-06 18:33:20 -0700"
+          },
+          "metrics": {
+            "files": 8,
+            "size_mb": 0.0,
+            "languages": {
+              "Markdown": 4,
+              "JSON": 2
+            }
+          },
+          "delta": null,
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "FRACTAL-FUTURE",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 1,
+            "latest": "2026-03-06 18:30:20 -0700"
+          },
+          "metrics": {
+            "files": 8,
+            "size_mb": 0.0,
+            "languages": {
+              "Markdown": 4,
+              "JSON": 2
+            }
+          },
+          "delta": null,
+          "knowledge_links": [],
+          "status": "ok"
+        }
+      ],
+      "swarm_stats": {
+        "workers": 10,
+        "succeeded": 10,
+        "failed": 0,
+        "worker_ms": 9713.4
+      }
+    },
+    {
+      "project_id": "alternative-research",
+      "project_name": "Alternative History & Research",
+      "status": "active",
+      "priority": "medium",
+      "description": "Alternative historical research \u2014 Tartaria and related alternative narratives",
+      "progress_pct": 0,
+      "milestones_done": 0,
+      "milestones_total": 2,
+      "repos_analysed": 1,
+      "repos_total": 1,
+      "aggregate": {
+        "code_changes": 0,
+        "test_changes": 0,
+        "doc_changes": 0,
+        "total_files": 8,
+        "total_size_mb": 0.0,
+        "languages": {
+          "Markdown": 4,
+          "JSON": 2
+        }
+      },
+      "knowledge_links": [],
+      "next_actions": [],
+      "goals": [
+        "Document and organize alternative research findings",
+        "Build structured knowledge base of research topics",
+        "Cross-reference with energy research discoveries"
+      ],
+      "repos": [
+        {
+          "repo": "TARTARIA",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 1,
+            "latest": "2026-03-05 23:27:46 -0700"
+          },
+          "metrics": {
+            "files": 8,
+            "size_mb": 0.0,
+            "languages": {
+              "Markdown": 4,
+              "JSON": 2
+            }
+          },
+          "delta": null,
+          "knowledge_links": [],
+          "status": "ok"
+        }
+      ],
+      "swarm_stats": {
+        "workers": 1,
+        "succeeded": 1,
+        "failed": 0,
+        "worker_ms": 213.6
+      }
+    },
+    {
+      "project_id": "media-marketing",
+      "project_name": "Media & Marketing Operations",
+      "status": "active",
+      "priority": "medium",
+      "description": "Media production and marketing operations \u2014 Megalithic Media content, Magnum Marketing campaigns",
+      "progress_pct": 0,
+      "milestones_done": 0,
+      "milestones_total": 3,
+      "repos_analysed": 2,
+      "repos_total": 2,
+      "aggregate": {
+        "code_changes": 0,
+        "test_changes": 0,
+        "doc_changes": 0,
+        "total_files": 16,
+        "total_size_mb": 0.0,
+        "languages": {
+          "Markdown": 8,
+          "JSON": 4
+        }
+      },
+      "knowledge_links": [],
+      "next_actions": [],
+      "goals": [
+        "Establish media production pipeline",
+        "Build marketing automation workflows",
+        "Cross-reference with research projects for content creation"
+      ],
+      "repos": [
+        {
+          "repo": "MEGALITHIC-MEDIA",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 1,
+            "latest": "2026-03-06 18:53:20 -0700"
+          },
+          "metrics": {
+            "files": 8,
+            "size_mb": 0.0,
+            "languages": {
+              "Markdown": 4,
+              "JSON": 2
+            }
+          },
+          "delta": null,
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "MAGNUM-MARKETING",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 1,
+            "latest": "2026-03-06 18:54:03 -0700"
+          },
+          "metrics": {
+            "files": 8,
+            "size_mb": 0.0,
+            "languages": {
+              "Markdown": 4,
+              "JSON": 2
+            }
+          },
+          "delta": null,
+          "knowledge_links": [],
+          "status": "ok"
+        }
+      ],
+      "swarm_stats": {
+        "workers": 2,
+        "succeeded": 2,
+        "failed": 0,
+        "worker_ms": 459.9
+      }
+    },
+    {
+      "project_id": "platform-infra",
+      "project_name": "Digital Labour Platform",
+      "status": "active",
+      "priority": "critical",
+      "description": "Core platform infrastructure \u2014 the agency itself, command centers, doctrine",
+      "progress_pct": 50,
+      "milestones_done": 3,
+      "milestones_total": 6,
+      "repos_analysed": 10,
+      "repos_total": 10,
+      "aggregate": {
+        "code_changes": 0,
+        "test_changes": 0,
+        "doc_changes": 0,
+        "total_files": 5128,
+        "total_size_mb": 84.67,
+        "languages": {
+          "Markdown": 1166,
+          "JSON": 567,
+          "Python": 588,
+          "TypeScript": 14,
+          "JavaScript": 16,
+          "HTML": 24,
+          "CSS": 11
+        }
+      },
+      "knowledge_links": [
+        "architecture",
+        "build",
+        "cognitive",
+        "new",
+        "second",
+        "systems"
+      ],
+      "next_actions": [
+        "[NCL] Increase test coverage for modified code.",
+        "[Digital-Labour] Increase test coverage for modified code.",
+        "[NCC] Increase test coverage for modified code.",
+        "[NATEBJONES] Increase test coverage for modified code.",
+        "[resonance-uy-py] Increase test coverage for modified code.",
+        "[ResonanceEnergy_Enterprise] Increase test coverage for modified code.",
+        "[QUSAR] Increase test coverage for modified code.",
+        "[NCC-Doctrine] Increase test coverage for modified code."
+      ],
+      "goals": [
+        "System boots and runs reliably",
+        "All agents operational and producing value",
+        "Daily briefs with actionable intelligence"
+      ],
+      "repos": [
+        {
+          "repo": "NCL",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 3,
+            "latest": "2026-02-14 21:18:49 -0700"
+          },
+          "metrics": {
+            "files": 20,
+            "size_mb": 0.01,
+            "languages": {
+              "Markdown": 10,
+              "JSON": 7
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "52b3496a4841f10673d1c158b80816e797a94010",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "Digital-Labour",
+          "exists": true,
+          "health": {
+            "score": 4,
+            "issues": []
+          },
+          "activity": {
+            "recent_commits": 10,
+            "latest": "2026-03-05 06:35:31 -0700"
+          },
+          "metrics": {
+            "files": 1262,
+            "size_mb": 8.4,
+            "languages": {
+              "Markdown": 272,
+              "JSON": 262,
+              "Python": 420,
+              "TypeScript": 9,
+              "JavaScript": 10,
+              "HTML": 8,
+              "CSS": 7
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "65e53e6936d287363a700cca525be9e0411d1de5",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [
+            "architecture",
+            "cognitive",
+            "new",
+            "second",
+            "systems"
+          ],
+          "status": "ok"
+        },
+        {
+          "repo": "NCC",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 1,
+            "latest": "2026-01-27 06:16:09 -0700"
+          },
+          "metrics": {
+            "files": 19,
+            "size_mb": 0.01,
+            "languages": {
+              "Markdown": 9,
+              "JSON": 7
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "580971a881d0d87132bdca9b374d2d11ecec0312",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "NATEBJONES",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 1,
+            "latest": "2026-02-19 15:10:38 -0700"
+          },
+          "metrics": {
+            "files": 19,
+            "size_mb": 0.01,
+            "languages": {
+              "Markdown": 9,
+              "JSON": 7
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "cbb0c1a540156a651af32a30da51cd138e604280",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "resonance-uy-py",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 6,
+            "latest": "2026-03-01 08:00:52 -0700"
+          },
+          "metrics": {
+            "files": 42,
+            "size_mb": 0.04,
+            "languages": {
+              "Markdown": 18,
+              "JSON": 15,
+              "Python": 3
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "dd81951e844c0ccee9bdcfeed989d2f1ae8b2349",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "DIGITAL-LABOUR",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 1,
+            "latest": "2026-03-07 03:40:26 -0700"
+          },
+          "metrics": {
+            "files": 8,
+            "size_mb": 0.0,
+            "languages": {
+              "Markdown": 4,
+              "JSON": 2
+            }
+          },
+          "delta": null,
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "ResonanceEnergy_Enterprise",
+          "exists": true,
+          "health": {
+            "score": 4,
+            "issues": []
+          },
+          "activity": {
+            "recent_commits": 10,
+            "latest": "2026-02-27 06:20:02 -0700"
+          },
+          "metrics": {
+            "files": 402,
+            "size_mb": 3.66,
+            "languages": {
+              "JSON": 46,
+              "Markdown": 180,
+              "Python": 40
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "7388cce98e23d741f16743f495f837f41fea7832",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "QUSAR",
+          "exists": true,
+          "health": {
+            "score": 3,
+            "issues": [
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 10,
+            "latest": "2026-03-01 09:18:29 -0700"
+          },
+          "metrics": {
+            "files": 42,
+            "size_mb": 0.22,
+            "languages": {
+              "Markdown": 16,
+              "JSON": 7,
+              "Python": 5
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "74b02b1e5fedc035eaeb7df3445c6771a75baee8",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [
+            "new"
+          ],
+          "status": "ok"
+        },
+        {
+          "repo": "ENTERPRISE-EXCELERATION",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 1,
+            "latest": "2026-02-23 01:36:59 -0700"
+          },
+          "metrics": {
+            "files": 8,
+            "size_mb": 0.0,
+            "languages": {
+              "Markdown": 4,
+              "JSON": 2
+            }
+          },
+          "delta": null,
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "NCC-Doctrine",
+          "exists": true,
+          "health": {
+            "score": 4,
+            "issues": []
+          },
+          "activity": {
+            "recent_commits": 10,
+            "latest": "2026-03-05 19:30:06 -0700"
+          },
+          "metrics": {
+            "files": 3306,
+            "size_mb": 72.32,
+            "languages": {
+              "Markdown": 644,
+              "Python": 120,
+              "HTML": 16,
+              "JSON": 212,
+              "JavaScript": 6,
+              "TypeScript": 5,
+              "CSS": 4
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "0c7560499706fc84a3da28a9c2842e6427e96069",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [
+            "build",
+            "cognitive"
+          ],
+          "status": "ok"
+        }
+      ],
+      "swarm_stats": {
+        "workers": 10,
+        "succeeded": 10,
+        "failed": 0,
+        "worker_ms": 10892.8
+      }
+    },
+    {
+      "project_id": "digital-products",
+      "project_name": "Digital Products & Business",
+      "status": "planned",
+      "priority": "medium",
+      "description": "Consumer-facing digital products \u2014 games, apps, trading tools",
+      "progress_pct": 0,
+      "milestones_done": 0,
+      "milestones_total": 3,
+      "repos_analysed": 9,
+      "repos_total": 9,
+      "aggregate": {
+        "code_changes": 0,
+        "test_changes": 0,
+        "doc_changes": 0,
+        "total_files": 4991,
+        "total_size_mb": 1619.28,
+        "languages": {
+          "Markdown": 640,
+          "Python": 855,
+          "JSON": 431,
+          "HTML": 5,
+          "C#": 196
+        }
+      },
+      "knowledge_links": [
+        "architecture",
+        "build",
+        "new",
+        "principles",
+        "using"
+      ],
+      "next_actions": [
+        "[ADVENTUREHEROAUTO] Increase test coverage for modified code.",
+        "[AAC] Increase test coverage for modified code.",
+        "[QDFG1] Increase test coverage for modified code.",
+        "[SUPERSTONK-TRADER] Increase test coverage for modified code.",
+        "[TESLACALLS2026] Increase test coverage for modified code.",
+        "[future-predictor-council] Increase test coverage for modified code.",
+        "[Adventure-Hero-Chronicles-Of-Glory] Increase test coverage for modified code.",
+        "[Crimson-Compass] Increase test coverage for modified code."
+      ],
+      "goals": [
+        "Assess commercial viability of each product",
+        "Identify MVP candidates for launch",
+        "Build integration pipeline for digital business"
+      ],
+      "repos": [
+        {
+          "repo": "ADVENTUREHEROAUTO",
+          "exists": true,
+          "health": {
+            "score": 3,
+            "issues": [
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 2,
+            "latest": "2026-02-18 10:33:04 -0700"
+          },
+          "metrics": {
+            "files": 32,
+            "size_mb": 0.02,
+            "languages": {
+              "Markdown": 9,
+              "Python": 12,
+              "JSON": 7
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "f723ff4042bf19aad9e9a5787a09eafbfc92750f",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "AAC",
+          "exists": true,
+          "health": {
+            "score": 4,
+            "issues": []
+          },
+          "activity": {
+            "recent_commits": 10,
+            "latest": "2026-03-05 19:34:03 -0700"
+          },
+          "metrics": {
+            "files": 600,
+            "size_mb": 10.73,
+            "languages": {
+              "Markdown": 151,
+              "Python": 415,
+              "JSON": 10
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "cfcfec9897daa9ea46392639265375a5900928cc",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [
+            "architecture"
+          ],
+          "status": "ok"
+        },
+        {
+          "repo": "QDFG1",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 3,
+            "latest": "2026-02-04 07:28:04 -0700"
+          },
+          "metrics": {
+            "files": 46,
+            "size_mb": 0.39,
+            "languages": {
+              "Markdown": 15,
+              "JSON": 16,
+              "Python": 1
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "0321de4d7dea3c5011e733a662cff347fc8f7c94",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [
+            "build",
+            "new"
+          ],
+          "status": "ok"
+        },
+        {
+          "repo": "SUPERSTONK-TRADER",
+          "exists": true,
+          "health": {
+            "score": 3,
+            "issues": [
+              "no CI"
+            ]
+          },
+          "activity": {
+            "recent_commits": 2,
+            "latest": "2026-02-11 14:54:41 -0700"
+          },
+          "metrics": {
+            "files": 30,
+            "size_mb": 0.04,
+            "languages": {
+              "Python": 3,
+              "Markdown": 9,
+              "JSON": 10
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "005abfff5e5bb9076de6ccfa3e158003abde64e4",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "TESLACALLS2026",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 1,
+            "latest": "2026-02-19 16:06:09 -0700"
+          },
+          "metrics": {
+            "files": 15,
+            "size_mb": 0.0,
+            "languages": {
+              "Markdown": 7,
+              "JSON": 5
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "35f6bfdaa5a4802b60c14d1ad131819d4f55889d",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "future-predictor-council",
+          "exists": true,
+          "health": {
+            "score": 4,
+            "issues": []
+          },
+          "activity": {
+            "recent_commits": 10,
+            "latest": "2026-03-01 09:16:43 -0700"
+          },
+          "metrics": {
+            "files": 68,
+            "size_mb": 0.13,
+            "languages": {
+              "Markdown": 23,
+              "Python": 15,
+              "JSON": 10
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "1ef42db6b650cebdb111058cfa87237001c41509",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "DUBFORGE",
+          "exists": true,
+          "health": {
+            "score": 3,
+            "issues": [
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 10,
+            "latest": "2026-03-08 22:12:57 -0700"
+          },
+          "metrics": {
+            "files": 362,
+            "size_mb": 3.23,
+            "languages": {
+              "Markdown": 7,
+              "Python": 338,
+              "JSON": 2,
+              "HTML": 1
+            }
+          },
+          "delta": null,
+          "knowledge_links": [
+            "architecture",
+            "build",
+            "principles",
+            "using"
+          ],
+          "status": "ok"
+        },
+        {
+          "repo": "Adventure-Hero-Chronicles-Of-Glory",
+          "exists": true,
+          "health": {
+            "score": 2,
+            "issues": [
+              "no CI",
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 10,
+            "latest": "2026-02-08 11:45:37 -0700"
+          },
+          "metrics": {
+            "files": 1490,
+            "size_mb": 41.0,
+            "languages": {
+              "C#": 112,
+              "Markdown": 144,
+              "JSON": 161,
+              "Python": 40,
+              "HTML": 4
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "2b92bd4f202fb98517f2066e1339622ef9dde508",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [],
+          "status": "ok"
+        },
+        {
+          "repo": "Crimson-Compass",
+          "exists": true,
+          "health": {
+            "score": 3,
+            "issues": [
+              "no dependency manifest"
+            ]
+          },
+          "activity": {
+            "recent_commits": 10,
+            "latest": "2026-03-05 19:36:41 -0700"
+          },
+          "metrics": {
+            "files": 2348,
+            "size_mb": 1563.74,
+            "languages": {
+              "Python": 31,
+              "Markdown": 275,
+              "JSON": 210,
+              "C#": 84
+            }
+          },
+          "delta": {
+            "date": null,
+            "head": "45df4d962bc24d6d9071ca3f77827849737f85b6",
+            "code": 0,
+            "tests": 0,
+            "docs": 0,
+            "next_actions": [
+              "Increase test coverage for modified code."
+            ]
+          },
+          "knowledge_links": [
+            "build",
+            "new",
+            "using"
+          ],
+          "status": "ok"
+        }
+      ],
+      "swarm_stats": {
+        "workers": 9,
+        "succeeded": 9,
+        "failed": 0,
+        "worker_ms": 11233.5
+      }
+    }
+  ]
+}

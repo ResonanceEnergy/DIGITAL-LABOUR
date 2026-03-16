@@ -55,7 +55,7 @@ TIER_1 = [
         notes="21 active AI agent jobs right now. Average bids $54-$6280. "
               "List as agency, bid on agent-building contracts.",
         how=[
-            "1. Create Freelancer.com agency profile as 'Bit Rage Labour — AI Agent Workforce'",
+            "1. Create Freelancer.com agency profile as 'Digital Labour — AI Agent Workforce'",
             "2. List all 4 agents as capabilities (Sales Ops, Support, Content, Doc Extract)",
             "3. Bid on AI agent jobs — focus on $200-$2000 range for fast wins",
             "4. Use existing worker agents to DELIVER the work (auto-fulfillment)",
@@ -74,7 +74,7 @@ TIER_1 = [
         notes="Fiverr has dedicated 'AI Services' category. "
               "Sell agent outputs as gigs: email copywriting, doc extraction, content repurposing.",
         how=[
-            "1. Create Fiverr seller profile as 'bitragelabour'",
+            "1. Create Fiverr seller profile as 'DigitalLabour'",
             "2. Create 4 gigs matching each agent's capability:",
             "   - 'AI Sales Email Generator' ($25-100/batch)",
             "   - 'AI Document Data Extraction' ($15-50/doc)",
@@ -87,13 +87,13 @@ TIER_1 = [
 
     # ── 2. Direct Stripe Sales (already configured) ──────────────────────
     IncomeSource(
-        name="Direct Stripe Sales — bit-rage-labour.com",
+        name="Direct Stripe Sales — digital-labour.com",
         category="DIRECT_SALES",
         integration="WEBHOOK",
         effort=1,
         speed_days=1,
         monthly_upside=5000,
-        url="https://bit-rage-labour.com",
+        url="https://digital-labour.com",
         notes="10 Stripe products ALREADY configured (test mode). "
               "Switch to live mode, enable payment links, embed on website. "
               "Products: sales_outreach $2.40/lead, support_ticket $1/ticket, "
@@ -102,7 +102,7 @@ TIER_1 = [
         how=[
             "1. Switch Stripe to LIVE mode (flip test→live keys in .env)",
             "2. Create Stripe Payment Links for all 10 products",
-            "3. Embed payment links on bit-rage-labour.com landing page",
+            "3. Embed payment links on digital-labour.com landing page",
             "4. Add checkout flow: payment → auto-create client → assign agent",
             "5. Enable Stripe Checkout Sessions for subscription products",
         ],
@@ -141,7 +141,7 @@ TIER_1 = [
         url="",
         notes="50 prospects now have real emails (enriched via email_discovery.py). "
               "sent_log.json is empty/reset. Ready for re-blast. "
-              "Zoho SMTP configured: sales@bit-rage-labour.com.",
+              "Zoho SMTP configured: sales@digital-labour.com.",
         how=[
             "1. Run: python -m automation.outreach (sends to all 50 enriched prospects)",
             "2. NERVE daemon monitors responses and triggers followups",

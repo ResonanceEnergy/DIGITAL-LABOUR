@@ -1,0 +1,43 @@
+{
+  "id": "council_intel_20260306_051802",
+  "type": "council_intelligence",
+  "repo": "inner_council",
+  "action": "strategic_planning",
+  "autonomy": "L2",
+  "risk": "LOW",
+  "rationale": "Daily intelligence from Inner Council monitoring and analysis",
+  "data": {
+    "council_members_monitored": 3,
+    "new_content_analyzed": 5,
+    "key_insights": [
+      "AI advancement",
+      "Market shift"
+    ],
+    "policy_recommendations": [
+      "Update strategy"
+    ],
+    "strategic_actions": [
+      "Research AI tools"
+    ],
+    "risk_alerts": [
+      "Competitive pressure"
+    ]
+  },
+  "proposed_actions": [
+    {
+      "description": "Research AI tools",
+      "priority": "LOW",
+      "timeline": "ONGOING",
+      "resources_required": [
+        "Research team"
+      ],
+      "success_metrics": [
+        "Insights generated",
+        "Knowledge base expansion"
+      ],
+      "risk_level": "LOW",
+      "autonomy_level": "L2"
+    }
+  ],
+  "timestamp": "2026-03-06T05:18:02.911093"
+}

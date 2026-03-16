@@ -7,7 +7,7 @@ Steps to list on RapidAPI:
     1. Create account: https://rapidapi.com/auth/sign-up
     2. Go to: https://rapidapi.com/provider/dashboard
     3. Click "My APIs" → "Add New API"
-    4. Name: "Bit Rage Labour — AI Agents"
+    4. Name: "Digital Labour — AI Agents"
     5. Category: Artificial Intelligence
     6. Upload OpenAPI spec: python -m api.rapidapi --spec > openapi.json
     7. Set base URL to your deployed server
@@ -45,7 +45,7 @@ from typing import Optional
 _on_railway = bool(os.environ.get("RAILWAY_ENVIRONMENT"))
 
 rapid_app = FastAPI(
-    title="Bit Rage Labour — AI Agents API",
+    title="Digital Labour — AI Agents API",
     version="2.0.0",
     description=(
         "24 AI agents for sales outreach, lead generation, content creation, "
@@ -61,9 +61,9 @@ rapid_app = FastAPI(
 rapid_app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://bit-rage-labour.com",
-        "https://www.bit-rage-labour.com",
-        "https://bitrage-labour-api-production.up.railway.app",
+        "https://digital-labour.com",
+        "https://www.digital-labour.com",
+        "https://digital-labour-api-production.up.railway.app",
         "http://localhost:8000",
         "http://127.0.0.1:8000",
     ],
@@ -129,14 +129,14 @@ async def security_headers(request: Request, call_next):
 from api.intake import app as intake_app
 rapid_app.mount("/intake", intake_app)
 
-# ── BITRAGE MATRIX MONITOR (mobile C2 dashboard) ────────────────
+# ── DIGITAL LABOUR MATRIX MONITOR (mobile C2 dashboard) ────────────────
 from api.matrix_monitor import router as matrix_router
 rapid_app.include_router(matrix_router)
 
 
 @rapid_app.get("/matrix", response_class=HTMLResponse)
 def matrix_dashboard():
-    """Serve the BITRAGE MATRIX MONITOR — mobile C2 dashboard."""
+    """Serve the DIGITAL LABOUR MATRIX MONITOR — mobile C2 dashboard."""
     html_path = Path(__file__).parent / "matrix_dashboard.html"
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
@@ -145,7 +145,7 @@ def matrix_dashboard():
 def matrix_manifest():
     """PWA manifest for Add to Home Screen."""
     return JSONResponse({
-        "name": "BITRAGE MATRIX",
+        "name": "DIGITAL LABOUR MATRIX",
         "short_name": "MATRIX",
         "start_url": "/matrix",
         "display": "standalone",
@@ -308,7 +308,7 @@ def list_agents():
 @rapid_app.get("/")
 def api_root():
     return {
-        "name": "Bit Rage Labour — AI Agents API",
+        "name": "Digital Labour — AI Agents API",
         "version": "2.0.0",
         "agents": ALL_AGENTS,
         "endpoints": {
@@ -446,13 +446,13 @@ def export_openapi_spec() -> dict:
     """Export the OpenAPI spec for RapidAPI upload."""
     spec = rapid_app.openapi()
     # Add RapidAPI-specific extensions
-    spec["info"]["x-rapidapi-host"] = "bit-rage-labour.p.rapidapi.com"
+    spec["info"]["x-rapidapi-host"] = "digital-labour.p.rapidapi.com"
     spec["info"]["contact"] = {
-        "name": "Bit Rage Labour",
-        "email": "api@bit-rage-labour.com",
-        "url": "https://bit-rage-labour.com",
+        "name": "Digital Labour",
+        "email": "api@digital-labour.com",
+        "url": "https://digital-labour.com",
     }
-    spec["info"]["x-logo"] = {"url": "https://bit-rage-labour.com/logo.png"}
+    spec["info"]["x-logo"] = {"url": "https://digital-labour.com/logo.png"}
     return spec
 
 

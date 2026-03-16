@@ -1,0 +1,182 @@
+{
+  "name": "Tablet Titan - DIGITAL LABOUR iPad Pro",
+  "short_name": "Tablet Titan",
+  "description": "iPad Pro MU202VC/A iOS 18.5 optimized command center with Modern Firmware 7.03.01",
+  "start_url": "/ipad",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "background_color": "#0a0a14",
+  "theme_color": "#007aff",
+  "orientation": "landscape-primary",
+  "scope": "/",
+  "categories": ["productivity", "business", "utilities", "developer-tools", "multitasking"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "edge_side_panel": {
+    "preferred_width": 500
+  },
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "handle_links": "preferred",
+  "protocol_handlers": [
+    {
+      "protocol": "web+digitallabour",
+      "url": "/ipad?action=%s"
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "/ipad",
+      "accept": {
+        "application/json": [".json"],
+        "text/plain": [".txt", ".log", ".md"],
+        "application/pdf": [".pdf"],
+        "image/*": [".png", ".jpg", ".jpeg", ".gif"]
+      }
+    }
+  ],
+  "share_target": {
+    "action": "/ipad",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "files",
+          "accept": ["application/json", "text/*", "image/*", "application/pdf"]
+        }
+      ]
+    }
+  },
+  "shortcuts": [
+    {
+      "name": "Matrix Monitor",
+      "short_name": "Matrix",
+      "description": "View system matrix",
+      "url": "/ipad#matrix",
+      "icons": [
+        {
+          "src": "/static/icons/matrix-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Agent Dashboard",
+      "short_name": "Agents",
+      "description": "Monitor agent status",
+      "url": "/ipad#agents",
+      "icons": [
+        {
+          "src": "/static/icons/agents-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Analytics Hub",
+      "short_name": "Analytics",
+      "description": "View performance analytics",
+      "url": "/ipad#analytics",
+      "icons": [
+        {
+          "src": "/static/icons/analytics-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "System Health",
+      "short_name": "Systems",
+      "description": "Monitor system health",
+      "url": "/ipad#systems",
+      "icons": [
+        {
+          "src": "/static/icons/systems-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Finance Overview",
+      "short_name": "Finance",
+      "description": "Financial dashboard",
+      "url": "/ipad#finance",
+      "icons": [
+        {
+          "src": "/static/icons/finance-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "icons": [
+    {
+      "src": "/static/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/icons/icon-monochrome.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "monochrome"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/static/screenshots/dashboard-ipad-pro-12.9.png",
+      "sizes": "1024x1366",
+      "type": "image/png",
+      "label": "Tablet Titan Dashboard - iPad Pro 12.9\"",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/static/screenshots/matrix-ipad-pro.png",
+      "sizes": "1024x1366",
+      "type": "image/png",
+      "label": "Matrix Monitor - iPad Pro",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/static/screenshots/analytics-ipad-pro.png",
+      "sizes": "1024x1366",
+      "type": "image/png",
+      "label": "Analytics Dashboard - iPad Pro",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/static/screenshots/dashboard-ipad-pro-11.png",
+      "sizes": "834x1194",
+      "type": "image/png",
+      "label": "Tablet Titan Dashboard - iPad Pro 11\"",
+      "form_factor": "wide"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "ios",
+      "url": "https://apps.apple.com/app/tablet-titan/id123456789",
+      "id": "123456789"
+    }
+  ],
+  "prefer_related_applications": false,
+  "iarc_rating_id": "",
+  "note_taking": {
+    "new_note_url": "/ipad?note=new"
+  },
+  "launch_queue": {
+    "files": ["application/json", "text/*"]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-03-11T07:17:25.767574-06:00",
+  "elapsed_ms": 103.7,
+  "health_score": 100,
+  "health_label": "EXCELLENT",
+  "intelligence_cycle": {
+    "1_collection": {
+      "total_sources": 8,
+      "total_ingested": 1,
+      "total_enriched": 1,
+      "enrichment_rate_pct": 100.0,
+      "source_health": "HEALTHY"
+    },
+    "2_processing": {
+      "topic_index_entries": 1,
+      "unique_keywords": 15,
+      "index_density": 15.0
+    },
+    "3_analysis": {
+      "total_projects": 8,
+      "total_repos": 36,
+      "repos_analysed": 36,
+      "coverage_pct": 100,
+      "knowledge_links": 16,
+      "next_actions": 28,
+      "milestones_done": 7,
+      "milestones_total": 25,
+      "milestone_pct": 28
+    },
+    "4_synthesis": {
+      "idea_reports_generated": 31,
+      "cross_pollinations": 527
+    },
+    "5_dissemination": {
+      "intelligence_reports": 3,
+      "research_reports": 5,
+      "total_outputs": 8
+    }
+  },
+  "system": {
+    "total_portfolio_repos": 36,
+    "tiers": {
+      "MEDIUM": 9,
+      "HIGH": 20,
+      "CRITICAL": 7
+    }
+  }
+}

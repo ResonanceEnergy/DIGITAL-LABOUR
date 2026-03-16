@@ -3,4 +3,4 @@ Allow: /
 Disallow: /dashboard.html
 Disallow: /subscribe.html
 
-Sitemap: https://bit-rage-labour.com/sitemap.xml
+Sitemap: https://digital-labour.com/sitemap.xml

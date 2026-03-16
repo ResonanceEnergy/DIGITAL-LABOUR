@@ -210,7 +210,7 @@ a.btn:hover{{background:#00cc66}}</style></head>
 <body><div class="box"><h1>Payment Received</h1>
 <p>Thank you. Your payment has been processed successfully.</p>
 <p style="font-size:0.8em;color:#555">Session: {display_id}...</p>
-<a class="btn" href="mailto:sales@bit-rage-labour.com?subject=Manage%20Billing">Manage Billing</a>
+<a class="btn" href="mailto:sales@digital-labour.com?subject=Manage%20Billing">Manage Billing</a>
 </div></body></html>""")
 
 

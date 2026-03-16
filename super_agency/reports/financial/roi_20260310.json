@@ -1,0 +1,511 @@
+{
+  "roi_per_repo": [
+    {
+      "repo": "Digital-Labour",
+      "cost_30d_usd": 0.0,
+      "value_score": 245.0,
+      "roi_ratio": 245.0,
+      "activity": {
+        "commits_30d": 122,
+        "files": 1290,
+        "proposals": 0,
+        "heals": 0
+      },
+      "tier": "L",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "Crimson-Compass",
+      "cost_30d_usd": 0.0,
+      "value_score": 152.0,
+      "roi_ratio": 152.0,
+      "activity": {
+        "commits_30d": 75,
+        "files": 2618,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "L",
+      "autonomy": "L2"
+    },
+    {
+      "repo": "DUBFORGE",
+      "cost_30d_usd": 0.0,
+      "value_score": 72.0,
+      "roi_ratio": 72.0,
+      "activity": {
+        "commits_30d": 35,
+        "files": 390,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "NCC-Doctrine",
+      "cost_30d_usd": 0.0,
+      "value_score": 39.0,
+      "roi_ratio": 39.0,
+      "activity": {
+        "commits_30d": 19,
+        "files": 3334,
+        "proposals": 0,
+        "heals": 0
+      },
+      "tier": "L",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "AAC",
+      "cost_30d_usd": 0.0,
+      "value_score": 38.0,
+      "roi_ratio": 38.0,
+      "activity": {
+        "commits_30d": 18,
+        "files": 628,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "L",
+      "autonomy": "L2"
+    },
+    {
+      "repo": "future-predictor-council",
+      "cost_30d_usd": 0.0,
+      "value_score": 29.0,
+      "roi_ratio": 29.0,
+      "activity": {
+        "commits_30d": 14,
+        "files": 96,
+        "proposals": 0,
+        "heals": 0
+      },
+      "tier": "L",
+      "autonomy": "L2"
+    },
+    {
+      "repo": "QUSAR",
+      "cost_30d_usd": 0.0,
+      "value_score": 28.0,
+      "roi_ratio": 28.0,
+      "activity": {
+        "commits_30d": 13,
+        "files": 70,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "CIVIL-FORGE-TECHNOLOGIES-",
+      "cost_30d_usd": 0.0,
+      "value_score": 25.0,
+      "roi_ratio": 25.0,
+      "activity": {
+        "commits_30d": 12,
+        "files": 66,
+        "proposals": 0,
+        "heals": 0
+      },
+      "tier": "L",
+      "autonomy": "L2"
+    },
+    {
+      "repo": "demo",
+      "cost_30d_usd": 0.0,
+      "value_score": 21.0,
+      "roi_ratio": 21.0,
+      "activity": {
+        "commits_30d": 10,
+        "files": 67,
+        "proposals": 0,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "Resonance-Energy-Systems",
+      "cost_30d_usd": 0.0,
+      "value_score": 17.0,
+      "roi_ratio": 17.0,
+      "activity": {
+        "commits_30d": 8,
+        "files": 62,
+        "proposals": 0,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "MircoHydro",
+      "cost_30d_usd": 0.0,
+      "value_score": 14.0,
+      "roi_ratio": 14.0,
+      "activity": {
+        "commits_30d": 6,
+        "files": 167,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "ResonanceEnergy_Enterprise",
+      "cost_30d_usd": 0.0,
+      "value_score": 11.0,
+      "roi_ratio": 11.0,
+      "activity": {
+        "commits_30d": 5,
+        "files": 430,
+        "proposals": 0,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "Adventure-Hero-Chronicles-Of-Glory",
+      "cost_30d_usd": 0.0,
+      "value_score": 10.0,
+      "roi_ratio": 10.0,
+      "activity": {
+        "commits_30d": 4,
+        "files": 1518,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "L",
+      "autonomy": "L2"
+    },
+    {
+      "repo": "HUMAN-HEALTH",
+      "cost_30d_usd": 0.0,
+      "value_score": 10.0,
+      "roi_ratio": 10.0,
+      "activity": {
+        "commits_30d": 4,
+        "files": 70,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "NCL",
+      "cost_30d_usd": 0.0,
+      "value_score": 8.0,
+      "roi_ratio": 8.0,
+      "activity": {
+        "commits_30d": 3,
+        "files": 48,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "L",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "YOUTUBEDROP",
+      "cost_30d_usd": 0.0,
+      "value_score": 8.0,
+      "roi_ratio": 8.0,
+      "activity": {
+        "commits_30d": 3,
+        "files": 85,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "ADVENTUREHEROAUTO",
+      "cost_30d_usd": 0.0,
+      "value_score": 6.0,
+      "roi_ratio": 6.0,
+      "activity": {
+        "commits_30d": 2,
+        "files": 60,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "L",
+      "autonomy": "L2"
+    },
+    {
+      "repo": "electric-ice",
+      "cost_30d_usd": 0.0,
+      "value_score": 6.0,
+      "roi_ratio": 6.0,
+      "activity": {
+        "commits_30d": 2,
+        "files": 59,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "GEET-PLASMA-PROJECT",
+      "cost_30d_usd": 0.0,
+      "value_score": 6.0,
+      "roi_ratio": 6.0,
+      "activity": {
+        "commits_30d": 2,
+        "files": 136,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "SUPERSTONK-TRADER",
+      "cost_30d_usd": 0.0,
+      "value_score": 6.0,
+      "roi_ratio": 6.0,
+      "activity": {
+        "commits_30d": 2,
+        "files": 58,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "L",
+      "autonomy": "L2"
+    },
+    {
+      "repo": "DIGITAL-LABOUR",
+      "cost_30d_usd": 0.0,
+      "value_score": 4.0,
+      "roi_ratio": 4.0,
+      "activity": {
+        "commits_30d": 1,
+        "files": 36,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "ELECTRIC-BODY-AND-PARAMAGNETISM",
+      "cost_30d_usd": 0.0,
+      "value_score": 4.0,
+      "roi_ratio": 4.0,
+      "activity": {
+        "commits_30d": 1,
+        "files": 36,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "ELECTRIC-UNIVERSE",
+      "cost_30d_usd": 0.0,
+      "value_score": 4.0,
+      "roi_ratio": 4.0,
+      "activity": {
+        "commits_30d": 1,
+        "files": 47,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "ENTERPRISE-EXCELERATION",
+      "cost_30d_usd": 0.0,
+      "value_score": 4.0,
+      "roi_ratio": 4.0,
+      "activity": {
+        "commits_30d": 1,
+        "files": 36,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "FRACTAL-FUTURE",
+      "cost_30d_usd": 0.0,
+      "value_score": 4.0,
+      "roi_ratio": 4.0,
+      "activity": {
+        "commits_30d": 1,
+        "files": 36,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "MAGNUM-MARKETING",
+      "cost_30d_usd": 0.0,
+      "value_score": 4.0,
+      "roi_ratio": 4.0,
+      "activity": {
+        "commits_30d": 1,
+        "files": 36,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "MEGALITHIC-MEDIA",
+      "cost_30d_usd": 0.0,
+      "value_score": 4.0,
+      "roi_ratio": 4.0,
+      "activity": {
+        "commits_30d": 1,
+        "files": 36,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "NATEBJONES",
+      "cost_30d_usd": 0.0,
+      "value_score": 4.0,
+      "roi_ratio": 4.0,
+      "activity": {
+        "commits_30d": 1,
+        "files": 47,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "resonance-uy-py",
+      "cost_30d_usd": 0.0,
+      "value_score": 4.0,
+      "roi_ratio": 4.0,
+      "activity": {
+        "commits_30d": 1,
+        "files": 70,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "TARTARIA",
+      "cost_30d_usd": 0.0,
+      "value_score": 4.0,
+      "roi_ratio": 4.0,
+      "activity": {
+        "commits_30d": 1,
+        "files": 36,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "TESLA-TECH",
+      "cost_30d_usd": 0.0,
+      "value_score": 4.0,
+      "roi_ratio": 4.0,
+      "activity": {
+        "commits_30d": 1,
+        "files": 47,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "TESLACALLS2026",
+      "cost_30d_usd": 0.0,
+      "value_score": 4.0,
+      "roi_ratio": 4.0,
+      "activity": {
+        "commits_30d": 1,
+        "files": 43,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "L",
+      "autonomy": "L2"
+    },
+    {
+      "repo": "VORTEX-HUNTER",
+      "cost_30d_usd": 0.0,
+      "value_score": 4.0,
+      "roi_ratio": 4.0,
+      "activity": {
+        "commits_30d": 1,
+        "files": 47,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "NCC",
+      "cost_30d_usd": 0.0,
+      "value_score": 2.0,
+      "roi_ratio": 2.0,
+      "activity": {
+        "commits_30d": 0,
+        "files": 47,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "L",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "perpetual-flow-cube",
+      "cost_30d_usd": 0.0,
+      "value_score": 2.0,
+      "roi_ratio": 2.0,
+      "activity": {
+        "commits_30d": 0,
+        "files": 173,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "M",
+      "autonomy": "L1"
+    },
+    {
+      "repo": "QDFG1",
+      "cost_30d_usd": 0.0,
+      "value_score": 2.0,
+      "roi_ratio": 2.0,
+      "activity": {
+        "commits_30d": 0,
+        "files": 74,
+        "proposals": 1,
+        "heals": 0
+      },
+      "tier": "L",
+      "autonomy": "L2"
+    }
+  ],
+  "total_cost_30d_usd": 0,
+  "total_repos": 36,
+  "generated_at": "2026-03-10T07:07:46.319419-06:00"
+}

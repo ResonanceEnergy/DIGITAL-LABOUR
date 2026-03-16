@@ -1,0 +1,48 @@
+{
+  "cycle": 11,
+  "started": "2026-03-15T15:19:19.707255+00:00",
+  "phases": {
+    "self_check": {
+      "status": "GREEN",
+      "issues": 0
+    },
+    "healing": {
+      "gaps_found": 1,
+      "healed": 0,
+      "escalated": 0
+    },
+    "prospects": {
+      "remaining": 12
+    },
+    "outreach": {
+      "generated": 1,
+      "qa_passed": 1,
+      "sent": 1
+    },
+    "followups": {
+      "sent": 0
+    },
+    "csuite": {
+      "actions": []
+    },
+    "health": {
+      "providers_up": 4,
+      "queue": {
+        "queued": 122,
+        "running": 0,
+        "completed": 0,
+        "failed": 0,
+        "total": 122
+      }
+    },
+    "revenue": {
+      "total": 60.0,
+      "new": 0
+    }
+  },
+  "decisions_made": 1,
+  "issues_healed": 0,
+  "escalations": 0,
+  "finished": "2026-03-15T15:19:45.833231+00:00",
+  "elapsed_seconds": 26.1
+}

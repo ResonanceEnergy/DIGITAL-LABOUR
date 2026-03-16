@@ -1,10 +1,10 @@
 """
 Cloudflare DNS — DMARC & BIMI record automation
 =================================================
-Adds the missing DNS TXT records for bit-rage-labour.com.
+Adds the missing DNS TXT records for digital-labour.com.
 
 Requires CF_API_TOKEN in .env  (Cloudflare → My Profile → API Tokens → Create Token
-  → "Edit zone DNS" template → Zone = bit-rage-labour.com → Create)
+  → "Edit zone DNS" template → Zone = digital-labour.com → Create)
 
 Usage:
     python automation/cloudflare_dns.py              # Add DMARC + BIMI records
@@ -18,7 +18,7 @@ import urllib.request
 import urllib.error
 from pathlib import Path
 
-DOMAIN = "bit-rage-labour.com"
+DOMAIN = "digital-labour.com"
 DMARC_EMAIL = f"dmarc@{DOMAIN}"
 BIMI_LOGO_URL = f"https://{DOMAIN}/.well-known/bimi/logo.svg"
 

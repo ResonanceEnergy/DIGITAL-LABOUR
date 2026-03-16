@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  digital-labour:
+    build: .
+    container_name: digital-labour
+    restart: unless-stopped
+    ports:
+      - "8080:8080"   # Matrix Maximizer dashboard
+      - "8081:8081"   # Mobile Command Center
+      - "5001:5001"   # Operations API
+    env_file:
+      - .env
+    volumes:
+      - ./repos:/app/repos                     # cloned portfolio repos
+      - ./logs:/app/logs                       # runtime logs
+      - ./memory:/app/memory                   # SQLite memory databases
+      - ./memory_backups:/app/memory_backups   # memory doctrine backups
+      - ./reports:/app/reports                 # daily briefs, sentry reports
+      - ./knowledge:/app/knowledge             # second brain data
+      - ./council_meetings:/app/council_meetings
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:5001/health"]
+      interval: 60s
+      timeout: 5s
+      start_period: 30s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+          cpus: "2.0"
+        reservations:
+          memory: 512m
+          cpus: "0.5"

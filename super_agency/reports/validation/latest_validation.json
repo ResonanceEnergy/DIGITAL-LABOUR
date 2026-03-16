@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-03-11T03:03:48.726197-06:00",
+  "config_valid": true,
+  "pipeline_valid": true,
+  "health_valid": true,
+  "data_valid": true,
+  "runtime_valid": true,
+  "integrity_score": 100,
+  "issues": [],
+  "issue_count": 0
+}

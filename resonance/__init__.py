@@ -8,7 +8,7 @@ into the Resonance Energy triad:
     AAC  (BANK)                      — Capital management, trading, risk
 
 DIGITAL LABOUR operates as:
-    source: "super-agency"
+    source: "Digital-Labour"
     pillar: "AGENCY"
     division: "ALOPS" (AI Labour Operations)
 

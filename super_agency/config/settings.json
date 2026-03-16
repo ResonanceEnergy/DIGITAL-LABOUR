@@ -1,0 +1,13 @@
+{
+    "name": "Digital-Labour",
+    "version": "0.1.0",
+    "tier": "L",
+    "risk_tier": "LOW",
+    "autonomy_level": "L1",
+    "decisions_dir": "./decisions",
+    "repos_base": "./repos",
+    "reports_dir": "./reports",
+    "require_consent_for": ["external_api_calls", "financial_actions", "data_export"],
+    "generated_by": "OPTIMUS REPO DEPOT v3.0",
+    "generated_at": "2026-02-27T18:45:34.320231"
+}

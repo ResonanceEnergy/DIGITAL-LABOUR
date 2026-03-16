@@ -1,0 +1,207 @@
+name: Second Brain - YouTube Ingest
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_url:
+        description: 'YouTube URL to process'
+        required: true
+        default: 'https://www.youtube.com/watch?v=0TpON5T-Sw4'
+      skip_enrich:
+        description: 'Skip LLM enrichment step'
+        type: boolean
+        default: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install youtube-transcript-api requests
+
+      - name: Extract video ID
+        id: vid
+        run: |
+          VID=$(python3 -c "import re, sys; url='${{ inputs.video_url }}'; match=re.search(r'v=([^&]+)', url); print(match.group(1) if match else 'unknown')")
+          echo "video_id=$VID" >> $GITHUB_OUTPUT
+          echo "Processing video: $VID"
+
+      - name: Create output directory
+        run: |
+          BASE_DIR="knowledge/secondbrain/$(date +%Y/%m)/${{ steps.vid.outputs.video_id }}"
+          mkdir -p "$BASE_DIR"
+          echo "BASE_DIR=$BASE_DIR" >> $GITHUB_ENV
+
+      - name: Fetch transcript
+        run: |
+          python3 tools/youtubedrop/fetch.py "${{ inputs.video_url }}" --out "$BASE_DIR"
+
+      - name: Validate transcript
+        run: |
+          if [ ! -f "$BASE_DIR/raw.txt" ]; then
+            echo "ERROR: Transcript file missing"
+            exit 1
+          fi
+
+      - name: LLM Enrichment
+        if: inputs.skip_enrich == false
+        run: |
+          # Use local LLM for enrichment
+          python3 -c "
+          import json, os, requests
+          from datetime import datetime
+          from pathlib import Path
+
+          vid = '${{ steps.vid.outputs.video_id }}'
+          base_dir = os.environ['BASE_DIR']
+
+          # Read transcript
+          transcript_file = Path(base_dir) / 'raw.txt'
+          if not transcript_file.exists():
+              print('ERROR: Transcript file not found')
+              exit(1)
+
+          with open(transcript_file, 'r', encoding='utf-8') as f:
+              transcript = f.read()
+
+          # Local LLM enrichment
+          llm_url = os.environ.get('LOCAL_LLM_URL', 'http://localhost:11434/api/generate')
+          model = os.environ.get('LOCAL_LLM_MODEL', 'llama2')
+
+          # Truncate transcript if too long
+          max_chars = 10000
+          if len(transcript) > max_chars:
+              transcript = transcript[:max_chars] + '...'
+
+          prompt = f'''Analyze this YouTube video transcript and provide a structured enrichment. Focus on the Resonance Energy principles: Local-first, Consent & Control, Provenance-first, Unit Economics, Resilience, Ethical Rails, Council Governance, Do Less Go Deeper.
+
+          Transcript:
+          {transcript}
+
+          Provide a JSON response with:
+          - abstract_120w: 120-word summary
+          - key_insights: array of key insights
+          - claims: array of claims made
+          - entities: array of named entities
+          - action_items: array of actionable items
+          - confidence: low/medium/high
+          - doctrine_map: {{principles: [...], themes: [...]}}
+          - provenance: {{ingested_at: timestamp, initiator: 'GitHub Action'}}
+
+          JSON only, no markdown:
+          '''
+
+          try:
+              response = requests.post(llm_url, json={
+                  'model': model,
+                  'prompt': prompt,
+                  'stream': False
+              }, timeout=120)
+
+              if response.status_code == 200:
+                  result = response.json()
+                  llm_text = result.get('response', '')
+                  # Try to parse JSON from the response
+                  try:
+                      start = llm_text.find('{')
+                      end = llm_text.rfind('}') + 1
+                      if start >= 0 and end > start:
+                          json_str = llm_text[start:end]
+                          enrich_data = json.loads(json_str)
+                      else:
+                          raise ValueError('No JSON found in response')
+                  except:
+                      enrich_data = {
+                          'video_id': vid,
+                          'source_url': '${{ inputs.video_url }}',
+                          'abstract_120w': f'Enrichment parsing failed. Transcript length: {len(transcript)} chars.',
+                          'key_insights': ['LLM enrichment completed'],
+                          'claims': [],
+                          'entities': [],
+                          'action_items': ['Review enrichment output'],
+                          'confidence': 'low',
+                          'doctrine_map': {
+                              'principles': ['Local-first'],
+                              'themes': ['Automation']
+                          },
+                          'provenance': {
+                              'ingested_at': datetime.now().isoformat(),
+                              'initiator': 'GitHub Action'
+                          }
+                      }
+              else:
+                  raise Exception(f'LLM API error: {response.status_code}')
+
+          except Exception as e:
+              print(f'Warning: LLM enrichment failed ({e}), using fallback')
+              enrich_data = {
+                  'video_id': vid,
+                  'source_url': '${{ inputs.video_url }}',
+                  'abstract_120w': f'Local LLM enrichment failed. Transcript length: {len(transcript)} chars.',
+                  'key_insights': ['Transcript ingested successfully'],
+                  'claims': [],
+                  'entities': [],
+                  'action_items': ['Review LLM configuration'],
+                  'confidence': 'low',
+                  'doctrine_map': {
+                      'principles': ['Local-first', 'Resilience'],
+                      'themes': ['Second Brain', 'Knowledge Management']
+                  },
+                  'provenance': {
+                      'ingested_at': datetime.now().isoformat(),
+                      'initiator': 'GitHub Action'
+                  }
+              }
+
+          # Write enrichment files
+          with open(f'{base_dir}/enrich.json', 'w') as f:
+              json.dump(enrich_data, f, indent=2)
+
+          with open(f'{base_dir}/enrich.md', 'w') as f:
+              f.write(f'# {vid} - Second Brain Enrichment\\n\\n')
+              f.write(f'**Abstract:** {enrich_data.get(\"abstract_120w\", \"\")}\\n\\n')
+              if enrich_data.get('key_insights'):
+                  f.write('**Key Insights:**\\n')
+                  for insight in enrich_data['key_insights']:
+                      f.write(f'- {insight}\\n')
+                  f.write('\\n')
+              if enrich_data.get('action_items'):
+                  f.write('**Action Items:**\\n')
+                  for action in enrich_data['action_items']:
+                      f.write(f'- {action}\\n')
+                  f.write('\\n')
+              f.write(f'**Confidence:** {enrich_data.get(\"confidence\", \"unknown\")}\\n')
+              f.write(f'**Processed:** {enrich_data[\"provenance\"][\"ingested_at\"]}\\n')
+
+          print('✓ Enrichment complete')
+          "
+
+      - name: Catalog commit
+        run: |
+          python3 agents/ncl_catalog.py "$BASE_DIR/enrich.json"
+
+      - name: Queue for Ops Brief
+        run: |
+          python3 -c "
+          from agents.daily_brief import queue_for_brief
+          from pathlib import Path
+          import os
+          result = queue_for_brief(Path(os.environ['BASE_DIR'] + '/enrich.json'))
+          print('✓ Queued for ops brief' if result else '✗ Failed to queue for ops brief')
+          "
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: secondbrain-${{ steps.vid.outputs.video_id }}
+          path: ${{ env.BASE_DIR }}/
+          retention-days: 30

@@ -1,0 +1,19 @@
+{
+  "proposal": {
+    "id": "56a5a047-106f-4766-92d7-b0e13a49925b",
+    "repo": "demo",
+    "action": "daily_operations",
+    "description": "Execute daily operational cycle",
+    "risk": "MEDIUM",
+    "autonomy": "L1"
+  },
+  "decision": {
+    "id": "56a5a047-106f-4766-92d7-b0e13a49925b",
+    "approved": true,
+    "requires_human": false,
+    "reason": [
+      "Policy pass: consent satisfied and within autonomy/risk thresholds"
+    ],
+    "timestamp": "2026-02-20T22:03:23.262389-07:00"
+  }
+}

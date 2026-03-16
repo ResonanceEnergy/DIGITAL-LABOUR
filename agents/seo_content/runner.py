@@ -22,7 +22,7 @@ from pydantic import BaseModel, Field
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from utils.super_agent import make_bridge  # noqa: E402
+from utils.dl_agent import make_bridge  # noqa: E402
 call_llm = make_bridge("seo_content")
 
 PROMPT_DIR = Path(__file__).resolve().parent
@@ -103,7 +103,7 @@ def _load_prompt(name: str) -> str:
 
 def keyword_agent(
     topic: str,
-    business: str = "Bit Rage Labour — AI automation agency",
+    business: str = "Digital Labour — AI automation agency",
     audience: str = "",
     content_type: str = "blog",
     provider: str = "openai",
@@ -123,7 +123,7 @@ def keyword_agent(
 
 def writer_agent(
     keywords: KeywordResearch,
-    business: str = "Bit Rage Labour — AI automation agency",
+    business: str = "Digital Labour — AI automation agency",
     tone: str = "professional",
     content_type: str = "blog",
     context: str = "",
@@ -165,7 +165,7 @@ def qa_agent(
 
 def run_pipeline(
     topic: str,
-    business: str = "Bit Rage Labour — AI automation agency",
+    business: str = "Digital Labour — AI automation agency",
     audience: str = "",
     tone: str = "professional",
     content_type: str = "blog",

@@ -1,0 +1,526 @@
+name: Digital Labour Distributed CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths-ignore:
+      - 'docs/**'
+      - '*.md'
+      - '.gitignore'
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - 'docs/**'
+      - '*.md'
+      - '.gitignore'
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+      deploy_infrastructure:
+        description: 'Deploy infrastructure changes'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  PYTHON_VERSION: '3.11'
+  NODE_VERSION: '18'
+  AWS_REGION: us-east-1
+
+jobs:
+  # Security and Quality Checks
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
+      actions: read
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+
+    - name: Upload Trivy scan results
+      uses: github/codeql-action/upload-sarif@v2
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'
+
+    - name: Run CodeQL Analysis
+      uses: github/codeql-action/init@v2
+      with:
+        languages: python,javascript
+
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+
+  # Multi-platform Testing
+  test:
+    name: Test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.9', '3.10', '3.11']
+        include:
+          - os: ubuntu-latest
+            python-version: '3.11'
+            upload-coverage: true
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+
+    - name: Install system dependencies (Linux)
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libsndfile1 ffmpeg
+
+    - name: Install system dependencies (macOS)
+      if: matrix.os == 'macos-latest'
+      run: |
+        brew install ffmpeg
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install -r requirements-dev.txt
+        pip install -e .
+
+    - name: Install Node.js dependencies
+      run: |
+        npm ci
+
+    - name: Run linting
+      run: |
+        flake8 super_agency/ --count --select=E9,F63,F7,F82 --show-source --statistics
+        black --check super_agency/
+        isort --check-only super_agency/
+
+    - name: Run type checking
+      run: |
+        mypy super_agency/ --ignore-missing-imports
+
+    - name: Run tests
+      run: |
+        pytest tests/ -v --cov=super_agency --cov-report=xml --cov-report=term-missing
+
+    - name: Upload coverage to Codecov
+      if: matrix.upload-coverage
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+
+  # Build Artifacts
+  build:
+    name: Build (${{ matrix.os }})
+    needs: [security, test]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+        include:
+          - os: windows-latest
+            build_name: 'windows'
+            artifact_name: 'digital-labour-systems-windows'
+          - os: macos-latest
+            build_name: 'macos'
+            artifact_name: 'digital-labour-systems-macos'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller cx_Freeze
+
+    - name: Build with PyInstaller
+      run: |
+        pyinstaller --onefile --name ${{ matrix.artifact_name }} operations_launcher.py
+
+    - name: Build with cx_Freeze (Windows)
+      if: matrix.os == 'windows-latest'
+      run: |
+        cxfreeze operations_launcher.py --target-dir dist/cx_freeze
+
+    - name: Create build archive
+      run: |
+        if [ "$RUNNER_OS" == "Windows" ]; then
+          7z a ${{ matrix.artifact_name }}-${{ github.run_number }}.zip ./dist/*
+        else
+          zip -r ${{ matrix.artifact_name }}-${{ github.run_number }}.zip ./dist/*
+        fi
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ matrix.artifact_name }}-${{ github.run_number }}
+        path: |
+          dist/
+          ${{ matrix.artifact_name }}-${{ github.run_number }}.zip
+
+  # Infrastructure Deployment
+  infrastructure:
+    name: Deploy Infrastructure
+    needs: [security, test]
+    runs-on: ubuntu-latest
+    if: |
+      (github.ref == 'refs/heads/main' && github.event_name == 'push') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_infrastructure == 'true')
+    environment: ${{ github.event.inputs.environment || 'dev' }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: "1.5.0"
+
+    - name: Terraform Init
+      working-directory: ./infrastructure
+      run: terraform init
+
+    - name: Terraform Validate
+      working-directory: ./infrastructure
+      run: terraform validate
+
+    - name: Terraform Plan
+      working-directory: ./infrastructure
+      id: plan
+      run: |
+        terraform plan -no-color -out=tfplan
+      continue-on-error: true
+
+    - name: Update Pull Request
+      uses: actions/github-script@v6
+      if: github.event_name == 'pull_request'
+      env:
+        PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const output = `#### Terraform Format and Validate 🖌\`${{ steps.fmt.outcome }}\`
+          #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
+
+          <details><summary>Show Plan</summary>
+
+          \`\`\`\`\n
+          ${process.env.PLAN}
+          \`\`\`\`
+
+          </details>
+
+          *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: output
+          })
+
+    - name: Terraform Plan Status
+      if: steps.plan.outcome == 'failure'
+      run: exit 1
+
+    - name: Terraform Apply
+      working-directory: ./infrastructure
+      if: |
+        (github.ref == 'refs/heads/main' && github.event_name == 'push') ||
+        (github.event_name == 'workflow_dispatch' && github.event.inputs.environment != 'dev')
+      run: terraform apply -auto-approve tfplan
+
+  # Application Deployment
+  deploy:
+    name: Deploy Application
+    needs: [build, infrastructure]
+    runs-on: ubuntu-latest
+    if: |
+      (github.ref == 'refs/heads/main' && github.event_name == 'push') ||
+      (github.event_name == 'workflow_dispatch')
+    environment: ${{ github.event.inputs.environment || 'dev' }}
+    strategy:
+      matrix:
+        environment: [dev, staging, prod]
+        include:
+          - environment: dev
+            deploy_url: ${{ secrets.DEV_DEPLOY_URL }}
+          - environment: staging
+            deploy_url: ${{ secrets.STAGING_DEPLOY_URL }}
+          - environment: prod
+            deploy_url: ${{ secrets.PROD_DEPLOY_URL }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Download build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: digital-labour-systems-macos-${{ github.run_number }}
+        path: ./artifacts/macos
+
+    - name: Download Windows build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: digital-labour-systems-windows-${{ github.run_number }}
+        path: ./artifacts/windows
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: Deploy to AWS S3
+      run: |
+        aws s3 sync ./artifacts/ s3://digital-labour-systems-${{ matrix.environment }}-releases/${{ github.run_number }}/ --delete
+        aws s3 cp ./artifacts/macos/digital-labour-systems-macos s3://digital-labour-systems-${{ matrix.environment }}-releases/${{ github.run_number }}/digital-labour-systems-macos --acl public-read
+        aws s3 cp ./artifacts/windows/digital-labour-systems-windows.exe s3://digital-labour-systems-${{ matrix.environment }}-releases/${{ github.run_number }}/digital-labour-systems-windows.exe --acl public-read
+
+    - name: Deploy to EC2 instances
+      run: |
+        # Get instance IDs from Terraform output or tags
+        INSTANCE_IDS=$(aws ec2 describe-instances \
+          --filters "Name=tag:Environment,Values=${{ matrix.environment }}" "Name=instance-state-name,Values=running" \
+          --query 'Reservations[*].Instances[*].InstanceId' \
+          --output text)
+
+        if [ -n "$INSTANCE_IDS" ]; then
+          # Create deployment script
+          cat > deploy.sh << EOF
+        #!/bin/bash
+        # Deployment script for Digital Labour
+
+        # Download latest release
+        aws s3 cp s3://digital-labour-systems-${{ matrix.environment }}-releases/${{ github.run_number }}/digital-labour-systems-macos /usr/local/bin/digital-labour-systems
+        chmod +x /usr/local/bin/digital-labour-systems
+
+        # Restart service
+        systemctl restart digital-labour-systems || service digital-labour-systems restart || true
+
+        # Health check
+        curl -f http://localhost:5000/health || exit 1
+        EOF
+
+          # Deploy to each instance
+          for instance_id in $INSTANCE_IDS; do
+            aws ssm send-command \
+              --instance-ids "$instance_id" \
+              --document-name "AWS-RunShellScript" \
+              --parameters commands=["cat > /tmp/deploy.sh << 'EOF'\n$(cat deploy.sh)\nEOF", "chmod +x /tmp/deploy.sh", "/tmp/deploy.sh"] \
+              --output text
+          done
+        fi
+
+    - name: Update deployment status
+      run: |
+        echo "Deployment completed for ${{ matrix.environment }} environment"
+        echo "Release: ${{ github.run_number }}"
+        echo "Artifacts uploaded to S3"
+
+  # Release Management
+  release:
+    name: Create Release
+    needs: [deploy]
+    runs-on: ubuntu-latest
+    if: |
+      (github.ref == 'refs/heads/main' && github.event_name == 'push') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod')
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Download all build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ./release-artifacts
+
+    - name: Create GitHub Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ github.run_number }}
+        release_name: Digital Labour v${{ github.run_number }}
+        draft: false
+        prerelease: false
+        body: |
+          ## Digital Labour Release v${{ github.run_number }}
+
+          ### Changes
+          - Multi-platform builds (macOS, Windows)
+          - Infrastructure updates
+          - Security improvements
+          - Performance optimizations
+
+          ### Downloads
+          - [macOS Binary](https://digital-labour-systems-releases.s3.amazonaws.com/${{ github.run_number }}/digital-labour-systems-macos)
+          - [Windows Binary](https://digital-labour-systems-releases.s3.amazonaws.com/${{ github.run_number }}/digital-labour-systems-windows.exe)
+
+          ### Deployment
+          - AWS infrastructure updated
+          - All environments deployed
+          - Health checks passed
+
+    - name: Upload Release Assets
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./release-artifacts/digital-labour-systems-macos-${{ github.run_number }}/digital-labour-systems-macos
+        asset_name: digital-labour-systems-macos
+        asset_content_type: application/octet-stream
+
+    - name: Upload Windows Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./release-artifacts/digital-labour-systems-windows-${{ github.run_number }}/digital-labour-systems-windows.exe
+        asset_name: digital-labour-systems-windows.exe
+        asset_content_type: application/octet-stream
+
+  # Post-deployment Testing
+  smoke_test:
+    name: Smoke Tests
+    needs: [deploy]
+    runs-on: ubuntu-latest
+    if: |
+      (github.ref == 'refs/heads/main' && github.event_name == 'push') ||
+      (github.event_name == 'workflow_dispatch')
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: Run smoke tests
+      run: |
+        # Test API endpoints
+        API_URL=$(aws cloudformation describe-stacks --stack-name digital-labour-systems-dev --query 'Stacks[0].Outputs[?OutputKey==`ApiUrl`].OutputValue' --output text)
+
+        if [ -n "$API_URL" ]; then
+          # Test health endpoint
+          curl -f "$API_URL/health" || exit 1
+
+          # Test operations endpoint
+          curl -f "$API_URL/operations/status" || exit 1
+
+          echo "✅ Smoke tests passed"
+        else
+          echo "❌ Could not determine API URL"
+          exit 1
+        fi
+
+  # Notification
+  notify:
+    name: Send Notifications
+    needs: [release, smoke_test]
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+    - name: Send Slack notification
+      uses: 8398a7/action-slack@v3
+      if: always()
+      with:
+        status: ${{ job.status }}
+        text: |
+          Digital Labour CI/CD Pipeline ${{ job.status }}
+
+          Branch: ${{ github.ref }}
+          Commit: ${{ github.sha }}
+          Run: ${{ github.run_number }}
+
+          ${{ github.event_name == 'workflow_dispatch' && format('Triggered by: {0}', github.actor) || '' }}
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+    - name: Send email notification
+      if: failure()
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: Digital Labour CI/CD Failed
+        body: |
+          Digital Labour CI/CD pipeline failed.
+
+          Branch: ${{ github.ref }}
+          Commit: ${{ github.sha }}
+          Run: ${{ github.run_number }}
+
+          Check the GitHub Actions logs for details.
+        to: ${{ secrets.ALERT_EMAIL }}
+        from: Digital Labour CI/CD <cicd@Digital Laboursystems.ai>

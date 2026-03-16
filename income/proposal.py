@@ -94,7 +94,7 @@ def generate_proposal(company: str, role: str = "CTO",
         "metadata": {
             "generated": now.isoformat(),
             "valid_until": valid_until.isoformat(),
-            "proposal_id": f"BRL-{now.strftime('%Y%m%d')}-{company[:4].upper()}",
+            "proposal_id": f"DL-{now.strftime('%Y%m%d')}-{company[:4].upper()}",
             "version": "1.0",
         },
         "company": company,
@@ -117,7 +117,7 @@ def generate_proposal(company: str, role: str = "CTO",
             "week_3": "Pilot run (50 tasks) with QA review",
             "week_4": "Full deployment + monitoring dashboard access",
         },
-        "why_bit_rage_labour": [
+        "why_digital_labour": [
             "4 specialized AI agents, each trained for specific business functions",
             "Multi-LLM architecture (OpenAI, Claude, Gemini, Grok) for best-in-class outputs",
             "QA verification on every single output before delivery",
@@ -202,10 +202,10 @@ def _to_markdown(p: dict) -> str:
 
     lines.extend([
         f"",
-        f"## Why Bit Rage Labour?",
+        f"## Why Digital Labour?",
         f"",
     ])
-    for reason in p["why_bit_rage_labour"]:
+    for reason in p["why_digital_labour"]:
         lines.append(f"- {reason}")
 
     lines.extend([
@@ -228,8 +228,8 @@ def _to_markdown(p: dict) -> str:
         f"",
         f"---",
         f"",
-        f"*Bit Rage Labour — AI agents that work while you sleep.*",
-        f"*sales@bit-rage-labour.com | bit-rage-labour.com*",
+        f"*Digital Labour — AI agents that work while you sleep.*",
+        f"*sales@digital-labour.com | digital-labour.com*",
     ])
 
     return "\n".join(lines) + "\n"

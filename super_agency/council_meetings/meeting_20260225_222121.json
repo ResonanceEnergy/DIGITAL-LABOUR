@@ -1,0 +1,108 @@
+{
+  "meeting_id": "COUNCIL_20260225_222121",
+  "meeting_number": 11,
+  "timestamp": "2026-02-25T22:21:21.798451",
+  "duration_minutes": 1,
+  "attendees": [
+    "AZ",
+    "OPTIMUS",
+    "GASKET"
+  ],
+  "chair": "AZ",
+  "agenda": [
+    {
+      "item": "Status Review",
+      "presenter": "AZ",
+      "topics": [
+        "Tasks completed: 0",
+        "Pending tasks: 0",
+        "System: REPODEPOT Phase 5 COMPLETE"
+      ]
+    },
+    {
+      "item": "Performance Review",
+      "presenter": "OPTIMUS",
+      "topics": [
+        "Task completion rates",
+        "Resource utilization",
+        "Bottleneck identification"
+      ]
+    },
+    {
+      "item": "Integration Status",
+      "presenter": "GASKET",
+      "topics": [
+        "Active workflows",
+        "System health",
+        "Automation coverage"
+      ]
+    },
+    {
+      "item": "Protocol Review",
+      "presenter": "AZ",
+      "topics": [
+        "task_prioritization",
+        "escalation_chain",
+        "sync_frequency",
+        "error_handling"
+      ]
+    },
+    {
+      "item": "Mandate Alignment",
+      "presenter": "AZ",
+      "topics": [
+        "efficiency",
+        "reliability",
+        "coordination",
+        "innovation"
+      ]
+    }
+  ],
+  "agent_metrics": {
+    "AZ": {
+      "meetings_conducted": 1,
+      "decisions_made": 4,
+      "efficiency_score": 0.95
+    },
+    "OPTIMUS": {
+      "tasks_completed": 0,
+      "optimization_score": 0.5,
+      "pending_assigned": 0
+    },
+    "GASKET": {
+      "tasks_completed": 0,
+      "integration_score": 0.5,
+      "workflows_active": 6
+    }
+  },
+  "decisions": [
+    {
+      "decision": "Continue current operational cadence",
+      "proposed_by": "OPTIMUS",
+      "approved_by": "AZ"
+    },
+    {
+      "decision": "Target 0 pending task reduction",
+      "proposed_by": "GASKET",
+      "approved_by": "AZ"
+    }
+  ],
+  "action_items": [
+    {
+      "action": "Monitor system health metrics",
+      "owner": "GASKET",
+      "priority": "MEDIUM",
+      "deadline": "Continuous"
+    },
+    {
+      "action": "Review escalation queue",
+      "owner": "AZ",
+      "priority": "HIGH",
+      "deadline": "Next cycle"
+    }
+  ],
+  "protocol_version": "1.0.11",
+  "mandate_version": "1.0.11",
+  "next_meeting": "15 minutes",
+  "status": "COMPLETED"
+}

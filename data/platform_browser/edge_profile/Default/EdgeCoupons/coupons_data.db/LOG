@@ -1,0 +1,6 @@
+2026/03/14-19:10:11.497 a318 Reusing MANIFEST C:\dev\DIGITAL LABOUR\DIGITAL LABOUR\data\platform_browser\edge_profile\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/03/14-19:10:11.499 a318 Recovering log #7
+2026/03/14-19:10:11.499 a318 Reusing old log C:\dev\DIGITAL LABOUR\DIGITAL LABOUR\data\platform_browser\edge_profile\Default\EdgeCoupons/coupons_data.db/000007.log 
+2026/03/14-19:10:11.781 9f30 Level-0 table #11: started
+2026/03/14-19:10:11.788 9f30 Level-0 table #11: 681704 bytes OK
+2026/03/14-19:10:11.792 9f30 Delete type=0 #7

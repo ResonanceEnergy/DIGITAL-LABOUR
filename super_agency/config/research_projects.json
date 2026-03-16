@@ -1,0 +1,265 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-03-08",
+  "projects": [
+    {
+      "id": "energy-research",
+      "name": "Alternative Energy Systems",
+      "status": "active",
+      "priority": "high",
+      "description": "Research into alternative energy technologies including plasma, vortex, hydro, and Tesla-inspired systems",
+      "repos": [
+        "GEET-PLASMA-PROJECT",
+        "ELECTRIC-UNIVERSE",
+        "perpetual-flow-cube",
+        "TESLA-TECH",
+        "MircoHydro",
+        "VORTEX-HUNTER",
+        "electric-ice",
+        "Resonance-Energy-Systems",
+        "ELECTRIC-BODY-AND-PARAMAGNETISM",
+        "FRACTAL-FUTURE"
+      ],
+      "goals": [
+        "Document all energy research findings in structured format",
+        "Cross-reference discoveries across repos",
+        "Build knowledge base of experimental results"
+      ],
+      "milestones": [
+        {
+          "name": "Repos classified and baselined",
+          "status": "done"
+        },
+        {
+          "name": "Daily delta tracking active",
+          "status": "done"
+        },
+        {
+          "name": "Research knowledge base seeded",
+          "status": "not-started"
+        },
+        {
+          "name": "Cross-repo insight generation",
+          "status": "not-started"
+        }
+      ]
+    },
+    {
+      "id": "health-research",
+      "name": "Human Health & Longevity",
+      "status": "active",
+      "priority": "high",
+      "description": "Research into human health, longevity, neuroscience, and performance optimization",
+      "repos": [
+        "HUMAN-HEALTH"
+      ],
+      "goals": [
+        "Aggregate health research from YouTube intelligence pipeline",
+        "Build structured knowledge base of health protocols",
+        "Track actionable insights from research agents (Huberman, Attia)"
+      ],
+      "milestones": [
+        {
+          "name": "Repos classified and baselined",
+          "status": "done"
+        },
+        {
+          "name": "YouTube intelligence agents connected",
+          "status": "not-started"
+        },
+        {
+          "name": "Health protocol knowledge base",
+          "status": "not-started"
+        }
+      ]
+    },
+    {
+      "id": "platform-infra",
+      "name": "DIGITAL LABOUR Platform",
+      "status": "active",
+      "priority": "critical",
+      "description": "Core platform infrastructure — the agency itself, command centers, doctrine",
+      "repos": [
+        "Digital-Labour",
+        "NCC",
+        "NCC-Doctrine",
+        "NCL",
+        "NATEBJONES",
+        "ResonanceEnergy_Enterprise",
+        "resonance-uy-py",
+        "DIGITAL-LABOUR",
+        "QUSAR",
+        "ENTERPRISE-EXCELERATION"
+      ],
+      "goals": [
+        "System boots and runs reliably",
+        "All agents operational and producing value",
+        "Daily briefs with actionable intelligence"
+      ],
+      "milestones": [
+        {
+          "name": "System boots cleanly",
+          "status": "done"
+        },
+        {
+          "name": "All repos cloned and tracked",
+          "status": "done"
+        },
+        {
+          "name": "Daily brief generating",
+          "status": "done"
+        },
+        {
+          "name": "Research project management live",
+          "status": "in-progress"
+        },
+        {
+          "name": "Portfolio auto-tiered",
+          "status": "not-started"
+        },
+        {
+          "name": "Scheduled operations running",
+          "status": "not-started"
+        }
+      ]
+    },
+    {
+      "id": "digital-products",
+      "name": "Digital Products & Business",
+      "status": "planned",
+      "priority": "medium",
+      "description": "Consumer-facing digital products — games, apps, trading tools",
+      "repos": [
+        "AAC",
+        "Adventure-Hero-Chronicles-Of-Glory",
+        "ADVENTUREHEROAUTO",
+        "Crimson-Compass",
+        "QDFG1",
+        "SUPERSTONK-TRADER",
+        "TESLACALLS2026",
+        "future-predictor-council",
+        "DUBFORGE"
+      ],
+      "goals": [
+        "Assess commercial viability of each product",
+        "Identify MVP candidates for launch",
+        "Build integration pipeline for digital business"
+      ],
+      "milestones": [
+        {
+          "name": "Portfolio classified",
+          "status": "not-started"
+        },
+        {
+          "name": "MVP candidates identified",
+          "status": "not-started"
+        },
+        {
+          "name": "Revenue model defined",
+          "status": "not-started"
+        }
+      ]
+    },
+    {
+      "id": "knowledge-pipeline",
+      "name": "Second Brain & Knowledge Pipeline",
+      "status": "active",
+      "priority": "high",
+      "description": "YouTube transcript ingestion, enrichment, and knowledge base management",
+      "repos": [
+        "YOUTUBEDROP",
+        "demo"
+      ],
+      "goals": [
+        "Reliable YouTube ingestion pipeline",
+        "LLM-powered enrichment of transcripts",
+        "Searchable knowledge base across all ingested content"
+      ],
+      "milestones": [
+        {
+          "name": "Transcript fetching works",
+          "status": "done"
+        },
+        {
+          "name": "Enrichment pipeline functional",
+          "status": "not-started"
+        },
+        {
+          "name": "Knowledge base searchable",
+          "status": "not-started"
+        },
+        {
+          "name": "Auto-routing to research projects",
+          "status": "not-started"
+        }
+      ]
+    },
+    {
+      "id": "civil-forge",
+      "name": "CIVIL FORGE Technologies",
+      "status": "paused",
+      "priority": "low",
+      "description": "Civil engineering / infrastructure technology platform",
+      "repos": [
+        "CIVIL-FORGE-TECHNOLOGIES-"
+      ],
+      "goals": [],
+      "milestones": []
+    },
+    {
+      "id": "media-marketing",
+      "name": "Media & Marketing Operations",
+      "status": "active",
+      "priority": "medium",
+      "description": "Media production and marketing operations — Megalithic Media content, Magnum Marketing campaigns",
+      "repos": [
+        "MAGNUM-MARKETING",
+        "MEGALITHIC-MEDIA"
+      ],
+      "goals": [
+        "Establish media production pipeline",
+        "Build marketing automation workflows",
+        "Cross-reference with research projects for content creation"
+      ],
+      "milestones": [
+        {
+          "name": "Repos onboarded and baselined",
+          "status": "not-started"
+        },
+        {
+          "name": "Content pipeline defined",
+          "status": "not-started"
+        },
+        {
+          "name": "Marketing automation active",
+          "status": "not-started"
+        }
+      ]
+    },
+    {
+      "id": "alternative-research",
+      "name": "Alternative History & Research",
+      "status": "active",
+      "priority": "medium",
+      "description": "Alternative historical research — Tartaria and related alternative narratives",
+      "repos": [
+        "TARTARIA"
+      ],
+      "goals": [
+        "Document and organize alternative research findings",
+        "Build structured knowledge base of research topics",
+        "Cross-reference with energy research discoveries"
+      ],
+      "milestones": [
+        {
+          "name": "Repos onboarded and baselined",
+          "status": "not-started"
+        },
+        {
+          "name": "Knowledge base seeded",
+          "status": "not-started"
+        }
+      ]
+    }
+  ]
+}

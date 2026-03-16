@@ -1,0 +1,35 @@
+[
+  {
+    "video_id": "lex_fridman_podcast_001",
+    "title": "Lex Fridman Podcast discusses AI and future implications",
+    "analysis": {
+      "ai_discussions": [
+        "AI Discussion: ai"
+      ],
+      "technology_predictions": [
+        "Tech Prediction: future"
+      ],
+      "scientific_breakthroughs": [],
+      "key_takeaways": [
+        "AI development continues to advance with new breakthroughs",
+        "Technology predictions suggest transformative changes ahead"
+      ],
+      "policy_implications": [
+        "Policy: Develop comprehensive AI governance frameworks",
+        "Policy: Support technology innovation and infrastructure development"
+      ],
+      "strategic_recommendations": [
+        "Strategic: Invest in AI talent development and ethical AI practices",
+        "Strategic: Accelerate technology adoption and digital transformation"
+      ],
+      "risk_assessments": [
+        "Risk: AI development may outpace safety and ethical considerations",
+        "Risk: Rapid technological change may cause societal disruption"
+      ],
+      "confidence_score": 0.9,
+      "analysis_depth": "comprehensive"
+    },
+    "analyzed_at": "2026-02-20T12:35:04.698655",
+    "agent_specialization": "ai_technology_science_philosophy_future"
+  }
+]

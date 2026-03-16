@@ -1,0 +1,2665 @@
+WEBVTT
+
+00:00:00.080 --> 00:00:02.480
+For 500,000 years, we've had essentially
+
+00:00:02.480 --> 00:00:04.400
+the same cognitive architecture. And
+
+00:00:04.400 --> 00:00:06.879
+today, I want to talk about a leap that
+
+00:00:06.879 --> 00:00:08.240
+we can make, all of us, even
+
+00:00:08.240 --> 00:00:10.719
+non-engineers, can make in 2026 that
+
+00:00:10.719 --> 00:00:13.440
+will help us to build a second brain
+
+00:00:13.440 --> 00:00:16.000
+with AI in a way that's never been
+
+00:00:16.000 --> 00:00:18.240
+possible before. But first, let me set
+
+00:00:18.240 --> 00:00:21.199
+the stage. Why does this matter? Look, a
+
+00:00:21.199 --> 00:00:23.119
+second brain doesn't have to exist
+
+00:00:23.119 --> 00:00:24.480
+because you're lazy. It's not because
+
+00:00:24.480 --> 00:00:26.320
+you don't care. It's fundamentally
+
+00:00:26.320 --> 00:00:29.039
+because your brain was never designed to
+
+00:00:29.039 --> 00:00:31.679
+be a storage system. Brains are designed
+
+00:00:31.679 --> 00:00:33.520
+to think. And every time you force a
+
+00:00:33.520 --> 00:00:35.280
+brain to remember something, instead of
+
+00:00:35.280 --> 00:00:36.880
+letting it think of something new,
+
+00:00:36.880 --> 00:00:39.200
+you're paying a tax that you don't see.
+
+00:00:39.200 --> 00:00:41.280
+And that tax shows up in real ways. It
+
+00:00:41.280 --> 00:00:43.440
+shows up in relationships that cool off
+
+00:00:43.440 --> 00:00:45.280
+because you forgot what someone told you
+
+00:00:45.280 --> 00:00:47.120
+that mattered to them. It shows up in
+
+00:00:47.120 --> 00:00:49.280
+projects that fail in the same way you
+
+00:00:49.280 --> 00:00:52.160
+predicted at 11:00 p.m. 3 weeks ago,
+
+00:00:52.160 --> 00:00:54.239
+except you forgot to write it down. and
+
+00:00:54.239 --> 00:00:56.000
+you got to be right and then you still
+
+00:00:56.000 --> 00:00:57.680
+got to suffer the consequences cuz you
+
+00:00:57.680 --> 00:00:59.520
+couldn't prevent it. It shows up in the
+
+00:00:59.520 --> 00:01:01.600
+background hum of constant open loops in
+
+00:01:01.600 --> 00:01:03.199
+your brain. Things you never finished
+
+00:01:03.199 --> 00:01:04.640
+that you are just on the edge of
+
+00:01:04.640 --> 00:01:06.880
+remembering that low-grade anxiety of
+
+00:01:06.880 --> 00:01:09.280
+don't forget to do this running as a
+
+00:01:09.280 --> 00:01:12.000
+thread that you cannot close because you
+
+00:01:12.000 --> 00:01:14.080
+never put that loop anywhere reliable
+
+00:01:14.080 --> 00:01:16.240
+and you can't trust a journaling system
+
+00:01:16.240 --> 00:01:18.159
+to remember. So here's what I want you
+
+00:01:18.159 --> 00:01:20.560
+to understand about this moment in our
+
+00:01:20.560 --> 00:01:22.080
+history. For hundreds of thousands of
+
+00:01:22.080 --> 00:01:24.159
+years, human beings have had roughly the
+
+00:01:24.159 --> 00:01:26.400
+same cognitive architecture. We can hold
+
+00:01:26.400 --> 00:01:27.920
+about four to seven things in working
+
+00:01:27.920 --> 00:01:29.520
+memory. There's a reason why phone
+
+00:01:29.520 --> 00:01:31.840
+numbers are about the length they are.
+
+00:01:31.840 --> 00:01:34.320
+We're terrible at retrieval. We're great
+
+00:01:34.320 --> 00:01:36.320
+at pattern recognition when the patterns
+
+00:01:36.320 --> 00:01:38.079
+are in front of us. And we're really bad
+
+00:01:38.079 --> 00:01:39.759
+at pattern recognition when the patterns
+
+00:01:39.759 --> 00:01:42.240
+are scattered like they so often are at
+
+00:01:42.240 --> 00:01:44.000
+work across six months of
+
+00:01:44.000 --> 00:01:46.079
+half-remembered conversations. Every
+
+00:01:46.079 --> 00:01:48.799
+productivity system ever invented has
+
+00:01:48.799 --> 00:01:51.119
+been a workaround for our human brain
+
+00:01:51.119 --> 00:01:53.360
+limitations. Writing itself is a
+
+00:01:53.360 --> 00:01:55.200
+workaround. So, filing cabinets,
+
+00:01:55.200 --> 00:01:57.119
+rolodexes, to-do lists, journaling
+
+00:01:57.119 --> 00:01:59.200
+systems, all of it has been an attempt
+
+00:01:59.200 --> 00:02:01.680
+to extend our biological memory into
+
+00:02:01.680 --> 00:02:03.920
+something that is more reliable. But
+
+00:02:03.920 --> 00:02:06.560
+here's what's different about 2026. For
+
+00:02:06.560 --> 00:02:09.440
+the first time in human history, we have
+
+00:02:09.440 --> 00:02:11.840
+access to systems that do not just
+
+00:02:11.840 --> 00:02:13.760
+passively store information, but
+
+00:02:13.760 --> 00:02:16.080
+actively work against that information
+
+00:02:16.080 --> 00:02:18.959
+we give it while we sleep and do other
+
+00:02:18.959 --> 00:02:21.120
+things. Systems that can classify,
+
+00:02:21.120 --> 00:02:23.440
+route, or summarize or surface or nudge
+
+00:02:23.440 --> 00:02:25.680
+without us having to remember to do any
+
+00:02:25.680 --> 00:02:27.599
+of those activities. This is not an
+
+00:02:27.599 --> 00:02:29.120
+incremental improvement. This is an
+
+00:02:29.120 --> 00:02:31.360
+entirely new capability in the history
+
+00:02:31.360 --> 00:02:33.120
+of human cognition. And the most
+
+00:02:33.120 --> 00:02:35.760
+important part is in 2026, you don't
+
+00:02:35.760 --> 00:02:37.519
+have to be an engineer to build a second
+
+00:02:37.519 --> 00:02:39.280
+brain. So let me go through what has
+
+00:02:39.280 --> 00:02:41.120
+actually changed and why this moment
+
+00:02:41.120 --> 00:02:43.120
+matters. And I think this is the time if
+
+00:02:43.120 --> 00:02:44.879
+you don't have a second brain, it's
+
+00:02:44.879 --> 00:02:46.800
+worth building one. So for years, the
+
+00:02:46.800 --> 00:02:48.560
+promise of a second brain was
+
+00:02:48.560 --> 00:02:50.560
+essentially just, hey, it's better
+
+00:02:50.560 --> 00:02:52.879
+storage. You pick a tool, maybe it's
+
+00:02:52.879 --> 00:02:54.800
+notion, maybe it's Obsidian, maybe it's
+
+00:02:54.800 --> 00:02:56.800
+Rome, maybe it's Evernote, and you
+
+00:02:56.800 --> 00:02:59.280
+capture your notes. Maybe you use AI to
+
+00:02:59.280 --> 00:03:01.840
+summarize, to search, and then nothing.
+
+00:03:01.840 --> 00:03:03.760
+the notes would pile up. You end up
+
+00:03:03.760 --> 00:03:05.280
+having to keep them very organized
+
+00:03:05.280 --> 00:03:07.200
+yourself or you stop trusting them. At
+
+00:03:07.200 --> 00:03:09.360
+some point, it becomes the company wiki
+
+00:03:09.360 --> 00:03:11.920
+that everyone looks at as a dump of old
+
+00:03:11.920 --> 00:03:14.159
+information. You stop using it and the
+
+00:03:14.159 --> 00:03:16.080
+system dies the death of so many of
+
+00:03:16.080 --> 00:03:18.159
+these storage solutions. I've watched
+
+00:03:18.159 --> 00:03:20.800
+this cycle repeat in personal systems
+
+00:03:20.800 --> 00:03:23.440
+and professional systems for well over a
+
+00:03:23.440 --> 00:03:25.120
+decade. And smart people, really
+
+00:03:25.120 --> 00:03:27.360
+motivated people, people who genuinely
+
+00:03:27.360 --> 00:03:29.360
+want to be organized tend to hit the
+
+00:03:29.360 --> 00:03:31.599
+same wall. The storage systems we have
+
+00:03:31.599 --> 00:03:34.720
+today work for about one in 20 people
+
+00:03:34.720 --> 00:03:36.959
+that I talk to on an ongoing daily
+
+00:03:36.959 --> 00:03:38.640
+basis. And those people are typically
+
+00:03:38.640 --> 00:03:40.560
+the most organized people I know. So you
+
+00:03:40.560 --> 00:03:41.920
+would think they need it the least, but
+
+00:03:41.920 --> 00:03:43.200
+they're so organized they can make it
+
+00:03:43.200 --> 00:03:45.440
+work for them. For the rest of us, it's
+
+00:03:45.440 --> 00:03:47.040
+a challenge. And the wall is not
+
+00:03:47.040 --> 00:03:49.120
+motivation. The wall is that traditional
+
+00:03:49.120 --> 00:03:52.400
+systems ask us to do cognitive work at
+
+00:03:52.400 --> 00:03:55.120
+exactly the wrong moment. They ask us to
+
+00:03:55.120 --> 00:03:57.519
+decide where a thought belongs when
+
+00:03:57.519 --> 00:03:59.200
+we're walking into a meeting. They ask
+
+00:03:59.200 --> 00:04:01.200
+us to tag it when we're driving. They
+
+00:04:01.200 --> 00:04:03.040
+ask us to name it properly when we're
+
+00:04:03.040 --> 00:04:04.799
+about to go to bed. They ask us to
+
+00:04:04.799 --> 00:04:06.640
+choose a folder in a taxonomy and a
+
+00:04:06.640 --> 00:04:08.400
+structure. And that's the moment when
+
+00:04:08.400 --> 00:04:09.920
+you frankly don't want that. You just
+
+00:04:09.920 --> 00:04:11.439
+want relief. You want someone else to do
+
+00:04:11.439 --> 00:04:12.959
+it. You don't want to organize. You want
+
+00:04:12.959 --> 00:04:15.439
+to capture it and move on. And so most
+
+00:04:15.439 --> 00:04:17.519
+of us do what every normal person does.
+
+00:04:17.519 --> 00:04:19.199
+We take a note somewhere. You stick it
+
+00:04:19.199 --> 00:04:20.959
+in Apple Notes and you tell yourself
+
+00:04:20.959 --> 00:04:22.639
+you'll organize it later, right? And
+
+00:04:22.639 --> 00:04:24.960
+later never comes. You have a pile of
+
+00:04:24.960 --> 00:04:26.400
+notes you don't trust, which means you
+
+00:04:26.400 --> 00:04:28.320
+stop putting notes in it. and the whole
+
+00:04:28.320 --> 00:04:30.080
+thing collapses. And so what's changed
+
+00:04:30.080 --> 00:04:32.560
+is that we're moving from AI inside your
+
+00:04:32.560 --> 00:04:35.600
+notes as a search tool to AI running a
+
+00:04:35.600 --> 00:04:38.160
+loop. And the difference is enormous. An
+
+00:04:38.160 --> 00:04:41.360
+AI loop means the system does work
+
+00:04:41.360 --> 00:04:44.000
+whether or not you feel motivated today.
+
+00:04:44.000 --> 00:04:46.160
+You capture a thought in 5 seconds. The
+
+00:04:46.160 --> 00:04:48.240
+system classifies it. It routes it to
+
+00:04:48.240 --> 00:04:49.759
+the right place. It extracts the
+
+00:04:49.759 --> 00:04:51.680
+relevant details. It writes it into a
+
+00:04:51.680 --> 00:04:53.840
+structured database. And then it nudges
+
+00:04:53.840 --> 00:04:56.080
+you every morning with what matters
+
+00:04:56.080 --> 00:04:58.080
+today. Then it reviews your week every
+
+00:04:58.080 --> 00:04:59.919
+Sunday and it tells you what's stuck,
+
+00:04:59.919 --> 00:05:01.680
+what's moving, what you should focus on
+
+00:05:01.680 --> 00:05:04.080
+next. You don't have to remember to use
+
+00:05:04.080 --> 00:05:06.960
+it. It just shows up. That's the shift
+
+00:05:06.960 --> 00:05:09.280
+from building a knowledge base to
+
+00:05:09.280 --> 00:05:11.280
+installing a behavior changing system.
+
+00:05:11.280 --> 00:05:14.639
+The center of gravity moves from you as
+
+00:05:14.639 --> 00:05:16.000
+the person who has to keep all of this
+
+00:05:16.000 --> 00:05:18.400
+on the rails to the loop helping you
+
+00:05:18.400 --> 00:05:20.400
+stay on the rails and stay organized.
+
+00:05:20.400 --> 00:05:22.479
+You get a genuine support structure.
+
+00:05:22.479 --> 00:05:24.960
+Now, this all sounds very theoretical. I
+
+00:05:24.960 --> 00:05:27.120
+am not a hypy person. I am not the
+
+00:05:27.120 --> 00:05:28.800
+person telling you to do this in early
+
+00:05:28.800 --> 00:05:31.039
+2024 when the tools aren't ready. I want
+
+00:05:31.039 --> 00:05:34.639
+to tell you now exactly what tools make
+
+00:05:34.639 --> 00:05:38.400
+this work today in 2026. The stack I
+
+00:05:38.400 --> 00:05:40.080
+would recommend if you are not an
+
+00:05:40.080 --> 00:05:43.440
+engineer is Slack plus notion plus
+
+00:05:43.440 --> 00:05:46.160
+Zapier plus Claude or Chat JPT. That's
+
+00:05:46.160 --> 00:05:48.479
+it. Four tools all of which you probably
+
+00:05:48.479 --> 00:05:50.639
+already have access to or can get access
+
+00:05:50.639 --> 00:05:52.720
+to in the next 10 minutes. Slack is your
+
+00:05:52.720 --> 00:05:54.720
+capture point. Almost everyone's in
+
+00:05:54.720 --> 00:05:57.120
+Slack already. You create one private
+
+00:05:57.120 --> 00:05:59.520
+channel just for you called SB Inbox or
+
+00:05:59.520 --> 00:06:01.120
+whatever you want to name it. And that's
+
+00:06:01.120 --> 00:06:02.960
+where you throw every single thought.
+
+00:06:02.960 --> 00:06:05.199
+One message per thought. No organizing,
+
+00:06:05.199 --> 00:06:07.680
+no tagging, no decisions. You type it or
+
+00:06:07.680 --> 00:06:10.160
+you paste it and you hit send. Notion is
+
+00:06:10.160 --> 00:06:12.240
+the storage layer. You create four
+
+00:06:12.240 --> 00:06:15.199
+simple databases. People, projects,
+
+00:06:15.199 --> 00:06:18.080
+ideas, and admin. Each one has a handful
+
+00:06:18.080 --> 00:06:19.840
+of field that the system is going to
+
+00:06:19.840 --> 00:06:21.280
+fill in automatically. like the date
+
+00:06:21.280 --> 00:06:22.800
+that you filed. This is a great field,
+
+00:06:22.800 --> 00:06:24.960
+right? And you then create a fifth
+
+00:06:24.960 --> 00:06:28.080
+database called the inbox log that acts
+
+00:06:28.080 --> 00:06:29.759
+as an audit trail for this system. And
+
+00:06:29.759 --> 00:06:31.120
+if you're wondering, how do I keep this
+
+00:06:31.120 --> 00:06:33.039
+straight? I can't remember this. This is
+
+00:06:33.039 --> 00:06:35.680
+a second brain. Well, good news. I made
+
+00:06:35.680 --> 00:06:37.520
+a whole guide for it and you can go and
+
+00:06:37.520 --> 00:06:39.440
+grab it on Substack and you don't have
+
+00:06:39.440 --> 00:06:41.199
+to remember this part. Zapier is your
+
+00:06:41.199 --> 00:06:43.039
+automation layer. It's the thing that
+
+00:06:43.039 --> 00:06:45.120
+wires everything together. When a
+
+00:06:45.120 --> 00:06:46.880
+message appears in your Slack channel,
+
+00:06:46.880 --> 00:06:49.039
+Zapier just sees it and it kicks off the
+
+00:06:49.039 --> 00:06:50.639
+workflow to pipe things into notion. And
+
+00:06:50.639 --> 00:06:52.479
+so the workflow calls an AI, it writes
+
+00:06:52.479 --> 00:06:54.479
+to notion, it fills out all those fields
+
+00:06:54.479 --> 00:06:56.639
+I described and then it replies back in
+
+00:06:56.639 --> 00:06:58.960
+Slack. You can also use make instead of
+
+00:06:58.960 --> 00:07:00.960
+Zapier if you want something that's
+
+00:07:00.960 --> 00:07:03.199
+cheaper. Same idea. The logic is
+
+00:07:03.199 --> 00:07:05.520
+identical. And Clott GPT ends up being
+
+00:07:05.520 --> 00:07:07.199
+your intelligence layer. It's what
+
+00:07:07.199 --> 00:07:09.280
+classifies your thought. It's extracts
+
+00:07:09.280 --> 00:07:11.280
+the relevant details. It decides where
+
+00:07:11.280 --> 00:07:13.199
+things should go. You give it a very
+
+00:07:13.199 --> 00:07:16.560
+specific prompt with say a JSON schema
+
+00:07:16.560 --> 00:07:18.960
+and it returns structured data that
+
+00:07:18.960 --> 00:07:20.960
+Zapier can then write directly into
+
+00:07:20.960 --> 00:07:22.639
+notion. And so the flow looks like this.
+
+00:07:22.639 --> 00:07:25.280
+Slack captures the stuff. You use Zapier
+
+00:07:25.280 --> 00:07:27.680
+to automate pulling that raw data out.
+
+00:07:27.680 --> 00:07:29.840
+Zapier then makes a call using your
+
+00:07:29.840 --> 00:07:32.240
+structured prompt to Chad GPT or to
+
+00:07:32.240 --> 00:07:34.319
+Claude and they provide the intelligence
+
+00:07:34.319 --> 00:07:37.199
+to structure this out into a useful
+
+00:07:37.199 --> 00:07:39.280
+complete entry that you can make into
+
+00:07:39.280 --> 00:07:41.199
+your second brain. And then that gets
+
+00:07:41.199 --> 00:07:43.199
+piped into notion. Everything else at
+
+00:07:43.199 --> 00:07:45.280
+that point is just configuration to make
+
+00:07:45.280 --> 00:07:47.440
+it feel like home to you. And so what I
+
+00:07:47.440 --> 00:07:49.039
+find genuinely exciting about this
+
+00:07:49.039 --> 00:07:50.720
+moment, it's not the nerdiness of
+
+00:07:50.720 --> 00:07:53.039
+hooking it up and getting like Zapier to
+
+00:07:53.039 --> 00:07:54.960
+talk to Slack and everything else. The
+
+00:07:54.960 --> 00:07:57.039
+patterns that make these systems work
+
+00:07:57.039 --> 00:07:59.039
+are the exciting thing because even
+
+00:07:59.039 --> 00:08:01.120
+though they're not particularly new and
+
+00:08:01.120 --> 00:08:03.120
+engineers have been building reliable
+
+00:08:03.120 --> 00:08:05.520
+automated systems for a while, we in the
+
+00:08:05.520 --> 00:08:08.400
+non-engineering world are just now at a
+
+00:08:08.400 --> 00:08:10.960
+point in 2026 where we can leverage
+
+00:08:10.960 --> 00:08:13.360
+these principles to build these kinds of
+
+00:08:13.360 --> 00:08:16.400
+systems without a single line of code.
+
+00:08:16.400 --> 00:08:18.319
+And so I want to be really explicit in
+
+00:08:18.319 --> 00:08:20.479
+this video and I want to teach you the
+
+00:08:20.479 --> 00:08:22.319
+principles that I use to design the
+
+00:08:22.319 --> 00:08:24.560
+system I just described. So you
+
+00:08:24.560 --> 00:08:27.440
+understand how this works and why it
+
+00:08:27.440 --> 00:08:29.599
+scales and you can apply this other
+
+00:08:29.599 --> 00:08:31.039
+places with AI. And so these are
+
+00:08:31.039 --> 00:08:32.479
+principles that govern how we make
+
+00:08:32.479 --> 00:08:34.399
+systems that scale, systems that don't
+
+00:08:34.399 --> 00:08:36.240
+break, systems that maintain trust over
+
+00:08:36.240 --> 00:08:38.240
+time. These are long-standing
+
+00:08:38.240 --> 00:08:40.159
+engineering principles, and we all need
+
+00:08:40.159 --> 00:08:41.519
+to know them now. And so I'm going to
+
+00:08:41.519 --> 00:08:43.360
+take this opportunity to say, here's the
+
+00:08:43.360 --> 00:08:44.800
+system. Here's the second brain, but
+
+00:08:44.800 --> 00:08:46.640
+also here's how you learn from this.
+
+00:08:46.640 --> 00:08:48.560
+Here are the engineering principles
+
+00:08:48.560 --> 00:08:50.320
+translated for non-engineers that you
+
+00:08:50.320 --> 00:08:52.160
+can latch on to. And when you understand
+
+00:08:52.160 --> 00:08:54.880
+these things, you can build things that
+
+00:08:54.880 --> 00:08:57.200
+used to require a principal engineer to
+
+00:08:57.200 --> 00:08:58.720
+implement. So here's the building
+
+00:08:58.720 --> 00:09:00.480
+blocks. Engineers have really fancy
+
+00:09:00.480 --> 00:09:02.160
+names for these things, but I'm going to
+
+00:09:02.160 --> 00:09:03.920
+give you plain language that actually
+
+00:09:03.920 --> 00:09:06.080
+make sense. There are about eight core
+
+00:09:06.080 --> 00:09:07.839
+pieces that make a second brain system
+
+00:09:07.839 --> 00:09:09.200
+work. And once you see them, you're
+
+00:09:09.200 --> 00:09:10.720
+going to recognize them in a bunch of
+
+00:09:10.720 --> 00:09:12.320
+other reliable systems, and that's going
+
+00:09:12.320 --> 00:09:14.800
+to help you build fluency that you will
+
+00:09:14.800 --> 00:09:17.440
+need with AI in 2026. The first building
+
+00:09:17.440 --> 00:09:19.279
+block is what I call the Dropbox.
+
+00:09:19.279 --> 00:09:20.640
+Engineers are going to call this the
+
+00:09:20.640 --> 00:09:22.720
+capture door or the ingress point. It's
+
+00:09:22.720 --> 00:09:24.560
+the one place you're allowed to throw
+
+00:09:24.560 --> 00:09:26.640
+things without thinking. It has to be
+
+00:09:26.640 --> 00:09:28.240
+frictionless. If capturing a thought
+
+00:09:28.240 --> 00:09:29.839
+takes more than a couple of seconds,
+
+00:09:29.839 --> 00:09:31.040
+you're actually not going to do it
+
+00:09:31.040 --> 00:09:32.320
+consistently despite your good
+
+00:09:32.320 --> 00:09:33.920
+intentions. It's not a moral failing.
+
+00:09:33.920 --> 00:09:35.920
+It's just human nature. So, you need one
+
+00:09:35.920 --> 00:09:38.880
+place, one action, one consistent habit.
+
+00:09:38.880 --> 00:09:40.640
+In this system, the Dropbox, say that
+
+00:09:40.640 --> 00:09:42.800
+five times fast, is a Slack channel
+
+00:09:42.800 --> 00:09:45.200
+called SB Inbox. You create it, you make
+
+00:09:45.200 --> 00:09:47.360
+it private, you pin a message explaining
+
+00:09:47.360 --> 00:09:48.959
+what goes in there. From then on,
+
+00:09:48.959 --> 00:09:50.640
+whenever a thought appears in your head
+
+00:09:50.640 --> 00:09:52.640
+that you don't want to lose, you open up
+
+00:09:52.640 --> 00:09:54.000
+Slack, you go to that channel, and you
+
+00:09:54.000 --> 00:09:56.000
+just type it in. One message, done.
+
+00:09:56.000 --> 00:09:57.680
+You're not allowed to have three capture
+
+00:09:57.680 --> 00:09:59.680
+points, you have only one, and it
+
+00:09:59.680 --> 00:10:01.680
+requires zero decisions. The second
+
+00:10:01.680 --> 00:10:03.519
+building block is the sorter. Engineers
+
+00:10:03.519 --> 00:10:05.279
+call this a classifier. They call it a
+
+00:10:05.279 --> 00:10:07.920
+router. It's the AI step that decides
+
+00:10:07.920 --> 00:10:10.320
+what bucket your thought belongs in
+
+00:10:10.320 --> 00:10:12.399
+without you having to think about it. Is
+
+00:10:12.399 --> 00:10:14.480
+this about a person, a project, an idea,
+
+00:10:14.480 --> 00:10:16.399
+some admin errand that you need to do?
+
+00:10:16.399 --> 00:10:18.480
+Here's why this matters. The number one
+
+00:10:18.480 --> 00:10:20.720
+reason second brains fail is they
+
+00:10:20.720 --> 00:10:23.440
+require taxonomy work at capture time.
+
+00:10:23.440 --> 00:10:25.279
+They force you to decide where something
+
+00:10:25.279 --> 00:10:26.880
+goes. And for non-engineers, that
+
+00:10:26.880 --> 00:10:28.880
+decision is where systems go to die.
+
+00:10:28.880 --> 00:10:30.720
+It's the blank canvas problem, the
+
+00:10:30.720 --> 00:10:32.880
+perfect structure fantasy, the slow
+
+00:10:32.880 --> 00:10:34.640
+drift into fiddling with folders instead
+
+00:10:34.640 --> 00:10:36.480
+of actually capturing thoughts. So, the
+
+00:10:36.480 --> 00:10:38.160
+sortter removes all of that entirely.
+
+00:10:38.160 --> 00:10:40.079
+You throw a raw thought at your Slack
+
+00:10:40.079 --> 00:10:42.079
+channel. Zapier picks it up and sends it
+
+00:10:42.079 --> 00:10:44.399
+to Claude or GPT with a classification
+
+00:10:44.399 --> 00:10:46.880
+prompt. The AI then figures out what it
+
+00:10:46.880 --> 00:10:49.519
+is, extracts the relevant details, names
+
+00:10:49.519 --> 00:10:51.519
+it something useful, and returns
+
+00:10:51.519 --> 00:10:54.560
+structured JSON. Classification is a
+
+00:10:54.560 --> 00:10:57.040
+solved problem this year in 2026. You
+
+00:10:57.040 --> 00:10:58.800
+can let the model do the sorting, and it
+
+00:10:58.800 --> 00:11:01.040
+will just work. The third building block
+
+00:11:01.040 --> 00:11:03.040
+is the form. Engineers call this the
+
+00:11:03.040 --> 00:11:04.720
+schema. They might call it a data
+
+00:11:04.720 --> 00:11:06.560
+contract. It's the set of fields your
+
+00:11:06.560 --> 00:11:09.200
+system promises to produce and store for
+
+00:11:09.200 --> 00:11:11.680
+each type of thing. So, for a person in
+
+00:11:11.680 --> 00:11:13.440
+your people database, this can mean the
+
+00:11:13.440 --> 00:11:15.600
+name, the context about who they are and
+
+00:11:15.600 --> 00:11:17.440
+how you know them, follow-ups that you
+
+00:11:17.440 --> 00:11:19.279
+need to remember for next time you talk,
+
+00:11:19.279 --> 00:11:20.959
+and a timestamp for when you last
+
+00:11:20.959 --> 00:11:23.200
+updated their entry. For a project, it
+
+00:11:23.200 --> 00:11:25.040
+can be the name, the status, which could
+
+00:11:25.040 --> 00:11:26.800
+be active or waiting or blocked or
+
+00:11:26.800 --> 00:11:29.200
+someday or done, the literal next action
+
+00:11:29.200 --> 00:11:31.200
+you need to take, and any relevant
+
+00:11:31.200 --> 00:11:33.040
+notes. If it's an idea, maybe it's a
+
+00:11:33.040 --> 00:11:35.040
+title, a oneliner that captures the core
+
+00:11:35.040 --> 00:11:37.120
+insight, and space for elaboration. So,
+
+00:11:37.120 --> 00:11:38.800
+why does this matter? Because without a
+
+00:11:38.800 --> 00:11:40.399
+consistent form, you're going to get
+
+00:11:40.399 --> 00:11:42.320
+messy notes that can't be reliably
+
+00:11:42.320 --> 00:11:43.920
+queried, that can't be reliably
+
+00:11:43.920 --> 00:11:46.640
+summarized or surfaced. Claude is not
+
+00:11:46.640 --> 00:11:48.800
+going to generate a useful daily digest
+
+00:11:48.800 --> 00:11:50.880
+if every entry is structured
+
+00:11:50.880 --> 00:11:52.800
+differently. The form is what makes
+
+00:11:52.800 --> 00:11:54.959
+automation possible. It's what is what
+
+00:11:54.959 --> 00:11:57.279
+lets the system compound like a good
+
+00:11:57.279 --> 00:11:59.440
+flywheel. The fourth building block is
+
+00:11:59.440 --> 00:12:01.680
+the filing cabinet. Engineers call this
+
+00:12:01.680 --> 00:12:04.160
+the memory store or the source of truth.
+
+00:12:04.160 --> 00:12:06.320
+It's where the system writes facts so
+
+00:12:06.320 --> 00:12:09.200
+that they can be reused later. It has to
+
+00:12:09.200 --> 00:12:11.279
+be writable by automation and readable
+
+00:12:11.279 --> 00:12:13.600
+by humans. And it has to support simple
+
+00:12:13.600 --> 00:12:15.600
+filters and views. So in this system,
+
+00:12:15.600 --> 00:12:17.600
+your filing cabinet is notion.
+
+00:12:17.600 --> 00:12:19.440
+Specifically, it's the four databases I
+
+00:12:19.440 --> 00:12:20.720
+talked about, right? It's people,
+
+00:12:20.720 --> 00:12:22.800
+project ideas, and admin. And notion
+
+00:12:22.800 --> 00:12:24.880
+databases are visual. They're really
+
+00:12:24.880 --> 00:12:27.279
+easy to edit without breaking anything.
+
+00:12:27.279 --> 00:12:29.040
+You can create different views filtered
+
+00:12:29.040 --> 00:12:31.360
+by status, by date, by tags. when
+
+00:12:31.360 --> 00:12:32.959
+something goes wrong, you can see what
+
+00:12:32.959 --> 00:12:34.800
+happened and fix it directly. And
+
+00:12:34.800 --> 00:12:37.680
+critically, Notion has a solid API that
+
+00:12:37.680 --> 00:12:40.160
+Zapier can write to reliably. The fifth
+
+00:12:40.160 --> 00:12:42.720
+building block is the receipt. Engineers
+
+00:12:42.720 --> 00:12:44.880
+call this an audit trail or a ledger.
+
+00:12:44.880 --> 00:12:47.360
+It's a record of what came in, what the
+
+00:12:47.360 --> 00:12:49.200
+system did with it, and how confident it
+
+00:12:49.200 --> 00:12:50.800
+was. And that matters more than a lot of
+
+00:12:50.800 --> 00:12:52.480
+us might realize. You don't really
+
+00:12:52.480 --> 00:12:54.160
+abandon systems because they're
+
+00:12:54.160 --> 00:12:56.560
+imperfect. You abandon them because you
+
+00:12:56.560 --> 00:12:58.000
+stop trusting them. And you stop
+
+00:12:58.000 --> 00:12:59.760
+trusting them because errors feel
+
+00:12:59.760 --> 00:13:01.600
+mysterious. something went wrong, but
+
+00:13:01.600 --> 00:13:03.760
+you don't know what or when or why, and
+
+00:13:03.760 --> 00:13:05.120
+you can't predict when the next error is
+
+00:13:05.120 --> 00:13:06.480
+going to happen, and you just give up.
+
+00:13:06.480 --> 00:13:08.959
+The receipt fixes that. In this system,
+
+00:13:08.959 --> 00:13:11.040
+your receipt is a notion database called
+
+00:13:11.040 --> 00:13:13.360
+inbox log. And every capture gets logged
+
+00:13:13.360 --> 00:13:15.040
+there with the original text that you
+
+00:13:15.040 --> 00:13:17.040
+typed, where it was filed, what it was
+
+00:13:17.040 --> 00:13:18.560
+named, and a confident score from the
+
+00:13:18.560 --> 00:13:21.120
+AI. And now when something looks off,
+
+00:13:21.120 --> 00:13:23.040
+you trace it. You can see what the
+
+00:13:23.040 --> 00:13:25.440
+system decided. You can see why comes
+
+00:13:25.440 --> 00:13:27.360
+from visibility, and visibility comes
+
+00:13:27.360 --> 00:13:29.440
+from logging. The sixth building block
+
+00:13:29.440 --> 00:13:31.600
+is the bouncer. Engineers call this a
+
+00:13:31.600 --> 00:13:33.519
+confidence filter or a guardrail. I like
+
+00:13:33.519 --> 00:13:35.519
+bouncer as a word. It's the mechanism
+
+00:13:35.519 --> 00:13:37.600
+that prevents lowquality outputs from
+
+00:13:37.600 --> 00:13:39.360
+polluting your memory storage. And
+
+00:13:39.360 --> 00:13:41.200
+here's how it works. When Claude or Chad
+
+00:13:41.200 --> 00:13:43.600
+GPT classifies your thought, it also
+
+00:13:43.600 --> 00:13:45.360
+returns a confidence score between zero
+
+00:13:45.360 --> 00:13:47.680
+and one. If that confidence is below a
+
+00:13:47.680 --> 00:13:50.000
+threshold, let's say 6, the system
+
+00:13:50.000 --> 00:13:52.079
+doesn't file it into people. It doesn't
+
+00:13:52.079 --> 00:13:53.600
+file it into projects. It doesn't file
+
+00:13:53.600 --> 00:13:56.160
+it into ideas. Instead, it logs it in
+
+00:13:56.160 --> 00:13:58.399
+inbox log with a status that says needs
+
+00:13:58.399 --> 00:14:00.639
+review and sends you a Slack reply
+
+00:14:00.639 --> 00:14:03.440
+asking for a clarification. I'm not sure
+
+00:14:03.440 --> 00:14:05.440
+where this goes. Can you repost it with
+
+00:14:05.440 --> 00:14:07.920
+a prefix like person or project or idea?
+
+00:14:07.920 --> 00:14:09.920
+I couldn't classify. This single
+
+00:14:09.920 --> 00:14:11.920
+mechanism is what keeps your second
+
+00:14:11.920 --> 00:14:14.880
+brain from becoming a junk drawer. The
+
+00:14:14.880 --> 00:14:17.360
+fastest way to kill a system is to fill
+
+00:14:17.360 --> 00:14:19.519
+it with garbage. The bouncer keeps
+
+00:14:19.519 --> 00:14:21.120
+things clean enough that you maintain
+
+00:14:21.120 --> 00:14:23.360
+trust, and trust is what keeps you using
+
+00:14:23.360 --> 00:14:25.279
+it. The seventh building block is the
+
+00:14:25.279 --> 00:14:27.440
+tap on the shoulder. Engineers call this
+
+00:14:27.440 --> 00:14:30.079
+proactive surfacing or notification.
+
+00:14:30.079 --> 00:14:32.079
+It's the system pushing useful
+
+00:14:32.079 --> 00:14:34.480
+information to you at the right time
+
+00:14:34.480 --> 00:14:36.320
+without you having to search for it. So
+
+00:14:36.320 --> 00:14:37.920
+in this system, the tap on the shoulder
+
+00:14:37.920 --> 00:14:39.920
+is a daily Slack DM that arrives at
+
+00:14:39.920 --> 00:14:41.120
+whatever time you want in the morning
+
+00:14:41.120 --> 00:14:43.360
+and is generated by a scheduled Zapier
+
+00:14:43.360 --> 00:14:44.880
+automation that queries your notion
+
+00:14:44.880 --> 00:14:47.040
+databases, pulls your active projects,
+
+00:14:47.040 --> 00:14:49.199
+any people with noted follow-ups, and
+
+00:14:49.199 --> 00:14:51.279
+sends that to Claude or Chad GPT with a
+
+00:14:51.279 --> 00:14:52.800
+summarization prompt, and then delivers
+
+00:14:52.800 --> 00:14:54.480
+a nice digest directly to your Slack
+
+00:14:54.480 --> 00:14:56.160
+DMs. And the digest will have three
+
+00:14:56.160 --> 00:14:57.440
+parts, right? It's going to have the top
+
+00:14:57.440 --> 00:14:58.800
+three actions for the day. It's going to
+
+00:14:58.800 --> 00:15:00.079
+have one thing you might be stuck on
+
+00:15:00.079 --> 00:15:01.680
+that you're avoiding and one small win
+
+00:15:01.680 --> 00:15:03.680
+to notice. It's designed to fit on a
+
+00:15:03.680 --> 00:15:05.360
+phone screen. It's designed for you to
+
+00:15:05.360 --> 00:15:07.120
+read it in 2 minutes, to know what
+
+00:15:07.120 --> 00:15:09.040
+matters today, and to start your day
+
+00:15:09.040 --> 00:15:11.120
+with confidence. And these nudges,
+
+00:15:11.120 --> 00:15:13.120
+they're not optional features. They're
+
+00:15:13.120 --> 00:15:15.440
+what makes this system alive instead of
+
+00:15:15.440 --> 00:15:17.760
+dead. Humans don't retrieve
+
+00:15:17.760 --> 00:15:19.440
+consistently. We don't wake up and
+
+00:15:19.440 --> 00:15:21.040
+think, I should search my notion
+
+00:15:21.040 --> 00:15:23.120
+databases for relevant information about
+
+00:15:23.120 --> 00:15:24.720
+the meeting I have today. In the
+
+00:15:24.720 --> 00:15:26.480
+advertisements, we do that, but we don't
+
+00:15:26.480 --> 00:15:28.720
+really do that. We do respond to what
+
+00:15:28.720 --> 00:15:30.720
+shows up in front of us. The tap on the
+
+00:15:30.720 --> 00:15:32.880
+shoulder exploits that. It puts the
+
+00:15:32.880 --> 00:15:35.199
+right information in your path so you
+
+00:15:35.199 --> 00:15:37.120
+don't have to remember to look for it.
+
+00:15:37.120 --> 00:15:39.040
+There's also a weekly version. Every
+
+00:15:39.040 --> 00:15:41.519
+Sunday at say whatever time, 4 p.m.
+
+00:15:41.519 --> 00:15:42.720
+whenever you want to have the Sunday
+
+00:15:42.720 --> 00:15:44.560
+scaries, right? Another Zapier
+
+00:15:44.560 --> 00:15:46.560
+automation runs. It queries everything
+
+00:15:46.560 --> 00:15:48.720
+from the past seven days in your inbox
+
+00:15:48.720 --> 00:15:50.959
+log, pulls your active projects, sends
+
+00:15:50.959 --> 00:15:52.959
+it all to Claude or chat GPT with a
+
+00:15:52.959 --> 00:15:54.480
+review prompt, and then delivers a
+
+00:15:54.480 --> 00:15:56.880
+weekly summary to your Slack DMs. And
+
+00:15:56.880 --> 00:15:58.399
+that summary, it'll tell you what
+
+00:15:58.399 --> 00:15:59.680
+happened. It tells you what your biggest
+
+00:15:59.680 --> 00:16:02.000
+open loops are. Three suggested actions
+
+00:16:02.000 --> 00:16:03.920
+for next week and one recurring theme
+
+00:16:03.920 --> 00:16:05.680
+that the system noticed. And so the
+
+00:16:05.680 --> 00:16:07.759
+Sunday review becomes a cadence that you
+
+00:16:07.759 --> 00:16:09.839
+can trust. It it's what turns storage
+
+00:16:09.839 --> 00:16:12.240
+into a consistent weekly direction. And
+
+00:16:12.240 --> 00:16:13.680
+without it, you're kind of just
+
+00:16:13.680 --> 00:16:15.839
+accumulating notes like the old way. The
+
+00:16:15.839 --> 00:16:18.000
+eighth building block is the fix button.
+
+00:16:18.000 --> 00:16:19.519
+Engineers would call this a feedback
+
+00:16:19.519 --> 00:16:21.600
+handle or a human in the loop correction
+
+00:16:21.600 --> 00:16:24.160
+mechanism. It's the one-step way to
+
+00:16:24.160 --> 00:16:26.160
+correct mistakes without opening
+
+00:16:26.160 --> 00:16:27.839
+dashboards or without trying to do
+
+00:16:27.839 --> 00:16:29.839
+maintenance. In this system, whenever
+
+00:16:29.839 --> 00:16:31.759
+the Zapier automation files something,
+
+00:16:31.759 --> 00:16:33.440
+it's going to reply in the Slack thread
+
+00:16:33.440 --> 00:16:34.959
+confirming what it did. Hey, this was
+
+00:16:34.959 --> 00:16:36.720
+filed as a project. The project is
+
+00:16:36.720 --> 00:16:39.279
+website relaunch. The confidence was 087
+
+00:16:39.279 --> 00:16:41.279
+reply fix if I got it wrong. If the
+
+00:16:41.279 --> 00:16:43.279
+filing was wrong, all you do is reply in
+
+00:16:43.279 --> 00:16:45.199
+the thread fix colon. This should be
+
+00:16:45.199 --> 00:16:46.720
+people, not projects. And the system
+
+00:16:46.720 --> 00:16:48.480
+will just update it. So why does that
+
+00:16:48.480 --> 00:16:50.800
+matter? Because systems get adopted when
+
+00:16:50.800 --> 00:16:53.120
+they're easy to repair. [snorts] If
+
+00:16:53.120 --> 00:16:55.920
+fixing errors feels like work if you
+
+00:16:55.920 --> 00:16:58.240
+have to open notion and navigate to the
+
+00:16:58.240 --> 00:17:00.079
+right database and find the entry and
+
+00:17:00.079 --> 00:17:01.279
+you're not going to do that. You're
+
+00:17:01.279 --> 00:17:03.199
+going to stop engaging. Corrections must
+
+00:17:03.199 --> 00:17:05.600
+be trivial or people will not make them.
+
+00:17:05.600 --> 00:17:07.760
+Now, let me give you the principles that
+
+00:17:07.760 --> 00:17:09.919
+make those building blocks actually
+
+00:17:09.919 --> 00:17:11.439
+work. These these are engineering
+
+00:17:11.439 --> 00:17:13.039
+principles, but they're not complicated.
+
+00:17:13.039 --> 00:17:14.720
+They're just rules that experienced
+
+00:17:14.720 --> 00:17:16.160
+system builders have learned. And when
+
+00:17:16.160 --> 00:17:17.520
+you understand them, you can build
+
+00:17:17.520 --> 00:17:19.679
+things that do not fall apart. Principle
+
+00:17:19.679 --> 00:17:22.559
+number one, reduce the human's job to
+
+00:17:22.559 --> 00:17:24.959
+one reliable behavior. If your system
+
+00:17:24.959 --> 00:17:27.120
+requires three behaviors, you don't have
+
+00:17:27.120 --> 00:17:28.799
+a system. You have a self-improvement
+
+00:17:28.799 --> 00:17:31.120
+program. And non-engineers will not run
+
+00:17:31.120 --> 00:17:33.039
+those programs very consistently. The
+
+00:17:33.039 --> 00:17:34.799
+scalable move is to make the human do
+
+00:17:34.799 --> 00:17:36.320
+one thing, which in this case is capture
+
+00:17:36.320 --> 00:17:38.000
+it in Slack. Everything else is
+
+00:17:38.000 --> 00:17:40.160
+automation. Classification is Claude or
+
+00:17:40.160 --> 00:17:42.000
+Chad GPT doing the work and filing is
+
+00:17:42.000 --> 00:17:43.840
+Zapier doing the work and surfacing is a
+
+00:17:43.840 --> 00:17:45.679
+scheduled automation. You get the idea.
+
+00:17:45.679 --> 00:17:47.600
+The human's job is just to throw
+
+00:17:47.600 --> 00:17:49.760
+thoughts at the channel. That's it.
+
+00:17:49.760 --> 00:17:52.000
+Principle number two, separate memory
+
+00:17:52.000 --> 00:17:54.400
+from compute and from interface. This is
+
+00:17:54.400 --> 00:17:56.240
+the single most important architectural
+
+00:17:56.240 --> 00:17:57.440
+principle and it's how you build
+
+00:17:57.440 --> 00:17:59.520
+something that lasts. Memory is where
+
+00:17:59.520 --> 00:18:01.360
+truth lives. That's your notion database
+
+00:18:01.360 --> 00:18:03.440
+in this system. Compute is where the
+
+00:18:03.440 --> 00:18:05.360
+logic run. That's zap year and that's
+
+00:18:05.360 --> 00:18:07.520
+claude. Interface is where the human
+
+00:18:07.520 --> 00:18:09.679
+interacts. That's in Slack. Why would we
+
+00:18:09.679 --> 00:18:11.600
+separate those? Because it makes the
+
+00:18:11.600 --> 00:18:14.080
+system portable and swappable. You can
+
+00:18:14.080 --> 00:18:16.000
+change your interface from Slack to
+
+00:18:16.000 --> 00:18:17.840
+Microsoft Teams without rebuilding
+
+00:18:17.840 --> 00:18:20.000
+everything. You can swap Claude for Chad
+
+00:18:20.000 --> 00:18:22.400
+GPT without touching your databases. You
+
+00:18:22.400 --> 00:18:24.160
+can move from notion to Air Table if
+
+00:18:24.160 --> 00:18:25.679
+your company wants you to or if you feel
+
+00:18:25.679 --> 00:18:28.080
+like it. Every layer has just one job
+
+00:18:28.080 --> 00:18:29.280
+and they connect through clear
+
+00:18:29.280 --> 00:18:31.280
+boundaries. This is also why I don't
+
+00:18:31.280 --> 00:18:33.039
+recommend starting with Obsidian if
+
+00:18:33.039 --> 00:18:34.640
+you're a non-engineer, even though
+
+00:18:34.640 --> 00:18:37.120
+Obsidian is a beautiful tool. Obsidian
+
+00:18:37.120 --> 00:18:39.039
+stores everything as local markdown
+
+00:18:39.039 --> 00:18:40.400
+files, which is really great for
+
+00:18:40.400 --> 00:18:42.080
+portability. It's great for ownership,
+
+00:18:42.080 --> 00:18:44.400
+but writing into local files from cloud
+
+00:18:44.400 --> 00:18:46.480
+automation introduces a layer of syncing
+
+00:18:46.480 --> 00:18:48.559
+and plumbing that may seem trivial for
+
+00:18:48.559 --> 00:18:50.080
+engineers, but I find is often
+
+00:18:50.080 --> 00:18:52.400
+frustrating for everybody else. So,
+
+00:18:52.400 --> 00:18:53.679
+starting with notion makes that
+
+00:18:53.679 --> 00:18:55.120
+automation really clean, and you can
+
+00:18:55.120 --> 00:18:56.320
+always migrate later if you want
+
+00:18:56.320 --> 00:18:58.000
+something that's local first. Principle
+
+00:18:58.000 --> 00:19:00.559
+number three, treat prompts like APIs,
+
+00:19:00.559 --> 00:19:02.720
+not like creative writing. A scalable
+
+00:19:02.720 --> 00:19:05.360
+agentic prompt is a contract. It's a
+
+00:19:05.360 --> 00:19:07.360
+fixed input format. It's a fixed output
+
+00:19:07.360 --> 00:19:09.039
+format. It's no surprises. You give
+
+00:19:09.039 --> 00:19:11.039
+Claude or Chad GPT a schema. You give it
+
+00:19:11.039 --> 00:19:12.720
+rules and you tell it to return JSON
+
+00:19:12.720 --> 00:19:14.640
+only with no explanation and no
+
+00:19:14.640 --> 00:19:16.799
+markdown. That feels restrictive and
+
+00:19:16.799 --> 00:19:18.400
+that's the whole point. You don't want
+
+00:19:18.400 --> 00:19:20.240
+the model to be helpful in uncontrolled
+
+00:19:20.240 --> 00:19:21.840
+ways in this system. You want it to fill
+
+00:19:21.840 --> 00:19:25.360
+out a form. The prompt specifies exactly
+
+00:19:25.360 --> 00:19:27.360
+what fields to return, exactly what
+
+00:19:27.360 --> 00:19:29.120
+values are valid, and exactly how to
+
+00:19:29.120 --> 00:19:31.520
+handle ambiguous cases. Reliable beats
+
+00:19:31.520 --> 00:19:33.440
+creative in these systems. And it's
+
+00:19:33.440 --> 00:19:35.120
+really important to remember that as you
+
+00:19:35.120 --> 00:19:37.360
+start to build things. Principle four,
+
+00:19:37.360 --> 00:19:40.400
+always build a trust mechanism, not just
+
+00:19:40.400 --> 00:19:42.480
+a capability. So a capability is the bot
+
+00:19:42.480 --> 00:19:43.760
+files the notes, right? A trust
+
+00:19:43.760 --> 00:19:46.160
+mechanism is I believe the filing enough
+
+00:19:46.160 --> 00:19:48.559
+to keep using it because and so trust
+
+00:19:48.559 --> 00:19:50.480
+comes from the inbox log that shows you
+
+00:19:50.480 --> 00:19:52.160
+everything that happened. Confidence
+
+00:19:52.160 --> 00:19:54.400
+scores from the fix button that makes
+
+00:19:54.400 --> 00:19:56.559
+corrections trivial. Without these small
+
+00:19:56.559 --> 00:19:58.480
+things, you might think the system would
+
+00:19:58.480 --> 00:20:00.480
+still function, but small errors tend to
+
+00:20:00.480 --> 00:20:02.480
+compound. And with them, the system
+
+00:20:02.480 --> 00:20:03.840
+actually can learn and earn your
+
+00:20:03.840 --> 00:20:05.600
+confidence over time. Principle number
+
+00:20:05.600 --> 00:20:07.600
+five, you want to default to safe
+
+00:20:07.600 --> 00:20:10.160
+behavior when uncertain. A real agentic
+
+00:20:10.160 --> 00:20:12.400
+system has to know how to fail
+
+00:20:12.400 --> 00:20:14.720
+gracefully. The safest default is when
+
+00:20:14.720 --> 00:20:16.559
+Claude or Chad GPT isn't sure is you
+
+00:20:16.559 --> 00:20:18.799
+just log the item and write that Slack
+
+00:20:18.799 --> 00:20:21.200
+message and ask for clarification. And
+
+00:20:21.200 --> 00:20:23.120
+that's exactly why we have a confidence
+
+00:20:23.120 --> 00:20:24.880
+threshold. When confidence is below
+
+00:20:24.880 --> 00:20:26.160
+whatever number you select, I'm
+
+00:20:26.160 --> 00:20:28.720
+suggesting 6. It doesn't file. It just
+
+00:20:28.720 --> 00:20:31.360
+holds. It asks. It might seem boring,
+
+00:20:31.360 --> 00:20:33.200
+but it's essential to build trust.
+
+00:20:33.200 --> 00:20:36.960
+Principle number six, make output small,
+
+00:20:36.960 --> 00:20:39.760
+frequent, and actionable. Non-engineers
+
+00:20:39.760 --> 00:20:42.080
+don't want a weekly 2,000word analysis,
+
+00:20:42.080 --> 00:20:43.440
+right? They want a top three list that
+
+00:20:43.440 --> 00:20:45.039
+fits on a phone screen. Frankly, most
+
+00:20:45.039 --> 00:20:47.440
+engineers do, too. They want a Slack DM
+
+00:20:47.440 --> 00:20:48.960
+they can read in 2 minutes. Most
+
+00:20:48.960 --> 00:20:51.440
+engineers do, too. Small outputs reduce
+
+00:20:51.440 --> 00:20:52.960
+cognitive load and increase
+
+00:20:52.960 --> 00:20:55.200
+follow-through. So, the daily digest
+
+00:20:55.200 --> 00:20:57.760
+needs to be under 150 words, and the
+
+00:20:57.760 --> 00:21:00.640
+weekly review needs to be under 250
+
+00:21:00.640 --> 00:21:03.200
+words. That's very intentional. Agentic
+
+00:21:03.200 --> 00:21:04.960
+systems scale when they produce very
+
+00:21:04.960 --> 00:21:06.880
+useful outputs that are small but
+
+00:21:06.880 --> 00:21:09.280
+extremely reliable on a set cadence. And
+
+00:21:09.280 --> 00:21:10.960
+then at the end of the day, you start
+
+00:21:10.960 --> 00:21:12.320
+trusting them because you're essentially
+
+00:21:12.320 --> 00:21:14.559
+getting a breadcrumb of trust and value
+
+00:21:14.559 --> 00:21:16.640
+every time you use it. Principle number
+
+00:21:16.640 --> 00:21:19.919
+seven, use next action as the unit of
+
+00:21:19.919 --> 00:21:21.679
+execution. So what I mean by that is
+
+00:21:21.679 --> 00:21:23.600
+most project notes fail because they
+
+00:21:23.600 --> 00:21:26.159
+store intentions, not actions. Work on
+
+00:21:26.159 --> 00:21:28.400
+the website is not executable. Email
+
+00:21:28.400 --> 00:21:30.320
+Sarah to confirm the copy deadline is
+
+00:21:30.320 --> 00:21:32.320
+very executable. And so that's why the
+
+00:21:32.320 --> 00:21:34.320
+project database will need to have a
+
+00:21:34.320 --> 00:21:36.159
+field called next action. And the
+
+00:21:36.159 --> 00:21:39.679
+classification prompt needs to be tuned
+
+00:21:39.679 --> 00:21:42.960
+to extract very specific actions from
+
+00:21:42.960 --> 00:21:44.799
+what is probably a vague statement on
+
+00:21:44.799 --> 00:21:46.400
+your part because if your project
+
+00:21:46.400 --> 00:21:48.159
+entries don't have concrete actions,
+
+00:21:48.159 --> 00:21:50.000
+your daily digest is going to end up
+
+00:21:50.000 --> 00:21:51.600
+feeling motivational rather than
+
+00:21:51.600 --> 00:21:54.080
+operational. And this is all about
+
+00:21:54.080 --> 00:21:56.000
+helping you be more operational in a way
+
+00:21:56.000 --> 00:21:58.080
+that's reliable without you having to
+
+00:21:58.080 --> 00:21:59.679
+put more cognitive work into it.
+
+00:21:59.679 --> 00:22:02.480
+Principle eight, prefer routing over
+
+00:22:02.480 --> 00:22:05.120
+organizing. Humans hate organizing. Most
+
+00:22:05.120 --> 00:22:07.360
+of us, not all of us, most of us. Most
+
+00:22:07.360 --> 00:22:09.039
+of us like dropping things in a box and
+
+00:22:09.039 --> 00:22:11.039
+forgetting about them. Claude is good at
+
+00:22:11.039 --> 00:22:13.120
+routing. Chai GBT is good at routing.
+
+00:22:13.120 --> 00:22:14.960
+The principle is don't make users
+
+00:22:14.960 --> 00:22:17.200
+maintain structures. Let the system
+
+00:22:17.200 --> 00:22:18.799
+route into a small set of stable
+
+00:22:18.799 --> 00:22:20.640
+buckets. And that's why the system I'm
+
+00:22:20.640 --> 00:22:22.000
+suggesting has really only four
+
+00:22:22.000 --> 00:22:24.000
+categories: people, projects, ideas, and
+
+00:22:24.000 --> 00:22:26.720
+admin. More categories can feel more
+
+00:22:26.720 --> 00:22:28.559
+precise, but can be much harder to
+
+00:22:28.559 --> 00:22:30.799
+scale. It creates more decisions, more
+
+00:22:30.799 --> 00:22:32.960
+confusion, more drift. Four buckets is
+
+00:22:32.960 --> 00:22:34.400
+usually enough. You can always add more
+
+00:22:34.400 --> 00:22:36.880
+later if you really discover a need.
+
+00:22:36.880 --> 00:22:38.960
+Principle nine, keep the number of
+
+00:22:38.960 --> 00:22:41.600
+categories and fields painfully small.
+
+00:22:41.600 --> 00:22:43.360
+This is counterintuitive for smart
+
+00:22:43.360 --> 00:22:45.360
+people. We we want richness. We want
+
+00:22:45.360 --> 00:22:47.520
+nuance, but richness creates friction,
+
+00:22:47.520 --> 00:22:50.480
+and friction kills adoption. So, the
+
+00:22:50.480 --> 00:22:52.480
+people database, I'm suggesting it has
+
+00:22:52.480 --> 00:22:54.320
+like just a few fields, right? the
+
+00:22:54.320 --> 00:22:56.080
+person's name, the last time you
+
+00:22:56.080 --> 00:22:58.080
+connected with them, the ideas database,
+
+00:22:58.080 --> 00:23:00.320
+five fields at most. And the idea is if
+
+00:23:00.320 --> 00:23:02.240
+you have minimal fields, you can always
+
+00:23:02.240 --> 00:23:04.480
+add sophistication later. But if you
+
+00:23:04.480 --> 00:23:06.640
+start simple and stay simple, it gives
+
+00:23:06.640 --> 00:23:08.480
+you the option to continue to use the
+
+00:23:08.480 --> 00:23:10.159
+system, and you only have to add
+
+00:23:10.159 --> 00:23:12.480
+complexity when evidence says it's
+
+00:23:12.480 --> 00:23:15.600
+needed. Principle 10, build your design
+
+00:23:15.600 --> 00:23:17.919
+for restart, not for perfection. A
+
+00:23:17.919 --> 00:23:20.159
+scalable system assumes users will fall
+
+00:23:20.159 --> 00:23:22.559
+off. Life happens, you get sick, you
+
+00:23:22.559 --> 00:23:24.559
+travel, you have a rough week at work.
+
+00:23:24.559 --> 00:23:26.559
+The system should be easy to restart
+
+00:23:26.559 --> 00:23:28.720
+without guilt or cleanup. If missing a
+
+00:23:28.720 --> 00:23:30.480
+week creates some kind of backlog
+
+00:23:30.480 --> 00:23:32.320
+monster, you're not going to restart.
+
+00:23:32.320 --> 00:23:33.440
+You're just going to feel bad about
+
+00:23:33.440 --> 00:23:34.960
+yourself. And so, that's why the
+
+00:23:34.960 --> 00:23:36.640
+operating manual for this system
+
+00:23:36.640 --> 00:23:39.600
+explicitly says, "Don't catch up. Just
+
+00:23:39.600 --> 00:23:42.000
+restart. Do a 10-minute brain dump into
+
+00:23:42.000 --> 00:23:43.760
+your inbox with whatever you've got and
+
+00:23:43.760 --> 00:23:45.679
+resume tomorrow." And the automation
+
+00:23:45.679 --> 00:23:46.960
+will keep things running whether you
+
+00:23:46.960 --> 00:23:49.440
+engage or not. the system waits for you
+
+00:23:49.440 --> 00:23:50.960
+and is supportive and is easy to
+
+00:23:50.960 --> 00:23:54.240
+restart. Principle 11, build one
+
+00:23:54.240 --> 00:23:56.640
+workflow and then attach modules. So the
+
+00:23:56.640 --> 00:23:58.559
+scalable pattern is to build a core loop
+
+00:23:58.559 --> 00:24:00.320
+that works for everybody and then add
+
+00:24:00.320 --> 00:24:02.400
+optional capabilities later. And so the
+
+00:24:02.400 --> 00:24:04.480
+core loop is capture to Slack, file to
+
+00:24:04.480 --> 00:24:06.720
+notion, get a daily digest, get a weekly
+
+00:24:06.720 --> 00:24:09.440
+review. That's the minimum viable loop
+
+00:24:09.440 --> 00:24:11.039
+here. And once that's running, once you
+
+00:24:11.039 --> 00:24:12.960
+trust it, you can add voice capture if
+
+00:24:12.960 --> 00:24:14.480
+you want. You can add meeting prep by
+
+00:24:14.480 --> 00:24:15.840
+integrating it with your calendar. You
+
+00:24:15.840 --> 00:24:17.600
+can add email forwarding. You can add
+
+00:24:17.600 --> 00:24:19.520
+birthday reminders, but you don't do
+
+00:24:19.520 --> 00:24:21.200
+that first. You build the core loop
+
+00:24:21.200 --> 00:24:24.159
+first. Principle 12, optimize for
+
+00:24:24.159 --> 00:24:27.120
+maintainability over cleverness. So the
+
+00:24:27.120 --> 00:24:28.720
+engineering temptation is to build a
+
+00:24:28.720 --> 00:24:30.480
+beautiful system with so many moving
+
+00:24:30.480 --> 00:24:32.159
+parts and elegant abstractions. And the
+
+00:24:32.159 --> 00:24:34.000
+real world reality is that moving parts
+
+00:24:34.000 --> 00:24:36.240
+are failure points. And so optimize for
+
+00:24:36.240 --> 00:24:39.039
+fewer tools, fewer steps, clear logs,
+
+00:24:39.039 --> 00:24:41.120
+easy reconnects. When your Zapier
+
+00:24:41.120 --> 00:24:42.799
+automation stops because your Slack
+
+00:24:42.799 --> 00:24:44.720
+token expired, which is a real thing,
+
+00:24:44.720 --> 00:24:46.559
+you want to fix it in five minutes, not
+
+00:24:46.559 --> 00:24:48.480
+debug it for an hour. And when notion
+
+00:24:48.480 --> 00:24:49.840
+permissions get weird, you want to
+
+00:24:49.840 --> 00:24:51.760
+reconnect and move on. That's what makes
+
+00:24:51.760 --> 00:24:54.000
+this actually scale. Now, I often get
+
+00:24:54.000 --> 00:24:55.520
+complaints on these videos that I don't
+
+00:24:55.520 --> 00:24:57.520
+give enough detail. No complaints here.
+
+00:24:57.520 --> 00:24:58.880
+I'm going to walk you through step by
+
+00:24:58.880 --> 00:25:01.120
+step what we're doing. First, create the
+
+00:25:01.120 --> 00:25:02.799
+Slack channel. Go to Slack. Create a new
+
+00:25:02.799 --> 00:25:04.080
+channel called Whatever You Want. Make
+
+00:25:04.080 --> 00:25:05.679
+it private if you wish. And pin a
+
+00:25:05.679 --> 00:25:07.279
+message that explain what goes there.
+
+00:25:07.279 --> 00:25:08.799
+Something like, "Drop a thought here.
+
+00:25:08.799 --> 00:25:11.279
+one thought per message etc. Second, you
+
+00:25:11.279 --> 00:25:13.440
+want to create the notion databases. You
+
+00:25:13.440 --> 00:25:14.960
+want to create a new page called second
+
+00:25:14.960 --> 00:25:16.480
+brain and inside it you want to create
+
+00:25:16.480 --> 00:25:19.360
+your five databases as table people
+
+00:25:19.360 --> 00:25:22.480
+might have name context follow-ups last
+
+00:25:22.480 --> 00:25:26.159
+touched tags project status next action
+
+00:25:26.159 --> 00:25:28.480
+notes ideas could have name and oneliner
+
+00:25:28.480 --> 00:25:30.000
+and yes there there's there's going to
+
+00:25:30.000 --> 00:25:31.760
+be a whole worksheet for you if you want
+
+00:25:31.760 --> 00:25:33.039
+to get this in the substacks you don't
+
+00:25:33.039 --> 00:25:34.159
+have to remember this but I'm just going
+
+00:25:34.159 --> 00:25:35.840
+through the detail right you want to
+
+00:25:35.840 --> 00:25:37.520
+have uh the name of the idea the
+
+00:25:37.520 --> 00:25:39.840
+oneliner the notes the tags etc and
+
+00:25:39.840 --> 00:25:41.600
+admin would have the name the due date
+
+00:25:41.600 --> 00:25:44.240
+the status etc inbox log. It has to have
+
+00:25:44.240 --> 00:25:46.799
+captured text file to destination record
+
+00:25:46.799 --> 00:25:48.080
+the confidence level when it was
+
+00:25:48.080 --> 00:25:50.159
+created. Third, you connect Zapier to
+
+00:25:50.159 --> 00:25:52.000
+Slack and to Notion to make that pipe.
+
+00:25:52.000 --> 00:25:53.440
+So you go to Zapier, you connect your
+
+00:25:53.440 --> 00:25:54.880
+Slack account, you connect your notion
+
+00:25:54.880 --> 00:25:56.640
+account, and when notion asks which
+
+00:25:56.640 --> 00:25:58.640
+pages Zapier can access, make sure you
+
+00:25:58.640 --> 00:26:00.320
+grant access to the right page. Fourth,
+
+00:26:00.320 --> 00:26:01.840
+you want to build the automation. So
+
+00:26:01.840 --> 00:26:04.159
+create a new zap and the trigger is new
+
+00:26:04.159 --> 00:26:06.240
+message posted to channel in the Slack
+
+00:26:06.240 --> 00:26:07.679
+and it's filtered to just that one
+
+00:26:07.679 --> 00:26:10.080
+channel you want like SP inbox. The next
+
+00:26:10.080 --> 00:26:12.159
+step is an AI action that sends the
+
+00:26:12.159 --> 00:26:14.320
+message to Claude or Chad GBT with your
+
+00:26:14.320 --> 00:26:16.799
+classification prompt. The prompt tells
+
+00:26:16.799 --> 00:26:18.480
+it to classify into people, project
+
+00:26:18.480 --> 00:26:20.400
+ideas or admin and yes, I'll supply this
+
+00:26:20.400 --> 00:26:22.240
+prompt and then it returns JSON. And
+
+00:26:22.240 --> 00:26:23.600
+then the next step, you're just parsing
+
+00:26:23.600 --> 00:26:25.520
+that JSON. You add paths that route
+
+00:26:25.520 --> 00:26:26.880
+based on the destination. If it's
+
+00:26:26.880 --> 00:26:28.400
+people, create a record in the people
+
+00:26:28.400 --> 00:26:30.080
+database. If it's projects, you create
+
+00:26:30.080 --> 00:26:32.000
+in projects and so on. Fifth, you want
+
+00:26:32.000 --> 00:26:33.360
+to build your morning digest. Create
+
+00:26:33.360 --> 00:26:35.120
+another zap. The triggers a daily
+
+00:26:35.120 --> 00:26:36.400
+schedule at whatever time in the
+
+00:26:36.400 --> 00:26:37.919
+morning. the action queries your notion
+
+00:26:37.919 --> 00:26:40.080
+database and you send that query result
+
+00:26:40.080 --> 00:26:41.679
+to claude or chat GPT with a
+
+00:26:41.679 --> 00:26:43.120
+summarization prompt. Again, I'll
+
+00:26:43.120 --> 00:26:45.039
+provide the summarization prompt. Then
+
+00:26:45.039 --> 00:26:46.640
+you can build the weekly review with the
+
+00:26:46.640 --> 00:26:48.480
+same pattern. That's the whole system.
+
+00:26:48.480 --> 00:26:50.720
+It's three Zapier automations. It's four
+
+00:26:50.720 --> 00:26:53.200
+notion databases plus a log. It's one
+
+00:26:53.200 --> 00:26:55.440
+channel. Look, it might not even take an
+
+00:26:55.440 --> 00:26:57.360
+hour to set this up. And maybe it'll
+
+00:26:57.360 --> 00:26:58.640
+take 90 minutes if you're comfortable
+
+00:26:58.640 --> 00:27:00.400
+with Zapier. Now, let me tell you what
+
+00:27:00.400 --> 00:27:01.600
+this will feel like when it's working,
+
+00:27:01.600 --> 00:27:04.400
+though. You will feel lighter. It's not
+
+00:27:04.400 --> 00:27:06.080
+because you're more productive in some
+
+00:27:06.080 --> 00:27:07.919
+fantastically measurable way. It's
+
+00:27:07.919 --> 00:27:09.919
+because you're closing all of the open
+
+00:27:09.919 --> 00:27:11.520
+loops that are living in your head
+
+00:27:11.520 --> 00:27:13.440
+constantly. And you'll notice yourself
+
+00:27:13.440 --> 00:27:14.960
+thinking, I should remember that. And
+
+00:27:14.960 --> 00:27:16.559
+instead of trying to leave it as an open
+
+00:27:16.559 --> 00:27:18.559
+loop in your head, you're going to post
+
+00:27:18.559 --> 00:27:21.039
+it into your SB inbox and move along
+
+00:27:21.039 --> 00:27:23.120
+because you don't have to think about it
+
+00:27:23.120 --> 00:27:24.880
+anymore. And so your head will get
+
+00:27:24.880 --> 00:27:26.559
+clearer. And so you're going to notice
+
+00:27:26.559 --> 00:27:28.480
+that you're able to show up with more
+
+00:27:28.480 --> 00:27:30.159
+continuity for the people that matter to
+
+00:27:30.159 --> 00:27:31.600
+you, for the projects that matter to
+
+00:27:31.600 --> 00:27:33.039
+you, for the work. you'll have an easier
+
+00:27:33.039 --> 00:27:35.039
+time remembering details. And then as
+
+00:27:35.039 --> 00:27:37.200
+you go along and use it more, you're
+
+00:27:37.200 --> 00:27:38.960
+going to start to compound because the
+
+00:27:38.960 --> 00:27:40.400
+projects are going to start to develop
+
+00:27:40.400 --> 00:27:42.480
+patterns that you can see and notice
+
+00:27:42.480 --> 00:27:44.240
+over time. And that's going to enable
+
+00:27:44.240 --> 00:27:46.640
+you to get smarter about giving input
+
+00:27:46.640 --> 00:27:48.640
+back to the system through SP inbox.
+
+00:27:48.640 --> 00:27:50.799
+Your anxiety, if you're someone who
+
+00:27:50.799 --> 00:27:52.720
+tries to remember everything, it doesn't
+
+00:27:52.720 --> 00:27:54.399
+magically go away entirely, but it
+
+00:27:54.399 --> 00:27:56.559
+definitely changes in character. It
+
+00:27:56.559 --> 00:27:58.720
+stops being just this background hum of
+
+00:27:58.720 --> 00:28:00.799
+all of your unttracked commitments and
+
+00:28:00.799 --> 00:28:02.480
+it starts being a small set of next
+
+00:28:02.480 --> 00:28:05.360
+actions that you can actually take. It's
+
+00:28:05.360 --> 00:28:07.760
+basically a a factory for turning your
+
+00:28:07.760 --> 00:28:09.360
+anxiety and your difficulty in
+
+00:28:09.360 --> 00:28:11.600
+remembering things into action. Now, I
+
+00:28:11.600 --> 00:28:13.760
+got to be honest with you. I am going to
+
+00:28:13.760 --> 00:28:15.919
+give you this video and most people will
+
+00:28:15.919 --> 00:28:17.679
+not actually build this. Not because
+
+00:28:17.679 --> 00:28:19.840
+it's hard. You've heard me describe it.
+
+00:28:19.840 --> 00:28:22.080
+It doesn't take that long. It's because
+
+00:28:22.080 --> 00:28:24.880
+we've normalized the leakage that comes
+
+00:28:24.880 --> 00:28:26.399
+from being busy. We scroll through
+
+00:28:26.399 --> 00:28:28.399
+YouTube, it's like, ah, Nate's saying
+
+00:28:28.399 --> 00:28:29.600
+something again, he'll come up with
+
+00:28:29.600 --> 00:28:31.840
+another video. I want you to think about
+
+00:28:31.840 --> 00:28:35.360
+it as the cost of a system that we fail
+
+00:28:35.360 --> 00:28:38.080
+to build isn't just missed ideas. It's
+
+00:28:38.080 --> 00:28:40.640
+that your work becomes less compounding.
+
+00:28:40.640 --> 00:28:45.200
+The value you create in 2026 is lower
+
+00:28:45.200 --> 00:28:47.039
+because you're not building on that
+
+00:28:47.039 --> 00:28:48.960
+value as intentionally as you could be.
+
+00:28:48.960 --> 00:28:50.240
+And so, if you're watching this in
+
+00:28:50.240 --> 00:28:51.600
+January and you're thinking about what
+
+00:28:51.600 --> 00:28:53.679
+project might actually change the year,
+
+00:28:53.679 --> 00:28:55.120
+think about doing this one, right?
+
+00:28:55.120 --> 00:28:56.720
+You're not building a productivity
+
+00:28:56.720 --> 00:28:58.240
+system. You're not building something to
+
+00:28:58.240 --> 00:29:00.240
+feel good about yourself. You're just
+
+00:29:00.240 --> 00:29:03.120
+relentlessly taking charge of your
+
+00:29:03.120 --> 00:29:05.600
+actual brain and giving it a support
+
+00:29:05.600 --> 00:29:07.039
+system that helps it to work
+
+00:29:07.039 --> 00:29:08.720
+effectively. And for the first time in
+
+00:29:08.720 --> 00:29:10.880
+human history, you have access to
+
+00:29:10.880 --> 00:29:13.279
+systems that will work for you while you
+
+00:29:13.279 --> 00:29:15.200
+sleep. That classify your thoughts
+
+00:29:15.200 --> 00:29:17.440
+without you deciding, that surface the
+
+00:29:17.440 --> 00:29:19.360
+right information without you searching,
+
+00:29:19.360 --> 00:29:21.840
+that nudge you toward the goals and
+
+00:29:21.840 --> 00:29:24.159
+priorities you've set without you having
+
+00:29:24.159 --> 00:29:25.919
+to remember them. And you don't even
+
+00:29:25.919 --> 00:29:27.600
+have to be an engineer to build this.
+
+00:29:27.600 --> 00:29:29.279
+You just have to understand patterns.
+
+00:29:29.279 --> 00:29:31.039
+And that's exactly what I've laid out in
+
+00:29:31.039 --> 00:29:33.039
+this video. So that's the whole
+
+00:29:33.039 --> 00:29:35.840
+architecture. And in 2026, you can build
+
+00:29:35.840 --> 00:29:38.080
+it yourself. And yes, I have all of the
+
+00:29:38.080 --> 00:29:40.080
+guides for this on the Substack. I hope
+
+00:29:40.080 --> 00:29:41.840
+this has been helpful. I want everyone
+
+00:29:41.840 --> 00:29:43.919
+to feel like one, they can build
+
+00:29:43.919 --> 00:29:46.320
+something with AI. Two, it's worth
+
+00:29:46.320 --> 00:29:49.440
+doing. Three, if you build smartly, you
+
+00:29:49.440 --> 00:29:51.600
+are building in a way that allows you to
+
+00:29:51.600 --> 00:29:53.360
+compound your advantage over time, which
+
+00:29:53.360 --> 00:29:55.039
+is going to be really important as AI
+
+00:29:55.039 --> 00:29:57.440
+moves faster in 2026. So, that's how to
+
+00:29:57.440 --> 00:29:59.279
+build a second brain without a line of
+
+00:29:59.279 --> 00:30:01.200
+code. And those are the engineering
+
+00:30:01.200 --> 00:30:02.960
+principles that you're using even if
+
+00:30:02.960 --> 00:30:04.559
+you're not an engineer. Hope you enjoyed
+
+00:30:04.559 --> 00:30:07.120
+this one.

@@ -1,0 +1,365 @@
+{
+  "repositories": [
+    {
+      "name": "AAC",
+      "visibility": "PUBLIC",
+      "language_hint": "Python",
+      "updatedAt": "2026-03-06T10:50:01Z",
+      "tier": "L",
+      "autonomy_level": "L2",
+      "risk_tier": "MEDIUM",
+      "clean_scans": 18
+    },
+    {
+      "name": "Adventure-Hero-Chronicles-Of-Glory",
+      "visibility": "PRIVATE",
+      "language_hint": "HTML",
+      "updatedAt": "2026-02-08T19:10:19Z",
+      "tier": "L",
+      "autonomy_level": "L2",
+      "risk_tier": "MEDIUM",
+      "clean_scans": 18
+    },
+    {
+      "name": "ADVENTUREHEROAUTO",
+      "visibility": "PUBLIC",
+      "language_hint": "Python",
+      "updatedAt": "2026-02-20T01:21:23Z",
+      "tier": "L",
+      "autonomy_level": "L2",
+      "risk_tier": "MEDIUM",
+      "clean_scans": 18
+    },
+    {
+      "name": "CIVIL-FORGE-TECHNOLOGIES-",
+      "visibility": "PUBLIC",
+      "language_hint": "Python",
+      "updatedAt": "2026-03-01T16:13:49Z",
+      "tier": "L",
+      "autonomy_level": "L2",
+      "risk_tier": "MEDIUM",
+      "clean_scans": 18
+    },
+    {
+      "name": "Crimson-Compass",
+      "visibility": "PUBLIC",
+      "language_hint": "C#",
+      "updatedAt": "2026-03-06T10:50:27Z",
+      "tier": "L",
+      "autonomy_level": "L2",
+      "risk_tier": "MEDIUM",
+      "clean_scans": 18
+    },
+    {
+      "name": "demo",
+      "visibility": "PRIVATE",
+      "language_hint": "Python",
+      "updatedAt": "2026-03-01T16:14:02Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 18
+    },
+    {
+      "name": "DIGITAL-LABOUR",
+      "visibility": "PRIVATE",
+      "language_hint": null,
+      "updatedAt": "2026-03-07T10:41:27Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 0
+    },
+    {
+      "name": "DUBFORGE",
+      "visibility": "PRIVATE",
+      "language_hint": "Python",
+      "updatedAt": "2026-03-09T05:13:04Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 0
+    },
+    {
+      "name": "ELECTRIC-BODY-AND-PARAMAGNETISM",
+      "visibility": "PRIVATE",
+      "language_hint": null,
+      "updatedAt": "2026-03-07T01:33:32Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 0
+    },
+    {
+      "name": "electric-ice",
+      "visibility": "PUBLIC",
+      "language_hint": "JavaScript",
+      "updatedAt": "2026-02-28T13:12:19Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 18
+    },
+    {
+      "name": "ELECTRIC-UNIVERSE",
+      "visibility": "PUBLIC",
+      "language_hint": "Python",
+      "updatedAt": "2026-03-06T03:07:43Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 18
+    },
+    {
+      "name": "ENTERPRISE-EXCELERATION",
+      "visibility": "PRIVATE",
+      "language_hint": null,
+      "updatedAt": "2026-02-23T08:37:17Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 0
+    },
+    {
+      "name": "FRACTAL-FUTURE",
+      "visibility": "PRIVATE",
+      "language_hint": null,
+      "updatedAt": "2026-03-07T01:30:41Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 0
+    },
+    {
+      "name": "future-predictor-council",
+      "visibility": "PUBLIC",
+      "language_hint": "Python",
+      "updatedAt": "2026-03-01T16:16:49Z",
+      "tier": "L",
+      "autonomy_level": "L2",
+      "risk_tier": "MEDIUM",
+      "clean_scans": 18
+    },
+    {
+      "name": "GEET-PLASMA-PROJECT",
+      "visibility": "PUBLIC",
+      "language_hint": "Python",
+      "updatedAt": "2026-02-20T01:22:38Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 18
+    },
+    {
+      "name": "HUMAN-HEALTH",
+      "visibility": "PUBLIC",
+      "language_hint": null,
+      "updatedAt": "2026-02-20T01:26:46Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 18
+    },
+    {
+      "name": "MAGNUM-MARKETING",
+      "visibility": "PRIVATE",
+      "language_hint": null,
+      "updatedAt": "2026-03-07T01:54:12Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 0
+    },
+    {
+      "name": "MEGALITHIC-MEDIA",
+      "visibility": "PRIVATE",
+      "language_hint": null,
+      "updatedAt": "2026-03-07T01:53:31Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 0
+    },
+    {
+      "name": "MircoHydro",
+      "visibility": "PUBLIC",
+      "language_hint": "Python",
+      "updatedAt": "2026-03-06T06:25:29Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 18
+    },
+    {
+      "name": "NATEBJONES",
+      "visibility": "PUBLIC",
+      "language_hint": null,
+      "updatedAt": "2026-02-20T00:55:56Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "CRITICAL",
+      "clean_scans": 18
+    },
+    {
+      "name": "NCC",
+      "visibility": "PUBLIC",
+      "language_hint": null,
+      "updatedAt": "2026-02-20T01:24:33Z",
+      "tier": "L",
+      "autonomy_level": "L1",
+      "risk_tier": "CRITICAL",
+      "clean_scans": 18
+    },
+    {
+      "name": "NCC-Doctrine",
+      "visibility": "PUBLIC",
+      "language_hint": "Python",
+      "updatedAt": "2026-03-08T07:42:58Z",
+      "tier": "L",
+      "autonomy_level": "L1",
+      "risk_tier": "CRITICAL",
+      "clean_scans": 18
+    },
+    {
+      "name": "NCL",
+      "visibility": "PUBLIC",
+      "language_hint": null,
+      "updatedAt": "2026-02-20T01:19:45Z",
+      "tier": "L",
+      "autonomy_level": "L1",
+      "risk_tier": "CRITICAL",
+      "clean_scans": 18
+    },
+    {
+      "name": "perpetual-flow-cube",
+      "visibility": "PRIVATE",
+      "language_hint": "Python",
+      "updatedAt": "2026-01-26T11:48:12Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 18
+    },
+    {
+      "name": "QDFG1",
+      "visibility": "PUBLIC",
+      "language_hint": "Swift",
+      "updatedAt": "2026-02-20T01:27:28Z",
+      "tier": "L",
+      "autonomy_level": "L2",
+      "risk_tier": "MEDIUM",
+      "clean_scans": 18
+    },
+    {
+      "name": "QUSAR",
+      "visibility": "PRIVATE",
+      "language_hint": "Python",
+      "updatedAt": "2026-03-01T16:18:36Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 0
+    },
+    {
+      "name": "Resonance-Energy-Systems",
+      "visibility": "PRIVATE",
+      "language_hint": "Python",
+      "updatedAt": "2026-02-27T13:20:01Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 18
+    },
+    {
+      "name": "resonance-uy-py",
+      "visibility": "PRIVATE",
+      "language_hint": "PowerShell",
+      "updatedAt": "2026-03-01T15:01:00Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "CRITICAL",
+      "clean_scans": 18
+    },
+    {
+      "name": "ResonanceEnergy_Enterprise",
+      "visibility": "PUBLIC",
+      "language_hint": "Python",
+      "updatedAt": "2026-02-27T13:20:07Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "CRITICAL",
+      "clean_scans": 18
+    },
+    {
+      "name": "Digital-Labour",
+      "visibility": "PRIVATE",
+      "language_hint": "Python",
+      "updatedAt": "2026-03-09T05:17:21Z",
+      "tier": "L",
+      "autonomy_level": "L1",
+      "risk_tier": "CRITICAL",
+      "clean_scans": 18
+    },
+    {
+      "name": "SUPERSTONK-TRADER",
+      "visibility": "PUBLIC",
+      "language_hint": "Python",
+      "updatedAt": "2026-02-20T01:26:23Z",
+      "tier": "L",
+      "autonomy_level": "L2",
+      "risk_tier": "MEDIUM",
+      "clean_scans": 18
+    },
+    {
+      "name": "TARTARIA",
+      "visibility": "PRIVATE",
+      "language_hint": null,
+      "updatedAt": "2026-03-06T10:01:35Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 0
+    },
+    {
+      "name": "TESLA-TECH",
+      "visibility": "PUBLIC",
+      "language_hint": null,
+      "updatedAt": "2026-02-20T01:23:12Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 18
+    },
+    {
+      "name": "TESLACALLS2026",
+      "visibility": "PUBLIC",
+      "language_hint": null,
+      "updatedAt": "2026-02-20T01:20:22Z",
+      "tier": "L",
+      "autonomy_level": "L2",
+      "risk_tier": "MEDIUM",
+      "clean_scans": 18
+    },
+    {
+      "name": "VORTEX-HUNTER",
+      "visibility": "PUBLIC",
+      "language_hint": null,
+      "updatedAt": "2026-02-20T01:24:59Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 18
+    },
+    {
+      "name": "YOUTUBEDROP",
+      "visibility": "PUBLIC",
+      "language_hint": "Python",
+      "updatedAt": "2026-02-28T12:42:51Z",
+      "tier": "M",
+      "autonomy_level": "L1",
+      "risk_tier": "HIGH",
+      "clean_scans": 18
+    }
+  ],
+  "generated": "2026-03-08T23:33:53.178920"
+}

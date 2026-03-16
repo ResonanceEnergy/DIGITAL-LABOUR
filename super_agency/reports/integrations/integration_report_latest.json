@@ -1,0 +1,36 @@
+{
+  "ncc": {
+    "system": "NCC",
+    "action": "sync",
+    "synced_at": "2026-03-15T13:46:54.649136-07:00",
+    "events_processed": 11,
+    "status": "synced"
+  },
+  "ncl": {
+    "system": "NCL",
+    "action": "sync",
+    "synced_at": "2026-03-15T13:46:54.650635-07:00",
+    "entries": 0,
+    "graph_nodes": 0,
+    "status": "synced"
+  },
+  "aac": {
+    "system": "AAC",
+    "action": "sync",
+    "synced_at": "2026-03-15T13:46:54.654481-07:00",
+    "roi_repos": 0,
+    "budget_status": "unknown",
+    "budget_alerts": 0,
+    "aac_synced": true,
+    "status": "synced"
+  },
+  "digital_labour": {
+    "system": "DigitalLabour",
+    "action": "sync",
+    "synced_at": "2026-03-15T13:47:00.551314-07:00",
+    "status": "synced",
+    "report": "labour_report_latest.json"
+  },
+  "synced_at": "2026-03-15T13:47:00.551348-07:00",
+  "elapsed_seconds": 5.9
+}

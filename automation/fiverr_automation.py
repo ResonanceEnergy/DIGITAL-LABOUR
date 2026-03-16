@@ -199,7 +199,7 @@ def generate_gig_image(gig_index: int, gig: dict, output_dir: Path = None) -> Pa
 
     # --- Brand name ---
     font_brand = _get_font("bold", 22)
-    draw.text((120, 45), "BIT RAGE LABOUR SYSTEMS", font=font_brand, fill=COLORS["accent"])
+    draw.text((120, 45), "DIGITAL LABOUR SYSTEMS", font=font_brand, fill=COLORS["accent"])
 
     # --- Gig number badge ---
     badge_x = IMG_W - 120

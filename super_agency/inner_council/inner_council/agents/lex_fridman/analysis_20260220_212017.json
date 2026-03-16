@@ -1,0 +1,82 @@
+[
+  {
+    "video_id": "lex_001",
+    "title": "Elon Musk: Neuralink, AI, and the Future of Humanity",
+    "analysis": {
+      "guest_expertise": "Space, Technology, AI, Engineering",
+      "ai_discussions": [
+        "AI Safety: ai safety"
+      ],
+      "philosophical_questions": [],
+      "scientific_breakthroughs": [
+        "Scientific: progress"
+      ],
+      "technology_predictions": [
+        "Future Tech: future"
+      ],
+      "key_takeaways": [
+        "AI development continues to accelerate with focus on safety and alignment",
+        "Scientific understanding of intelligence and cognition is rapidly advancing",
+        "Technology predictions suggest transformative changes in human augmentation and AI integration"
+      ],
+      "policy_implications": [
+        "Policy: Accelerate AI safety research funding and international cooperation",
+        "Policy: Develop comprehensive AI regulatory frameworks with global standards",
+        "Policy: Accelerate AI safety research funding and international cooperation"
+      ],
+      "strategic_recommendations": [
+        "Strategic: Invest in AI talent development and research infrastructure",
+        "Strategic: Build redundant AI safety mechanisms and international oversight",
+        "Strategic: Prepare society for technological singularity through education and adaptation"
+      ],
+      "risk_assessments": [
+        "Risk: AI development outpacing safety measures and ethical frameworks",
+        "Risk: Societal disruption from rapid technological change without adequate preparation"
+      ],
+      "confidence_score": 0.92,
+      "analysis_depth": "comprehensive"
+    },
+    "analyzed_at": "2026-02-20T21:20:17.158722",
+    "agent_specialization": "ai_technology_philosophy"
+  },
+  {
+    "video_id": "lex_002",
+    "title": "Yann LeCun: AI Progress, Consciousness, and the Future",
+    "analysis": {
+      "guest_expertise": "AI, Computer Vision, Deep Learning",
+      "ai_discussions": [
+        "AI Safety: agi",
+        "Technical AI: agi"
+      ],
+      "philosophical_questions": [
+        "Philosophy: consciousness"
+      ],
+      "scientific_breakthroughs": [
+        "Scientific: breakthrough"
+      ],
+      "technology_predictions": [],
+      "key_takeaways": [
+        "AI development continues to accelerate with focus on safety and alignment",
+        "Deep questions about consciousness and human nature remain central to technological progress",
+        "Scientific understanding of intelligence and cognition is rapidly advancing"
+      ],
+      "policy_implications": [
+        "Policy: Accelerate AI safety research funding and international cooperation",
+        "Policy: Develop comprehensive AI regulatory frameworks with global standards",
+        "Policy: Accelerate AI safety research funding and international cooperation",
+        "Policy: Support interdisciplinary research combining neuroscience, philosophy, and AI"
+      ],
+      "strategic_recommendations": [
+        "Strategic: Invest in AI talent development and research infrastructure",
+        "Strategic: Build redundant AI safety mechanisms and international oversight"
+      ],
+      "risk_assessments": [
+        "Risk: AI development outpacing safety measures and ethical frameworks"
+      ],
+      "confidence_score": 0.92,
+      "analysis_depth": "comprehensive"
+    },
+    "analyzed_at": "2026-02-20T21:20:17.158774",
+    "agent_specialization": "ai_technology_philosophy"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "task_type": "sales_outreach",
+    "event_id": "0f3e0ddc-b919-4f05-96be-0619c416b077",
+    "qa_status": "PASS",
+    "latency_s": 9.27,
+    "delivery": "delivered",
+    "passed": true
+  },
+  {
+    "task_type": "support_ticket",
+    "event_id": "b32657dd-3ab3-4915-91fb-02ce4fa7b8be",
+    "qa_status": "PASS",
+    "latency_s": 9.73,
+    "delivery": "delivered",
+    "passed": true
+  },
+  {
+    "task_type": "content_repurpose",
+    "event_id": "ad77032b-4551-4eb0-9e1b-94682b125c64",
+    "qa_status": "PASS",
+    "latency_s": 10.36,
+    "delivery": "delivered",
+    "passed": true
+  },
+  {
+    "task_type": "doc_extract",
+    "event_id": "553a541f-c9cf-4c2a-8e25-bb894165bae3",
+    "qa_status": "PASS",
+    "latency_s": 6.8,
+    "delivery": "delivered",
+    "passed": true
+  }
+]

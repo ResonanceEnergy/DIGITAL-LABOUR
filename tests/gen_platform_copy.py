@@ -26,7 +26,7 @@ def gen_fiverr():
     from income.freelance_listings import FIVERR_GIGS
     lines = []
     lines.append("=" * 80)
-    lines.append("FIVERR GIG LISTINGS — Bit Rage Labour")
+    lines.append("FIVERR GIG LISTINGS — Digital Labour")
     lines.append(f"Total Gigs: {len(FIVERR_GIGS)}")
     lines.append("=" * 80)
 
@@ -67,10 +67,10 @@ def gen_upwork():
     from income.freelance_listings import UPWORK_PROFILE
     lines = []
     lines.append("=" * 80)
-    lines.append("UPWORK PROFILE & SERVICE CATALOG — Bit Rage Labour")
+    lines.append("UPWORK PROFILE & SERVICE CATALOG — Digital Labour")
     lines.append("=" * 80)
 
-    lines.append(f"\nAgency: {UPWORK_PROFILE.get('agency_name', 'Bit Rage Labour')}")
+    lines.append(f"\nAgency: {UPWORK_PROFILE.get('agency_name', 'Digital Labour')}")
     lines.append(f"Tagline: {UPWORK_PROFILE.get('tagline', '')}")
     lines.append(f"Overview:\n{UPWORK_PROFILE.get('overview', '')}")
 
@@ -115,7 +115,7 @@ def gen_pph():
     from income.freelance_listings import PEOPLEPERHOUR_PROFILE
     lines = []
     lines.append("=" * 80)
-    lines.append("PEOPLEPERHOUR HOURLIES — Bit Rage Labour")
+    lines.append("PEOPLEPERHOUR HOURLIES — Digital Labour")
     lines.append(f"Total Hourlies: {len(PEOPLEPERHOUR_PROFILE['hourlies'])}")
     lines.append("=" * 80)
 
@@ -138,7 +138,7 @@ def gen_guru():
     from income.freelance_listings import GURU_PROFILE
     lines = []
     lines.append("=" * 80)
-    lines.append("GURU SERVICE LISTINGS — Bit Rage Labour")
+    lines.append("GURU SERVICE LISTINGS — Digital Labour")
     lines.append(f"Total Listings: {len(GURU_PROFILE['service_listings'])}")
     lines.append("=" * 80)
 
@@ -161,7 +161,7 @@ def gen_toptal():
     from income.freelance_listings import TOPTAL_PROFILE
     lines = []
     lines.append("=" * 80)
-    lines.append("TOPTAL PROJECT TYPES — Bit Rage Labour")
+    lines.append("TOPTAL PROJECT TYPES — Digital Labour")
     lines.append(f"Total Projects: {len(TOPTAL_PROFILE['project_types'])}")
     lines.append("=" * 80)
 
@@ -183,7 +183,7 @@ def gen_freelancer():
     from campaign.freelancer_deploy import FREELANCER_GIGS, BID_TEMPLATES
     lines = []
     lines.append("=" * 80)
-    lines.append("FREELANCER GIGS & BID TEMPLATES — Bit Rage Labour")
+    lines.append("FREELANCER GIGS & BID TEMPLATES — Digital Labour")
     lines.append(f"Total Gigs: {len(FREELANCER_GIGS)}")
     lines.append("=" * 80)
 

@@ -1,0 +1,70 @@
+{
+    // Recommended VS Code Extensions for DIGITAL LABOUR Development
+    // Install these on both macOS and Windows systems
+
+    "recommendations": [
+        // Python Development
+        "ms-python.python",
+        "ms-python.pylint",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+
+        // Web Development (for MATRIX MAXIMIZER interface)
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-vscode.vscode-json",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+
+        // Git and Version Control
+        "eamodio.gitlens",
+        "ms-vscode.vscode-git-graph",
+        "github.copilot",
+
+        // Testing and Debugging
+        "ms-python.pytest-intellisense",
+        "ms-vscode.test-adapter-converter",
+        "hbenl.vscode-test-explorer",
+
+        // Remote Development (for cross-platform work)
+        "ms-vscode-remote.remote-ssh",
+        "ms-vscode-remote.remote-containers",
+
+        // Live Collaboration
+        "ms-vscode.vscode-live-share",
+
+        // Docker (if needed)
+        "ms-azuretools.vscode-docker",
+
+        // Markdown and Documentation
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
+
+        // Shell and Command Line
+        "ms-vscode.powershell",
+        "foxgis.vscode-shell",
+
+        // Theme and UI
+        "ms-vscode.vscode-theme-seti",
+        "ms-vscode.vscode-icons",
+
+        // Jupyter (for data analysis)
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+
+        // Database (if needed)
+        "ms-mssql.mssql",
+        "mongodb.mongodb-vscode",
+
+        // API Development
+        "humao.rest-client",
+        "rangav.vscode-thunder-client"
+    ],
+
+    // Extensions that should not be recommended
+    "unwantedRecommendations": [
+        "ms-vscode.vscode-typescript-baseline",
+        "ms-vscode.vscode-json-baseline"
+    ]
+}

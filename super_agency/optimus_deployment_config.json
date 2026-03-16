@@ -1,0 +1,127 @@
+{
+  "deployment": {
+    "name": "OPTIMUS Matrix Monitor Integration",
+    "version": "3.0",
+    "created": "2026-02-23",
+    "updated": "2026-02-23"
+  },
+  "optimus": {
+    "agent_name": "AGENT OPTIMUS",
+    "version": "3.0",
+    "role": "QFORGE Integration + REPO DEPOT Controller",
+    "capabilities": [
+      "QFORGE quantum operations",
+      "REPO DEPOT management",
+      "GitHub sync coordination",
+      "Matrix Monitor integration",
+      "Real-time chatbot interface"
+    ],
+    "integrations": {
+      "qforge": {
+        "enabled": true,
+        "module": "qforge.qforge_executor",
+        "class": "TaskExecutor",
+        "fallback": "simulation_mode"
+      },
+      "qusar": {
+        "enabled": true,
+        "module": "qusar.qusar_orchestrator",
+        "classes": ["FeedbackLoopManager", "GoalFormulator"],
+        "fallback": "simulation_mode"
+      },
+      "matrix_monitor": {
+        "enabled": true,
+        "type": "streamlit",
+        "port": 8501,
+        "host": "0.0.0.0"
+      },
+      "repo_depot": {
+        "enabled": true,
+        "module": "optimus_repo_depot_launcher",
+        "class": "OptimusRepoDepotController"
+      },
+      "github_sync": {
+        "enabled": true,
+        "module": "repo_depot_github_sync",
+        "class": "RepoDepotGitHubSync",
+        "org": "ResonanceEnergy",
+        "sync_interval_minutes": 30
+      }
+    }
+  },
+  "matrix_monitor": {
+    "theme": "red_futuristic",
+    "title": "QFORGE MATRIX MONITOR",
+    "subtitle": "OPTIMUS Integration Dashboard",
+    "features": {
+      "repo_depot_display": true,
+      "chatbot_enabled": true,
+      "chatbot_agent": "OPTIMUS",
+      "real_time_metrics": true,
+      "system_monitoring": true,
+      "sync_status": true
+    },
+    "panels": [
+      {
+        "id": "system_metrics",
+        "title": "System Metrics",
+        "type": "gauge",
+        "metrics": ["cpu", "ram", "swap"]
+      },
+      {
+        "id": "repo_depot",
+        "title": "REPO DEPOT",
+        "type": "grid",
+        "data_source": "portfolio.json",
+        "columns": 3
+      },
+      {
+        "id": "sync_status",
+        "title": "GitHub Sync Status",
+        "type": "status",
+        "data_source": "sync_reports"
+      },
+      {
+        "id": "optimus_chat",
+        "title": "OPTIMUS Chat",
+        "type": "chatbot",
+        "agent": "OPTIMUS"
+      }
+    ],
+    "colors": {
+      "primary": "#ff0000",
+      "secondary": "#8b0000",
+      "accent": "#ff6b6b",
+      "background": "#0d0d0d",
+      "text": "#ffffff",
+      "success": "#00ff00",
+      "warning": "#ffff00",
+      "error": "#ff0000"
+    }
+  },
+  "endpoints": {
+    "matrix_monitor": "http://localhost:8501",
+    "matrix_maximizer": "http://localhost:8502",
+    "api_dashboard": "http://localhost:8081",
+    "github_org": "https://github.com/ResonanceEnergy"
+  },
+  "scheduled_tasks": {
+    "github_sync": {
+      "enabled": true,
+      "interval_minutes": 30,
+      "task_name": "RepoDepot_GitHub_Sync",
+      "script": "schedule_github_sync.ps1"
+    },
+    "repo_build": {
+      "enabled": false,
+      "interval_hours": 6,
+      "script": "optimus_repo_depot_launcher.py"
+    }
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "log_dir": "logs",
+    "rotate_days": 7
+  }
+}

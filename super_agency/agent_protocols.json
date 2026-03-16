@@ -1,0 +1,23 @@
+{
+  "version": "1.0.38",
+  "last_updated": "2026-03-07T06:12:33.531522",
+  "protocols": {
+    "task_prioritization": {
+      "rule": "HIGH > MEDIUM > LOW",
+      "owner": "OPTIMUS"
+    },
+    "escalation_chain": {
+      "rule": "GASKET -> OPTIMUS -> AZ -> CEO",
+      "owner": "AZ"
+    },
+    "sync_frequency": {
+      "rule": "Every 15 minutes",
+      "owner": "AZ"
+    },
+    "error_handling": {
+      "rule": "Log, retry 3x, then escalate",
+      "owner": "GASKET"
+    }
+  },
+  "last_meeting": 47
+}

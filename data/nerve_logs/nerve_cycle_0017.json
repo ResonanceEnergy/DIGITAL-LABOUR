@@ -1,0 +1,43 @@
+{
+  "cycle": 17,
+  "started": "2026-03-15T21:25:39.012225+00:00",
+  "phases": {
+    "self_check": {
+      "status": "GREEN",
+      "issues": 0
+    },
+    "healing": {
+      "gaps_found": 3,
+      "healed": 1,
+      "escalated": 0
+    },
+    "prospects": {
+      "remaining": 1
+    },
+    "outreach": {
+      "error": "'charmap' codec can't encode character '\\u2192' in position 26: character maps to <undefined>"
+    },
+    "csuite": {
+      "actions": []
+    },
+    "health": {
+      "providers_up": 4,
+      "queue": {
+        "queued": 195,
+        "running": 0,
+        "completed": 0,
+        "failed": 0,
+        "total": 195
+      }
+    },
+    "revenue": {
+      "total": 60.0,
+      "new": 0
+    }
+  },
+  "decisions_made": 2,
+  "issues_healed": 1,
+  "escalations": 0,
+  "finished": "2026-03-15T21:26:07.779124+00:00",
+  "elapsed_seconds": 28.8
+}

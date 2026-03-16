@@ -1,16 +1,16 @@
 ---
 name: digital-labour
 version: 1.0.0
-description: "24 AI agents for business automation — sales outreach, lead gen, content creation, SEO, ad copy, bookkeeping, proposals, market research, business plans, tech docs, data entry, web scraping, CRM ops, and more. Multi-agent pipelines with QA verification on every output. Powered by GPT-4o, Claude, Gemini, and Grok."
+description: "29 AI agents for business automation - sales outreach, lead gen, content creation, SEO, ad copy, bookkeeping, proposals, market research, business plans, tech docs, data entry, web scraping, CRM ops, cross-platform freelancing automation (Upwork, Fiverr, Freelancer.com, PeoplePerHour, Guru), and more. 7 multi-agent pipelines with QA verification on every output. Powered by GPT-4o, Claude, Gemini, and Grok."
 tags: [ai-agents, business-automation, sales, lead-generation, content-creation, seo, bookkeeping, proposals, market-research, freelancing, saas, api]
 author: Resonance Energy
-homepage: https://bitrage-labour-api-production.up.railway.app
+homepage: https://digital-labour-api-production.up.railway.app
 metadata:
   author: Resonance Energy
   version: "1.0.0"
   openclaw:
     emoji: ⚡
-    homepage: "https://bitrage-labour-api-production.up.railway.app"
+    homepage: "https://digital-labour-api-production.up.railway.app"
     requires:
       env:
         - DIGITAL_LABOUR_API_URL
@@ -20,15 +20,15 @@ metadata:
 compatibility: "Requires Python 3.6+ (stdlib only, no pip installs). Requires DIGITAL_LABOUR_API_URL environment variable (defaults to production API)."
 ---
 
-# ⚡ Digital Labour — 24 AI Agents for Business Automation
+# ⚡ Digital Labour — 29 AI Agents for Business Automation
 
-> **Your entire back-office, automated.** Run any of 24 specialized AI agents through plain English. Sales outreach, lead generation, content repurposing, SEO, ad copy, bookkeeping, proposals, market research, tech docs — all with built-in QA verification.
+> **Your entire back-office, automated.** Run any of 29 specialized AI agents through plain English. Sales outreach, lead generation, content repurposing, SEO, ad copy, bookkeeping, proposals, market research, tech docs, cross-platform freelancing automation (Upwork, Fiverr, Freelancer.com, PeoplePerHour, Guru) — all with built-in QA verification.
 
 ## Quick Start
 
 Set your API URL (or use the default production endpoint):
 ```bash
-export DIGITAL_LABOUR_API_URL="https://bitrage-labour-api-production.up.railway.app"
+export DIGITAL_LABOUR_API_URL="https://digital-labour-api-production.up.railway.app"
 ```
 
 Test the connection:
@@ -41,7 +41,7 @@ Run an agent:
 python3 {baseDir}/scripts/dl-api.py run support_ticket '{"ticket_text": "My order has not arrived after 2 weeks"}'
 ```
 
-## Available Agents (24 Total)
+## Available Agents (28 Total)
 
 ### Revenue & Sales (5 agents)
 | Agent | Command | What it does |
@@ -58,7 +58,7 @@ python3 {baseDir}/scripts/dl-api.py run support_ticket '{"ticket_text": "My orde
 | **content_repurpose** | `run content_repurpose '{"content":"<blog post text>"}'` | Repurpose content into tweets, LinkedIn, newsletters |
 | **seo_content** | `run seo_content '{"keyword":"AI automation","content_type":"blog"}'` | SEO-optimized content (blog/landing/pillar pages) |
 | **social_media** | `run social_media '{"topic":"AI trends","platform":"linkedin","cta_goal":"drive signups"}'` | Platform-native social posts with CTAs |
-| **press_release** | `run press_release '{"announcement":"Product launch","company":"Bitrage"}'` | PR-ready press releases |
+| **press_release** | `run press_release '{"announcement":"Product launch","company":"Digital Labour"}'` | PR-ready press releases |
 
 ### Operations & Data (4 agents)
 | Agent | Command | What it does |
@@ -82,6 +82,19 @@ python3 {baseDir}/scripts/dl-api.py run support_ticket '{"ticket_text": "My orde
 | **support_ticket** | `run support_ticket '{"ticket_text":"<customer issue>"}'` | Categorize, prioritize, draft reply for support tickets |
 | **product_desc** | `run product_desc '{"product_specs":"<specs>","tone":"luxury"}'` | Product descriptions in any tone |
 | **resume_writer** | `run resume_writer '{"career_data":"<career history>","target_industry":"tech"}'` | ATS-optimized resumes for any industry |
+
+### Platform Automation (5 agents)
+| Agent | Command | What it does |
+|-------|---------|-------------|
+| **freelancer_work** | `run freelancer_work '{"action":"bid","project":{"title":"Data entry project","description":"Need 1000 rows processed"}}'` | Freelancer.com: search, match, bid, execute work, deliver, message clients — full project lifecycle |
+| **upwork_work** | `run upwork_work '{"action":"search","query":"data entry automation","max_results":10}'` | Upwork: job search, proposal generation, contract delivery, client messaging |
+| **fiverr_work** | `run fiverr_work '{"action":"check_orders","auto_deliver":true}'` | Fiverr: gig deployment, order detection, fulfillment, buyer request responses |
+| **pph_work** | `run pph_work '{"action":"search","query":"web scraping","max_results":10}'` | PeoplePerHour: hourlies search, proposals, delivery, client communication |
+| **guru_work** | `run guru_work '{"action":"bid","project_id":"456","agent":"web_scraper"}'` | Guru: job search, quoting, delivery, invoice management |
+
+Actions for all platform agents: `search` (find matching jobs), `bid`/`propose` (submit proposal), `deliver` (send deliverables), `message` (client communication), `status` (check active projects), `scan` (autonomous sweep).
+
+freelancer_work additional actions: `execute` (dispatch to internal agents), `complete` (full lifecycle: plan→execute→deliver).
 
 ### Management Layer (4 agents)
 | Agent | Command | What it does |
@@ -163,9 +176,28 @@ Chain agents together for complex operations:
 3. `bookkeeping` → set up financial tracking
 4. `crm_ops` → create CRM records
 
+**Freelance Hunt (cross-platform):**
+1. `freelancer_work` / `upwork_work` / `fiverr_work` / `pph_work` / `guru_work` → scan all platforms for matching jobs
+2. `market_research` → competitive analysis for top categories
+3. `proposal_writer` → generate platform-specific proposals
+4. Platform agent → submit bids with spend caps
+
+**Freelance Deliver:**
+1. Platform agent → detect pending orders across all platforms
+2. `qa` → route to correct internal agent
+3. Assigned agent → execute the work
+4. `qa` → verify output quality
+5. Platform agent → deliver to client on-platform
+
+**Freelance Optimize:**
+1. `data_entry` → collect earnings data across platforms
+2. `market_research` → pricing analysis for top agents
+3. `bookkeeping` → weekly P&L per platform
+4. `sales_ops` → adjust pricing and listing strategy
+
 ## API Details
 
-- **Base URL**: `https://bitrage-labour-api-production.up.railway.app`
+- **Base URL**: `https://digital-labour-api-production.up.railway.app`
 - **Universal Endpoint**: `POST /v1/run`
 - **Agent List**: `GET /agents`
 - **Health Check**: `GET /health`
@@ -177,7 +209,7 @@ Chain agents together for complex operations:
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `DIGITAL_LABOUR_API_URL` | Yes | `https://bitrage-labour-api-production.up.railway.app` | API base URL |
+| `DIGITAL_LABOUR_API_URL` | Yes | `https://digital-labour-api-production.up.railway.app` | API base URL |
 | `DIGITAL_LABOUR_API_KEY` | No | *(none)* | Optional API key for authenticated access |
 
 ## Important Notes

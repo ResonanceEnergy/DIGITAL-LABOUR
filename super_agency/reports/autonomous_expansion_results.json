@@ -1,0 +1,41 @@
+{
+  "expansion_opportunities": [
+    {
+      "id": "c377ee9d-f7eb-400d-ad8f-9f0ef0cee48a",
+      "type": "compute",
+      "description": "Scale CPU resources to handle increased computational load",
+      "potential_impact": "Improve processing speed and reduce latency",
+      "risk_level": "low",
+      "resource_requirements": {
+        "cpu_cores": 6,
+        "memory_gb": 27,
+        "storage_gb": 106,
+        "estimated_cost": 145.2733112762748
+      },
+      "created_at": "2026-02-21T03:53:25.893217+00:00"
+    },
+    {
+      "id": "3379e7cd-201d-44fb-bc5e-3b337a737c59",
+      "type": "memory",
+      "description": "Increase memory capacity for larger datasets and models",
+      "potential_impact": "Enable processing of larger AI models and datasets",
+      "risk_level": "low",
+      "resource_requirements": {
+        "generic_resources": 10,
+        "estimated_cost": 44.82249987316136
+      },
+      "created_at": "2026-02-21T03:53:25.893274+00:00"
+    }
+  ],
+  "expansion_status": {
+    "active_expansions": 0,
+    "total_opportunities": 2,
+    "expansion_history": 0,
+    "scaling_policies": 3,
+    "governance_policies": 3,
+    "self_healing_rules": 4,
+    "decision_loops": 4,
+    "autonomous_mode": true
+  },
+  "timestamp": 1771646010.9173954
+}

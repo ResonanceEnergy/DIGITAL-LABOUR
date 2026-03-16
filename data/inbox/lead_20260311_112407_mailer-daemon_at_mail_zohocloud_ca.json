@@ -4,7 +4,7 @@
   "from_email": "mailer-daemon@mail.zohocloud.ca",
   "company": "mail.zohocloud.ca",
   "subject": "Mail Delivery Status Notification (Delay)",
-  "body_preview": "This message was created automatically by mail delivery system.\r\n\r\nTHIS IS A WARNING MESSAGE ONLY.\r\n\r\nYOU DO NOT NEED TO RESEND YOUR MESSAGE.\r\n\r\nThe original message was received at Wed, 11 Mar 2026 06:25:16 -0400\r\n from sales@bit-rage-labour.com [sales@bit-rage-labour.com] \r\n\r\n    ----- The following addresses had fatal errors -----    \r\n   [alex@omniscientdigital.com]\r\n\r\nMessage will be retried for 4 more day(s)\r\n\r\n\r\n",
+  "body_preview": "This message was created automatically by mail delivery system.\r\n\r\nTHIS IS A WARNING MESSAGE ONLY.\r\n\r\nYOU DO NOT NEED TO RESEND YOUR MESSAGE.\r\n\r\nThe original message was received at Wed, 11 Mar 2026 06:25:16 -0400\r\n from sales@digital-labour.com [sales@digital-labour.com] \r\n\r\n    ----- The following addresses had fatal errors -----    \r\n   [alex@omniscientdigital.com]\r\n\r\nMessage will be retried for 4 more day(s)\r\n\r\n\r\n",
   "received_at": "2026-03-11T06:25:16-04:00",
   "processed_at": "2026-03-11T11:24:06.741402+00:00",
   "status": "new",

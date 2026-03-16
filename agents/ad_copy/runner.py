@@ -23,7 +23,7 @@ from pydantic import BaseModel, Field
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from utils.super_agent import make_bridge  # noqa: E402
+from utils.dl_agent import make_bridge  # noqa: E402
 call_llm = make_bridge("ad_copy")
 
 PROMPT_DIR = Path(__file__).resolve().parent

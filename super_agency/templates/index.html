@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Digital Labour Command">
+    <title>Digital Labour Command Center</title>
+    <link rel="stylesheet" href="/static/css/mobile.css">
+    <link rel="manifest" href="/static/manifest.json">
+    <link rel="icon" href="/static/favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🚀 Digital Labour Command</h1>
+            <div class="status-indicator" id="connection-status">
+                <span class="status-dot"></span>
+                <span class="status-text">Connecting...</span>
+            </div>
+        </header>
+
+        <main class="main">
+            <!-- System Status -->
+            <section class="card status-card">
+                <h2>📊 System Status</h2>
+                <div class="status-grid">
+                    <div class="status-item" data-service="matrix_monitor">
+                        <div class="service-icon">🧠</div>
+                        <div class="service-info">
+                            <div class="service-name">Matrix Monitor</div>
+                            <div class="service-status">Checking...</div>
+                        </div>
+                    </div>
+                    <div class="status-item" data-service="operations">
+                        <div class="service-icon">⚙️</div>
+                        <div class="service-info">
+                            <div class="service-name">Operations</div>
+                            <div class="service-status">Checking...</div>
+                        </div>
+                    </div>
+                    <div class="status-item" data-service="aac">
+                        <div class="service-icon">💰</div>
+                        <div class="service-info">
+                            <div class="service-name">AAC System</div>
+                            <div class="service-status">Checking...</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="refresh-btn" onclick="refreshStatus()">
+                    🔄 Refresh Status
+                </button>
+            </section>
+
+            <!-- Quick Commands -->
+            <section class="card commands-card">
+                <h2>🎮 Quick Commands</h2>
+                <div class="command-grid">
+                    <button class="command-btn" onclick="executeCommand('max_cpu')">
+                        ⚡ Max CPU
+                    </button>
+                    <button class="command-btn" onclick="executeCommand('deploy_agents')">
+                        🤖 Deploy Agents
+                    </button>
+                    <button class="command-btn" onclick="executeCommand('intelligence')">
+                        🧠 Intelligence
+                    </button>
+                    <button class="command-btn" onclick="executeCommand('backup')">
+                        💾 Backup
+                    </button>
+                </div>
+            </section>
+
+            <!-- Agent Status -->
+            <section class="card agents-card">
+                <h2>👥 Inner Council Agents</h2>
+                <div class="agent-list" id="agent-list">
+                    <div class="agent-item">
+                        <div class="agent-avatar">🎭</div>
+                        <div class="agent-info">
+                            <div class="agent-name">Council Agents</div>
+                            <div class="agent-status">Ready for deployment</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Logs Viewer -->
+            <section class="card logs-card">
+                <h2>📋 Recent Logs</h2>
+                <select id="log-service" onchange="loadLogs()">
+                    <option value="matrix_monitor">Matrix Monitor</option>
+                    <option value="operations">Operations</option>
+                    <option value="aac">AAC System</option>
+                    <option value="inner_council">Inner Council</option>
+                </select>
+                <div class="logs-container" id="logs-container">
+                    <div class="log-entry">Select a service to view logs...</div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Digital Labour Mobile Command Center • Local & Remote Access</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/mobile.js"></script>
+</body>
+</html></content>
+<parameter name="filePath">C:/Dev/DIGITAL-LABOUR/templates/index.html

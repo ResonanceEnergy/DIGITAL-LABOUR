@@ -1,0 +1,19 @@
+{
+  "decision_id": "df263bb5920040d3",
+  "timestamp": "2026-02-20T13:27:40.789912",
+  "authority": "AGENT AZ - COUNCIL CHAIRMAN",
+  "decision_type": "PLAN_APPROVAL",
+  "plan_summary": "Digital Labour API & Account Creation Plan - Phase 1-6",
+  "evaluation": {
+    "alignment_score": 100,
+    "concerns": [],
+    "recommendations": [],
+    "approval_eligible": true
+  },
+  "doctrine_alignment": 100,
+  "concerns_addressed": true,
+  "recommendations_required": [],
+  "verdict": "APPROVED_UNCONDITIONALLY",
+  "authority_citation": "Council 52 Doctrine Section 4.2 - Strategic Alignment",
+  "effective_immediately": true
+}

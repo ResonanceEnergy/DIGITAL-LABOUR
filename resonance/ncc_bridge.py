@@ -26,7 +26,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 RELAY_URL = os.getenv("NCC_RELAY_URL", "http://127.0.0.1:8787")
-SOURCE = "super-agency"
+SOURCE = "Digital-Labour"
 PILLAR = "AGENCY"
 
 OUTBOX_DIR = PROJECT_ROOT / "data" / "ncc_outbox"

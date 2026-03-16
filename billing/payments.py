@@ -201,7 +201,7 @@ class PaymentGateway:
             bt_conn = bt._conn()
             client_row = bt_conn.execute("SELECT email FROM clients WHERE client = ?", (client,)).fetchone()
             bt_conn.close()
-            email = client_row["email"] if client_row else f"{client}@clients.bit-rage-labour.com"
+            email = client_row["email"] if client_row else f"{client}@clients.digital-labour.com"
 
         customer = stripe.Customer.create(
             name=client,

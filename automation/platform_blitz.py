@@ -34,10 +34,10 @@ PROFILE_DIR.mkdir(parents=True, exist_ok=True)
 SS_DIR = PROJECT / "output" / "platform_screenshots"
 SS_DIR.mkdir(parents=True, exist_ok=True)
 STATE_FILE = PROJECT / "data" / "platform_blitz_state.json"
-CV_PDF = PROJECT / "output" / "CV_bitragelabour.pdf"
+CV_PDF = PROJECT / "output" / "CV_digitallabour.pdf"
 CV_FALLBACKS = [
-    PROJECT / "output" / "bit_rage_labour_systems.pdf",
-    PROJECT / "output" / "CV_bitragelabour_clean.pdf",
+    PROJECT / "output" / "digital_labour_systems.pdf",
+    PROJECT / "output" / "CV_digitallabour_clean.pdf",
 ]
 
 

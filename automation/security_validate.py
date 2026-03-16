@@ -1,4 +1,4 @@
-"""Security & SSL/TLS Certificate Validator for Bit Rage Labour.
+"""Security & SSL/TLS Certificate Validator for Digital Labour.
 
 Checks:
   1. SSL/TLS certificate validity, expiry, cipher strength
@@ -21,8 +21,8 @@ import urllib.request
 import urllib.error
 
 DOMAINS = [
-    "bit-rage-labour.com",
-    "bitrage-labour-api-production.up.railway.app",
+    "digital-labour.com",
+    "digital-labour-api-production.up.railway.app",
 ]
 
 REQUIRED_HEADERS = {

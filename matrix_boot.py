@@ -1,4 +1,4 @@
-"""BITRAGE MATRIX — Auto-launch script.
+"""DIGITAL LABOUR MATRIX — Auto-launch script.
 
 Starts the FastAPI server + all daemons on system boot.
 Install via Windows Task Scheduler or run manually.
@@ -64,7 +64,7 @@ def main():
         return
 
     print("[MATRIX] ═══════════════════════════════")
-    print("[MATRIX]  BITRAGE MATRIX — AUTO BOOT")
+    print("[MATRIX]  DIGITAL LABOUR MATRIX — AUTO BOOT")
     print("[MATRIX] ═══════════════════════════════")
     print(f"[MATRIX] Python: {PYTHON}")
     print(f"[MATRIX] Root:   {ROOT}")

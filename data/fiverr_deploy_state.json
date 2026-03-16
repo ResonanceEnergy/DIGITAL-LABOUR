@@ -1,0 +1,62 @@
+{
+  "gigs": {
+    "3": {
+      "status": "draft",
+      "deployed_at": "2026-03-14T03:45:21.351227+00:00",
+      "steps": {
+        "title": false,
+        "tags": true,
+        "pricing": true,
+        "description": false,
+        "faq": true,
+        "requirements": true,
+        "image_upload": false,
+        "publish": "READY_FOR_REVIEW"
+      }
+    },
+    "7": {
+      "status": "draft",
+      "deployed_at": "2026-03-14T03:47:59.762245+00:00",
+      "steps": {
+        "title": false,
+        "tags": true,
+        "pricing": true,
+        "description": false,
+        "faq": true,
+        "requirements": true,
+        "image_upload": false,
+        "publish": "READY_FOR_REVIEW"
+      }
+    },
+    "8": {
+      "status": "draft",
+      "deployed_at": "2026-03-14T03:50:38.232401+00:00",
+      "steps": {
+        "title": false,
+        "tags": true,
+        "pricing": true,
+        "description": false,
+        "faq": true,
+        "requirements": true,
+        "image_upload": false,
+        "publish": "READY_FOR_REVIEW"
+      }
+    },
+    "16": {
+      "status": "draft",
+      "deployed_at": "2026-03-14T03:53:17.648768+00:00",
+      "steps": {
+        "title": false,
+        "tags": true,
+        "pricing": true,
+        "description": false,
+        "faq": true,
+        "requirements": true,
+        "image_upload": false,
+        "publish": "READY_FOR_REVIEW"
+      }
+    }
+  },
+  "profile_created": false,
+  "last_run": "2026-03-14T03:53:17.658042+00:00"
+}

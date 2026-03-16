@@ -1,0 +1,32 @@
+[
+  {
+    "ts": "2026-03-15T11:54:27.185034",
+    "category": "data_freshness",
+    "recommendation": "98/121 reports are stale (>48h). Schedule more frequent runs.",
+    "priority": "medium"
+  },
+  {
+    "ts": "2026-03-15T12:11:09.904964",
+    "category": "data_freshness",
+    "recommendation": "88/130 reports are stale (>48h). Schedule more frequent runs.",
+    "priority": "medium"
+  },
+  {
+    "ts": "2026-03-15T12:12:06.260525",
+    "category": "data_freshness",
+    "recommendation": "85/135 reports are stale (>48h). Schedule more frequent runs.",
+    "priority": "medium"
+  },
+  {
+    "ts": "2026-03-15T12:12:58.041810",
+    "category": "data_freshness",
+    "recommendation": "82/140 reports are stale (>48h). Schedule more frequent runs.",
+    "priority": "medium"
+  },
+  {
+    "ts": "2026-03-15T12:13:57.481827",
+    "category": "data_freshness",
+    "recommendation": "79/145 reports are stale (>48h). Schedule more frequent runs.",
+    "priority": "medium"
+  }
+]

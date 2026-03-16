@@ -1,0 +1,29 @@
+[
+  {
+    "video_id": "elon_musk_001",
+    "title": "Elon Musk discusses Technology and future implications",
+    "analysis": {
+      "ai_discussions": [
+        "AI Discussion: ai"
+      ],
+      "technology_predictions": [],
+      "scientific_breakthroughs": [],
+      "key_takeaways": [
+        "AI development continues to advance with new breakthroughs"
+      ],
+      "policy_implications": [
+        "Policy: Develop comprehensive AI governance frameworks"
+      ],
+      "strategic_recommendations": [
+        "Strategic: Invest in AI talent development and ethical AI practices"
+      ],
+      "risk_assessments": [
+        "Risk: AI development may outpace safety and ethical considerations"
+      ],
+      "confidence_score": 0.9,
+      "analysis_depth": "comprehensive"
+    },
+    "analyzed_at": "2026-02-20T21:20:17.166990",
+    "agent_specialization": "technology_space_ai_energy"
+  }
+]

@@ -1,4 +1,4 @@
-"""Inbox Reader — IMAP monitor for sales@bit-rage-labour.com.
+"""Inbox Reader — IMAP monitor for sales@digital-labour.com.
 
 Reads incoming emails, classifies them (lead, reply, demo request, spam),
 and routes them into the outreach pipeline or flags for human review.
@@ -256,7 +256,7 @@ def classify_email(email_data: dict) -> str:
     # LLM classification for ambiguous emails
     try:
         from utils.llm_client import call_llm
-        prompt = f"""Classify this inbound email to a B2B AI labor company (sales@bit-rage-labour.com).
+        prompt = f"""Classify this inbound email to a B2B AI labor company (sales@digital-labour.com).
 
 From: {email_data.get('from_name', '')} <{email_data.get('from_email', '')}>
 Subject: {email_data.get('subject', '')}
@@ -475,7 +475,7 @@ def inbox_status():
     log = _load_inbox_log()
 
     print(f"\n{'='*50}")
-    print("  INBOX STATUS — sales@bit-rage-labour.com")
+    print("  INBOX STATUS — sales@digital-labour.com")
     print(f"{'='*50}")
 
     if not log:
@@ -522,7 +522,7 @@ def inbox_status():
 
 def watch_inbox(interval: int = 300):
     """Poll inbox at a regular interval."""
-    print(f"[INBOX] Watching sales@bit-rage-labour.com (every {interval}s)")
+    print(f"[INBOX] Watching sales@digital-labour.com (every {interval}s)")
     print(f"[INBOX] Press Ctrl+C to stop\n")
 
     while True:

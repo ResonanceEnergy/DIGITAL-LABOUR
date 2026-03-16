@@ -1,0 +1,52 @@
+{
+  "title": "NCC Command Schema",
+  "type": "object",
+  "required": ["id", "type", "priority", "payload", "requester"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique command identifier"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["intelligence_gathering", "resource_allocation", "api_management", "account_management", "system_maintenance", "council_coordination"],
+      "description": "Type of command to execute"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["critical", "high", "medium", "low"],
+      "description": "Command execution priority"
+    },
+    "payload": {
+      "type": "object",
+      "description": "Command-specific parameters and data"
+    },
+    "requester": {
+      "type": "string",
+      "description": "Entity requesting the command"
+    },
+    "description": {
+      "type": "string",
+      "description": "Human-readable command description"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "executing", "completed", "failed", "cancelled"],
+      "description": "Current command execution status"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Command creation timestamp"
+    },
+    "resource_requirements": {
+      "type": "object",
+      "properties": {
+        "cpu": {"type": "number", "minimum": 0},
+        "memory": {"type": "number", "minimum": 0},
+        "api_calls": {"type": "number", "minimum": 0}
+      },
+      "description": "Resources required for command execution"
+    }
+  }
+}

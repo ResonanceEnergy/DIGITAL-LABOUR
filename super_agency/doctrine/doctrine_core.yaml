@@ -1,0 +1,35 @@
+memory_principles:
+- ultra_conservative_allocation
+- context_aware_loading
+- persistent_state_management
+- adaptive_resource_usage
+- memory_efficiency_first
+operational_principles:
+- autonomous_execution_with_bounds
+- ethical_ai_governance
+- continuous_learning_adaptation
+- human_centric_design
+- transparency_accountability
+governance_principles:
+- doctrine_immutability
+- consensus_driven_changes
+- audit_trail_maintenance
+- ethical_boundaries_enforcement
+- human_oversight_preservation
+openclaw_principles:
+- gateway_is_single_source_of_truth
+- self_hosted_data_sovereignty
+- identity_first_scope_next_model_last
+- multi_channel_unified_gateway
+- skill_extensible_community_driven
+- per_agent_isolation_workspace_sessions
+- pairing_before_trust
+- sandbox_by_default_for_untrusted
+integration_doctrine:
+- openclaw_gateway_port_18789
+- optimus_subsystem_5_openclaw_bridge
+- qforge_windows_192_168_1_200
+- qusar_macos_192_168_1_100
+- sasp_protocol_port_8888
+- device_push_git_sync
+- three_device_plus_qforge_architecture

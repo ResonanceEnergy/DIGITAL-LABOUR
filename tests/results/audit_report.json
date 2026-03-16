@@ -1,0 +1,54 @@
+{
+  "errors": [
+    [
+      "HARDCODED",
+      "tests\\audit_codebase.py",
+      "L60: possible hardcoded secret"
+    ]
+  ],
+  "warnings": [
+    [
+      "TODO",
+      "automation\\autobidder.py",
+      "L269: TODO: Replace with real API call:"
+    ],
+    [
+      "TODO",
+      "campaign\\freelancer_deploy.py",
+      "L1098: \"exclude\": [\"hacking\", \"bypass captcha\"],"
+    ],
+    [
+      "TODO",
+      "tests\\audit_codebase.py",
+      "L54: # TODOs"
+    ],
+    [
+      "TODO",
+      "tests\\audit_codebase.py",
+      "L55: if 'TODO' in upper or 'FIXME' in upper or 'HACK' in upper:"
+    ],
+    [
+      "TODO",
+      "tests\\audit_codebase.py",
+      "L56: warnings.append((\"TODO\", rel, f\"L{i}: {line.strip()[:80]}\"))"
+    ],
+    [
+      "TODO",
+      "tests\\smoke_test_upwork.py",
+      "L157: \"exclude\": [\"hacking\", \"bypass captcha\"],"
+    ]
+  ],
+  "gaps": [
+    [
+      "AGENT_GAP",
+      "agents/qa",
+      "Missing runner.py"
+    ]
+  ],
+  "stats": {
+    "files": 155,
+    "lines": 38785,
+    "functions": 878,
+    "classes": 207
+  }
+}

@@ -1,0 +1,425 @@
+{
+  "organization": {
+    "name": "DIGITAL LABOUR",
+    "structure": "Vertically Integrated Enterprise",
+    "version": "4.0",
+    "last_updated": "2026-03-15",
+    "primary_mission": "DIGITAL LABOUR",
+    "mission_statement": "Deploy and monetize autonomous AI agents as modular digital labor units. Every department, agent, and system exists to support Digital Labour objectives.",
+    "pillars": {
+      "AGENCY": "DIGITAL LABOUR — Operational framework, hierarchy, orchestration",
+      "ALOPS": "Digital Labour — AI labor operations, the revenue engine",
+      "BANK": "AAC — Accounting, equity bank, financial operations"
+    }
+  },
+  "primary_directive": {
+    "objective": "DIGITAL LABOUR",
+    "description": "All DIGITAL LABOUR infrastructure serves Digital Labour. The hierarchy provides the framework. The orchestrator runs the pipeline. The bus carries DL events. Intelligence feeds DL strategy. Every agent either directly produces revenue through DL or supports those that do.",
+    "kpis": [
+      "DL revenue per month",
+      "DL tasks completed per day",
+      "DL QA pass rate",
+      "DL active clients",
+      "DL agent utilization",
+      "DL margin per task"
+    ]
+  },
+  "departments": {
+    "executive_council": {
+      "name": "Executive Council",
+      "description": "Strategic oversight — all decisions measured against Digital Labour objectives",
+      "authority_level": "AZ_FINAL",
+      "head": "Agent AZ",
+      "primary_focus": "Digital Labour growth, revenue targets, strategic resource allocation",
+      "members": [
+        {
+          "id": "agent_az",
+          "name": "Agent AZ",
+          "role": "Council Chairman",
+          "authority": "AZ_FINAL",
+          "specializations": ["strategic_decisions", "doctrine_enforcement", "crisis_management", "dl_mandate_enforcement"]
+        }
+      ],
+      "dl_integration": {
+        "c_suite_reports_to": "executive_council",
+        "axiom_ceo": {"tier": 1, "role": "DL Strategic Growth", "reports_to": "agent_az"},
+        "vectis_coo": {"tier": 2, "role": "DL Operations & Quality", "reports_to": "axiom_ceo"},
+        "ledgr_cfo": {"tier": 2, "role": "DL Revenue & Margins", "reports_to": "axiom_ceo"}
+      },
+      "responsibilities": [
+        "Set Digital Labour growth targets and mandates",
+        "Enforce ALOPS doctrine across all departments",
+        "Crisis management for DL operations",
+        "Cross-departmental coordination for DL pipeline",
+        "Final authority on pricing, agent deployment, client onboarding"
+      ]
+    },
+    "digital_labour_operations": {
+      "name": "Digital Labour Operations",
+      "description": "THE PRIMARY DEPARTMENT — autonomous AI labor workforce that earns revenue",
+      "authority_level": "HIGH",
+      "head": "AXIOM (CEO Agent)",
+      "primary_focus": "Task execution, QA, client delivery, agent scaling",
+      "is_primary": true,
+      "subdepartments": {
+        "c_suite": {
+          "name": "C-Suite Executive Layer",
+          "description": "AXIOM (CEO), VECTIS (COO), LEDGR (CFO) + BoardRoom synthesizer",
+          "integration_source": "DIGITAL LABOUR/c_suite/",
+          "agents": [
+            {
+              "id": "axiom_ceo",
+              "name": "AXIOM — CEO",
+              "role": "Strategic Growth & Revenue",
+              "tier": 1,
+              "specializations": ["growth_strategy", "resource_allocation", "roi_analysis", "mandate_execution"]
+            },
+            {
+              "id": "vectis_coo",
+              "name": "VECTIS — COO",
+              "role": "Operations & Quality Enforcement",
+              "tier": 2,
+              "specializations": ["agent_performance", "qa_enforcement", "queue_management", "provider_routing"]
+            },
+            {
+              "id": "ledgr_cfo",
+              "name": "LEDGR — CFO",
+              "role": "Revenue Tracking & Cost Control",
+              "tier": 2,
+              "specializations": ["revenue_tracking", "margin_optimization", "pricing_strategy", "cost_analysis"]
+            }
+          ]
+        },
+        "worker_agents": {
+          "name": "Worker Agent Fleet",
+          "description": "26 autonomous task-execution agents that deliver paid outcomes",
+          "integration_source": "DIGITAL LABOUR/agents/",
+          "tier": 3,
+          "agent_types": [
+            "sales_ops", "support", "content_repurpose", "doc_extract",
+            "ad_copy", "email_marketing", "seo_content", "social_media",
+            "lead_gen", "web_scraper", "market_research", "press_release",
+            "product_desc", "proposal_writer", "resume_writer", "tech_docs",
+            "freelancer_work", "crm_ops", "bookkeeping", "data_entry",
+            "business_plan"
+          ]
+        },
+        "dispatcher": {
+          "name": "Task Dispatcher",
+          "description": "Routes tasks to agents with daily limits and token budget enforcement",
+          "integration_source": "DIGITAL LABOUR/dispatcher/",
+          "tier": 2
+        },
+        "nerve_daemon": {
+          "name": "NERVE Autonomous Daemon",
+          "description": "24/7 autonomous cycle: self-check, gap analysis, prospecting, outreach, C-Suite cadence",
+          "integration_source": "DIGITAL LABOUR/automation/nerve.py",
+          "tier": 3
+        },
+        "intake_api": {
+          "name": "Client Intake API",
+          "description": "FastAPI webhook for task submission, client onboarding, payment processing",
+          "integration_source": "DIGITAL LABOUR/api/intake.py",
+          "tier": 4,
+          "port": 8000
+        }
+      }
+    },
+    "intelligence_operations": {
+      "name": "Intelligence Operations Department",
+      "description": "Information gathering and analysis — feeds DL strategy and market intelligence",
+      "authority_level": "HIGH",
+      "head": "Intelligence Director",
+      "dl_mandate": "All intelligence products must include actionable insights for Digital Labour growth",
+      "subdepartments": {
+        "youtube_intelligence": {
+          "name": "YouTube Intelligence Division",
+          "dl_purpose": "Identify market trends, competitor analysis, prospect research for DL agents",
+          "agents": [
+            {
+              "id": "j_bravo_agent",
+              "name": "J Bravo Intelligence Agent",
+              "role": "Strategic Intelligence Coordinator",
+              "specializations": ["strategic_analysis", "intelligence_coordination"],
+              "priority": "critical"
+            },
+            {
+              "id": "tom_bilyeu_agent",
+              "name": "Tom Bilyeu Intelligence Agent",
+              "role": "Business Strategy Intelligence",
+              "specializations": ["business_strategy", "market_intelligence"],
+              "priority": "critical"
+            },
+            {
+              "id": "lex_fridman_agent",
+              "name": "Lex Fridman Intelligence Agent",
+              "role": "AI & Technology Intelligence",
+              "specializations": ["ai_research", "technology_trends"],
+              "priority": "critical"
+            },
+            {
+              "id": "joe_rogan_agent",
+              "name": "Joe Rogan Intelligence Agent",
+              "role": "Cultural Intelligence Analyst",
+              "specializations": ["cultural_trends", "intellectual_discourse"],
+              "priority": "critical"
+            },
+            {
+              "id": "chris_willx_agent",
+              "name": "Chris Willx Intelligence Agent",
+              "role": "Personal Development Intelligence",
+              "specializations": ["human_optimization", "personal_development"],
+              "priority": "high"
+            },
+            {
+              "id": "herbert_agent",
+              "name": "Herbert Intelligence Agent",
+              "role": "Consciousness & Human Potential",
+              "specializations": ["consciousness_studies", "human_potential"],
+              "priority": "high"
+            },
+            {
+              "id": "nate_jones_agent",
+              "name": "Nate B Jones Intelligence Agent",
+              "role": "Financial Markets Intelligence",
+              "specializations": ["financial_markets", "economic_analysis"],
+              "priority": "high"
+            }
+          ]
+        },
+        "research_intelligence": {
+          "name": "Research Intelligence Division",
+          "dl_purpose": "Research for DL agent improvement, new agent capabilities, market positioning",
+          "agents": [
+            {
+              "id": "andrew_huberman_agent",
+              "name": "Andrew Huberman Research Agent",
+              "role": "Neuroscience & Biology Research",
+              "specializations": ["neuroscience", "human_biology", "research_analysis"]
+            },
+            {
+              "id": "peter_attia_agent",
+              "name": "Peter Attia Research Agent",
+              "role": "Longevity & Health Research",
+              "specializations": ["longevity_research", "health_optimization"]
+            },
+            {
+              "id": "daniel_schmachtenberger_agent",
+              "name": "Daniel Schmachtenberger Research Agent",
+              "role": "Systems Thinking & Existential Risk",
+              "specializations": ["systems_thinking", "existential_risk", "complex_systems"]
+            },
+            {
+              "id": "geoffrey_hinton_agent",
+              "name": "Geoffrey Hinton Research Agent",
+              "role": "AI Research & Neural Networks",
+              "specializations": ["deep_learning", "neural_networks", "ai_research"]
+            },
+            {
+              "id": "demis_hassabis_agent",
+              "name": "Demis Hassabis Research Agent",
+              "role": "AI & Neuroscience Research",
+              "specializations": ["agi_research", "cognitive_ai", "neuroscience_ai"]
+            }
+          ]
+        }
+      }
+    },
+    "operations_command": {
+      "name": "Operations Command Department",
+      "description": "Day-to-day platform operations — keeps the DL infrastructure running",
+      "authority_level": "STANDARD",
+      "head": "Operations Commander",
+      "dl_mandate": "Uptime and reliability of the DL execution pipeline is the top priority",
+      "subdepartments": {
+        "system_monitoring": {
+          "name": "System Monitoring Division",
+          "agents": [
+            {
+              "id": "repo_sentry",
+              "name": "Repository Sentry",
+              "role": "Code Repository Monitor",
+              "specializations": ["code_analysis", "repository_monitoring", "change_detection"],
+              "metrics": ["repos_monitored", "changes_detected", "health_score"]
+            },
+            {
+              "id": "daily_brief",
+              "name": "Daily Operations Brief",
+              "role": "DL Operations Intelligence Compiler",
+              "specializations": ["operations_reporting", "intelligence_briefing", "status_updates", "dl_kpi_reporting"],
+              "metrics": ["reports_generated", "quality_score", "distribution_reach"]
+            }
+          ]
+        },
+        "orchestration_control": {
+          "name": "Orchestration Control Division",
+          "agents": [
+            {
+              "id": "orchestrator",
+              "name": "System Orchestrator",
+              "role": "DL Pipeline Coordination",
+              "specializations": ["system_integration", "process_orchestration", "workflow_management", "dl_pipeline_management"]
+            },
+            {
+              "id": "council_agent",
+              "name": "Council Operations Agent",
+              "role": "Council Support & Coordination",
+              "specializations": ["council_operations", "decision_support", "coordination_tasks"],
+              "metrics": ["decisions_supported", "coordination_accuracy", "autonomy_level"]
+            }
+          ]
+        }
+      }
+    },
+    "financial_operations": {
+      "name": "Financial Operations Department",
+      "description": "All Digital Labour financials — AAC accounting, equity bank, DL revenue, cost management",
+      "authority_level": "STANDARD",
+      "head": "Financial Director",
+      "dl_mandate": "Track DL revenue, enforce margins, manage billing and invoicing",
+      "subdepartments": {
+        "aac_accounting": {
+          "name": "AAC Accounting & Equity Bank",
+          "description": "Central accounting system — CentralAccounting, TradingExecution, CryptoIntelligence",
+          "external_system": true,
+          "system_root": "C:\\dev\\AAC_fresh",
+          "integration_bridge": "resonance/aac_bridge.py",
+          "modules": ["central_accounting", "trading_execution", "crypto_intelligence", "equity_bank"],
+          "integration_points": ["financial_reporting", "budget_tracking", "risk_management", "pnl_reconciliation"]
+        },
+        "dl_revenue_tracking": {
+          "name": "DL Revenue & Billing Division",
+          "description": "Digital Labour billing, invoicing, retainer management, cost-per-task tracking",
+          "integration_source": "DIGITAL LABOUR/billing/",
+          "agents": [
+            {
+              "id": "ledgr_cfo",
+              "name": "LEDGR CFO (shared with DL C-Suite)",
+              "role": "DL Revenue Analysis & Cost Control",
+              "specializations": ["revenue_tracking", "margin_optimization", "pricing_strategy"]
+            }
+          ]
+        },
+        "market_intelligence": {
+          "name": "Market Intelligence Division",
+          "agents": [
+            {
+              "id": "market_analyst",
+              "name": "Market Intelligence Analyst",
+              "role": "Financial Market Analysis",
+              "specializations": ["market_trends", "investment_analysis", "economic_forecasting"]
+            }
+          ]
+        }
+      }
+    },
+    "technology_infrastructure": {
+      "name": "Technology Infrastructure Department",
+      "description": "Platform engineering — keeps DL systems, APIs, and monitoring operational",
+      "authority_level": "STANDARD",
+      "head": "Chief Technology Officer",
+      "dl_mandate": "All platform work prioritizes DL uptime, API reliability, and agent performance",
+      "subdepartments": {
+        "development_operations": {
+          "name": "Development Operations Division",
+          "agents": [
+            {
+              "id": "ncl_processor",
+              "name": "NCL Second Brain Processor",
+              "role": "Knowledge Extraction for DL Agent Training",
+              "specializations": ["nlp_processing", "text_analysis", "knowledge_extraction"]
+            },
+            {
+              "id": "integration_cell",
+              "name": "Integration Cell Agent",
+              "role": "DL System Integration Specialist",
+              "specializations": ["api_integration", "system_connectivity", "data_flow_management", "dl_bridge_management"]
+            }
+          ]
+        },
+        "platform_engineering": {
+          "name": "Platform Engineering Division",
+          "description": "Infrastructure and platform maintenance for DL operations",
+          "systems": ["matrix_monitor", "mobile_command_center", "operations_api", "sasp_protocol", "dl_intake_api", "dl_nerve_daemon"]
+        }
+      }
+    }
+  },
+  "dl_integration_manifest": {
+    "status": "READY_FOR_MERGE",
+    "source_repo": "C:\\Dev\\DIGITAL LABOUR\\DIGITAL LABOUR",
+    "target_repo": "C:\\Dev\\DIGITAL-LABOUR",
+    "resonance_bridges": {
+      "ncc_bridge": "resonance/ncc_bridge.py — publishes DL events to NCC relay",
+      "ncl_bridge": "resonance/ncl_bridge.py — reads NCL intelligence for AXIOM",
+      "aac_bridge": "resonance/aac_bridge.py — reads AAC financials for LEDGR",
+      "sync": "resonance/sync.py — cadence runner for cross-pillar sync"
+    },
+    "bus_topics": {
+      "dl_task_completed": "digital_labour.task.completed",
+      "dl_task_failed": "digital_labour.task.failed",
+      "dl_revenue_event": "digital_labour.revenue.*",
+      "dl_fleet_status": "digital_labour.fleet.status",
+      "dl_nerve_cycle": "digital_labour.nerve.*",
+      "dl_csuite_report": "digital_labour.csuite.report",
+      "dl_qa_alert": "digital_labour.qa.alert",
+      "dl_client_event": "digital_labour.client.*"
+    },
+    "naming_resolution": {
+      "context_manager": "SA: agents/context_manager.py | DL: agents/context_manager/ — prefix DL as dl_context_manager",
+      "production_manager": "SA: hierarchy reference | DL: agents/production_manager/ — prefix DL as dl_production_manager",
+      "qa_manager": "SA: hierarchy reference | DL: agents/qa_manager/ — prefix DL as dl_qa_manager",
+      "automation_manager": "SA: hierarchy reference | DL: agents/automation_manager/ — prefix DL as dl_automation_manager"
+    }
+  },
+  "council_separation": {
+    "status": "separated",
+    "rationale": "Council serves as strategic oversight — all strategy measured against DL objectives",
+    "boundaries": [
+      "Council sets Digital Labour growth targets and mandates",
+      "DL C-Suite (AXIOM/VECTIS/LEDGR) reports to Executive Council",
+      "Departments handle operational execution in service of DL",
+      "Council approval required for major structural changes",
+      "Daily DL operations autonomous within department authority levels"
+    ]
+  },
+  "authority_hierarchy": {
+    "AZ_FINAL": {
+      "level": 5,
+      "description": "Executive Council - Final Authority",
+      "approval_required": ["structural_changes", "doctrine_modifications", "crisis_responses", "dl_mandate_changes"]
+    },
+    "HIGH": {
+      "level": 4,
+      "description": "Department Heads & DL C-Suite - High Authority",
+      "approval_required": ["departmental_changes", "resource_allocation", "policy_changes", "dl_agent_deployment", "dl_pricing_changes"]
+    },
+    "STANDARD": {
+      "level": 3,
+      "description": "Division Leads - Standard Authority",
+      "approval_required": ["operational_changes", "process_modifications"]
+    },
+    "BASIC": {
+      "level": 2,
+      "description": "Standard Agents & DL Workers - Basic Authority",
+      "approval_required": ["routine_operations", "task_execution"]
+    }
+  },
+  "communication_protocols": {
+    "inter_departmental": {
+      "protocol": "SASP",
+      "channels": ["matrix_updates", "status_reports", "coordination_requests", "dl_events"],
+      "frequency": "real-time"
+    },
+    "council_reporting": {
+      "protocol": "Structured Briefs + DL KPI Dashboard",
+      "frequency": "daily/weekly",
+      "format": "Executive Summary + DL Revenue Metrics + Agent Performance"
+    },
+    "dl_resonance": {
+      "protocol": "resonance/sync.py cadence",
+      "channels": ["ncc_relay", "ncl_briefs", "aac_financials"],
+      "frequency": "fleet_status: 6h, daily_summary: 06UTC, board_report: on_meeting"
+    }
+  }
+}

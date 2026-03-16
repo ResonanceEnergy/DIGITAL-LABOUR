@@ -1,0 +1,1177 @@
+{
+  "test_timestamp": "1771614500.0839076",
+  "summary": {
+    "total_agents": 28,
+    "successful_imports": 28,
+    "failed_imports": 0,
+    "functional_agents": 28,
+    "non_functional_agents": 0,
+    "registry_test": "passed"
+  },
+  "import_results": {
+    "successful": [
+      {
+        "name": "Lex Fridman",
+        "module": "lex_fridman_agent",
+        "class": "LexFridmanAgent",
+        "agent_name": "Lex Fridman"
+      },
+      {
+        "name": "Tom Bilyeu",
+        "module": "tom_bilyeu_agent",
+        "class": "TomBilyeuAgent",
+        "agent_name": "Tom Bilyeu"
+      },
+      {
+        "name": "Andrew Huberman",
+        "module": "andrew_huberman_agent",
+        "class": "AndrewHubermanAgent",
+        "agent_name": "Andrew Huberman"
+      },
+      {
+        "name": "Tim Ferriss",
+        "module": "tim_ferriss_agent",
+        "class": "TimFerrissAgent",
+        "agent_name": "Tim Ferriss"
+      },
+      {
+        "name": "Peter Attia",
+        "module": "peter_attia_agent",
+        "class": "PeterAttiaAgent",
+        "agent_name": "Peter Attia"
+      },
+      {
+        "name": "Naval Ravikant",
+        "module": "naval_ravikant_agent",
+        "class": "NavalRavikantAgent",
+        "agent_name": "Naval Ravikant"
+      },
+      {
+        "name": "Sam Harris",
+        "module": "sam_harris_agent",
+        "class": "SamHarrisAgent",
+        "agent_name": "Sam Harris"
+      },
+      {
+        "name": "Joe Rogan",
+        "module": "joe_rogan_agent",
+        "class": "JoeRoganAgent",
+        "agent_name": "Joe Rogan"
+      },
+      {
+        "name": "Elon Musk",
+        "module": "elon_musk_agent",
+        "class": "ElonMuskAgent",
+        "agent_name": "Elon Musk"
+      },
+      {
+        "name": "Vitalik Buterin",
+        "module": "vitalik_buterin_agent",
+        "class": "VitalikButerinAgent",
+        "agent_name": "Vitalik Buterin"
+      },
+      {
+        "name": "Demis Hassabis",
+        "module": "demis_hassabis_agent",
+        "class": "DemisHassabisAgent",
+        "agent_name": "Demis Hassabis"
+      },
+      {
+        "name": "Yann LeCun",
+        "module": "yann_lecun_agent",
+        "class": "YannLecunAgent",
+        "agent_name": "Yann LeCun"
+      },
+      {
+        "name": "Geoffrey Hinton",
+        "module": "geoffrey_hinton_agent",
+        "class": "GeoffreyHintonAgent",
+        "agent_name": "Geoffrey Hinton"
+      },
+      {
+        "name": "Shane Parrish",
+        "module": "shane_parrish_agent",
+        "class": "ShaneParrishAgent",
+        "agent_name": "Shane Parrish"
+      },
+      {
+        "name": "Bret Weinstein",
+        "module": "bret_weinstein_agent",
+        "class": "BretWeinsteinAgent",
+        "agent_name": "Bret Weinstein"
+      },
+      {
+        "name": "Jordan Peterson",
+        "module": "jordan_peterson_agent",
+        "class": "JordanPetersonAgent",
+        "agent_name": "Jordan Peterson"
+      },
+      {
+        "name": "Daniel Schmachtenberger",
+        "module": "daniel_schmachtenberger_agent",
+        "class": "DanielSchmachtenbergerAgent",
+        "agent_name": "Daniel Schmachtenberger"
+      },
+      {
+        "name": "Niall Ferguson",
+        "module": "niall_ferguson_agent",
+        "class": "NiallFergusonAgent",
+        "agent_name": "Niall Ferguson"
+      },
+      {
+        "name": "Tyler Cowen",
+        "module": "tyler_cowen_agent",
+        "class": "TylerCowenAgent",
+        "agent_name": "Tyler Cowen"
+      },
+      {
+        "name": "Marc Andreessen",
+        "module": "marc_andreessen_agent",
+        "class": "MarcAndreessenAgent",
+        "agent_name": "Marc Andreessen"
+      },
+      {
+        "name": "Ben Shapiro",
+        "module": "ben_shapiro_agent",
+        "class": "BenShapiroAgent",
+        "agent_name": "Ben Shapiro"
+      },
+      {
+        "name": "Russell Brand",
+        "module": "russell_brand_agent",
+        "class": "RussellBrandAgent",
+        "agent_name": "Russell Brand"
+      },
+      {
+        "name": "Dave Rubin",
+        "module": "dave_rubin_agent",
+        "class": "DaveRubinAgent",
+        "agent_name": "Dave Rubin"
+      },
+      {
+        "name": "Candace Owens",
+        "module": "candace_owens_agent",
+        "class": "CandaceOwensAgent",
+        "agent_name": "Candace Owens"
+      },
+      {
+        "name": "Tucker Carlson",
+        "module": "tucker_carlson_agent",
+        "class": "TuckerCarlsonAgent",
+        "agent_name": "Tucker Carlson"
+      },
+      {
+        "name": "The Joe Rogan Experience",
+        "module": "the_joe_rogan_experience_agent",
+        "class": "TheJoeRoganExperienceAgent",
+        "agent_name": "The Joe Rogan Experience"
+      },
+      {
+        "name": "Lex Fridman Podcast",
+        "module": "lex_fridman_podcast_agent",
+        "class": "LexFridmanPodcastAgent",
+        "agent_name": "Lex Fridman Podcast"
+      },
+      {
+        "name": "Impact Theory",
+        "module": "impact_theory_agent",
+        "class": "ImpactTheoryAgent",
+        "agent_name": "Impact Theory"
+      }
+    ],
+    "failed": []
+  },
+  "functionality_results": {
+    "functional": [
+      {
+        "name": "Lex Fridman",
+        "status": {
+          "agent_id": "4c2f77d1-ee5a-4a8f-8fd0-966c4c202153",
+          "name": "Lex Fridman",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.965536",
+          "focus_areas": [
+            "AI",
+            "Technology",
+            "Science",
+            "Philosophy"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": true,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": true,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Tom Bilyeu",
+        "status": {
+          "agent_id": "120d4e4b-0f2d-4463-b2be-5bbca345d0d3",
+          "name": "Tom Bilyeu",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.966451",
+          "focus_areas": [
+            "Business",
+            "Entrepreneurship",
+            "Psychology",
+            "Performance"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": false,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": false,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Andrew Huberman",
+        "status": {
+          "agent_id": "9410d48f-df0c-4b38-a051-1895e5bdf489",
+          "name": "Andrew Huberman",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.967257",
+          "focus_areas": [
+            "Neuroscience",
+            "Health",
+            "Biology",
+            "Performance"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": false,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": false,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Tim Ferriss",
+        "status": {
+          "agent_id": "8ba29214-2b49-495f-b986-1d8e492dbf87",
+          "name": "Tim Ferriss",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.968016",
+          "focus_areas": [
+            "Productivity",
+            "Learning",
+            "Health",
+            "Business"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": false,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": false,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Peter Attia",
+        "status": {
+          "agent_id": "c1e2e2bb-c465-433a-a39f-046ba57bfc22",
+          "name": "Peter Attia",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.968731",
+          "focus_areas": [
+            "Medicine",
+            "Longevity",
+            "Health",
+            "Biology"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": false,
+            "risk_assessment": false,
+            "policy_recommendation": false,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": false,
+          "risk_assessment": false,
+          "policy_recommendation": false,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Naval Ravikant",
+        "status": {
+          "agent_id": "4122b31d-044f-4598-93a6-2425e0950d32",
+          "name": "Naval Ravikant",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.969450",
+          "focus_areas": [
+            "Philosophy",
+            "Business",
+            "Technology",
+            "Wealth"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": true,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": true,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Sam Harris",
+        "status": {
+          "agent_id": "96a7d3ae-127e-4ef7-895f-c5235fc09459",
+          "name": "Sam Harris",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.970276",
+          "focus_areas": [
+            "Philosophy",
+            "Politics",
+            "Science",
+            "Ethics"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": false,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": false,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Joe Rogan",
+        "status": {
+          "agent_id": "328d06ba-4ef0-4aa4-ae14-fa23f2c49c44",
+          "name": "Joe Rogan",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.975964",
+          "focus_areas": [
+            "Culture",
+            "Science",
+            "Politics",
+            "Health"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": false,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": false,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Elon Musk",
+        "status": {
+          "agent_id": "eb5b4cc2-9f82-4fb7-be97-31f5ab64c88f",
+          "name": "Elon Musk",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.976994",
+          "focus_areas": [
+            "Technology",
+            "Space",
+            "AI",
+            "Energy"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": true,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": true,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Vitalik Buterin",
+        "status": {
+          "agent_id": "4844db48-8834-49ba-a3ea-f62ccc1a72b9",
+          "name": "Vitalik Buterin",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.977816",
+          "focus_areas": [
+            "Cryptocurrency",
+            "Blockchain",
+            "Technology",
+            "Economics"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": true,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": true,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Demis Hassabis",
+        "status": {
+          "agent_id": "47e7c1f3-23f7-402c-81b8-f204b61a6eaa",
+          "name": "Demis Hassabis",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.978646",
+          "focus_areas": [
+            "AI",
+            "Deep Learning",
+            "Neuroscience",
+            "Technology"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": true,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": true,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Yann LeCun",
+        "status": {
+          "agent_id": "c51f99ca-d07d-4066-8e64-528a7ef96260",
+          "name": "Yann LeCun",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.979399",
+          "focus_areas": [
+            "AI",
+            "Machine Learning",
+            "Computer Vision",
+            "Neuroscience"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": true,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": true,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Geoffrey Hinton",
+        "status": {
+          "agent_id": "101d9c8b-98d8-4186-b044-950a0bdfc21b",
+          "name": "Geoffrey Hinton",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.980141",
+          "focus_areas": [
+            "AI",
+            "Deep Learning",
+            "Neuroscience",
+            "Machine Learning"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": true,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": true,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Shane Parrish",
+        "status": {
+          "agent_id": "9c256780-3047-4246-ad49-cd841de2220e",
+          "name": "Shane Parrish",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.980891",
+          "focus_areas": [
+            "Decision Making",
+            "Psychology",
+            "Learning",
+            "Business"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": false,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": false,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Bret Weinstein",
+        "status": {
+          "agent_id": "f2964220-12e4-45db-b461-d445a5be7941",
+          "name": "Bret Weinstein",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.981746",
+          "focus_areas": [
+            "Biology",
+            "Evolution",
+            "Science",
+            "Education"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": false,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": false,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Jordan Peterson",
+        "status": {
+          "agent_id": "ec7e592d-55a2-4b39-9119-f3df17012765",
+          "name": "Jordan Peterson",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.982440",
+          "focus_areas": [
+            "Psychology",
+            "Philosophy",
+            "Culture",
+            "Religion"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": false,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": false,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Daniel Schmachtenberger",
+        "status": {
+          "agent_id": "12cb5f72-77a9-4187-bdb4-2c923b2bb4d8",
+          "name": "Daniel Schmachtenberger",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.983218",
+          "focus_areas": [
+            "Systems Thinking",
+            "Civilization",
+            "Technology",
+            "Existential Risk"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": true,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": true,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Niall Ferguson",
+        "status": {
+          "agent_id": "7a56163a-727b-43cd-a5a9-601d25d31f79",
+          "name": "Niall Ferguson",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.983974",
+          "focus_areas": [
+            "History",
+            "Economics",
+            "Politics",
+            "Civilization"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": false,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": false,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Tyler Cowen",
+        "status": {
+          "agent_id": "0f09263b-d32f-49f6-b35b-41fc6a525006",
+          "name": "Tyler Cowen",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.984785",
+          "focus_areas": [
+            "Economics",
+            "Culture",
+            "Technology",
+            "Education"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": true,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": true,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Marc Andreessen",
+        "status": {
+          "agent_id": "5c3f3827-e03f-4351-832a-60cc391b8c60",
+          "name": "Marc Andreessen",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.985664",
+          "focus_areas": [
+            "Technology",
+            "Venture Capital",
+            "AI",
+            "Software"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": true,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": true,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Ben Shapiro",
+        "status": {
+          "agent_id": "b71836d2-c229-46e3-8481-d71e807eeb95",
+          "name": "Ben Shapiro",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.986516",
+          "focus_areas": [
+            "Politics",
+            "Culture",
+            "Philosophy",
+            "Current Events"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": false,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": false,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Russell Brand",
+        "status": {
+          "agent_id": "443f75a7-ec04-4845-973d-a3abad1bd802",
+          "name": "Russell Brand",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.987782",
+          "focus_areas": [
+            "Spirituality",
+            "Politics",
+            "Culture",
+            "Philosophy"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": false,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": false,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Dave Rubin",
+        "status": {
+          "agent_id": "f12048cf-678c-4342-b958-a0896ce727a0",
+          "name": "Dave Rubin",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.989917",
+          "focus_areas": [
+            "Politics",
+            "Culture",
+            "Philosophy",
+            "Current Events"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": false,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": false,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Candace Owens",
+        "status": {
+          "agent_id": "f75daf1c-d60b-499b-815a-61808e58ba31",
+          "name": "Candace Owens",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.991313",
+          "focus_areas": [
+            "Politics",
+            "Culture",
+            "Current Events",
+            "Social Issues"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": false,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": false,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Tucker Carlson",
+        "status": {
+          "agent_id": "ccd6ad12-2f66-49ec-b5a2-986adee1a4b5",
+          "name": "Tucker Carlson",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.992348",
+          "focus_areas": [
+            "Politics",
+            "Current Events",
+            "Culture",
+            "Media"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": false,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": false,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "The Joe Rogan Experience",
+        "status": {
+          "agent_id": "d4f471f1-3121-49b6-9bc9-afffb71e2d90",
+          "name": "The Joe Rogan Experience",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.993374",
+          "focus_areas": [
+            "Culture",
+            "Science",
+            "Politics",
+            "Health",
+            "Entertainment"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": false,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": false,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Lex Fridman Podcast",
+        "status": {
+          "agent_id": "effa1c2a-04cd-42bc-b467-04e9a0532244",
+          "name": "Lex Fridman Podcast",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.994474",
+          "focus_areas": [
+            "AI",
+            "Technology",
+            "Science",
+            "Philosophy",
+            "Future"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": true,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": true,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": true,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": true,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      },
+      {
+        "name": "Impact Theory",
+        "status": {
+          "agent_id": "46738c87-5851-4ed8-baaf-03819c39b2a6",
+          "name": "Impact Theory",
+          "is_active": false,
+          "last_activity": "2026-02-20T12:08:21.995311",
+          "focus_areas": [
+            "Business",
+            "Entrepreneurship",
+            "Psychology",
+            "Performance",
+            "Motivation"
+          ],
+          "capabilities": {
+            "content_analysis": true,
+            "strategic_planning": true,
+            "risk_assessment": false,
+            "policy_recommendation": true,
+            "real_time_monitoring": true,
+            "autonomous_decision_making": false,
+            "cross_agent_coordination": true
+          }
+        },
+        "capabilities": {
+          "content_analysis": true,
+          "strategic_planning": true,
+          "risk_assessment": false,
+          "policy_recommendation": true,
+          "real_time_monitoring": true,
+          "autonomous_decision_making": false,
+          "cross_agent_coordination": true
+        },
+        "monitoring_success": true,
+        "monitoring_error": null
+      }
+    ],
+    "non_functional": []
+  },
+  "registry_results": {
+    "registry_count": 28,
+    "created_count": 28,
+    "test_results": "passed"
+  }
+}

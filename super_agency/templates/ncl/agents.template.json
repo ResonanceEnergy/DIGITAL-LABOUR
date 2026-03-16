@@ -1,0 +1,49 @@
+{
+  "cell": "{{REPO_NAME}}",
+  "roles": {
+    "lead": {
+      "quota": 1
+    },
+    "architect": {
+      "quota": 1
+    },
+    "builder": {
+      "quota": 2
+    },
+    "qa": {
+      "quota": 1
+    },
+    "security": {
+      "quota": 1
+    },
+    "sre": {
+      "quota": 1
+    },
+    "docs": {
+      "quota": 1
+    },
+    "growth": {
+      "quota": 0
+    },
+    "sentry": {
+      "quota": 1
+    },
+    "gatekeeper": {
+      "quota": 1
+    }
+  },
+  "review_requirements": {
+    "code": [
+      "builder",
+      "qa"
+    ],
+    "security_sensitive": [
+      "security",
+      "architect"
+    ],
+    "autonomy_lift": [
+      "gatekeeper",
+      "RiskEthicsCouncil"
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "last_updated": "2026-03-15T00:00:00",
+  "mandates": {
+    "efficiency": {
+      "description": "Maximize task completion rate",
+      "target": "95% completion within SLA",
+      "owner": "OPTIMUS"
+    },
+    "reliability": {
+      "description": "Maintain system uptime",
+      "target": "99.9% uptime",
+      "owner": "GASKET"
+    },
+    "coordination": {
+      "description": "Ensure agent alignment",
+      "target": "Zero conflicting actions",
+      "owner": "AZ"
+    },
+    "innovation": {
+      "description": "Continuous improvement",
+      "target": "1+ process improvement per week",
+      "owner": "AZ"
+    },
+    "intelligence": {
+      "description": "Autonomous research and intelligence generation",
+      "target": "Daily intelligence briefs with trend forecasting",
+      "owner": "RESEARCH_INTELLIGENCE",
+      "agents": ["research_intelligence", "learning_agent"]
+    },
+    "alignment": {
+      "description": "AGI safety and constitutional compliance",
+      "target": "100% alignment checks passing",
+      "owner": "ALIGNMENT_MONITOR",
+      "agents": ["alignment_monitor"]
+    },
+    "learning": {
+      "description": "Continuous system adaptation and improvement",
+      "target": "Extract lessons from every failure, <5% recurring errors",
+      "owner": "LEARNING_AGENT",
+      "agents": ["learning_agent"]
+    },
+    "hierarchy": {
+      "description": "Structured agent delegation and routing",
+      "target": "100% tasks routed to correct tier",
+      "owner": "HIERARCHY",
+      "agents": ["hierarchy"]
+    },
+    "context_management": {
+      "description": "Cross-agent context freshness and propagation",
+      "target": "Zero stale context entries beyond SLA",
+      "owner": "CONTEXT_MANAGER",
+      "agents": ["context_manager_agent"]
+    },
+    "quality_assurance": {
+      "description": "System-wide quality gates and output validation",
+      "target": "80%+ quality score on all cycles",
+      "owner": "QA_MANAGER",
+      "agents": ["qa_manager", "self_check_validator"]
+    },
+    "production_excellence": {
+      "description": "Production health, deployment gates, incident tracking",
+      "target": "All services UP, zero unresolved incidents",
+      "owner": "PRODUCTION_MANAGER",
+      "agents": ["production_manager", "gasket"]
+    },
+    "automation": {
+      "description": "Pipeline orchestration, workflow scheduling, daemon health",
+      "target": "Zero stale workflows, all daemons healthy",
+      "owner": "AUTOMATION_MANAGER",
+      "agents": ["automation_manager", "research_scheduler"]
+    }
+  },
+  "goals": {
+    "short_term": [
+      "Complete pending backlog",
+      "Stabilize all systems"
+    ],
+    "medium_term": [
+      "Automate 80% of routine tasks",
+      "Implement predictive scheduling"
+    ],
+    "long_term": [
+      "Full autonomous operation",
+      "Self-healing infrastructure"
+    ]
+  },
+  "last_meeting": 47
+}

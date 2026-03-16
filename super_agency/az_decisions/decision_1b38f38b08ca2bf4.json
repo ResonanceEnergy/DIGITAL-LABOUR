@@ -1,0 +1,34 @@
+{
+  "decision_id": "1b38f38b08ca2bf4",
+  "timestamp": "2026-02-21T17:27:37.834310",
+  "authority": "AGENT AZ - COUNCIL CHAIRMAN",
+  "decision_type": "PLAN_APPROVAL",
+  "plan_summary": "Test Plan",
+  "evaluation": {
+    "alignment_score": 15,
+    "concerns": [
+      "Plan lacks oversight framework - violates doctrine requirement",
+      "Plan does not address intelligence operations",
+      "Plan does not include AZ approval mechanism",
+      "Plan lacks sufficient strategic depth"
+    ],
+    "recommendations": [
+      "Strengthen ethical framework alignment"
+    ],
+    "approval_eligible": false
+  },
+  "doctrine_alignment": 15,
+  "concerns_addressed": false,
+  "recommendations_required": [
+    "Strengthen ethical framework alignment"
+  ],
+  "verdict": "DENIED_REQUIRES_REVISION",
+  "authority_citation": "Council 52 Doctrine Section 4.4 - Strategic Misalignment",
+  "required_revisions": [
+    "Plan lacks oversight framework - violates doctrine requirement",
+    "Plan does not address intelligence operations",
+    "Plan does not include AZ approval mechanism",
+    "Plan lacks sufficient strategic depth",
+    "Strengthen ethical framework alignment"
+  ]
+}

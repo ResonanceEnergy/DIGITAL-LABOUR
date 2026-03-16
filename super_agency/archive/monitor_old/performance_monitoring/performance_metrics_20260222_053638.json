@@ -1,0 +1,146 @@
+{
+  "monitoring_period": {
+    "start": "2026-02-22T05:35:27.463285",
+    "end": "2026-02-22T05:36:38.326896",
+    "duration_hours": 0.019684336944444443
+  },
+  "metrics": [
+    {
+      "timestamp": "2026-02-22T05:35:27.463968",
+      "system": {
+        "timestamp": "2026-02-22T05:35:28.476884",
+        "system_memory_percent": 90.0,
+        "system_memory_used_gb": 13.815982818603516,
+        "system_memory_available_gb": 1.5385055541992188,
+        "cpu_percent": 35.2,
+        "disk_used_percent": 38.8,
+        "disk_used_gb": 369.55745697021484,
+        "network_total_bytes": 33529089674,
+        "process_memory_mb": 34.72265625,
+        "process_cpu_percent": 0.0
+      },
+      "quasmem": {
+        "timestamp": "2026-02-22T05:35:30.613701",
+        "quasmem_status": "healthy",
+        "quasmem_message": "QUASMEM optimization active: 126.7MB used",
+        "pools_used_mb": 126.72,
+        "pools_available_mb": 385.28,
+        "compression_ratio": 1.0
+      },
+      "agents": {
+        "timestamp": "2026-02-22T05:35:32.635753",
+        "agent_summary": {
+          "common": {
+            "health_score": 65.0,
+            "performance_trend": "improving",
+            "status": "active"
+          },
+          "repo_sentry": {
+            "health_score": 92.14999999999999,
+            "performance_trend": "improving",
+            "status": "active"
+          },
+          "council": {
+            "health_score": 99.6,
+            "performance_trend": "improving",
+            "status": "active"
+          },
+          "orchestrator": {
+            "health_score": 99.6,
+            "performance_trend": "improving",
+            "status": "active"
+          },
+          "andrew_huberman": {
+            "health_score": 85.0,
+            "performance_trend": "improving",
+            "status": "active"
+          },
+          "elon_musk": {
+            "health_score": 85.0,
+            "performance_trend": "improving",
+            "status": "active"
+          }
+        },
+        "average_health_score": 87.72500000000001,
+        "total_agents_monitored": 6,
+        "healthy_agents": 5,
+        "warning_agents": 1,
+        "critical_agents": 0
+      },
+      "alerts": []
+    },
+    {
+      "timestamp": "2026-02-22T05:36:32.636354",
+      "system": {
+        "timestamp": "2026-02-22T05:36:33.647543",
+        "system_memory_percent": 89.6,
+        "system_memory_used_gb": 13.756729125976562,
+        "system_memory_available_gb": 1.5977592468261719,
+        "cpu_percent": 36.6,
+        "disk_used_percent": 38.8,
+        "disk_used_gb": 369.5580863952637,
+        "network_total_bytes": 33529970265,
+        "process_memory_mb": 35.859375,
+        "process_cpu_percent": 0.0
+      },
+      "quasmem": {
+        "timestamp": "2026-02-22T05:36:35.746296",
+        "quasmem_status": "healthy",
+        "quasmem_message": "QUASMEM optimization active: 126.1MB used",
+        "pools_used_mb": 126.09279999999998,
+        "pools_available_mb": 385.9072,
+        "compression_ratio": 1.0
+      },
+      "agents": {
+        "timestamp": "2026-02-22T05:36:37.774261",
+        "agent_summary": {
+          "common": {
+            "health_score": 65.0,
+            "performance_trend": "improving",
+            "status": "active"
+          },
+          "repo_sentry": {
+            "health_score": 92.14999999999999,
+            "performance_trend": "improving",
+            "status": "active"
+          },
+          "council": {
+            "health_score": 99.6,
+            "performance_trend": "improving",
+            "status": "active"
+          },
+          "orchestrator": {
+            "health_score": 99.6,
+            "performance_trend": "improving",
+            "status": "active"
+          },
+          "andrew_huberman": {
+            "health_score": 85.0,
+            "performance_trend": "improving",
+            "status": "active"
+          },
+          "elon_musk": {
+            "health_score": 85.0,
+            "performance_trend": "improving",
+            "status": "active"
+          }
+        },
+        "average_health_score": 87.72500000000001,
+        "total_agents_monitored": 6,
+        "healthy_agents": 5,
+        "warning_agents": 1,
+        "critical_agents": 0
+      },
+      "alerts": []
+    }
+  ],
+  "alerts": [],
+  "summary": {
+    "total_measurements": 2,
+    "average_system_memory_percent": 89.8,
+    "average_quasmem_usage_mb": 126.40639999999999,
+    "average_agent_health_score": 87.72500000000001,
+    "total_alerts": 0,
+    "monitoring_effectiveness": "insufficient"
+  }
+}

@@ -25,7 +25,7 @@ from playwright.sync_api import sync_playwright
 from income.freelance_listings import UPWORK_PROFILE
 
 COOKIE_FILE = PROJECT / "data" / "platform_browser" / "cookies" / "upwork_cookies.json"
-CV_PDF = PROJECT / "output" / "CV_bitragelabour.pdf"
+CV_PDF = PROJECT / "output" / "CV_digitallabour.pdf"
 SS_DIR = PROJECT / "output" / "platform_screenshots"
 SS_DIR.mkdir(parents=True, exist_ok=True)
 

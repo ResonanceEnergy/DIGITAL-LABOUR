@@ -1,0 +1,6 @@
+{
+  "success": true,
+  "message": "Emergency monitoring system activated",
+  "conditions_monitored": 5,
+  "monitoring_interval": "continuous"
+}

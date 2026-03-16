@@ -1,0 +1,16 @@
+.venv
+.git
+repos/
+__pycache__
+*.pyc
+.env
+archive/
+demo_repo_depot/
+node_modules/
+.pytest_cache
+*.egg-info
+memory/
+memory_backups/
+tests/
+*.md
+!requirements.txt

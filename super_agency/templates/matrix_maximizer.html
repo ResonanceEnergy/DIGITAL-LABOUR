@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="MATRIX">
+    <meta name="theme-color" content="#0a0a0f" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f0f2f5" media="(prefers-color-scheme: light)">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileColor" content="#0a0a0f">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/static/icons/icon-192.svg">
+    <title>MATRIX MAXIMIZER</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root {
+            --cyan:#00ffff; --green:#00ff88; --red:#ff4444; --yellow:#ffaa00;
+            --bg:#0a0a0f; --card:rgba(255,255,255,0.04); --border:rgba(0,255,255,0.2);
+            --text:#e0e0e0; --dim:#888; --card-bg:rgba(255,255,255,0.04);
+            --header-bg:rgba(0,0,0,0.9); --toast-bg:rgba(0,0,0,0.9);
+            --bar-track:rgba(255,255,255,0.08); --row-border:rgba(255,255,255,0.05);
+            --safe-top:env(safe-area-inset-top,0px);
+            --safe-bottom:env(safe-area-inset-bottom,0px);
+            --safe-left:env(safe-area-inset-left,0px);
+            --safe-right:env(safe-area-inset-right,0px);
+            color-scheme: dark light;
+        }
+        /* ── Light mode ──────────────────────────────── */
+        @media(prefers-color-scheme:light) {
+            :root {
+                --bg:#f0f2f5; --card:rgba(0,0,0,0.03); --border:rgba(0,180,180,0.25);
+                --text:#1a1a2e; --dim:#666; --card-bg:rgba(255,255,255,0.85);
+                --header-bg:rgba(255,255,255,0.92); --toast-bg:rgba(255,255,255,0.95);
+                --bar-track:rgba(0,0,0,0.06); --row-border:rgba(0,0,0,0.06);
+                --cyan:#0099aa; --green:#00aa55; --red:#cc3333; --yellow:#cc8800;
+            }
+            .big-number { color:#1a1a2e !important; }
+            .metric-val { color:#1a1a2e !important; }
+            .health-badge { font-weight:800; }
+        }
+        html { background:var(--bg); }
+        body {
+            font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','SF Mono','Menlo',monospace;
+            background:var(--bg); color:var(--text);
+            overflow-x:hidden; min-height:100vh;
+            min-height:-webkit-fill-available;
+            -webkit-font-smoothing:antialiased;
+            -webkit-text-size-adjust:100%;
+            padding-bottom:calc(64px + var(--safe-bottom));
+        }
+        /* ── Header ──────────────────────────────────── */
+        .header {
+            background:var(--header-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+            padding:calc(var(--safe-top) + 12px) calc(var(--safe-right) + 16px) 12px calc(var(--safe-left) + 16px);
+            border-bottom:1px solid var(--border);
+            position:sticky; top:0; z-index:1000;
+            display:flex; justify-content:space-between; align-items:center;
+        }
+        .header h1 { font-size:1.3rem; color:var(--cyan); letter-spacing:2px; white-space:nowrap; }
+        .header-right { display:flex; align-items:center; gap:10px; font-size:0.75rem; }
+        .health-badge { padding:4px 10px; border-radius:20px; font-weight:700; font-size:0.8rem; }
+        .health-good { background:rgba(0,255,136,0.15); color:var(--green); border:1px solid var(--green); }
+        .health-warn { background:rgba(255,170,0,0.15); color:var(--yellow); border:1px solid var(--yellow); }
+        .health-bad { background:rgba(255,68,68,0.15); color:var(--red); border:1px solid var(--red); }
+        .conn-indicator { display:inline-flex; align-items:center; gap:4px; font-size:0.65rem; }
+        .conn-dot { width:7px; height:7px; border-radius:50%; display:inline-block; flex-shrink:0; }
+        .conn-live { background:var(--green); box-shadow:0 0 6px var(--green); animation:pulse 2s infinite; }
+        .conn-dead { background:var(--red); box-shadow:0 0 6px var(--red); }
+        .conn-connecting { background:var(--yellow); box-shadow:0 0 6px var(--yellow); }
+        @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+        #update-time { color:var(--dim); }
+        .offline-banner {
+            display:none; background:rgba(255,170,0,0.15); border-bottom:1px solid var(--yellow);
+            padding:6px 16px; font-size:0.75rem; color:var(--yellow); text-align:center;
+        }
+        .offline-banner.show { display:block; }
+        /* ── Pull to refresh indicator ───────────────── */
+        .ptr-indicator {
+            position:fixed; top:calc(var(--safe-top) + 52px); left:50%; transform:translateX(-50%);
+            width:32px; height:32px; border:3px solid rgba(0,255,255,0.2);
+            border-top:3px solid var(--cyan); border-radius:50%;
+            z-index:1001; display:none; animation:spin 0.6s linear infinite;
+        }
+        .ptr-indicator.active { display:block; }
+        @keyframes spin { to { transform:translateX(-50%) rotate(360deg); } }
+        /* ── Container ───────────────────────────────── */
+        .container {
+            max-width:1400px; margin:0 auto;
+            padding:12px calc(var(--safe-right) + 12px) 12px calc(var(--safe-left) + 12px);
+        }
+        /* ── Sections (for bottom nav) ───────────────── */
+        .section-page { display:none; }
+        .section-page.active { display:block; }
+        /* ── Grid ────────────────────────────────────── */
+        .grid { display:grid; gap:12px; margin-bottom:12px; }
+        .grid-4 { grid-template-columns:repeat(4,1fr); }
+        .grid-3 { grid-template-columns:repeat(3,1fr); }
+        .grid-2 { grid-template-columns:repeat(2,1fr); }
+        .card {
+            background:var(--card-bg); border:1px solid var(--border);
+            border-radius:14px; padding:14px;
+            transition:border-color 0.2s, transform 0.15s;
+            -webkit-tap-highlight-color:transparent;
+        }
+        .card:active { transform:scale(0.985); }
+        .card-title {
+            font-size:0.7rem; text-transform:uppercase; letter-spacing:1.5px;
+            color:var(--cyan); margin-bottom:10px; font-weight:600;
+        }
+        .big-number { font-size:1.9rem; font-weight:700; color:#fff; line-height:1; }
+        .big-label { font-size:0.65rem; color:var(--dim); margin-top:3px; }
+        .metric-row {
+            display:flex; justify-content:space-between; align-items:center;
+            padding:7px 0; border-bottom:1px solid var(--row-border);
+            min-height:36px;
+        }
+        .metric-row:last-child { border-bottom:none; }
+        .metric-key { color:var(--dim); font-size:0.78rem; }
+        .metric-val { color:#fff; font-weight:600; font-size:0.82rem; }
+        .dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; flex-shrink:0; }
+        .dot-green { background:var(--green); box-shadow:0 0 6px var(--green); }
+        .dot-yellow { background:var(--yellow); box-shadow:0 0 6px var(--yellow); }
+        .dot-red { background:var(--red); box-shadow:0 0 6px var(--red); }
+        .dot-cyan { background:var(--cyan); box-shadow:0 0 6px var(--cyan); }
+        .dot-dim { background:#555; }
+        .bar-track { background:var(--bar-track); border-radius:4px; height:6px; margin-top:4px; }
+        .bar-fill { height:100%; border-radius:4px; transition:width 0.5s; }
+        .bar-green { background:var(--green); }
+        .bar-yellow { background:var(--yellow); }
+        .bar-red { background:var(--red); }
+        .bar-cyan { background:var(--cyan); }
+        .sparkline-container { height:54px; margin-top:6px; position:relative; }
+        .chart-container { height:200px; position:relative; }
+        .period-tabs { display:flex; gap:4px; margin-bottom:8px; flex-wrap:wrap; }
+        .period-tab {
+            padding:6px 12px; border:1px solid var(--border); border-radius:6px;
+            background:transparent; color:var(--dim); cursor:pointer; font-size:0.72rem;
+            font-family:inherit; min-width:44px; min-height:36px;
+            display:inline-flex; align-items:center; justify-content:center;
+            -webkit-tap-highlight-color:transparent; transition:all 0.15s;
+        }
+        .period-tab:active { transform:scale(0.95); }
+        .period-tab.active { background:rgba(0,255,255,0.12); color:var(--cyan); border-color:var(--cyan); }
+        .alert-box {
+            background:rgba(255,68,68,0.08); border:1px solid rgba(255,68,68,0.25);
+            border-left:4px solid var(--red); border-radius:10px;
+            padding:12px 14px; margin-bottom:8px;
+        }
+        .alert-box.warn { background:rgba(255,170,0,0.08); border-color:rgba(255,170,0,0.25); border-left-color:var(--yellow); }
+        .alert-title { font-weight:700; font-size:0.82rem; margin-bottom:2px; }
+        .alert-msg { font-size:0.78rem; color:var(--dim); }
+        /* ── Buttons (min 44x44 touch targets) ───────── */
+        .controls { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; margin-top:12px; }
+        .btn {
+            padding:14px 16px; border:1px solid var(--border); border-radius:10px;
+            background:rgba(0,255,255,0.06); color:var(--cyan); font-weight:600;
+            cursor:pointer; font-size:0.82rem; transition:all 0.15s; text-align:center;
+            font-family:inherit; min-height:48px;
+            display:inline-flex; align-items:center; justify-content:center;
+            -webkit-tap-highlight-color:transparent;
+        }
+        .btn:active { transform:scale(0.96); opacity:0.8; }
+        .btn.danger { border-color:rgba(255,68,68,0.25); background:rgba(255,68,68,0.06); color:var(--red); }
+        .btn.warn { border-color:rgba(255,170,0,0.25); background:rgba(255,170,0,0.06); color:var(--yellow); }
+        .section-title {
+            font-size:0.68rem; text-transform:uppercase; letter-spacing:2px;
+            color:var(--dim); margin:16px 0 8px; padding-bottom:6px;
+            border-bottom:1px solid var(--row-border);
+        }
+        .agent-item {
+            display:flex; justify-content:space-between; align-items:center;
+            padding:8px 10px; border-radius:8px; margin-bottom:4px;
+            background:rgba(255,255,255,0.02); min-height:40px;
+        }
+        .agent-name { font-size:0.78rem; font-weight:600; }
+        .agent-role { font-size:0.68rem; color:var(--dim); }
+        .loading { text-align:center; padding:60px 20px; }
+        .spinner {
+            width:36px; height:36px; border:3px solid rgba(255,255,255,0.1);
+            border-top:3px solid var(--cyan); border-radius:50%;
+            animation:spin 0.8s linear infinite; margin:0 auto 14px;
+        }
+        .toast {
+            position:fixed; bottom:calc(72px + var(--safe-bottom)); left:50%; transform:translateX(-50%);
+            background:var(--toast-bg); border:1px solid var(--cyan); color:var(--text);
+            padding:10px 20px; border-radius:10px; font-size:0.82rem;
+            z-index:9999; display:none; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+            max-width:90vw; text-align:center;
+        }
+        .toast.show { display:block; animation:fadeIn 0.3s; }
+        @keyframes fadeIn { from{opacity:0;transform:translateX(-50%) translateY(10px);} to{opacity:1;transform:translateX(-50%) translateY(0);} }
+        .stats-row { display:flex; gap:12px; margin-top:4px; font-size:0.68rem; color:var(--dim); flex-wrap:wrap; }
+        .stats-row span { white-space:nowrap; }
+        .stats-min { color:var(--green); }
+        .stats-max { color:var(--red); }
+        .stats-avg { color:var(--cyan); }
+        /* ── Bottom Navigation ───────────────────────── */
+        .bottom-nav {
+            position:fixed; bottom:0; left:0; right:0;
+            background:var(--header-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+            border-top:1px solid var(--border);
+            display:none; /* shown only on mobile via media query */
+            justify-content:space-around; align-items:stretch;
+            padding:0 var(--safe-left) var(--safe-bottom) var(--safe-right);
+            z-index:1000; height:calc(56px + var(--safe-bottom));
+        }
+        .nav-item {
+            flex:1; display:flex; flex-direction:column; align-items:center;
+            justify-content:center; gap:2px; padding:8px 4px;
+            color:var(--dim); font-size:0.6rem; text-transform:uppercase;
+            letter-spacing:0.5px; cursor:pointer; border:none; background:none;
+            font-family:inherit; min-width:44px; min-height:44px;
+            -webkit-tap-highlight-color:transparent; transition:color 0.15s;
+            text-decoration:none;
+        }
+        .nav-item:active { opacity:0.7; }
+        .nav-item.active { color:var(--cyan); }
+        .nav-item svg { width:22px; height:22px; fill:currentColor; }
+        .nav-badge {
+            position:absolute; top:4px; right:calc(50% - 16px);
+            background:var(--red); color:#fff; font-size:0.5rem;
+            width:14px; height:14px; border-radius:50%;
+            display:flex; align-items:center; justify-content:center;
+            font-weight:700;
+        }
+        /* ── Theme toggle ────────────────────────────── */
+        .theme-toggle {
+            width:36px; height:36px; border:1px solid var(--border);
+            border-radius:50%; background:transparent; color:var(--dim);
+            cursor:pointer; display:flex; align-items:center; justify-content:center;
+            font-size:1rem; -webkit-tap-highlight-color:transparent;
+            transition:all 0.2s;
+        }
+        .theme-toggle:active { transform:scale(0.9); }
+        /* ── Desktop: full layout ────────────────────── */
+        @media(min-width:769px) {
+            .section-page { display:block !important; }
+            .bottom-nav { display:none !important; }
+            body { padding-bottom:16px; }
+            .grid-4 { grid-template-columns:repeat(4,1fr); }
+            .grid-3 { grid-template-columns:repeat(3,1fr); }
+            .grid-2 { grid-template-columns:repeat(2,1fr); }
+        }
+        /* ── Tablet (iPad) ───────────────────────────── */
+        @media(min-width:769px) and (max-width:1024px) {
+            .grid-4 { grid-template-columns:repeat(2,1fr); }
+            .container { padding:12px 16px; }
+        }
+        /* ── Mobile: bottom nav visible ──────────────── */
+        @media(max-width:768px) {
+            .bottom-nav { display:flex; }
+            .grid-4 { grid-template-columns:repeat(2,1fr); }
+            .grid-3 { grid-template-columns:repeat(2,1fr); }
+            .grid-2 { grid-template-columns:1fr; }
+            .header h1 { font-size:1.1rem; letter-spacing:1px; }
+            .container { padding:10px 10px; }
+            .big-number { font-size:1.7rem; }
+            .card { padding:12px; border-radius:12px; }
+            .controls { grid-template-columns:1fr 1fr; }
+            .chart-container { height:160px; }
+        }
+        /* ── Small phones (iPhone SE, etc) ───────────── */
+        @media(max-width:375px) {
+            .header h1 { font-size:0.95rem; }
+            .header-right { gap:6px; }
+            .health-badge { font-size:0.7rem; padding:3px 8px; }
+            .grid-4 { grid-template-columns:1fr 1fr; }
+            .grid-3,.grid-2 { grid-template-columns:1fr; }
+            .big-number { font-size:1.5rem; }
+            .card { padding:10px; }
+            .controls { grid-template-columns:1fr; }
+            .chart-container { height:140px; }
+            .sparkline-container { height:40px; }
+        }
+        /* ── iPad landscape / split-view ─────────────── */
+        @media(min-width:1024px) and (orientation:landscape) {
+            .grid-4 { grid-template-columns:repeat(4,1fr); }
+            .grid-3 { grid-template-columns:repeat(3,1fr); }
+        }
+        @media(min-width:500px) and (max-width:768px) and (orientation:landscape) {
+            .grid-4 { grid-template-columns:repeat(4,1fr); }
+            .grid-3 { grid-template-columns:repeat(3,1fr); }
+            .grid-2 { grid-template-columns:repeat(2,1fr); }
+            body { padding-bottom:calc(56px + var(--safe-bottom)); }
+        }
+        /* ── Forced dark override ────────────────────── */
+        html.force-dark {
+            --bg:#0a0a0f; --card:rgba(255,255,255,0.04); --border:rgba(0,255,255,0.2);
+            --text:#e0e0e0; --dim:#888; --card-bg:rgba(255,255,255,0.04);
+            --header-bg:rgba(0,0,0,0.9); --toast-bg:rgba(0,0,0,0.9);
+            --bar-track:rgba(255,255,255,0.08); --row-border:rgba(255,255,255,0.05);
+            --cyan:#00ffff; --green:#00ff88; --red:#ff4444; --yellow:#ffaa00;
+        }
+        html.force-dark .big-number { color:#fff !important; }
+        html.force-dark .metric-val { color:#fff !important; }
+        html.force-light {
+            --bg:#f0f2f5; --card:rgba(0,0,0,0.03); --border:rgba(0,180,180,0.25);
+            --text:#1a1a2e; --dim:#666; --card-bg:rgba(255,255,255,0.85);
+            --header-bg:rgba(255,255,255,0.92); --toast-bg:rgba(255,255,255,0.95);
+            --bar-track:rgba(0,0,0,0.06); --row-border:rgba(0,0,0,0.06);
+            --cyan:#0099aa; --green:#00aa55; --red:#cc3333; --yellow:#cc8800;
+        }
+        html.force-light .big-number { color:#1a1a2e !important; }
+        html.force-light .metric-val { color:#1a1a2e !important; }
+        /* ── Reduce motion ───────────────────────────── */
+        @media(prefers-reduced-motion:reduce) {
+            *, *::before, *::after { animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>MATRIX MAXIMIZER</h1>
+    <div class="header-right">
+        <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9790;</button>
+        <span class="conn-indicator">
+            <span class="conn-dot conn-connecting" id="conn-dot"></span>
+            <span id="conn-label">Connecting</span>
+        </span>
+        <span id="update-time">Loading...</span>
+        <span id="health-badge" class="health-badge health-good">&mdash;</span>
+    </div>
+</div>
+<div class="offline-banner" id="offline-banner">&#9888; Offline — showing cached data</div>
+<div class="ptr-indicator" id="ptr"></div>
+<div class="container">
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p style="color:var(--dim);">Connecting to real-time stream...</p>
+    </div>
+    <div id="content" style="display:none;">
+        <!-- ═══ SECTION: DASHBOARD ═══ -->
+        <div class="section-page active" id="page-dashboard">
+            <!-- ROW 1: KEY METRICS with sparklines -->
+            <div class="grid grid-4">
+                <div class="card">
+                    <div class="card-title">Health Score</div>
+                    <div class="big-number" id="v-health">&mdash;</div>
+                    <div class="bar-track"><div class="bar-fill bar-green" id="bar-health" style="width:0%"></div></div>
+                    <div class="sparkline-container"><canvas id="spark-health"></canvas></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">CPU</div>
+                    <div class="big-number" id="v-cpu">&mdash;</div>
+                    <div class="bar-track"><div class="bar-fill bar-cyan" id="bar-cpu" style="width:0%"></div></div>
+                    <div class="sparkline-container"><canvas id="spark-cpu"></canvas></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Memory</div>
+                    <div class="big-number" id="v-mem">&mdash;</div>
+                    <div class="bar-track"><div class="bar-fill bar-cyan" id="bar-mem" style="width:0%"></div></div>
+                    <div class="sparkline-container"><canvas id="spark-mem"></canvas></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Disk</div>
+                    <div class="big-number" id="v-disk">&mdash;</div>
+                    <div class="bar-track"><div class="bar-fill bar-cyan" id="bar-disk" style="width:0%"></div></div>
+                    <div class="sparkline-container"><canvas id="spark-disk"></canvas></div>
+                </div>
+            </div>
+            <!-- ROW 2: SYSTEM + TESTS + PRODUCTIVITY -->
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-title">System</div>
+                    <div class="metric-row"><span class="metric-key">Uptime</span><span class="metric-val" id="v-uptime">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">CPU Cores</span><span class="metric-val" id="v-cores">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Processes</span><span class="metric-val" id="v-procs">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Net Sent</span><span class="metric-val" id="v-netsent">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Net Recv</span><span class="metric-val" id="v-netrecv">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Battery</span><span class="metric-val" id="v-battery">&mdash;</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Integration Tests</div>
+                    <div class="metric-row"><span class="metric-key">Status</span><span class="metric-val" id="v-test-status">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Passed</span><span class="metric-val" id="v-test-passed">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Failed</span><span class="metric-val" id="v-test-failed">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Success Rate</span><span class="metric-val" id="v-test-rate">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Duration</span><span class="metric-val" id="v-test-dur">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Last Run</span><span class="metric-val" id="v-test-time">&mdash;</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Real Productivity</div>
+                    <div class="metric-row"><span class="metric-key">Lines of Code</span><span class="metric-val" id="v-loc">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Files Created</span><span class="metric-val" id="v-files">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Tests Added</span><span class="metric-val" id="v-tests-added">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Repos Touched</span><span class="metric-val" id="v-repos-touched">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">OPTIMUS Commits</span><span class="metric-val" id="v-optimus">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">GASKET Commits</span><span class="metric-val" id="v-gasket">&mdash;</span></div>
+                </div>
+            </div>
+            <!-- ROW 3: PORTFOLIO + AGENTS -->
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-title">Portfolio / Repos</div>
+                    <div class="metric-row"><span class="metric-key">Organization</span><span class="metric-val" id="v-org">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Portfolio Repos</span><span class="metric-val" id="v-pf-repos">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">GitHub Repos</span><span class="metric-val" id="v-gh-repos">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Total Stars</span><span class="metric-val" id="v-stars">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Open Issues</span><span class="metric-val" id="v-issues">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Top Language</span><span class="metric-val" id="v-lang">&mdash;</span></div>
+                    <div id="tier-breakdown" style="margin-top:6px;"></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Agent Status</div>
+                    <div id="agent-list"></div>
+                    <div class="metric-row" style="margin-top:6px;">
+                        <span class="metric-key">Phase</span><span class="metric-val" id="v-phase">&mdash;</span>
+                    </div>
+                    <div class="metric-row"><span class="metric-key">AI Enabled</span><span class="metric-val" id="v-ai">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">AI Providers</span><span class="metric-val" id="v-providers">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">QA Status</span><span class="metric-val" id="v-qa">&mdash;</span></div>
+                </div>
+            </div>
+            <!-- DEVICES -->
+            <div class="section-title">Devices</div>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-title"><span class="dot dot-green"></span>Quantum Quasar (Mac)</div>
+                    <div class="metric-row"><span class="metric-key">Status</span><span class="metric-val"><span class="dot dot-green"></span>ONLINE</span></div>
+                    <div class="metric-row"><span class="metric-key">CPU</span><span class="metric-val" id="v-qq-cpu">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Memory</span><span class="metric-val" id="v-qq-mem">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Disk</span><span class="metric-val" id="v-qq-disk">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Uptime</span><span class="metric-val" id="v-qq-up">&mdash;</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title"><span class="dot dot-dim"></span>Pocket Pulsar (iPhone)</div>
+                    <div class="metric-row"><span class="metric-key">Status</span><span class="metric-val"><span class="dot dot-dim"></span>UNREACHABLE</span></div>
+                    <div class="metric-row"><span class="metric-key">Battery</span><span class="metric-val">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Network</span><span class="metric-val">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Note</span><span class="metric-val" style="font-size:0.68rem;color:var(--dim);">No remote agent</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title"><span class="dot dot-dim"></span>Tablet Titan (iPad)</div>
+                    <div class="metric-row"><span class="metric-key">Status</span><span class="metric-val"><span class="dot dot-dim"></span>UNREACHABLE</span></div>
+                    <div class="metric-row"><span class="metric-key">Battery</span><span class="metric-val">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Bluetooth</span><span class="metric-val">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Note</span><span class="metric-val" style="font-size:0.68rem;color:var(--dim);">No remote agent</span></div>
+                </div>
+            </div>
+        </div>
+        <!-- ═══ SECTION: CHARTS ═══ -->
+        <div class="section-page" id="page-charts">
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-title">CPU &amp; Memory History</div>
+                    <div class="period-tabs" id="chart-tabs-main">
+                        <button class="period-tab active" onclick="loadHistory('1h',this)">1H</button>
+                        <button class="period-tab" onclick="loadHistory('6h',this)">6H</button>
+                        <button class="period-tab" onclick="loadHistory('24h',this)">24H</button>
+                        <button class="period-tab" onclick="loadHistory('7d',this)">7D</button>
+                    </div>
+                    <div class="chart-container"><canvas id="chart-main"></canvas></div>
+                    <div class="stats-row" id="stats-main"></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Health Score History</div>
+                    <div class="period-tabs" id="chart-tabs-health">
+                        <button class="period-tab active" onclick="loadHealthHistory('1h',this)">1H</button>
+                        <button class="period-tab" onclick="loadHealthHistory('6h',this)">6H</button>
+                        <button class="period-tab" onclick="loadHealthHistory('24h',this)">24H</button>
+                        <button class="period-tab" onclick="loadHealthHistory('7d',this)">7D</button>
+                    </div>
+                    <div class="chart-container"><canvas id="chart-health"></canvas></div>
+                    <div class="stats-row" id="stats-health"></div>
+                </div>
+            </div>
+            <!-- INTELLIGENCE + ORCHESTRATION + SECURITY -->
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-title">NCL Intelligence</div>
+                    <div class="metric-row"><span class="metric-key">Total Events</span><span class="metric-val" id="v-ncl-count">&mdash;</span></div>
+                    <div id="ncl-types"></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Orchestration</div>
+                    <div class="metric-row"><span class="metric-key">Total Cycles</span><span class="metric-val" id="v-orch-cycles">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Last Cycle</span><span class="metric-val" id="v-orch-last">&mdash;</span></div>
+                    <div id="orch-recent"></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Security / Oversight</div>
+                    <div class="metric-row"><span class="metric-key">Log Files</span><span class="metric-val" id="v-sec-files">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Total Size</span><span class="metric-val" id="v-sec-size">&mdash;</span></div>
+                    <div id="sec-entries"></div>
+                </div>
+            </div>
+            <!-- BACKUPS + INNER COUNCIL + GIT -->
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-title">Backups</div>
+                    <div class="metric-row"><span class="metric-key">Total Files</span><span class="metric-val" id="v-bk-count">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Total Size</span><span class="metric-val" id="v-bk-size">&mdash;</span></div>
+                    <div id="bk-latest"></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Inner Council</div>
+                    <div class="metric-row"><span class="metric-key">Members</span><span class="metric-val" id="v-ic-count">&mdash;</span></div>
+                    <div id="ic-members"></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Git Repos</div>
+                    <div class="metric-row"><span class="metric-key">Local Repos</span><span class="metric-val" id="v-git-count">&mdash;</span></div>
+                    <div id="git-repos"></div>
+                </div>
+            </div>
+        </div>
+        <!-- ═══ SECTION: ALERTS ═══ -->
+        <div class="section-page" id="page-alerts">
+            <div id="alerts-section">
+                <div class="section-title" style="color:var(--red);">Active Alerts</div>
+                <div id="alerts-container"><p style="color:var(--dim);font-size:0.8rem;padding:16px 0;">No active alerts</p></div>
+            </div>
+            <!-- SERVICES + DOCTRINE + METRICS STORE -->
+            <div class="grid grid-3" style="margin-top:16px;">
+                <div class="card">
+                    <div class="card-title">Running Services</div>
+                    <div id="svc-list"></div>
+                    <div class="metric-row" style="margin-top:6px;">
+                        <span class="metric-key">Python Processes</span>
+                        <span class="metric-val" id="v-py-procs">&mdash;</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Memory Doctrine</div>
+                    <div class="metric-row"><span class="metric-key">Version</span><span class="metric-val" id="v-doc-ver">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Platform</span><span class="metric-val" id="v-doc-plat">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Architecture</span><span class="metric-val" id="v-doc-arch">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Memory Entries</span><span class="metric-val" id="v-doc-mem">&mdash;</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Metrics Store</div>
+                    <div class="metric-row"><span class="metric-key">Status</span><span class="metric-val" id="v-ms-status">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Data Points</span><span class="metric-val" id="v-ms-entries">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Store Size</span><span class="metric-val" id="v-ms-size">&mdash;</span></div>
+                    <div class="metric-row"><span class="metric-key">Retention</span><span class="metric-val">7 days</span></div>
+                </div>
+            </div>
+        </div>
+        <!-- ═══ SECTION: CONTROLS ═══ -->
+        <div class="section-page" id="page-controls">
+            <div class="section-title">Intervention Controls</div>
+            <div class="card">
+                <div class="controls">
+                    <button class="btn" onclick="doAction('refresh')">&#8635; Refresh Data</button>
+                    <button class="btn" onclick="doAction('optimize')">&#9889; Run Tests</button>
+                    <button class="btn" onclick="doAction('backup')">&#128190; Run Backup</button>
+                    <button class="btn warn" onclick="doAction('restart')">&#128260; Restart Agents</button>
+                    <button class="btn danger" onclick="doAction('shutdown')">&#128721; Emergency Stop</button>
+                </div>
+                <div id="action-result" style="margin-top:10px;font-size:0.78rem;color:var(--dim);display:none;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ═══ BOTTOM NAV (mobile only via CSS) ═══ -->
+<nav class="bottom-nav" id="bottom-nav">
+    <button class="nav-item active" onclick="switchPage('dashboard',this)" aria-label="Dashboard">
+        <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+        <span>Dashboard</span>
+    </button>
+    <button class="nav-item" onclick="switchPage('charts',this)" aria-label="Charts">
+        <svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
+        <span>Charts</span>
+    </button>
+    <button class="nav-item" onclick="switchPage('alerts',this)" aria-label="Alerts" style="position:relative;">
+        <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 002 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+        <span>Alerts</span>
+        <span class="nav-badge" id="alert-badge" style="display:none;">0</span>
+    </button>
+    <button class="nav-item" onclick="switchPage('controls',this)" aria-label="Controls">
+        <svg viewBox="0 0 24 24"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/></svg>
+        <span>Controls</span>
+    </button>
+</nav>
+<div class="toast" id="toast"></div>
+<script>
+/* ══════════════════════════════════════════════════════════
+   MATRIX MAXIMIZER — Phase 3 Client
+   PWA + Mobile-Native + SSE + Chart.js
+   ══════════════════════════════════════════════════════════ */
+var D = {};
+var evtSource = null;
+var reconnectTimer = null;
+var chartMain = null;
+var chartHealth = null;
+var sparkCharts = {};
+var sparkData = { cpu:[], mem:[], disk:[], hs:[] };
+var SPARK_MAX = 60;
+var currentPage = 'dashboard';
+var alertCount = 0;
+
+// ── Service Worker Registration ────────────────────────
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        .then(function(reg) { console.log('SW registered, scope:', reg.scope); })
+        .catch(function(err) { console.warn('SW registration failed:', err); });
+}
+
+// ── Online/Offline detection ───────────────────────────
+window.addEventListener('online', function() {
+    document.getElementById('offline-banner').classList.remove('show');
+    if (!evtSource || evtSource.readyState === 2) connectSSE();
+});
+window.addEventListener('offline', function() {
+    document.getElementById('offline-banner').classList.add('show');
+});
+
+// ── Bottom Nav Page Switching ──────────────────────────
+function switchPage(page, el) {
+    currentPage = page;
+    // haptic
+    if (navigator.vibrate) navigator.vibrate(10);
+    // update nav items
+    document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active'); });
+    if (el) el.classList.add('active');
+    // update pages
+    document.querySelectorAll('.section-page').forEach(function(p) { p.classList.remove('active'); });
+    var target = document.getElementById('page-' + page);
+    if (target) target.classList.add('active');
+    // scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // init charts if switching to charts page for first time
+    if (page === 'charts' && !chartMain) {
+        setTimeout(function() { initHistoryCharts(); loadHistory('1h'); loadHealthHistory('1h'); }, 100);
+    }
+}
+
+// ── Pull to Refresh ────────────────────────────────────
+var ptrStartY = 0;
+var ptrActive = false;
+document.addEventListener('touchstart', function(e) {
+    if (window.scrollY === 0 && e.touches.length === 1) {
+        ptrStartY = e.touches[0].clientY;
+    }
+}, { passive: true });
+document.addEventListener('touchmove', function(e) {
+    if (ptrStartY > 0 && window.scrollY === 0) {
+        var diff = e.touches[0].clientY - ptrStartY;
+        if (diff > 80 && !ptrActive) {
+            ptrActive = true;
+            document.getElementById('ptr').classList.add('active');
+        }
+    }
+}, { passive: true });
+document.addEventListener('touchend', function() {
+    if (ptrActive) {
+        ptrActive = false;
+        document.getElementById('ptr').classList.remove('active');
+        if (navigator.vibrate) navigator.vibrate([15, 50, 15]);
+        fetch('/api/refresh', { method: 'POST' }).then(function() {
+            toast('Data refreshed');
+        }).catch(function() {});
+    }
+    ptrStartY = 0;
+});
+
+// ── Theme Toggle ───────────────────────────────────────
+var themeMode = localStorage.getItem('mm-theme') || 'auto'; // auto, dark, light
+applyTheme();
+
+function toggleTheme() {
+    if (navigator.vibrate) navigator.vibrate(10);
+    if (themeMode === 'auto') themeMode = 'light';
+    else if (themeMode === 'light') themeMode = 'dark';
+    else themeMode = 'auto';
+    localStorage.setItem('mm-theme', themeMode);
+    applyTheme();
+    toast('Theme: ' + themeMode);
+}
+
+function applyTheme() {
+    var html = document.documentElement;
+    html.classList.remove('force-dark', 'force-light');
+    var btn = document.getElementById('theme-toggle');
+    if (themeMode === 'dark') {
+        html.classList.add('force-dark');
+        if (btn) btn.innerHTML = '&#9790;'; // moon
+    } else if (themeMode === 'light') {
+        html.classList.add('force-light');
+        if (btn) btn.innerHTML = '&#9728;'; // sun
+    } else {
+        if (btn) btn.innerHTML = '&#9881;'; // gear = auto
+    }
+}
+
+// ── SSE Connection ─────────────────────────────────────
+function connectSSE() {
+    setConnState('connecting');
+    evtSource = new EventSource('/api/stream');
+    evtSource.onmessage = function(e) {
+        try {
+            D = JSON.parse(e.data);
+            setConnState('live');
+            if (document.getElementById('loading').style.display !== 'none') {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                initSparklines();
+                // Only init history charts if charts page is visible (or desktop)
+                if (window.innerWidth >= 769 || currentPage === 'charts') {
+                    initHistoryCharts();
+                    loadHistory('1h');
+                    loadHealthHistory('1h');
+                }
+                loadMetricsInfo();
+            }
+            pushSparkData();
+            render();
+        } catch(err) { console.error('SSE parse error:', err); }
+    };
+    evtSource.onerror = function() {
+        setConnState('dead');
+        evtSource.close();
+        reconnectTimer = setTimeout(connectSSE, 3000);
+    };
+}
+
+function setConnState(state) {
+    var dot = document.getElementById('conn-dot');
+    var label = document.getElementById('conn-label');
+    if (state === 'live') {
+        dot.className = 'conn-dot conn-live'; label.textContent = 'Live'; label.style.color = 'var(--green)';
+    } else if (state === 'dead') {
+        dot.className = 'conn-dot conn-dead'; label.textContent = 'Offline'; label.style.color = 'var(--red)';
+    } else {
+        dot.className = 'conn-dot conn-connecting'; label.textContent = 'Connecting'; label.style.color = 'var(--yellow)';
+    }
+}
+
+// ── Sparkline Data ─────────────────────────────────────
+function pushSparkData() {
+    var s = D.system || {};
+    sparkData.cpu.push(s.cpu_percent || 0);
+    sparkData.mem.push(s.memory_percent || 0);
+    sparkData.disk.push(s.disk_percent || 0);
+    sparkData.hs.push(D.health_score || 0);
+    for (var k in sparkData) {
+        if (sparkData[k].length > SPARK_MAX) sparkData[k] = sparkData[k].slice(-SPARK_MAX);
+    }
+    updateSparklines();
+}
+
+// ── Chart.js ───────────────────────────────────────────
+var chartDefaults = {
+    responsive: true, maintainAspectRatio: false,
+    animation: { duration: 250 },
+    plugins: { legend: { display: false } },
+    scales: { x: { display: false }, y: { display: false, min: 0, max: 100 } },
+    elements: { point: { radius: 0 }, line: { borderWidth: 1.5, tension: 0.3 } }
+};
+
+function initSparklines() {
+    var configs = { 'spark-cpu':'cpu', 'spark-mem':'mem', 'spark-disk':'disk', 'spark-health':'hs' };
+    for (var id in configs) {
+        var canvas = document.getElementById(id);
+        if (!canvas) continue;
+        var key = configs[id];
+        var color = key === 'hs' ? '#00ff88' : '#00ffff';
+        sparkCharts[key] = new Chart(canvas, {
+            type: 'line',
+            data: { labels: Array(SPARK_MAX).fill(''), datasets: [{ data: sparkData[key], borderColor: color, backgroundColor: color + '15', fill: true }] },
+            options: JSON.parse(JSON.stringify(chartDefaults))
+        });
+    }
+}
+
+function updateSparklines() {
+    for (var key in sparkCharts) {
+        var chart = sparkCharts[key];
+        chart.data.labels = Array(sparkData[key].length).fill('');
+        chart.data.datasets[0].data = sparkData[key];
+        chart.update('none');
+    }
+}
+
+function initHistoryCharts() {
+    if (chartMain) return; // already initialized
+    var mainCtx = document.getElementById('chart-main');
+    if (mainCtx) {
+        chartMain = new Chart(mainCtx, {
+            type: 'line',
+            data: { labels: [], datasets: [
+                { label: 'CPU %', data: [], borderColor: '#00ffff', backgroundColor: '#00ffff15', fill: false, borderWidth: 2, tension: 0.3, pointRadius: 0 },
+                { label: 'Memory %', data: [], borderColor: '#ff6b6b', backgroundColor: '#ff6b6b15', fill: false, borderWidth: 2, tension: 0.3, pointRadius: 0 }
+            ]},
+            options: {
+                responsive: true, maintainAspectRatio: false, animation: { duration: 400 },
+                plugins: { legend: { display: true, position: 'top', labels: { color: '#888', font: { size: 10 }, boxWidth: 12, padding: 6 } } },
+                scales: {
+                    x: { display: true, ticks: { color: '#555', maxTicksLimit: 6, font: { size: 8 } }, grid: { color: 'rgba(255,255,255,0.03)' } },
+                    y: { display: true, min: 0, max: 100, ticks: { color: '#555', font: { size: 8 }, stepSize: 25 }, grid: { color: 'rgba(255,255,255,0.05)' } }
+                },
+                interaction: { mode: 'index', intersect: false }, elements: { point: { radius: 0 } }
+            }
+        });
+    }
+    var healthCtx = document.getElementById('chart-health');
+    if (healthCtx) {
+        chartHealth = new Chart(healthCtx, {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: 'Health Score', data: [], borderColor: '#00ff88', backgroundColor: '#00ff8820', fill: true, borderWidth: 2, tension: 0.3, pointRadius: 0 }] },
+            options: {
+                responsive: true, maintainAspectRatio: false, animation: { duration: 400 },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { display: true, ticks: { color: '#555', maxTicksLimit: 6, font: { size: 8 } }, grid: { color: 'rgba(255,255,255,0.03)' } },
+                    y: { display: true, min: 0, max: 100, ticks: { color: '#555', font: { size: 8 }, stepSize: 25 }, grid: { color: 'rgba(255,255,255,0.05)' } }
+                },
+                interaction: { mode: 'index', intersect: false }, elements: { point: { radius: 0 } }
+            }
+        });
+    }
+}
+
+// ── History Loading ────────────────────────────────────
+function loadHistory(period, tabEl) {
+    if (tabEl) {
+        if (navigator.vibrate) navigator.vibrate(5);
+        tabEl.parentElement.querySelectorAll('.period-tab').forEach(function(t) { t.classList.remove('active'); });
+        tabEl.classList.add('active');
+    }
+    fetch('/api/history?period=' + period)
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (!chartMain) return;
+            chartMain.data.labels = (data.timestamps || []).map(function(ts) {
+                try { var d = new Date(ts); return period === '7d' ? d.toLocaleDateString(undefined,{month:'short',day:'numeric'}) : d.toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'}); } catch(e) { return ''; }
+            });
+            chartMain.data.datasets[0].data = data.cpu || [];
+            chartMain.data.datasets[1].data = data.mem || [];
+            chartMain.update();
+        }).catch(function(e) { console.error('History error:', e); });
+    fetch('/api/stats?period=' + period)
+        .then(function(r) { return r.json(); })
+        .then(function(st) {
+            var el = document.getElementById('stats-main'); if (!el) return;
+            var cpu = st.cpu || {}, mem = st.mem || {};
+            el.innerHTML = '<span>CPU: <span class="stats-min">' + fv(cpu.min) + '%</span>/<span class="stats-avg">' + fv(cpu.avg) + '%</span>/<span class="stats-max">' + fv(cpu.max) + '%</span></span><span>MEM: <span class="stats-min">' + fv(mem.min) + '%</span>/<span class="stats-avg">' + fv(mem.avg) + '%</span>/<span class="stats-max">' + fv(mem.max) + '%</span></span>';
+        });
+}
+
+function loadHealthHistory(period, tabEl) {
+    if (tabEl) {
+        if (navigator.vibrate) navigator.vibrate(5);
+        tabEl.parentElement.querySelectorAll('.period-tab').forEach(function(t) { t.classList.remove('active'); });
+        tabEl.classList.add('active');
+    }
+    fetch('/api/history?period=' + period + '&metric=hs')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (!chartHealth) return;
+            chartHealth.data.labels = (data.timestamps || []).map(function(ts) {
+                try { var d = new Date(ts); return period === '7d' ? d.toLocaleDateString(undefined,{month:'short',day:'numeric'}) : d.toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'}); } catch(e) { return ''; }
+            });
+            chartHealth.data.datasets[0].data = data.hs || [];
+            chartHealth.update();
+        });
+    fetch('/api/stats?period=' + period)
+        .then(function(r) { return r.json(); })
+        .then(function(st) {
+            var el = document.getElementById('stats-health'); if (!el) return;
+            var hs = st.hs || {};
+            el.innerHTML = '<span class="stats-min">' + fv(hs.min) + '% min</span><span class="stats-avg">' + fv(hs.avg) + '% avg</span><span class="stats-max">' + fv(hs.max) + '% max</span>';
+        });
+}
+
+function loadMetricsInfo() {
+    fetch('/api/metrics-info')
+        .then(function(r) { return r.json(); })
+        .then(function(info) {
+            txt('v-ms-status', info.exists ? 'Active' : 'Initializing');
+            txt('v-ms-entries', info.entries != null ? info.entries.toLocaleString() : '\u2014');
+            txt('v-ms-size', info.size_kb != null ? (info.size_kb < 1024 ? info.size_kb + ' KB' : (info.size_kb/1024).toFixed(1) + ' MB') : '\u2014');
+        });
+    setTimeout(loadMetricsInfo, 60000);
+}
+
+function fv(v) { return v != null ? v : '\u2014'; }
+
+// ── Render ─────────────────────────────────────────────
+function render() {
+    var s = D.system || {}, h = D.health || {}, p = D.portfolio || {};
+    var a = D.agents || {}, rm = D.real_metrics || {}, ni = D.intelligence || {};
+    var orch = D.orchestration || {}, sec = D.security || {}, bk = D.backups || {};
+    var ic = D.inner_council || {}, git = D.git || {};
+    var proc = D.processes || {}, doc = D.doctrine || {};
+    var hs = D.health_score;
+    var badge = document.getElementById('health-badge');
+    if (hs != null) {
+        badge.textContent = hs.toFixed(1) + '%';
+        badge.className = 'health-badge ' + (hs >= 80 ? 'health-good' : hs >= 60 ? 'health-warn' : 'health-bad');
+    }
+    txt('update-time', D.timestamp ? new Date(D.timestamp).toLocaleTimeString() : '\u2014');
+    setMetric('v-health', hs, '%', 'bar-health', barColor(hs));
+    setMetric('v-cpu', s.cpu_percent, '%', 'bar-cpu', barColor(100 - (s.cpu_percent||0)));
+    setMetric('v-mem', s.memory_percent, '%', 'bar-mem', barColor(100 - (s.memory_percent||0)));
+    setMetric('v-disk', s.disk_percent, '%', 'bar-disk', barColor(100 - (s.disk_percent||0)));
+    txt('v-uptime', s.uptime_hours != null ? s.uptime_hours + 'h' : '\u2014');
+    txt('v-cores', s.cpu_count);
+    txt('v-procs', s.process_count);
+    txt('v-netsent', s.net_sent_mb != null ? s.net_sent_mb + ' MB' : '\u2014');
+    txt('v-netrecv', s.net_recv_mb != null ? s.net_recv_mb + ' MB' : '\u2014');
+    txt('v-battery', s.battery ? s.battery.percent + '%' + (s.battery.plugged_in ? ' \u26A1' : '') : 'Desktop');
+    var t = h.integration_tests || {};
+    txt('v-test-status', t.status);
+    txt('v-test-passed', t.passed);
+    txt('v-test-failed', t.failed);
+    txt('v-test-rate', t.success_rate != null ? (t.success_rate * 100).toFixed(0) + '%' : '\u2014');
+    txt('v-test-dur', t.duration != null ? t.duration.toFixed(1) + 's' : '\u2014');
+    txt('v-test-time', t.timestamp ? shortTime(t.timestamp) : '\u2014');
+    txt('v-loc', rm.lines_of_code != null ? rm.lines_of_code.toLocaleString() : '\u2014');
+    txt('v-files', rm.files_created);
+    txt('v-tests-added', rm.tests_added);
+    txt('v-repos-touched', rm.repos_touched);
+    var cba = rm.commits_by_agent || {};
+    txt('v-optimus', cba.OPTIMUS);
+    txt('v-gasket', cba.GASKET);
+    txt('v-org', p.org);
+    txt('v-pf-repos', p.repo_count);
+    txt('v-gh-repos', p.github_repo_count);
+    var gs = p.github_stats || {};
+    txt('v-stars', gs.total_stars);
+    txt('v-issues', gs.total_open_issues);
+    var langs = gs.languages || {};
+    var topLang = Object.keys(langs)[0];
+    txt('v-lang', topLang ? topLang + ' (' + langs[topLang] + ')' : '\u2014');
+    var tb = p.tier_breakdown || {};
+    var tbHtml = '';
+    for (var k in tb) tbHtml += '<div class="metric-row"><span class="metric-key">Tier ' + esc(k) + '</span><span class="metric-val">' + tb[k] + '</span></div>';
+    document.getElementById('tier-breakdown').innerHTML = tbHtml;
+    var agents = a.agents || {};
+    var agentHtml = '';
+    for (var id in agents) {
+        var info = agents[id];
+        agentHtml += '<div class="agent-item"><div><span class="dot ' + (info.status === 'active' ? 'dot-green' : 'dot-yellow') + '"></span><span class="agent-name">' + esc(info.name) + '</span></div><span class="agent-role">' + esc(info.role) + '</span></div>';
+    }
+    document.getElementById('agent-list').innerHTML = agentHtml || '<span class="metric-key">No agents</span>';
+    txt('v-phase', a.phase);
+    txt('v-ai', a.ai_enabled != null ? (a.ai_enabled ? 'Yes' : 'No') : '\u2014');
+    txt('v-providers', (a.ai_providers || []).join(', ') || '\u2014');
+    txt('v-qa', (a.qa_system || {}).status);
+    txt('v-qq-cpu', s.cpu_percent != null ? s.cpu_percent + '%' : '\u2014');
+    txt('v-qq-mem', s.memory_percent != null ? s.memory_percent + '%' : '\u2014');
+    txt('v-qq-disk', s.disk_percent != null ? s.disk_percent + '%' : '\u2014');
+    txt('v-qq-up', s.uptime_hours != null ? s.uptime_hours + 'h' : '\u2014');
+    txt('v-ncl-count', ni.event_count);
+    var etHtml = '';
+    var et = ni.event_types || {};
+    for (var ek in et) etHtml += '<div class="metric-row"><span class="metric-key">' + esc(ek) + '</span><span class="metric-val">' + et[ek] + '</span></div>';
+    document.getElementById('ncl-types').innerHTML = etHtml;
+    txt('v-orch-cycles', orch.total_cycles);
+    txt('v-orch-last', orch.last_cycle_time ? shortTime(orch.last_cycle_time) : '\u2014');
+    var orchHtml = '';
+    (orch.latest_cycles || []).slice(-3).forEach(function(c) { orchHtml += '<div class="metric-row"><span class="metric-key">' + esc(c.cycle||'') + '</span><span class="metric-val">' + esc(c.duration||'') + '</span></div>'; });
+    document.getElementById('orch-recent').innerHTML = orchHtml;
+    txt('v-sec-files', (sec.log_files || []).length);
+    txt('v-sec-size', sec.total_size_kb != null ? sec.total_size_kb + ' KB' : '\u2014');
+    var secHtml = '';
+    (sec.latest_entries || []).slice(-3).forEach(function(entry) { secHtml += '<div style="font-size:0.68rem;color:var(--dim);padding:2px 0;border-bottom:1px solid var(--row-border);word-break:break-all;">' + esc(entry) + '</div>'; });
+    document.getElementById('sec-entries').innerHTML = secHtml;
+    txt('v-bk-count', bk.backup_count);
+    txt('v-bk-size', bk.total_size_kb != null ? (bk.total_size_kb / 1024).toFixed(1) + ' MB' : '\u2014');
+    var bkHtml = '';
+    (bk.latest_backups || []).slice(0,3).forEach(function(b) { bkHtml += '<div class="metric-row"><span class="metric-key">' + esc(b.name) + '</span><span class="metric-val">' + b.size_kb + ' KB</span></div>'; });
+    document.getElementById('bk-latest').innerHTML = bkHtml;
+    txt('v-ic-count', ic.member_count);
+    var icHtml = '';
+    (ic.members || []).slice(0,6).forEach(function(m) { icHtml += '<div class="metric-row"><span class="metric-key">' + esc(m.name) + '</span><span class="metric-val">' + esc(m.priority||'') + '</span></div>'; });
+    document.getElementById('ic-members').innerHTML = icHtml;
+    txt('v-git-count', git.repo_count);
+    var gitHtml = '';
+    (git.repos || []).slice(0,6).forEach(function(gr) {
+        var changes = gr.uncommitted_changes > 0 ? ' <span style="color:var(--yellow);">' + gr.uncommitted_changes + '\u0394</span>' : '';
+        gitHtml += '<div class="metric-row"><span class="metric-key">' + esc(gr.name) + ' (' + esc(gr.branch||'?') + ')' + changes + '</span><span class="metric-val" style="font-size:0.68rem;">' + esc(gr.last_commit||'') + '</span></div>';
+    });
+    document.getElementById('git-repos').innerHTML = gitHtml;
+    var svcs = proc.services || [];
+    var svcHtml = '';
+    svcs.forEach(function(sv) {
+        svcHtml += '<div class="metric-row"><span class="metric-key"><span class="dot ' + (sv.running ? 'dot-green' : 'dot-red') + '"></span>' + esc(sv.name) + '</span><span class="metric-val">' + (sv.running ? 'RUNNING :' + sv.port : 'STOPPED') + '</span></div>';
+    });
+    document.getElementById('svc-list').innerHTML = svcHtml || '<span class="metric-key">No services</span>';
+    txt('v-py-procs', proc.python_processes);
+    txt('v-doc-ver', doc.version);
+    txt('v-doc-plat', doc.platform);
+    txt('v-doc-arch', doc.architecture);
+    txt('v-doc-mem', doc.memory_entries);
+    renderAlerts();
+}
+
+async function renderAlerts() {
+    try {
+        var r = await fetch('/api/alerts');
+        var alerts = await r.json();
+        var container = document.getElementById('alerts-container');
+        alertCount = alerts.length;
+        // Update badge
+        var badge = document.getElementById('alert-badge');
+        if (badge) {
+            if (alertCount > 0) { badge.style.display = 'flex'; badge.textContent = alertCount; }
+            else { badge.style.display = 'none'; }
+        }
+        if (alerts.length > 0) {
+            var html = '';
+            alerts.forEach(function(al) {
+                var cls = al.severity === 'critical' ? '' : 'warn';
+                html += '<div class="alert-box ' + cls + '"><div class="alert-title">\u26A0 ' + esc(al.title) + '</div><div class="alert-msg">' + esc(al.message) + '</div></div>';
+            });
+            container.innerHTML = html;
+        } else {
+            container.innerHTML = '<p style="color:var(--dim);font-size:0.78rem;padding:12px 0;">All clear — no active alerts</p>';
+        }
+    } catch(e) {}
+}
+
+async function doAction(type) {
+    if (navigator.vibrate) navigator.vibrate(15);
+    var resultEl = document.getElementById('action-result');
+    resultEl.style.display = 'block';
+    resultEl.textContent = 'Executing...';
+    resultEl.style.color = 'var(--dim)';
+    try {
+        var url;
+        if (type === 'refresh') url = '/api/refresh';
+        else if (type === 'optimize') url = '/api/optimize';
+        else if (type === 'backup') url = '/api/backup';
+        else if (type === 'restart') { if (!confirm('Restart all agents?')) { resultEl.style.display='none'; return; } url = '/api/restart/agents'; }
+        else if (type === 'shutdown') { if (!confirm('EMERGENCY SHUTDOWN?')) { resultEl.style.display='none'; return; } url = '/api/restart/system'; }
+        else return;
+        var r = await fetch(url, { method: 'POST' });
+        var data = await r.json();
+        resultEl.textContent = (data.success ? '\u2713 ' : '\u2717 ') + (data.message || 'Done');
+        resultEl.style.color = data.success ? 'var(--green)' : 'var(--red)';
+        if (navigator.vibrate) navigator.vibrate(data.success ? [10, 30, 10] : [50, 50, 50]);
+        toast(data.message || 'Action completed');
+    } catch(e) {
+        resultEl.textContent = '\u2717 ' + e.message;
+        resultEl.style.color = 'var(--red)';
+    }
+}
+
+function txt(id, val) { var el = document.getElementById(id); if (el) el.textContent = (val != null && val !== '') ? val : '\u2014'; }
+function setMetric(id, val, suffix, barId, colorClass) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = val != null ? val.toFixed(1) + (suffix||'') : '\u2014';
+    var bar = document.getElementById(barId);
+    if (bar) { bar.style.width = (val != null ? Math.min(val, 100) : 0) + '%'; bar.className = 'bar-fill ' + colorClass; }
+}
+function barColor(score) { return score == null ? 'bar-cyan' : score >= 70 ? 'bar-green' : score >= 40 ? 'bar-yellow' : 'bar-red'; }
+function shortTime(ts) { try { return new Date(ts).toLocaleString(undefined,{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}); } catch(e) { return ts ? ts.substring(0,16) : '\u2014'; } }
+function esc(s) { if (!s) return '\u2014'; var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+function toast(msg) { var t = document.getElementById('toast'); t.textContent = msg; t.className = 'toast show'; setTimeout(function() { t.className = 'toast'; }, 3000); }
+
+// ── Init ───────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+    connectSSE();
+    setTimeout(function() {
+        if (document.getElementById('loading').style.display !== 'none') {
+            fetch('/api/matrix').then(function(r) { return r.json(); }).then(function(data) {
+                D = data;
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                initSparklines();
+                if (window.innerWidth >= 769) { initHistoryCharts(); loadHistory('1h'); loadHealthHistory('1h'); }
+                loadMetricsInfo();
+                pushSparkData();
+                render();
+            }).catch(function(e) {
+                document.getElementById('loading').innerHTML = '<p style="color:var(--red)">Connection failed: ' + e.message + '</p><button onclick="location.reload()" class="btn" style="margin-top:16px;">Retry</button>';
+            });
+        }
+    }, 5000);
+});
+window.addEventListener('beforeunload', function() { if (evtSource) evtSource.close(); if (reconnectTimer) clearTimeout(reconnectTimer); });
+</script>
+</body>
+</html>

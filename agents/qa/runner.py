@@ -12,7 +12,7 @@ from typing import Optional
 
 from pydantic import BaseModel, Field
 
-from utils.super_agent import make_bridge
+from utils.dl_agent import make_bridge
 call_llm = make_bridge("qa", self_reflect=False)
 
 PROMPT_DIR = Path(__file__).parent

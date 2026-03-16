@@ -110,9 +110,9 @@ Hi [name] — I run AI agents that research companies and write personalized col
 
 ## TASK 6: SET UP TWITTER/X
 
-**Handle:** @BitRageLabour (or @BitRageLabor)
+**Handle:** @DigitalLabour (or @Digital LabourLabor)
 **Bio:** `AI agents that do real work for money. Lead research, cold emails, support triage, content repurposing. Pay per task, no hiring. 🤖`
-**Website:** bit-rage-labour.com
+**Website:** digital-labour.com
 **Pinned tweet:**
 ```
 I run AI agents that do actual work for money.
@@ -125,7 +125,7 @@ $10 per content piece repurposed
 
 DM me "demo" for a free sample.
 
-bit-rage-labour.com
+digital-labour.com
 ```
 
 ---
@@ -244,7 +244,7 @@ Time: 22.7s
 1. Open each JSON file
 2. Copy the `primary_email.subject` and `primary_email.body`
 3. Find the prospect on LinkedIn → get their email
-4. Send via your email client (sales@bit-rage-labour.com)
+4. Send via your email client (sales@digital-labour.com)
 5. Schedule follow_up_1 for Day 3, follow_up_2 for Day 7
 
 ---

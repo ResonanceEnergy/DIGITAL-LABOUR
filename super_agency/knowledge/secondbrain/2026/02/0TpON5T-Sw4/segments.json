@@ -1,0 +1,4442 @@
+[
+  {
+    "start": 0.08,
+    "end": 4.4,
+    "text": "For 500,000 years, we've had essentially"
+  },
+  {
+    "start": 2.48,
+    "end": 6.879,
+    "text": "the same cognitive architecture. And"
+  },
+  {
+    "start": 4.4,
+    "end": 8.24,
+    "text": "today, I want to talk about a leap that"
+  },
+  {
+    "start": 6.879,
+    "end": 10.719,
+    "text": "we can make, all of us, even"
+  },
+  {
+    "start": 8.24,
+    "end": 13.440000000000001,
+    "text": "non-engineers, can make in 2026 that"
+  },
+  {
+    "start": 10.719,
+    "end": 16.0,
+    "text": "will help us to build a second brain"
+  },
+  {
+    "start": 13.44,
+    "end": 18.24,
+    "text": "with AI in a way that's never been"
+  },
+  {
+    "start": 16.0,
+    "end": 21.198999999999998,
+    "text": "possible before. But first, let me set"
+  },
+  {
+    "start": 18.24,
+    "end": 23.119,
+    "text": "the stage. Why does this matter? Look, a"
+  },
+  {
+    "start": 21.199,
+    "end": 24.48,
+    "text": "second brain doesn't have to exist"
+  },
+  {
+    "start": 23.119,
+    "end": 26.32,
+    "text": "because you're lazy. It's not because"
+  },
+  {
+    "start": 24.48,
+    "end": 29.039,
+    "text": "you don't care. It's fundamentally"
+  },
+  {
+    "start": 26.32,
+    "end": 31.679000000000002,
+    "text": "because your brain was never designed to"
+  },
+  {
+    "start": 29.039,
+    "end": 33.52,
+    "text": "be a storage system. Brains are designed"
+  },
+  {
+    "start": 31.679,
+    "end": 35.28,
+    "text": "to think. And every time you force a"
+  },
+  {
+    "start": 33.52,
+    "end": 36.88,
+    "text": "brain to remember something, instead of"
+  },
+  {
+    "start": 35.28,
+    "end": 39.2,
+    "text": "letting it think of something new,"
+  },
+  {
+    "start": 36.88,
+    "end": 41.28,
+    "text": "you're paying a tax that you don't see."
+  },
+  {
+    "start": 39.2,
+    "end": 43.440000000000005,
+    "text": "And that tax shows up in real ways. It"
+  },
+  {
+    "start": 41.28,
+    "end": 45.28,
+    "text": "shows up in relationships that cool off"
+  },
+  {
+    "start": 43.44,
+    "end": 47.12,
+    "text": "because you forgot what someone told you"
+  },
+  {
+    "start": 45.28,
+    "end": 49.28,
+    "text": "that mattered to them. It shows up in"
+  },
+  {
+    "start": 47.12,
+    "end": 52.16,
+    "text": "projects that fail in the same way you"
+  },
+  {
+    "start": 49.28,
+    "end": 54.239000000000004,
+    "text": "predicted at 11:00 p.m. 3 weeks ago,"
+  },
+  {
+    "start": 52.16,
+    "end": 56.0,
+    "text": "except you forgot to write it down. and"
+  },
+  {
+    "start": 54.239,
+    "end": 57.68,
+    "text": "you got to be right and then you still"
+  },
+  {
+    "start": 56.0,
+    "end": 59.52,
+    "text": "got to suffer the consequences cuz you"
+  },
+  {
+    "start": 57.68,
+    "end": 61.6,
+    "text": "couldn't prevent it. It shows up in the"
+  },
+  {
+    "start": 59.52,
+    "end": 63.199000000000005,
+    "text": "background hum of constant open loops in"
+  },
+  {
+    "start": 61.6,
+    "end": 64.64,
+    "text": "your brain. Things you never finished"
+  },
+  {
+    "start": 63.199,
+    "end": 66.88,
+    "text": "that you are just on the edge of"
+  },
+  {
+    "start": 64.64,
+    "end": 69.28,
+    "text": "remembering that low-grade anxiety of"
+  },
+  {
+    "start": 66.88,
+    "end": 72.0,
+    "text": "don't forget to do this running as a"
+  },
+  {
+    "start": 69.28,
+    "end": 74.08,
+    "text": "thread that you cannot close because you"
+  },
+  {
+    "start": 72.0,
+    "end": 76.24,
+    "text": "never put that loop anywhere reliable"
+  },
+  {
+    "start": 74.08,
+    "end": 78.15899999999999,
+    "text": "and you can't trust a journaling system"
+  },
+  {
+    "start": 76.24,
+    "end": 80.56,
+    "text": "to remember. So here's what I want you"
+  },
+  {
+    "start": 78.159,
+    "end": 82.08000000000001,
+    "text": "to understand about this moment in our"
+  },
+  {
+    "start": 80.56,
+    "end": 84.159,
+    "text": "history. For hundreds of thousands of"
+  },
+  {
+    "start": 82.08,
+    "end": 86.4,
+    "text": "years, human beings have had roughly the"
+  },
+  {
+    "start": 84.159,
+    "end": 87.92,
+    "text": "same cognitive architecture. We can hold"
+  },
+  {
+    "start": 86.4,
+    "end": 89.52000000000001,
+    "text": "about four to seven things in working"
+  },
+  {
+    "start": 87.92,
+    "end": 91.84,
+    "text": "memory. There's a reason why phone"
+  },
+  {
+    "start": 89.52,
+    "end": 94.32,
+    "text": "numbers are about the length they are."
+  },
+  {
+    "start": 91.84,
+    "end": 96.32000000000001,
+    "text": "We're terrible at retrieval. We're great"
+  },
+  {
+    "start": 94.32,
+    "end": 98.079,
+    "text": "at pattern recognition when the patterns"
+  },
+  {
+    "start": 96.32,
+    "end": 99.75899999999999,
+    "text": "are in front of us. And we're really bad"
+  },
+  {
+    "start": 98.079,
+    "end": 102.24,
+    "text": "at pattern recognition when the patterns"
+  },
+  {
+    "start": 99.759,
+    "end": 104.0,
+    "text": "are scattered like they so often are at"
+  },
+  {
+    "start": 102.24,
+    "end": 106.079,
+    "text": "work across six months of"
+  },
+  {
+    "start": 104.0,
+    "end": 108.799,
+    "text": "half-remembered conversations. Every"
+  },
+  {
+    "start": 106.079,
+    "end": 111.119,
+    "text": "productivity system ever invented has"
+  },
+  {
+    "start": 108.799,
+    "end": 113.36000000000001,
+    "text": "been a workaround for our human brain"
+  },
+  {
+    "start": 111.119,
+    "end": 115.2,
+    "text": "limitations. Writing itself is a"
+  },
+  {
+    "start": 113.36,
+    "end": 117.119,
+    "text": "workaround. So, filing cabinets,"
+  },
+  {
+    "start": 115.2,
+    "end": 119.2,
+    "text": "rolodexes, to-do lists, journaling"
+  },
+  {
+    "start": 117.119,
+    "end": 121.68,
+    "text": "systems, all of it has been an attempt"
+  },
+  {
+    "start": 119.2,
+    "end": 123.92,
+    "text": "to extend our biological memory into"
+  },
+  {
+    "start": 121.68,
+    "end": 126.56,
+    "text": "something that is more reliable. But"
+  },
+  {
+    "start": 123.92,
+    "end": 129.44,
+    "text": "here's what's different about 2026. For"
+  },
+  {
+    "start": 126.56,
+    "end": 131.84,
+    "text": "the first time in human history, we have"
+  },
+  {
+    "start": 129.44,
+    "end": 133.76,
+    "text": "access to systems that do not just"
+  },
+  {
+    "start": 131.84,
+    "end": 136.08,
+    "text": "passively store information, but"
+  },
+  {
+    "start": 133.76,
+    "end": 138.959,
+    "text": "actively work against that information"
+  },
+  {
+    "start": 136.08,
+    "end": 141.12,
+    "text": "we give it while we sleep and do other"
+  },
+  {
+    "start": 138.959,
+    "end": 143.44,
+    "text": "things. Systems that can classify,"
+  },
+  {
+    "start": 141.12,
+    "end": 145.68,
+    "text": "route, or summarize or surface or nudge"
+  },
+  {
+    "start": 143.44,
+    "end": 147.599,
+    "text": "without us having to remember to do any"
+  },
+  {
+    "start": 145.68,
+    "end": 149.12,
+    "text": "of those activities. This is not an"
+  },
+  {
+    "start": 147.599,
+    "end": 151.35999999999999,
+    "text": "incremental improvement. This is an"
+  },
+  {
+    "start": 149.12,
+    "end": 153.12,
+    "text": "entirely new capability in the history"
+  },
+  {
+    "start": 151.36,
+    "end": 155.76000000000002,
+    "text": "of human cognition. And the most"
+  },
+  {
+    "start": 153.12,
+    "end": 157.519,
+    "text": "important part is in 2026, you don't"
+  },
+  {
+    "start": 155.76,
+    "end": 159.28,
+    "text": "have to be an engineer to build a second"
+  },
+  {
+    "start": 157.519,
+    "end": 161.12,
+    "text": "brain. So let me go through what has"
+  },
+  {
+    "start": 159.28,
+    "end": 163.12,
+    "text": "actually changed and why this moment"
+  },
+  {
+    "start": 161.12,
+    "end": 164.879,
+    "text": "matters. And I think this is the time if"
+  },
+  {
+    "start": 163.12,
+    "end": 166.8,
+    "text": "you don't have a second brain, it's"
+  },
+  {
+    "start": 164.879,
+    "end": 168.56,
+    "text": "worth building one. So for years, the"
+  },
+  {
+    "start": 166.8,
+    "end": 170.56,
+    "text": "promise of a second brain was"
+  },
+  {
+    "start": 168.56,
+    "end": 172.879,
+    "text": "essentially just, hey, it's better"
+  },
+  {
+    "start": 170.56,
+    "end": 174.8,
+    "text": "storage. You pick a tool, maybe it's"
+  },
+  {
+    "start": 172.879,
+    "end": 176.79999999999998,
+    "text": "notion, maybe it's Obsidian, maybe it's"
+  },
+  {
+    "start": 174.8,
+    "end": 179.28,
+    "text": "Rome, maybe it's Evernote, and you"
+  },
+  {
+    "start": 176.8,
+    "end": 181.84,
+    "text": "capture your notes. Maybe you use AI to"
+  },
+  {
+    "start": 179.28,
+    "end": 183.76,
+    "text": "summarize, to search, and then nothing."
+  },
+  {
+    "start": 181.84,
+    "end": 185.28,
+    "text": "the notes would pile up. You end up"
+  },
+  {
+    "start": 183.76,
+    "end": 187.2,
+    "text": "having to keep them very organized"
+  },
+  {
+    "start": 185.28,
+    "end": 189.36,
+    "text": "yourself or you stop trusting them. At"
+  },
+  {
+    "start": 187.2,
+    "end": 191.92,
+    "text": "some point, it becomes the company wiki"
+  },
+  {
+    "start": 189.36,
+    "end": 194.15900000000002,
+    "text": "that everyone looks at as a dump of old"
+  },
+  {
+    "start": 191.92,
+    "end": 196.07999999999998,
+    "text": "information. You stop using it and the"
+  },
+  {
+    "start": 194.159,
+    "end": 198.159,
+    "text": "system dies the death of so many of"
+  },
+  {
+    "start": 196.08,
+    "end": 200.8,
+    "text": "these storage solutions. I've watched"
+  },
+  {
+    "start": 198.159,
+    "end": 203.44,
+    "text": "this cycle repeat in personal systems"
+  },
+  {
+    "start": 200.8,
+    "end": 205.12,
+    "text": "and professional systems for well over a"
+  },
+  {
+    "start": 203.44,
+    "end": 207.35999999999999,
+    "text": "decade. And smart people, really"
+  },
+  {
+    "start": 205.12,
+    "end": 209.36,
+    "text": "motivated people, people who genuinely"
+  },
+  {
+    "start": 207.36,
+    "end": 211.59900000000002,
+    "text": "want to be organized tend to hit the"
+  },
+  {
+    "start": 209.36,
+    "end": 214.72000000000003,
+    "text": "same wall. The storage systems we have"
+  },
+  {
+    "start": 211.599,
+    "end": 216.959,
+    "text": "today work for about one in 20 people"
+  },
+  {
+    "start": 214.72,
+    "end": 218.64,
+    "text": "that I talk to on an ongoing daily"
+  },
+  {
+    "start": 216.959,
+    "end": 220.56,
+    "text": "basis. And those people are typically"
+  },
+  {
+    "start": 218.64,
+    "end": 221.92,
+    "text": "the most organized people I know. So you"
+  },
+  {
+    "start": 220.56,
+    "end": 223.2,
+    "text": "would think they need it the least, but"
+  },
+  {
+    "start": 221.92,
+    "end": 225.44,
+    "text": "they're so organized they can make it"
+  },
+  {
+    "start": 223.2,
+    "end": 227.04,
+    "text": "work for them. For the rest of us, it's"
+  },
+  {
+    "start": 225.44,
+    "end": 229.12,
+    "text": "a challenge. And the wall is not"
+  },
+  {
+    "start": 227.04,
+    "end": 232.4,
+    "text": "motivation. The wall is that traditional"
+  },
+  {
+    "start": 229.12,
+    "end": 235.12,
+    "text": "systems ask us to do cognitive work at"
+  },
+  {
+    "start": 232.4,
+    "end": 237.519,
+    "text": "exactly the wrong moment. They ask us to"
+  },
+  {
+    "start": 235.12,
+    "end": 239.20000000000002,
+    "text": "decide where a thought belongs when"
+  },
+  {
+    "start": 237.519,
+    "end": 241.20000000000002,
+    "text": "we're walking into a meeting. They ask"
+  },
+  {
+    "start": 239.2,
+    "end": 243.04,
+    "text": "us to tag it when we're driving. They"
+  },
+  {
+    "start": 241.2,
+    "end": 244.79899999999998,
+    "text": "ask us to name it properly when we're"
+  },
+  {
+    "start": 243.04,
+    "end": 246.64,
+    "text": "about to go to bed. They ask us to"
+  },
+  {
+    "start": 244.799,
+    "end": 248.4,
+    "text": "choose a folder in a taxonomy and a"
+  },
+  {
+    "start": 246.64,
+    "end": 249.92,
+    "text": "structure. And that's the moment when"
+  },
+  {
+    "start": 248.4,
+    "end": 251.439,
+    "text": "you frankly don't want that. You just"
+  },
+  {
+    "start": 249.92,
+    "end": 252.95899999999997,
+    "text": "want relief. You want someone else to do"
+  },
+  {
+    "start": 251.439,
+    "end": 255.439,
+    "text": "it. You don't want to organize. You want"
+  },
+  {
+    "start": 252.959,
+    "end": 257.519,
+    "text": "to capture it and move on. And so most"
+  },
+  {
+    "start": 255.439,
+    "end": 259.199,
+    "text": "of us do what every normal person does."
+  },
+  {
+    "start": 257.519,
+    "end": 260.959,
+    "text": "We take a note somewhere. You stick it"
+  },
+  {
+    "start": 259.199,
+    "end": 262.639,
+    "text": "in Apple Notes and you tell yourself"
+  },
+  {
+    "start": 260.959,
+    "end": 264.96,
+    "text": "you'll organize it later, right? And"
+  },
+  {
+    "start": 262.639,
+    "end": 266.40000000000003,
+    "text": "later never comes. You have a pile of"
+  },
+  {
+    "start": 264.96,
+    "end": 268.32,
+    "text": "notes you don't trust, which means you"
+  },
+  {
+    "start": 266.4,
+    "end": 270.08,
+    "text": "stop putting notes in it. and the whole"
+  },
+  {
+    "start": 268.32,
+    "end": 272.56,
+    "text": "thing collapses. And so what's changed"
+  },
+  {
+    "start": 270.08,
+    "end": 275.59999999999997,
+    "text": "is that we're moving from AI inside your"
+  },
+  {
+    "start": 272.56,
+    "end": 278.16,
+    "text": "notes as a search tool to AI running a"
+  },
+  {
+    "start": 275.6,
+    "end": 281.36,
+    "text": "loop. And the difference is enormous. An"
+  },
+  {
+    "start": 278.16,
+    "end": 284.0,
+    "text": "AI loop means the system does work"
+  },
+  {
+    "start": 281.36,
+    "end": 286.16,
+    "text": "whether or not you feel motivated today."
+  },
+  {
+    "start": 284.0,
+    "end": 288.24,
+    "text": "You capture a thought in 5 seconds. The"
+  },
+  {
+    "start": 286.16,
+    "end": 289.759,
+    "text": "system classifies it. It routes it to"
+  },
+  {
+    "start": 288.24,
+    "end": 291.68,
+    "text": "the right place. It extracts the"
+  },
+  {
+    "start": 289.759,
+    "end": 293.84000000000003,
+    "text": "relevant details. It writes it into a"
+  },
+  {
+    "start": 291.68,
+    "end": 296.08,
+    "text": "structured database. And then it nudges"
+  },
+  {
+    "start": 293.84,
+    "end": 298.08,
+    "text": "you every morning with what matters"
+  },
+  {
+    "start": 296.08,
+    "end": 299.919,
+    "text": "today. Then it reviews your week every"
+  },
+  {
+    "start": 298.08,
+    "end": 301.68,
+    "text": "Sunday and it tells you what's stuck,"
+  },
+  {
+    "start": 299.919,
+    "end": 304.08,
+    "text": "what's moving, what you should focus on"
+  },
+  {
+    "start": 301.68,
+    "end": 306.96,
+    "text": "next. You don't have to remember to use"
+  },
+  {
+    "start": 304.08,
+    "end": 309.28,
+    "text": "it. It just shows up. That's the shift"
+  },
+  {
+    "start": 306.96,
+    "end": 311.28,
+    "text": "from building a knowledge base to"
+  },
+  {
+    "start": 309.28,
+    "end": 314.63899999999995,
+    "text": "installing a behavior changing system."
+  },
+  {
+    "start": 311.28,
+    "end": 316.0,
+    "text": "The center of gravity moves from you as"
+  },
+  {
+    "start": 314.639,
+    "end": 318.40000000000003,
+    "text": "the person who has to keep all of this"
+  },
+  {
+    "start": 316.0,
+    "end": 320.4,
+    "text": "on the rails to the loop helping you"
+  },
+  {
+    "start": 318.4,
+    "end": 322.479,
+    "text": "stay on the rails and stay organized."
+  },
+  {
+    "start": 320.4,
+    "end": 324.96,
+    "text": "You get a genuine support structure."
+  },
+  {
+    "start": 322.479,
+    "end": 327.12,
+    "text": "Now, this all sounds very theoretical. I"
+  },
+  {
+    "start": 324.96,
+    "end": 328.79999999999995,
+    "text": "am not a hypy person. I am not the"
+  },
+  {
+    "start": 327.12,
+    "end": 331.039,
+    "text": "person telling you to do this in early"
+  },
+  {
+    "start": 328.8,
+    "end": 334.639,
+    "text": "2024 when the tools aren't ready. I want"
+  },
+  {
+    "start": 331.039,
+    "end": 338.4,
+    "text": "to tell you now exactly what tools make"
+  },
+  {
+    "start": 334.639,
+    "end": 340.08,
+    "text": "this work today in 2026. The stack I"
+  },
+  {
+    "start": 338.4,
+    "end": 343.44,
+    "text": "would recommend if you are not an"
+  },
+  {
+    "start": 340.08,
+    "end": 346.15999999999997,
+    "text": "engineer is Slack plus notion plus"
+  },
+  {
+    "start": 343.44,
+    "end": 348.479,
+    "text": "Zapier plus Claude or Chat JPT. That's"
+  },
+  {
+    "start": 346.16,
+    "end": 350.639,
+    "text": "it. Four tools all of which you probably"
+  },
+  {
+    "start": 348.479,
+    "end": 352.71999999999997,
+    "text": "already have access to or can get access"
+  },
+  {
+    "start": 350.639,
+    "end": 354.72,
+    "text": "to in the next 10 minutes. Slack is your"
+  },
+  {
+    "start": 352.72,
+    "end": 357.12,
+    "text": "capture point. Almost everyone's in"
+  },
+  {
+    "start": 354.72,
+    "end": 359.52000000000004,
+    "text": "Slack already. You create one private"
+  },
+  {
+    "start": 357.12,
+    "end": 361.12,
+    "text": "channel just for you called SB Inbox or"
+  },
+  {
+    "start": 359.52,
+    "end": 362.96,
+    "text": "whatever you want to name it. And that's"
+  },
+  {
+    "start": 361.12,
+    "end": 365.199,
+    "text": "where you throw every single thought."
+  },
+  {
+    "start": 362.96,
+    "end": 367.68,
+    "text": "One message per thought. No organizing,"
+  },
+  {
+    "start": 365.199,
+    "end": 370.16,
+    "text": "no tagging, no decisions. You type it or"
+  },
+  {
+    "start": 367.68,
+    "end": 372.24,
+    "text": "you paste it and you hit send. Notion is"
+  },
+  {
+    "start": 370.16,
+    "end": 375.199,
+    "text": "the storage layer. You create four"
+  },
+  {
+    "start": 372.24,
+    "end": 378.08,
+    "text": "simple databases. People, projects,"
+  },
+  {
+    "start": 375.199,
+    "end": 379.84000000000003,
+    "text": "ideas, and admin. Each one has a handful"
+  },
+  {
+    "start": 378.08,
+    "end": 381.28,
+    "text": "of field that the system is going to"
+  },
+  {
+    "start": 379.84,
+    "end": 382.79999999999995,
+    "text": "fill in automatically. like the date"
+  },
+  {
+    "start": 381.28,
+    "end": 384.96,
+    "text": "that you filed. This is a great field,"
+  },
+  {
+    "start": 382.8,
+    "end": 388.08,
+    "text": "right? And you then create a fifth"
+  },
+  {
+    "start": 384.96,
+    "end": 389.75899999999996,
+    "text": "database called the inbox log that acts"
+  },
+  {
+    "start": 388.08,
+    "end": 391.12,
+    "text": "as an audit trail for this system. And"
+  },
+  {
+    "start": 389.759,
+    "end": 393.039,
+    "text": "if you're wondering, how do I keep this"
+  },
+  {
+    "start": 391.12,
+    "end": 395.68,
+    "text": "straight? I can't remember this. This is"
+  },
+  {
+    "start": 393.039,
+    "end": 397.52,
+    "text": "a second brain. Well, good news. I made"
+  },
+  {
+    "start": 395.68,
+    "end": 399.44,
+    "text": "a whole guide for it and you can go and"
+  },
+  {
+    "start": 397.52,
+    "end": 401.19899999999996,
+    "text": "grab it on Substack and you don't have"
+  },
+  {
+    "start": 399.44,
+    "end": 403.039,
+    "text": "to remember this part. Zapier is your"
+  },
+  {
+    "start": 401.199,
+    "end": 405.12,
+    "text": "automation layer. It's the thing that"
+  },
+  {
+    "start": 403.039,
+    "end": 406.88,
+    "text": "wires everything together. When a"
+  },
+  {
+    "start": 405.12,
+    "end": 409.039,
+    "text": "message appears in your Slack channel,"
+  },
+  {
+    "start": 406.88,
+    "end": 410.639,
+    "text": "Zapier just sees it and it kicks off the"
+  },
+  {
+    "start": 409.039,
+    "end": 412.479,
+    "text": "workflow to pipe things into notion. And"
+  },
+  {
+    "start": 410.639,
+    "end": 414.479,
+    "text": "so the workflow calls an AI, it writes"
+  },
+  {
+    "start": 412.479,
+    "end": 416.639,
+    "text": "to notion, it fills out all those fields"
+  },
+  {
+    "start": 414.479,
+    "end": 418.96,
+    "text": "I described and then it replies back in"
+  },
+  {
+    "start": 416.639,
+    "end": 420.96000000000004,
+    "text": "Slack. You can also use make instead of"
+  },
+  {
+    "start": 418.96,
+    "end": 423.19899999999996,
+    "text": "Zapier if you want something that's"
+  },
+  {
+    "start": 420.96,
+    "end": 425.52,
+    "text": "cheaper. Same idea. The logic is"
+  },
+  {
+    "start": 423.199,
+    "end": 427.199,
+    "text": "identical. And Clott GPT ends up being"
+  },
+  {
+    "start": 425.52,
+    "end": 429.28,
+    "text": "your intelligence layer. It's what"
+  },
+  {
+    "start": 427.199,
+    "end": 431.28000000000003,
+    "text": "classifies your thought. It's extracts"
+  },
+  {
+    "start": 429.28,
+    "end": 433.19899999999996,
+    "text": "the relevant details. It decides where"
+  },
+  {
+    "start": 431.28,
+    "end": 436.55999999999995,
+    "text": "things should go. You give it a very"
+  },
+  {
+    "start": 433.199,
+    "end": 438.96000000000004,
+    "text": "specific prompt with say a JSON schema"
+  },
+  {
+    "start": 436.56,
+    "end": 440.96,
+    "text": "and it returns structured data that"
+  },
+  {
+    "start": 438.96,
+    "end": 442.63899999999995,
+    "text": "Zapier can then write directly into"
+  },
+  {
+    "start": 440.96,
+    "end": 445.28,
+    "text": "notion. And so the flow looks like this."
+  },
+  {
+    "start": 442.639,
+    "end": 447.68,
+    "text": "Slack captures the stuff. You use Zapier"
+  },
+  {
+    "start": 445.28,
+    "end": 449.84,
+    "text": "to automate pulling that raw data out."
+  },
+  {
+    "start": 447.68,
+    "end": 452.24,
+    "text": "Zapier then makes a call using your"
+  },
+  {
+    "start": 449.84,
+    "end": 454.31899999999996,
+    "text": "structured prompt to Chad GPT or to"
+  },
+  {
+    "start": 452.24,
+    "end": 457.199,
+    "text": "Claude and they provide the intelligence"
+  },
+  {
+    "start": 454.319,
+    "end": 459.28000000000003,
+    "text": "to structure this out into a useful"
+  },
+  {
+    "start": 457.199,
+    "end": 461.199,
+    "text": "complete entry that you can make into"
+  },
+  {
+    "start": 459.28,
+    "end": 463.19899999999996,
+    "text": "your second brain. And then that gets"
+  },
+  {
+    "start": 461.199,
+    "end": 465.28000000000003,
+    "text": "piped into notion. Everything else at"
+  },
+  {
+    "start": 463.199,
+    "end": 467.44,
+    "text": "that point is just configuration to make"
+  },
+  {
+    "start": 465.28,
+    "end": 469.039,
+    "text": "it feel like home to you. And so what I"
+  },
+  {
+    "start": 467.44,
+    "end": 470.71999999999997,
+    "text": "find genuinely exciting about this"
+  },
+  {
+    "start": 469.039,
+    "end": 473.039,
+    "text": "moment, it's not the nerdiness of"
+  },
+  {
+    "start": 470.72,
+    "end": 474.96000000000004,
+    "text": "hooking it up and getting like Zapier to"
+  },
+  {
+    "start": 473.039,
+    "end": 477.039,
+    "text": "talk to Slack and everything else. The"
+  },
+  {
+    "start": 474.96,
+    "end": 479.039,
+    "text": "patterns that make these systems work"
+  },
+  {
+    "start": 477.039,
+    "end": 481.12,
+    "text": "are the exciting thing because even"
+  },
+  {
+    "start": 479.039,
+    "end": 483.12,
+    "text": "though they're not particularly new and"
+  },
+  {
+    "start": 481.12,
+    "end": 485.52,
+    "text": "engineers have been building reliable"
+  },
+  {
+    "start": 483.12,
+    "end": 488.4,
+    "text": "automated systems for a while, we in the"
+  },
+  {
+    "start": 485.52,
+    "end": 490.96,
+    "text": "non-engineering world are just now at a"
+  },
+  {
+    "start": 488.4,
+    "end": 493.35999999999996,
+    "text": "point in 2026 where we can leverage"
+  },
+  {
+    "start": 490.96,
+    "end": 496.4,
+    "text": "these principles to build these kinds of"
+  },
+  {
+    "start": 493.36,
+    "end": 498.319,
+    "text": "systems without a single line of code."
+  },
+  {
+    "start": 496.4,
+    "end": 500.479,
+    "text": "And so I want to be really explicit in"
+  },
+  {
+    "start": 498.319,
+    "end": 502.319,
+    "text": "this video and I want to teach you the"
+  },
+  {
+    "start": 500.479,
+    "end": 504.56,
+    "text": "principles that I use to design the"
+  },
+  {
+    "start": 502.319,
+    "end": 507.44,
+    "text": "system I just described. So you"
+  },
+  {
+    "start": 504.56,
+    "end": 509.599,
+    "text": "understand how this works and why it"
+  },
+  {
+    "start": 507.44,
+    "end": 511.039,
+    "text": "scales and you can apply this other"
+  },
+  {
+    "start": 509.599,
+    "end": 512.479,
+    "text": "places with AI. And so these are"
+  },
+  {
+    "start": 511.039,
+    "end": 514.399,
+    "text": "principles that govern how we make"
+  },
+  {
+    "start": 512.479,
+    "end": 516.24,
+    "text": "systems that scale, systems that don't"
+  },
+  {
+    "start": 514.399,
+    "end": 518.24,
+    "text": "break, systems that maintain trust over"
+  },
+  {
+    "start": 516.24,
+    "end": 520.159,
+    "text": "time. These are long-standing"
+  },
+  {
+    "start": 518.24,
+    "end": 521.519,
+    "text": "engineering principles, and we all need"
+  },
+  {
+    "start": 520.159,
+    "end": 523.36,
+    "text": "to know them now. And so I'm going to"
+  },
+  {
+    "start": 521.519,
+    "end": 524.8,
+    "text": "take this opportunity to say, here's the"
+  },
+  {
+    "start": 523.36,
+    "end": 526.64,
+    "text": "system. Here's the second brain, but"
+  },
+  {
+    "start": 524.8,
+    "end": 528.56,
+    "text": "also here's how you learn from this."
+  },
+  {
+    "start": 526.64,
+    "end": 530.3199999999999,
+    "text": "Here are the engineering principles"
+  },
+  {
+    "start": 528.56,
+    "end": 532.16,
+    "text": "translated for non-engineers that you"
+  },
+  {
+    "start": 530.32,
+    "end": 534.88,
+    "text": "can latch on to. And when you understand"
+  },
+  {
+    "start": 532.16,
+    "end": 537.1999999999999,
+    "text": "these things, you can build things that"
+  },
+  {
+    "start": 534.88,
+    "end": 538.72,
+    "text": "used to require a principal engineer to"
+  },
+  {
+    "start": 537.2,
+    "end": 540.48,
+    "text": "implement. So here's the building"
+  },
+  {
+    "start": 538.72,
+    "end": 542.1600000000001,
+    "text": "blocks. Engineers have really fancy"
+  },
+  {
+    "start": 540.48,
+    "end": 543.9200000000001,
+    "text": "names for these things, but I'm going to"
+  },
+  {
+    "start": 542.16,
+    "end": 546.0799999999999,
+    "text": "give you plain language that actually"
+  },
+  {
+    "start": 543.92,
+    "end": 547.8389999999999,
+    "text": "make sense. There are about eight core"
+  },
+  {
+    "start": 546.08,
+    "end": 549.2,
+    "text": "pieces that make a second brain system"
+  },
+  {
+    "start": 547.839,
+    "end": 550.72,
+    "text": "work. And once you see them, you're"
+  },
+  {
+    "start": 549.2,
+    "end": 552.32,
+    "text": "going to recognize them in a bunch of"
+  },
+  {
+    "start": 550.72,
+    "end": 554.8000000000001,
+    "text": "other reliable systems, and that's going"
+  },
+  {
+    "start": 552.32,
+    "end": 557.44,
+    "text": "to help you build fluency that you will"
+  },
+  {
+    "start": 554.8,
+    "end": 559.279,
+    "text": "need with AI in 2026. The first building"
+  },
+  {
+    "start": 557.44,
+    "end": 560.6400000000001,
+    "text": "block is what I call the Dropbox."
+  },
+  {
+    "start": 559.279,
+    "end": 562.72,
+    "text": "Engineers are going to call this the"
+  },
+  {
+    "start": 560.64,
+    "end": 564.56,
+    "text": "capture door or the ingress point. It's"
+  },
+  {
+    "start": 562.72,
+    "end": 566.64,
+    "text": "the one place you're allowed to throw"
+  },
+  {
+    "start": 564.56,
+    "end": 568.2399999999999,
+    "text": "things without thinking. It has to be"
+  },
+  {
+    "start": 566.64,
+    "end": 569.8389999999999,
+    "text": "frictionless. If capturing a thought"
+  },
+  {
+    "start": 568.24,
+    "end": 571.04,
+    "text": "takes more than a couple of seconds,"
+  },
+  {
+    "start": 569.839,
+    "end": 572.32,
+    "text": "you're actually not going to do it"
+  },
+  {
+    "start": 571.04,
+    "end": 573.92,
+    "text": "consistently despite your good"
+  },
+  {
+    "start": 572.32,
+    "end": 575.9200000000001,
+    "text": "intentions. It's not a moral failing."
+  },
+  {
+    "start": 573.92,
+    "end": 578.88,
+    "text": "It's just human nature. So, you need one"
+  },
+  {
+    "start": 575.92,
+    "end": 580.64,
+    "text": "place, one action, one consistent habit."
+  },
+  {
+    "start": 578.88,
+    "end": 582.8,
+    "text": "In this system, the Dropbox, say that"
+  },
+  {
+    "start": 580.64,
+    "end": 585.1999999999999,
+    "text": "five times fast, is a Slack channel"
+  },
+  {
+    "start": 582.8,
+    "end": 587.3599999999999,
+    "text": "called SB Inbox. You create it, you make"
+  },
+  {
+    "start": 585.2,
+    "end": 588.9590000000001,
+    "text": "it private, you pin a message explaining"
+  },
+  {
+    "start": 587.36,
+    "end": 590.64,
+    "text": "what goes in there. From then on,"
+  },
+  {
+    "start": 588.959,
+    "end": 592.64,
+    "text": "whenever a thought appears in your head"
+  },
+  {
+    "start": 590.64,
+    "end": 594.0,
+    "text": "that you don't want to lose, you open up"
+  },
+  {
+    "start": 592.64,
+    "end": 596.0,
+    "text": "Slack, you go to that channel, and you"
+  },
+  {
+    "start": 594.0,
+    "end": 597.68,
+    "text": "just type it in. One message, done."
+  },
+  {
+    "start": 596.0,
+    "end": 599.68,
+    "text": "You're not allowed to have three capture"
+  },
+  {
+    "start": 597.68,
+    "end": 601.68,
+    "text": "points, you have only one, and it"
+  },
+  {
+    "start": 599.68,
+    "end": 603.519,
+    "text": "requires zero decisions. The second"
+  },
+  {
+    "start": 601.68,
+    "end": 605.279,
+    "text": "building block is the sorter. Engineers"
+  },
+  {
+    "start": 603.519,
+    "end": 607.92,
+    "text": "call this a classifier. They call it a"
+  },
+  {
+    "start": 605.279,
+    "end": 610.32,
+    "text": "router. It's the AI step that decides"
+  },
+  {
+    "start": 607.92,
+    "end": 612.399,
+    "text": "what bucket your thought belongs in"
+  },
+  {
+    "start": 610.32,
+    "end": 614.48,
+    "text": "without you having to think about it. Is"
+  },
+  {
+    "start": 612.399,
+    "end": 616.399,
+    "text": "this about a person, a project, an idea,"
+  },
+  {
+    "start": 614.48,
+    "end": 618.48,
+    "text": "some admin errand that you need to do?"
+  },
+  {
+    "start": 616.399,
+    "end": 620.72,
+    "text": "Here's why this matters. The number one"
+  },
+  {
+    "start": 618.48,
+    "end": 623.44,
+    "text": "reason second brains fail is they"
+  },
+  {
+    "start": 620.72,
+    "end": 625.279,
+    "text": "require taxonomy work at capture time."
+  },
+  {
+    "start": 623.44,
+    "end": 626.8800000000001,
+    "text": "They force you to decide where something"
+  },
+  {
+    "start": 625.279,
+    "end": 628.88,
+    "text": "goes. And for non-engineers, that"
+  },
+  {
+    "start": 626.88,
+    "end": 630.72,
+    "text": "decision is where systems go to die."
+  },
+  {
+    "start": 628.88,
+    "end": 632.88,
+    "text": "It's the blank canvas problem, the"
+  },
+  {
+    "start": 630.72,
+    "end": 634.64,
+    "text": "perfect structure fantasy, the slow"
+  },
+  {
+    "start": 632.88,
+    "end": 636.48,
+    "text": "drift into fiddling with folders instead"
+  },
+  {
+    "start": 634.64,
+    "end": 638.16,
+    "text": "of actually capturing thoughts. So, the"
+  },
+  {
+    "start": 636.48,
+    "end": 640.0790000000001,
+    "text": "sortter removes all of that entirely."
+  },
+  {
+    "start": 638.16,
+    "end": 642.079,
+    "text": "You throw a raw thought at your Slack"
+  },
+  {
+    "start": 640.079,
+    "end": 644.399,
+    "text": "channel. Zapier picks it up and sends it"
+  },
+  {
+    "start": 642.079,
+    "end": 646.88,
+    "text": "to Claude or GPT with a classification"
+  },
+  {
+    "start": 644.399,
+    "end": 649.519,
+    "text": "prompt. The AI then figures out what it"
+  },
+  {
+    "start": 646.88,
+    "end": 651.519,
+    "text": "is, extracts the relevant details, names"
+  },
+  {
+    "start": 649.519,
+    "end": 654.5600000000001,
+    "text": "it something useful, and returns"
+  },
+  {
+    "start": 651.519,
+    "end": 657.04,
+    "text": "structured JSON. Classification is a"
+  },
+  {
+    "start": 654.56,
+    "end": 658.8,
+    "text": "solved problem this year in 2026. You"
+  },
+  {
+    "start": 657.04,
+    "end": 661.04,
+    "text": "can let the model do the sorting, and it"
+  },
+  {
+    "start": 658.8,
+    "end": 663.04,
+    "text": "will just work. The third building block"
+  },
+  {
+    "start": 661.04,
+    "end": 664.7199999999999,
+    "text": "is the form. Engineers call this the"
+  },
+  {
+    "start": 663.04,
+    "end": 666.56,
+    "text": "schema. They might call it a data"
+  },
+  {
+    "start": 664.72,
+    "end": 669.2,
+    "text": "contract. It's the set of fields your"
+  },
+  {
+    "start": 666.56,
+    "end": 671.68,
+    "text": "system promises to produce and store for"
+  },
+  {
+    "start": 669.2,
+    "end": 673.44,
+    "text": "each type of thing. So, for a person in"
+  },
+  {
+    "start": 671.68,
+    "end": 675.5999999999999,
+    "text": "your people database, this can mean the"
+  },
+  {
+    "start": 673.44,
+    "end": 677.44,
+    "text": "name, the context about who they are and"
+  },
+  {
+    "start": 675.6,
+    "end": 679.279,
+    "text": "how you know them, follow-ups that you"
+  },
+  {
+    "start": 677.44,
+    "end": 680.9590000000001,
+    "text": "need to remember for next time you talk,"
+  },
+  {
+    "start": 679.279,
+    "end": 683.2,
+    "text": "and a timestamp for when you last"
+  },
+  {
+    "start": 680.959,
+    "end": 685.04,
+    "text": "updated their entry. For a project, it"
+  },
+  {
+    "start": 683.2,
+    "end": 686.8000000000001,
+    "text": "can be the name, the status, which could"
+  },
+  {
+    "start": 685.04,
+    "end": 689.1999999999999,
+    "text": "be active or waiting or blocked or"
+  },
+  {
+    "start": 686.8,
+    "end": 691.1999999999999,
+    "text": "someday or done, the literal next action"
+  },
+  {
+    "start": 689.2,
+    "end": 693.0400000000001,
+    "text": "you need to take, and any relevant"
+  },
+  {
+    "start": 691.2,
+    "end": 695.0400000000001,
+    "text": "notes. If it's an idea, maybe it's a"
+  },
+  {
+    "start": 693.04,
+    "end": 697.12,
+    "text": "title, a oneliner that captures the core"
+  },
+  {
+    "start": 695.04,
+    "end": 698.8,
+    "text": "insight, and space for elaboration. So,"
+  },
+  {
+    "start": 697.12,
+    "end": 700.399,
+    "text": "why does this matter? Because without a"
+  },
+  {
+    "start": 698.8,
+    "end": 702.3199999999999,
+    "text": "consistent form, you're going to get"
+  },
+  {
+    "start": 700.399,
+    "end": 703.92,
+    "text": "messy notes that can't be reliably"
+  },
+  {
+    "start": 702.32,
+    "end": 706.6400000000001,
+    "text": "queried, that can't be reliably"
+  },
+  {
+    "start": 703.92,
+    "end": 708.8,
+    "text": "summarized or surfaced. Claude is not"
+  },
+  {
+    "start": 706.64,
+    "end": 710.88,
+    "text": "going to generate a useful daily digest"
+  },
+  {
+    "start": 708.8,
+    "end": 712.8,
+    "text": "if every entry is structured"
+  },
+  {
+    "start": 710.88,
+    "end": 714.959,
+    "text": "differently. The form is what makes"
+  },
+  {
+    "start": 712.8,
+    "end": 717.279,
+    "text": "automation possible. It's what is what"
+  },
+  {
+    "start": 714.959,
+    "end": 719.4399999999999,
+    "text": "lets the system compound like a good"
+  },
+  {
+    "start": 717.279,
+    "end": 721.68,
+    "text": "flywheel. The fourth building block is"
+  },
+  {
+    "start": 719.44,
+    "end": 724.1600000000001,
+    "text": "the filing cabinet. Engineers call this"
+  },
+  {
+    "start": 721.68,
+    "end": 726.3199999999999,
+    "text": "the memory store or the source of truth."
+  },
+  {
+    "start": 724.16,
+    "end": 729.1999999999999,
+    "text": "It's where the system writes facts so"
+  },
+  {
+    "start": 726.32,
+    "end": 731.279,
+    "text": "that they can be reused later. It has to"
+  },
+  {
+    "start": 729.2,
+    "end": 733.6,
+    "text": "be writable by automation and readable"
+  },
+  {
+    "start": 731.279,
+    "end": 735.6,
+    "text": "by humans. And it has to support simple"
+  },
+  {
+    "start": 733.6,
+    "end": 737.6,
+    "text": "filters and views. So in this system,"
+  },
+  {
+    "start": 735.6,
+    "end": 739.44,
+    "text": "your filing cabinet is notion."
+  },
+  {
+    "start": 737.6,
+    "end": 740.72,
+    "text": "Specifically, it's the four databases I"
+  },
+  {
+    "start": 739.44,
+    "end": 742.8000000000001,
+    "text": "talked about, right? It's people,"
+  },
+  {
+    "start": 740.72,
+    "end": 744.88,
+    "text": "project ideas, and admin. And notion"
+  },
+  {
+    "start": 742.8,
+    "end": 747.279,
+    "text": "databases are visual. They're really"
+  },
+  {
+    "start": 744.88,
+    "end": 749.04,
+    "text": "easy to edit without breaking anything."
+  },
+  {
+    "start": 747.279,
+    "end": 751.36,
+    "text": "You can create different views filtered"
+  },
+  {
+    "start": 749.04,
+    "end": 752.959,
+    "text": "by status, by date, by tags. when"
+  },
+  {
+    "start": 751.36,
+    "end": 754.8000000000001,
+    "text": "something goes wrong, you can see what"
+  },
+  {
+    "start": 752.959,
+    "end": 757.68,
+    "text": "happened and fix it directly. And"
+  },
+  {
+    "start": 754.8,
+    "end": 760.16,
+    "text": "critically, Notion has a solid API that"
+  },
+  {
+    "start": 757.68,
+    "end": 762.7199999999999,
+    "text": "Zapier can write to reliably. The fifth"
+  },
+  {
+    "start": 760.16,
+    "end": 764.88,
+    "text": "building block is the receipt. Engineers"
+  },
+  {
+    "start": 762.72,
+    "end": 767.36,
+    "text": "call this an audit trail or a ledger."
+  },
+  {
+    "start": 764.88,
+    "end": 769.2,
+    "text": "It's a record of what came in, what the"
+  },
+  {
+    "start": 767.36,
+    "end": 770.8000000000001,
+    "text": "system did with it, and how confident it"
+  },
+  {
+    "start": 769.2,
+    "end": 772.48,
+    "text": "was. And that matters more than a lot of"
+  },
+  {
+    "start": 770.8,
+    "end": 774.16,
+    "text": "us might realize. You don't really"
+  },
+  {
+    "start": 772.48,
+    "end": 776.5600000000001,
+    "text": "abandon systems because they're"
+  },
+  {
+    "start": 774.16,
+    "end": 778.0,
+    "text": "imperfect. You abandon them because you"
+  },
+  {
+    "start": 776.56,
+    "end": 779.76,
+    "text": "stop trusting them. And you stop"
+  },
+  {
+    "start": 778.0,
+    "end": 781.6,
+    "text": "trusting them because errors feel"
+  },
+  {
+    "start": 779.76,
+    "end": 783.76,
+    "text": "mysterious. something went wrong, but"
+  },
+  {
+    "start": 781.6,
+    "end": 785.12,
+    "text": "you don't know what or when or why, and"
+  },
+  {
+    "start": 783.76,
+    "end": 786.48,
+    "text": "you can't predict when the next error is"
+  },
+  {
+    "start": 785.12,
+    "end": 788.9590000000001,
+    "text": "going to happen, and you just give up."
+  },
+  {
+    "start": 786.48,
+    "end": 791.04,
+    "text": "The receipt fixes that. In this system,"
+  },
+  {
+    "start": 788.959,
+    "end": 793.3599999999999,
+    "text": "your receipt is a notion database called"
+  },
+  {
+    "start": 791.04,
+    "end": 795.04,
+    "text": "inbox log. And every capture gets logged"
+  },
+  {
+    "start": 793.36,
+    "end": 797.04,
+    "text": "there with the original text that you"
+  },
+  {
+    "start": 795.04,
+    "end": 798.56,
+    "text": "typed, where it was filed, what it was"
+  },
+  {
+    "start": 797.04,
+    "end": 801.12,
+    "text": "named, and a confident score from the"
+  },
+  {
+    "start": 798.56,
+    "end": 803.04,
+    "text": "AI. And now when something looks off,"
+  },
+  {
+    "start": 801.12,
+    "end": 805.44,
+    "text": "you trace it. You can see what the"
+  },
+  {
+    "start": 803.04,
+    "end": 807.36,
+    "text": "system decided. You can see why comes"
+  },
+  {
+    "start": 805.44,
+    "end": 809.44,
+    "text": "from visibility, and visibility comes"
+  },
+  {
+    "start": 807.36,
+    "end": 811.6,
+    "text": "from logging. The sixth building block"
+  },
+  {
+    "start": 809.44,
+    "end": 813.519,
+    "text": "is the bouncer. Engineers call this a"
+  },
+  {
+    "start": 811.6,
+    "end": 815.519,
+    "text": "confidence filter or a guardrail. I like"
+  },
+  {
+    "start": 813.519,
+    "end": 817.6,
+    "text": "bouncer as a word. It's the mechanism"
+  },
+  {
+    "start": 815.519,
+    "end": 819.36,
+    "text": "that prevents lowquality outputs from"
+  },
+  {
+    "start": 817.6,
+    "end": 821.2,
+    "text": "polluting your memory storage. And"
+  },
+  {
+    "start": 819.36,
+    "end": 823.6,
+    "text": "here's how it works. When Claude or Chad"
+  },
+  {
+    "start": 821.2,
+    "end": 825.36,
+    "text": "GPT classifies your thought, it also"
+  },
+  {
+    "start": 823.6,
+    "end": 827.6800000000001,
+    "text": "returns a confidence score between zero"
+  },
+  {
+    "start": 825.36,
+    "end": 830.0,
+    "text": "and one. If that confidence is below a"
+  },
+  {
+    "start": 827.68,
+    "end": 832.079,
+    "text": "threshold, let's say 6, the system"
+  },
+  {
+    "start": 830.0,
+    "end": 833.6,
+    "text": "doesn't file it into people. It doesn't"
+  },
+  {
+    "start": 832.079,
+    "end": 836.16,
+    "text": "file it into projects. It doesn't file"
+  },
+  {
+    "start": 833.6,
+    "end": 838.399,
+    "text": "it into ideas. Instead, it logs it in"
+  },
+  {
+    "start": 836.16,
+    "end": 840.639,
+    "text": "inbox log with a status that says needs"
+  },
+  {
+    "start": 838.399,
+    "end": 843.44,
+    "text": "review and sends you a Slack reply"
+  },
+  {
+    "start": 840.639,
+    "end": 845.44,
+    "text": "asking for a clarification. I'm not sure"
+  },
+  {
+    "start": 843.44,
+    "end": 847.9200000000001,
+    "text": "where this goes. Can you repost it with"
+  },
+  {
+    "start": 845.44,
+    "end": 849.9200000000001,
+    "text": "a prefix like person or project or idea?"
+  },
+  {
+    "start": 847.92,
+    "end": 851.92,
+    "text": "I couldn't classify. This single"
+  },
+  {
+    "start": 849.92,
+    "end": 854.88,
+    "text": "mechanism is what keeps your second"
+  },
+  {
+    "start": 851.92,
+    "end": 857.36,
+    "text": "brain from becoming a junk drawer. The"
+  },
+  {
+    "start": 854.88,
+    "end": 859.519,
+    "text": "fastest way to kill a system is to fill"
+  },
+  {
+    "start": 857.36,
+    "end": 861.12,
+    "text": "it with garbage. The bouncer keeps"
+  },
+  {
+    "start": 859.519,
+    "end": 863.36,
+    "text": "things clean enough that you maintain"
+  },
+  {
+    "start": 861.12,
+    "end": 865.279,
+    "text": "trust, and trust is what keeps you using"
+  },
+  {
+    "start": 863.36,
+    "end": 867.44,
+    "text": "it. The seventh building block is the"
+  },
+  {
+    "start": 865.279,
+    "end": 870.079,
+    "text": "tap on the shoulder. Engineers call this"
+  },
+  {
+    "start": 867.44,
+    "end": 872.0790000000001,
+    "text": "proactive surfacing or notification."
+  },
+  {
+    "start": 870.079,
+    "end": 874.4799999999999,
+    "text": "It's the system pushing useful"
+  },
+  {
+    "start": 872.079,
+    "end": 876.3199999999999,
+    "text": "information to you at the right time"
+  },
+  {
+    "start": 874.48,
+    "end": 877.9200000000001,
+    "text": "without you having to search for it. So"
+  },
+  {
+    "start": 876.32,
+    "end": 879.9200000000001,
+    "text": "in this system, the tap on the shoulder"
+  },
+  {
+    "start": 877.92,
+    "end": 881.12,
+    "text": "is a daily Slack DM that arrives at"
+  },
+  {
+    "start": 879.92,
+    "end": 883.36,
+    "text": "whatever time you want in the morning"
+  },
+  {
+    "start": 881.12,
+    "end": 884.88,
+    "text": "and is generated by a scheduled Zapier"
+  },
+  {
+    "start": 883.36,
+    "end": 887.04,
+    "text": "automation that queries your notion"
+  },
+  {
+    "start": 884.88,
+    "end": 889.199,
+    "text": "databases, pulls your active projects,"
+  },
+  {
+    "start": 887.04,
+    "end": 891.279,
+    "text": "any people with noted follow-ups, and"
+  },
+  {
+    "start": 889.199,
+    "end": 892.8,
+    "text": "sends that to Claude or Chad GPT with a"
+  },
+  {
+    "start": 891.279,
+    "end": 894.48,
+    "text": "summarization prompt, and then delivers"
+  },
+  {
+    "start": 892.8,
+    "end": 896.16,
+    "text": "a nice digest directly to your Slack"
+  },
+  {
+    "start": 894.48,
+    "end": 897.44,
+    "text": "DMs. And the digest will have three"
+  },
+  {
+    "start": 896.16,
+    "end": 898.8,
+    "text": "parts, right? It's going to have the top"
+  },
+  {
+    "start": 897.44,
+    "end": 900.0790000000001,
+    "text": "three actions for the day. It's going to"
+  },
+  {
+    "start": 898.8,
+    "end": 901.68,
+    "text": "have one thing you might be stuck on"
+  },
+  {
+    "start": 900.079,
+    "end": 903.68,
+    "text": "that you're avoiding and one small win"
+  },
+  {
+    "start": 901.68,
+    "end": 905.3599999999999,
+    "text": "to notice. It's designed to fit on a"
+  },
+  {
+    "start": 903.68,
+    "end": 907.12,
+    "text": "phone screen. It's designed for you to"
+  },
+  {
+    "start": 905.36,
+    "end": 909.04,
+    "text": "read it in 2 minutes, to know what"
+  },
+  {
+    "start": 907.12,
+    "end": 911.12,
+    "text": "matters today, and to start your day"
+  },
+  {
+    "start": 909.04,
+    "end": 913.12,
+    "text": "with confidence. And these nudges,"
+  },
+  {
+    "start": 911.12,
+    "end": 915.44,
+    "text": "they're not optional features. They're"
+  },
+  {
+    "start": 913.12,
+    "end": 917.76,
+    "text": "what makes this system alive instead of"
+  },
+  {
+    "start": 915.44,
+    "end": 919.44,
+    "text": "dead. Humans don't retrieve"
+  },
+  {
+    "start": 917.76,
+    "end": 921.04,
+    "text": "consistently. We don't wake up and"
+  },
+  {
+    "start": 919.44,
+    "end": 923.12,
+    "text": "think, I should search my notion"
+  },
+  {
+    "start": 921.04,
+    "end": 924.7199999999999,
+    "text": "databases for relevant information about"
+  },
+  {
+    "start": 923.12,
+    "end": 926.48,
+    "text": "the meeting I have today. In the"
+  },
+  {
+    "start": 924.72,
+    "end": 928.72,
+    "text": "advertisements, we do that, but we don't"
+  },
+  {
+    "start": 926.48,
+    "end": 930.72,
+    "text": "really do that. We do respond to what"
+  },
+  {
+    "start": 928.72,
+    "end": 932.88,
+    "text": "shows up in front of us. The tap on the"
+  },
+  {
+    "start": 930.72,
+    "end": 935.1990000000001,
+    "text": "shoulder exploits that. It puts the"
+  },
+  {
+    "start": 932.88,
+    "end": 937.12,
+    "text": "right information in your path so you"
+  },
+  {
+    "start": 935.199,
+    "end": 939.04,
+    "text": "don't have to remember to look for it."
+  },
+  {
+    "start": 937.12,
+    "end": 941.519,
+    "text": "There's also a weekly version. Every"
+  },
+  {
+    "start": 939.04,
+    "end": 942.7199999999999,
+    "text": "Sunday at say whatever time, 4 p.m."
+  },
+  {
+    "start": 941.519,
+    "end": 944.5600000000001,
+    "text": "whenever you want to have the Sunday"
+  },
+  {
+    "start": 942.72,
+    "end": 946.5600000000001,
+    "text": "scaries, right? Another Zapier"
+  },
+  {
+    "start": 944.56,
+    "end": 948.7199999999999,
+    "text": "automation runs. It queries everything"
+  },
+  {
+    "start": 946.56,
+    "end": 950.959,
+    "text": "from the past seven days in your inbox"
+  },
+  {
+    "start": 948.72,
+    "end": 952.9590000000001,
+    "text": "log, pulls your active projects, sends"
+  },
+  {
+    "start": 950.959,
+    "end": 954.4799999999999,
+    "text": "it all to Claude or chat GPT with a"
+  },
+  {
+    "start": 952.959,
+    "end": 956.88,
+    "text": "review prompt, and then delivers a"
+  },
+  {
+    "start": 954.48,
+    "end": 958.399,
+    "text": "weekly summary to your Slack DMs. And"
+  },
+  {
+    "start": 956.88,
+    "end": 959.68,
+    "text": "that summary, it'll tell you what"
+  },
+  {
+    "start": 958.399,
+    "end": 962.0,
+    "text": "happened. It tells you what your biggest"
+  },
+  {
+    "start": 959.68,
+    "end": 963.92,
+    "text": "open loops are. Three suggested actions"
+  },
+  {
+    "start": 962.0,
+    "end": 965.68,
+    "text": "for next week and one recurring theme"
+  },
+  {
+    "start": 963.92,
+    "end": 967.759,
+    "text": "that the system noticed. And so the"
+  },
+  {
+    "start": 965.68,
+    "end": 969.8389999999999,
+    "text": "Sunday review becomes a cadence that you"
+  },
+  {
+    "start": 967.759,
+    "end": 972.24,
+    "text": "can trust. It it's what turns storage"
+  },
+  {
+    "start": 969.839,
+    "end": 973.6800000000001,
+    "text": "into a consistent weekly direction. And"
+  },
+  {
+    "start": 972.24,
+    "end": 975.839,
+    "text": "without it, you're kind of just"
+  },
+  {
+    "start": 973.68,
+    "end": 978.0,
+    "text": "accumulating notes like the old way. The"
+  },
+  {
+    "start": 975.839,
+    "end": 979.519,
+    "text": "eighth building block is the fix button."
+  },
+  {
+    "start": 978.0,
+    "end": 981.6,
+    "text": "Engineers would call this a feedback"
+  },
+  {
+    "start": 979.519,
+    "end": 984.16,
+    "text": "handle or a human in the loop correction"
+  },
+  {
+    "start": 981.6,
+    "end": 986.16,
+    "text": "mechanism. It's the one-step way to"
+  },
+  {
+    "start": 984.16,
+    "end": 987.8389999999999,
+    "text": "correct mistakes without opening"
+  },
+  {
+    "start": 986.16,
+    "end": 989.8389999999999,
+    "text": "dashboards or without trying to do"
+  },
+  {
+    "start": 987.839,
+    "end": 991.759,
+    "text": "maintenance. In this system, whenever"
+  },
+  {
+    "start": 989.839,
+    "end": 993.44,
+    "text": "the Zapier automation files something,"
+  },
+  {
+    "start": 991.759,
+    "end": 994.9590000000001,
+    "text": "it's going to reply in the Slack thread"
+  },
+  {
+    "start": 993.44,
+    "end": 996.72,
+    "text": "confirming what it did. Hey, this was"
+  },
+  {
+    "start": 994.959,
+    "end": 999.279,
+    "text": "filed as a project. The project is"
+  },
+  {
+    "start": 996.72,
+    "end": 1001.279,
+    "text": "website relaunch. The confidence was 087"
+  },
+  {
+    "start": 999.279,
+    "end": 1003.279,
+    "text": "reply fix if I got it wrong. If the"
+  },
+  {
+    "start": 1001.279,
+    "end": 1005.199,
+    "text": "filing was wrong, all you do is reply in"
+  },
+  {
+    "start": 1003.279,
+    "end": 1006.72,
+    "text": "the thread fix colon. This should be"
+  },
+  {
+    "start": 1005.199,
+    "end": 1008.4799999999999,
+    "text": "people, not projects. And the system"
+  },
+  {
+    "start": 1006.72,
+    "end": 1010.8000000000001,
+    "text": "will just update it. So why does that"
+  },
+  {
+    "start": 1008.48,
+    "end": 1013.12,
+    "text": "matter? Because systems get adopted when"
+  },
+  {
+    "start": 1010.8,
+    "end": 1015.92,
+    "text": "they're easy to repair. [snorts] If"
+  },
+  {
+    "start": 1013.12,
+    "end": 1018.24,
+    "text": "fixing errors feels like work if you"
+  },
+  {
+    "start": 1015.92,
+    "end": 1020.079,
+    "text": "have to open notion and navigate to the"
+  },
+  {
+    "start": 1018.24,
+    "end": 1021.279,
+    "text": "right database and find the entry and"
+  },
+  {
+    "start": 1020.079,
+    "end": 1023.199,
+    "text": "you're not going to do that. You're"
+  },
+  {
+    "start": 1021.279,
+    "end": 1025.6,
+    "text": "going to stop engaging. Corrections must"
+  },
+  {
+    "start": 1023.199,
+    "end": 1027.76,
+    "text": "be trivial or people will not make them."
+  },
+  {
+    "start": 1025.6,
+    "end": 1029.9189999999999,
+    "text": "Now, let me give you the principles that"
+  },
+  {
+    "start": 1027.76,
+    "end": 1031.439,
+    "text": "make those building blocks actually"
+  },
+  {
+    "start": 1029.919,
+    "end": 1033.039,
+    "text": "work. These these are engineering"
+  },
+  {
+    "start": 1031.439,
+    "end": 1034.72,
+    "text": "principles, but they're not complicated."
+  },
+  {
+    "start": 1033.039,
+    "end": 1036.16,
+    "text": "They're just rules that experienced"
+  },
+  {
+    "start": 1034.72,
+    "end": 1037.52,
+    "text": "system builders have learned. And when"
+  },
+  {
+    "start": 1036.16,
+    "end": 1039.679,
+    "text": "you understand them, you can build"
+  },
+  {
+    "start": 1037.52,
+    "end": 1042.559,
+    "text": "things that do not fall apart. Principle"
+  },
+  {
+    "start": 1039.679,
+    "end": 1044.959,
+    "text": "number one, reduce the human's job to"
+  },
+  {
+    "start": 1042.559,
+    "end": 1047.12,
+    "text": "one reliable behavior. If your system"
+  },
+  {
+    "start": 1044.959,
+    "end": 1048.799,
+    "text": "requires three behaviors, you don't have"
+  },
+  {
+    "start": 1047.12,
+    "end": 1051.12,
+    "text": "a system. You have a self-improvement"
+  },
+  {
+    "start": 1048.799,
+    "end": 1053.039,
+    "text": "program. And non-engineers will not run"
+  },
+  {
+    "start": 1051.12,
+    "end": 1054.799,
+    "text": "those programs very consistently. The"
+  },
+  {
+    "start": 1053.039,
+    "end": 1056.32,
+    "text": "scalable move is to make the human do"
+  },
+  {
+    "start": 1054.799,
+    "end": 1058.0,
+    "text": "one thing, which in this case is capture"
+  },
+  {
+    "start": 1056.32,
+    "end": 1060.1599999999999,
+    "text": "it in Slack. Everything else is"
+  },
+  {
+    "start": 1058.0,
+    "end": 1062.0,
+    "text": "automation. Classification is Claude or"
+  },
+  {
+    "start": 1060.16,
+    "end": 1063.8400000000001,
+    "text": "Chad GPT doing the work and filing is"
+  },
+  {
+    "start": 1062.0,
+    "end": 1065.679,
+    "text": "Zapier doing the work and surfacing is a"
+  },
+  {
+    "start": 1063.84,
+    "end": 1067.6,
+    "text": "scheduled automation. You get the idea."
+  },
+  {
+    "start": 1065.679,
+    "end": 1069.76,
+    "text": "The human's job is just to throw"
+  },
+  {
+    "start": 1067.6,
+    "end": 1072.0,
+    "text": "thoughts at the channel. That's it."
+  },
+  {
+    "start": 1069.76,
+    "end": 1074.4,
+    "text": "Principle number two, separate memory"
+  },
+  {
+    "start": 1072.0,
+    "end": 1076.24,
+    "text": "from compute and from interface. This is"
+  },
+  {
+    "start": 1074.4,
+    "end": 1077.44,
+    "text": "the single most important architectural"
+  },
+  {
+    "start": 1076.24,
+    "end": 1079.52,
+    "text": "principle and it's how you build"
+  },
+  {
+    "start": 1077.44,
+    "end": 1081.3600000000001,
+    "text": "something that lasts. Memory is where"
+  },
+  {
+    "start": 1079.52,
+    "end": 1083.44,
+    "text": "truth lives. That's your notion database"
+  },
+  {
+    "start": 1081.36,
+    "end": 1085.36,
+    "text": "in this system. Compute is where the"
+  },
+  {
+    "start": 1083.44,
+    "end": 1087.52,
+    "text": "logic run. That's zap year and that's"
+  },
+  {
+    "start": 1085.36,
+    "end": 1089.6789999999999,
+    "text": "claude. Interface is where the human"
+  },
+  {
+    "start": 1087.52,
+    "end": 1091.6,
+    "text": "interacts. That's in Slack. Why would we"
+  },
+  {
+    "start": 1089.679,
+    "end": 1094.0800000000002,
+    "text": "separate those? Because it makes the"
+  },
+  {
+    "start": 1091.6,
+    "end": 1096.0,
+    "text": "system portable and swappable. You can"
+  },
+  {
+    "start": 1094.08,
+    "end": 1097.84,
+    "text": "change your interface from Slack to"
+  },
+  {
+    "start": 1096.0,
+    "end": 1100.0,
+    "text": "Microsoft Teams without rebuilding"
+  },
+  {
+    "start": 1097.84,
+    "end": 1102.3999999999999,
+    "text": "everything. You can swap Claude for Chad"
+  },
+  {
+    "start": 1100.0,
+    "end": 1104.16,
+    "text": "GPT without touching your databases. You"
+  },
+  {
+    "start": 1102.4,
+    "end": 1105.679,
+    "text": "can move from notion to Air Table if"
+  },
+  {
+    "start": 1104.16,
+    "end": 1108.0800000000002,
+    "text": "your company wants you to or if you feel"
+  },
+  {
+    "start": 1105.679,
+    "end": 1109.2800000000002,
+    "text": "like it. Every layer has just one job"
+  },
+  {
+    "start": 1108.08,
+    "end": 1111.28,
+    "text": "and they connect through clear"
+  },
+  {
+    "start": 1109.28,
+    "end": 1113.039,
+    "text": "boundaries. This is also why I don't"
+  },
+  {
+    "start": 1111.28,
+    "end": 1114.6399999999999,
+    "text": "recommend starting with Obsidian if"
+  },
+  {
+    "start": 1113.039,
+    "end": 1117.12,
+    "text": "you're a non-engineer, even though"
+  },
+  {
+    "start": 1114.64,
+    "end": 1119.039,
+    "text": "Obsidian is a beautiful tool. Obsidian"
+  },
+  {
+    "start": 1117.12,
+    "end": 1120.3999999999999,
+    "text": "stores everything as local markdown"
+  },
+  {
+    "start": 1119.039,
+    "end": 1122.08,
+    "text": "files, which is really great for"
+  },
+  {
+    "start": 1120.4,
+    "end": 1124.4,
+    "text": "portability. It's great for ownership,"
+  },
+  {
+    "start": 1122.08,
+    "end": 1126.48,
+    "text": "but writing into local files from cloud"
+  },
+  {
+    "start": 1124.4,
+    "end": 1128.5590000000002,
+    "text": "automation introduces a layer of syncing"
+  },
+  {
+    "start": 1126.48,
+    "end": 1130.08,
+    "text": "and plumbing that may seem trivial for"
+  },
+  {
+    "start": 1128.559,
+    "end": 1132.3999999999999,
+    "text": "engineers, but I find is often"
+  },
+  {
+    "start": 1130.08,
+    "end": 1133.6789999999999,
+    "text": "frustrating for everybody else. So,"
+  },
+  {
+    "start": 1132.4,
+    "end": 1135.1200000000001,
+    "text": "starting with notion makes that"
+  },
+  {
+    "start": 1133.679,
+    "end": 1136.3200000000002,
+    "text": "automation really clean, and you can"
+  },
+  {
+    "start": 1135.12,
+    "end": 1138.0,
+    "text": "always migrate later if you want"
+  },
+  {
+    "start": 1136.32,
+    "end": 1140.559,
+    "text": "something that's local first. Principle"
+  },
+  {
+    "start": 1138.0,
+    "end": 1142.72,
+    "text": "number three, treat prompts like APIs,"
+  },
+  {
+    "start": 1140.559,
+    "end": 1145.36,
+    "text": "not like creative writing. A scalable"
+  },
+  {
+    "start": 1142.72,
+    "end": 1147.3600000000001,
+    "text": "agentic prompt is a contract. It's a"
+  },
+  {
+    "start": 1145.36,
+    "end": 1149.039,
+    "text": "fixed input format. It's a fixed output"
+  },
+  {
+    "start": 1147.36,
+    "end": 1151.039,
+    "text": "format. It's no surprises. You give"
+  },
+  {
+    "start": 1149.039,
+    "end": 1152.72,
+    "text": "Claude or Chad GPT a schema. You give it"
+  },
+  {
+    "start": 1151.039,
+    "end": 1154.64,
+    "text": "rules and you tell it to return JSON"
+  },
+  {
+    "start": 1152.72,
+    "end": 1156.799,
+    "text": "only with no explanation and no"
+  },
+  {
+    "start": 1154.64,
+    "end": 1158.4,
+    "text": "markdown. That feels restrictive and"
+  },
+  {
+    "start": 1156.799,
+    "end": 1160.24,
+    "text": "that's the whole point. You don't want"
+  },
+  {
+    "start": 1158.4,
+    "end": 1161.8400000000001,
+    "text": "the model to be helpful in uncontrolled"
+  },
+  {
+    "start": 1160.24,
+    "end": 1165.36,
+    "text": "ways in this system. You want it to fill"
+  },
+  {
+    "start": 1161.84,
+    "end": 1167.36,
+    "text": "out a form. The prompt specifies exactly"
+  },
+  {
+    "start": 1165.36,
+    "end": 1169.12,
+    "text": "what fields to return, exactly what"
+  },
+  {
+    "start": 1167.36,
+    "end": 1171.52,
+    "text": "values are valid, and exactly how to"
+  },
+  {
+    "start": 1169.12,
+    "end": 1173.4399999999998,
+    "text": "handle ambiguous cases. Reliable beats"
+  },
+  {
+    "start": 1171.52,
+    "end": 1175.12,
+    "text": "creative in these systems. And it's"
+  },
+  {
+    "start": 1173.44,
+    "end": 1177.3600000000001,
+    "text": "really important to remember that as you"
+  },
+  {
+    "start": 1175.12,
+    "end": 1180.3999999999999,
+    "text": "start to build things. Principle four,"
+  },
+  {
+    "start": 1177.36,
+    "end": 1182.4799999999998,
+    "text": "always build a trust mechanism, not just"
+  },
+  {
+    "start": 1180.4,
+    "end": 1183.76,
+    "text": "a capability. So a capability is the bot"
+  },
+  {
+    "start": 1182.48,
+    "end": 1186.16,
+    "text": "files the notes, right? A trust"
+  },
+  {
+    "start": 1183.76,
+    "end": 1188.559,
+    "text": "mechanism is I believe the filing enough"
+  },
+  {
+    "start": 1186.16,
+    "end": 1190.48,
+    "text": "to keep using it because and so trust"
+  },
+  {
+    "start": 1188.559,
+    "end": 1192.16,
+    "text": "comes from the inbox log that shows you"
+  },
+  {
+    "start": 1190.48,
+    "end": 1194.4,
+    "text": "everything that happened. Confidence"
+  },
+  {
+    "start": 1192.16,
+    "end": 1196.559,
+    "text": "scores from the fix button that makes"
+  },
+  {
+    "start": 1194.4,
+    "end": 1198.48,
+    "text": "corrections trivial. Without these small"
+  },
+  {
+    "start": 1196.559,
+    "end": 1200.48,
+    "text": "things, you might think the system would"
+  },
+  {
+    "start": 1198.48,
+    "end": 1202.48,
+    "text": "still function, but small errors tend to"
+  },
+  {
+    "start": 1200.48,
+    "end": 1203.84,
+    "text": "compound. And with them, the system"
+  },
+  {
+    "start": 1202.48,
+    "end": 1205.6,
+    "text": "actually can learn and earn your"
+  },
+  {
+    "start": 1203.84,
+    "end": 1207.6,
+    "text": "confidence over time. Principle number"
+  },
+  {
+    "start": 1205.6,
+    "end": 1210.1599999999999,
+    "text": "five, you want to default to safe"
+  },
+  {
+    "start": 1207.6,
+    "end": 1212.3999999999999,
+    "text": "behavior when uncertain. A real agentic"
+  },
+  {
+    "start": 1210.16,
+    "end": 1214.72,
+    "text": "system has to know how to fail"
+  },
+  {
+    "start": 1212.4,
+    "end": 1216.5590000000002,
+    "text": "gracefully. The safest default is when"
+  },
+  {
+    "start": 1214.72,
+    "end": 1218.799,
+    "text": "Claude or Chad GPT isn't sure is you"
+  },
+  {
+    "start": 1216.559,
+    "end": 1221.2,
+    "text": "just log the item and write that Slack"
+  },
+  {
+    "start": 1218.799,
+    "end": 1223.12,
+    "text": "message and ask for clarification. And"
+  },
+  {
+    "start": 1221.2,
+    "end": 1224.88,
+    "text": "that's exactly why we have a confidence"
+  },
+  {
+    "start": 1223.12,
+    "end": 1226.1599999999999,
+    "text": "threshold. When confidence is below"
+  },
+  {
+    "start": 1224.88,
+    "end": 1228.72,
+    "text": "whatever number you select, I'm"
+  },
+  {
+    "start": 1226.16,
+    "end": 1231.3600000000001,
+    "text": "suggesting 6. It doesn't file. It just"
+  },
+  {
+    "start": 1228.72,
+    "end": 1233.2,
+    "text": "holds. It asks. It might seem boring,"
+  },
+  {
+    "start": 1231.36,
+    "end": 1236.9599999999998,
+    "text": "but it's essential to build trust."
+  },
+  {
+    "start": 1233.2,
+    "end": 1239.76,
+    "text": "Principle number six, make output small,"
+  },
+  {
+    "start": 1236.96,
+    "end": 1242.08,
+    "text": "frequent, and actionable. Non-engineers"
+  },
+  {
+    "start": 1239.76,
+    "end": 1243.44,
+    "text": "don't want a weekly 2,000word analysis,"
+  },
+  {
+    "start": 1242.08,
+    "end": 1245.039,
+    "text": "right? They want a top three list that"
+  },
+  {
+    "start": 1243.44,
+    "end": 1247.44,
+    "text": "fits on a phone screen. Frankly, most"
+  },
+  {
+    "start": 1245.039,
+    "end": 1248.96,
+    "text": "engineers do, too. They want a Slack DM"
+  },
+  {
+    "start": 1247.44,
+    "end": 1251.44,
+    "text": "they can read in 2 minutes. Most"
+  },
+  {
+    "start": 1248.96,
+    "end": 1252.96,
+    "text": "engineers do, too. Small outputs reduce"
+  },
+  {
+    "start": 1251.44,
+    "end": 1255.2,
+    "text": "cognitive load and increase"
+  },
+  {
+    "start": 1252.96,
+    "end": 1257.76,
+    "text": "follow-through. So, the daily digest"
+  },
+  {
+    "start": 1255.2,
+    "end": 1260.64,
+    "text": "needs to be under 150 words, and the"
+  },
+  {
+    "start": 1257.76,
+    "end": 1263.2,
+    "text": "weekly review needs to be under 250"
+  },
+  {
+    "start": 1260.64,
+    "end": 1264.96,
+    "text": "words. That's very intentional. Agentic"
+  },
+  {
+    "start": 1263.2,
+    "end": 1266.88,
+    "text": "systems scale when they produce very"
+  },
+  {
+    "start": 1264.96,
+    "end": 1269.28,
+    "text": "useful outputs that are small but"
+  },
+  {
+    "start": 1266.88,
+    "end": 1270.96,
+    "text": "extremely reliable on a set cadence. And"
+  },
+  {
+    "start": 1269.28,
+    "end": 1272.32,
+    "text": "then at the end of the day, you start"
+  },
+  {
+    "start": 1270.96,
+    "end": 1274.559,
+    "text": "trusting them because you're essentially"
+  },
+  {
+    "start": 1272.32,
+    "end": 1276.6399999999999,
+    "text": "getting a breadcrumb of trust and value"
+  },
+  {
+    "start": 1274.559,
+    "end": 1279.9189999999999,
+    "text": "every time you use it. Principle number"
+  },
+  {
+    "start": 1276.64,
+    "end": 1281.679,
+    "text": "seven, use next action as the unit of"
+  },
+  {
+    "start": 1279.919,
+    "end": 1283.6000000000001,
+    "text": "execution. So what I mean by that is"
+  },
+  {
+    "start": 1281.679,
+    "end": 1286.159,
+    "text": "most project notes fail because they"
+  },
+  {
+    "start": 1283.6,
+    "end": 1288.3999999999999,
+    "text": "store intentions, not actions. Work on"
+  },
+  {
+    "start": 1286.159,
+    "end": 1290.3200000000002,
+    "text": "the website is not executable. Email"
+  },
+  {
+    "start": 1288.4,
+    "end": 1292.3200000000002,
+    "text": "Sarah to confirm the copy deadline is"
+  },
+  {
+    "start": 1290.32,
+    "end": 1294.32,
+    "text": "very executable. And so that's why the"
+  },
+  {
+    "start": 1292.32,
+    "end": 1296.1589999999999,
+    "text": "project database will need to have a"
+  },
+  {
+    "start": 1294.32,
+    "end": 1299.6789999999999,
+    "text": "field called next action. And the"
+  },
+  {
+    "start": 1296.159,
+    "end": 1302.96,
+    "text": "classification prompt needs to be tuned"
+  },
+  {
+    "start": 1299.679,
+    "end": 1304.799,
+    "text": "to extract very specific actions from"
+  },
+  {
+    "start": 1302.96,
+    "end": 1306.4,
+    "text": "what is probably a vague statement on"
+  },
+  {
+    "start": 1304.799,
+    "end": 1308.1589999999999,
+    "text": "your part because if your project"
+  },
+  {
+    "start": 1306.4,
+    "end": 1310.0,
+    "text": "entries don't have concrete actions,"
+  },
+  {
+    "start": 1308.159,
+    "end": 1311.6000000000001,
+    "text": "your daily digest is going to end up"
+  },
+  {
+    "start": 1310.0,
+    "end": 1314.08,
+    "text": "feeling motivational rather than"
+  },
+  {
+    "start": 1311.6,
+    "end": 1316.0,
+    "text": "operational. And this is all about"
+  },
+  {
+    "start": 1314.08,
+    "end": 1318.08,
+    "text": "helping you be more operational in a way"
+  },
+  {
+    "start": 1316.0,
+    "end": 1319.679,
+    "text": "that's reliable without you having to"
+  },
+  {
+    "start": 1318.08,
+    "end": 1322.48,
+    "text": "put more cognitive work into it."
+  },
+  {
+    "start": 1319.679,
+    "end": 1325.1200000000001,
+    "text": "Principle eight, prefer routing over"
+  },
+  {
+    "start": 1322.48,
+    "end": 1327.3600000000001,
+    "text": "organizing. Humans hate organizing. Most"
+  },
+  {
+    "start": 1325.12,
+    "end": 1329.039,
+    "text": "of us, not all of us, most of us. Most"
+  },
+  {
+    "start": 1327.36,
+    "end": 1331.039,
+    "text": "of us like dropping things in a box and"
+  },
+  {
+    "start": 1329.039,
+    "end": 1333.12,
+    "text": "forgetting about them. Claude is good at"
+  },
+  {
+    "start": 1331.039,
+    "end": 1334.96,
+    "text": "routing. Chai GBT is good at routing."
+  },
+  {
+    "start": 1333.12,
+    "end": 1337.1999999999998,
+    "text": "The principle is don't make users"
+  },
+  {
+    "start": 1334.96,
+    "end": 1338.799,
+    "text": "maintain structures. Let the system"
+  },
+  {
+    "start": 1337.2,
+    "end": 1340.64,
+    "text": "route into a small set of stable"
+  },
+  {
+    "start": 1338.799,
+    "end": 1342.0,
+    "text": "buckets. And that's why the system I'm"
+  },
+  {
+    "start": 1340.64,
+    "end": 1344.0,
+    "text": "suggesting has really only four"
+  },
+  {
+    "start": 1342.0,
+    "end": 1346.72,
+    "text": "categories: people, projects, ideas, and"
+  },
+  {
+    "start": 1344.0,
+    "end": 1348.559,
+    "text": "admin. More categories can feel more"
+  },
+  {
+    "start": 1346.72,
+    "end": 1350.799,
+    "text": "precise, but can be much harder to"
+  },
+  {
+    "start": 1348.559,
+    "end": 1352.96,
+    "text": "scale. It creates more decisions, more"
+  },
+  {
+    "start": 1350.799,
+    "end": 1354.4,
+    "text": "confusion, more drift. Four buckets is"
+  },
+  {
+    "start": 1352.96,
+    "end": 1356.88,
+    "text": "usually enough. You can always add more"
+  },
+  {
+    "start": 1354.4,
+    "end": 1358.96,
+    "text": "later if you really discover a need."
+  },
+  {
+    "start": 1356.88,
+    "end": 1361.6000000000001,
+    "text": "Principle nine, keep the number of"
+  },
+  {
+    "start": 1358.96,
+    "end": 1363.3600000000001,
+    "text": "categories and fields painfully small."
+  },
+  {
+    "start": 1361.6,
+    "end": 1365.36,
+    "text": "This is counterintuitive for smart"
+  },
+  {
+    "start": 1363.36,
+    "end": 1367.52,
+    "text": "people. We we want richness. We want"
+  },
+  {
+    "start": 1365.36,
+    "end": 1370.4799999999998,
+    "text": "nuance, but richness creates friction,"
+  },
+  {
+    "start": 1367.52,
+    "end": 1372.48,
+    "text": "and friction kills adoption. So, the"
+  },
+  {
+    "start": 1370.48,
+    "end": 1374.32,
+    "text": "people database, I'm suggesting it has"
+  },
+  {
+    "start": 1372.48,
+    "end": 1376.08,
+    "text": "like just a few fields, right? the"
+  },
+  {
+    "start": 1374.32,
+    "end": 1378.08,
+    "text": "person's name, the last time you"
+  },
+  {
+    "start": 1376.08,
+    "end": 1380.32,
+    "text": "connected with them, the ideas database,"
+  },
+  {
+    "start": 1378.08,
+    "end": 1382.24,
+    "text": "five fields at most. And the idea is if"
+  },
+  {
+    "start": 1380.32,
+    "end": 1384.48,
+    "text": "you have minimal fields, you can always"
+  },
+  {
+    "start": 1382.24,
+    "end": 1386.64,
+    "text": "add sophistication later. But if you"
+  },
+  {
+    "start": 1384.48,
+    "end": 1388.48,
+    "text": "start simple and stay simple, it gives"
+  },
+  {
+    "start": 1386.64,
+    "end": 1390.159,
+    "text": "you the option to continue to use the"
+  },
+  {
+    "start": 1388.48,
+    "end": 1392.48,
+    "text": "system, and you only have to add"
+  },
+  {
+    "start": 1390.159,
+    "end": 1395.6000000000001,
+    "text": "complexity when evidence says it's"
+  },
+  {
+    "start": 1392.48,
+    "end": 1397.919,
+    "text": "needed. Principle 10, build your design"
+  },
+  {
+    "start": 1395.6,
+    "end": 1400.1589999999999,
+    "text": "for restart, not for perfection. A"
+  },
+  {
+    "start": 1397.919,
+    "end": 1402.5590000000002,
+    "text": "scalable system assumes users will fall"
+  },
+  {
+    "start": 1400.159,
+    "end": 1404.5590000000002,
+    "text": "off. Life happens, you get sick, you"
+  },
+  {
+    "start": 1402.559,
+    "end": 1406.559,
+    "text": "travel, you have a rough week at work."
+  },
+  {
+    "start": 1404.559,
+    "end": 1408.72,
+    "text": "The system should be easy to restart"
+  },
+  {
+    "start": 1406.559,
+    "end": 1410.48,
+    "text": "without guilt or cleanup. If missing a"
+  },
+  {
+    "start": 1408.72,
+    "end": 1412.32,
+    "text": "week creates some kind of backlog"
+  },
+  {
+    "start": 1410.48,
+    "end": 1413.44,
+    "text": "monster, you're not going to restart."
+  },
+  {
+    "start": 1412.32,
+    "end": 1414.96,
+    "text": "You're just going to feel bad about"
+  },
+  {
+    "start": 1413.44,
+    "end": 1416.64,
+    "text": "yourself. And so, that's why the"
+  },
+  {
+    "start": 1414.96,
+    "end": 1419.6000000000001,
+    "text": "operating manual for this system"
+  },
+  {
+    "start": 1416.64,
+    "end": 1422.0,
+    "text": "explicitly says, \"Don't catch up. Just"
+  },
+  {
+    "start": 1419.6,
+    "end": 1423.76,
+    "text": "restart. Do a 10-minute brain dump into"
+  },
+  {
+    "start": 1422.0,
+    "end": 1425.679,
+    "text": "your inbox with whatever you've got and"
+  },
+  {
+    "start": 1423.76,
+    "end": 1426.96,
+    "text": "resume tomorrow.\" And the automation"
+  },
+  {
+    "start": 1425.679,
+    "end": 1429.44,
+    "text": "will keep things running whether you"
+  },
+  {
+    "start": 1426.96,
+    "end": 1430.96,
+    "text": "engage or not. the system waits for you"
+  },
+  {
+    "start": 1429.44,
+    "end": 1434.24,
+    "text": "and is supportive and is easy to"
+  },
+  {
+    "start": 1430.96,
+    "end": 1436.64,
+    "text": "restart. Principle 11, build one"
+  },
+  {
+    "start": 1434.24,
+    "end": 1438.559,
+    "text": "workflow and then attach modules. So the"
+  },
+  {
+    "start": 1436.64,
+    "end": 1440.3200000000002,
+    "text": "scalable pattern is to build a core loop"
+  },
+  {
+    "start": 1438.559,
+    "end": 1442.3999999999999,
+    "text": "that works for everybody and then add"
+  },
+  {
+    "start": 1440.32,
+    "end": 1444.48,
+    "text": "optional capabilities later. And so the"
+  },
+  {
+    "start": 1442.4,
+    "end": 1446.72,
+    "text": "core loop is capture to Slack, file to"
+  },
+  {
+    "start": 1444.48,
+    "end": 1449.44,
+    "text": "notion, get a daily digest, get a weekly"
+  },
+  {
+    "start": 1446.72,
+    "end": 1451.039,
+    "text": "review. That's the minimum viable loop"
+  },
+  {
+    "start": 1449.44,
+    "end": 1452.96,
+    "text": "here. And once that's running, once you"
+  },
+  {
+    "start": 1451.039,
+    "end": 1454.48,
+    "text": "trust it, you can add voice capture if"
+  },
+  {
+    "start": 1452.96,
+    "end": 1455.8400000000001,
+    "text": "you want. You can add meeting prep by"
+  },
+  {
+    "start": 1454.48,
+    "end": 1457.6,
+    "text": "integrating it with your calendar. You"
+  },
+  {
+    "start": 1455.84,
+    "end": 1459.52,
+    "text": "can add email forwarding. You can add"
+  },
+  {
+    "start": 1457.6,
+    "end": 1461.1999999999998,
+    "text": "birthday reminders, but you don't do"
+  },
+  {
+    "start": 1459.52,
+    "end": 1464.1589999999999,
+    "text": "that first. You build the core loop"
+  },
+  {
+    "start": 1461.2,
+    "end": 1467.1200000000001,
+    "text": "first. Principle 12, optimize for"
+  },
+  {
+    "start": 1464.159,
+    "end": 1468.72,
+    "text": "maintainability over cleverness. So the"
+  },
+  {
+    "start": 1467.12,
+    "end": 1470.4799999999998,
+    "text": "engineering temptation is to build a"
+  },
+  {
+    "start": 1468.72,
+    "end": 1472.159,
+    "text": "beautiful system with so many moving"
+  },
+  {
+    "start": 1470.48,
+    "end": 1474.0,
+    "text": "parts and elegant abstractions. And the"
+  },
+  {
+    "start": 1472.159,
+    "end": 1476.24,
+    "text": "real world reality is that moving parts"
+  },
+  {
+    "start": 1474.0,
+    "end": 1479.039,
+    "text": "are failure points. And so optimize for"
+  },
+  {
+    "start": 1476.24,
+    "end": 1481.1200000000001,
+    "text": "fewer tools, fewer steps, clear logs,"
+  },
+  {
+    "start": 1479.039,
+    "end": 1482.799,
+    "text": "easy reconnects. When your Zapier"
+  },
+  {
+    "start": 1481.12,
+    "end": 1484.7199999999998,
+    "text": "automation stops because your Slack"
+  },
+  {
+    "start": 1482.799,
+    "end": 1486.559,
+    "text": "token expired, which is a real thing,"
+  },
+  {
+    "start": 1484.72,
+    "end": 1488.48,
+    "text": "you want to fix it in five minutes, not"
+  },
+  {
+    "start": 1486.559,
+    "end": 1489.84,
+    "text": "debug it for an hour. And when notion"
+  },
+  {
+    "start": 1488.48,
+    "end": 1491.76,
+    "text": "permissions get weird, you want to"
+  },
+  {
+    "start": 1489.84,
+    "end": 1494.0,
+    "text": "reconnect and move on. That's what makes"
+  },
+  {
+    "start": 1491.76,
+    "end": 1495.52,
+    "text": "this actually scale. Now, I often get"
+  },
+  {
+    "start": 1494.0,
+    "end": 1497.52,
+    "text": "complaints on these videos that I don't"
+  },
+  {
+    "start": 1495.52,
+    "end": 1498.8799999999999,
+    "text": "give enough detail. No complaints here."
+  },
+  {
+    "start": 1497.52,
+    "end": 1501.12,
+    "text": "I'm going to walk you through step by"
+  },
+  {
+    "start": 1498.88,
+    "end": 1502.7990000000002,
+    "text": "step what we're doing. First, create the"
+  },
+  {
+    "start": 1501.12,
+    "end": 1504.08,
+    "text": "Slack channel. Go to Slack. Create a new"
+  },
+  {
+    "start": 1502.799,
+    "end": 1505.679,
+    "text": "channel called Whatever You Want. Make"
+  },
+  {
+    "start": 1504.08,
+    "end": 1507.279,
+    "text": "it private if you wish. And pin a"
+  },
+  {
+    "start": 1505.679,
+    "end": 1508.799,
+    "text": "message that explain what goes there."
+  },
+  {
+    "start": 1507.279,
+    "end": 1511.279,
+    "text": "Something like, \"Drop a thought here."
+  },
+  {
+    "start": 1508.799,
+    "end": 1513.44,
+    "text": "one thought per message etc. Second, you"
+  },
+  {
+    "start": 1511.279,
+    "end": 1514.96,
+    "text": "want to create the notion databases. You"
+  },
+  {
+    "start": 1513.44,
+    "end": 1516.48,
+    "text": "want to create a new page called second"
+  },
+  {
+    "start": 1514.96,
+    "end": 1519.3600000000001,
+    "text": "brain and inside it you want to create"
+  },
+  {
+    "start": 1516.48,
+    "end": 1522.48,
+    "text": "your five databases as table people"
+  },
+  {
+    "start": 1519.36,
+    "end": 1526.1589999999999,
+    "text": "might have name context follow-ups last"
+  },
+  {
+    "start": 1522.48,
+    "end": 1528.48,
+    "text": "touched tags project status next action"
+  },
+  {
+    "start": 1526.159,
+    "end": 1530.0,
+    "text": "notes ideas could have name and oneliner"
+  },
+  {
+    "start": 1528.48,
+    "end": 1531.76,
+    "text": "and yes there there's there's going to"
+  },
+  {
+    "start": 1530.0,
+    "end": 1533.039,
+    "text": "be a whole worksheet for you if you want"
+  },
+  {
+    "start": 1531.76,
+    "end": 1534.1589999999999,
+    "text": "to get this in the substacks you don't"
+  },
+  {
+    "start": 1533.039,
+    "end": 1535.84,
+    "text": "have to remember this but I'm just going"
+  },
+  {
+    "start": 1534.159,
+    "end": 1537.5200000000002,
+    "text": "through the detail right you want to"
+  },
+  {
+    "start": 1535.84,
+    "end": 1539.84,
+    "text": "have uh the name of the idea the"
+  },
+  {
+    "start": 1537.52,
+    "end": 1541.6,
+    "text": "oneliner the notes the tags etc and"
+  },
+  {
+    "start": 1539.84,
+    "end": 1544.24,
+    "text": "admin would have the name the due date"
+  },
+  {
+    "start": 1541.6,
+    "end": 1546.799,
+    "text": "the status etc inbox log. It has to have"
+  },
+  {
+    "start": 1544.24,
+    "end": 1548.08,
+    "text": "captured text file to destination record"
+  },
+  {
+    "start": 1546.799,
+    "end": 1550.1589999999999,
+    "text": "the confidence level when it was"
+  },
+  {
+    "start": 1548.08,
+    "end": 1552.0,
+    "text": "created. Third, you connect Zapier to"
+  },
+  {
+    "start": 1550.159,
+    "end": 1553.44,
+    "text": "Slack and to Notion to make that pipe."
+  },
+  {
+    "start": 1552.0,
+    "end": 1554.88,
+    "text": "So you go to Zapier, you connect your"
+  },
+  {
+    "start": 1553.44,
+    "end": 1556.64,
+    "text": "Slack account, you connect your notion"
+  },
+  {
+    "start": 1554.88,
+    "end": 1558.64,
+    "text": "account, and when notion asks which"
+  },
+  {
+    "start": 1556.64,
+    "end": 1560.3200000000002,
+    "text": "pages Zapier can access, make sure you"
+  },
+  {
+    "start": 1558.64,
+    "end": 1561.8400000000001,
+    "text": "grant access to the right page. Fourth,"
+  },
+  {
+    "start": 1560.32,
+    "end": 1564.1589999999999,
+    "text": "you want to build the automation. So"
+  },
+  {
+    "start": 1561.84,
+    "end": 1566.24,
+    "text": "create a new zap and the trigger is new"
+  },
+  {
+    "start": 1564.159,
+    "end": 1567.679,
+    "text": "message posted to channel in the Slack"
+  },
+  {
+    "start": 1566.24,
+    "end": 1570.08,
+    "text": "and it's filtered to just that one"
+  },
+  {
+    "start": 1567.679,
+    "end": 1572.159,
+    "text": "channel you want like SP inbox. The next"
+  },
+  {
+    "start": 1570.08,
+    "end": 1574.32,
+    "text": "step is an AI action that sends the"
+  },
+  {
+    "start": 1572.159,
+    "end": 1576.7990000000002,
+    "text": "message to Claude or Chad GBT with your"
+  },
+  {
+    "start": 1574.32,
+    "end": 1578.48,
+    "text": "classification prompt. The prompt tells"
+  },
+  {
+    "start": 1576.799,
+    "end": 1580.4,
+    "text": "it to classify into people, project"
+  },
+  {
+    "start": 1578.48,
+    "end": 1582.24,
+    "text": "ideas or admin and yes, I'll supply this"
+  },
+  {
+    "start": 1580.4,
+    "end": 1583.6000000000001,
+    "text": "prompt and then it returns JSON. And"
+  },
+  {
+    "start": 1582.24,
+    "end": 1585.52,
+    "text": "then the next step, you're just parsing"
+  },
+  {
+    "start": 1583.6,
+    "end": 1586.8799999999999,
+    "text": "that JSON. You add paths that route"
+  },
+  {
+    "start": 1585.52,
+    "end": 1588.4,
+    "text": "based on the destination. If it's"
+  },
+  {
+    "start": 1586.88,
+    "end": 1590.0800000000002,
+    "text": "people, create a record in the people"
+  },
+  {
+    "start": 1588.4,
+    "end": 1592.0,
+    "text": "database. If it's projects, you create"
+  },
+  {
+    "start": 1590.08,
+    "end": 1593.36,
+    "text": "in projects and so on. Fifth, you want"
+  },
+  {
+    "start": 1592.0,
+    "end": 1595.12,
+    "text": "to build your morning digest. Create"
+  },
+  {
+    "start": 1593.36,
+    "end": 1596.3999999999999,
+    "text": "another zap. The triggers a daily"
+  },
+  {
+    "start": 1595.12,
+    "end": 1597.9189999999999,
+    "text": "schedule at whatever time in the"
+  },
+  {
+    "start": 1596.4,
+    "end": 1600.0800000000002,
+    "text": "morning. the action queries your notion"
+  },
+  {
+    "start": 1597.919,
+    "end": 1601.679,
+    "text": "database and you send that query result"
+  },
+  {
+    "start": 1600.08,
+    "end": 1603.12,
+    "text": "to claude or chat GPT with a"
+  },
+  {
+    "start": 1601.679,
+    "end": 1605.039,
+    "text": "summarization prompt. Again, I'll"
+  },
+  {
+    "start": 1603.12,
+    "end": 1606.6399999999999,
+    "text": "provide the summarization prompt. Then"
+  },
+  {
+    "start": 1605.039,
+    "end": 1608.48,
+    "text": "you can build the weekly review with the"
+  },
+  {
+    "start": 1606.64,
+    "end": 1610.72,
+    "text": "same pattern. That's the whole system."
+  },
+  {
+    "start": 1608.48,
+    "end": 1613.2,
+    "text": "It's three Zapier automations. It's four"
+  },
+  {
+    "start": 1610.72,
+    "end": 1615.44,
+    "text": "notion databases plus a log. It's one"
+  },
+  {
+    "start": 1613.2,
+    "end": 1617.3600000000001,
+    "text": "channel. Look, it might not even take an"
+  },
+  {
+    "start": 1615.44,
+    "end": 1618.64,
+    "text": "hour to set this up. And maybe it'll"
+  },
+  {
+    "start": 1617.36,
+    "end": 1620.3999999999999,
+    "text": "take 90 minutes if you're comfortable"
+  },
+  {
+    "start": 1618.64,
+    "end": 1621.6000000000001,
+    "text": "with Zapier. Now, let me tell you what"
+  },
+  {
+    "start": 1620.4,
+    "end": 1624.4,
+    "text": "this will feel like when it's working,"
+  },
+  {
+    "start": 1621.6,
+    "end": 1626.08,
+    "text": "though. You will feel lighter. It's not"
+  },
+  {
+    "start": 1624.4,
+    "end": 1627.919,
+    "text": "because you're more productive in some"
+  },
+  {
+    "start": 1626.08,
+    "end": 1629.9189999999999,
+    "text": "fantastically measurable way. It's"
+  },
+  {
+    "start": 1627.919,
+    "end": 1631.5200000000002,
+    "text": "because you're closing all of the open"
+  },
+  {
+    "start": 1629.919,
+    "end": 1633.44,
+    "text": "loops that are living in your head"
+  },
+  {
+    "start": 1631.52,
+    "end": 1634.96,
+    "text": "constantly. And you'll notice yourself"
+  },
+  {
+    "start": 1633.44,
+    "end": 1636.559,
+    "text": "thinking, I should remember that. And"
+  },
+  {
+    "start": 1634.96,
+    "end": 1638.559,
+    "text": "instead of trying to leave it as an open"
+  },
+  {
+    "start": 1636.559,
+    "end": 1641.039,
+    "text": "loop in your head, you're going to post"
+  },
+  {
+    "start": 1638.559,
+    "end": 1643.12,
+    "text": "it into your SB inbox and move along"
+  },
+  {
+    "start": 1641.039,
+    "end": 1644.8799999999999,
+    "text": "because you don't have to think about it"
+  },
+  {
+    "start": 1643.12,
+    "end": 1646.559,
+    "text": "anymore. And so your head will get"
+  },
+  {
+    "start": 1644.88,
+    "end": 1648.48,
+    "text": "clearer. And so you're going to notice"
+  },
+  {
+    "start": 1646.559,
+    "end": 1650.1589999999999,
+    "text": "that you're able to show up with more"
+  },
+  {
+    "start": 1648.48,
+    "end": 1651.6,
+    "text": "continuity for the people that matter to"
+  },
+  {
+    "start": 1650.159,
+    "end": 1653.0390000000002,
+    "text": "you, for the projects that matter to"
+  },
+  {
+    "start": 1651.6,
+    "end": 1655.039,
+    "text": "you, for the work. you'll have an easier"
+  },
+  {
+    "start": 1653.039,
+    "end": 1657.2,
+    "text": "time remembering details. And then as"
+  },
+  {
+    "start": 1655.039,
+    "end": 1658.96,
+    "text": "you go along and use it more, you're"
+  },
+  {
+    "start": 1657.2,
+    "end": 1660.4,
+    "text": "going to start to compound because the"
+  },
+  {
+    "start": 1658.96,
+    "end": 1662.48,
+    "text": "projects are going to start to develop"
+  },
+  {
+    "start": 1660.4,
+    "end": 1664.24,
+    "text": "patterns that you can see and notice"
+  },
+  {
+    "start": 1662.48,
+    "end": 1666.64,
+    "text": "over time. And that's going to enable"
+  },
+  {
+    "start": 1664.24,
+    "end": 1668.64,
+    "text": "you to get smarter about giving input"
+  },
+  {
+    "start": 1666.64,
+    "end": 1670.7990000000002,
+    "text": "back to the system through SP inbox."
+  },
+  {
+    "start": 1668.64,
+    "end": 1672.72,
+    "text": "Your anxiety, if you're someone who"
+  },
+  {
+    "start": 1670.799,
+    "end": 1674.399,
+    "text": "tries to remember everything, it doesn't"
+  },
+  {
+    "start": 1672.72,
+    "end": 1676.559,
+    "text": "magically go away entirely, but it"
+  },
+  {
+    "start": 1674.399,
+    "end": 1678.7199999999998,
+    "text": "definitely changes in character. It"
+  },
+  {
+    "start": 1676.559,
+    "end": 1680.799,
+    "text": "stops being just this background hum of"
+  },
+  {
+    "start": 1678.72,
+    "end": 1682.48,
+    "text": "all of your unttracked commitments and"
+  },
+  {
+    "start": 1680.799,
+    "end": 1685.36,
+    "text": "it starts being a small set of next"
+  },
+  {
+    "start": 1682.48,
+    "end": 1687.76,
+    "text": "actions that you can actually take. It's"
+  },
+  {
+    "start": 1685.36,
+    "end": 1689.36,
+    "text": "basically a a factory for turning your"
+  },
+  {
+    "start": 1687.76,
+    "end": 1691.6,
+    "text": "anxiety and your difficulty in"
+  },
+  {
+    "start": 1689.36,
+    "end": 1693.76,
+    "text": "remembering things into action. Now, I"
+  },
+  {
+    "start": 1691.6,
+    "end": 1695.9189999999999,
+    "text": "got to be honest with you. I am going to"
+  },
+  {
+    "start": 1693.76,
+    "end": 1697.679,
+    "text": "give you this video and most people will"
+  },
+  {
+    "start": 1695.919,
+    "end": 1699.8400000000001,
+    "text": "not actually build this. Not because"
+  },
+  {
+    "start": 1697.679,
+    "end": 1702.0800000000002,
+    "text": "it's hard. You've heard me describe it."
+  },
+  {
+    "start": 1699.84,
+    "end": 1704.8799999999999,
+    "text": "It doesn't take that long. It's because"
+  },
+  {
+    "start": 1702.08,
+    "end": 1706.399,
+    "text": "we've normalized the leakage that comes"
+  },
+  {
+    "start": 1704.88,
+    "end": 1708.3990000000001,
+    "text": "from being busy. We scroll through"
+  },
+  {
+    "start": 1706.399,
+    "end": 1709.6,
+    "text": "YouTube, it's like, ah, Nate's saying"
+  },
+  {
+    "start": 1708.399,
+    "end": 1711.84,
+    "text": "something again, he'll come up with"
+  },
+  {
+    "start": 1709.6,
+    "end": 1715.36,
+    "text": "another video. I want you to think about"
+  },
+  {
+    "start": 1711.84,
+    "end": 1718.08,
+    "text": "it as the cost of a system that we fail"
+  },
+  {
+    "start": 1715.36,
+    "end": 1720.6399999999999,
+    "text": "to build isn't just missed ideas. It's"
+  },
+  {
+    "start": 1718.08,
+    "end": 1725.1999999999998,
+    "text": "that your work becomes less compounding."
+  },
+  {
+    "start": 1720.64,
+    "end": 1727.039,
+    "text": "The value you create in 2026 is lower"
+  },
+  {
+    "start": 1725.2,
+    "end": 1728.96,
+    "text": "because you're not building on that"
+  },
+  {
+    "start": 1727.039,
+    "end": 1730.24,
+    "text": "value as intentionally as you could be."
+  },
+  {
+    "start": 1728.96,
+    "end": 1731.6000000000001,
+    "text": "And so, if you're watching this in"
+  },
+  {
+    "start": 1730.24,
+    "end": 1733.679,
+    "text": "January and you're thinking about what"
+  },
+  {
+    "start": 1731.6,
+    "end": 1735.12,
+    "text": "project might actually change the year,"
+  },
+  {
+    "start": 1733.679,
+    "end": 1736.72,
+    "text": "think about doing this one, right?"
+  },
+  {
+    "start": 1735.12,
+    "end": 1738.2399999999998,
+    "text": "You're not building a productivity"
+  },
+  {
+    "start": 1736.72,
+    "end": 1740.24,
+    "text": "system. You're not building something to"
+  },
+  {
+    "start": 1738.24,
+    "end": 1743.1200000000001,
+    "text": "feel good about yourself. You're just"
+  },
+  {
+    "start": 1740.24,
+    "end": 1745.6,
+    "text": "relentlessly taking charge of your"
+  },
+  {
+    "start": 1743.12,
+    "end": 1747.039,
+    "text": "actual brain and giving it a support"
+  },
+  {
+    "start": 1745.6,
+    "end": 1748.7199999999998,
+    "text": "system that helps it to work"
+  },
+  {
+    "start": 1747.039,
+    "end": 1750.8799999999999,
+    "text": "effectively. And for the first time in"
+  },
+  {
+    "start": 1748.72,
+    "end": 1753.279,
+    "text": "human history, you have access to"
+  },
+  {
+    "start": 1750.88,
+    "end": 1755.2,
+    "text": "systems that will work for you while you"
+  },
+  {
+    "start": 1753.279,
+    "end": 1757.44,
+    "text": "sleep. That classify your thoughts"
+  },
+  {
+    "start": 1755.2,
+    "end": 1759.3600000000001,
+    "text": "without you deciding, that surface the"
+  },
+  {
+    "start": 1757.44,
+    "end": 1761.8400000000001,
+    "text": "right information without you searching,"
+  },
+  {
+    "start": 1759.36,
+    "end": 1764.1589999999999,
+    "text": "that nudge you toward the goals and"
+  },
+  {
+    "start": 1761.84,
+    "end": 1765.9189999999999,
+    "text": "priorities you've set without you having"
+  },
+  {
+    "start": 1764.159,
+    "end": 1767.6000000000001,
+    "text": "to remember them. And you don't even"
+  },
+  {
+    "start": 1765.919,
+    "end": 1769.279,
+    "text": "have to be an engineer to build this."
+  },
+  {
+    "start": 1767.6,
+    "end": 1771.039,
+    "text": "You just have to understand patterns."
+  },
+  {
+    "start": 1769.279,
+    "end": 1773.039,
+    "text": "And that's exactly what I've laid out in"
+  },
+  {
+    "start": 1771.039,
+    "end": 1775.84,
+    "text": "this video. So that's the whole"
+  },
+  {
+    "start": 1773.039,
+    "end": 1778.08,
+    "text": "architecture. And in 2026, you can build"
+  },
+  {
+    "start": 1775.84,
+    "end": 1780.08,
+    "text": "it yourself. And yes, I have all of the"
+  },
+  {
+    "start": 1778.08,
+    "end": 1781.84,
+    "text": "guides for this on the Substack. I hope"
+  },
+  {
+    "start": 1780.08,
+    "end": 1783.9189999999999,
+    "text": "this has been helpful. I want everyone"
+  },
+  {
+    "start": 1781.84,
+    "end": 1786.32,
+    "text": "to feel like one, they can build"
+  },
+  {
+    "start": 1783.919,
+    "end": 1789.44,
+    "text": "something with AI. Two, it's worth"
+  },
+  {
+    "start": 1786.32,
+    "end": 1791.6,
+    "text": "doing. Three, if you build smartly, you"
+  },
+  {
+    "start": 1789.44,
+    "end": 1793.3600000000001,
+    "text": "are building in a way that allows you to"
+  },
+  {
+    "start": 1791.6,
+    "end": 1795.039,
+    "text": "compound your advantage over time, which"
+  },
+  {
+    "start": 1793.36,
+    "end": 1797.4399999999998,
+    "text": "is going to be really important as AI"
+  },
+  {
+    "start": 1795.039,
+    "end": 1799.279,
+    "text": "moves faster in 2026. So, that's how to"
+  },
+  {
+    "start": 1797.44,
+    "end": 1801.2,
+    "text": "build a second brain without a line of"
+  },
+  {
+    "start": 1799.279,
+    "end": 1802.96,
+    "text": "code. And those are the engineering"
+  },
+  {
+    "start": 1801.2,
+    "end": 1804.559,
+    "text": "principles that you're using even if"
+  },
+  {
+    "start": 1802.96,
+    "end": 1807.1200000000001,
+    "text": "you're not an engineer. Hope you enjoyed"
+  },
+  {
+    "start": 1804.559,
+    "end": 1807.12,
+    "text": "this one."
+  }
+]

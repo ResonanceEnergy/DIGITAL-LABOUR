@@ -1,0 +1,30 @@
+[
+  {
+    "video_id": "demis_hassabis_001",
+    "title": "Demis Hassabis discusses AI and future implications",
+    "analysis": {
+      "ai_discussions": [
+        "AI Discussion: ai",
+        "AI Discussion: deep learning"
+      ],
+      "technology_predictions": [],
+      "scientific_breakthroughs": [],
+      "key_takeaways": [
+        "AI development continues to advance with new breakthroughs"
+      ],
+      "policy_implications": [
+        "Policy: Develop comprehensive AI governance frameworks"
+      ],
+      "strategic_recommendations": [
+        "Strategic: Invest in AI talent development and ethical AI practices"
+      ],
+      "risk_assessments": [
+        "Risk: AI development may outpace safety and ethical considerations"
+      ],
+      "confidence_score": 0.9,
+      "analysis_depth": "comprehensive"
+    },
+    "analyzed_at": "2026-02-20T22:20:17.263739",
+    "agent_specialization": "ai_deep learning_neuroscience_technology"
+  }
+]

@@ -1,0 +1,98 @@
+{
+  "system": "DigitalLabour",
+  "status": "operational",
+  "checked_at": "2026-03-15T11:54:45.841471-07:00",
+  "workforce": {
+    "managed_repos": 36,
+    "repos_by_tier": {
+      "L": 13,
+      "M": 23
+    },
+    "stage_history": {
+      "done": 126,
+      "fail": 39,
+      "skip": 0
+    },
+    "completion_rate_pct": 76.4
+  },
+  "mandates": {
+    "efficiency": {
+      "owner": "OPTIMUS",
+      "target": "95% completion within SLA",
+      "description": "Maximize task completion rate"
+    },
+    "reliability": {
+      "owner": "GASKET",
+      "target": "99.9% uptime",
+      "description": "Maintain system uptime"
+    },
+    "coordination": {
+      "owner": "AZ",
+      "target": "Zero conflicting actions",
+      "description": "Ensure agent alignment"
+    },
+    "innovation": {
+      "owner": "AZ",
+      "target": "1+ process improvement per week",
+      "description": "Continuous improvement"
+    },
+    "intelligence": {
+      "owner": "RESEARCH_INTELLIGENCE",
+      "target": "Daily intelligence briefs with trend forecasting",
+      "description": "Autonomous research and intelligence generation"
+    },
+    "alignment": {
+      "owner": "ALIGNMENT_MONITOR",
+      "target": "100% alignment checks passing",
+      "description": "AGI safety and constitutional compliance"
+    },
+    "learning": {
+      "owner": "LEARNING_AGENT",
+      "target": "Extract lessons from every failure, <5% recurring errors",
+      "description": "Continuous system adaptation and improvement"
+    },
+    "hierarchy": {
+      "owner": "HIERARCHY",
+      "target": "100% tasks routed to correct tier",
+      "description": "Structured agent delegation and routing"
+    },
+    "context_management": {
+      "owner": "CONTEXT_MANAGER",
+      "target": "Zero stale context entries beyond SLA",
+      "description": "Cross-agent context freshness and propagation"
+    },
+    "quality_assurance": {
+      "owner": "QA_MANAGER",
+      "target": "80%+ quality score on all cycles",
+      "description": "System-wide quality gates and output validation"
+    },
+    "production_excellence": {
+      "owner": "PRODUCTION_MANAGER",
+      "target": "All services UP, zero unresolved incidents",
+      "description": "Production health, deployment gates, incident tracking"
+    },
+    "automation": {
+      "owner": "AUTOMATION_MANAGER",
+      "target": "Zero stale workflows, all daemons healthy",
+      "description": "Pipeline orchestration, workflow scheduling, daemon health"
+    }
+  },
+  "protocols": {
+    "task_prioritization": {
+      "rule": "HIGH > MEDIUM > LOW",
+      "owner": "OPTIMUS"
+    },
+    "escalation_chain": {
+      "rule": "GASKET -> OPTIMUS -> AZ -> CEO",
+      "owner": "AZ"
+    },
+    "sync_frequency": {
+      "rule": "Every 15 minutes",
+      "owner": "AZ"
+    },
+    "error_handling": {
+      "rule": "Log, retry 3x, then escalate",
+      "owner": "GASKET"
+    }
+  }
+}

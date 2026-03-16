@@ -1,0 +1,23 @@
+{
+  "repo": "Digital-Labour",
+  "timestamp": "2026-02-22T23:43:26.997086-07:00",
+  "head": "44e497b5bab359cfa3f54c80a5c52b6b6b343ca4",
+  "since": "44e497b5bab359cfa3f54c80a5c52b6b6b343ca4",
+  "summary": {
+    "ncl": 0,
+    "tests": 0,
+    "docs": 0,
+    "code": 0
+  },
+  "changes": {
+    "ncl": [],
+    "tests": [],
+    "docs": [],
+    "code": []
+  },
+  "file_analyses": {},
+  "mandate_snapshot": {},
+  "next_actions": [
+    "Increase test coverage for modified code."
+  ]
+}

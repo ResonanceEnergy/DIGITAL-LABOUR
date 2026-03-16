@@ -1,0 +1,300 @@
+{
+  "timestamp": "2026-03-15T18:04:29.371002+00:00",
+  "summary": {
+    "critical": 1,
+    "high": 3,
+    "medium": 7,
+    "low": 1,
+    "passed": 31
+  },
+  "findings": [
+    {
+      "severity": "PASS",
+      "category": "WEBSITE",
+      "message": "Website live \u2014 43207 bytes",
+      "detail": ""
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "WEBSITE-HEADERS",
+      "message": "Missing Strict-Transport-Security header",
+      "detail": "GitHub Pages doesn't set HSTS by default"
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "WEBSITE-HEADERS",
+      "message": "Missing Content-Security-Policy",
+      "detail": "Static site should have CSP via <meta> tag"
+    },
+    {
+      "severity": "PASS",
+      "category": "WEBSITE-LEAK",
+      "message": "No API URL exposed in website source",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "WEBSITE-LEAK",
+      "message": "Clean: no Stripe key pattern",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "WEBSITE-LEAK",
+      "message": "Clean: no API key assignment",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "WEBSITE-LEAK",
+      "message": "Clean: no Hardcoded password",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "WEBSITE-LEAK",
+      "message": "Clean: no Localhost reference",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "WEBSITE-LEAK",
+      "message": "Clean: no Debug console output",
+      "detail": ""
+    },
+    {
+      "severity": "LOW",
+      "category": "WEBSITE",
+      "message": "No robots.txt \u2014 consider adding one",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "API",
+      "message": "Health endpoint responding",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "API-HEADERS",
+      "message": "HSTS present",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "API-HEADERS",
+      "message": "CSP present",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "API-HEADERS",
+      "message": "X-Frame-Options present",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "API-HEADERS",
+      "message": "X-Content-Type-Options present",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "API-HEADERS",
+      "message": "Referrer-Policy present",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "API-HEADERS",
+      "message": "Permissions-Policy present",
+      "detail": ""
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "API-AUTH",
+      "message": "C2 commands execute WITHOUT authentication",
+      "detail": "Anyone can restart/kill daemons, approve/reject tasks"
+    },
+    {
+      "severity": "HIGH",
+      "category": "API-AUTH",
+      "message": "Full sitrep exposed WITHOUT auth",
+      "detail": "Sections: timestamp, status, daemons, health, queue, kpi_7d, revenue, outreach, inbox, fleet, recent_decisions, alerts_pending"
+    },
+    {
+      "severity": "HIGH",
+      "category": "API-AUTH",
+      "message": "Alert config (Telegram tokens) exposed WITHOUT auth",
+      "detail": ""
+    },
+    {
+      "severity": "HIGH",
+      "category": "API-AUTH",
+      "message": "Alert test endpoint callable WITHOUT auth",
+      "detail": "Attacker could spam Telegram notifications"
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "API-AUTH",
+      "message": "Decision log exposed WITHOUT auth",
+      "detail": ""
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "API-AUTH",
+      "message": "Ops dashboard exposed WITHOUT auth",
+      "detail": ""
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "API-EXPOSURE",
+      "message": "Full OpenAPI schema publicly accessible",
+      "detail": "Reveals all endpoints, parameters, and data models"
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "API-EXPOSURE",
+      "message": "Swagger UI publicly accessible",
+      "detail": "Allows interactive API testing by anyone"
+    },
+    {
+      "severity": "PASS",
+      "category": "API-TRAVERSAL",
+      "message": "Blocked: /.env",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "API-TRAVERSAL",
+      "message": "Blocked: /.git/config",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "API-TRAVERSAL",
+      "message": "Blocked: /.git/HEAD",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "API-TRAVERSAL",
+      "message": "Blocked: /config",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "API-TRAVERSAL",
+      "message": "Blocked: /data",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "API-TRAVERSAL",
+      "message": "Blocked: /../../../etc/passwd",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "API-TRAVERSAL",
+      "message": "Blocked: /proc/self/environ",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "API-CORS",
+      "message": "No CORS header (same-origin only)",
+      "detail": ""
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "API-RATE",
+      "message": "No rate limiting detected (10/10 rapid requests succeeded)",
+      "detail": "Vulnerable to brute force and DoS"
+    },
+    {
+      "severity": "PASS",
+      "category": "DNS",
+      "message": "TXT digital-labour.com: digital-labour.com\ttext =",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "DNS",
+      "message": "TXT digital-labour.com: digital-labour.com\ttext =",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "DNS",
+      "message": "TXT _dmarc.digital-labour.com: _dmarc.digital-labour.com\ttext =",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "DNS",
+      "message": "MX record exists for digital-labour.com",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "DNS",
+      "message": "CNAME record exists for www.digital-labour.com",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "SSL",
+      "message": "Valid SSL cert for digital-labour.com",
+      "detail": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "SSL",
+      "message": "Issuer: Let's Encrypt",
+      "detail": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "SSL",
+      "message": "Expires: Jun 11 06:12:50 2026 GMT",
+      "detail": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "SSL",
+      "message": "SANs: digital-labour.com, www.digital-labour.com",
+      "detail": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "SECRETS",
+      "message": "Scanned 278 files",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "SECRETS",
+      "message": "No hardcoded secrets detected in source",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "SECRETS",
+      "message": ".env is in .gitignore",
+      "detail": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "SECRETS",
+      "message": ".env file exists locally (expected)",
+      "detail": ""
+    },
+    {
+      "severity": "PASS",
+      "category": "GITHUB",
+      "message": "Repository not publicly accessible (404)",
+      "detail": ""
+    }
+  ]
+}

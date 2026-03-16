@@ -1,0 +1,19 @@
+{
+  "L0_to_L1": {
+    "min_clean_scans": 3,
+    "min_days_observed": 7,
+    "max_incidents": 0
+  },
+  "L1_to_L2": {
+    "min_clean_scans": 10,
+    "min_days_at_L1": 14,
+    "max_incidents": 0,
+    "min_heal_success_rate": 0.9
+  },
+  "L2_to_L3": {
+    "requires_council_vote": true,
+    "min_clean_scans": 30,
+    "min_days_at_L2": 30,
+    "max_incidents": 0
+  }
+}

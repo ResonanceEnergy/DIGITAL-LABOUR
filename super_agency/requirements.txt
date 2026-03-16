@@ -1,0 +1,31 @@
+# Python dependencies for Digital Labour
+# Pinned to minimum compatible versions — matches pyproject.toml [project.dependencies]
+streamlit>=1.30.0
+psutil>=5.9.0
+requests>=2.31.0
+flask>=3.0.0
+quart>=0.19.0
+hypercorn>=0.14.0
+flask-cors>=4.0.0
+python-dotenv>=1.0.0
+pyyaml>=6.0
+aiohttp>=3.9.0
+websockets>=12.0
+
+# AI / ML (optional in pyproject.toml under [project.optional-dependencies] ai)
+numpy>=1.24.0
+scikit-learn>=1.3.0
+openai>=1.10.0
+anthropic>=0.18.0
+
+# Agent framework (used by agents/ package)
+autogen-agentchat>=0.4.0
+
+# YouTube ingestion pipeline (tools/youtubedrop)
+youtube-transcript-api>=0.6.0
+
+# Dev / Testing (optional in pyproject.toml under [project.optional-dependencies] dev)
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-asyncio>=0.23.0
+pytest-mock>=3.12.0

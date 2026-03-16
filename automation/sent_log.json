@@ -608,5 +608,159 @@
     "method": "failed",
     "source_file": "meta_Stord_dc6fee.json",
     "error": "'charmap' codec can't encode character '\\u2192' in position 15: character maps to <undefined>"
+  },
+  {
+    "company": "Airtable",
+    "role": "VP of Sales",
+    "contact_name": "Michael Frandsen",
+    "contact_email": "michael@airtable.com",
+    "subject": "Enhancing Sales with Airtable's New Updates",
+    "sent_at": "2026-03-15T14:18:57.346668+00:00",
+    "method": "failed",
+    "source_file": "meta_Airtable_74a745.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 18: character maps to <undefined>"
+  },
+  {
+    "company": "Retool",
+    "role": "VP of Sales",
+    "contact_name": "Anthony Lee",
+    "contact_email": "anthony@retool.com",
+    "subject": "Maximize Growth with Your Stripe Partnership",
+    "sent_at": "2026-03-15T14:19:01.371636+00:00",
+    "method": "failed",
+    "source_file": "meta_Retool_6ea07c.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 16: character maps to <undefined>"
+  },
+  {
+    "company": "ShipHero",
+    "role": "VP of Business Development",
+    "contact_name": "Michael Senesac",
+    "contact_email": "michael.senesac@shiphero.com",
+    "subject": "Expanding Market Opportunities Post-Walmart Partnership",
+    "sent_at": "2026-03-15T14:19:04.715092+00:00",
+    "method": "failed",
+    "source_file": "meta_ShipHero_01ad8a.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 18: character maps to <undefined>"
+  },
+  {
+    "company": "Helium 10",
+    "role": "VP of Sales",
+    "contact_name": "Ryan Cramer",
+    "contact_email": "ryan.cramer@helium10.com",
+    "subject": "Leveraging Adtomic's Launch for Sales Success",
+    "sent_at": "2026-03-15T15:19:31.068995+00:00",
+    "method": "failed",
+    "source_file": "meta_Helium_10_91b896.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 19: character maps to <undefined>"
+  },
+  {
+    "company": "Bain & Company",
+    "role": "Principal",
+    "contact_name": "Chris Zook",
+    "contact_email": "chris.zook@baincompany.com",
+    "subject": "Enhance Bain's Digital Transformation Capabilities",
+    "sent_at": "2026-03-15T16:20:43.264710+00:00",
+    "method": "failed",
+    "source_file": "meta_Bain_&_Company_e05ba5.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 24: character maps to <undefined>"
+  },
+  {
+    "company": "McKinsey Implementation",
+    "role": "Partner",
+    "contact_name": "John Doe",
+    "contact_email": "john.doe@mckinseyimplementation.com",
+    "subject": "Streamlining Digital Transformation",
+    "sent_at": "2026-03-15T16:20:48.127162+00:00",
+    "method": "failed",
+    "source_file": "meta_McKinsey_Implementation_b8fa9e.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 33: character maps to <undefined>"
+  },
+  {
+    "company": "Oliver Wyman",
+    "role": "Partner",
+    "contact_name": "Nick Studer",
+    "contact_email": "nick.studer@oliverwyman.com",
+    "subject": "Enhance Your Climate Strategies with AI Support",
+    "sent_at": "2026-03-15T16:20:52.374801+00:00",
+    "method": "failed",
+    "source_file": "meta_Oliver_Wyman_8a6f95.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 22: character maps to <undefined>"
+  },
+  {
+    "company": "Wieden+Kennedy",
+    "role": "Business Director",
+    "contact_name": "Neal Arthur",
+    "contact_email": "neal.arthur@wiedenkennedy.com",
+    "subject": "Enhance Your Sustainability Campaigns",
+    "sent_at": "2026-03-15T16:20:56.199066+00:00",
+    "method": "failed",
+    "source_file": "meta_Wieden+Kennedy_b20e42.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 24: character maps to <undefined>"
+  },
+  {
+    "company": "72andSunny",
+    "role": "VP of Business Development",
+    "contact_name": "Jessica Monsey",
+    "contact_email": "jessica.monsey@72andsunny.com",
+    "subject": "Strategic Partnerships for Growth",
+    "sent_at": "2026-03-15T17:22:51.856884+00:00",
+    "method": "failed",
+    "source_file": "meta_72andSunny_db5381.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 20: character maps to <undefined>"
+  },
+  {
+    "company": "Easyship",
+    "role": "Head of Sales",
+    "contact_name": "",
+    "contact_email": "head.sales@easyship.com",
+    "subject": "Leveraging Your WooCommerce Partnership",
+    "sent_at": "2026-03-15T17:22:54.041600+00:00",
+    "method": "failed",
+    "source_file": "meta_Easyship_582921.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 18: character maps to <undefined>"
+  },
+  {
+    "company": "Kearney",
+    "role": "Principal",
+    "contact_name": "Chris Johnson",
+    "contact_email": "chris.johnson@kearney.com",
+    "subject": "Enhance Kearney's Digital Transformation Offerings",
+    "sent_at": "2026-03-15T17:22:57.389677+00:00",
+    "method": "failed",
+    "source_file": "meta_Kearney_9f3784.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 17: character maps to <undefined>"
+  },
+  {
+    "company": "Sellics",
+    "role": "VP of Growth",
+    "contact_name": "Franz Jordan",
+    "contact_email": "franz.jordan@sellics.com",
+    "subject": "Boost Walmart Integration with AI Support",
+    "sent_at": "2026-03-15T17:23:02.321113+00:00",
+    "method": "failed",
+    "source_file": "meta_Sellics_969b88.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 17: character maps to <undefined>"
+  },
+  {
+    "company": "Havas",
+    "role": "VP of Client Services",
+    "contact_name": "Tracey Barber",
+    "contact_email": "tracey.barber@havas.com",
+    "subject": "Enhancing Client Satisfaction at Havas",
+    "sent_at": "2026-03-15T18:23:54.072857+00:00",
+    "method": "failed",
+    "source_file": "meta_Havas_414c91.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 15: character maps to <undefined>"
+  },
+  {
+    "company": "L.E.K. Consulting",
+    "role": "Partner",
+    "contact_name": "Stuart Jackson",
+    "contact_email": "s.jackson@lekconsulting.com",
+    "subject": "Enhance EV Insights with AI Support",
+    "sent_at": "2026-03-15T18:23:58.303203+00:00",
+    "method": "failed",
+    "source_file": "meta_L.E.K._Consulting_595147.json",
+    "error": "'charmap' codec can't encode character '\\u2192' in position 27: character maps to <undefined>"
   }
 ]

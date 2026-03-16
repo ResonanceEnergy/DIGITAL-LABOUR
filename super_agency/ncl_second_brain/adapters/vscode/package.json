@@ -1,0 +1,23 @@
+{
+  "name": "ncl-second-brain",
+  "version": "0.0.1",
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onCommand:ncl.captureThought"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "ncl.captureThought",
+        "title": "NCL: Capture Thought"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node esbuild.config.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.19.0",
+    "typescript": "^5.3.3"
+  }
+}

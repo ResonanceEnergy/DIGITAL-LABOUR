@@ -46,11 +46,11 @@ LOG_FILE = PROJECT_ROOT / "data" / "reference_requests.json"
 # ── Platform review/recommendation links ───────────────────────
 
 PLATFORM_LINKS = {
-    "freelancer": "https://www.freelancer.com/u/bitragelabour",
-    "upwork": "https://www.upwork.com/freelancers/bitragelabour",
-    "fiverr": "https://www.fiverr.com/bitragelabour",
-    "pph": "https://www.peopleperhour.com/freelancer/bitragelabour",
-    "guru": "https://www.guru.com/freelancers/bitragelabour",
+    "freelancer": "https://www.freelancer.com/u/DigitalLabour",
+    "upwork": "https://www.upwork.com/freelancers/DigitalLabour",
+    "fiverr": "https://www.fiverr.com/DigitalLabour",
+    "pph": "https://www.peopleperhour.com/freelancer/DigitalLabour",
+    "guru": "https://www.guru.com/freelancers/DigitalLabour",
 }
 
 # ── Email Template ─────────────────────────────────────────────
@@ -100,9 +100,9 @@ No pressure at all — I completely understand if you're too busy.{platform_note
 Thank you for considering it. I really appreciate the time we spent working together.
 
 Best regards,
-Bit Rage Labour Systems
-sales@bit-rage-labour.com
-https://bit-rage-labour.com
+DIGITAL LABOUR SYSTEMS
+sales@digital-labour.com
+https://digital-labour.com
 """
 
     html_body = f"""<!DOCTYPE html>
@@ -136,9 +136,9 @@ experience working with me. Even 2–3 sentences would be incredibly helpful.</p
 <p>Thank you for considering it. I really appreciate the time we spent working together.</p>
 
 <p>Best regards,<br>
-<strong>Bit Rage Labour Systems</strong><br>
-<a href="mailto:sales@bit-rage-labour.com">sales@bit-rage-labour.com</a><br>
-<a href="https://bit-rage-labour.com">bit-rage-labour.com</a></p>
+<strong>DIGITAL LABOUR SYSTEMS</strong><br>
+<a href="mailto:sales@digital-labour.com">sales@digital-labour.com</a><br>
+<a href="https://digital-labour.com">digital-labour.com</a></p>
 
 </body>
 </html>"""
@@ -191,7 +191,7 @@ def send_reference_request(
         return {"status": "saved_to_file", "path": str(filepath)}
 
     msg = MIMEMultipart("alternative")
-    msg["From"] = f"Bit Rage Labour <{smtp_from}>"
+    msg["From"] = f"Digital Labour <{smtp_from}>"
     msg["To"] = to_email
     msg["Subject"] = subject
     msg["Reply-To"] = smtp_from

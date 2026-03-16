@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>Quantum Quasar - Digital Labour Desktop Command Center</title>
+    <link rel="stylesheet" href="/static/css/desktop.css">
+    <link rel="icon" href="/static/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="desktop-container">
+        <!-- Top Status Bar -->
+        <header class="desktop-header">
+            <div class="header-left">
+                <h1>🖥️ Quantum Quasar</h1>
+                <div class="system-info">
+                    <span class="mac-model">MacBook Pro M1 • 16GB RAM</span>
+                    <span class="macos-version">macOS Monterey 12.6.1</span>
+                    <span class="uptime">Uptime: 7d 14h 32m</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="global-status">
+                    <div class="status-indicator online">
+                        <span class="status-dot"></span>
+                        <span class="status-text">All Systems Operational</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="current-time" id="current-time">14:32:15</div>
+                <div class="current-date">February 21, 2026</div>
+            </div>
+        </header>
+
+        <!-- Main Desktop Layout -->
+        <div class="desktop-main">
+            <!-- Left Sidebar -->
+            <aside class="desktop-sidebar">
+                <nav class="sidebar-nav">
+                    <div class="nav-section">
+                        <h3>Command Center</h3>
+                        <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                            <span class="nav-icon">📊</span>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                        <a href="#agents" class="nav-item" data-section="agents">
+                            <span class="nav-icon">🤖</span>
+                            <span class="nav-text">Agent Control</span>
+                        </a>
+                        <a href="#systems" class="nav-item" data-section="systems">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">System Monitor</span>
+                        </a>
+                        <a href="#matrix" class="nav-item" data-section="matrix">
+                            <span class="nav-icon">🔗</span>
+                            <span class="nav-text">Matrix View</span>
+                        </a>
+                    </div>
+
+                    <div class="nav-section">
+                        <h3>Operations</h3>
+                        <a href="#portfolio" class="nav-item" data-section="portfolio">
+                            <span class="nav-icon">💼</span>
+                            <span class="nav-text">Portfolio</span>
+                        </a>
+                        <a href="#analytics" class="nav-item" data-section="analytics">
+                            <span class="nav-icon">📈</span>
+                            <span class="nav-text">Analytics</span>
+                        </a>
+                        <a href="#intelligence" class="nav-item" data-section="intelligence">
+                            <span class="nav-icon">🧠</span>
+                            <span class="nav-text">Intelligence</span>
+                        </a>
+                        <a href="#security" class="nav-item" data-section="security">
+                            <span class="nav-icon">🔒</span>
+                            <span class="nav-text">Security</span>
+                        </a>
+                    </div>
+
+                    <div class="nav-section">
+                        <h3>Three Device</h3>
+                        <div class="device-status">
+                            <div class="device-item active">
+                                <span class="device-icon">🖥️</span>
+                                <span class="device-name">Quantum Quasar</span>
+                                <span class="device-status-dot online"></span>
+                            </div>
+                            <div class="device-item">
+                                <span class="device-icon">📱</span>
+                                <span class="device-name">Pocket Pulsar</span>
+                                <span class="device-status-dot online"></span>
+                            </div>
+                            <div class="device-item">
+                                <span class="device-icon">📱</span>
+                                <span class="device-name">Tablet Titan</span>
+                                <span class="device-status-dot online"></span>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="desktop-content">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="content-section active">
+                    <div class="dashboard-header">
+                        <h2>Command Center Dashboard</h2>
+                        <div class="dashboard-actions">
+                            <button class="action-btn primary">Quick Deploy</button>
+                            <button class="action-btn secondary">System Scan</button>
+                            <button class="action-btn tertiary">Generate Report</button>
+                        </div>
+                    </div>
+
+                    <!-- Key Metrics Row -->
+                    <div class="metrics-row">
+                        <div class="metric-card large">
+                            <div class="metric-header">
+                                <h3>System Performance</h3>
+                                <span class="metric-trend positive">↑ 5.2%</span>
+                            </div>
+                            <div class="metric-content">
+                                <div class="metric-value">98.7%</div>
+                                <div class="metric-subtitle">Overall Health</div>
+                            </div>
+                            <div class="metric-chart">
+                                <canvas id="performance-chart" width="300" height="120"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <h3>Active Agents</h3>
+                                <span class="metric-trend neutral">→ 0</span>
+                            </div>
+                            <div class="metric-content">
+                                <div class="metric-value">23</div>
+                                <div class="metric-subtitle">Running</div>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <h3>CPU Usage</h3>
+                                <span class="metric-trend negative">↓ 2.1%</span>
+                            </div>
+                            <div class="metric-content">
+                                <div class="metric-value">67%</div>
+                                <div class="metric-subtitle">M1 Chip</div>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <h3>Memory</h3>
+                                <span class="metric-trend positive">↑ 1.8%</span>
+                            </div>
+                            <div class="metric-content">
+                                <div class="metric-value">12.4GB</div>
+                                <div class="metric-subtitle">Used of 16GB</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Activity and Status Row -->
+                    <div class="status-row">
+                        <div class="activity-panel">
+                            <h3>Recent Activity</h3>
+                            <div class="activity-list" id="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-time">14:28</div>
+                                    <div class="activity-content">
+                                        <div class="activity-icon">🤖</div>
+                                        <div class="activity-text">Agent Council meeting completed</div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-time">14:15</div>
+                                    <div class="activity-content">
+                                        <div class="activity-icon">💰</div>
+                                        <div class="activity-text">Portfolio value updated: +$2.3M</div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-time">14:02</div>
+                                    <div class="activity-content">
+                                        <div class="activity-icon">🔧</div>
+                                        <div class="activity-text">QUASMEM optimization applied</div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-time">13:48</div>
+                                    <div class="activity-content">
+                                        <div class="activity-icon">📊</div>
+                                        <div class="activity-text">Analytics report generated</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alerts-panel">
+                            <h3>System Alerts</h3>
+                            <div class="alerts-list">
+                                <div class="alert-item info">
+                                    <div class="alert-icon">ℹ️</div>
+                                    <div class="alert-content">
+                                        <div class="alert-title">Memory Doctrine Updated</div>
+                                        <div class="alert-time">2 hours ago</div>
+                                    </div>
+                                </div>
+                                <div class="alert-item warning">
+                                    <div class="alert-icon">⚠️</div>
+                                    <div class="alert-content">
+                                        <div class="alert-title">High CPU usage detected</div>
+                                        <div class="alert-time">15 min ago</div>
+                                    </div>
+                                </div>
+                                <div class="alert-item success">
+                                    <div class="alert-icon">✅</div>
+                                    <div class="alert-content">
+                                        <div class="alert-title">All agents synchronized</div>
+                                        <div class="alert-time">5 min ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Agents Section -->
+                <section id="agents" class="content-section">
+                    <div class="section-header">
+                        <h2>Agent Control Center</h2>
+                        <div class="section-actions">
+                            <button class="btn-primary">Deploy New Agent</button>
+                            <button class="btn-secondary">Agent Templates</button>
+                        </div>
+                    </div>
+
+                    <div class="agents-grid">
+                        <div class="agent-card">
+                            <div class="agent-header">
+                                <div class="agent-avatar">🎯</div>
+                                <div class="agent-status online"></div>
+                            </div>
+                            <div class="agent-info">
+                                <h4>Operations Agent</h4>
+                                <p>Task execution and workflow management</p>
+                            </div>
+                            <div class="agent-metrics">
+                                <div class="metric">Tasks: 12</div>
+                                <div class="metric">Success: 98%</div>
+                                <div class="metric">Uptime: 99.9%</div>
+                            </div>
+                            <div class="agent-actions">
+                                <button class="btn-sm">Configure</button>
+                                <button class="btn-sm">Logs</button>
+                                <button class="btn-sm danger">Stop</button>
+                            </div>
+                        </div>
+
+                        <div class="agent-card">
+                            <div class="agent-header">
+                                <div class="agent-avatar">💼</div>
+                                <div class="agent-status online"></div>
+                            </div>
+                            <div class="agent-info">
+                                <h4>Business Agent</h4>
+                                <p>Financial analysis and deal processing</p>
+                            </div>
+                            <div class="agent-metrics">
+                                <div class="metric">Deals: 8</div>
+                                <div class="metric">Revenue: $2.3M</div>
+                                <div class="metric">Uptime: 99.7%</div>
+                            </div>
+                            <div class="agent-actions">
+                                <button class="btn-sm">Configure</button>
+                                <button class="btn-sm">Logs</button>
+                                <button class="btn-sm danger">Stop</button>
+                            </div>
+                        </div>
+
+                        <div class="agent-card">
+                            <div class="agent-header">
+                                <div class="agent-avatar">🔬</div>
+                                <div class="agent-status online"></div>
+                            </div>
+                            <div class="agent-info">
+                                <h4>Research Agent</h4>
+                                <p>Data analysis and intelligence gathering</p>
+                            </div>
+                            <div class="agent-metrics">
+                                <div class="metric">Reports: 15</div>
+                                <div class="metric">Insights: 23</div>
+                                <div class="metric">Uptime: 99.8%</div>
+                            </div>
+                            <div class="agent-actions">
+                                <button class="btn-sm">Configure</button>
+                                <button class="btn-sm">Logs</button>
+                                <button class="btn-sm danger">Stop</button>
+                            </div>
+                        </div>
+
+                        <div class="agent-card">
+                            <div class="agent-header">
+                                <div class="agent-avatar">🛡️</div>
+                                <div class="agent-status online"></div>
+                            </div>
+                            <div class="agent-info">
+                                <h4>Security Agent</h4>
+                                <p>System protection and threat detection</p>
+                            </div>
+                            <div class="agent-metrics">
+                                <div class="metric">Threats: 0</div>
+                                <div class="metric">Scans: 47</div>
+                                <div class="metric">Uptime: 100%</div>
+                            </div>
+                            <div class="agent-actions">
+                                <button class="btn-sm">Configure</button>
+                                <button class="btn-sm">Logs</button>
+                                <button class="btn-sm danger">Stop</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Systems Section -->
+                <section id="systems" class="content-section">
+                    <div class="section-header">
+                        <h2>System Monitor</h2>
+                        <div class="section-actions">
+                            <button class="btn-primary">Run Diagnostics</button>
+                            <button class="btn-secondary">Performance Test</button>
+                        </div>
+                    </div>
+
+                    <div class="systems-overview">
+                        <div class="system-detail-card">
+                            <div class="system-header">
+                                <h3>🖥️ Quantum Quasar</h3>
+                                <div class="system-status online">Online</div>
+                            </div>
+                            <div class="system-specs">
+                                <div class="spec-group">
+                                    <h4>Hardware</h4>
+                                    <div class="spec">Apple M1 Chip (8-core CPU, 8-core GPU)</div>
+                                    <div class="spec">16GB Unified Memory</div>
+                                    <div class="spec">512GB SSD Storage</div>
+                                </div>
+                                <div class="spec-group">
+                                    <h4>Software</h4>
+                                    <div class="spec">macOS Monterey 12.6.1</div>
+                                    <div class="spec">Python 3.9.13</div>
+                                    <div class="spec">QUASMEM v2.1</div>
+                                </div>
+                            </div>
+                            <div class="system-metrics">
+                                <div class="metric-bar">
+                                    <label>CPU Usage</label>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 67%"></div>
+                                    </div>
+                                    <span class="metric-value">67%</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <label>Memory Usage</label>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 78%"></div>
+                                    </div>
+                                    <span class="metric-value">12.4GB / 16GB</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <label>Storage</label>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 45%"></div>
+                                    </div>
+                                    <span class="metric-value">230GB / 512GB</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="system-detail-card">
+                            <div class="system-header">
+                                <h3>📱 Pocket Pulsar</h3>
+                                <div class="system-status online">Online</div>
+                            </div>
+                            <div class="system-specs">
+                                <div class="spec-group">
+                                    <h4>Hardware</h4>
+                                    <div class="spec">Apple A17 Pro Chip</div>
+                                    <div class="spec">8GB RAM</div>
+                                    <div class="spec">256GB Storage</div>
+                                </div>
+                                <div class="spec-group">
+                                    <h4>Software</h4>
+                                    <div class="spec">iOS 18.5</div>
+                                    <div class="spec">Liquid Glass Design</div>
+                                    <div class="spec">Dynamic Island</div>
+                                </div>
+                            </div>
+                            <div class="system-metrics">
+                                <div class="metric-bar">
+                                    <label>Battery</label>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 87%"></div>
+                                    </div>
+                                    <span class="metric-value">87%</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <label>Network</label>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 100%"></div>
+                                    </div>
+                                    <span class="metric-value">LTE</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <label>Storage</label>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 62%"></div>
+                                    </div>
+                                    <span class="metric-value">158GB / 256GB</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="system-detail-card">
+                            <div class="system-header">
+                                <h3>📱 Tablet Titan</h3>
+                                <div class="system-status online">Online</div>
+                            </div>
+                            <div class="system-specs">
+                                <div class="spec-group">
+                                    <h4>Hardware</h4>
+                                    <div class="spec">Apple M2 Chip</div>
+                                    <div class="spec">8GB RAM</div>
+                                    <div class="spec">256GB Storage</div>
+                                </div>
+                                <div class="spec-group">
+                                    <h4>Software</h4>
+                                    <div class="spec">iOS 18.5</div>
+                                    <div class="spec">Modern Firmware 7.03.01</div>
+                                    <div class="spec">Bluetooth: 34:42:62:2C:5D:9D</div>
+                                </div>
+                            </div>
+                            <div class="system-metrics">
+                                <div class="metric-bar">
+                                    <label>Battery</label>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 89%"></div>
+                                    </div>
+                                    <span class="metric-value">89%</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <label>Bluetooth</label>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 100%"></div>
+                                    </div>
+                                    <span class="metric-value">Connected</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <label>Storage</label>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 54%"></div>
+                                    </div>
+                                    <span class="metric-value">138GB / 256GB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Matrix Section -->
+                <section id="matrix" class="content-section">
+                    <div class="section-header">
+                        <h2>Digital Labour Matrix</h2>
+                        <div class="section-actions">
+                            <button class="btn-primary">Sync Matrix</button>
+                            <button class="btn-secondary">Matrix Logs</button>
+                        </div>
+                    </div>
+
+                    <div class="matrix-container">
+                        <div class="matrix-visualization" id="matrix-visualization">
+                            <!-- Matrix nodes will be dynamically generated -->
+                        </div>
+                        <div class="matrix-controls">
+                            <div class="control-group">
+                                <label>Matrix Scale</label>
+                                <input type="range" min="0.5" max="2" step="0.1" value="1" id="matrix-scale">
+                            </div>
+                            <div class="control-group">
+                                <label>Show Connections</label>
+                                <input type="checkbox" checked id="show-connections">
+                            </div>
+                            <div class="control-group">
+                                <label>Auto Refresh</label>
+                                <input type="checkbox" checked id="auto-refresh">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Portfolio Section -->
+                <section id="portfolio" class="content-section">
+                    <div class="section-header">
+                        <h2>Portfolio Intelligence</h2>
+                        <div class="section-actions">
+                            <button class="btn-primary">Add Investment</button>
+                            <button class="btn-secondary">Portfolio Report</button>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-overview">
+                        <div class="portfolio-summary">
+                            <div class="summary-card">
+                                <h3>Total Value</h3>
+                                <div class="value">$12,487,239</div>
+                                <div class="change positive">+8.2% ($947,123)</div>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Monthly Revenue</h3>
+                                <div class="value">$449,231</div>
+                                <div class="change positive">+12.1% ($48,231)</div>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Active Projects</h3>
+                                <div class="value">23</div>
+                                <div class="change neutral">Stable</div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-chart">
+                            <canvas id="portfolio-chart" width="800" height="400"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Analytics Section -->
+                <section id="analytics" class="content-section">
+                    <div class="section-header">
+                        <h2>Advanced Analytics</h2>
+                        <div class="section-actions">
+                            <button class="btn-primary">Generate Report</button>
+                            <button class="btn-secondary">Export Data</button>
+                        </div>
+                    </div>
+
+                    <div class="analytics-dashboard">
+                        <div class="analytics-grid">
+                            <div class="analytics-card">
+                                <h4>Performance Trends</h4>
+                                <canvas id="trends-chart" width="400" height="250"></canvas>
+                            </div>
+                            <div class="analytics-card">
+                                <h4>Agent Efficiency</h4>
+                                <canvas id="efficiency-chart" width="400" height="250"></canvas>
+                            </div>
+                            <div class="analytics-card">
+                                <h4>System Resources</h4>
+                                <canvas id="resources-chart" width="400" height="250"></canvas>
+                            </div>
+                            <div class="analytics-card">
+                                <h4>Revenue Analytics</h4>
+                                <canvas id="revenue-chart" width="400" height="250"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Intelligence Section -->
+                <section id="intelligence" class="content-section">
+                    <div class="section-header">
+                        <h2>AI Intelligence Hub</h2>
+                        <div class="section-actions">
+                            <button class="btn-primary">New Analysis</button>
+                            <button class="btn-secondary">Intelligence Reports</button>
+                        </div>
+                    </div>
+
+                    <div class="intelligence-dashboard">
+                        <div class="insights-panel">
+                            <h3>AI Insights</h3>
+                            <div class="insight-cards">
+                                <div class="insight-card">
+                                    <div class="insight-header">
+                                        <span class="insight-icon">🎯</span>
+                                        <span class="insight-priority high">High</span>
+                                    </div>
+                                    <h4>Optimization Opportunity</h4>
+                                    <p>Memory usage can be reduced by 15% with advanced QUASMEM pooling strategies. Estimated savings: 2.4GB RAM.</p>
+                                    <div class="insight-actions">
+                                        <button class="btn-sm">Apply</button>
+                                        <button class="btn-sm secondary">Details</button>
+                                    </div>
+                                </div>
+
+                                <div class="insight-card">
+                                    <div class="insight-header">
+                                        <span class="insight-icon">📈</span>
+                                        <span class="insight-priority medium">Medium</span>
+                                    </div>
+                                    <h4>Growth Prediction</h4>
+                                    <p>Revenue growth trajectory indicates 23% increase over next quarter. Key drivers: AI agent deployment and portfolio optimization.</p>
+                                    <div class="insight-actions">
+                                        <button class="btn-sm">View Report</button>
+                                        <button class="btn-sm secondary">Details</button>
+                                    </div>
+                                </div>
+
+                                <div class="insight-card">
+                                    <div class="insight-header">
+                                        <span class="insight-icon">🔒</span>
+                                        <span class="insight-priority low">Low</span>
+                                    </div>
+                                    <h4>Security Enhancement</h4>
+                                    <p>Recommended security updates available for 3 agents. No critical vulnerabilities detected.</p>
+                                    <div class="insight-actions">
+                                        <button class="btn-sm">Update All</button>
+                                        <button class="btn-sm secondary">Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="predictions-panel">
+                            <h3>Predictive Analytics</h3>
+                            <div class="prediction-cards">
+                                <div class="prediction-card">
+                                    <h4>System Load Prediction</h4>
+                                    <div class="prediction-chart">
+                                        <canvas id="load-prediction" width="300" height="150"></canvas>
+                                    </div>
+                                    <p class="prediction-text">Expected peak load: 85% CPU at 16:00</p>
+                                </div>
+
+                                <div class="prediction-card">
+                                    <h4>Agent Performance Forecast</h4>
+                                    <div class="prediction-chart">
+                                        <canvas id="performance-prediction" width="300" height="150"></canvas>
+                                    </div>
+                                    <p class="prediction-text">98.5% success rate predicted for next 24h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security Section -->
+                <section id="security" class="content-section">
+                    <div class="section-header">
+                        <h2>Security Operations Center</h2>
+                        <div class="section-actions">
+                            <button class="btn-primary">Security Scan</button>
+                            <button class="btn-secondary">Threat Report</button>
+                        </div>
+                    </div>
+
+                    <div class="security-dashboard">
+                        <div class="security-status">
+                            <div class="status-overview">
+                                <div class="status-item">
+                                    <h4>Threat Level</h4>
+                                    <div class="threat-level low">
+                                        <span class="threat-text">LOW</span>
+                                    </div>
+                                </div>
+                                <div class="status-item">
+                                    <h4>Active Threats</h4>
+                                    <div class="threat-count">0</div>
+                                </div>
+                                <div class="status-item">
+                                    <h4>Last Scan</h4>
+                                    <div class="last-scan">2 minutes ago</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="security-panels">
+                            <div class="security-panel">
+                                <h4>Access Control</h4>
+                                <div class="access-log">
+                                    <div class="log-entry">
+                                        <span class="log-time">14:30</span>
+                                        <span class="log-action">Agent authentication</span>
+                                        <span class="log-status success">✓</span>
+                                    </div>
+                                    <div class="log-entry">
+                                        <span class="log-time">14:28</span>
+                                        <span class="log-action">Matrix sync</span>
+                                        <span class="log-status success">✓</span>
+                                    </div>
+                                    <div class="log-entry">
+                                        <span class="log-time">14:25</span>
+                                        <span class="log-action">Portfolio update</span>
+                                        <span class="log-status success">✓</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="security-panel">
+                                <h4>System Integrity</h4>
+                                <div class="integrity-checks">
+                                    <div class="check-item">
+                                        <span class="check-name">File integrity</span>
+                                        <span class="check-status">✓ Verified</span>
+                                    </div>
+                                    <div class="check-item">
+                                        <span class="check-name">Memory protection</span>
+                                        <span class="check-status">✓ Active</span>
+                                    </div>
+                                    <div class="check-item">
+                                        <span class="check-name">Network security</span>
+                                        <span class="check-status">✓ Encrypted</span>
+                                    </div>
+                                    <div class="check-item">
+                                        <span class="check-name">Agent isolation</span>
+                                        <span class="check-status">✓ Enabled</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="/static/js/desktop.js"></script>
+</body>
+</html>

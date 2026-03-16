@@ -1,0 +1,133 @@
+{
+  "timestamp": "2026-02-23T01:27:06.818753",
+  "overall_health": "excellent",
+  "components": {
+    "matrix_monitor": {
+      "status": "healthy",
+      "details": {
+        "health_score": 67.55,
+        "performance": {
+          "agent_productivity": 87.6,
+          "error_rate": 0.03,
+          "optimization_score": 94.1,
+          "response_time": 45.2,
+          "system_efficiency": 92.3,
+          "uptime_percentage": 99.7
+        },
+        "recommendations": [
+          "Consider increasing memory allocation for high-performance workloads",
+          "Schedule regular maintenance windows for system updates",
+          "Implement load balancing for distributed agent processing",
+          "Monitor network latency for optimal response times"
+        ],
+        "system": {
+          "active_agents": 30,
+          "agent_health_score": 87.7,
+          "boot_time": 1771374653.0393472,
+          "cpu_count": 12,
+          "cpu_percent": 64.4,
+          "disk": {
+            "free": 624656388096,
+            "percent": 38.9,
+            "total": 1023019053056,
+            "used": 398362664960
+          },
+          "memory": {
+            "available": 2216685568,
+            "percent": 86.6,
+            "total": 16486756352,
+            "used": 14270083072
+          },
+          "network": {
+            "bytes_recv": 780881444,
+            "bytes_sent": 846367028,
+            "packets_recv": 736258,
+            "packets_sent": 365649
+          },
+          "orchestration_cycles": {
+            "average_cycle_time": "3.56s",
+            "frequency_mode": "ultra_high",
+            "last_cycle_duration": "3.37s",
+            "last_cycle_timestamp": "2026-02-23 01:26:34",
+            "total_cycles_completed": 1888
+          },
+          "overall_health": "excellent",
+          "system_efficiency": 92.3,
+          "total_operations_centers": 3,
+          "uptime": 460549.5215065479
+        }
+      }
+    },
+    "matrix_maximizer": {
+      "status": "healthy",
+      "details": {
+        "health_score": 67.55,
+        "performance": {
+          "agent_productivity": 87.6,
+          "error_rate": 0.03,
+          "optimization_score": 94.1,
+          "response_time": 45.2,
+          "system_efficiency": 92.3,
+          "uptime_percentage": 99.7
+        },
+        "recommendations": [
+          "Consider increasing memory allocation for high-performance workloads",
+          "Schedule regular maintenance windows for system updates",
+          "Implement load balancing for distributed agent processing",
+          "Monitor network latency for optimal response times"
+        ],
+        "system": {
+          "active_agents": 30,
+          "agent_health_score": 87.7,
+          "boot_time": 1771374653.0393472,
+          "cpu_count": 12,
+          "cpu_percent": 64.4,
+          "disk": {
+            "free": 624656388096,
+            "percent": 38.9,
+            "total": 1023019053056,
+            "used": 398362664960
+          },
+          "memory": {
+            "available": 2216685568,
+            "percent": 86.6,
+            "total": 16486756352,
+            "used": 14270083072
+          },
+          "network": {
+            "bytes_recv": 780881444,
+            "bytes_sent": 846367028,
+            "packets_recv": 736258,
+            "packets_sent": 365649
+          },
+          "orchestration_cycles": {
+            "average_cycle_time": "3.56s",
+            "frequency_mode": "ultra_high",
+            "last_cycle_duration": "3.37s",
+            "last_cycle_timestamp": "2026-02-23 01:26:34",
+            "total_cycles_completed": 1888
+          },
+          "overall_health": "excellent",
+          "system_efficiency": 92.3,
+          "total_operations_centers": 3,
+          "uptime": 460549.5215065479
+        }
+      }
+    },
+    "qusar_sync": {
+      "status": "healthy",
+      "last_sync": "2026-02-23T01:24:01.788656"
+    },
+    "pulsar_sync": {
+      "status": "healthy",
+      "last_sync": "2026-02-23T01:24:01.788868"
+    },
+    "titan_sync": {
+      "status": "healthy",
+      "last_sync": "2026-02-23T01:24:01.789099"
+    }
+  },
+  "alerts": [
+    "Low health score: 67.55"
+  ]
+}

@@ -1,0 +1,450 @@
+{
+  "youtube_channels": {
+    "inner_council": {
+      "j_bravo": {
+        "channel_id": "UCJ_Bravo",
+        "channel_name": "J Bravo",
+        "description": "Strategic intelligence and analysis",
+        "priority": "critical",
+        "role": "intelligence_coordinator"
+      },
+      "tom_bilyeu": {
+        "channel_id": "UCnYMOAMTyJw4M5m0v6qp0DQ",
+        "channel_name": "Tom Bilyeu",
+        "description": "Business strategy and mindset",
+        "priority": "critical",
+        "role": "business_strategy"
+      },
+      "lexfridman": {
+        "channel_id": "UC3M7l8ved_rYQ45AVzS0RGA",
+        "channel_name": "Lex Fridman",
+        "description": "AI and technology deep dives",
+        "priority": "critical",
+        "role": "ai_technology"
+      },
+      "joe_rogan": {
+        "channel_id": "UCzQUP1qoWDoEbmsQxvdjxg",
+        "channel_name": "Joe Rogan",
+        "description": "Cultural and intellectual discourse",
+        "priority": "critical",
+        "role": "cultural_intelligence"
+      },
+      "chris_willx": {
+        "channel_id": "UCChrisWillx",
+        "channel_name": "Chris Willx",
+        "description": "Personal development and optimization",
+        "priority": "high",
+        "role": "personal_development"
+      },
+      "brighter_with_herbert": {
+        "channel_id": "UCBrighterwithHerbert",
+        "channel_name": "Brighter with Herbert",
+        "description": "Consciousness and human potential",
+        "priority": "high",
+        "role": "consciousness_explorer"
+      },
+      "nate_b_jones": {
+        "channel_id": "UCNateBJones",
+        "channel_name": "Nate B Jones",
+        "description": "Financial markets and economics",
+        "priority": "high",
+        "role": "financial_intelligence"
+      },
+      "stripe": {
+        "channel_id": "UCStripe",
+        "channel_name": "Stripe",
+        "description": "Fintech and payment systems",
+        "priority": "high",
+        "role": "fintech_innovation"
+      },
+      "spencer_gatten": {
+        "channel_id": "UCSpencerGatten",
+        "channel_name": "Spencer Gatten",
+        "description": "Business operations and scaling",
+        "priority": "high",
+        "role": "operations_expert"
+      },
+      "stefan_burns": {
+        "channel_id": "UCStefanBurns",
+        "channel_name": "Stefan Burns",
+        "description": "Technology and innovation",
+        "priority": "high",
+        "role": "tech_innovation"
+      },
+      "farzad_fm": {
+        "channel_id": "UCFARZAD-FM",
+        "channel_name": "FARZAD FM",
+        "description": "Financial markets analysis",
+        "priority": "high",
+        "role": "market_analyst"
+      },
+      "ian_carroll_show": {
+        "channel_id": "UCIancarrollshow",
+        "channel_name": "Ian Carroll Show",
+        "description": "Economic and political analysis",
+        "priority": "high",
+        "role": "economic_analyst"
+      },
+      "eurodollar_university": {
+        "channel_id": "UCeurodollaruniversity",
+        "channel_name": "Eurodollar University",
+        "description": "Financial system education",
+        "priority": "high",
+        "role": "financial_education"
+      },
+      "andrei_jikh": {
+        "channel_id": "UCAndreiJikh",
+        "channel_name": "Andrei Jikh",
+        "description": "Startup and business strategy",
+        "priority": "high",
+        "role": "startup_strategy"
+      },
+      "dan_winter_fractal_field": {
+        "channel_id": "UCDanWinterFractalField",
+        "channel_name": "Dan Winter Fractal Field",
+        "description": "Fractal physics and consciousness",
+        "priority": "high",
+        "role": "physics_consciousness"
+      },
+      "the_ai_grid": {
+        "channel_id": "UCTheAiGrid",
+        "channel_name": "The AI Grid",
+        "description": "AI development and trends",
+        "priority": "high",
+        "role": "ai_development"
+      },
+      "the_diary_of_a_ceo": {
+        "channel_id": "UCTheDiaryOfACEO",
+        "channel_name": "The Diary Of A CEO",
+        "description": "Entrepreneurship and leadership",
+        "priority": "high",
+        "role": "ceo_insights"
+      },
+      "space_weather_news": {
+        "channel_id": "UCSpaceWeatherNewsS0s",
+        "channel_name": "Space Weather News",
+        "description": "Space weather and astronomy",
+        "priority": "high",
+        "role": "space_intelligence"
+      },
+      "energi_media": {
+        "channel_id": "UCEnergiMedia",
+        "channel_name": "Energi Media",
+        "description": "Energy and resource analysis",
+        "priority": "high",
+        "role": "energy_analyst"
+      },
+      "the_inner_operator": {
+        "channel_id": "UCtheinneroperator",
+        "channel_name": "The Inner Operator",
+        "description": "Internal operations and strategy",
+        "priority": "high",
+        "role": "operations_strategy"
+      },
+      "alex_hormozi": {
+        "channel_id": "UCAlexHormozi",
+        "channel_name": "Alex Hormozi",
+        "description": "Business scaling and acquisition",
+        "priority": "high",
+        "role": "business_scaling"
+      },
+      "restitutor_orbis": {
+        "channel_id": "UCRestitutor_Orbis_214",
+        "channel_name": "Restitutor Orbis",
+        "description": "Global systems and restoration",
+        "priority": "high",
+        "role": "global_systems"
+      },
+      "ben_wehrman": {
+        "channel_id": "UCbenwehrman",
+        "channel_name": "Ben Wehrman",
+        "description": "Business and marketing strategy",
+        "priority": "high",
+        "role": "marketing_strategy"
+      },
+      "nomad_capitalist": {
+        "channel_id": "UCnomadcapitalist",
+        "channel_name": "Nomad Capitalist",
+        "description": "Global citizenship and tax strategy",
+        "priority": "high",
+        "role": "global_citizenship"
+      },
+      "principles_by_ray_dalio": {
+        "channel_id": "UCprinciplesbyraydalio",
+        "channel_name": "Principles by Ray Dalio",
+        "description": "Economic principles and decision making",
+        "priority": "high",
+        "role": "economic_principles"
+      },
+      "instead_of_working": {
+        "channel_id": "UCinsteadofworking",
+        "channel_name": "Instead of Working",
+        "description": "Passive income and business systems",
+        "priority": "high",
+        "role": "passive_income"
+      },
+      "tom_scryleus": {
+        "channel_id": "UCTomScryleus",
+        "channel_name": "Tom Scryleus",
+        "description": "Geopolitical and strategic analysis",
+        "priority": "high",
+        "role": "geopolitical_analyst"
+      },
+      "thunderbolts_project": {
+        "channel_id": "UCThunderboltsProject",
+        "channel_name": "Thunderbolts Project",
+        "description": "Plasma physics and cosmology",
+        "priority": "high",
+        "role": "plasma_physics"
+      },
+      "cnn": {
+        "channel_id": "UCupvZG-5ko_eiXAupbDfxWw",
+        "channel_name": "CNN",
+        "description": "Mainstream news and current events",
+        "priority": "secondary",
+        "role": "news_mainstream"
+      },
+      "bbc": {
+        "channel_id": "UC16niRr50-MSBwiO3YDb3RA",
+        "channel_name": "BBC",
+        "description": "British Broadcasting Corporation news",
+        "priority": "secondary",
+        "role": "news_mainstream"
+      },
+      "reuters": {
+        "channel_id": "UChqURNrG4PsQeDkCBn4J6LA",
+        "channel_name": "Reuters",
+        "description": "Global news and financial reporting",
+        "priority": "secondary",
+        "role": "news_mainstream"
+      },
+      "ap_news": {
+        "channel_id": "UC52X5wxOL_s9ywVGWRlPlw",
+        "channel_name": "AP News",
+        "description": "Associated Press news coverage",
+        "priority": "secondary",
+        "role": "news_mainstream"
+      },
+      "bloomberg": {
+        "channel_id": "UCIALMKvObZNtJ6AmdCLP7Lg",
+        "channel_name": "Bloomberg",
+        "description": "Financial news and market analysis",
+        "priority": "secondary",
+        "role": "financial_news"
+      },
+      "cnbc": {
+        "channel_id": "UCvJJ_dzjViJCoLf5uKXVd5A",
+        "channel_name": "CNBC",
+        "description": "Business and financial news",
+        "priority": "secondary",
+        "role": "financial_news"
+      },
+      "financial_times": {
+        "channel_id": "UCoUxsWakJucWg46KW5RsvPw",
+        "channel_name": "Financial Times",
+        "description": "Global financial journalism",
+        "priority": "secondary",
+        "role": "financial_news"
+      },
+      "wall_street_journal": {
+        "channel_id": "UCK7tptUDHh-RYDsdxO1-5QQ",
+        "channel_name": "Wall Street Journal",
+        "description": "Business and financial news",
+        "priority": "secondary",
+        "role": "financial_news"
+      },
+      "techcrunch": {
+        "channel_id": "UC16niRr50-MSBwiO3YDb3RA",
+        "channel_name": "TechCrunch",
+        "description": "Technology news and startups",
+        "priority": "secondary",
+        "role": "tech_news"
+      },
+      "the_verge": {
+        "channel_id": "UCddiUEpeqJcYeBxX1IVBKvQ",
+        "channel_name": "The Verge",
+        "description": "Technology and consumer electronics",
+        "priority": "secondary",
+        "role": "tech_news"
+      },
+      "wired": {
+        "channel_id": "UCWv7vMbMWH4-V0ZXdmDpPBA",
+        "channel_name": "Wired",
+        "description": "Technology and culture",
+        "priority": "secondary",
+        "role": "tech_news"
+      },
+      "ars_technica": {
+        "channel_id": "UCUZlfH6P3Ug7Z0fOQc9g5zg",
+        "channel_name": "Ars Technica",
+        "description": "Technology news and analysis",
+        "priority": "secondary",
+        "role": "tech_news"
+      },
+      "pbs_space_time": {
+        "channel_id": "UC7_gcs09iThXybpVgjHZ_7g",
+        "channel_name": "PBS Space Time",
+        "description": "Physics and space science education",
+        "priority": "secondary",
+        "role": "science_education"
+      },
+      "vsauce": {
+        "channel_id": "UC6nSFpj9HTCZ5t-N3Rm3-HA",
+        "channel_name": "Vsauce",
+        "description": "Science and philosophy education",
+        "priority": "secondary",
+        "role": "science_education"
+      },
+      "kurzgesagt": {
+        "channel_id": "UCsXVk37bltHxD1rDPwtNM8Q",
+        "channel_name": "Kurzgesagt",
+        "description": "Science and educational animations",
+        "priority": "secondary",
+        "role": "science_education"
+      },
+      "scishow": {
+        "channel_id": "UCZYTClx2T1of7BRZ86-8fow",
+        "channel_name": "SciShow",
+        "description": "Science education and news",
+        "priority": "secondary",
+        "role": "science_education"
+      },
+      "harvard_business_review": {
+        "channel_id": "UCHarvardBusinessReview",
+        "channel_name": "Harvard Business Review",
+        "description": "Business research and insights",
+        "priority": "secondary",
+        "role": "business_insights"
+      },
+      "ted": {
+        "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+        "channel_name": "TED",
+        "description": "Ideas worth spreading",
+        "priority": "secondary",
+        "role": "business_insights"
+      },
+      "inc_magazine": {
+        "channel_id": "UCIncMagazine",
+        "channel_name": "Inc. Magazine",
+        "description": "Entrepreneurship and business growth",
+        "priority": "secondary",
+        "role": "business_insights"
+      },
+      "elon_musk_emulation": {
+        "channel_id": "UCElonMuskEmulation",
+        "channel_name": "Elon Musk Emulation Agent",
+        "description": "AI-driven emulation of Elon Musk's strategic vision and innovation approach",
+        "priority": "critical",
+        "role": "strategic_visionary"
+      },
+      "jamie_dimon_emulation": {
+        "channel_id": "UCJamieDimonEmulation",
+        "channel_name": "Jamie Dimon Emulation Agent",
+        "description": "AI-driven emulation of Jamie Dimon's banking and financial leadership",
+        "priority": "critical",
+        "role": "financial_leadership"
+      },
+      "warren_buffett_emulation": {
+        "channel_id": "UCWarrenBuffettEmulation",
+        "channel_name": "Warren Buffett Emulation Agent",
+        "description": "AI-driven emulation of Warren Buffett's value investing and business wisdom",
+        "priority": "critical",
+        "role": "value_investing"
+      },
+      "ryan_cohen_emulation": {
+        "channel_id": "UCRyanCohenEmulation",
+        "channel_name": "Ryan Cohen Emulation Agent",
+        "description": "AI-driven emulation of Ryan Cohen's retail and meme stock strategies",
+        "priority": "high",
+        "role": "retail_investing"
+      },
+      "agent_az_emulation": {
+        "channel_id": "UCAgentAZEmulation",
+        "channel_name": "Agent AZ - Chairman of Council of 33",
+        "description": "AI-driven chairman emulation overseeing the Council of 33 strategic coordination",
+        "priority": "critical",
+        "role": "council_chairman"
+      }
+    }
+  },
+  "monitoring_config": {
+    "scan_interval_minutes": 15,
+    "max_videos_per_channel": 50,
+    "content_types": ["videos", "shorts", "live_streams"],
+    "analysis_focus": [
+      "emerging_trends",
+      "technological_breakthroughs",
+      "market_opportunities",
+      "cultural_shifts",
+      "political_developments",
+      "scientific_discoveries",
+      "business_strategies",
+      "policy_implications",
+      "daily_planning",
+      "execution_optimization"
+    ],
+    "alert_triggers": {
+      "high_engagement_threshold": 100000,
+      "viral_potential_threshold": 50000,
+      "critical_keywords": [
+        "breakthrough", "crisis", "emergency", "revolution", "announcement",
+        "launch", "acquisition", "funding", "partnership", "policy", "regulation",
+        "strategy", "planning", "execution", "optimization", "intelligence"
+      ]
+    }
+  },
+  "intelligence_categories": {
+    "critical_council": ["j_bravo", "tom_bilyeu", "lexfridman", "joe_rogan"],
+    "business_intelligence": ["chris_willx", "nate_b_jones", "spencer_gatten", "andrei_jikh", "alex_hormozi", "ben_wehrman", "the_diary_of_a_ceo"],
+    "financial_markets": ["farzad_fm", "ian_carroll_show", "eurodollar_university", "nomad_capitalist", "principles_by_ray_dalio"],
+    "technology_innovation": ["stefan_burns", "the_ai_grid", "stripe"],
+    "consciousness_physics": ["brighter_with_herbert", "dan_winter_fractal_field", "thunderbolts_project"],
+    "global_systems": ["restitutor_orbis", "tom_scryleus", "space_weather_news", "energi_media"],
+    "operations_strategy": ["the_inner_operator", "instead_of_working"],
+    "news_mainstream": ["cnn", "bbc", "reuters", "ap_news"],
+    "financial_news": ["bloomberg", "cnbc", "financial_times", "wall_street_journal"],
+    "tech_news": ["techcrunch", "the_verge", "wired", "ars_technica"],
+    "science_education": ["pbs_space_time", "vsauce", "kurzgesagt", "scishow"],
+    "business_insights": ["harvard_business_review", "ted", "inc_magazine"],
+    "emulation_agents": ["elon_musk_emulation", "jamie_dimon_emulation", "warren_buffett_emulation", "ryan_cohen_emulation", "agent_az_emulation"]
+  },
+  "council_roles": {
+    "intelligence_coordinator": ["j_bravo"],
+    "business_strategy": ["tom_bilyeu", "alex_hormozi", "the_diary_of_a_ceo"],
+    "ai_technology": ["lexfridman", "the_ai_grid"],
+    "cultural_intelligence": ["joe_rogan", "chris_willx"],
+    "financial_intelligence": ["nate_b_jones", "farzad_fm", "eurodollar_university"],
+    "operations_expert": ["spencer_gatten", "the_inner_operator"],
+    "market_analyst": ["ian_carroll_show", "nomad_capitalist"],
+    "economic_principles": ["principles_by_ray_dalio"],
+    "consciousness_explorer": ["brighter_with_herbert", "dan_winter_fractal_field"],
+    "geopolitical_analyst": ["tom_scryleus"],
+    "energy_analyst": ["energi_media"],
+    "space_intelligence": ["space_weather_news"],
+    "plasma_physics": ["thunderbolts_project"],
+    "global_systems": ["restitutor_orbis"],
+    "passive_income": ["instead_of_working"],
+    "startup_strategy": ["andrei_jikh"],
+    "marketing_strategy": ["ben_wehrman"],
+    "tech_innovation": ["stefan_burns"],
+    "fintech_innovation": ["stripe"],
+    "physics_consciousness": ["dan_winter_fractal_field"],
+    "ceo_insights": ["the_diary_of_a_ceo"],
+    "personal_development": ["chris_willx"],
+    "economic_analyst": ["ian_carroll_show"],
+    "financial_education": ["eurodollar_university"],
+    "operations_strategy": ["the_inner_operator"],
+    "business_scaling": ["alex_hormozi"],
+    "global_citizenship": ["nomad_capitalist"],
+    "news_mainstream": ["cnn", "bbc", "reuters", "ap_news"],
+    "financial_news": ["bloomberg", "cnbc", "financial_times", "wall_street_journal"],
+    "tech_news": ["techcrunch", "the_verge", "wired", "ars_technica"],
+    "science_education": ["pbs_space_time", "vsauce", "kurzgesagt", "scishow"],
+    "business_insights": ["harvard_business_review", "ted", "inc_magazine"],
+    "strategic_visionary": ["elon_musk_emulation"],
+    "financial_leadership": ["jamie_dimon_emulation"],
+    "value_investing": ["warren_buffett_emulation"],
+    "retail_investing": ["ryan_cohen_emulation"],
+    "council_chairman": ["agent_az_emulation"]
+  }
+}

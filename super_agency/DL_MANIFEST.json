@@ -1,0 +1,164 @@
+{
+  "manifest": "DIGITAL LABOUR Integration Manifest",
+  "version": "2.0.0",
+  "created": "2026-03-15",
+  "rebrand_from": "Digital Labour",
+  "rebrand_to": "DIGITAL LABOUR",
+  "concept": "Digital Labour Autonomous AI Orchestration Platform",
+  "status": "COMPLETE",
+
+  "rebrand_summary": {
+    "python_files_rebranded": 85,
+    "markdown_files_rebranded": 117,
+    "config_files_rebranded": 12,
+    "cicd_files_rebranded": 1,
+    "docker_files_rebranded": 2,
+    "total_files_touched": 217,
+    "excluded_directories": [
+      ".venv/",
+      "archive/",
+      "repo_backups/",
+      "repo_depot/",
+      "repos/"
+    ],
+    "exclusion_reason": "Zero data loss — historical records and cloned repos preserved as-is"
+  },
+
+  "string_replacements": {
+    "display_name": {
+      "old": "Digital Labour",
+      "new": "DIGITAL LABOUR"
+    },
+    "slug": {
+      "old": "Digital-Labour",
+      "new": "digital-labour"
+    },
+    "cicd_artifacts": {
+      "old": "Digital-Labour-{platform}",
+      "new": "digital-labour-{platform}"
+    },
+    "docker_service": {
+      "old": "Digital-Labour",
+      "new": "digital-labour"
+    },
+    "email_domain": {
+      "old": "digital-labour.com",
+      "new": "DigitalLabour"
+    }
+  },
+
+  "functional_identifiers_preserved": {
+    "reason": "Zero degradation — these reference real files/env vars",
+    "env_vars": [
+      "DL_API_KEY",
+      "DL_ROOT",
+      "DL_REPO"
+    ],
+    "filenames": [
+      "run_digital_labour.py",
+      "logs/digital_labour.log",
+      ".dl_progress",
+      "DL_DOCTRINE_MEMORY.md",
+      "DL_LAUNCH_GUIDE.md",
+      "DL_MEMORY_DOCTRINE.md",
+      "DL_OPERATIONAL_ARCHITECTURE.md",
+      "unified_digital_labour_orchestrator.py"
+    ],
+    "python_identifiers": [
+      "super_agency (package coverage path in CI)",
+      "_report_to_digital_labour (inner_council method)",
+      "digital_labour_dir (test path variable)"
+    ],
+    "migration_phase": "Phase 2 — file renames with import aliasing"
+  },
+
+  "new_agents_added": {
+    "context_manager_agent": {
+      "file": "agents/context_manager_agent.py",
+      "tier": "T2 Management",
+      "cycle": "15 minutes",
+      "reports_to": "CTO"
+    },
+    "qa_manager": {
+      "file": "agents/qa_manager.py",
+      "tier": "T2 Management",
+      "cycle": "30 minutes",
+      "reports_to": "CTO"
+    },
+    "production_manager": {
+      "file": "agents/production_manager.py",
+      "tier": "T2 Management",
+      "cycle": "15 minutes",
+      "reports_to": "CTO"
+    },
+    "automation_manager": {
+      "file": "agents/automation_manager.py",
+      "tier": "T2 Management",
+      "cycle": "30 minutes",
+      "reports_to": "CIO"
+    }
+  },
+
+  "integration_surfaces": {
+    "bus_subscribers": "4 new handlers + 4 topic subscriptions",
+    "hierarchy": "4 new T2 DEFAULT_ASSIGNMENTS",
+    "skill_registry": "4 new agent entries with capabilities",
+    "agent_mandates": "4 new mandates (v2.0.0)",
+    "boot_script": "4 new daemon loops in run_digital_labour.py"
+  },
+
+  "core_files_modified": [
+    "pyproject.toml",
+    "README.md",
+    "start.py",
+    "run_digital_labour.py",
+    "organization_structure.json",
+    "agent_mandates.json",
+    "config/skill_registry.json",
+    "config/research_projects.json",
+    "Dockerfile",
+    "docker-compose.yml",
+    ".vscode/extensions.json",
+    ".github/workflows/distributed-ci-cd.yml",
+    "inner_council/config/settings.json",
+    "static/manifest.json",
+    "static/manifest_iphone.json",
+    "static/manifest_ipad.json",
+    "memory_hot_reload_vscode/package.json",
+    "agents/bus_subscribers.py",
+    "agents/hierarchy.py"
+  ],
+
+  "phase_2_roadmap": {
+    "description": "File rename migration (post-stabilization)",
+    "status": "COMPLETED",
+    "tasks": [
+      "✅ Renamed run_super_agency.py → run_digital_labour.py",
+      "✅ Renamed SUPER_AGENCY_*.md doctrine files → DL_*.md",
+      "✅ Migrated env vars: SUPER_AGENCY_* → DL_*",
+      "✅ Renamed super_agency.log → digital_labour.log",
+      "✅ Updated all Super-Agency / Bit Rage brand references",
+      "✅ Renamed .super_agency_progress → .dl_progress"
+    ]
+  },
+
+  "digital_labour_integration": {
+    "status": "MERGED",
+    "concept": "All agent operations now branded as Digital Labour under Digital Labour",
+    "subsystems_integrated": [
+      "NCC (Neural Command Center)",
+      "NCL (Neural Curation Layer)",
+      "AAC (Autonomous Accounting Core)",
+      "Digital Labour (workforce management)",
+      "QUSAR (Quantum-Unified Strategic Agent Router)",
+      "QForge (Quantum Forge Optimizer)"
+    ]
+  },
+
+  "orphan_status": {
+    "old_identity": "Digital Labour",
+    "status": "ORPHANED",
+    "remaining_references": "Only in archive/ and repos/ (preserved for historical record)",
+    "new_identity": "DIGITAL LABOUR — Digital Labour Platform"
+  }
+}

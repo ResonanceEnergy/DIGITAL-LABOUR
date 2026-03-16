@@ -745,7 +745,7 @@ API references, user guides, README files, SDK docs, and developer onboarding ma
 # ── Freelancer.com Listing Definitions ──────────────────────────
 
 FREELANCER_PROFILE = {
-    "agency_name": "Bit Rage Labour — AI Agent Agency",
+    "agency_name": "Digital Labour — AI Agent Agency",
     "tagline": "Production AI agents for sales, support, content & document automation",
     "hourly_rate": "$75-200/hr",
     "about": """We build and deploy production AI agent pipelines — not ChatGPT wrappers.
@@ -768,7 +768,7 @@ Based in Canada. Built by Resonance Energy.""",
     "bid_templates": {
         "ai_agent_build": """Hi,
 
-I run Bit Rage Labour — we build production AI agent pipelines (not ChatGPT wrappers).
+I run Digital Labour — we build production AI agent pipelines (not ChatGPT wrappers).
 
 Your project is exactly what our team does daily. We have 4 specialized agents already in production:
 - Sales outreach (real-time research + personalized emails)
@@ -782,7 +782,7 @@ I can start immediately and deliver a working prototype within 48 hours.
 
 Let's discuss your specific requirements.
 
-— Bit Rage Labour (Resonance Energy, Canada)""",
+— Digital Labour (Resonance Energy, Canada)""",
         "chatbot_build": """Hi,
 
 We specialize in building AI-powered chatbots and agent systems — not simple rule-based bots, but multi-agent pipelines with real AI reasoning.
@@ -796,7 +796,7 @@ Tech: Python, FastAPI, OpenAI/Claude/Gemini APIs, webhook delivery, API-first ar
 
 I can deliver a working MVP within 3-5 days with full documentation.
 
-— Bit Rage Labour""",
+— Digital Labour""",
         "data_extraction": """Hi,
 
 We have a production document extraction agent that handles invoices, contracts, resumes, and custom document types.
@@ -812,7 +812,7 @@ Currently processing documents in under 10 seconds with 85%+ accuracy.
 
 Happy to adapt it to your specific format requirements.
 
-— Bit Rage Labour""",
+— Digital Labour""",
     },
 }
 
@@ -820,37 +820,48 @@ Happy to adapt it to your specific format requirements.
 # ── Output Functions ────────────────────────────────────────────
 
 UPWORK_PROFILE = {
-    "title": "AI Agent Developer | Multi-Agent Pipelines | GPT-4o, Claude, Gemini",
-    "headline": "Production AI Agent Systems -- Sales, Support, Content & Data Extraction Automation",
-    "hourly_rate": "$85-200/hr",
-    "overview": """I build production AI agent pipelines that actually work in business -- not ChatGPT wrappers or prompt-only demos.
+    "title": "AI Automation Expert | Python Developer | GPT-4o, Claude & Gemini Integration",
+    "headline": "I Build AI Agents That Replace Manual Work — Sales, Support, Content & Data Pipelines",
+    "hourly_rate": "$45/hr",
+    "overview": """I build AI agent systems that automate real business tasks — not chatbot demos.
 
-**What I Build:**
-- Sales Outreach Agents -- real-time company research -> personalized 3-email sequences -> QA verification -> delivery in <60s
-- Support Resolution Agents -- ticket triage, severity scoring, draft responses, policy compliance checks
-- Content Repurposing Agents -- blog post -> LinkedIn, Twitter/X, email newsletter, Instagram, TikTok scripts
-- Document Extraction Agents -- invoices, contracts, resumes -> structured JSON/CSV with confidence scores
+My agents are live in production right now, processing thousands of tasks daily with built-in quality checks.
 
-**My Tech Stack:**
-Python | FastAPI | OpenAI GPT-4o | Anthropic Claude | Google Gemini | xAI Grok | Multi-agent orchestration | QA verification pipelines | Webhook delivery | Stripe billing integration | Docker
+**Results I Deliver:**
+- 50+ personalized sales emails/hour (with real company research, not templates)
+- 200+ support tickets triaged/hour with draft responses
+- 1 blog post → 5 platform-ready formats in under 60 seconds
+- Invoices, contracts, resumes → structured data with 95%+ accuracy
 
-**What Makes Me Different:**
--> I run a live AI agent agency (Bit Rage Labour) -- these agents are in production RIGHT NOW serving paying clients
--> Multi-LLM architecture with automatic failover (if OpenAI is down, Claude takes over instantly)
--> Every output passes through automated QA before delivery
--> Full API-first architecture -- your agents ship with REST endpoints, not just scripts
+**What Clients Hire Me For:**
+→ Custom AI agent builds (sales outreach, lead gen, support, content)
+→ Workflow automation — connect AI to your existing tools via APIs
+→ Data extraction & processing pipelines (PDF, web, CSV)
+→ Multi-LLM systems with failover (GPT-4o → Claude → Gemini)
+→ AI-powered email marketing, SEO content, social media calendars
 
-**Engagement Models:**
-- Hourly ($85-200/hr) -- for custom agent builds
-- Fixed price -- for well-scoped projects
-- Retainer ($750-2,500/mo) -- ongoing agent management + optimization
+**Tech Stack:**
+Python, FastAPI, OpenAI API, Anthropic Claude, Google Gemini, LangChain, Docker, REST APIs, Webhooks, Stripe, PostgreSQL
 
-Based in Canada. Built by Resonance Energy.""",
+**Why Clients Choose Me:**
+✓ Production-tested — my AI agency (Digital Labour) runs 20 specialized agents serving real clients
+✓ Multi-LLM failover — if one provider goes down, another takes over instantly
+✓ Every output passes automated QA before delivery — no garbage results
+✓ API-first — your agents ship with REST endpoints, webhooks, and monitoring
+✓ Fast turnaround — most projects delivered in 1-3 days, not weeks
+
+**How I Work:**
+1. You describe the manual process you want automated
+2. I scope the agent pipeline and provide a fixed quote
+3. I build, test, and deploy — you get API access + documentation
+4. Optional: monthly retainer for ongoing optimization
+
+100% Job Success Score target. Based in Canada.""",
     "skills": [
-        "Artificial Intelligence", "Machine Learning", "Python", "FastAPI",
-        "OpenAI API", "Claude API", "LangChain", "Natural Language Processing",
-        "Chatbot Development", "Data Extraction", "Automation", "API Development",
-        "Web Scraping", "Sales Automation", "Customer Support Automation",
+        "Artificial Intelligence", "Python", "OpenAI API", "ChatGPT",
+        "Machine Learning", "Automation", "FastAPI", "API Development",
+        "Web Scraping", "Data Extraction", "Natural Language Processing",
+        "Chatbot Development", "LangChain", "Data Processing", "AI Chatbot",
     ],
     "portfolio_items": [
         {
@@ -1109,7 +1120,7 @@ Based in Canada. Built by Resonance Energy.""",
 # ── PeoplePerHour Profile ──────────────────────────────────────
 
 PEOPLEPERHOUR_PROFILE = {
-    "agency_name": "Bit Rage Labour",
+    "agency_name": "Digital Labour",
     "tagline": "AI Agent Agency -- 20 Specialized Agents for Business Automation",
     "hourly_rate": "GBP60-150/hr",
     "about": """We deploy production AI agent pipelines for sales, content, data, and business operations.
@@ -1256,7 +1267,7 @@ Multi-LLM architecture (GPT-4o, Claude, Gemini, Grok) with QA verification on ev
 # ── Guru Profile ────────────────────────────────────────────────
 
 GURU_PROFILE = {
-    "agency_name": "Bit Rage Labour -- AI Agent Agency",
+    "agency_name": "Digital Labour -- AI Agent Agency",
     "tagline": "20 AI Agents for Sales, Content, Data & Business Automation",
     "hourly_rate": "$75-175/hr",
     "about": """Production AI agent agency with 20 specialized agents covering every major business automation category.
@@ -1421,7 +1432,7 @@ Location: Canada | Agency: Resonance Energy""",
 # ── Toptal Profile ──────────────────────────────────────────────
 
 TOPTAL_PROFILE = {
-    "agency_name": "Bit Rage Labour (Resonance Energy)",
+    "agency_name": "Digital Labour (Resonance Energy)",
     "vertical": "AI & Machine Learning",
     "hourly_rate": "$100-250/hr",
     "engagement_types": ["Hourly", "Part-time", "Full-time"],

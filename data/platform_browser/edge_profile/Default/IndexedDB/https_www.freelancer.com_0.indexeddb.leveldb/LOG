@@ -1,0 +1,5 @@
+2026/03/14-19:09:12.797 a0d0 Reusing MANIFEST C:\dev\DIGITAL LABOUR\DIGITAL LABOUR\data\platform_browser\edge_profile\Default\IndexedDB\https_www.freelancer.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/03/14-19:09:12.798 a0d0 Recovering log #6
+2026/03/14-19:09:12.798 a0d0 Reusing old log C:\dev\DIGITAL LABOUR\DIGITAL LABOUR\data\platform_browser\edge_profile\Default\IndexedDB\https_www.freelancer.com_0.indexeddb.leveldb/000006.log 
+2026/03/14-19:09:12.807 9dcc Manual compaction at level-0 from '\x00\x06\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x07\x00\x00\x00' @ 0 : 0; will stop at (end)
+2026/03/14-19:09:13.645 9dcc Manual compaction at level-0 from '\x00\x07\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x08\x00\x00\x00' @ 0 : 0; will stop at (end)

@@ -52,6 +52,8 @@ DAILY_LIMITS = {
     "qa_manager": 50,
     "production_manager": 50,
     "automation_manager": 30,
+    # Platform automation
+    "freelancer_work": 30,
 }
 
 TOKEN_BUDGETS = {
@@ -81,6 +83,8 @@ TOKEN_BUDGETS = {
     "qa_manager": 20000,
     "production_manager": 15000,
     "automation_manager": 15000,
+    # Platform automation
+    "freelancer_work": 30000,
 }
 
 
@@ -470,6 +474,18 @@ def route_task(event: dict) -> dict:
             if result:
                 event["outputs"] = result.model_dump() if hasattr(result, "model_dump") else result
                 event["qa"]["status"] = "PASS"
+
+        elif task_type == "freelancer_work":
+            from agents.freelancer_work.runner import run_pipeline as freelancer_pipeline
+            result = freelancer_pipeline(
+                action=inputs.get("action", "bid"),
+                project_data=inputs.get("project"),
+                provider=provider,
+                dry_run=inputs.get("dry_run", False),
+            )
+            if result:
+                event["outputs"] = result.model_dump() if hasattr(result, "model_dump") else result
+                event["qa"]["status"] = result.qa.status if result.qa else "PASS"
 
         else:
             event["qa"]["status"] = "FAIL"

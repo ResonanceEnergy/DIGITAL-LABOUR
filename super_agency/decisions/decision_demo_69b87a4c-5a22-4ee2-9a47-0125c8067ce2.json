@@ -1,0 +1,19 @@
+{
+  "proposal": {
+    "id": "69b87a4c-5a22-4ee2-9a47-0125c8067ce2",
+    "repo": "demo",
+    "action": "test_action",
+    "description": "Testing council decision making",
+    "risk": "MEDIUM",
+    "autonomy": "L1"
+  },
+  "decision": {
+    "id": "69b87a4c-5a22-4ee2-9a47-0125c8067ce2",
+    "approved": true,
+    "requires_human": false,
+    "reason": [
+      "Policy pass: consent satisfied and within autonomy/risk thresholds"
+    ],
+    "timestamp": "2026-02-20T22:03:07.423113-07:00"
+  }
+}

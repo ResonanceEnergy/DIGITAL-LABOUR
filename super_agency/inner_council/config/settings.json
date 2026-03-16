@@ -1,0 +1,257 @@
+{
+  "system": {
+    "name": "Inner Council Intelligence Network",
+    "version": "1.0.0",
+    "description": "Strategic intelligence gathering from key YouTube channels for DIGITAL LABOUR operations"
+  },
+  "council_members": [
+    {
+      "name": "Lex Fridman",
+      "channel_id": "UCSHZKyawb77ixDdsGog4iWA",
+      "focus_areas": ["AI", "Technology", "Science", "Philosophy"],
+      "priority": "high",
+      "monitoring_frequency": "daily"
+    },
+    {
+      "name": "Tom Bilyeu",
+      "channel_id": "UCnYMOamNKLGVlJgRUbamE8A",
+      "focus_areas": ["Business", "Entrepreneurship", "Psychology", "Performance"],
+      "priority": "high",
+      "monitoring_frequency": "daily"
+    },
+    {
+      "name": "Andrew Huberman",
+      "channel_id": "UC2D2CMWXMOVWx7giW1n3LIg",
+      "focus_areas": ["Neuroscience", "Health", "Biology", "Performance"],
+      "priority": "high",
+      "monitoring_frequency": "daily"
+    },
+    {
+      "name": "Tim Ferriss",
+      "channel_id": "UCznv7Vf9nBdJYvBagFdUBZQ",
+      "focus_areas": ["Productivity", "Learning", "Health", "Business"],
+      "priority": "high",
+      "monitoring_frequency": "daily"
+    },
+    {
+      "name": "Peter Attia",
+      "channel_id": "UC8kGsMa0LygSX9nkBcBH1A",
+      "focus_areas": ["Medicine", "Longevity", "Health", "Biology"],
+      "priority": "high",
+      "monitoring_frequency": "daily"
+    },
+    {
+      "name": "Naval Ravikant",
+      "channel_id": "UCWwgMaIRqx7QE2nIYj2S0rw",
+      "focus_areas": ["Philosophy", "Business", "Technology", "Wealth"],
+      "priority": "medium",
+      "monitoring_frequency": "weekly"
+    },
+    {
+      "name": "Sam Harris",
+      "channel_id": "UCGO3KBjxC0y8SfUxVZ1Bskg",
+      "focus_areas": ["Philosophy", "Politics", "Science", "Ethics"],
+      "priority": "medium",
+      "monitoring_frequency": "weekly"
+    },
+    {
+      "name": "Joe Rogan",
+      "channel_id": "UCzQUP1qoWDoEbmsQxvdjxg",
+      "focus_areas": ["Culture", "Science", "Politics", "Health"],
+      "priority": "medium",
+      "monitoring_frequency": "weekly"
+    },
+    {
+      "name": "Elon Musk",
+      "channel_id": "UCX6b17PVsYBQ0ip5gyeme-Q",
+      "focus_areas": ["Technology", "Space", "AI", "Energy"],
+      "priority": "high",
+      "monitoring_frequency": "daily"
+    },
+    {
+      "name": "Vitalik Buterin",
+      "channel_id": "UCKpH0CKiNj36LmE_3jHkIqQ",
+      "focus_areas": ["Cryptocurrency", "Blockchain", "Technology", "Economics"],
+      "priority": "medium",
+      "monitoring_frequency": "weekly"
+    },
+    {
+      "name": "Demis Hassabis",
+      "channel_id": "UCdWdJ8bRr5wlkA8Rf6Je9Hg",
+      "focus_areas": ["AI", "Deep Learning", "Neuroscience", "Technology"],
+      "priority": "high",
+      "monitoring_frequency": "daily"
+    },
+    {
+      "name": "Yann LeCun",
+      "channel_id": "UC8dI1nU4UDh6KJ0lFP3X1UA",
+      "focus_areas": ["AI", "Machine Learning", "Computer Vision", "Neuroscience"],
+      "priority": "high",
+      "monitoring_frequency": "daily"
+    },
+    {
+      "name": "Geoffrey Hinton",
+      "channel_id": "UC8pvdKwjEZ_-xLpNJVMxUJA",
+      "focus_areas": ["AI", "Deep Learning", "Neuroscience", "Machine Learning"],
+      "priority": "high",
+      "monitoring_frequency": "daily"
+    },
+    {
+      "name": "Shane Parrish",
+      "channel_id": "UCV2Rz2_2vokFfB-1NHrIMVQ",
+      "focus_areas": ["Decision Making", "Psychology", "Learning", "Business"],
+      "priority": "medium",
+      "monitoring_frequency": "weekly"
+    },
+    {
+      "name": "Bret Weinstein",
+      "channel_id": "UCVN0Pwxq-lEo7AQCV1WkNJg",
+      "focus_areas": ["Biology", "Evolution", "Science", "Education"],
+      "priority": "medium",
+      "monitoring_frequency": "weekly"
+    },
+    {
+      "name": "Jordan Peterson",
+      "channel_id": "UCL_f53ZEJxp8TtlOkHwMV9Q",
+      "focus_areas": ["Psychology", "Philosophy", "Culture", "Religion"],
+      "priority": "medium",
+      "monitoring_frequency": "weekly"
+    },
+    {
+      "name": "Daniel Schmachtenberger",
+      "channel_id": "UCV9lVPJvYMU6FNPmj0JvZzw",
+      "focus_areas": ["Systems Thinking", "Civilization", "Technology", "Existential Risk"],
+      "priority": "high",
+      "monitoring_frequency": "daily"
+    },
+    {
+      "name": "Niall Ferguson",
+      "channel_id": "UCzQUP1qoWDoEbmsQxvdjxg",
+      "focus_areas": ["History", "Economics", "Politics", "Civilization"],
+      "priority": "medium",
+      "monitoring_frequency": "weekly"
+    },
+    {
+      "name": "Tyler Cowen",
+      "channel_id": "UCK1dpVHTSrDJacQUlS1rJ3A",
+      "focus_areas": ["Economics", "Culture", "Technology", "Education"],
+      "priority": "medium",
+      "monitoring_frequency": "weekly"
+    },
+    {
+      "name": "Marc Andreessen",
+      "channel_id": "UCtim3mNzAo9M1VJvgQ5ZZKg",
+      "focus_areas": ["Technology", "Venture Capital", "AI", "Software"],
+      "priority": "high",
+      "monitoring_frequency": "daily"
+    },
+    {
+      "name": "Ben Shapiro",
+      "channel_id": "UCnQC_G5Xsjhp9fEJKuI-v3A",
+      "focus_areas": ["Politics", "Culture", "Philosophy", "Current Events"],
+      "priority": "low",
+      "monitoring_frequency": "weekly"
+    },
+    {
+      "name": "Russell Brand",
+      "channel_id": "UCswH8ovgZkFdlmwp9fPu0qw",
+      "focus_areas": ["Spirituality", "Politics", "Culture", "Philosophy"],
+      "priority": "low",
+      "monitoring_frequency": "weekly"
+    },
+    {
+      "name": "Dave Rubin",
+      "channel_id": "UCJU4XxPFgw0f-MaUR92WLBg",
+      "focus_areas": ["Politics", "Culture", "Philosophy", "Current Events"],
+      "priority": "low",
+      "monitoring_frequency": "weekly"
+    },
+    {
+      "name": "Candace Owens",
+      "channel_id": "UCvX0nMvsdNm2nRtLqbB5lg",
+      "focus_areas": ["Politics", "Culture", "Current Events", "Social Issues"],
+      "priority": "low",
+      "monitoring_frequency": "weekly"
+    },
+    {
+      "name": "Tucker Carlson",
+      "channel_id": "UC6pGDc4bFGD1_36IKvL8__A",
+      "focus_areas": ["Politics", "Current Events", "Culture", "Media"],
+      "priority": "low",
+      "monitoring_frequency": "weekly"
+    },
+    {
+      "name": "The Joe Rogan Experience",
+      "channel_id": "UCzQUP1qoWDoEbmsQxvdjxg",
+      "focus_areas": ["Culture", "Science", "Politics", "Health", "Entertainment"],
+      "priority": "medium",
+      "monitoring_frequency": "daily"
+    },
+    {
+      "name": "Lex Fridman Podcast",
+      "channel_id": "UCSHZKyawb77ixDdsGog4iWA",
+      "focus_areas": ["AI", "Technology", "Science", "Philosophy", "Future"],
+      "priority": "high",
+      "monitoring_frequency": "daily"
+    },
+    {
+      "name": "Impact Theory",
+      "channel_id": "UCnYMOamNKLGVlJgRUbamE8A",
+      "focus_areas": ["Business", "Entrepreneurship", "Psychology", "Performance", "Motivation"],
+      "priority": "high",
+      "monitoring_frequency": "daily"
+    }
+  ],
+  "monitoring": {
+    "max_videos_per_channel": 10,
+    "content_types": ["videos", "live_streams"],
+    "analysis_depth": "comprehensive",
+    "sentiment_analysis": true,
+    "topic_modeling": true,
+    "impact_assessment": true
+  },
+  "analysis": {
+    "key_insights_limit": 5,
+    "policy_implications_limit": 3,
+    "strategic_recommendations_limit": 3,
+    "risk_assessments_limit": 2,
+    "confidence_threshold": 0.7
+  },
+  "storage": {
+    "ncl_events_file": "NCL/events.ndjson",
+    "retention_days": 365,
+    "compression_enabled": true,
+    "backup_frequency": "weekly"
+  },
+  "reporting": {
+    "daily_reports": true,
+    "weekly_summaries": true,
+    "monthly_analytics": true,
+    "alert_thresholds": {
+      "high_activity": 10,
+      "critical_insights": 3,
+      "risk_alerts": 2
+    }
+  },
+  "integrations": {
+    "orchestrator_enabled": true,
+    "decision_framework_integration": true,
+    "portfolio_intelligence_feed": true,
+    "daily_brief_integration": true
+  },
+  "safety": {
+    "content_filtering": true,
+    "bias_detection": true,
+    "fact_checking": false,
+    "human_oversight_required": false
+  },
+  "performance": {
+    "max_concurrent_channels": 5,
+    "request_timeout_seconds": 30,
+    "retry_attempts": 3,
+    "rate_limiting": {
+      "requests_per_minute": 60,
+      "burst_limit": 10
+    }
+  }
+}

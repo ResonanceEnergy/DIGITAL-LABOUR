@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SecondBrainEnrich",
+  "type": "object",
+  "properties": {
+    "video_id": {
+      "type": "string",
+      "description": "YouTube video ID"
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Original YouTube URL"
+    },
+    "abstract_120w": {
+      "type": "string",
+      "maxLength": 120,
+      "description": "120-word abstract/summary"
+    },
+    "key_insights": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Key insights extracted from content"
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Claims or assertions made in the video"
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Named entities (people, organizations, concepts)"
+    },
+    "action_items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Actionable items or next steps"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"],
+      "description": "Confidence level in the enrichment"
+    },
+    "doctrine_map": {
+      "type": "object",
+      "properties": {
+        "principles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Resonance Energy principles reflected"
+        },
+        "themes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Key themes from NORTH_STAR.md"
+        }
+      },
+      "required": ["principles", "themes"]
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "ingested_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp of ingestion"
+        },
+        "initiator": {
+          "type": "string",
+          "description": "Who/what initiated the processing"
+        }
+      },
+      "required": ["ingested_at", "initiator"]
+    }
+  },
+  "required": [
+    "video_id",
+    "source_url",
+    "abstract_120w",
+    "key_insights",
+    "claims",
+    "entities",
+    "action_items",
+    "confidence",
+    "doctrine_map",
+    "provenance"
+  ]
+}

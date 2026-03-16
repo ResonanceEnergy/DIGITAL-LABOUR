@@ -1,0 +1,28 @@
+{
+  "cycle": 1,
+  "ts": "2026-03-15T12:11:09.905696",
+  "errors_observed": {
+    "errors": 0,
+    "patterns": {}
+  },
+  "performance": {
+    "available": false
+  },
+  "report_quality": {
+    "reports": 130,
+    "stale_48h": 88,
+    "empty": 0
+  },
+  "new_lessons": 1,
+  "total_lessons": 2,
+  "lessons_this_cycle": [
+    {
+      "ts": "2026-03-15T12:11:09.904964",
+      "category": "data_freshness",
+      "recommendation": "88/130 reports are stale (>48h). Schedule more frequent runs.",
+      "priority": "medium"
+    }
+  ],
+  "failure_pattern_totals": {},
+  "duration_s": 0.009
+}

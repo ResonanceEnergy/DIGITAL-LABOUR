@@ -41,9 +41,9 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://bit-rage-labour.com",
-        "https://www.bit-rage-labour.com",
-        "https://bitrage-labour-api-production.up.railway.app",
+        "https://digital-labour.com",
+        "https://www.digital-labour.com",
+        "https://digital-labour-api-production.up.railway.app",
         "http://localhost:8000",
         "http://127.0.0.1:8000",
     ],
@@ -83,7 +83,7 @@ app.include_router(monitor_router)
 # Payment & signup endpoints
 app.include_router(payment_router)
 
-# BITRAGE MATRIX MONITOR — Mobile C2
+# DIGITAL LABOUR MATRIX MONITOR — Mobile C2
 app.include_router(matrix_router)
 
 
@@ -96,16 +96,16 @@ def ops_dashboard():
 
 @app.get("/matrix", response_class=HTMLResponse)
 def matrix_dashboard():
-    """Serve the BITRAGE MATRIX MONITOR — mobile C2 dashboard."""
+    """Serve the DIGITAL LABOUR MATRIX MONITOR — mobile C2 dashboard."""
     html_path = Path(__file__).parent / "matrix_dashboard.html"
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
 
 @app.get("/matrix/manifest.json")
 def matrix_manifest():
-    """PWA manifest for BITRAGE MATRIX — Add to Home Screen support."""
+    """PWA manifest for DIGITAL LABOUR MATRIX — Add to Home Screen support."""
     return JSONResponse({
-        "name": "BITRAGE MATRIX",
+        "name": "DIGITAL LABOUR MATRIX",
         "short_name": "MATRIX",
         "start_url": "/matrix",
         "display": "standalone",

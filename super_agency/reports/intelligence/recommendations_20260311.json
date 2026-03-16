@@ -1,0 +1,422 @@
+{
+  "recommendations": [
+    {
+      "repo": "NATEBJONES",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to NATEBJONES \u2014 no GitHub Actions detected."
+        },
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate NATEBJONES L1\u2192L2 \u2014 18 clean scans."
+        },
+        {
+          "type": "high_risk_public",
+          "priority": "HIGH",
+          "action": "Review NATEBJONES \u2014 CRITICAL risk, PUBLIC visibility."
+        }
+      ],
+      "count": 3
+    },
+    {
+      "repo": "NCC",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to NCC \u2014 no GitHub Actions detected."
+        },
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate NCC L1\u2192L2 \u2014 18 clean scans."
+        },
+        {
+          "type": "high_risk_public",
+          "priority": "HIGH",
+          "action": "Review NCC \u2014 CRITICAL risk, PUBLIC visibility."
+        }
+      ],
+      "count": 3
+    },
+    {
+      "repo": "NCL",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to NCL \u2014 no GitHub Actions detected."
+        },
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate NCL L1\u2192L2 \u2014 18 clean scans."
+        },
+        {
+          "type": "high_risk_public",
+          "priority": "HIGH",
+          "action": "Review NCL \u2014 CRITICAL risk, PUBLIC visibility."
+        }
+      ],
+      "count": 3
+    },
+    {
+      "repo": "perpetual-flow-cube",
+      "recommendations": [
+        {
+          "type": "aging_repo",
+          "priority": "MEDIUM",
+          "action": "Check perpetual-flow-cube \u2014 last updated 43 days ago."
+        },
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to perpetual-flow-cube \u2014 no GitHub Actions detected."
+        },
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate perpetual-flow-cube L1\u2192L2 \u2014 18 clean scans."
+        }
+      ],
+      "count": 3
+    },
+    {
+      "repo": "electric-ice",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to electric-ice \u2014 no GitHub Actions detected."
+        },
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate electric-ice L1\u2192L2 \u2014 18 clean scans."
+        }
+      ],
+      "count": 2
+    },
+    {
+      "repo": "ELECTRIC-UNIVERSE",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to ELECTRIC-UNIVERSE \u2014 no GitHub Actions detected."
+        },
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate ELECTRIC-UNIVERSE L1\u2192L2 \u2014 18 clean scans."
+        }
+      ],
+      "count": 2
+    },
+    {
+      "repo": "GEET-PLASMA-PROJECT",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to GEET-PLASMA-PROJECT \u2014 no GitHub Actions detected."
+        },
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate GEET-PLASMA-PROJECT L1\u2192L2 \u2014 18 clean scans."
+        }
+      ],
+      "count": 2
+    },
+    {
+      "repo": "HUMAN-HEALTH",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to HUMAN-HEALTH \u2014 no GitHub Actions detected."
+        },
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate HUMAN-HEALTH L1\u2192L2 \u2014 18 clean scans."
+        }
+      ],
+      "count": 2
+    },
+    {
+      "repo": "MircoHydro",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to MircoHydro \u2014 no GitHub Actions detected."
+        },
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate MircoHydro L1\u2192L2 \u2014 18 clean scans."
+        }
+      ],
+      "count": 2
+    },
+    {
+      "repo": "NCC-Doctrine",
+      "recommendations": [
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate NCC-Doctrine L1\u2192L2 \u2014 18 clean scans."
+        },
+        {
+          "type": "high_risk_public",
+          "priority": "HIGH",
+          "action": "Review NCC-Doctrine \u2014 CRITICAL risk, PUBLIC visibility."
+        }
+      ],
+      "count": 2
+    },
+    {
+      "repo": "resonance-uy-py",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to resonance-uy-py \u2014 no GitHub Actions detected."
+        },
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate resonance-uy-py L1\u2192L2 \u2014 18 clean scans."
+        }
+      ],
+      "count": 2
+    },
+    {
+      "repo": "ResonanceEnergy_Enterprise",
+      "recommendations": [
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate ResonanceEnergy_Enterprise L1\u2192L2 \u2014 18 clean scans."
+        },
+        {
+          "type": "high_risk_public",
+          "priority": "HIGH",
+          "action": "Review ResonanceEnergy_Enterprise \u2014 CRITICAL risk, PUBLIC visibility."
+        }
+      ],
+      "count": 2
+    },
+    {
+      "repo": "TESLA-TECH",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to TESLA-TECH \u2014 no GitHub Actions detected."
+        },
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate TESLA-TECH L1\u2192L2 \u2014 18 clean scans."
+        }
+      ],
+      "count": 2
+    },
+    {
+      "repo": "VORTEX-HUNTER",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to VORTEX-HUNTER \u2014 no GitHub Actions detected."
+        },
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate VORTEX-HUNTER L1\u2192L2 \u2014 18 clean scans."
+        }
+      ],
+      "count": 2
+    },
+    {
+      "repo": "YOUTUBEDROP",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to YOUTUBEDROP \u2014 no GitHub Actions detected."
+        },
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate YOUTUBEDROP L1\u2192L2 \u2014 18 clean scans."
+        }
+      ],
+      "count": 2
+    },
+    {
+      "repo": "Adventure-Hero-Chronicles-Of-Glory",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to Adventure-Hero-Chronicles-Of-Glory \u2014 no GitHub Actions detected."
+        }
+      ],
+      "count": 1
+    },
+    {
+      "repo": "demo",
+      "recommendations": [
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate demo L1\u2192L2 \u2014 18 clean scans."
+        }
+      ],
+      "count": 1
+    },
+    {
+      "repo": "DIGITAL-LABOUR",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to DIGITAL-LABOUR \u2014 no GitHub Actions detected."
+        }
+      ],
+      "count": 1
+    },
+    {
+      "repo": "ELECTRIC-BODY-AND-PARAMAGNETISM",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to ELECTRIC-BODY-AND-PARAMAGNETISM \u2014 no GitHub Actions detected."
+        }
+      ],
+      "count": 1
+    },
+    {
+      "repo": "ENTERPRISE-EXCELERATION",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to ENTERPRISE-EXCELERATION \u2014 no GitHub Actions detected."
+        }
+      ],
+      "count": 1
+    },
+    {
+      "repo": "FRACTAL-FUTURE",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to FRACTAL-FUTURE \u2014 no GitHub Actions detected."
+        }
+      ],
+      "count": 1
+    },
+    {
+      "repo": "MAGNUM-MARKETING",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to MAGNUM-MARKETING \u2014 no GitHub Actions detected."
+        }
+      ],
+      "count": 1
+    },
+    {
+      "repo": "MEGALITHIC-MEDIA",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to MEGALITHIC-MEDIA \u2014 no GitHub Actions detected."
+        }
+      ],
+      "count": 1
+    },
+    {
+      "repo": "QDFG1",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to QDFG1 \u2014 no GitHub Actions detected."
+        }
+      ],
+      "count": 1
+    },
+    {
+      "repo": "Resonance-Energy-Systems",
+      "recommendations": [
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate Resonance-Energy-Systems L1\u2192L2 \u2014 18 clean scans."
+        }
+      ],
+      "count": 1
+    },
+    {
+      "repo": "Digital-Labour",
+      "recommendations": [
+        {
+          "type": "graduation_candidate",
+          "priority": "LOW",
+          "action": "Graduate Digital-Labour L1\u2192L2 \u2014 18 clean scans."
+        }
+      ],
+      "count": 1
+    },
+    {
+      "repo": "SUPERSTONK-TRADER",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to SUPERSTONK-TRADER \u2014 no GitHub Actions detected."
+        }
+      ],
+      "count": 1
+    },
+    {
+      "repo": "TARTARIA",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to TARTARIA \u2014 no GitHub Actions detected."
+        }
+      ],
+      "count": 1
+    },
+    {
+      "repo": "TESLACALLS2026",
+      "recommendations": [
+        {
+          "type": "no_ci",
+          "priority": "HIGH",
+          "action": "Add CI/CD to TESLACALLS2026 \u2014 no GitHub Actions detected."
+        }
+      ],
+      "count": 1
+    }
+  ],
+  "total_repos": 36,
+  "repos_with_recommendations": 29,
+  "total_recommendations": 48,
+  "generated_at": "2026-03-11T02:57:05.493759-06:00"
+}

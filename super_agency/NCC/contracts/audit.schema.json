@@ -1,0 +1,72 @@
+{
+  "title": "NCC Audit Schema",
+  "type": "object",
+  "required": ["id", "operation", "timestamp", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique audit record identifier"
+    },
+    "operation": {
+      "type": "string",
+      "enum": ["api_call", "account_creation", "resource_allocation", "intelligence_processing", "command_execution", "system_access"],
+      "description": "Type of operation being audited"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the audited operation"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["success", "failure", "warning", "info"],
+      "description": "Outcome status of the operation"
+    },
+    "details": {
+      "type": "object",
+      "description": "Detailed information about the operation"
+    },
+    "user_context": {
+      "type": "object",
+      "properties": {
+        "user_id": {"type": "string"},
+        "session_id": {"type": "string"},
+        "ip_address": {"type": "string"},
+        "user_agent": {"type": "string"}
+      },
+      "description": "Context information about the user performing the operation"
+    },
+    "resource_impact": {
+      "type": "object",
+      "properties": {
+        "cpu_usage": {"type": "number"},
+        "memory_usage": {"type": "number"},
+        "api_calls": {"type": "number"},
+        "data_transfer": {"type": "number"}
+      },
+      "description": "Resource usage impact of the operation"
+    },
+    "compliance_flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "flag_type": {"type": "string"},
+          "severity": {"type": "string", "enum": ["low", "medium", "high", "critical"]},
+          "description": {"type": "string"}
+        }
+      },
+      "description": "Compliance or security flags raised during operation"
+    },
+    "oversight_review": {
+      "type": "object",
+      "properties": {
+        "reviewed_by": {"type": "string"},
+        "review_timestamp": {"type": "string", "format": "date-time"},
+        "review_notes": {"type": "string"},
+        "approved": {"type": "boolean"}
+      },
+      "description": "Oversight review information"
+    }
+  }
+}

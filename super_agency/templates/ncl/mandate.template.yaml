@@ -1,0 +1,40 @@
+
+# Mandate
+repo: {{REPO_NAME}}
+visibility: {{VISIBILITY}}
+
+tier: TBD   # S | M | L
+owner: Nathan
+
+mission: |
+  One-line mission statement for {{REPO_NAME}}.
+
+scope:
+  includes:
+    - TBD
+  excludes:
+    - TBD
+
+guardrails:
+  ethics:
+    - No use of private/non-consented data
+  security:
+    - No secrets in repo; use local keyring
+  privacy:
+    - Local-first; data egress requires consent receipt
+
+autonomy:
+  default_level: L1
+  consent_required:
+    - external_api_calls
+    - financial_actions
+    - data_sharing_outside_device
+
+kpis:
+  - name: delivery_cadence
+    target: ">=1 small release/week"
+  - name: defects_escaped
+    target: "<=1 per release"
+
+risk:
+  tier: TBD

@@ -1,0 +1,10 @@
+2026/03/14-19:08:27.529 6740 Creating DB C:\dev\DIGITAL LABOUR\DIGITAL LABOUR\data\platform_browser\edge_profile\Default\IndexedDB\https_www.freelancer.com_0.indexeddb.leveldb since it was missing.
+2026/03/14-19:08:27.607 6740 Reusing MANIFEST C:\dev\DIGITAL LABOUR\DIGITAL LABOUR\data\platform_browser\edge_profile\Default\IndexedDB\https_www.freelancer.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/03/14-19:08:27.680 21e8 Level-0 table #5: started
+2026/03/14-19:08:27.683 21e8 Level-0 table #5: 666 bytes OK
+2026/03/14-19:08:27.685 21e8 Delete type=0 #3
+2026/03/14-19:08:27.685 986c Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
+2026/03/14-19:08:28.044 986c Level-0 table #7: started
+2026/03/14-19:08:28.091 986c Level-0 table #7: 821 bytes OK
+2026/03/14-19:08:28.162 986c Delete type=0 #4
+2026/03/14-19:08:28.163 986c Manual compaction at level-0 from '\x00\x02\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x03\x00\x00\x00' @ 0 : 0; will stop at (end)

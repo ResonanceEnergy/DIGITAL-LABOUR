@@ -1,0 +1,53 @@
+{
+  "title": "NCC Resource Schema",
+  "type": "object",
+  "required": ["id", "type", "capacity", "current_usage"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique resource identifier"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["cpu", "memory", "disk", "network", "api_quota", "compute_instance"],
+      "description": "Type of resource"
+    },
+    "capacity": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Total resource capacity"
+    },
+    "current_usage": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Current resource usage"
+    },
+    "allocation_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "command_id": {"type": "string"},
+          "allocated": {"type": "number"},
+          "timestamp": {"type": "string", "format": "date-time"}
+        }
+      },
+      "description": "History of resource allocations"
+    },
+    "optimization_suggestions": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "AI-generated suggestions for resource optimization"
+    },
+    "health_status": {
+      "type": "string",
+      "enum": ["healthy", "warning", "critical", "unknown"],
+      "description": "Current health status of the resource"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last resource status update timestamp"
+    }
+  }
+}

@@ -21,7 +21,7 @@ from pydantic import BaseModel, Field
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from utils.super_agent import make_bridge  # noqa: E402
+from utils.dl_agent import make_bridge  # noqa: E402
 call_llm = make_bridge("social_media")
 
 PROMPT_DIR = Path(__file__).resolve().parent
@@ -85,7 +85,7 @@ def _load_prompt(name: str) -> str:
 
 def strategist_agent(
     topic: str,
-    brand: str = "Bit Rage Labour — AI automation agency",
+    brand: str = "Digital Labour — AI automation agency",
     platforms: list[str] = None,
     tone: str = "professional",
     cta_goal: str = "engagement",
@@ -122,7 +122,7 @@ def qa_agent(plan: SocialMediaPlan, provider: str = "openai") -> QAResult:
 
 def run_pipeline(
     topic: str,
-    brand: str = "Bit Rage Labour — AI automation agency",
+    brand: str = "Digital Labour — AI automation agency",
     platforms: list[str] = None,
     tone: str = "professional",
     cta_goal: str = "engagement",

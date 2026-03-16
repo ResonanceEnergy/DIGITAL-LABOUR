@@ -25,7 +25,7 @@
 ### 1. Stripe Live Mode (DAY 1)
 - Switch Stripe from test → live
 - Create Payment Links for all 10 products
-- Embed on bit-rage-labour.com
+- Embed on digital-labour.com
 - **Revenue: $5,000/mo potential**
 
 ### 2. Freelancer.com Profile (DAY 1-2)
@@ -42,7 +42,7 @@
 ### 4. Email Blast — 50 Enriched Prospects (DAY 3-4)
 - 50 prospects now have REAL emails (enriched)
 - sent_log.json is reset/empty — ready to fire
-- Zoho SMTP: sales@bit-rage-labour.com
+- Zoho SMTP: sales@digital-labour.com
 - **Revenue: $3,000/mo potential**
 
 ### 5. Chatbase White-Label (DAY 4-5)

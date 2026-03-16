@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'self' https://formsubmit.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Bit Rage Labour — AI Agents That Bite Back</title>
+<title>Digital Labour — AI Agents That Bite Back</title>
 <meta name="description" content="Aggressive AI workers for sales outreach, support resolution, content repurposing, and document extraction. Pay per task. No hiring. No mercy on your workload.">
-<meta name="keywords" content="AI agents, digital labour, sales automation, support automation, content repurposing, document extraction, AI workers, bit rage labour">
-<meta property="og:title" content="Bit Rage Labour — AI Agents That Bite Back">
+<meta name="keywords" content="AI agents, digital labour, sales automation, support automation, content repurposing, document extraction, AI workers, Digital Labour">
+<meta property="og:title" content="Digital Labour — AI Agents That Bite Back">
 <meta property="og:description" content="Four relentless AI agents. Sales outreach, support resolution, content repurposing, document extraction. Pay per task. They never sleep.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://bit-rage-labour.com">
-<meta property="og:image" content="https://bit-rage-labour.com/logo.png">
-<link rel="canonical" href="https://bit-rage-labour.com">
+<meta property="og:url" content="https://digital-labour.com">
+<meta property="og:image" content="https://digital-labour.com/logo.png">
+<link rel="canonical" href="https://digital-labour.com">
 <link rel="icon" type="image/png" href="logo.png">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -71,9 +71,16 @@ a:hover{color:var(--orange)}
 /* Hero */
 .hero{padding:140px 0 80px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-300px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,var(--red-glow) 0%,transparent 65%);pointer-events:none;opacity:0.5}
-.hero-logo{width:120px;height:120px;margin:0 auto 28px;animation:pulse 3s ease-in-out infinite}
-.hero-logo img,.hero-logo video{width:100%;height:100%;border-radius:50%;box-shadow:0 0 60px var(--red-glow),0 0 120px rgba(224,27,36,0.1);object-fit:cover}
+.hero-logo{width:120px;height:120px;margin:0 auto 28px;animation:pulse 3s ease-in-out infinite;cursor:pointer;position:relative}
+.hero-logo img,.hero-logo video{width:100%;height:100%;border-radius:50%;box-shadow:0 0 60px var(--red-glow),0 0 120px rgba(224,27,36,0.1);object-fit:cover;position:absolute;top:0;left:0}
+.hero-logo video{opacity:0;pointer-events:none;transition:opacity .3s}
+.hero-logo.raging video{opacity:1}
+.hero-logo.raging img{opacity:0}
+.hero-logo.raging{animation:rage-pulse .4s ease-in-out infinite;}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes rage-pulse{0%,100%{transform:scale(1);box-shadow:none}50%{transform:scale(1.12);filter:drop-shadow(0 0 30px var(--red)) drop-shadow(0 0 60px var(--orange))}}
+.nav-brand img{transition:transform .3s}
+.nav-brand:hover img{transform:rotate(360deg) scale(1.15)}
 .hero-badge{display:inline-block;background:rgba(224,27,36,0.1);border:1px solid var(--red);padding:6px 18px;border-radius:20px;font-size:0.8rem;color:var(--red-bright);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px}
 .hero h1{font-size:3.4rem;font-weight:900;letter-spacing:-2px;line-height:1.1;margin-bottom:20px;max-width:750px;margin-left:auto;margin-right:auto;text-transform:uppercase}
 .hero h1 em{font-style:normal;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -221,7 +228,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 <!-- NAV -->
 <nav class="nav">
 <div class="container nav-inner">
-  <a href="#" class="nav-brand"><img src="logo.png" alt="Bit Rage Logo">Bit <span>Rage</span> Labour</a>
+  <a href="#" class="nav-brand"><img src="logo.png" alt="Digital Labour Logo">Bit <span>Rage</span> Labour</a>
   <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
   <div class="nav-links">
     <a href="#agents">Agents</a>
@@ -229,7 +236,8 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
     <a href="#demos">Proof</a>
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
-    <a href="mailto:hello@bit-rage-labour.com">Contact</a>
+    <a href="/blog">Blog</a>
+    <a href="mailto:hello@digital-labour.com">Contact</a>
     <a href="dashboard.html">Dashboard</a>
     <a href="#start" class="nav-cta">Get Started</a>
   </div>
@@ -239,14 +247,17 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 <!-- HERO -->
 <header class="hero">
 <div class="container">
-  <div class="hero-logo"><video src="rage-spin-1.mp4" autoplay muted loop playsinline aria-label="Bit Rage Labour — Animated Logo"></video></div>
+  <div class="hero-logo" id="heroLogo">
+    <img src="logo.png" alt="Digital Labour Logo">
+    <video id="rageVideo" muted loop playsinline preload="auto" aria-label="Digital Labour — Rage Spin"></video>
+  </div>
   <div class="hero-badge">Now Accepting Clients</div>
   <h1>AI Agents That <em>Bite Back</em></h1>
   <p>Relentless AI workers for sales, support, content, and document extraction. They don't sleep. They don't complain. They just deliver.</p>
   <div class="btn-row" style="justify-content:center">
     <a class="btn btn-primary" href="#start">Get 2 Free Leads</a>
     <a class="btn btn-outline" href="#demos">See Real Outputs</a>
-    <a class="btn btn-ghost" href="mailto:hello@bit-rage-labour.com">Email Us</a>
+    <a class="btn btn-ghost" href="mailto:hello@digital-labour.com">Email Us</a>
   </div>
   <div class="hero-metrics">
     <div class="metric"><div class="num">4</div><div class="label">Live Agents</div></div>
@@ -268,7 +279,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 <!-- WHY US -->
 <section id="why">
 <div class="container">
-  <div class="section-tag">Why Bit Rage</div>
+  <div class="section-tag">Why Digital Labour</div>
   <h2>Not Another ChatGPT Wrapper</h2>
   <p class="subtitle">Purpose-built multi-agent pipelines that research, generate, verify, and deliver. Every single time.</p>
   <div class="grid-4">
@@ -315,7 +326,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>QA-verified before delivery</li>
         <li>CRM-ready JSON/CSV export</li>
       </ul>
-      <a class="agent-email" href="mailto:sales@bit-rage-labour.com?subject=Sales%20Ops%20Agent%20—%20Free%20Trial&body=I%20want%20to%20try%20the%20Sales%20Ops%20Agent.%0A%0ACompany%20to%20target%3A%20%0ATarget%20role%3A%20%0AMy%20company%3A%20">&#9993; Get 2 Free Leads &rarr;</a>
+      <a class="agent-email" href="mailto:sales@digital-labour.com?subject=Sales%20Ops%20Agent%20—%20Free%20Trial&body=I%20want%20to%20try%20the%20Sales%20Ops%20Agent.%0A%0ACompany%20to%20target%3A%20%0ATarget%20role%3A%20%0AMy%20company%3A%20">&#9993; Get 2 Free Leads &rarr;</a>
     </div>
     <div class="agent-card">
       <div class="agent-icon icon-support"><video src="rage-spin-2.mp4" autoplay muted loop playsinline></video></div>
@@ -329,7 +340,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>Policy compliance checking</li>
         <li>Confidence scores on every output</li>
       </ul>
-      <a class="agent-email" href="mailto:sales@bit-rage-labour.com?subject=Support%20Resolver%20—%20Free%20Trial&body=I%20want%20to%20try%20the%20Support%20Resolver.%0A%0ASample%20ticket%3A%20%0AMy%20company%3A%20">&#9993; Try Free Demo &rarr;</a>
+      <a class="agent-email" href="mailto:sales@digital-labour.com?subject=Support%20Resolver%20—%20Free%20Trial&body=I%20want%20to%20try%20the%20Support%20Resolver.%0A%0ASample%20ticket%3A%20%0AMy%20company%3A%20">&#9993; Try Free Demo &rarr;</a>
     </div>
     <div class="agent-card">
       <div class="agent-icon icon-content"><video src="rage-spin-1.mp4" autoplay muted loop playsinline></video></div>
@@ -343,7 +354,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>Tweet length enforcement (&le;280)</li>
         <li>QA-verified accuracy</li>
       </ul>
-      <a class="agent-email" href="mailto:sales@bit-rage-labour.com?subject=Content%20Repurposer%20—%20Free%20Sample&body=I%20want%20to%20try%20the%20Content%20Repurposer.%0A%0ABlog%20URL%3A%20%0AMy%20company%3A%20">&#9993; Get Free Sample &rarr;</a>
+      <a class="agent-email" href="mailto:sales@digital-labour.com?subject=Content%20Repurposer%20—%20Free%20Sample&body=I%20want%20to%20try%20the%20Content%20Repurposer.%0A%0ABlog%20URL%3A%20%0AMy%20company%3A%20">&#9993; Get Free Sample &rarr;</a>
     </div>
     <div class="agent-card">
       <div class="agent-icon icon-docs"><video src="rage-spin-2.mp4" autoplay muted loop playsinline></video></div>
@@ -357,11 +368,11 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>Confidence scoring</li>
         <li>QA verification on every extraction</li>
       </ul>
-      <a class="agent-email" href="mailto:sales@bit-rage-labour.com?subject=Document%20Extractor%20—%20Free%20Extract&body=I%20want%20to%20try%20the%20Document%20Extractor.%0A%0ADocument%20type%3A%20%0AMy%20company%3A%20">&#9993; Free Extraction &rarr;</a>
+      <a class="agent-email" href="mailto:sales@digital-labour.com?subject=Document%20Extractor%20—%20Free%20Extract&body=I%20want%20to%20try%20the%20Document%20Extractor.%0A%0ADocument%20type%3A%20%0AMy%20company%3A%20">&#9993; Free Extraction &rarr;</a>
     </div>
   </div>
   <div style="text-align:center;margin-top:40px">
-    <a class="email-cta" href="mailto:sales@bit-rage-labour.com?subject=Custom%20Agent%20Inquiry&body=I%20need%20a%20custom%20agent%20for%3A%20">&#9993; Need a custom agent? Email us &rarr;</a>
+    <a class="email-cta" href="mailto:sales@digital-labour.com?subject=Custom%20Agent%20Inquiry&body=I%20need%20a%20custom%20agent%20for%3A%20">&#9993; Need a custom agent? Email us &rarr;</a>
   </div>
 </div>
 </section>
@@ -399,7 +410,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
   </div>
   <div style="max-width:640px;margin:48px auto 0;text-align:center">
     <p style="color:var(--muted);font-size:0.95rem">Every task runs through the full pipeline. No shortcuts. Every output is QA-verified before delivery. Results delivered via webhook, API poll, or email.</p>
-    <a class="email-cta" href="mailto:api@bit-rage-labour.com?subject=API%20Access%20Request&body=I%27d%20like%20API%20access%20to%20Bit%20Rage%20Labour.%0A%0AMy%20company%3A%20%0AUse%20case%3A%20" style="margin-top:20px">&#128268; Request API Access &rarr;</a>
+    <a class="email-cta" href="mailto:api@digital-labour.com?subject=API%20Access%20Request&body=I%27d%20like%20API%20access%20to%20Bit%20Rage%20Labour.%0A%0AMy%20company%3A%20%0AUse%20case%3A%20" style="margin-top:20px">&#128268; Request API Access &rarr;</a>
   </div>
 </div>
 </section>
@@ -445,7 +456,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
   </div>
 
   <div style="text-align:center;margin-top:32px">
-    <a class="btn btn-ghost" href="mailto:sales@bit-rage-labour.com?subject=Custom%20Demo%20Request&body=I%27d%20like%20to%20see%20a%20demo%20for%20my%20company%3A%20%0A%0AIndustry%3A%20%0ATarget%20audience%3A%20">Want a demo for YOUR company? Email us &rarr;</a>
+    <a class="btn btn-ghost" href="mailto:sales@digital-labour.com?subject=Custom%20Demo%20Request&body=I%27d%20like%20to%20see%20a%20demo%20for%20my%20company%3A%20%0A%0AIndustry%3A%20%0ATarget%20audience%3A%20">Want a demo for YOUR company? Email us &rarr;</a>
   </div>
 </div>
 </section>
@@ -468,7 +479,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>JSON/CSV export</li>
         <li>QA-verified delivery</li>
       </ul>
-      <a class="btn btn-outline btn-sm" id="btn-sales" href="mailto:sales@bit-rage-labour.com?subject=Sales%20Ops%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Sales%20Ops%20Agent.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
+      <a class="btn btn-outline btn-sm" id="btn-sales" href="mailto:sales@digital-labour.com?subject=Sales%20Ops%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Sales%20Ops%20Agent.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
       <a class="btn btn-ghost btn-sm buy-now" href="#start" data-product="sales_outreach" style="width:100%;margin-top:8px">Buy Now — $2.40/lead</a>
     </div>
     <div class="price-card featured">
@@ -482,7 +493,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>~9.6s avg resolution</li>
         <li>Policy compliance checks</li>
       </ul>
-      <a class="btn btn-primary btn-sm" id="btn-support" href="mailto:sales@bit-rage-labour.com?subject=Support%20Resolver%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Support%20Resolver.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
+      <a class="btn btn-primary btn-sm" id="btn-support" href="mailto:sales@digital-labour.com?subject=Support%20Resolver%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Support%20Resolver.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
       <a class="btn btn-ghost btn-sm buy-now" href="#start" data-product="support_ticket" style="width:100%;margin-top:8px">Buy Now — $1.00/ticket</a>
     </div>
     <div class="price-card">
@@ -496,7 +507,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>Blog &rarr; social in seconds</li>
         <li>Bulk discounts available</li>
       </ul>
-      <a class="btn btn-outline btn-sm" id="btn-content" href="mailto:sales@bit-rage-labour.com?subject=Content%20%2B%20Docs%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Content%20%2B%20Doc%20agents.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
+      <a class="btn btn-outline btn-sm" id="btn-content" href="mailto:sales@digital-labour.com?subject=Content%20%2B%20Docs%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Content%20%2B%20Doc%20agents.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
       <a class="btn btn-ghost btn-sm buy-now" href="#start" data-product="content_repurpose" style="width:100%;margin-top:8px">Buy Now — $3.00/piece</a>
     </div>
   </div>
@@ -550,7 +561,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
   <div style="text-align:center;margin-top:40px">
     <p style="color:var(--muted);font-size:0.95rem"><strong style="color:var(--white)">Support retainers also available:</strong> Starter 200/mo $400 &bull; Growth 500/mo $800 &bull; Scale 1000/mo $1,400</p>
     <p style="color:var(--muted);margin-top:8px;font-size:0.9rem">All plans include REST API access, webhook delivery, and budget enforcement.</p>
-    <a class="email-cta" href="mailto:sales@bit-rage-labour.com?subject=Retainer%20Inquiry&body=I%27m%20interested%20in%20a%20monthly%20retainer.%0A%0AAgent%3A%20%0AVolume%3A%20%0ACompany%3A%20" style="margin-top:16px">&#128176; Ask about retainer pricing &rarr;</a>
+    <a class="email-cta" href="mailto:sales@digital-labour.com?subject=Retainer%20Inquiry&body=I%27m%20interested%20in%20a%20monthly%20retainer.%0A%0AAgent%3A%20%0AVolume%3A%20%0ACompany%3A%20" style="margin-top:16px">&#128176; Ask about retainer pricing &rarr;</a>
   </div>
 </div>
 </section>
@@ -564,7 +575,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How is this different from ChatGPT?</div>
-    <div class="faq-a">ChatGPT is a general chat interface. Bit Rage Labour runs purpose-built multi-agent pipelines &mdash; research, generate, QA verify &mdash; that produce structured, ready-to-use outputs. Every task goes through quality gates. You get JSON/CSV outputs, not chat responses.</div>
+    <div class="faq-a">ChatGPT is a general chat interface. Digital Labour runs purpose-built multi-agent pipelines &mdash; research, generate, QA verify &mdash; that produce structured, ready-to-use outputs. Every task goes through quality gates. You get JSON/CSV outputs, not chat responses.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What LLMs do you use?</div>
@@ -576,11 +587,11 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I integrate this into my existing tools?</div>
-    <div class="faq-a">Yes. We provide a REST API (POST /tasks) with webhook callbacks. Send a task, get structured JSON/CSV back. Works with any CRM, helpdesk, or automation tool. API key included with every account. <a href="mailto:api@bit-rage-labour.com?subject=API%20Integration%20Question">Email us for API docs</a>.</div>
+    <div class="faq-a">Yes. We provide a REST API (POST /tasks) with webhook callbacks. Send a task, get structured JSON/CSV back. Works with any CRM, helpdesk, or automation tool. API key included with every account. <a href="mailto:api@digital-labour.com?subject=API%20Integration%20Question">Email us for API docs</a>.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is there a free trial?</div>
-    <div class="faq-a">Yes. Every new account gets 2 free sales leads (full enrichment + 3-email sequence) and 5 free support ticket resolutions. No credit card required to start. <a href="mailto:sales@bit-rage-labour.com?subject=Free%20Trial%20Request">Email us to claim yours</a>.</div>
+    <div class="faq-a">Yes. Every new account gets 2 free sales leads (full enrichment + 3-email sequence) and 5 free support ticket resolutions. No credit card required to start. <a href="mailto:sales@digital-labour.com?subject=Free%20Trial%20Request">Email us to claim yours</a>.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What about data privacy?</div>
@@ -588,11 +599,11 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do you offer custom agents?</div>
-    <div class="faq-a">Yes. If you need a specialized agent for your workflow &mdash; custom research, domain-specific extraction, or unique output formats &mdash; <a href="mailto:sales@bit-rage-labour.com?subject=Custom%20Agent%20Build%20Quote">email us for a custom build quote</a>.</div>
+    <div class="faq-a">Yes. If you need a specialized agent for your workflow &mdash; custom research, domain-specific extraction, or unique output formats &mdash; <a href="mailto:sales@digital-labour.com?subject=Custom%20Agent%20Build%20Quote">email us for a custom build quote</a>.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Who built this?</div>
-    <div class="faq-a">Bit Rage Labour is built by <strong>Resonance Energy</strong> &mdash; a Canada-based AI company. We build production AI systems, not prototypes. <a href="mailto:hello@bit-rage-labour.com">Get in touch</a>.</div>
+    <div class="faq-a">Digital Labour is built by <strong>Resonance Energy</strong> &mdash; a Canada-based AI company. We build production AI systems, not prototypes. <a href="mailto:hello@digital-labour.com">Get in touch</a>.</div>
   </div>
 </div>
 </section>
@@ -600,7 +611,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 <!-- CTA -->
 <section id="start" class="cta-section">
 <div class="container">
-  <div class="cta-logo"><video src="rage-spin-2.mp4" autoplay muted loop playsinline aria-label="Bit Rage"></video></div>
+  <div class="cta-logo"><video src="rage-spin-2.mp4" autoplay muted loop playsinline aria-label="Digital Labour"></video></div>
   <h2>Ready to Unleash the Agents?</h2>
   <p class="subtitle">Enter your email. Pick a service. Get results — delivered within 24 hours.</p>
   <div class="lead-form" id="leadForm">
@@ -630,7 +641,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
       <p>We'll deliver your free demo to <strong id="confirmEmail"></strong> within 24 hours.</p>
     </div>
   </div>
-  <p style="color:var(--muted);margin-top:24px;font-size:0.9rem">Or email directly: <a href="mailto:hello@bit-rage-labour.com" style="font-weight:700">hello@bit-rage-labour.com</a></p>
+  <p style="color:var(--muted);margin-top:24px;font-size:0.9rem">Or email directly: <a href="mailto:hello@digital-labour.com" style="font-weight:700">hello@digital-labour.com</a></p>
 </div>
 </section>
 
@@ -642,7 +653,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
       <div class="footer-brand"><img src="logo.png" alt="Logo"><span>Bit <span class="red">Rage</span> Labour</span></div>
       <p>AI agents that bite back. Built by Resonance Energy.</p>
       <p style="margin-top:12px">Four relentless agents. REST API. QA-verified outputs. Pay per task.</p>
-      <a class="email-cta" href="mailto:hello@bit-rage-labour.com" style="margin-top:16px">&#9993; hello@bit-rage-labour.com</a>
+      <a class="email-cta" href="mailto:hello@digital-labour.com" style="margin-top:16px">&#9993; hello@digital-labour.com</a>
     </div>
     <div>
       <h4>Product</h4>
@@ -650,24 +661,25 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
       <p><a href="#pricing">Pricing</a></p>
       <p><a href="#demos">Demo Outputs</a></p>
       <p><a href="#how">How It Works</a></p>
-      <p><a href="#why">Why Bit Rage</a></p>
+      <p><a href="#why">Why Digital Labour</a></p>
     </div>
     <div>
       <h4>Resources</h4>
+      <p><a href="/blog">Blog</a></p>
       <p><a href="#faq">FAQ</a></p>
-      <p><a href="mailto:api@bit-rage-labour.com?subject=API%20Documentation%20Request">API Docs</a></p>
-      <p><a href="mailto:support@bit-rage-labour.com?subject=Support%20Request">Support</a></p>
-      <p><a href="mailto:hello@bit-rage-labour.com?subject=Partnership%20Inquiry">Partnerships</a></p>
+      <p><a href="mailto:api@digital-labour.com?subject=API%20Documentation%20Request">API Docs</a></p>
+      <p><a href="mailto:support@digital-labour.com?subject=Support%20Request">Support</a></p>
+      <p><a href="mailto:hello@digital-labour.com?subject=Partnership%20Inquiry">Partnerships</a></p>
     </div>
     <div>
       <h4>Contact</h4>
-      <p><a href="mailto:hello@bit-rage-labour.com">hello@bit-rage-labour.com</a></p>
-      <p><a href="https://bit-rage-labour.com">bit-rage-labour.com</a></p>
-      <p style="margin-top:12px;font-size:0.82rem;color:var(--muted)">Bit Rage Labour<br>A Resonance Energy Company<br>Canada</p>
+      <p><a href="mailto:hello@digital-labour.com">hello@digital-labour.com</a></p>
+      <p><a href="https://digital-labour.com">digital-labour.com</a></p>
+      <p style="margin-top:12px;font-size:0.82rem;color:var(--muted)">Digital Labour<br>A Resonance Energy Company<br>Canada</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 Bit Rage Labour. A Resonance Energy company. All rights reserved.</p>
+    <p>&copy; 2026 Digital Labour. A Resonance Energy company. All rights reserved.</p>
   </div>
 </div>
 </footer>
@@ -707,12 +719,12 @@ function submitLead() {
 
   // Store lead locally as backup
   try {
-    var leads = JSON.parse(localStorage.getItem('brl_leads') || '[]');
+    var leads = JSON.parse(localStorage.getItem('dl_leads') || '[]');
     leads.push(data);
-    localStorage.setItem('brl_leads', JSON.stringify(leads));
+    localStorage.setItem('dl_leads', JSON.stringify(leads));
   } catch(e) {}
 
-  // Submit to FormSubmit (delivers to hello@bit-rage-labour.com)
+  // Submit to FormSubmit (delivers to hello@digital-labour.com)
   var formData = new FormData();
   formData.append('email', data.email);
   formData.append('name', data.name || 'Not provided');
@@ -723,14 +735,14 @@ function submitLead() {
   formData.append('_template', 'table');
   formData.append('_captcha', 'false');
 
-  fetch('https://formsubmit.co/ajax/hello@bit-rage-labour.com', {
+  fetch('https://formsubmit.co/ajax/hello@digital-labour.com', {
     method: 'POST',
     body: formData
   }).catch(function() {
     // Fallback to mailto if FormSubmit fails
     var subject = encodeURIComponent('New Lead - ' + data.service + ' - ' + data.email);
     var body = encodeURIComponent('Email: ' + data.email + '\nName: ' + (data.name || 'N/A') + '\nCompany: ' + (data.company || 'N/A') + '\nService: ' + data.service + '\nCustom: ' + (data.custom_request || 'N/A'));
-    window.location.href = 'mailto:hello@bit-rage-labour.com?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:hello@digital-labour.com?subject=' + subject + '&body=' + body;
   });
 
   // Show success immediately
@@ -773,6 +785,28 @@ document.querySelectorAll('.buy-now').forEach(function(btn) {
     // Otherwise falls through to href="#start" (lead form)
   });
 });
+</script>
+<script>
+(function(){
+  var spins = ['rage-spin-1.mp4','rage-spin-2.mp4'];
+  var idx = 0;
+  var logo = document.getElementById('heroLogo');
+  var vid = document.getElementById('rageVideo');
+  if(!logo||!vid) return;
+
+  logo.addEventListener('mouseenter', function(){
+    vid.src = spins[idx];
+    idx = (idx + 1) % spins.length;
+    vid.play();
+    logo.classList.add('raging');
+  });
+
+  logo.addEventListener('mouseleave', function(){
+    logo.classList.remove('raging');
+    vid.pause();
+    vid.currentTime = 0;
+  });
+})();
 </script>
 </body>
 </html>

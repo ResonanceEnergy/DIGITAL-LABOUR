@@ -1,0 +1,2113 @@
+{
+  "training_results": {
+    "time_series_cpu": {
+      "accuracy": 0.9444025017527102,
+      "status": "trained",
+      "model_info": {
+        "type": "time_series",
+        "trained": true,
+        "average_accuracy": 0.9444025017527102,
+        "total_predictions": 1
+      }
+    },
+    "time_series_memory": {
+      "accuracy": 0.9129013650744184,
+      "status": "trained",
+      "model_info": {
+        "type": "time_series",
+        "trained": true,
+        "average_accuracy": 0.9129013650744184,
+        "total_predictions": 1
+      }
+    },
+    "ml_performance": {
+      "accuracy": 0.8749202935820299,
+      "status": "trained",
+      "model_info": {
+        "type": "machine_learning",
+        "trained": true,
+        "average_accuracy": 0.8749202935820299,
+        "total_predictions": 1
+      }
+    },
+    "anomaly_detector": {
+      "accuracy": 0.8969369996811738,
+      "status": "trained",
+      "model_info": {
+        "type": "anomaly_detection",
+        "trained": true,
+        "average_accuracy": 0.8969369996811738,
+        "total_predictions": 1
+      }
+    }
+  },
+  "forecasting_results": {
+    "1_days": {
+      "target_metric": "system_performance",
+      "horizon_days": 1,
+      "model_used": "time_series_cpu",
+      "forecast_points": [
+        {
+          "timestamp": "2026-02-20T20:48:44.813093",
+          "predicted_value": 38.617133899920844,
+          "confidence": 0.9096963438232357
+        }
+      ],
+      "overall_confidence": 0.9096963438232357,
+      "generated_at": "2026-02-20T20:48:44.813327"
+    },
+    "7_days": {
+      "target_metric": "system_performance",
+      "horizon_days": 7,
+      "model_used": "time_series_cpu",
+      "forecast_points": [
+        {
+          "timestamp": "2026-02-20T20:48:44.813344",
+          "predicted_value": 48.329850486849836,
+          "confidence": 0.7052569132993637
+        },
+        {
+          "timestamp": "2026-02-21T20:48:44.813344",
+          "predicted_value": 17.96285171854314,
+          "confidence": 0.7006204779605872
+        },
+        {
+          "timestamp": "2026-02-22T20:48:44.813344",
+          "predicted_value": 88.27430523013517,
+          "confidence": 0.8164831774716064
+        },
+        {
+          "timestamp": "2026-02-23T20:48:44.813344",
+          "predicted_value": 50.5224605174305,
+          "confidence": 0.7279146678938724
+        },
+        {
+          "timestamp": "2026-02-24T20:48:44.813344",
+          "predicted_value": 74.81284446519317,
+          "confidence": 0.8573302209812297
+        },
+        {
+          "timestamp": "2026-02-25T20:48:44.813344",
+          "predicted_value": 93.38719095603129,
+          "confidence": 0.947523490694735
+        },
+        {
+          "timestamp": "2026-02-26T20:48:44.813344",
+          "predicted_value": 63.48664728925576,
+          "confidence": 0.9297504412803876
+        }
+      ],
+      "overall_confidence": 0.8121256270831118,
+      "generated_at": "2026-02-20T20:48:44.814449"
+    },
+    "30_days": {
+      "target_metric": "system_performance",
+      "horizon_days": 30,
+      "model_used": "time_series_cpu",
+      "forecast_points": [
+        {
+          "timestamp": "2026-02-20T20:48:44.814460",
+          "predicted_value": 32.145415431101135,
+          "confidence": 0.8603846318866836
+        },
+        {
+          "timestamp": "2026-02-21T20:48:44.814460",
+          "predicted_value": 4.50831705559972,
+          "confidence": 0.7171607499945208
+        },
+        {
+          "timestamp": "2026-02-22T20:48:44.814460",
+          "predicted_value": 93.8937850832731,
+          "confidence": 0.7778709877867993
+        },
+        {
+          "timestamp": "2026-02-23T20:48:44.814460",
+          "predicted_value": 42.35536664688073,
+          "confidence": 0.8073682485768643
+        },
+        {
+          "timestamp": "2026-02-24T20:48:44.814460",
+          "predicted_value": 25.104425355533323,
+          "confidence": 0.7091893989523426
+        },
+        {
+          "timestamp": "2026-02-25T20:48:44.814460",
+          "predicted_value": 10.74966545621685,
+          "confidence": 0.8456469224878029
+        },
+        {
+          "timestamp": "2026-02-26T20:48:44.814460",
+          "predicted_value": 40.18730816331494,
+          "confidence": 0.7917252451541263
+        },
+        {
+          "timestamp": "2026-02-27T20:48:44.814460",
+          "predicted_value": 36.61704095957088,
+          "confidence": 0.8301492497986498
+        },
+        {
+          "timestamp": "2026-02-28T20:48:44.814460",
+          "predicted_value": 47.47296973061309,
+          "confidence": 0.812685802899097
+        },
+        {
+          "timestamp": "2026-03-01T20:48:44.814460",
+          "predicted_value": 67.62989717198606,
+          "confidence": 0.7951812136318799
+        },
+        {
+          "timestamp": "2026-03-02T20:48:44.814460",
+          "predicted_value": 40.619385974139576,
+          "confidence": 0.8444139955845112
+        },
+        {
+          "timestamp": "2026-03-03T20:48:44.814460",
+          "predicted_value": 25.58324115904338,
+          "confidence": 0.7228779350980254
+        },
+        {
+          "timestamp": "2026-03-04T20:48:44.814460",
+          "predicted_value": 16.98734026810733,
+          "confidence": 0.8071939214881063
+        },
+        {
+          "timestamp": "2026-03-05T20:48:44.814460",
+          "predicted_value": 43.62751660422297,
+          "confidence": 0.8607291229413366
+        },
+        {
+          "timestamp": "2026-03-06T20:48:44.814460",
+          "predicted_value": 11.905888257892538,
+          "confidence": 0.9351096681434863
+        },
+        {
+          "timestamp": "2026-03-07T20:48:44.814460",
+          "predicted_value": 18.924216338451195,
+          "confidence": 0.8040302796074574
+        },
+        {
+          "timestamp": "2026-03-08T20:48:44.814460",
+          "predicted_value": 67.53394395326171,
+          "confidence": 0.8343370015431677
+        },
+        {
+          "timestamp": "2026-03-09T20:48:44.814460",
+          "predicted_value": 66.02620661365705,
+          "confidence": 0.842670946774678
+        },
+        {
+          "timestamp": "2026-03-10T20:48:44.814460",
+          "predicted_value": 34.67320824666743,
+          "confidence": 0.7340464698796145
+        },
+        {
+          "timestamp": "2026-03-11T20:48:44.814460",
+          "predicted_value": 71.31104765366064,
+          "confidence": 0.7166128294556958
+        },
+        {
+          "timestamp": "2026-03-12T20:48:44.814460",
+          "predicted_value": 6.410261950509266,
+          "confidence": 0.7074700825209435
+        },
+        {
+          "timestamp": "2026-03-13T20:48:44.814460",
+          "predicted_value": 84.85292306084148,
+          "confidence": 0.7948332294830617
+        },
+        {
+          "timestamp": "2026-03-14T20:48:44.814460",
+          "predicted_value": 64.2726057804628,
+          "confidence": 0.7200616699579597
+        },
+        {
+          "timestamp": "2026-03-15T20:48:44.814460",
+          "predicted_value": 71.19982818188645,
+          "confidence": 0.8464432089166001
+        },
+        {
+          "timestamp": "2026-03-16T20:48:44.814460",
+          "predicted_value": 57.38146677350292,
+          "confidence": 0.8266858795894911
+        },
+        {
+          "timestamp": "2026-03-17T20:48:44.814460",
+          "predicted_value": 15.595991911161667,
+          "confidence": 0.769991897247918
+        },
+        {
+          "timestamp": "2026-03-18T20:48:44.814460",
+          "predicted_value": 9.853906871379358,
+          "confidence": 0.8339612823064314
+        },
+        {
+          "timestamp": "2026-03-19T20:48:44.814460",
+          "predicted_value": 38.739029003918844,
+          "confidence": 0.7649414805845468
+        },
+        {
+          "timestamp": "2026-03-20T20:48:44.814460",
+          "predicted_value": 51.00597265497369,
+          "confidence": 0.8757423496951753
+        },
+        {
+          "timestamp": "2026-03-21T20:48:44.814460",
+          "predicted_value": 60.10673721302876,
+          "confidence": 0.8225055184825362
+        }
+      ],
+      "overall_confidence": 0.8004007073489836,
+      "generated_at": "2026-02-20T20:48:44.816607"
+    },
+    "90_days": {
+      "target_metric": "system_performance",
+      "horizon_days": 90,
+      "model_used": "time_series_cpu",
+      "forecast_points": [
+        {
+          "timestamp": "2026-02-20T20:48:44.816615",
+          "predicted_value": 6.454452085612916,
+          "confidence": 0.718692103641104
+        },
+        {
+          "timestamp": "2026-02-21T20:48:44.816615",
+          "predicted_value": 15.214802784581272,
+          "confidence": 0.7178273131782471
+        },
+        {
+          "timestamp": "2026-02-22T20:48:44.816615",
+          "predicted_value": 14.859608689735193,
+          "confidence": 0.9336356902560154
+        },
+        {
+          "timestamp": "2026-02-23T20:48:44.816615",
+          "predicted_value": 60.27268723556001,
+          "confidence": 0.7528403542587608
+        },
+        {
+          "timestamp": "2026-02-24T20:48:44.816615",
+          "predicted_value": 91.82437671473535,
+          "confidence": 0.8045907867563701
+        },
+        {
+          "timestamp": "2026-02-25T20:48:44.816615",
+          "predicted_value": 76.16483708041727,
+          "confidence": 0.7487377104274692
+        },
+        {
+          "timestamp": "2026-02-26T20:48:44.816615",
+          "predicted_value": 12.816017084222132,
+          "confidence": 0.8143930416816205
+        },
+        {
+          "timestamp": "2026-02-27T20:48:44.816615",
+          "predicted_value": 10.412583824518595,
+          "confidence": 0.9051575839869097
+        },
+        {
+          "timestamp": "2026-02-28T20:48:44.816615",
+          "predicted_value": 91.67354146123796,
+          "confidence": 0.802054183237358
+        },
+        {
+          "timestamp": "2026-03-01T20:48:44.816615",
+          "predicted_value": 56.59400809294017,
+          "confidence": 0.8337436786103909
+        },
+        {
+          "timestamp": "2026-03-02T20:48:44.816615",
+          "predicted_value": 99.96112053730066,
+          "confidence": 0.7151910339339816
+        },
+        {
+          "timestamp": "2026-03-03T20:48:44.816615",
+          "predicted_value": 10.85057828912207,
+          "confidence": 0.7580313695828556
+        },
+        {
+          "timestamp": "2026-03-04T20:48:44.816615",
+          "predicted_value": 64.88758396318805,
+          "confidence": 0.8193809525204715
+        },
+        {
+          "timestamp": "2026-03-05T20:48:44.816615",
+          "predicted_value": 36.87904728147272,
+          "confidence": 0.8748458489299948
+        },
+        {
+          "timestamp": "2026-03-06T20:48:44.816615",
+          "predicted_value": 37.2015683910931,
+          "confidence": 0.7454524968932099
+        },
+        {
+          "timestamp": "2026-03-07T20:48:44.816615",
+          "predicted_value": 57.79328328837923,
+          "confidence": 0.8072239879681721
+        },
+        {
+          "timestamp": "2026-03-08T20:48:44.816615",
+          "predicted_value": 29.440547900522983,
+          "confidence": 0.7369608717609432
+        },
+        {
+          "timestamp": "2026-03-09T20:48:44.816615",
+          "predicted_value": 10.219196654189954,
+          "confidence": 0.8837096628122663
+        },
+        {
+          "timestamp": "2026-03-10T20:48:44.816615",
+          "predicted_value": 6.540127076238022,
+          "confidence": 0.8858427476839174
+        },
+        {
+          "timestamp": "2026-03-11T20:48:44.816615",
+          "predicted_value": 54.501966460004205,
+          "confidence": 0.8959191367419336
+        },
+        {
+          "timestamp": "2026-03-12T20:48:44.816615",
+          "predicted_value": 1.8784714558678361,
+          "confidence": 0.9119228965471924
+        },
+        {
+          "timestamp": "2026-03-13T20:48:44.816615",
+          "predicted_value": 30.38711363584331,
+          "confidence": 0.8910064843178404
+        },
+        {
+          "timestamp": "2026-03-14T20:48:44.816615",
+          "predicted_value": 51.45278736032518,
+          "confidence": 0.7592582352753532
+        },
+        {
+          "timestamp": "2026-03-15T20:48:44.816615",
+          "predicted_value": 35.56800520905882,
+          "confidence": 0.9319822492088565
+        },
+        {
+          "timestamp": "2026-03-16T20:48:44.816615",
+          "predicted_value": 32.67300203138473,
+          "confidence": 0.8101750560106035
+        },
+        {
+          "timestamp": "2026-03-17T20:48:44.816615",
+          "predicted_value": 64.74839381975853,
+          "confidence": 0.8474305262370287
+        },
+        {
+          "timestamp": "2026-03-18T20:48:44.816615",
+          "predicted_value": 24.9579738113732,
+          "confidence": 0.8017270381462102
+        },
+        {
+          "timestamp": "2026-03-19T20:48:44.816615",
+          "predicted_value": 24.310760256215993,
+          "confidence": 0.7510059552208107
+        },
+        {
+          "timestamp": "2026-03-20T20:48:44.816615",
+          "predicted_value": 57.11578544059665,
+          "confidence": 0.9009406159479262
+        },
+        {
+          "timestamp": "2026-03-21T20:48:44.816615",
+          "predicted_value": 31.501948530946887,
+          "confidence": 0.7251477153050827
+        },
+        {
+          "timestamp": "2026-03-22T20:48:44.816615",
+          "predicted_value": 51.692512799145206,
+          "confidence": 0.7058217561634847
+        },
+        {
+          "timestamp": "2026-03-23T20:48:44.816615",
+          "predicted_value": 59.4830099651128,
+          "confidence": 0.8282002466378436
+        },
+        {
+          "timestamp": "2026-03-24T20:48:44.816615",
+          "predicted_value": 19.89039313613513,
+          "confidence": 0.8543744514136447
+        },
+        {
+          "timestamp": "2026-03-25T20:48:44.816615",
+          "predicted_value": 15.44915982872148,
+          "confidence": 0.9089045232833759
+        },
+        {
+          "timestamp": "2026-03-26T20:48:44.816615",
+          "predicted_value": 7.680804647529982,
+          "confidence": 0.8206328321602983
+        },
+        {
+          "timestamp": "2026-03-27T20:48:44.816615",
+          "predicted_value": 25.304836304063627,
+          "confidence": 0.715320036424223
+        },
+        {
+          "timestamp": "2026-03-28T20:48:44.816615",
+          "predicted_value": 15.94905138253042,
+          "confidence": 0.7313519005431759
+        },
+        {
+          "timestamp": "2026-03-29T20:48:44.816615",
+          "predicted_value": 49.96211849848285,
+          "confidence": 0.766926393750257
+        },
+        {
+          "timestamp": "2026-03-30T20:48:44.816615",
+          "predicted_value": 77.38385793378524,
+          "confidence": 0.9283314399127001
+        },
+        {
+          "timestamp": "2026-03-31T20:48:44.816615",
+          "predicted_value": 20.286846473202335,
+          "confidence": 0.7993170451796544
+        },
+        {
+          "timestamp": "2026-04-01T20:48:44.816615",
+          "predicted_value": 90.91590503557903,
+          "confidence": 0.931348868601694
+        },
+        {
+          "timestamp": "2026-04-02T20:48:44.816615",
+          "predicted_value": 12.83197398647511,
+          "confidence": 0.7066284442979356
+        },
+        {
+          "timestamp": "2026-04-03T20:48:44.816615",
+          "predicted_value": 8.241433659655728,
+          "confidence": 0.845142008361486
+        },
+        {
+          "timestamp": "2026-04-04T20:48:44.816615",
+          "predicted_value": 31.892730648873545,
+          "confidence": 0.8700030577511891
+        },
+        {
+          "timestamp": "2026-04-05T20:48:44.816615",
+          "predicted_value": 25.289818795277863,
+          "confidence": 0.9066674695161359
+        },
+        {
+          "timestamp": "2026-04-06T20:48:44.816615",
+          "predicted_value": 10.009897392472311,
+          "confidence": 0.9347655719206736
+        },
+        {
+          "timestamp": "2026-04-07T20:48:44.816615",
+          "predicted_value": 27.979636809188314,
+          "confidence": 0.894961066067296
+        },
+        {
+          "timestamp": "2026-04-08T20:48:44.816615",
+          "predicted_value": 31.749102308117592,
+          "confidence": 0.8261438503552161
+        },
+        {
+          "timestamp": "2026-04-09T20:48:44.816615",
+          "predicted_value": 33.7053420852174,
+          "confidence": 0.9044925361328211
+        },
+        {
+          "timestamp": "2026-04-10T20:48:44.816615",
+          "predicted_value": 17.6776616972688,
+          "confidence": 0.7864134403600629
+        },
+        {
+          "timestamp": "2026-04-11T20:48:44.816615",
+          "predicted_value": 67.24150911065388,
+          "confidence": 0.7900181547435622
+        },
+        {
+          "timestamp": "2026-04-12T20:48:44.816615",
+          "predicted_value": 2.209390822544499,
+          "confidence": 0.944251773920939
+        },
+        {
+          "timestamp": "2026-04-13T20:48:44.816615",
+          "predicted_value": 34.40123724959939,
+          "confidence": 0.7522742206649152
+        },
+        {
+          "timestamp": "2026-04-14T20:48:44.816615",
+          "predicted_value": 55.615489731270706,
+          "confidence": 0.9307345824819704
+        },
+        {
+          "timestamp": "2026-04-15T20:48:44.816615",
+          "predicted_value": 30.676080370084435,
+          "confidence": 0.7605562837428277
+        },
+        {
+          "timestamp": "2026-04-16T20:48:44.816615",
+          "predicted_value": 81.34258666507048,
+          "confidence": 0.7079657228780196
+        },
+        {
+          "timestamp": "2026-04-17T20:48:44.816615",
+          "predicted_value": 72.2730666360311,
+          "confidence": 0.9050656424185507
+        },
+        {
+          "timestamp": "2026-04-18T20:48:44.816615",
+          "predicted_value": 12.084828857758456,
+          "confidence": 0.8041780919435403
+        },
+        {
+          "timestamp": "2026-04-19T20:48:44.816615",
+          "predicted_value": 24.97705830374388,
+          "confidence": 0.7241158331360291
+        },
+        {
+          "timestamp": "2026-04-20T20:48:44.816615",
+          "predicted_value": 66.98795160886351,
+          "confidence": 0.8220997386419648
+        },
+        {
+          "timestamp": "2026-04-21T20:48:44.816615",
+          "predicted_value": 72.03848506954762,
+          "confidence": 0.8809062721237186
+        },
+        {
+          "timestamp": "2026-04-22T20:48:44.816615",
+          "predicted_value": 40.139663239780134,
+          "confidence": 0.7529781942854252
+        },
+        {
+          "timestamp": "2026-04-23T20:48:44.816615",
+          "predicted_value": 62.70182994310114,
+          "confidence": 0.8178199825088226
+        },
+        {
+          "timestamp": "2026-04-24T20:48:44.816615",
+          "predicted_value": 7.522338603812528,
+          "confidence": 0.8002597622305028
+        },
+        {
+          "timestamp": "2026-04-25T20:48:44.816615",
+          "predicted_value": 91.30586802250396,
+          "confidence": 0.7695900654758684
+        },
+        {
+          "timestamp": "2026-04-26T20:48:44.816615",
+          "predicted_value": 78.28021505496712,
+          "confidence": 0.788207728255329
+        },
+        {
+          "timestamp": "2026-04-27T20:48:44.816615",
+          "predicted_value": 3.631294342565994,
+          "confidence": 0.705058669339945
+        },
+        {
+          "timestamp": "2026-04-28T20:48:44.816615",
+          "predicted_value": 30.622274277857507,
+          "confidence": 0.7567853620444125
+        },
+        {
+          "timestamp": "2026-04-29T20:48:44.816615",
+          "predicted_value": 15.159614381160702,
+          "confidence": 0.8522128619600889
+        },
+        {
+          "timestamp": "2026-04-30T20:48:44.816615",
+          "predicted_value": 22.413989687995105,
+          "confidence": 0.8435502431258979
+        },
+        {
+          "timestamp": "2026-05-01T20:48:44.816615",
+          "predicted_value": 79.99860628104587,
+          "confidence": 0.8057109357120792
+        },
+        {
+          "timestamp": "2026-05-02T20:48:44.816615",
+          "predicted_value": 62.499771478714585,
+          "confidence": 0.9365720740288894
+        },
+        {
+          "timestamp": "2026-05-03T20:48:44.816615",
+          "predicted_value": 95.19184859322644,
+          "confidence": 0.8582203740186028
+        },
+        {
+          "timestamp": "2026-05-04T20:48:44.816615",
+          "predicted_value": 79.43482924728421,
+          "confidence": 0.8450427734342376
+        },
+        {
+          "timestamp": "2026-05-05T20:48:44.816615",
+          "predicted_value": 45.98521052500089,
+          "confidence": 0.8915178176840455
+        },
+        {
+          "timestamp": "2026-05-06T20:48:44.816615",
+          "predicted_value": 41.88533727876926,
+          "confidence": 0.7736190780844082
+        },
+        {
+          "timestamp": "2026-05-07T20:48:44.816615",
+          "predicted_value": 13.04807093628747,
+          "confidence": 0.8473652514680261
+        },
+        {
+          "timestamp": "2026-05-08T20:48:44.816615",
+          "predicted_value": 34.08781759820892,
+          "confidence": 0.9412512784892555
+        },
+        {
+          "timestamp": "2026-05-09T20:48:44.816615",
+          "predicted_value": 78.95283136256077,
+          "confidence": 0.7738180150359343
+        },
+        {
+          "timestamp": "2026-05-10T20:48:44.816615",
+          "predicted_value": 83.83883574894871,
+          "confidence": 0.9450239961671625
+        },
+        {
+          "timestamp": "2026-05-11T20:48:44.816615",
+          "predicted_value": 2.159667495078599,
+          "confidence": 0.8818284289758586
+        },
+        {
+          "timestamp": "2026-05-12T20:48:44.816615",
+          "predicted_value": 46.71352931599102,
+          "confidence": 0.8653088442319764
+        },
+        {
+          "timestamp": "2026-05-13T20:48:44.816615",
+          "predicted_value": 91.60377790419457,
+          "confidence": 0.7862340876023642
+        },
+        {
+          "timestamp": "2026-05-14T20:48:44.816615",
+          "predicted_value": 42.404633197945365,
+          "confidence": 0.8174002642573114
+        },
+        {
+          "timestamp": "2026-05-15T20:48:44.816615",
+          "predicted_value": 57.559007524925796,
+          "confidence": 0.7729412265124757
+        },
+        {
+          "timestamp": "2026-05-16T20:48:44.816615",
+          "predicted_value": 91.56518275654469,
+          "confidence": 0.8096360206568991
+        },
+        {
+          "timestamp": "2026-05-17T20:48:44.816615",
+          "predicted_value": 24.72762774442613,
+          "confidence": 0.819586411509049
+        },
+        {
+          "timestamp": "2026-05-18T20:48:44.816615",
+          "predicted_value": 46.006361856781695,
+          "confidence": 0.8648684132063543
+        },
+        {
+          "timestamp": "2026-05-19T20:48:44.816615",
+          "predicted_value": 78.59847786874188,
+          "confidence": 0.8562078689426468
+        },
+        {
+          "timestamp": "2026-05-20T20:48:44.816615",
+          "predicted_value": 11.828374567657251,
+          "confidence": 0.7425169202667512
+        }
+      ],
+      "overall_confidence": 0.8232652614679858,
+      "generated_at": "2026-02-20T20:48:44.822500"
+    }
+  },
+  "insights_results": {
+    "cpu performance trends": {
+      "query": "cpu performance trends",
+      "forecasts": {
+        "system_performance_1d": {
+          "target_metric": "system_performance",
+          "horizon_days": 1,
+          "model_used": "time_series_cpu",
+          "forecast_points": [
+            {
+              "timestamp": "2026-02-20T20:48:44.813093",
+              "predicted_value": 38.617133899920844,
+              "confidence": 0.9096963438232357
+            }
+          ],
+          "overall_confidence": 0.9096963438232357,
+          "generated_at": "2026-02-20T20:48:44.813327"
+        },
+        "system_performance_7d": {
+          "target_metric": "system_performance",
+          "horizon_days": 7,
+          "model_used": "time_series_cpu",
+          "forecast_points": [
+            {
+              "timestamp": "2026-02-20T20:48:44.813344",
+              "predicted_value": 48.329850486849836,
+              "confidence": 0.7052569132993637
+            },
+            {
+              "timestamp": "2026-02-21T20:48:44.813344",
+              "predicted_value": 17.96285171854314,
+              "confidence": 0.7006204779605872
+            },
+            {
+              "timestamp": "2026-02-22T20:48:44.813344",
+              "predicted_value": 88.27430523013517,
+              "confidence": 0.8164831774716064
+            },
+            {
+              "timestamp": "2026-02-23T20:48:44.813344",
+              "predicted_value": 50.5224605174305,
+              "confidence": 0.7279146678938724
+            },
+            {
+              "timestamp": "2026-02-24T20:48:44.813344",
+              "predicted_value": 74.81284446519317,
+              "confidence": 0.8573302209812297
+            },
+            {
+              "timestamp": "2026-02-25T20:48:44.813344",
+              "predicted_value": 93.38719095603129,
+              "confidence": 0.947523490694735
+            },
+            {
+              "timestamp": "2026-02-26T20:48:44.813344",
+              "predicted_value": 63.48664728925576,
+              "confidence": 0.9297504412803876
+            }
+          ],
+          "overall_confidence": 0.8121256270831118,
+          "generated_at": "2026-02-20T20:48:44.814449"
+        },
+        "system_performance_30d": {
+          "target_metric": "system_performance",
+          "horizon_days": 30,
+          "model_used": "time_series_cpu",
+          "forecast_points": [
+            {
+              "timestamp": "2026-02-20T20:48:44.814460",
+              "predicted_value": 32.145415431101135,
+              "confidence": 0.8603846318866836
+            },
+            {
+              "timestamp": "2026-02-21T20:48:44.814460",
+              "predicted_value": 4.50831705559972,
+              "confidence": 0.7171607499945208
+            },
+            {
+              "timestamp": "2026-02-22T20:48:44.814460",
+              "predicted_value": 93.8937850832731,
+              "confidence": 0.7778709877867993
+            },
+            {
+              "timestamp": "2026-02-23T20:48:44.814460",
+              "predicted_value": 42.35536664688073,
+              "confidence": 0.8073682485768643
+            },
+            {
+              "timestamp": "2026-02-24T20:48:44.814460",
+              "predicted_value": 25.104425355533323,
+              "confidence": 0.7091893989523426
+            },
+            {
+              "timestamp": "2026-02-25T20:48:44.814460",
+              "predicted_value": 10.74966545621685,
+              "confidence": 0.8456469224878029
+            },
+            {
+              "timestamp": "2026-02-26T20:48:44.814460",
+              "predicted_value": 40.18730816331494,
+              "confidence": 0.7917252451541263
+            },
+            {
+              "timestamp": "2026-02-27T20:48:44.814460",
+              "predicted_value": 36.61704095957088,
+              "confidence": 0.8301492497986498
+            },
+            {
+              "timestamp": "2026-02-28T20:48:44.814460",
+              "predicted_value": 47.47296973061309,
+              "confidence": 0.812685802899097
+            },
+            {
+              "timestamp": "2026-03-01T20:48:44.814460",
+              "predicted_value": 67.62989717198606,
+              "confidence": 0.7951812136318799
+            },
+            {
+              "timestamp": "2026-03-02T20:48:44.814460",
+              "predicted_value": 40.619385974139576,
+              "confidence": 0.8444139955845112
+            },
+            {
+              "timestamp": "2026-03-03T20:48:44.814460",
+              "predicted_value": 25.58324115904338,
+              "confidence": 0.7228779350980254
+            },
+            {
+              "timestamp": "2026-03-04T20:48:44.814460",
+              "predicted_value": 16.98734026810733,
+              "confidence": 0.8071939214881063
+            },
+            {
+              "timestamp": "2026-03-05T20:48:44.814460",
+              "predicted_value": 43.62751660422297,
+              "confidence": 0.8607291229413366
+            },
+            {
+              "timestamp": "2026-03-06T20:48:44.814460",
+              "predicted_value": 11.905888257892538,
+              "confidence": 0.9351096681434863
+            },
+            {
+              "timestamp": "2026-03-07T20:48:44.814460",
+              "predicted_value": 18.924216338451195,
+              "confidence": 0.8040302796074574
+            },
+            {
+              "timestamp": "2026-03-08T20:48:44.814460",
+              "predicted_value": 67.53394395326171,
+              "confidence": 0.8343370015431677
+            },
+            {
+              "timestamp": "2026-03-09T20:48:44.814460",
+              "predicted_value": 66.02620661365705,
+              "confidence": 0.842670946774678
+            },
+            {
+              "timestamp": "2026-03-10T20:48:44.814460",
+              "predicted_value": 34.67320824666743,
+              "confidence": 0.7340464698796145
+            },
+            {
+              "timestamp": "2026-03-11T20:48:44.814460",
+              "predicted_value": 71.31104765366064,
+              "confidence": 0.7166128294556958
+            },
+            {
+              "timestamp": "2026-03-12T20:48:44.814460",
+              "predicted_value": 6.410261950509266,
+              "confidence": 0.7074700825209435
+            },
+            {
+              "timestamp": "2026-03-13T20:48:44.814460",
+              "predicted_value": 84.85292306084148,
+              "confidence": 0.7948332294830617
+            },
+            {
+              "timestamp": "2026-03-14T20:48:44.814460",
+              "predicted_value": 64.2726057804628,
+              "confidence": 0.7200616699579597
+            },
+            {
+              "timestamp": "2026-03-15T20:48:44.814460",
+              "predicted_value": 71.19982818188645,
+              "confidence": 0.8464432089166001
+            },
+            {
+              "timestamp": "2026-03-16T20:48:44.814460",
+              "predicted_value": 57.38146677350292,
+              "confidence": 0.8266858795894911
+            },
+            {
+              "timestamp": "2026-03-17T20:48:44.814460",
+              "predicted_value": 15.595991911161667,
+              "confidence": 0.769991897247918
+            },
+            {
+              "timestamp": "2026-03-18T20:48:44.814460",
+              "predicted_value": 9.853906871379358,
+              "confidence": 0.8339612823064314
+            },
+            {
+              "timestamp": "2026-03-19T20:48:44.814460",
+              "predicted_value": 38.739029003918844,
+              "confidence": 0.7649414805845468
+            },
+            {
+              "timestamp": "2026-03-20T20:48:44.814460",
+              "predicted_value": 51.00597265497369,
+              "confidence": 0.8757423496951753
+            },
+            {
+              "timestamp": "2026-03-21T20:48:44.814460",
+              "predicted_value": 60.10673721302876,
+              "confidence": 0.8225055184825362
+            }
+          ],
+          "overall_confidence": 0.8004007073489836,
+          "generated_at": "2026-02-20T20:48:44.816607"
+        },
+        "system_performance_90d": {
+          "target_metric": "system_performance",
+          "horizon_days": 90,
+          "model_used": "time_series_cpu",
+          "forecast_points": [
+            {
+              "timestamp": "2026-02-20T20:48:44.816615",
+              "predicted_value": 6.454452085612916,
+              "confidence": 0.718692103641104
+            },
+            {
+              "timestamp": "2026-02-21T20:48:44.816615",
+              "predicted_value": 15.214802784581272,
+              "confidence": 0.7178273131782471
+            },
+            {
+              "timestamp": "2026-02-22T20:48:44.816615",
+              "predicted_value": 14.859608689735193,
+              "confidence": 0.9336356902560154
+            },
+            {
+              "timestamp": "2026-02-23T20:48:44.816615",
+              "predicted_value": 60.27268723556001,
+              "confidence": 0.7528403542587608
+            },
+            {
+              "timestamp": "2026-02-24T20:48:44.816615",
+              "predicted_value": 91.82437671473535,
+              "confidence": 0.8045907867563701
+            },
+            {
+              "timestamp": "2026-02-25T20:48:44.816615",
+              "predicted_value": 76.16483708041727,
+              "confidence": 0.7487377104274692
+            },
+            {
+              "timestamp": "2026-02-26T20:48:44.816615",
+              "predicted_value": 12.816017084222132,
+              "confidence": 0.8143930416816205
+            },
+            {
+              "timestamp": "2026-02-27T20:48:44.816615",
+              "predicted_value": 10.412583824518595,
+              "confidence": 0.9051575839869097
+            },
+            {
+              "timestamp": "2026-02-28T20:48:44.816615",
+              "predicted_value": 91.67354146123796,
+              "confidence": 0.802054183237358
+            },
+            {
+              "timestamp": "2026-03-01T20:48:44.816615",
+              "predicted_value": 56.59400809294017,
+              "confidence": 0.8337436786103909
+            },
+            {
+              "timestamp": "2026-03-02T20:48:44.816615",
+              "predicted_value": 99.96112053730066,
+              "confidence": 0.7151910339339816
+            },
+            {
+              "timestamp": "2026-03-03T20:48:44.816615",
+              "predicted_value": 10.85057828912207,
+              "confidence": 0.7580313695828556
+            },
+            {
+              "timestamp": "2026-03-04T20:48:44.816615",
+              "predicted_value": 64.88758396318805,
+              "confidence": 0.8193809525204715
+            },
+            {
+              "timestamp": "2026-03-05T20:48:44.816615",
+              "predicted_value": 36.87904728147272,
+              "confidence": 0.8748458489299948
+            },
+            {
+              "timestamp": "2026-03-06T20:48:44.816615",
+              "predicted_value": 37.2015683910931,
+              "confidence": 0.7454524968932099
+            },
+            {
+              "timestamp": "2026-03-07T20:48:44.816615",
+              "predicted_value": 57.79328328837923,
+              "confidence": 0.8072239879681721
+            },
+            {
+              "timestamp": "2026-03-08T20:48:44.816615",
+              "predicted_value": 29.440547900522983,
+              "confidence": 0.7369608717609432
+            },
+            {
+              "timestamp": "2026-03-09T20:48:44.816615",
+              "predicted_value": 10.219196654189954,
+              "confidence": 0.8837096628122663
+            },
+            {
+              "timestamp": "2026-03-10T20:48:44.816615",
+              "predicted_value": 6.540127076238022,
+              "confidence": 0.8858427476839174
+            },
+            {
+              "timestamp": "2026-03-11T20:48:44.816615",
+              "predicted_value": 54.501966460004205,
+              "confidence": 0.8959191367419336
+            },
+            {
+              "timestamp": "2026-03-12T20:48:44.816615",
+              "predicted_value": 1.8784714558678361,
+              "confidence": 0.9119228965471924
+            },
+            {
+              "timestamp": "2026-03-13T20:48:44.816615",
+              "predicted_value": 30.38711363584331,
+              "confidence": 0.8910064843178404
+            },
+            {
+              "timestamp": "2026-03-14T20:48:44.816615",
+              "predicted_value": 51.45278736032518,
+              "confidence": 0.7592582352753532
+            },
+            {
+              "timestamp": "2026-03-15T20:48:44.816615",
+              "predicted_value": 35.56800520905882,
+              "confidence": 0.9319822492088565
+            },
+            {
+              "timestamp": "2026-03-16T20:48:44.816615",
+              "predicted_value": 32.67300203138473,
+              "confidence": 0.8101750560106035
+            },
+            {
+              "timestamp": "2026-03-17T20:48:44.816615",
+              "predicted_value": 64.74839381975853,
+              "confidence": 0.8474305262370287
+            },
+            {
+              "timestamp": "2026-03-18T20:48:44.816615",
+              "predicted_value": 24.9579738113732,
+              "confidence": 0.8017270381462102
+            },
+            {
+              "timestamp": "2026-03-19T20:48:44.816615",
+              "predicted_value": 24.310760256215993,
+              "confidence": 0.7510059552208107
+            },
+            {
+              "timestamp": "2026-03-20T20:48:44.816615",
+              "predicted_value": 57.11578544059665,
+              "confidence": 0.9009406159479262
+            },
+            {
+              "timestamp": "2026-03-21T20:48:44.816615",
+              "predicted_value": 31.501948530946887,
+              "confidence": 0.7251477153050827
+            },
+            {
+              "timestamp": "2026-03-22T20:48:44.816615",
+              "predicted_value": 51.692512799145206,
+              "confidence": 0.7058217561634847
+            },
+            {
+              "timestamp": "2026-03-23T20:48:44.816615",
+              "predicted_value": 59.4830099651128,
+              "confidence": 0.8282002466378436
+            },
+            {
+              "timestamp": "2026-03-24T20:48:44.816615",
+              "predicted_value": 19.89039313613513,
+              "confidence": 0.8543744514136447
+            },
+            {
+              "timestamp": "2026-03-25T20:48:44.816615",
+              "predicted_value": 15.44915982872148,
+              "confidence": 0.9089045232833759
+            },
+            {
+              "timestamp": "2026-03-26T20:48:44.816615",
+              "predicted_value": 7.680804647529982,
+              "confidence": 0.8206328321602983
+            },
+            {
+              "timestamp": "2026-03-27T20:48:44.816615",
+              "predicted_value": 25.304836304063627,
+              "confidence": 0.715320036424223
+            },
+            {
+              "timestamp": "2026-03-28T20:48:44.816615",
+              "predicted_value": 15.94905138253042,
+              "confidence": 0.7313519005431759
+            },
+            {
+              "timestamp": "2026-03-29T20:48:44.816615",
+              "predicted_value": 49.96211849848285,
+              "confidence": 0.766926393750257
+            },
+            {
+              "timestamp": "2026-03-30T20:48:44.816615",
+              "predicted_value": 77.38385793378524,
+              "confidence": 0.9283314399127001
+            },
+            {
+              "timestamp": "2026-03-31T20:48:44.816615",
+              "predicted_value": 20.286846473202335,
+              "confidence": 0.7993170451796544
+            },
+            {
+              "timestamp": "2026-04-01T20:48:44.816615",
+              "predicted_value": 90.91590503557903,
+              "confidence": 0.931348868601694
+            },
+            {
+              "timestamp": "2026-04-02T20:48:44.816615",
+              "predicted_value": 12.83197398647511,
+              "confidence": 0.7066284442979356
+            },
+            {
+              "timestamp": "2026-04-03T20:48:44.816615",
+              "predicted_value": 8.241433659655728,
+              "confidence": 0.845142008361486
+            },
+            {
+              "timestamp": "2026-04-04T20:48:44.816615",
+              "predicted_value": 31.892730648873545,
+              "confidence": 0.8700030577511891
+            },
+            {
+              "timestamp": "2026-04-05T20:48:44.816615",
+              "predicted_value": 25.289818795277863,
+              "confidence": 0.9066674695161359
+            },
+            {
+              "timestamp": "2026-04-06T20:48:44.816615",
+              "predicted_value": 10.009897392472311,
+              "confidence": 0.9347655719206736
+            },
+            {
+              "timestamp": "2026-04-07T20:48:44.816615",
+              "predicted_value": 27.979636809188314,
+              "confidence": 0.894961066067296
+            },
+            {
+              "timestamp": "2026-04-08T20:48:44.816615",
+              "predicted_value": 31.749102308117592,
+              "confidence": 0.8261438503552161
+            },
+            {
+              "timestamp": "2026-04-09T20:48:44.816615",
+              "predicted_value": 33.7053420852174,
+              "confidence": 0.9044925361328211
+            },
+            {
+              "timestamp": "2026-04-10T20:48:44.816615",
+              "predicted_value": 17.6776616972688,
+              "confidence": 0.7864134403600629
+            },
+            {
+              "timestamp": "2026-04-11T20:48:44.816615",
+              "predicted_value": 67.24150911065388,
+              "confidence": 0.7900181547435622
+            },
+            {
+              "timestamp": "2026-04-12T20:48:44.816615",
+              "predicted_value": 2.209390822544499,
+              "confidence": 0.944251773920939
+            },
+            {
+              "timestamp": "2026-04-13T20:48:44.816615",
+              "predicted_value": 34.40123724959939,
+              "confidence": 0.7522742206649152
+            },
+            {
+              "timestamp": "2026-04-14T20:48:44.816615",
+              "predicted_value": 55.615489731270706,
+              "confidence": 0.9307345824819704
+            },
+            {
+              "timestamp": "2026-04-15T20:48:44.816615",
+              "predicted_value": 30.676080370084435,
+              "confidence": 0.7605562837428277
+            },
+            {
+              "timestamp": "2026-04-16T20:48:44.816615",
+              "predicted_value": 81.34258666507048,
+              "confidence": 0.7079657228780196
+            },
+            {
+              "timestamp": "2026-04-17T20:48:44.816615",
+              "predicted_value": 72.2730666360311,
+              "confidence": 0.9050656424185507
+            },
+            {
+              "timestamp": "2026-04-18T20:48:44.816615",
+              "predicted_value": 12.084828857758456,
+              "confidence": 0.8041780919435403
+            },
+            {
+              "timestamp": "2026-04-19T20:48:44.816615",
+              "predicted_value": 24.97705830374388,
+              "confidence": 0.7241158331360291
+            },
+            {
+              "timestamp": "2026-04-20T20:48:44.816615",
+              "predicted_value": 66.98795160886351,
+              "confidence": 0.8220997386419648
+            },
+            {
+              "timestamp": "2026-04-21T20:48:44.816615",
+              "predicted_value": 72.03848506954762,
+              "confidence": 0.8809062721237186
+            },
+            {
+              "timestamp": "2026-04-22T20:48:44.816615",
+              "predicted_value": 40.139663239780134,
+              "confidence": 0.7529781942854252
+            },
+            {
+              "timestamp": "2026-04-23T20:48:44.816615",
+              "predicted_value": 62.70182994310114,
+              "confidence": 0.8178199825088226
+            },
+            {
+              "timestamp": "2026-04-24T20:48:44.816615",
+              "predicted_value": 7.522338603812528,
+              "confidence": 0.8002597622305028
+            },
+            {
+              "timestamp": "2026-04-25T20:48:44.816615",
+              "predicted_value": 91.30586802250396,
+              "confidence": 0.7695900654758684
+            },
+            {
+              "timestamp": "2026-04-26T20:48:44.816615",
+              "predicted_value": 78.28021505496712,
+              "confidence": 0.788207728255329
+            },
+            {
+              "timestamp": "2026-04-27T20:48:44.816615",
+              "predicted_value": 3.631294342565994,
+              "confidence": 0.705058669339945
+            },
+            {
+              "timestamp": "2026-04-28T20:48:44.816615",
+              "predicted_value": 30.622274277857507,
+              "confidence": 0.7567853620444125
+            },
+            {
+              "timestamp": "2026-04-29T20:48:44.816615",
+              "predicted_value": 15.159614381160702,
+              "confidence": 0.8522128619600889
+            },
+            {
+              "timestamp": "2026-04-30T20:48:44.816615",
+              "predicted_value": 22.413989687995105,
+              "confidence": 0.8435502431258979
+            },
+            {
+              "timestamp": "2026-05-01T20:48:44.816615",
+              "predicted_value": 79.99860628104587,
+              "confidence": 0.8057109357120792
+            },
+            {
+              "timestamp": "2026-05-02T20:48:44.816615",
+              "predicted_value": 62.499771478714585,
+              "confidence": 0.9365720740288894
+            },
+            {
+              "timestamp": "2026-05-03T20:48:44.816615",
+              "predicted_value": 95.19184859322644,
+              "confidence": 0.8582203740186028
+            },
+            {
+              "timestamp": "2026-05-04T20:48:44.816615",
+              "predicted_value": 79.43482924728421,
+              "confidence": 0.8450427734342376
+            },
+            {
+              "timestamp": "2026-05-05T20:48:44.816615",
+              "predicted_value": 45.98521052500089,
+              "confidence": 0.8915178176840455
+            },
+            {
+              "timestamp": "2026-05-06T20:48:44.816615",
+              "predicted_value": 41.88533727876926,
+              "confidence": 0.7736190780844082
+            },
+            {
+              "timestamp": "2026-05-07T20:48:44.816615",
+              "predicted_value": 13.04807093628747,
+              "confidence": 0.8473652514680261
+            },
+            {
+              "timestamp": "2026-05-08T20:48:44.816615",
+              "predicted_value": 34.08781759820892,
+              "confidence": 0.9412512784892555
+            },
+            {
+              "timestamp": "2026-05-09T20:48:44.816615",
+              "predicted_value": 78.95283136256077,
+              "confidence": 0.7738180150359343
+            },
+            {
+              "timestamp": "2026-05-10T20:48:44.816615",
+              "predicted_value": 83.83883574894871,
+              "confidence": 0.9450239961671625
+            },
+            {
+              "timestamp": "2026-05-11T20:48:44.816615",
+              "predicted_value": 2.159667495078599,
+              "confidence": 0.8818284289758586
+            },
+            {
+              "timestamp": "2026-05-12T20:48:44.816615",
+              "predicted_value": 46.71352931599102,
+              "confidence": 0.8653088442319764
+            },
+            {
+              "timestamp": "2026-05-13T20:48:44.816615",
+              "predicted_value": 91.60377790419457,
+              "confidence": 0.7862340876023642
+            },
+            {
+              "timestamp": "2026-05-14T20:48:44.816615",
+              "predicted_value": 42.404633197945365,
+              "confidence": 0.8174002642573114
+            },
+            {
+              "timestamp": "2026-05-15T20:48:44.816615",
+              "predicted_value": 57.559007524925796,
+              "confidence": 0.7729412265124757
+            },
+            {
+              "timestamp": "2026-05-16T20:48:44.816615",
+              "predicted_value": 91.56518275654469,
+              "confidence": 0.8096360206568991
+            },
+            {
+              "timestamp": "2026-05-17T20:48:44.816615",
+              "predicted_value": 24.72762774442613,
+              "confidence": 0.819586411509049
+            },
+            {
+              "timestamp": "2026-05-18T20:48:44.816615",
+              "predicted_value": 46.006361856781695,
+              "confidence": 0.8648684132063543
+            },
+            {
+              "timestamp": "2026-05-19T20:48:44.816615",
+              "predicted_value": 78.59847786874188,
+              "confidence": 0.8562078689426468
+            },
+            {
+              "timestamp": "2026-05-20T20:48:44.816615",
+              "predicted_value": 11.828374567657251,
+              "confidence": 0.7425169202667512
+            }
+          ],
+          "overall_confidence": 0.8232652614679858,
+          "generated_at": "2026-02-20T20:48:44.822500"
+        }
+      },
+      "anomalies": [],
+      "recommendations": [
+        "Review forecast trends for proactive planning"
+      ]
+    },
+    "memory usage forecast": {
+      "query": "memory usage forecast",
+      "forecasts": {},
+      "anomalies": [],
+      "recommendations": []
+    },
+    "system anomalies": {
+      "query": "system anomalies",
+      "forecasts": {
+        "system_performance_1d": {
+          "target_metric": "system_performance",
+          "horizon_days": 1,
+          "model_used": "time_series_cpu",
+          "forecast_points": [
+            {
+              "timestamp": "2026-02-20T20:48:44.813093",
+              "predicted_value": 38.617133899920844,
+              "confidence": 0.9096963438232357
+            }
+          ],
+          "overall_confidence": 0.9096963438232357,
+          "generated_at": "2026-02-20T20:48:44.813327"
+        },
+        "system_performance_7d": {
+          "target_metric": "system_performance",
+          "horizon_days": 7,
+          "model_used": "time_series_cpu",
+          "forecast_points": [
+            {
+              "timestamp": "2026-02-20T20:48:44.813344",
+              "predicted_value": 48.329850486849836,
+              "confidence": 0.7052569132993637
+            },
+            {
+              "timestamp": "2026-02-21T20:48:44.813344",
+              "predicted_value": 17.96285171854314,
+              "confidence": 0.7006204779605872
+            },
+            {
+              "timestamp": "2026-02-22T20:48:44.813344",
+              "predicted_value": 88.27430523013517,
+              "confidence": 0.8164831774716064
+            },
+            {
+              "timestamp": "2026-02-23T20:48:44.813344",
+              "predicted_value": 50.5224605174305,
+              "confidence": 0.7279146678938724
+            },
+            {
+              "timestamp": "2026-02-24T20:48:44.813344",
+              "predicted_value": 74.81284446519317,
+              "confidence": 0.8573302209812297
+            },
+            {
+              "timestamp": "2026-02-25T20:48:44.813344",
+              "predicted_value": 93.38719095603129,
+              "confidence": 0.947523490694735
+            },
+            {
+              "timestamp": "2026-02-26T20:48:44.813344",
+              "predicted_value": 63.48664728925576,
+              "confidence": 0.9297504412803876
+            }
+          ],
+          "overall_confidence": 0.8121256270831118,
+          "generated_at": "2026-02-20T20:48:44.814449"
+        },
+        "system_performance_30d": {
+          "target_metric": "system_performance",
+          "horizon_days": 30,
+          "model_used": "time_series_cpu",
+          "forecast_points": [
+            {
+              "timestamp": "2026-02-20T20:48:44.814460",
+              "predicted_value": 32.145415431101135,
+              "confidence": 0.8603846318866836
+            },
+            {
+              "timestamp": "2026-02-21T20:48:44.814460",
+              "predicted_value": 4.50831705559972,
+              "confidence": 0.7171607499945208
+            },
+            {
+              "timestamp": "2026-02-22T20:48:44.814460",
+              "predicted_value": 93.8937850832731,
+              "confidence": 0.7778709877867993
+            },
+            {
+              "timestamp": "2026-02-23T20:48:44.814460",
+              "predicted_value": 42.35536664688073,
+              "confidence": 0.8073682485768643
+            },
+            {
+              "timestamp": "2026-02-24T20:48:44.814460",
+              "predicted_value": 25.104425355533323,
+              "confidence": 0.7091893989523426
+            },
+            {
+              "timestamp": "2026-02-25T20:48:44.814460",
+              "predicted_value": 10.74966545621685,
+              "confidence": 0.8456469224878029
+            },
+            {
+              "timestamp": "2026-02-26T20:48:44.814460",
+              "predicted_value": 40.18730816331494,
+              "confidence": 0.7917252451541263
+            },
+            {
+              "timestamp": "2026-02-27T20:48:44.814460",
+              "predicted_value": 36.61704095957088,
+              "confidence": 0.8301492497986498
+            },
+            {
+              "timestamp": "2026-02-28T20:48:44.814460",
+              "predicted_value": 47.47296973061309,
+              "confidence": 0.812685802899097
+            },
+            {
+              "timestamp": "2026-03-01T20:48:44.814460",
+              "predicted_value": 67.62989717198606,
+              "confidence": 0.7951812136318799
+            },
+            {
+              "timestamp": "2026-03-02T20:48:44.814460",
+              "predicted_value": 40.619385974139576,
+              "confidence": 0.8444139955845112
+            },
+            {
+              "timestamp": "2026-03-03T20:48:44.814460",
+              "predicted_value": 25.58324115904338,
+              "confidence": 0.7228779350980254
+            },
+            {
+              "timestamp": "2026-03-04T20:48:44.814460",
+              "predicted_value": 16.98734026810733,
+              "confidence": 0.8071939214881063
+            },
+            {
+              "timestamp": "2026-03-05T20:48:44.814460",
+              "predicted_value": 43.62751660422297,
+              "confidence": 0.8607291229413366
+            },
+            {
+              "timestamp": "2026-03-06T20:48:44.814460",
+              "predicted_value": 11.905888257892538,
+              "confidence": 0.9351096681434863
+            },
+            {
+              "timestamp": "2026-03-07T20:48:44.814460",
+              "predicted_value": 18.924216338451195,
+              "confidence": 0.8040302796074574
+            },
+            {
+              "timestamp": "2026-03-08T20:48:44.814460",
+              "predicted_value": 67.53394395326171,
+              "confidence": 0.8343370015431677
+            },
+            {
+              "timestamp": "2026-03-09T20:48:44.814460",
+              "predicted_value": 66.02620661365705,
+              "confidence": 0.842670946774678
+            },
+            {
+              "timestamp": "2026-03-10T20:48:44.814460",
+              "predicted_value": 34.67320824666743,
+              "confidence": 0.7340464698796145
+            },
+            {
+              "timestamp": "2026-03-11T20:48:44.814460",
+              "predicted_value": 71.31104765366064,
+              "confidence": 0.7166128294556958
+            },
+            {
+              "timestamp": "2026-03-12T20:48:44.814460",
+              "predicted_value": 6.410261950509266,
+              "confidence": 0.7074700825209435
+            },
+            {
+              "timestamp": "2026-03-13T20:48:44.814460",
+              "predicted_value": 84.85292306084148,
+              "confidence": 0.7948332294830617
+            },
+            {
+              "timestamp": "2026-03-14T20:48:44.814460",
+              "predicted_value": 64.2726057804628,
+              "confidence": 0.7200616699579597
+            },
+            {
+              "timestamp": "2026-03-15T20:48:44.814460",
+              "predicted_value": 71.19982818188645,
+              "confidence": 0.8464432089166001
+            },
+            {
+              "timestamp": "2026-03-16T20:48:44.814460",
+              "predicted_value": 57.38146677350292,
+              "confidence": 0.8266858795894911
+            },
+            {
+              "timestamp": "2026-03-17T20:48:44.814460",
+              "predicted_value": 15.595991911161667,
+              "confidence": 0.769991897247918
+            },
+            {
+              "timestamp": "2026-03-18T20:48:44.814460",
+              "predicted_value": 9.853906871379358,
+              "confidence": 0.8339612823064314
+            },
+            {
+              "timestamp": "2026-03-19T20:48:44.814460",
+              "predicted_value": 38.739029003918844,
+              "confidence": 0.7649414805845468
+            },
+            {
+              "timestamp": "2026-03-20T20:48:44.814460",
+              "predicted_value": 51.00597265497369,
+              "confidence": 0.8757423496951753
+            },
+            {
+              "timestamp": "2026-03-21T20:48:44.814460",
+              "predicted_value": 60.10673721302876,
+              "confidence": 0.8225055184825362
+            }
+          ],
+          "overall_confidence": 0.8004007073489836,
+          "generated_at": "2026-02-20T20:48:44.816607"
+        },
+        "system_performance_90d": {
+          "target_metric": "system_performance",
+          "horizon_days": 90,
+          "model_used": "time_series_cpu",
+          "forecast_points": [
+            {
+              "timestamp": "2026-02-20T20:48:44.816615",
+              "predicted_value": 6.454452085612916,
+              "confidence": 0.718692103641104
+            },
+            {
+              "timestamp": "2026-02-21T20:48:44.816615",
+              "predicted_value": 15.214802784581272,
+              "confidence": 0.7178273131782471
+            },
+            {
+              "timestamp": "2026-02-22T20:48:44.816615",
+              "predicted_value": 14.859608689735193,
+              "confidence": 0.9336356902560154
+            },
+            {
+              "timestamp": "2026-02-23T20:48:44.816615",
+              "predicted_value": 60.27268723556001,
+              "confidence": 0.7528403542587608
+            },
+            {
+              "timestamp": "2026-02-24T20:48:44.816615",
+              "predicted_value": 91.82437671473535,
+              "confidence": 0.8045907867563701
+            },
+            {
+              "timestamp": "2026-02-25T20:48:44.816615",
+              "predicted_value": 76.16483708041727,
+              "confidence": 0.7487377104274692
+            },
+            {
+              "timestamp": "2026-02-26T20:48:44.816615",
+              "predicted_value": 12.816017084222132,
+              "confidence": 0.8143930416816205
+            },
+            {
+              "timestamp": "2026-02-27T20:48:44.816615",
+              "predicted_value": 10.412583824518595,
+              "confidence": 0.9051575839869097
+            },
+            {
+              "timestamp": "2026-02-28T20:48:44.816615",
+              "predicted_value": 91.67354146123796,
+              "confidence": 0.802054183237358
+            },
+            {
+              "timestamp": "2026-03-01T20:48:44.816615",
+              "predicted_value": 56.59400809294017,
+              "confidence": 0.8337436786103909
+            },
+            {
+              "timestamp": "2026-03-02T20:48:44.816615",
+              "predicted_value": 99.96112053730066,
+              "confidence": 0.7151910339339816
+            },
+            {
+              "timestamp": "2026-03-03T20:48:44.816615",
+              "predicted_value": 10.85057828912207,
+              "confidence": 0.7580313695828556
+            },
+            {
+              "timestamp": "2026-03-04T20:48:44.816615",
+              "predicted_value": 64.88758396318805,
+              "confidence": 0.8193809525204715
+            },
+            {
+              "timestamp": "2026-03-05T20:48:44.816615",
+              "predicted_value": 36.87904728147272,
+              "confidence": 0.8748458489299948
+            },
+            {
+              "timestamp": "2026-03-06T20:48:44.816615",
+              "predicted_value": 37.2015683910931,
+              "confidence": 0.7454524968932099
+            },
+            {
+              "timestamp": "2026-03-07T20:48:44.816615",
+              "predicted_value": 57.79328328837923,
+              "confidence": 0.8072239879681721
+            },
+            {
+              "timestamp": "2026-03-08T20:48:44.816615",
+              "predicted_value": 29.440547900522983,
+              "confidence": 0.7369608717609432
+            },
+            {
+              "timestamp": "2026-03-09T20:48:44.816615",
+              "predicted_value": 10.219196654189954,
+              "confidence": 0.8837096628122663
+            },
+            {
+              "timestamp": "2026-03-10T20:48:44.816615",
+              "predicted_value": 6.540127076238022,
+              "confidence": 0.8858427476839174
+            },
+            {
+              "timestamp": "2026-03-11T20:48:44.816615",
+              "predicted_value": 54.501966460004205,
+              "confidence": 0.8959191367419336
+            },
+            {
+              "timestamp": "2026-03-12T20:48:44.816615",
+              "predicted_value": 1.8784714558678361,
+              "confidence": 0.9119228965471924
+            },
+            {
+              "timestamp": "2026-03-13T20:48:44.816615",
+              "predicted_value": 30.38711363584331,
+              "confidence": 0.8910064843178404
+            },
+            {
+              "timestamp": "2026-03-14T20:48:44.816615",
+              "predicted_value": 51.45278736032518,
+              "confidence": 0.7592582352753532
+            },
+            {
+              "timestamp": "2026-03-15T20:48:44.816615",
+              "predicted_value": 35.56800520905882,
+              "confidence": 0.9319822492088565
+            },
+            {
+              "timestamp": "2026-03-16T20:48:44.816615",
+              "predicted_value": 32.67300203138473,
+              "confidence": 0.8101750560106035
+            },
+            {
+              "timestamp": "2026-03-17T20:48:44.816615",
+              "predicted_value": 64.74839381975853,
+              "confidence": 0.8474305262370287
+            },
+            {
+              "timestamp": "2026-03-18T20:48:44.816615",
+              "predicted_value": 24.9579738113732,
+              "confidence": 0.8017270381462102
+            },
+            {
+              "timestamp": "2026-03-19T20:48:44.816615",
+              "predicted_value": 24.310760256215993,
+              "confidence": 0.7510059552208107
+            },
+            {
+              "timestamp": "2026-03-20T20:48:44.816615",
+              "predicted_value": 57.11578544059665,
+              "confidence": 0.9009406159479262
+            },
+            {
+              "timestamp": "2026-03-21T20:48:44.816615",
+              "predicted_value": 31.501948530946887,
+              "confidence": 0.7251477153050827
+            },
+            {
+              "timestamp": "2026-03-22T20:48:44.816615",
+              "predicted_value": 51.692512799145206,
+              "confidence": 0.7058217561634847
+            },
+            {
+              "timestamp": "2026-03-23T20:48:44.816615",
+              "predicted_value": 59.4830099651128,
+              "confidence": 0.8282002466378436
+            },
+            {
+              "timestamp": "2026-03-24T20:48:44.816615",
+              "predicted_value": 19.89039313613513,
+              "confidence": 0.8543744514136447
+            },
+            {
+              "timestamp": "2026-03-25T20:48:44.816615",
+              "predicted_value": 15.44915982872148,
+              "confidence": 0.9089045232833759
+            },
+            {
+              "timestamp": "2026-03-26T20:48:44.816615",
+              "predicted_value": 7.680804647529982,
+              "confidence": 0.8206328321602983
+            },
+            {
+              "timestamp": "2026-03-27T20:48:44.816615",
+              "predicted_value": 25.304836304063627,
+              "confidence": 0.715320036424223
+            },
+            {
+              "timestamp": "2026-03-28T20:48:44.816615",
+              "predicted_value": 15.94905138253042,
+              "confidence": 0.7313519005431759
+            },
+            {
+              "timestamp": "2026-03-29T20:48:44.816615",
+              "predicted_value": 49.96211849848285,
+              "confidence": 0.766926393750257
+            },
+            {
+              "timestamp": "2026-03-30T20:48:44.816615",
+              "predicted_value": 77.38385793378524,
+              "confidence": 0.9283314399127001
+            },
+            {
+              "timestamp": "2026-03-31T20:48:44.816615",
+              "predicted_value": 20.286846473202335,
+              "confidence": 0.7993170451796544
+            },
+            {
+              "timestamp": "2026-04-01T20:48:44.816615",
+              "predicted_value": 90.91590503557903,
+              "confidence": 0.931348868601694
+            },
+            {
+              "timestamp": "2026-04-02T20:48:44.816615",
+              "predicted_value": 12.83197398647511,
+              "confidence": 0.7066284442979356
+            },
+            {
+              "timestamp": "2026-04-03T20:48:44.816615",
+              "predicted_value": 8.241433659655728,
+              "confidence": 0.845142008361486
+            },
+            {
+              "timestamp": "2026-04-04T20:48:44.816615",
+              "predicted_value": 31.892730648873545,
+              "confidence": 0.8700030577511891
+            },
+            {
+              "timestamp": "2026-04-05T20:48:44.816615",
+              "predicted_value": 25.289818795277863,
+              "confidence": 0.9066674695161359
+            },
+            {
+              "timestamp": "2026-04-06T20:48:44.816615",
+              "predicted_value": 10.009897392472311,
+              "confidence": 0.9347655719206736
+            },
+            {
+              "timestamp": "2026-04-07T20:48:44.816615",
+              "predicted_value": 27.979636809188314,
+              "confidence": 0.894961066067296
+            },
+            {
+              "timestamp": "2026-04-08T20:48:44.816615",
+              "predicted_value": 31.749102308117592,
+              "confidence": 0.8261438503552161
+            },
+            {
+              "timestamp": "2026-04-09T20:48:44.816615",
+              "predicted_value": 33.7053420852174,
+              "confidence": 0.9044925361328211
+            },
+            {
+              "timestamp": "2026-04-10T20:48:44.816615",
+              "predicted_value": 17.6776616972688,
+              "confidence": 0.7864134403600629
+            },
+            {
+              "timestamp": "2026-04-11T20:48:44.816615",
+              "predicted_value": 67.24150911065388,
+              "confidence": 0.7900181547435622
+            },
+            {
+              "timestamp": "2026-04-12T20:48:44.816615",
+              "predicted_value": 2.209390822544499,
+              "confidence": 0.944251773920939
+            },
+            {
+              "timestamp": "2026-04-13T20:48:44.816615",
+              "predicted_value": 34.40123724959939,
+              "confidence": 0.7522742206649152
+            },
+            {
+              "timestamp": "2026-04-14T20:48:44.816615",
+              "predicted_value": 55.615489731270706,
+              "confidence": 0.9307345824819704
+            },
+            {
+              "timestamp": "2026-04-15T20:48:44.816615",
+              "predicted_value": 30.676080370084435,
+              "confidence": 0.7605562837428277
+            },
+            {
+              "timestamp": "2026-04-16T20:48:44.816615",
+              "predicted_value": 81.34258666507048,
+              "confidence": 0.7079657228780196
+            },
+            {
+              "timestamp": "2026-04-17T20:48:44.816615",
+              "predicted_value": 72.2730666360311,
+              "confidence": 0.9050656424185507
+            },
+            {
+              "timestamp": "2026-04-18T20:48:44.816615",
+              "predicted_value": 12.084828857758456,
+              "confidence": 0.8041780919435403
+            },
+            {
+              "timestamp": "2026-04-19T20:48:44.816615",
+              "predicted_value": 24.97705830374388,
+              "confidence": 0.7241158331360291
+            },
+            {
+              "timestamp": "2026-04-20T20:48:44.816615",
+              "predicted_value": 66.98795160886351,
+              "confidence": 0.8220997386419648
+            },
+            {
+              "timestamp": "2026-04-21T20:48:44.816615",
+              "predicted_value": 72.03848506954762,
+              "confidence": 0.8809062721237186
+            },
+            {
+              "timestamp": "2026-04-22T20:48:44.816615",
+              "predicted_value": 40.139663239780134,
+              "confidence": 0.7529781942854252
+            },
+            {
+              "timestamp": "2026-04-23T20:48:44.816615",
+              "predicted_value": 62.70182994310114,
+              "confidence": 0.8178199825088226
+            },
+            {
+              "timestamp": "2026-04-24T20:48:44.816615",
+              "predicted_value": 7.522338603812528,
+              "confidence": 0.8002597622305028
+            },
+            {
+              "timestamp": "2026-04-25T20:48:44.816615",
+              "predicted_value": 91.30586802250396,
+              "confidence": 0.7695900654758684
+            },
+            {
+              "timestamp": "2026-04-26T20:48:44.816615",
+              "predicted_value": 78.28021505496712,
+              "confidence": 0.788207728255329
+            },
+            {
+              "timestamp": "2026-04-27T20:48:44.816615",
+              "predicted_value": 3.631294342565994,
+              "confidence": 0.705058669339945
+            },
+            {
+              "timestamp": "2026-04-28T20:48:44.816615",
+              "predicted_value": 30.622274277857507,
+              "confidence": 0.7567853620444125
+            },
+            {
+              "timestamp": "2026-04-29T20:48:44.816615",
+              "predicted_value": 15.159614381160702,
+              "confidence": 0.8522128619600889
+            },
+            {
+              "timestamp": "2026-04-30T20:48:44.816615",
+              "predicted_value": 22.413989687995105,
+              "confidence": 0.8435502431258979
+            },
+            {
+              "timestamp": "2026-05-01T20:48:44.816615",
+              "predicted_value": 79.99860628104587,
+              "confidence": 0.8057109357120792
+            },
+            {
+              "timestamp": "2026-05-02T20:48:44.816615",
+              "predicted_value": 62.499771478714585,
+              "confidence": 0.9365720740288894
+            },
+            {
+              "timestamp": "2026-05-03T20:48:44.816615",
+              "predicted_value": 95.19184859322644,
+              "confidence": 0.8582203740186028
+            },
+            {
+              "timestamp": "2026-05-04T20:48:44.816615",
+              "predicted_value": 79.43482924728421,
+              "confidence": 0.8450427734342376
+            },
+            {
+              "timestamp": "2026-05-05T20:48:44.816615",
+              "predicted_value": 45.98521052500089,
+              "confidence": 0.8915178176840455
+            },
+            {
+              "timestamp": "2026-05-06T20:48:44.816615",
+              "predicted_value": 41.88533727876926,
+              "confidence": 0.7736190780844082
+            },
+            {
+              "timestamp": "2026-05-07T20:48:44.816615",
+              "predicted_value": 13.04807093628747,
+              "confidence": 0.8473652514680261
+            },
+            {
+              "timestamp": "2026-05-08T20:48:44.816615",
+              "predicted_value": 34.08781759820892,
+              "confidence": 0.9412512784892555
+            },
+            {
+              "timestamp": "2026-05-09T20:48:44.816615",
+              "predicted_value": 78.95283136256077,
+              "confidence": 0.7738180150359343
+            },
+            {
+              "timestamp": "2026-05-10T20:48:44.816615",
+              "predicted_value": 83.83883574894871,
+              "confidence": 0.9450239961671625
+            },
+            {
+              "timestamp": "2026-05-11T20:48:44.816615",
+              "predicted_value": 2.159667495078599,
+              "confidence": 0.8818284289758586
+            },
+            {
+              "timestamp": "2026-05-12T20:48:44.816615",
+              "predicted_value": 46.71352931599102,
+              "confidence": 0.8653088442319764
+            },
+            {
+              "timestamp": "2026-05-13T20:48:44.816615",
+              "predicted_value": 91.60377790419457,
+              "confidence": 0.7862340876023642
+            },
+            {
+              "timestamp": "2026-05-14T20:48:44.816615",
+              "predicted_value": 42.404633197945365,
+              "confidence": 0.8174002642573114
+            },
+            {
+              "timestamp": "2026-05-15T20:48:44.816615",
+              "predicted_value": 57.559007524925796,
+              "confidence": 0.7729412265124757
+            },
+            {
+              "timestamp": "2026-05-16T20:48:44.816615",
+              "predicted_value": 91.56518275654469,
+              "confidence": 0.8096360206568991
+            },
+            {
+              "timestamp": "2026-05-17T20:48:44.816615",
+              "predicted_value": 24.72762774442613,
+              "confidence": 0.819586411509049
+            },
+            {
+              "timestamp": "2026-05-18T20:48:44.816615",
+              "predicted_value": 46.006361856781695,
+              "confidence": 0.8648684132063543
+            },
+            {
+              "timestamp": "2026-05-19T20:48:44.816615",
+              "predicted_value": 78.59847786874188,
+              "confidence": 0.8562078689426468
+            },
+            {
+              "timestamp": "2026-05-20T20:48:44.816615",
+              "predicted_value": 11.828374567657251,
+              "confidence": 0.7425169202667512
+            }
+          ],
+          "overall_confidence": 0.8232652614679858,
+          "generated_at": "2026-02-20T20:48:44.822500"
+        }
+      },
+      "anomalies": [],
+      "recommendations": [
+        "Review forecast trends for proactive planning"
+      ]
+    }
+  },
+  "analytics_status": {
+    "total_models": 4,
+    "trained_models": 4,
+    "total_forecasts": 4,
+    "active_alerts": 0,
+    "model_types": [
+      "time_series",
+      "anomaly_detection",
+      "machine_learning"
+    ],
+    "monitoring_active": true
+  },
+  "timestamp": 1771645726.828334
+}

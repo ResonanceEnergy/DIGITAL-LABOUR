@@ -1,0 +1,79 @@
+{
+  "title": "NCC Intelligence Schema",
+  "type": "object",
+  "required": ["id", "source", "type", "content", "confidence"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique intelligence record identifier"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["youtube_council", "microsoft_graph", "azure_management", "ncl_second_brain", "system_monitoring", "external_api"],
+      "description": "Source of the intelligence"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["video_transcript", "email_content", "system_log", "api_response", "user_behavior", "market_data", "threat_intelligence"],
+      "description": "Type of intelligence content"
+    },
+    "content": {
+      "type": "object",
+      "description": "The actual intelligence content"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence score of the intelligence (0-1)"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "timestamp": {"type": "string", "format": "date-time"},
+        "location": {"type": "string"},
+        "tags": {"type": "array", "items": {"type": "string"}},
+        "entities": {"type": "array", "items": {"type": "string"}}
+      },
+      "description": "Metadata associated with the intelligence"
+    },
+    "correlations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "related_id": {"type": "string"},
+          "correlation_strength": {"type": "number", "minimum": 0, "maximum": 1},
+          "relationship_type": {"type": "string"}
+        }
+      },
+      "description": "Correlations with other intelligence records"
+    },
+    "insights": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "insight_type": {"type": "string"},
+          "description": {"type": "string"},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "actionable": {"type": "boolean"}
+        }
+      },
+      "description": "AI-generated insights from the intelligence"
+    },
+    "processing_status": {
+      "type": "string",
+      "enum": ["raw", "processed", "analyzed", "synthesized", "archived"],
+      "description": "Current processing status of the intelligence"
+    },
+    "retention_policy": {
+      "type": "object",
+      "properties": {
+        "retention_period": {"type": "string"},
+        "classification": {"type": "string", "enum": ["public", "internal", "confidential", "restricted"]}
+      },
+      "description": "Data retention and classification policy"
+    }
+  }
+}

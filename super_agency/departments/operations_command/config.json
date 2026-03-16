@@ -1,0 +1,46 @@
+{
+  "department": "operations_command",
+  "name": "Operations Command Department",
+  "head": "Operations Commander",
+  "authority_level": "STANDARD",
+  "subdepartments": {
+    "system_monitoring": {
+      "name": "System Monitoring Division",
+      "agents": [
+        "repo_sentry.py",
+        "daily_brief.py",
+        "orchestrator.py"
+      ],
+      "responsibilities": [
+        "System health monitoring",
+        "Repository surveillance",
+        "Operations reporting",
+        "Process orchestration"
+      ]
+    },
+    "orchestration_control": {
+      "name": "Orchestration Control Division",
+      "description": "Multi-system coordination and workflow management",
+      "systems": [
+        "matrix_monitor",
+        "mobile_command_center",
+        "operations_api"
+      ]
+    }
+  },
+  "key_performance_indicators": [
+    "system_uptime",
+    "response_time",
+    "error_rate",
+    "coordination_efficiency"
+  ],
+  "reporting_structure": {
+    "reports_to": "executive_council",
+    "report_frequency": "hourly",
+    "escalation_triggers": [
+      "system_failures",
+      "security_incidents",
+      "performance_degradation"
+    ]
+  }
+}

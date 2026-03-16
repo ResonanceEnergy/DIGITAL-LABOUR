@@ -1,0 +1,77 @@
+{
+  "system_overview": {
+    "name": "Inner Council Intelligence Network",
+    "total_agents": 28,
+    "version": "1.0.0",
+    "status": "operational"
+  },
+  "agent_breakdown": {
+    "by_priority": {
+      "high": 13,
+      "medium": 10,
+      "low": 5
+    },
+    "by_frequency": {
+      "daily": 14,
+      "weekly": 14
+    },
+    "by_specialization": {
+      "ai_tech": 11,
+      "business": 5,
+      "science": 11,
+      "politics_culture": 14
+    }
+  },
+  "capabilities": {
+    "strategic_planning": 22,
+    "risk_assessment": 23,
+    "policy_recommendation": 20,
+    "autonomous_decision_making": 11
+  },
+  "focus_areas_coverage": {
+    "Technology": 9,
+    "Politics": 9,
+    "Culture": 9,
+    "Philosophy": 8,
+    "AI": 7,
+    "Science": 6,
+    "Business": 5,
+    "Health": 5,
+    "Psychology": 4,
+    "Neuroscience": 4,
+    "Current Events": 4,
+    "Performance": 3,
+    "Biology": 3,
+    "Economics": 3,
+    "Entrepreneurship": 2,
+    "Learning": 2,
+    "Deep Learning": 2,
+    "Machine Learning": 2,
+    "Education": 2,
+    "Civilization": 2,
+    "Productivity": 1,
+    "Medicine": 1,
+    "Longevity": 1,
+    "Wealth": 1,
+    "Ethics": 1,
+    "Space": 1,
+    "Energy": 1,
+    "Cryptocurrency": 1,
+    "Blockchain": 1,
+    "Computer Vision": 1,
+    "Decision Making": 1,
+    "Evolution": 1,
+    "Religion": 1,
+    "Systems Thinking": 1,
+    "Existential Risk": 1,
+    "History": 1,
+    "Venture Capital": 1,
+    "Software": 1,
+    "Spirituality": 1,
+    "Social Issues": 1,
+    "Media": 1,
+    "Entertainment": 1,
+    "Future": 1,
+    "Motivation": 1
+  }
+}

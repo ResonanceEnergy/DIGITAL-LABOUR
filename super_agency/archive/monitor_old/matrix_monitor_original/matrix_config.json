@@ -1,0 +1,137 @@
+{
+  "matrix_monitor": {
+    "version": "1.0",
+    "platform": "iOS_Pocket_Pulsar",
+    "description": "iOS Matrix Monitor for Pocket Pulsar - Real-time system visualization",
+    "features": [
+      "Real-time node monitoring",
+      "Multiple view modes (Grid, Nodes, Heatmap)",
+      "Touch-optimized interface",
+      "Three-device architecture visualization",
+      "Agent and system health tracking"
+    ],
+    "nodes": {
+      "quantum_quasar": {
+        "type": "device",
+        "device": "Mac Workstation",
+        "icon": "⚛️",
+        "label": "QUASAR",
+        "metrics": ["CPU", "MEM"],
+        "connections": ["pocket_pulsar", "tablet_titan", "agents"]
+      },
+      "pocket_pulsar": {
+        "type": "device",
+        "device": "iPhone",
+        "icon": "📱",
+        "label": "PULSAR",
+        "metrics": ["BAT", "NET"],
+        "connections": ["quantum_quasar", "tablet_titan"]
+      },
+      "tablet_titan": {
+        "type": "device",
+        "device": "iPad",
+        "label": "TITAN",
+        "icon": "📱",
+        "metrics": ["CPU", "MEM"],
+        "connections": ["quantum_quasar", "pocket_pulsar"]
+      },
+      "repo_sentry": {
+        "type": "agent",
+        "device": "Agent",
+        "icon": "🤖",
+        "label": "SENTRY",
+        "metrics": ["REPOS", "HEALTH"],
+        "connections": ["quantum_quasar"]
+      },
+      "daily_brief": {
+        "type": "agent",
+        "device": "Agent",
+        "icon": "📊",
+        "label": "BRIEF",
+        "metrics": ["REPORTS", "QUALITY"],
+        "connections": ["quantum_quasar"]
+      },
+      "council": {
+        "type": "agent",
+        "device": "Agent",
+        "icon": "🧠",
+        "label": "COUNCIL",
+        "metrics": ["DECISIONS", "ACCURACY"],
+        "connections": ["quantum_quasar"]
+      },
+      "quasmem": {
+        "type": "system",
+        "device": "Memory Pool",
+        "icon": "🧠",
+        "label": "QUASMEM",
+        "metrics": ["POOL", "EFFICIENCY"],
+        "connections": ["quantum_quasar"]
+      },
+      "finance": {
+        "type": "system",
+        "device": "Financial System",
+        "icon": "💰",
+        "label": "FINANCE",
+        "metrics": ["BALANCE", "SCORE"],
+        "connections": ["quantum_quasar"]
+      },
+      "sasp": {
+        "type": "network",
+        "device": "Network Protocol",
+        "icon": "🌐",
+        "label": "SASP",
+        "metrics": ["CONNECTIONS", "LATENCY"],
+        "connections": ["quantum_quasar", "pocket_pulsar", "tablet_titan"]
+      }
+    },
+    "views": {
+      "grid": {
+        "description": "Compact grid layout",
+        "layout": "3x3",
+        "show_metrics": false,
+        "show_connections": false
+      },
+      "nodes": {
+        "description": "Full node view with metrics",
+        "layout": "3x3",
+        "show_metrics": true,
+        "show_connections": true
+      },
+      "heatmap": {
+        "description": "Health-based color coding",
+        "layout": "3x3",
+        "show_metrics": false,
+        "show_connections": false,
+        "color_scheme": "health_based"
+      }
+    },
+    "status_indicators": {
+      "online": {
+        "color": "#00ff88",
+        "description": "Node is online and operational"
+      },
+      "active": {
+        "color": "#00d4ff",
+        "description": "Node is actively processing"
+      },
+      "healthy": {
+        "color": "#00ff88",
+        "description": "Node health is optimal"
+      },
+      "warning": {
+        "color": "#ffaa00",
+        "description": "Node requires attention"
+      },
+      "error": {
+        "color": "#ff4444",
+        "description": "Node has critical issues"
+      }
+    },
+    "refresh_interval": 5000,
+    "touch_optimizations": {
+      "tap_to_expand": true,
+      "swipe_to_switch_views": true,
+      "long_press_for_details": true
+    }
+  }
+}

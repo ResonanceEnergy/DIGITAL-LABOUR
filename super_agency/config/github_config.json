@@ -1,0 +1,27 @@
+{
+  "organization": "ResonanceEnergy",
+  "default_visibility": "private",
+  "branch_protection": {
+    "required_reviews": 1,
+    "require_code_owner_reviews": true,
+    "dismiss_stale_reviews": true,
+    "require_branches_up_to_date": true,
+    "restrictions": null
+  },
+  "security_settings": {
+    "enable_dependabot": true,
+    "enable_codeql": true,
+    "enable_secret_scanning": true,
+    "vulnerability_alerts": true
+  },
+  "ci_cd_templates": [
+    "python-ci.yml",
+    "node-ci.yml",
+    "docker-ci.yml"
+  ],
+  "repository_templates": {
+    "python": "python-template",
+    "node": "node-template",
+    "go": "go-template"
+  }
+}

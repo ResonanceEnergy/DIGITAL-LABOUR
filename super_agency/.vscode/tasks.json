@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "SECONDBRAIN: Ingest YouTube URL",
+      "type": "shell",
+      "command": "make",
+      "args": ["-C", "tools", "all", "URL=${input:videoUrl}"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "SECONDBRAIN: Ingest Only",
+      "type": "shell",
+      "command": "make",
+      "args": ["-C", "tools", "ingest", "URL=${input:videoUrl}"],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "SECONDBRAIN: Enrich Only",
+      "type": "shell",
+      "command": "make",
+      "args": ["-C", "tools", "enrich"],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "SECONDBRAIN: Status Check",
+      "type": "shell",
+      "command": "make",
+      "args": ["-C", "tools", "status"],
+      "group": "build",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "videoUrl",
+      "type": "promptString",
+      "description": "YouTube URL to ingest into Second Brain",
+      "default": "https://www.youtube.com/watch?v=0TpON5T-Sw4"
+    }
+  ]
+}

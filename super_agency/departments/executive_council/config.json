@@ -1,0 +1,42 @@
+{
+  "department": "executive_council",
+  "name": "Executive Council",
+  "head": "Agent AZ",
+  "authority_level": "AZ_FINAL",
+  "description": "Strategic oversight and final authority body",
+  "members": [
+    {
+      "id": "agent_az",
+      "name": "Agent AZ",
+      "title": "Council Chairman",
+      "authority": "AZ_FINAL",
+      "responsibilities": [
+        "Strategic direction",
+        "Doctrine enforcement",
+        "Crisis management",
+        "Final decision authority"
+      ]
+    }
+  ],
+  "separation_principles": [
+    "Council provides strategic oversight only",
+    "No direct operational control",
+    "Departments maintain operational autonomy",
+    "Council approval required for structural changes"
+  ],
+  "key_performance_indicators": [
+    "strategic_decision_accuracy",
+    "crisis_response_effectiveness",
+    "doctrine_adherence",
+    "organizational_alignment"
+  ],
+  "reporting_structure": {
+    "reports_to": "none",
+    "report_frequency": "as_needed",
+    "escalation_triggers": [
+      "existential_threats",
+      "strategic_crisis",
+      "doctrine_violations"
+    ]
+  }
+}

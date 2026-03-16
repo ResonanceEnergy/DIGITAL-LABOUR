@@ -1,0 +1,287 @@
+{
+  "nodes": [
+    {
+      "id": "video_0TpON5T-Sw4",
+      "type": "content",
+      "label": "YouTube: 0TpON5T-Sw4",
+      "properties": {
+        "content_type": "video_enrichment",
+        "confidence": "high",
+        "timestamp": "2026-02-28T06:14:48.212901"
+      }
+    },
+    {
+      "id": "principle_local-first",
+      "type": "principle",
+      "label": "Local-first",
+      "properties": {
+        "category": "resonance_energy"
+      }
+    },
+    {
+      "id": "principle_consent_&_control",
+      "type": "principle",
+      "label": "Consent & Control",
+      "properties": {
+        "category": "resonance_energy"
+      }
+    },
+    {
+      "id": "principle_provenance-first",
+      "type": "principle",
+      "label": "Provenance-first",
+      "properties": {
+        "category": "resonance_energy"
+      }
+    },
+    {
+      "id": "principle_unit_economics",
+      "type": "principle",
+      "label": "Unit Economics",
+      "properties": {
+        "category": "resonance_energy"
+      }
+    },
+    {
+      "id": "principle_resilience",
+      "type": "principle",
+      "label": "Resilience",
+      "properties": {
+        "category": "resonance_energy"
+      }
+    },
+    {
+      "id": "principle_ethical_rails",
+      "type": "principle",
+      "label": "Ethical Rails",
+      "properties": {
+        "category": "resonance_energy"
+      }
+    },
+    {
+      "id": "principle_council_governance",
+      "type": "principle",
+      "label": "Council Governance",
+      "properties": {
+        "category": "resonance_energy"
+      }
+    },
+    {
+      "id": "principle_do_less_go_deeper",
+      "type": "principle",
+      "label": "Do Less Go Deeper",
+      "properties": {
+        "category": "resonance_energy"
+      }
+    },
+    {
+      "id": "theme_cognitive_load",
+      "type": "theme",
+      "label": "Cognitive Load",
+      "properties": {
+        "category": "doctrine"
+      }
+    },
+    {
+      "id": "theme_ai_integration",
+      "type": "theme",
+      "label": "AI Integration",
+      "properties": {
+        "category": "doctrine"
+      }
+    },
+    {
+      "id": "theme_productivity_systems",
+      "type": "theme",
+      "label": "Productivity Systems",
+      "properties": {
+        "category": "doctrine"
+      }
+    },
+    {
+      "id": "theme_information_management",
+      "type": "theme",
+      "label": "Information Management",
+      "properties": {
+        "category": "doctrine"
+      }
+    },
+    {
+      "id": "theme_non-engineering_accessibility",
+      "type": "theme",
+      "label": "Non-engineering Accessibility",
+      "properties": {
+        "category": "doctrine"
+      }
+    },
+    {
+      "id": "entity_slack",
+      "type": "entity",
+      "label": "Slack",
+      "properties": {
+        "category": "named_entity"
+      }
+    },
+    {
+      "id": "entity_notion",
+      "type": "entity",
+      "label": "Notion",
+      "properties": {
+        "category": "named_entity"
+      }
+    },
+    {
+      "id": "entity_zapier",
+      "type": "entity",
+      "label": "Zapier",
+      "properties": {
+        "category": "named_entity"
+      }
+    },
+    {
+      "id": "entity_claude",
+      "type": "entity",
+      "label": "Claude",
+      "properties": {
+        "category": "named_entity"
+      }
+    },
+    {
+      "id": "entity_chatgpt",
+      "type": "entity",
+      "label": "ChatGPT",
+      "properties": {
+        "category": "named_entity"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "principle_local-first",
+      "type": "embodies_principle",
+      "weight": 1.0,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "principle_consent_&_control",
+      "type": "embodies_principle",
+      "weight": 1.0,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "principle_provenance-first",
+      "type": "embodies_principle",
+      "weight": 1.0,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "principle_unit_economics",
+      "type": "embodies_principle",
+      "weight": 1.0,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "principle_resilience",
+      "type": "embodies_principle",
+      "weight": 1.0,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "principle_ethical_rails",
+      "type": "embodies_principle",
+      "weight": 1.0,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "principle_council_governance",
+      "type": "embodies_principle",
+      "weight": 1.0,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "principle_do_less_go_deeper",
+      "type": "embodies_principle",
+      "weight": 1.0,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "theme_cognitive_load",
+      "type": "relates_to_theme",
+      "weight": 0.8,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "theme_ai_integration",
+      "type": "relates_to_theme",
+      "weight": 0.8,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "theme_productivity_systems",
+      "type": "relates_to_theme",
+      "weight": 0.8,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "theme_information_management",
+      "type": "relates_to_theme",
+      "weight": 0.8,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "theme_non-engineering_accessibility",
+      "type": "relates_to_theme",
+      "weight": 0.8,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "entity_slack",
+      "type": "mentions_entity",
+      "weight": 0.6,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "entity_notion",
+      "type": "mentions_entity",
+      "weight": 0.6,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "entity_zapier",
+      "type": "mentions_entity",
+      "weight": 0.6,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "entity_claude",
+      "type": "mentions_entity",
+      "weight": 0.6,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    },
+    {
+      "source": "video_0TpON5T-Sw4",
+      "target": "entity_chatgpt",
+      "type": "mentions_entity",
+      "weight": 0.6,
+      "timestamp": "2026-02-28T06:14:48.212901"
+    }
+  ],
+  "last_updated": "2026-02-28T06:14:48.212895"
+}

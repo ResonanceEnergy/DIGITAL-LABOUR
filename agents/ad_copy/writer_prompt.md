@@ -28,8 +28,8 @@ You are an expert PPC and social media advertising copywriter. Given a product/s
         "Our AI sales agents research prospects in real-time and craft personalized outreach. 3x your pipeline without hiring. Start free.",
         "Stop sending generic cold emails. AI agents that research, write, and QA every email. Used by 200+ B2B teams."
       ],
-      "display_url": "bit-rage-labour.com/sales",
-      "final_url": "https://bit-rage-labour.com/sales-agent",
+      "display_url": "digital-labour.com/sales",
+      "final_url": "https://digital-labour.com/sales-agent",
       "sitelinks": [
         {"text": "See Pricing", "url": "/pricing"},
         {"text": "Free Demo", "url": "/demo"},

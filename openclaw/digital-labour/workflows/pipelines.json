@@ -40,5 +40,36 @@
       {"agent": "social_media", "inputs": {"topic": "$ANNOUNCEMENT", "platform": "linkedin", "cta_goal": "drive signups"}},
       {"agent": "email_marketing", "inputs": {"product": "$PRODUCT", "audience": "$AUDIENCE"}}
     ]
+  },
+  {
+    "name": "freelance_hunt",
+    "description": "Cross-platform job hunt: aggregate jobs → score against agents → generate proposals → submit bids",
+    "steps": [
+      {"agent": "freelancer_work", "inputs": {"action": "scan", "platforms": "$PLATFORMS", "max_results": 50}},
+      {"agent": "market_research", "inputs": {"topic": "competitive analysis for $TOP_JOB_CATEGORY", "depth": "overview"}},
+      {"agent": "proposal_writer", "inputs": {"project": "$FROM_STEP_1.top_projects[0].description", "client_name": "$FROM_STEP_1.top_projects[0].client"}},
+      {"agent": "freelancer_work", "inputs": {"action": "bid", "project_id": "$FROM_STEP_1.top_projects[0].id", "proposal": "$FROM_STEP_3.result"}}
+    ]
+  },
+  {
+    "name": "freelance_deliver",
+    "description": "Order fulfillment: detect orders → route to agent → execute → QA → deliver to client",
+    "steps": [
+      {"agent": "freelancer_work", "inputs": {"action": "scan", "check_orders": true, "platforms": "$PLATFORMS"}},
+      {"agent": "qa", "inputs": {"task": "route_to_agent", "project": "$FROM_STEP_1.pending_orders[0]"}},
+      {"agent": "$FROM_STEP_2.assigned_agent", "inputs": {"task": "$FROM_STEP_1.pending_orders[0].requirements"}},
+      {"agent": "qa", "inputs": {"task": "verify_output", "deliverable": "$FROM_STEP_3.result", "requirements": "$FROM_STEP_1.pending_orders[0].requirements"}},
+      {"agent": "freelancer_work", "inputs": {"action": "deliver", "project_id": "$FROM_STEP_1.pending_orders[0].id", "deliverable": "$FROM_STEP_4.verified_output"}}
+    ]
+  },
+  {
+    "name": "freelance_optimize",
+    "description": "Performance optimization: collect earnings → analyze win rates → adjust pricing → update listings",
+    "steps": [
+      {"agent": "data_entry", "inputs": {"source_data": "platform_earnings", "output_format": "structured JSON", "platforms": "$PLATFORMS"}},
+      {"agent": "market_research", "inputs": {"topic": "freelance pricing analysis for $TOP_AGENTS", "depth": "detailed"}},
+      {"agent": "bookkeeping", "inputs": {"transactions": "$FROM_STEP_1.result", "period": "weekly"}},
+      {"agent": "sales_ops", "inputs": {"action": "optimize", "win_rates": "$FROM_STEP_1.result", "market_rates": "$FROM_STEP_2.result"}}
+    ]
   }
 ]

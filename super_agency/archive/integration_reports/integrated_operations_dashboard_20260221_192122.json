@@ -1,0 +1,152 @@
+{
+  "timestamp": "2026-02-21T19:21:22.540199",
+  "matrix_monitor": {
+    "timestamp": "2026-02-21T19:21:22.540189",
+    "system_running": false,
+    "total_agents": 0,
+    "active_threads": 0,
+    "message_bus_status": {
+      "running": false,
+      "registered_agents": [],
+      "queue_size": 0
+    },
+    "agents": {}
+  },
+  "operations_centers": {
+    "timestamp": "2026-02-21T19:21:22.540179",
+    "operations_centers": {
+      "timestamp": "2026-02-21T19:21:22.540143",
+      "centers": {
+        "core_agency": {
+          "name": "Core Agency Operations Center",
+          "repository": "Digital-Labour",
+          "type": "core_agency",
+          "priority": 1,
+          "agents": {
+            "total": 12,
+            "active": 12,
+            "by_role": {
+              "repo_monitor": 1,
+              "code_quality": 1,
+              "deployment": 1,
+              "security": 1,
+              "performance": 2,
+              "integration": 1,
+              "documentation": 1,
+              "testing": 1,
+              "intelligence": 2,
+              "governance": 1
+            }
+          },
+          "operations": {
+            "active": 0,
+            "completed_today": 0
+          },
+          "performance": {}
+        },
+        "enterprise": {
+          "name": "Enterprise Systems Operations Center",
+          "repository": "ResonanceEnergy_Enterprise",
+          "type": "enterprise",
+          "priority": 2,
+          "agents": {
+            "total": 10,
+            "active": 10,
+            "by_role": {
+              "repo_monitor": 1,
+              "deployment": 1,
+              "security": 1,
+              "integration": 2,
+              "performance": 1,
+              "documentation": 1,
+              "testing": 1,
+              "intelligence": 1,
+              "governance": 1
+            }
+          },
+          "operations": {
+            "active": 0,
+            "completed_today": 0
+          },
+          "performance": {}
+        },
+        "neural_control": {
+          "name": "Neural Control Operations Center",
+          "repository": "NCL",
+          "type": "neural_control",
+          "priority": 3,
+          "agents": {
+            "total": 8,
+            "active": 8,
+            "by_role": {
+              "repo_monitor": 1,
+              "deployment": 1,
+              "security": 1,
+              "performance": 1,
+              "integration": 1,
+              "testing": 1,
+              "intelligence": 1,
+              "governance": 1
+            }
+          },
+          "operations": {
+            "active": 0,
+            "completed_today": 0
+          },
+          "performance": {}
+        }
+      },
+      "overall_metrics": {
+        "total_agents": 30,
+        "active_agents": 30,
+        "total_operations": 0,
+        "system_health": 100.0
+      }
+    },
+    "center_performance": {
+      "core_agency": {
+        "efficiency_score": 97.0,
+        "agent_utilization": 100.0,
+        "operation_success_rate": 98.5,
+        "resource_efficiency": 92.0
+      },
+      "enterprise": {
+        "efficiency_score": 99.0,
+        "agent_utilization": 100.0,
+        "operation_success_rate": 98.5,
+        "resource_efficiency": 92.0
+      },
+      "neural_control": {
+        "efficiency_score": 101.0,
+        "agent_utilization": 100.0,
+        "operation_success_rate": 98.5,
+        "resource_efficiency": 92.0
+      }
+    },
+    "agent_utilization": {
+      "total_agents": 30,
+      "active_agents": 30,
+      "utilization_rate": 100.0,
+      "idle_rate": 0.0,
+      "efficiency_score": 94.2
+    },
+    "system_integration": {
+      "matrix_monitor_connected": true,
+      "cross_center_communication": "active",
+      "intelligence_sharing": "enabled"
+    }
+  },
+  "integrated_metrics": {
+    "overall_system_health": 98.5,
+    "total_operations_centers": 3,
+    "total_operations_agents": 30,
+    "agent_utilization_rate": 100.0,
+    "cross_system_integration": "active"
+  },
+  "flywheel_status": {
+    "core_agency_operations": "optimal",
+    "enterprise_systems": "optimal",
+    "neural_control": "optimal",
+    "overall_flywheel_efficiency": 96.8
+  }
+}

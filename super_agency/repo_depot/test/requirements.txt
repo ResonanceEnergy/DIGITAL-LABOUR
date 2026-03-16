@@ -1,0 +1,26 @@
+#  Requirements
+
+# Web Framework
+flask==2.3.3
+flask-cors==4.0.0
+
+# Data Processing
+pandas==2.0.3
+numpy==1.24.3
+
+# Testing
+pytest==7.4.0
+pytest-cov==4.1.0
+
+# Code Quality
+black==23.7.0
+flake8==6.0.0
+mypy==1.5.1
+
+# Utilities
+python-dotenv==1.0.0
+requests==2.31.0
+
+# Development
+jupyter==1.0.0
+notebook==6.5.4

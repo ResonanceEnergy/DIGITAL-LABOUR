@@ -1,0 +1,69 @@
+{
+  "organization": "ResonanceEnergy",
+  "github_token_env": "GITHUB_TOKEN",
+  "default_visibility": "private",
+  "branch_protection": {
+    "required_reviews": 1,
+    "require_code_owner_reviews": true,
+    "dismiss_stale_reviews": true,
+    "require_branches_up_to_date": true,
+    "restrictions": null
+  },
+  "security_settings": {
+    "enable_dependabot": true,
+    "enable_codeql": true,
+    "enable_secret_scanning": true,
+    "vulnerability_alerts": true
+  },
+  "ci_cd_templates": [
+    "python-ci.yml",
+    "node-ci.yml",
+    "docker-ci.yml",
+    "security-scan.yml"
+  ],
+  "repository_templates": {
+    "python": "python-template",
+    "node": "node-template",
+    "go": "go-template",
+    "executive": "executive-template"
+  },
+  "autonomy_mappings": {
+    "L1": {
+      "branch_protection": "basic",
+      "security": "standard",
+      "ci_cd": "minimal"
+    },
+    "L2": {
+      "branch_protection": "standard",
+      "security": "enhanced",
+      "ci_cd": "standard"
+    },
+    "L3": {
+      "branch_protection": "strict",
+      "security": "maximum",
+      "ci_cd": "comprehensive"
+    }
+  },
+  "tier_mappings": {
+    "EXECUTIVE": {
+      "template": "executive-template",
+      "visibility": "private",
+      "security": "maximum"
+    },
+    "L": {
+      "template": "large-project-template",
+      "visibility": "private",
+      "security": "enhanced"
+    },
+    "M": {
+      "template": "medium-project-template",
+      "visibility": "private",
+      "security": "standard"
+    },
+    "S": {
+      "template": "small-project-template",
+      "visibility": "public",
+      "security": "basic"
+    }
+  }
+}

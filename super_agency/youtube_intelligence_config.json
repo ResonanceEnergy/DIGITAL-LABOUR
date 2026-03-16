@@ -1,0 +1,197 @@
+{
+  "youtube_channels": {
+    "ai_tech_focus": {
+      "lex_fridman": {
+        "channel_id": "UC3M7l8ved_rYQ45AVzS0RGA",
+        "channel_name": "Lex Fridman",
+        "description": "AI researcher and podcast host",
+        "priority": "high"
+      },
+      "elon_musk": {
+        "channel_id": "UCX6b17PVsYBQ0ip5gyeme-Q",
+        "channel_name": "Tesla",
+        "description": "Tesla and SpaceX updates",
+        "priority": "high"
+      },
+      "demis_hassabis": {
+        "channel_id": "UCvjgXvBlbQiydffZU7m1_aw",
+        "channel_name": "DeepMind",
+        "description": "Google DeepMind AI research",
+        "priority": "high"
+      },
+      "yann_lecun": {
+        "channel_id": "UC8wZnXYK_CGKlBcGmCAH4g",
+        "channel_name": "Yann LeCun",
+        "description": "Meta AI Chief Scientist",
+        "priority": "high"
+      },
+      "geoffrey_hinton": {
+        "channel_id": "UC8pvdKBDHfz7g8ZbEkH1YBw",
+        "channel_name": "Geoffrey Hinton",
+        "description": "AI pioneer and Turing Award winner",
+        "priority": "high"
+      },
+      "marc_andreessen": {
+        "channel_id": "UCtim3mNzAoF6H9x7J8wHgdg",
+        "channel_name": "Marc Andreessen",
+        "description": "a16z general partner",
+        "priority": "high"
+      }
+    },
+    "business_focus": {
+      "tom_bilyeu": {
+        "channel_id": "UCnYMOAMTyJw4M5m0v6qp0DQ",
+        "channel_name": "Tom Bilyeu",
+        "description": "Impact Theory founder",
+        "priority": "high"
+      },
+      "tim_ferriss": {
+        "channel_id": "UCznv7Vf9nBdJYvBagFdUGNw",
+        "channel_name": "Tim Ferriss",
+        "description": "Author and entrepreneur",
+        "priority": "high"
+      },
+      "naval_ravikant": {
+        "channel_id": "UC3LhhbTX2mdJ9L9KXHV5PQA",
+        "channel_name": "Naval Ravikant",
+        "description": "AngelList co-founder",
+        "priority": "high"
+      },
+      "impact_theory": {
+        "channel_id": "UCnYMOAMTyJw4M5m0v6qp0DQ",
+        "channel_name": "Impact Theory",
+        "description": "Business and mindset content",
+        "priority": "high"
+      }
+    },
+    "science_focus": {
+      "andrew_huberman": {
+        "channel_id": "UC2D2CMWXMOVWx7giW1n3LIg",
+        "channel_name": "Andrew Huberman",
+        "description": "Stanford neuroscientist",
+        "priority": "high"
+      },
+      "peter_attia": {
+        "channel_id": "UC8kGsMa0LygSX9nkBcBH1A",
+        "channel_name": "Peter Attia",
+        "description": "Longevity and health expert",
+        "priority": "high"
+      },
+      "bret_weinstein": {
+        "channel_id": "UCVZ3PcWJy8KUtP8vTDd2EA",
+        "channel_name": "Bret Weinstein",
+        "description": "Evolutionary biologist",
+        "priority": "high"
+      }
+    },
+    "philosophy_culture": {
+      "sam_harris": {
+        "channel_id": "UCNAxrHudhb4wQKHsWpOLtgw",
+        "channel_name": "Sam Harris",
+        "description": "Philosopher and neuroscientist",
+        "priority": "high"
+      },
+      "jordan_peterson": {
+        "channel_id": "UCL_f53ZEJxp8TtlQhgUArEQ",
+        "channel_name": "Jordan Peterson",
+        "description": "Clinical psychologist",
+        "priority": "high"
+      },
+      "daniel_schmachtenberger": {
+        "channel_id": "UCsTDGgNVHgK9e3VBF2Qe6fg",
+        "channel_name": "Daniel Schmachtenberger",
+        "description": "Civilization and existential risk",
+        "priority": "high"
+      }
+    },
+    "politics": {
+      "ben_shapiro": {
+        "channel_id": "UCnQC_G5Xsjhp9fEJKuI-v3w",
+        "channel_name": "Ben Shapiro",
+        "description": "Political commentator",
+        "priority": "high"
+      },
+      "dave_rubin": {
+        "channel_id": "UCnxGkOGNMqQEUMvroOWps6Q",
+        "channel_name": "Dave Rubin",
+        "description": "Political commentator",
+        "priority": "high"
+      },
+      "candace_owens": {
+        "channel_id": "UCkY8CvV8WQFeJ4PXlTTpvIA",
+        "channel_name": "Candace Owens",
+        "description": "Political commentator",
+        "priority": "high"
+      },
+      "tucker_carlson": {
+        "channel_id": "UCXIJgqnII2ZOINSWNOGFThA",
+        "channel_name": "Tucker Carlson",
+        "description": "Political commentator",
+        "priority": "high"
+      }
+    },
+    "general_content": {
+      "joe_rogan": {
+        "channel_id": "UCzQUP1qoWDoEbmsQxvdjxg",
+        "channel_name": "Joe Rogan",
+        "description": "Podcast host and comedian",
+        "priority": "high"
+      },
+      "vitalik_buterin": {
+        "channel_id": "UCKj_u0GfLk8Kpj7MXB2zMWg",
+        "channel_name": "Vitalik Buterin",
+        "description": "Ethereum co-founder",
+        "priority": "high"
+      },
+      "shane_parrish": {
+        "channel_id": "UCV-EEU6aLT7SSYauqQFlatQ",
+        "channel_name": "Shane Parrish",
+        "description": "Farnam Street founder",
+        "priority": "high"
+      },
+      "niall_ferguson": {
+        "channel_id": "UC7a7bQB2vFN4YqTcYqdD5Ew",
+        "channel_name": "Niall Ferguson",
+        "description": "Historian and economist",
+        "priority": "high"
+      },
+      "tyler_cowen": {
+        "channel_id": "UCnYMOAMTyJw4M5m0v6qp0DQ",
+        "channel_name": "Tyler Cowen",
+        "description": "Economist and author",
+        "priority": "high"
+      }
+    }
+  },
+  "monitoring_config": {
+    "scan_interval_minutes": 15,
+    "max_videos_per_channel": 50,
+    "content_types": ["videos", "shorts", "live_streams"],
+    "analysis_focus": [
+      "emerging_trends",
+      "technological_breakthroughs",
+      "market_opportunities",
+      "cultural_shifts",
+      "political_developments",
+      "scientific_discoveries"
+    ],
+    "alert_triggers": {
+      "high_engagement_threshold": 100000,
+      "viral_potential_threshold": 50000,
+      "breaking_news_keywords": [
+        "breakthrough", "discovery", "revolution", "crisis", "emergency",
+        "announcement", "launch", "acquisition", "funding", "partnership"
+      ]
+    }
+  },
+  "intelligence_categories": {
+    "ai_ml": ["lex_fridman", "demis_hassabis", "yann_lecun", "geoffrey_hinton"],
+    "business_investment": ["elon_musk", "marc_andreessen", "naval_ravikant", "tim_ferriss"],
+    "health_science": ["andrew_huberman", "peter_attia", "bret_weinstein"],
+    "philosophy_society": ["sam_harris", "jordan_peterson", "daniel_schmachtenberger"],
+    "politics_media": ["ben_shapiro", "dave_rubin", "candace_owens", "tucker_carlson"],
+    "technology_crypto": ["vitalik_buterin", "elon_musk"],
+    "content_creation": ["joe_rogan", "tom_bilyeu", "impact_theory"],
+    "economics_history": ["niall_ferguson", "tyler_cowen", "shane_parrish"]
+  }
+}

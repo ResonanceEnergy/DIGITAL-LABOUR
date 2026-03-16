@@ -1,0 +1,53 @@
+{
+  "department": "intelligence_operations",
+  "name": "Intelligence Operations Department",
+  "head": "Intelligence Director",
+  "authority_level": "HIGH",
+  "subdepartments": {
+    "youtube_intelligence": {
+      "name": "YouTube Intelligence Division",
+      "agents": [
+        "joe_rogan_agent.py",
+        "lex_fridman_agent.py",
+        "tom_bilyeu_agent.py"
+      ],
+      "responsibilities": [
+        "YouTube content analysis",
+        "Channel intelligence gathering",
+        "Trend identification",
+        "Strategic insights generation"
+      ]
+    },
+    "research_intelligence": {
+      "name": "Research Intelligence Division",
+      "agents": [
+        "andrew_huberman_agent.py",
+        "peter_attia_agent.py",
+        "daniel_schmachtenberger_agent.py",
+        "geoffrey_hinton_agent.py",
+        "demis_hassabis_agent.py"
+      ],
+      "responsibilities": [
+        "Scientific research analysis",
+        "Technology trend monitoring",
+        "Expert knowledge synthesis",
+        "Innovation intelligence"
+      ]
+    }
+  },
+  "key_performance_indicators": [
+    "intelligence_accuracy",
+    "insight_quality_score",
+    "trend_prediction_accuracy",
+    "research_coverage_breadth"
+  ],
+  "reporting_structure": {
+    "reports_to": "executive_council",
+    "report_frequency": "daily",
+    "escalation_triggers": [
+      "critical_intelligence_findings",
+      "market_disruption_warnings",
+      "technology_breakthroughs"
+    ]
+  }
+}

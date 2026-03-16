@@ -1,0 +1,41 @@
+{
+  "id": "council_intel_20260306_051717",
+  "type": "council_intelligence",
+  "repo": "inner_council",
+  "action": "strategic_planning",
+  "autonomy": "L2",
+  "risk": "LOW",
+  "rationale": "Daily intelligence from Inner Council monitoring and analysis",
+  "data": {
+    "council_members_monitored": 1,
+    "new_content_analyzed": 1,
+    "key_insights": [
+      "AI breakthrough"
+    ],
+    "policy_recommendations": [
+      "Update AI policy"
+    ],
+    "strategic_actions": [
+      "Invest in AI"
+    ],
+    "risk_alerts": []
+  },
+  "proposed_actions": [
+    {
+      "description": "Invest in AI",
+      "priority": "LOW",
+      "timeline": "ONGOING",
+      "resources_required": [
+        "Operations team",
+        "Project management"
+      ],
+      "success_metrics": [
+        "Action completed successfully",
+        "Positive impact measured"
+      ],
+      "risk_level": "LOW",
+      "autonomy_level": "L2"
+    }
+  ],
+  "timestamp": "2026-03-06T05:17:17.719404"
+}

@@ -64,7 +64,7 @@ def create_payment_links() -> dict:
                 line_items=[{"price": price_id, "quantity": 1}],
                 after_completion={
                     "type": "redirect",
-                    "redirect": {"url": "https://bit-rage-labour.com?thanks=1"},
+                    "redirect": {"url": "https://digital-labour.com?thanks=1"},
                 },
                 metadata={"product_key": key, "source": "digital_labour"},
             )

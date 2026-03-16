@@ -1,0 +1,12 @@
+{
+  "daily_cost_usd": 0.0,
+  "weekly_cost_usd": 0.0,
+  "monthly_cost_usd": 0.0,
+  "daily_limit_usd": 5.0,
+  "weekly_limit_usd": 25.0,
+  "monthly_limit_usd": 80.0,
+  "agent_daily_costs": {},
+  "alerts": [],
+  "budget_ok": true,
+  "checked_at": "2026-03-11T07:17:35.823580-06:00"
+}

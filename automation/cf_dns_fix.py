@@ -3,7 +3,7 @@ import json, os, sys, urllib.request, urllib.error
 from pathlib import Path
 
 ZONE_ID = "939834e2a74791ec43a7d9a15028aeae"
-DOMAIN = "bit-rage-labour.com"
+DOMAIN = "digital-labour.com"
 
 def get_token():
     # Try wrangler OAuth

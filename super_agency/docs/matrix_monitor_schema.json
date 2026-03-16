@@ -1,0 +1,119 @@
+{
+  "title": "Matrix Monitor v4.0 API Response - /api/v4/status",
+  "type": "object",
+  "properties": {
+    "timestamp": {"type": "string", "format": "date-time"},
+    "cpu": {"type": "number", "description": "Current CPU usage percentage"},
+    "ram": {"type": "number", "description": "Current RAM usage percentage"},
+    "qforge": {"type": "string", "enum": ["ACTIVE", "OFFLINE"]},
+    "qusar": {"type": "string", "enum": ["ACTIVE", "OFFLINE"]},
+    "matrix_monitor": {"type": "string", "enum": ["ACTIVE", "OFFLINE"]},
+    "watchdog": {"type": "string", "enum": ["ACTIVE", "OFFLINE"]},
+    "repo_depot": {
+      "type": "object",
+      "properties": {
+        "active": {"type": "boolean"},
+        "pid": {"type": ["integer", "null"]},
+        "metrics": {
+          "type": "object",
+          "properties": {
+            "total_repos": {"type": "integer"},
+            "repos_completed": {"type": "integer"},
+            "repos_building": {"type": "integer"},
+            "flywheel_cycles": {"type": "integer"},
+            "files_created": {"type": "integer"},
+            "errors": {"type": "integer"}
+          },
+          "required": ["total_repos", "repos_completed", "repos_building"]
+        }
+      },
+      "required": ["active", "metrics"]
+    },
+    "agent_activity": {
+      "type": "object",
+      "properties": {
+        "optimus": {"type": "object"},
+        "gasket": {"type": "object"}
+      }
+    },
+    "repos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "tier": {"type": "string"},
+          "category": {"type": "string"},
+          "visibility": {"type": "string"},
+          "status": {"type": "string"},
+          "progress": {"type": "number"}
+        }
+      }
+    },
+    "activity_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": {"type": "string"},
+          "time_display": {"type": "string"},
+          "category": {"type": "string"},
+          "message": {"type": "string"},
+          "level": {"type": "string", "enum": ["info", "success", "warning", "error"]}
+        }
+      }
+    },
+    "system": {
+      "type": "object",
+      "properties": {
+        "platform": {"type": "string"},
+        "cpu_count": {"type": "integer"},
+        "total_ram": {"type": "string"},
+        "python_version": {"type": "string"},
+        "uptime": {"type": "string"}
+      }
+    },
+    "device_sync": {
+      "type": "object",
+      "properties": {
+        "pulsar": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string", "description": "Pocket Pulsar"},
+            "device": {"type": "string", "description": "iPhone 15"},
+            "host": {"type": "string"},
+            "status": {"type": "string", "enum": ["offline", "reachable", "synced"]},
+            "reachable": {"type": "boolean"},
+            "last_sync": {"type": ["string", "null"]}
+          },
+          "required": ["name", "status", "reachable"]
+        },
+        "titan": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string", "description": "Tablet Titan"},
+            "device": {"type": "string", "description": "iPad"},
+            "host": {"type": "string"},
+            "status": {"type": "string", "enum": ["offline", "reachable", "synced"]},
+            "reachable": {"type": "boolean"},
+            "last_sync": {"type": ["string", "null"]}
+          },
+          "required": ["name", "status", "reachable"]
+        }
+      },
+      "required": ["pulsar", "titan"]
+    },
+    "cpu_history": {"type": "array", "items": {"type": "number"}},
+    "ram_history": {"type": "array", "items": {"type": "number"}}
+  },
+  "required": [
+    "timestamp",
+    "cpu",
+    "ram",
+    "qforge",
+    "qusar",
+    "repo_depot",
+    "device_sync",
+    "system"
+  ]
+}

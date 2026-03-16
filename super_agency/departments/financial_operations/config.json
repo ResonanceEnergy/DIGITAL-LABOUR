@@ -1,0 +1,48 @@
+{
+  "department": "financial_operations",
+  "name": "Financial Operations Department",
+  "head": "Financial Director",
+  "authority_level": "STANDARD",
+  "subdepartments": {
+    "accounting_systems": {
+      "name": "Accounting Systems Division",
+      "description": "AAC Financial System integration",
+      "external_system": true,
+      "system_url": "http://localhost:5001",
+      "integration_points": [
+        "financial_reporting",
+        "budget_tracking",
+        "economic_analysis",
+        "transaction_processing"
+      ]
+    },
+    "market_intelligence": {
+      "name": "Market Intelligence Division",
+      "description": "Financial market analysis and economic intelligence",
+      "agents": [
+        "market_analyst_agent.py"
+      ],
+      "responsibilities": [
+        "Market trend analysis",
+        "Investment intelligence",
+        "Economic forecasting",
+        "Risk assessment"
+      ]
+    }
+  },
+  "key_performance_indicators": [
+    "financial_accuracy",
+    "market_prediction_accuracy",
+    "system_integration_health",
+    "reporting_completeness"
+  ],
+  "reporting_structure": {
+    "reports_to": "executive_council",
+    "report_frequency": "daily",
+    "escalation_triggers": [
+      "financial_anomalies",
+      "market_crisis_warnings",
+      "system_integration_failures"
+    ]
+  }
+}

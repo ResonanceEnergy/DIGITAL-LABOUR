@@ -1,0 +1,198 @@
+{
+  "demo_timestamp": "2026-02-21T19:48:13.051147",
+  "selected_projects": [
+    {
+      "name": "Crimson-Compass",
+      "full_name": "ResonanceEnergy/Crimson-Compass",
+      "size_mb": 325.8427734375,
+      "stars": 1,
+      "forks": 0,
+      "issues": 0,
+      "activity_score": 94,
+      "priority_score": 0.685,
+      "language": "C#",
+      "description": "Crimson Compass"
+    },
+    {
+      "name": "AAC",
+      "full_name": "ResonanceEnergy/AAC",
+      "size_mb": 112.93359375,
+      "stars": 1,
+      "forks": 0,
+      "issues": 1,
+      "activity_score": 96,
+      "priority_score": 0.49615068002093754,
+      "language": "HTML",
+      "description": "ACCELERATED ARDigital Labour CORPORATION"
+    },
+    {
+      "name": "NCC-Doctrine",
+      "full_name": "ResonanceEnergy/NCC-Doctrine",
+      "size_mb": 63.7509765625,
+      "stars": 0,
+      "forks": 0,
+      "issues": 46,
+      "activity_score": 78,
+      "priority_score": 0.25369485079256615,
+      "language": null,
+      "description": null
+    }
+  ],
+  "operations_centers_update": {
+    "success": true,
+    "centers_updated": [
+      {
+        "center_id": "core_agency",
+        "old_repository": "Digital-Labour",
+        "new_repository": "ResonanceEnergy/Crimson-Compass",
+        "agent_count": 12
+      },
+      {
+        "center_id": "enterprise",
+        "old_repository": "ResonanceEnergy_Enterprise",
+        "new_repository": "ResonanceEnergy/AAC",
+        "agent_count": 10
+      },
+      {
+        "center_id": "neural_control",
+        "old_repository": "NCL",
+        "new_repository": "ResonanceEnergy/NCC-Doctrine",
+        "agent_count": 8
+      }
+    ],
+    "projects_assigned": [
+      "ResonanceEnergy/Crimson-Compass",
+      "ResonanceEnergy/AAC",
+      "ResonanceEnergy/NCC-Doctrine"
+    ],
+    "update_result": {
+      "timestamp": "2026-02-21T19:48:13.050020",
+      "centers_updated": [
+        {
+          "center_id": "core_agency",
+          "old_repository": "Digital-Labour",
+          "new_repository": "ResonanceEnergy/Crimson-Compass",
+          "agent_count": 12
+        },
+        {
+          "center_id": "enterprise",
+          "old_repository": "ResonanceEnergy_Enterprise",
+          "new_repository": "ResonanceEnergy/AAC",
+          "agent_count": 10
+        },
+        {
+          "center_id": "neural_control",
+          "old_repository": "NCL",
+          "new_repository": "ResonanceEnergy/NCC-Doctrine",
+          "agent_count": 8
+        }
+      ],
+      "agents_reassigned": 0,
+      "success": true,
+      "errors": []
+    }
+  },
+  "matrix_monitor_data": {
+    "project_selector": {
+      "total_repositories": 21,
+      "selected_projects": 3,
+      "selection_options": {
+        "criteria_options": [
+          "size",
+          "stars",
+          "forks",
+          "issues",
+          "activity",
+          "priority"
+        ],
+        "current_selection": [
+          {
+            "name": "Crimson-Compass",
+            "full_name": "ResonanceEnergy/Crimson-Compass",
+            "size_mb": 325.8427734375,
+            "stars": 1,
+            "forks": 0,
+            "issues": 0,
+            "activity_score": 94,
+            "priority_score": 0.685,
+            "language": "C#",
+            "description": "Crimson Compass"
+          },
+          {
+            "name": "AAC",
+            "full_name": "ResonanceEnergy/AAC",
+            "size_mb": 112.93359375,
+            "stars": 1,
+            "forks": 0,
+            "issues": 1,
+            "activity_score": 96,
+            "priority_score": 0.49615068002093754,
+            "language": "HTML",
+            "description": "ACCELERATED ARDigital Labour CORPORATION"
+          },
+          {
+            "name": "NCC-Doctrine",
+            "full_name": "ResonanceEnergy/NCC-Doctrine",
+            "size_mb": 63.7509765625,
+            "stars": 0,
+            "forks": 0,
+            "issues": 46,
+            "activity_score": 78,
+            "priority_score": 0.25369485079256615,
+            "language": null,
+            "description": null
+          }
+        ],
+        "total_repositories": 21,
+        "selection_timestamp": "2026-02-21T19:48:13.050688"
+      },
+      "available_criteria": [
+        "size",
+        "stars",
+        "forks",
+        "issues",
+        "activity",
+        "priority"
+      ],
+      "last_updated": "2026-02-21T19:48:13.050701"
+    },
+    "top_projects": [
+      {
+        "rank": 1,
+        "name": "Crimson-Compass",
+        "full_name": "ResonanceEnergy/Crimson-Compass",
+        "size_mb": 325.84,
+        "stars": 1,
+        "forks": 0,
+        "issues": 0,
+        "activity": 94,
+        "priority": 0.69,
+        "language": "C#"
+      },
+      {
+        "rank": 2,
+        "name": "AAC",
+        "full_name": "ResonanceEnergy/AAC",
+        "size_mb": 112.93,
+        "stars": 1,
+        "forks": 0,
+        "issues": 1,
+        "activity": 96,
+        "priority": 0.5,
+        "language": "HTML"
+      },
+      {
+        "rank": 3,
+        "name": "NCC-Doctrine",
+        "full_name": "ResonanceEnergy/NCC-Doctrine",
+        "size_mb": 63.75,
+        "stars": 0,
+        "forks": 0,
+        "issues": 46,
+        "activity": 78,
+        "priority": 0.25,
+        "language": "Unknown"
+      }
+    ]
+  }
+}

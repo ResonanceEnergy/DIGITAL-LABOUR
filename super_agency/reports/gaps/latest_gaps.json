@@ -1,0 +1,142 @@
+{
+  "timestamp": "2026-03-11T03:02:03.923879-06:00",
+  "mandate_gaps": [],
+  "research_gaps": [
+    {
+      "id": "research_alternative_energy_systems_no_output",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "No research output: Alternative Energy Systems",
+      "detail": "Project 'Alternative Energy Systems' with 10 repos has no research reports",
+      "action": "run_research"
+    },
+    {
+      "id": "research_alternative_energy_systems_milestones",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "Most milestones incomplete: Alternative Energy Systems",
+      "detail": "4/4 milestones incomplete",
+      "action": "run_research"
+    },
+    {
+      "id": "research_human_health_&_longevity_no_output",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "No research output: Human Health & Longevity",
+      "detail": "Project 'Human Health & Longevity' with 1 repos has no research reports",
+      "action": "run_research"
+    },
+    {
+      "id": "research_human_health_&_longevity_milestones",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "Most milestones incomplete: Human Health & Longevity",
+      "detail": "3/3 milestones incomplete",
+      "action": "run_research"
+    },
+    {
+      "id": "research_digital_labour_platform_no_output",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "No research output: Digital Labour Platform",
+      "detail": "Project 'Digital Labour Platform' with 10 repos has no research reports",
+      "action": "run_research"
+    },
+    {
+      "id": "research_digital_labour_platform_milestones",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "Most milestones incomplete: Digital Labour Platform",
+      "detail": "6/6 milestones incomplete",
+      "action": "run_research"
+    },
+    {
+      "id": "research_digital_products_&_business_no_output",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "No research output: Digital Products & Business",
+      "detail": "Project 'Digital Products & Business' with 9 repos has no research reports",
+      "action": "run_research"
+    },
+    {
+      "id": "research_digital_products_&_business_milestones",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "Most milestones incomplete: Digital Products & Business",
+      "detail": "3/3 milestones incomplete",
+      "action": "run_research"
+    },
+    {
+      "id": "research_second_brain_&_knowledge_pipeline_no_output",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "No research output: Second Brain & Knowledge Pipeline",
+      "detail": "Project 'Second Brain & Knowledge Pipeline' with 2 repos has no research reports",
+      "action": "run_research"
+    },
+    {
+      "id": "research_second_brain_&_knowledge_pipeline_milestones",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "Most milestones incomplete: Second Brain & Knowledge Pipeline",
+      "detail": "4/4 milestones incomplete",
+      "action": "run_research"
+    },
+    {
+      "id": "research_civil_forge_technologies_no_output",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "No research output: CIVIL FORGE Technologies",
+      "detail": "Project 'CIVIL FORGE Technologies' with 1 repos has no research reports",
+      "action": "run_research"
+    },
+    {
+      "id": "research_media_&_marketing_operations_no_output",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "No research output: Media & Marketing Operations",
+      "detail": "Project 'Media & Marketing Operations' with 2 repos has no research reports",
+      "action": "run_research"
+    },
+    {
+      "id": "research_media_&_marketing_operations_milestones",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "Most milestones incomplete: Media & Marketing Operations",
+      "detail": "3/3 milestones incomplete",
+      "action": "run_research"
+    },
+    {
+      "id": "research_alternative_history_&_research_no_output",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "No research output: Alternative History & Research",
+      "detail": "Project 'Alternative History & Research' with 1 repos has no research reports",
+      "action": "run_research"
+    },
+    {
+      "id": "research_alternative_history_&_research_milestones",
+      "category": "research",
+      "severity": "MEDIUM",
+      "title": "Most milestones incomplete: Alternative History & Research",
+      "detail": "2/2 milestones incomplete",
+      "action": "run_research"
+    }
+  ],
+  "pipeline_gaps": [],
+  "knowledge_gaps": [],
+  "integration_gaps": [],
+  "summary": {
+    "total_gaps": 15,
+    "critical": 0,
+    "high": 0,
+    "medium": 15,
+    "low": 0,
+    "top_actions": [
+      {
+        "action": "run_research",
+        "priority_score": 30
+      }
+    ]
+  }
+}

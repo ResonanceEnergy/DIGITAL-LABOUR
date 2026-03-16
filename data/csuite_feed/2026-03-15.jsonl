@@ -1,0 +1,14 @@
+{"ts": "2026-03-15T14:07:26.524776+00:00", "event_id": "ed8ee058-715a-4733-9329-500b4a11f7bd", "task_type": "sales_outreach", "client_id": "pipeline-test", "qa_status": "PASS", "latency_ms": 24924}
+{"ts": "2026-03-15T14:08:00.329671+00:00", "event_id": "f552ece5-a838-4b71-9c1c-4de0740c4dde", "task_type": "support_ticket", "client_id": "pipeline-test", "qa_status": "PASS", "latency_ms": 23380}
+{"ts": "2026-03-15T14:08:28.675739+00:00", "event_id": "5d0e5f36-14cc-4b56-8fc2-e28b520533b1", "task_type": "content_repurpose", "client_id": "pipeline-test", "qa_status": "PASS", "latency_ms": 21049}
+{"ts": "2026-03-15T14:08:55.452629+00:00", "event_id": "9ca662b6-d845-4780-a648-849915db8b34", "task_type": "doc_extract", "client_id": "pipeline-test", "qa_status": "FAIL", "latency_ms": 20069}
+{"ts": "2026-03-15T14:12:10.402719+00:00", "event_id": "dc02a1d6-437c-4acb-90c9-41e93dc8ac4d", "task_type": "doc_extract", "client_id": "pipeline-test", "qa_status": "FAIL", "latency_ms": 18240}
+{"ts": "2026-03-15T14:13:03.965038+00:00", "event_id": "f111be89-523f-41cd-935e-d118173d6a0e", "task_type": "doc_extract", "client_id": "pipeline-test", "qa_status": "PASS", "latency_ms": 14468}
+{"ts": "2026-03-15T14:13:25.962844+00:00", "event_id": "ff009e53-0688-4729-93e1-963b2f09ccb7", "task_type": "sales_outreach", "client_id": "pipeline-test", "qa_status": "PASS", "latency_ms": 8262}
+{"ts": "2026-03-15T14:13:35.395691+00:00", "event_id": "13866dec-11cc-43c8-ad74-00576657b23e", "task_type": "support_ticket", "client_id": "pipeline-test", "qa_status": "PASS", "latency_ms": 9293}
+{"ts": "2026-03-15T14:13:48.890109+00:00", "event_id": "d1782272-b9c3-4ebc-8e61-37bde5636a23", "task_type": "content_repurpose", "client_id": "pipeline-test", "qa_status": "PASS", "latency_ms": 13437}
+{"ts": "2026-03-15T14:14:04.017958+00:00", "event_id": "a70ba4d8-0a28-44d7-a4e9-ba9d539d84a1", "task_type": "doc_extract", "client_id": "pipeline-test", "qa_status": "FAIL", "latency_ms": 15080}
+{"ts": "2026-03-15T14:14:36.220927+00:00", "event_id": "0f3e0ddc-b919-4f05-96be-0619c416b077", "task_type": "sales_outreach", "client_id": "pipeline-test", "qa_status": "PASS", "latency_ms": 9172}
+{"ts": "2026-03-15T14:14:46.036540+00:00", "event_id": "b32657dd-3ab3-4915-91fb-02ce4fa7b8be", "task_type": "support_ticket", "client_id": "pipeline-test", "qa_status": "PASS", "latency_ms": 9692}
+{"ts": "2026-03-15T14:14:56.401608+00:00", "event_id": "ad77032b-4551-4eb0-9e1b-94682b125c64", "task_type": "content_repurpose", "client_id": "pipeline-test", "qa_status": "PASS", "latency_ms": 10314}
+{"ts": "2026-03-15T14:15:03.247243+00:00", "event_id": "553a541f-c9cf-4c2a-8e25-bb894165bae3", "task_type": "doc_extract", "client_id": "pipeline-test", "qa_status": "PASS", "latency_ms": 6781}

@@ -1,0 +1,8 @@
+{
+  "action_class": "external_api_calls",
+  "scope": "Describe the minimal data and endpoint",
+  "limits": { "max_calls": 10, "time_window_hours": 1 },
+  "ttl_valid": true,
+  "issued_by": "Nathan",
+  "issued_at": "2026-02-19T00:00:00+00:00"
+}

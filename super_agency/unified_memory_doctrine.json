@@ -1,0 +1,193 @@
+{
+  "memory": {
+    "system_init": {
+      "timestamp": "2026-02-20T21:40:19.877164",
+      "status": "initialized",
+      "platform": "macOS Sequoia 15.7.3",
+      "memory_total": "8GB",
+      "optimization": "QUASMEM_ACTIVE"
+    },
+    "mac_init": {
+      "value": "MacBook integration complete",
+      "timestamp": "2026-02-20T21:40:19.877183",
+      "type": "persistent",
+      "platform": "macOS_M1"
+    },
+    "ios_matrix_monitor": {
+      "value": "Pocket Pulsar matrix monitor deployed and operational",
+      "timestamp": "2026-02-21T13:55:05.883437",
+      "type": "persistent",
+      "platform": "macOS_M1"
+    },
+    "matrix_maximizer_complete": {
+      "value": "MATRIX MAXIMIZER system fully implemented and integrated",
+      "timestamp": "2026-02-21T14:39:10.392624",
+      "type": "persistent",
+      "platform": "macOS_M1"
+    },
+    "openclaw_knowledge_base": {
+      "value": "OpenClaw full documentation ingested and saved to doctrine",
+      "timestamp": "2026-02-27T00:00:00.000000",
+      "type": "persistent",
+      "platform": "windows_x64",
+      "source": "docs.openclaw.ai + openclaw.ai",
+      "version_captured": "v2026.2.25",
+      "knowledge_scope": [
+        "core_architecture",
+        "gateway_system",
+        "cli_commands",
+        "channels_management",
+        "browser_control",
+        "skills_system",
+        "session_management",
+        "multi_agent_routing",
+        "security_model",
+        "nodes_and_devices",
+        "pairing_protocol",
+        "discord_integration"
+      ],
+      "core_definition": "Self-hosted WebSocket gateway connecting chat apps to AI coding agents. Runs on your hardware. Multi-channel: WhatsApp, Telegram, Discord, iMessage, Slack, Signal. Agent-native with tool use, sessions, memory, multi-agent routing. Open source MIT licensed.",
+      "gateway": {
+        "description": "WebSocket server - channels, nodes, sessions, hooks",
+        "default_port": 18789,
+        "bind_modes": ["loopback", "lan", "tailnet", "auto", "custom"],
+        "auth_modes": ["token", "password", "trusted-proxy"],
+        "config_path": "~/.openclaw/openclaw.json",
+        "commands": {
+          "run": "openclaw gateway",
+          "health": "openclaw gateway health --url ws://127.0.0.1:18789",
+          "status": "openclaw gateway status",
+          "probe": "openclaw gateway probe",
+          "install": "openclaw gateway install",
+          "start": "openclaw gateway start",
+          "stop": "openclaw gateway stop",
+          "restart": "openclaw gateway restart",
+          "discover": "openclaw gateway discover"
+        },
+        "discovery": "Bonjour mDNS _openclaw-gw._tcp, supports Wide-Area DNS-SD"
+      },
+      "channels": {
+        "supported": ["whatsapp", "telegram", "discord", "imessage", "slack", "signal", "mattermost"],
+        "dm_policies": ["pairing", "allowlist", "open", "disabled"],
+        "commands": {
+          "list": "openclaw channels list",
+          "status": "openclaw channels status",
+          "add": "openclaw channels add --channel <channel> --token <token>",
+          "login": "openclaw channels login --channel <channel>",
+          "capabilities": "openclaw channels capabilities",
+          "resolve": "openclaw channels resolve --channel <channel> <name>"
+        }
+      },
+      "browser_control": {
+        "profiles": ["openclaw (dedicated)", "chrome (existing)"],
+        "capabilities": ["tabs", "navigate", "click", "type", "snapshot", "screenshot"],
+        "commands": {
+          "tabs": "openclaw browser tabs",
+          "open": "openclaw browser open <url>",
+          "snapshot": "openclaw browser snapshot",
+          "screenshot": "openclaw browser screenshot",
+          "profiles": "openclaw browser profiles",
+          "start": "openclaw browser --browser-profile openclaw start"
+        },
+        "chrome_extension": "unpacked extension relay for existing Chrome control"
+      },
+      "skills": {
+        "format": "AgentSkills-compatible SKILL.md with YAML frontmatter",
+        "locations": ["bundled (npm package)", "~/.openclaw/skills (managed)", "<workspace>/skills (workspace)"],
+        "precedence": "workspace > managed > bundled",
+        "registry": "ClawHub (clawhub.com)",
+        "install": "clawhub install <skill-slug>",
+        "config": "skills.entries.<name> in openclaw.json"
+      },
+      "sessions": {
+        "dm_scope_modes": ["main", "per-peer", "per-channel-peer", "per-account-channel-peer"],
+        "state_path": "~/.openclaw/agents/<agentId>/sessions/sessions.json",
+        "transcripts": "~/.openclaw/agents/<agentId>/sessions/<SessionId>.jsonl",
+        "reset": "daily at 4:00 AM local + optional idle timeout",
+        "commands": "/new, /reset, /status, /context list, /stop, /compact"
+      },
+      "multi_agent": {
+        "isolation": "separate workspace + agentDir + sessions per agent",
+        "routing": "bindings with deterministic most-specific-wins",
+        "binding_priority": "peer > parentPeer > guildId+roles > guildId > teamId > accountId > channel > fallback",
+        "per_agent_sandbox": true,
+        "per_agent_tools": true
+      },
+      "security": {
+        "model": "personal assistant - one trusted operator boundary per gateway",
+        "audit_command": "openclaw security audit --deep",
+        "key_principles": [
+          "identity first (pairing/allowlists)",
+          "scope next (tools/sandboxing/permissions)",
+          "model last (assume manipulation possible)"
+        ],
+        "credential_paths": {
+          "whatsapp": "~/.openclaw/credentials/whatsapp/<accountId>/creds.json",
+          "pairing_allowlists": "~/.openclaw/credentials/<channel>-allowFrom.json",
+          "auth_profiles": "~/.openclaw/agents/<agentId>/agent/auth-profiles.json"
+        },
+        "sandboxing": "Docker-based tool isolation, scope: agent|session|shared"
+      },
+      "nodes": {
+        "description": "Companion devices (macOS/iOS/Android/headless) connected via Gateway WebSocket",
+        "capabilities": ["canvas/snapshot", "camera/snap/clip", "screen/record", "location/get", "sms/send", "system/run"],
+        "pairing": "device identity during connect, approve via openclaw devices approve",
+        "commands": {
+          "status": "openclaw nodes status",
+          "describe": "openclaw nodes describe --node <id>",
+          "run": "openclaw nodes run --node <id> -- <command>",
+          "camera_snap": "openclaw nodes camera snap --node <id>",
+          "canvas_snapshot": "openclaw nodes canvas snapshot --node <id>"
+        }
+      },
+      "pairing": {
+        "protocol": "DM pairing codes - unknown senders get short code, expires 1 hour",
+        "commands": {
+          "list": "openclaw pairing list <channel>",
+          "approve": "openclaw pairing approve <channel> <code>"
+        },
+        "max_pending": 3
+      },
+      "discord_config": {
+        "our_discord_id": "1472532435219775560",
+        "our_pairing_code": "736NHRN8",
+        "config_shape": "channels.discord.guilds.<guildId>.channels.<channelId>",
+        "multi_account": "channels.discord.accounts.<accountId>.token"
+      },
+      "optimus_integration": {
+        "gateway_port": 18789,
+        "local_url": "ws://127.0.0.1:18789",
+        "openclaw_cmd": "C:\\Users\\gripa\\AppData\\Roaming\\npm\\openclaw.cmd",
+        "subsystem_id": 5,
+        "subsystem_name": "OpenClawBridge"
+      }
+    }
+  },
+  "doctrine": {
+    "version": "3.0",
+    "platform": "macOS M1 8GB + Windows x64 QFORGE",
+    "architecture": "three_device_plus_qforge",
+    "memory_limits": {
+      "critical": 128,
+      "agents": 256,
+      "cache": 128,
+      "temp": 64
+    },
+    "device_codes": {
+      "quantum_quasar": "Mac Workstation (QUSAR 192.168.1.100)",
+      "pocket_pulsar": "iPhone Slave",
+      "tablet_titan": "iPad Slave",
+      "quantum_forge": "Windows x64 Workstation (QFORGE 192.168.1.200)"
+    },
+    "openclaw_doctrine": {
+      "gateway_is_truth": "Gateway is single source of truth for sessions, routing, channel connections",
+      "self_hosted_always": "Runs on YOUR hardware, YOUR rules, YOUR data",
+      "security_first": "Identity first, scope next, model last",
+      "skill_extensible": "AgentSkills-compatible, community-driven via ClawHub",
+      "multi_agent_capable": "Isolated agents with separate workspace, auth, sessions",
+      "channel_agnostic": "WhatsApp, Telegram, Discord, iMessage, Slack, Signal from one Gateway"
+    }
+  },
+  "last_saved": "2026-02-27T00:00:00.000000",
+  "version": "3.0"
+}

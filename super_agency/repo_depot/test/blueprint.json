@@ -1,0 +1,16 @@
+{
+  "repo_name": "test",
+  "tech_stack": [
+    "python"
+  ],
+  "structure": [
+    "README.md",
+    "requirements.txt",
+    "setup.py",
+    "tests/",
+    "conftest.py"
+  ],
+  "dependencies": [
+    "testing"
+  ]
+}
