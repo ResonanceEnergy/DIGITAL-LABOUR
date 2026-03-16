@@ -261,7 +261,7 @@ def _log_action(action: str, client_id: str, task_type: str, data: object) -> No
         "client_id": client_id,
         "task_type": task_type,
         "data": data if isinstance(data, dict) else (
-            data.model_dump() if hasattr(data, "model_dump") else str(data)
+            getattr(data, "model_dump")() if hasattr(data, "model_dump") else str(data)
         ),
     }
     with open(log_file, "a", encoding="utf-8") as f:

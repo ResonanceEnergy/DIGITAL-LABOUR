@@ -28,6 +28,7 @@ import textwrap
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any, Optional
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -168,7 +169,7 @@ def _extract_bullet_points(description: str, max_items: int = 4) -> list[str]:
     return bullets
 
 
-def generate_gig_image(gig_index: int, gig: dict, output_dir: Path = None) -> Path:
+def generate_gig_image(gig_index: int, gig: dict, output_dir: Optional[Path] = None) -> Path:
     """Generate a professional 1280x769 cover image for a single gig."""
     from PIL import Image, ImageDraw
 
@@ -333,7 +334,7 @@ def _launch_browser(headless: bool = False):
         args=["--disable-blink-features=AutomationControlled", "--disable-gpu", "--no-sandbox"],
     )
     # Restore saved cookies if available
-    ctx_kwargs = {"viewport": {"width": 1400, "height": 900}}
+    ctx_kwargs: dict[str, Any] = {"viewport": {"width": 1400, "height": 900}}
     if COOKIE_FILE.exists():
         ctx_kwargs["storage_state"] = str(COOKIE_FILE)
     context = browser.new_context(**ctx_kwargs)
@@ -391,7 +392,7 @@ def _wait_and_click(page, selector: str, timeout: int = 5000):
     return False
 
 
-def deploy_gig_browser(page, gig_index: int, gig: dict, image_path: Path = None) -> dict:
+def deploy_gig_browser(page, gig_index: int, gig: dict, image_path: Optional[Path] = None) -> dict:
     """Automate a single gig creation via Playwright.
 
     Returns a result dict with status and any issues.
@@ -548,7 +549,7 @@ def _click_continue(page):
     return False
 
 
-def deploy_all_browser(gig_indices: list[int] = None):
+def deploy_all_browser(gig_indices: Optional[list[int]] = None):
     """Deploy gigs via browser automation.
 
     Args:
@@ -647,7 +648,7 @@ def deploy_all_browser(gig_indices: list[int] = None):
 
 # ── PUBLISH DRAFT GIGS ────────────────────────────────────────
 
-def publish_drafts(gig_indices: list[int] = None):
+def publish_drafts(gig_indices: Optional[list[int]] = None):
     """Navigate to seller dashboard and publish draft gigs.
 
     Fiverr's "My Gigs" page lists drafts with a "Publish" or "Activate" button.
@@ -855,7 +856,7 @@ def _find_gig_image(gig_index: int) -> Path | None:
 
 # ── CLIPBOARD-GUIDED MODE ──────────────────────────────────────
 
-def guided_deploy(gig_indices: list[int] = None):
+def guided_deploy(gig_indices: Optional[list[int]] = None):
     """Step-by-step guided gig creation with clipboard copy.
 
     Opens the browser and walks through each field,

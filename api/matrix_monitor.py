@@ -431,7 +431,8 @@ def _restart_daemons(cmd: C2Command) -> dict:
             stderr=subprocess.PIPE,
         )
         proc.wait(timeout=15)
-        return {"status": "restarted", "output": proc.stdout.read().decode(errors="replace")[:500]}
+        out = proc.stdout.read().decode(errors="replace")[:500] if proc.stdout else ""
+        return {"status": "restarted", "output": out}
     except Exception as e:
         return {"status": "error", "message": str(e)}
 

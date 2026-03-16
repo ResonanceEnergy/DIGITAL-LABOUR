@@ -38,7 +38,7 @@ a:hover{color:var(--orange)}
 @media(max-width:768px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
 
 /* Nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(10,10,10,0.9);border-bottom:1px solid var(--border)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);background:rgba(10,10,10,0.9);border-bottom:1px solid var(--border)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
 .nav-brand{display:flex;align-items:center;gap:10px;font-size:1.2rem;font-weight:800;letter-spacing:-0.5px;color:var(--white);text-transform:uppercase}
 .nav-brand img{width:38px;height:38px;border-radius:50%}
@@ -218,6 +218,19 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 
 /* Rage stripe */
 .rage-stripe{height:4px;background:var(--gradient);width:100%}
+/* Utility classes extracted from inline styles */
+.btn-row-center{justify-content:center}
+.tc{text-align:center}
+.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}
+.mt-20{margin-top:20px}.mt-24{margin-top:24px}.mt-32{margin-top:32px}
+.mt-40{margin-top:40px}.mt-48{margin-top:48px}
+.muted{color:var(--muted)}.white{color:var(--white)}
+.fs-xs{font-size:0.82rem}.fs-sm{font-size:0.9rem}.fs-md{font-size:0.95rem}
+.fw-700{font-weight:700}.w-100{width:100%}
+.container-narrow{max-width:720px}
+.how-callout{max-width:640px;margin:48px auto 0;text-align:center}
+.retainer-heading{text-align:center;font-size:1.3rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px}
+#customRow{display:none}
 </style>
 </head>
 <body>
@@ -254,7 +267,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
   <div class="hero-badge">Now Accepting Clients</div>
   <h1>AI Agents That <em>Bite Back</em></h1>
   <p>Relentless AI workers for sales, support, content, and document extraction. They don't sleep. They don't complain. They just deliver.</p>
-  <div class="btn-row" style="justify-content:center">
+  <div class="btn-row btn-row-center">
     <a class="btn btn-primary" href="#start">Get 2 Free Leads</a>
     <a class="btn btn-outline" href="#demos">See Real Outputs</a>
     <a class="btn btn-ghost" href="mailto:hello@digital-labour.com">Email Us</a>
@@ -371,7 +384,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
       <a class="agent-email" href="mailto:sales@digital-labour.com?subject=Document%20Extractor%20—%20Free%20Extract&body=I%20want%20to%20try%20the%20Document%20Extractor.%0A%0ADocument%20type%3A%20%0AMy%20company%3A%20">&#9993; Free Extraction &rarr;</a>
     </div>
   </div>
-  <div style="text-align:center;margin-top:40px">
+  <div class="tc mt-40">
     <a class="email-cta" href="mailto:sales@digital-labour.com?subject=Custom%20Agent%20Inquiry&body=I%20need%20a%20custom%20agent%20for%3A%20">&#9993; Need a custom agent? Email us &rarr;</a>
   </div>
 </div>
@@ -408,9 +421,9 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
       <p>Validates tone, structure, accuracy. Fails? Auto-retries until it passes.</p>
     </div>
   </div>
-  <div style="max-width:640px;margin:48px auto 0;text-align:center">
-    <p style="color:var(--muted);font-size:0.95rem">Every task runs through the full pipeline. No shortcuts. Every output is QA-verified before delivery. Results delivered via webhook, API poll, or email.</p>
-    <a class="email-cta" href="mailto:api@digital-labour.com?subject=API%20Access%20Request&body=I%27d%20like%20API%20access%20to%20Bit%20Rage%20Labour.%0A%0AMy%20company%3A%20%0AUse%20case%3A%20" style="margin-top:20px">&#128268; Request API Access &rarr;</a>
+  <div class="how-callout">
+    <p class="muted fs-md">Every task runs through the full pipeline. No shortcuts. Every output is QA-verified before delivery. Results delivered via webhook, API poll, or email.</p>
+    <a class="email-cta mt-20" href="mailto:api@digital-labour.com?subject=API%20Access%20Request&body=I%27d%20like%20API%20access%20to%20Bit%20Rage%20Labour.%0A%0AMy%20company%3A%20%0AUse%20case%3A%20">&#128268; Request API Access &rarr;</a>
   </div>
 </div>
 </section>
@@ -455,7 +468,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
     </div>
   </div>
 
-  <div style="text-align:center;margin-top:32px">
+  <div class="tc mt-32">
     <a class="btn btn-ghost" href="mailto:sales@digital-labour.com?subject=Custom%20Demo%20Request&body=I%27d%20like%20to%20see%20a%20demo%20for%20my%20company%3A%20%0A%0AIndustry%3A%20%0ATarget%20audience%3A%20">Want a demo for YOUR company? Email us &rarr;</a>
   </div>
 </div>
@@ -479,8 +492,8 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>JSON/CSV export</li>
         <li>QA-verified delivery</li>
       </ul>
-      <a class="btn btn-outline btn-sm" id="btn-sales" href="mailto:sales@digital-labour.com?subject=Sales%20Ops%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Sales%20Ops%20Agent.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
-      <a class="btn btn-ghost btn-sm buy-now" href="#start" data-product="sales_outreach" style="width:100%;margin-top:8px">Buy Now — $2.40/lead</a>
+      <a class="btn btn-outline btn-sm w-100" id="btn-sales" href="mailto:sales@digital-labour.com?subject=Sales%20Ops%20%E2%80%94%20Get%20Started&body=I%20want%20to%20start%20with%20Sales%20Ops%20Agent.%0A%0AMy%20email%3A%20%0ACompany%3A%20">Start Free</a>
+      <a class="btn btn-ghost btn-sm buy-now w-100 mt-8" href="#start" data-product="sales_outreach">Buy Now — $2.40/lead</a>
     </div>
     <div class="price-card featured">
       <h3>Support Resolver</h3>
@@ -493,8 +506,8 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>~9.6s avg resolution</li>
         <li>Policy compliance checks</li>
       </ul>
-      <a class="btn btn-primary btn-sm" id="btn-support" href="mailto:sales@digital-labour.com?subject=Support%20Resolver%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Support%20Resolver.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
-      <a class="btn btn-ghost btn-sm buy-now" href="#start" data-product="support_ticket" style="width:100%;margin-top:8px">Buy Now — $1.00/ticket</a>
+      <a class="btn btn-primary btn-sm w-100" id="btn-support" href="mailto:sales@digital-labour.com?subject=Support%20Resolver%20%E2%80%94%20Get%20Started&body=I%20want%20to%20start%20with%20Support%20Resolver.%0A%0AMy%20email%3A%20%0ACompany%3A%20">Start Free</a>
+      <a class="btn btn-ghost btn-sm buy-now w-100 mt-8" href="#start" data-product="support_ticket">Buy Now — $1.00/ticket</a>
     </div>
     <div class="price-card">
       <h3>Content + Docs</h3>
@@ -507,14 +520,14 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>Blog &rarr; social in seconds</li>
         <li>Bulk discounts available</li>
       </ul>
-      <a class="btn btn-outline btn-sm" id="btn-content" href="mailto:sales@digital-labour.com?subject=Content%20%2B%20Docs%20—%20Get%20Started&body=I%20want%20to%20start%20with%20Content%20%2B%20Doc%20agents.%0A%0AMy%20email%3A%20%0ACompany%3A%20" style="width:100%">Start Free</a>
-      <a class="btn btn-ghost btn-sm buy-now" href="#start" data-product="content_repurpose" style="width:100%;margin-top:8px">Buy Now — $3.00/piece</a>
+      <a class="btn btn-outline btn-sm w-100" id="btn-content" href="mailto:sales@digital-labour.com?subject=Content%20%2B%20Docs%20%E2%80%94%20Get%20Started&body=I%20want%20to%20start%20with%20Content%20%2B%20Doc%20agents.%0A%0AMy%20email%3A%20%0ACompany%3A%20">Start Free</a>
+      <a class="btn btn-ghost btn-sm buy-now w-100 mt-8" href="#start" data-product="content_repurpose">Buy Now — $3.00/piece</a>
     </div>
   </div>
 
   <!-- Retainer Plans -->
-  <div style="margin-top:48px">
-    <h3 style="text-align:center;font-size:1.3rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px">Monthly Retainer Plans</h3>
+  <div class="mt-48">
+    <h3 class="retainer-heading">Monthly Retainer Plans</h3>
     <div class="grid-3">
       <div class="price-card">
         <h3>Sales Starter</h3>
@@ -527,7 +540,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
           <li>Weekly performance report</li>
           <li>Dedicated Slack channel</li>
         </ul>
-        <a class="btn btn-ghost btn-sm buy-now" href="#start" data-product="sales_starter" style="width:100%">Subscribe — $750/mo</a>
+        <a class="btn btn-ghost btn-sm buy-now w-100" href="#start" data-product="sales_starter">Subscribe — $750/mo</a>
       </div>
       <div class="price-card featured">
         <h3>Sales Growth</h3>
@@ -540,7 +553,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
           <li>CRM integration</li>
           <li>Priority + dedicated support</li>
         </ul>
-        <a class="btn btn-primary btn-sm buy-now" href="#start" data-product="sales_growth" style="width:100%">Subscribe — $1,400/mo</a>
+        <a class="btn btn-primary btn-sm buy-now w-100" href="#start" data-product="sales_growth">Subscribe — $1,400/mo</a>
       </div>
       <div class="price-card">
         <h3>Sales Scale</h3>
@@ -553,22 +566,22 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
           <li>Webhook delivery</li>
           <li>Account manager</li>
         </ul>
-        <a class="btn btn-ghost btn-sm buy-now" href="#start" data-product="sales_scale" style="width:100%">Subscribe — $2,500/mo</a>
+        <a class="btn btn-ghost btn-sm buy-now w-100" href="#start" data-product="sales_scale">Subscribe — $2,500/mo</a>
       </div>
     </div>
   </div>
 
-  <div style="text-align:center;margin-top:40px">
-    <p style="color:var(--muted);font-size:0.95rem"><strong style="color:var(--white)">Support retainers also available:</strong> Starter 200/mo $400 &bull; Growth 500/mo $800 &bull; Scale 1000/mo $1,400</p>
-    <p style="color:var(--muted);margin-top:8px;font-size:0.9rem">All plans include REST API access, webhook delivery, and budget enforcement.</p>
-    <a class="email-cta" href="mailto:sales@digital-labour.com?subject=Retainer%20Inquiry&body=I%27m%20interested%20in%20a%20monthly%20retainer.%0A%0AAgent%3A%20%0AVolume%3A%20%0ACompany%3A%20" style="margin-top:16px">&#128176; Ask about retainer pricing &rarr;</a>
+  <div class="tc mt-40">
+    <p class="muted fs-md"><strong class="white">Support retainers also available:</strong> Starter 200/mo $400 &bull; Growth 500/mo $800 &bull; Scale 1000/mo $1,400</p>
+    <p class="muted mt-8 fs-sm">All plans include REST API access, webhook delivery, and budget enforcement.</p>
+    <a class="email-cta mt-16" href="mailto:sales@digital-labour.com?subject=Retainer%20Inquiry&body=I%27m%20interested%20in%20a%20monthly%20retainer.%0A%0AAgent%3A%20%0AVolume%3A%20%0ACompany%3A%20">&#128176; Ask about retainer pricing &rarr;</a>
   </div>
 </div>
 </section>
 
 <!-- FAQ -->
 <section id="faq" class="section-dark">
-<div class="container" style="max-width:720px">
+<div class="container container-narrow">
   <div class="section-tag">FAQ</div>
   <h2>Common Questions</h2>
   <p class="subtitle">Everything you need to know before getting started.</p>
@@ -623,7 +636,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
       <input type="text" id="leadCompany" placeholder="Company (optional)">
     </div>
     <div class="form-row">
-      <select id="leadService">
+      <select id="leadService" title="Select a service">
         <option value="sales_outreach">Sales Ops — Get 2 Free Leads</option>
         <option value="support_ticket">Support Resolver — Free Ticket Demo</option>
         <option value="content_repurpose">Content Repurposer — Free Sample</option>
@@ -631,7 +644,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <option value="custom">Custom Agent — Tell Us What You Need</option>
       </select>
     </div>
-    <div class="form-row" id="customRow" style="display:none">
+    <div class="form-row" id="customRow">
       <input type="text" id="leadCustom" placeholder="Describe what you need...">
     </div>
     <button class="btn btn-primary" type="button" onclick="submitLead()">Get Started Free</button>
@@ -641,7 +654,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
       <p>We'll deliver your free demo to <strong id="confirmEmail"></strong> within 24 hours.</p>
     </div>
   </div>
-  <p style="color:var(--muted);margin-top:24px;font-size:0.9rem">Or email directly: <a href="mailto:hello@digital-labour.com" style="font-weight:700">hello@digital-labour.com</a></p>
+  <p class="muted mt-24 fs-sm">Or email directly: <a href="mailto:hello@digital-labour.com" class="fw-700">hello@digital-labour.com</a></p>
 </div>
 </section>
 
@@ -652,8 +665,8 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
     <div>
       <div class="footer-brand"><img src="logo.png" alt="Logo"><span>Bit <span class="red">Rage</span> Labour</span></div>
       <p>AI agents that bite back. Built by Resonance Energy.</p>
-      <p style="margin-top:12px">Four relentless agents. REST API. QA-verified outputs. Pay per task.</p>
-      <a class="email-cta" href="mailto:hello@digital-labour.com" style="margin-top:16px">&#9993; hello@digital-labour.com</a>
+      <p class="mt-12">Four relentless agents. REST API. QA-verified outputs. Pay per task.</p>
+      <a class="email-cta mt-16" href="mailto:hello@digital-labour.com">&#9993; hello@digital-labour.com</a>
     </div>
     <div>
       <h4>Product</h4>
@@ -675,7 +688,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
       <h4>Contact</h4>
       <p><a href="mailto:hello@digital-labour.com">hello@digital-labour.com</a></p>
       <p><a href="https://digital-labour.com">digital-labour.com</a></p>
-      <p style="margin-top:12px;font-size:0.82rem;color:var(--muted)">Digital Labour<br>A Resonance Energy Company<br>Canada</p>
+      <p class="mt-12 fs-xs muted">Digital Labour<br>A Resonance Energy Company<br>Canada</p>
     </div>
   </div>
   <div class="footer-bottom">

@@ -24,6 +24,7 @@ import json
 import sys
 import time
 from pathlib import Path
+from typing import Any
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -96,7 +97,7 @@ def _launch(platform: str, headless: bool = False):
         executable_path=edge_path,
         args=["--disable-blink-features=AutomationControlled", "--disable-gpu", "--no-sandbox"],
     )
-    ctx_kwargs = {"viewport": {"width": 1400, "height": 900}}
+    ctx_kwargs: dict[str, Any] = {"viewport": {"width": 1400, "height": 900}}
     cookie_file = _get_cookie_file(platform)
     if cookie_file.exists():
         ctx_kwargs["storage_state"] = str(cookie_file)
@@ -422,7 +423,7 @@ def upload_cv(platform: str):
         "guru": "https://www.guru.com/freelancers/editProfile.aspx",
     }
 
-    page.goto(upload_urls.get(platform, cfg["profile_url"]), wait_until="domcontentloaded")
+    page.goto(upload_urls.get(platform) or cfg["profile_url"], wait_until="domcontentloaded")
     time.sleep(3)
 
     # Check login
@@ -433,7 +434,7 @@ def upload_cv(platform: str):
             if not any(kw in page.url.lower() for kw in ["login", "signin", "signup"]):
                 break
         _save_cookies(context, platform)
-        page.goto(upload_urls.get(platform, cfg["profile_url"]), wait_until="domcontentloaded")
+        page.goto(upload_urls.get(platform) or cfg["profile_url"], wait_until="domcontentloaded")
         time.sleep(3)
 
     _screenshot(page, f"{platform}_cv_before")
@@ -449,7 +450,7 @@ def upload_cv(platform: str):
             parent_text = ""
             try:
                 parent = fi.evaluate_handle("el => el.closest('section, div, form')")
-                parent_text = parent.inner_text().lower() if parent else ""
+                parent_text = parent.as_element().inner_text().lower() if parent.as_element() else ""  # type: ignore[union-attr]
             except Exception:
                 pass
 

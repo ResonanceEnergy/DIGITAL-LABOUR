@@ -1,10 +1,6 @@
 ---
 name: digital-labour
-version: 1.0.0
 description: "33 AI agents for business automation - sales outreach, lead gen, content creation, SEO, ad copy, bookkeeping, proposals, market research, business plans, tech docs, data entry, web scraping, CRM ops, cross-platform freelancing automation (Upwork, Fiverr, Freelancer.com, PeoplePerHour, Guru), and more. 7 multi-agent pipelines with QA verification on every output. Powered by GPT-4o, Claude, Gemini, and Grok."
-tags: [ai-agents, business-automation, sales, lead-generation, content-creation, seo, bookkeeping, proposals, market-research, freelancing, saas, api]
-author: Resonance Energy
-homepage: https://bitrage-labour-api-production.up.railway.app
 metadata:
   author: Resonance Energy
   version: "1.0.0"
