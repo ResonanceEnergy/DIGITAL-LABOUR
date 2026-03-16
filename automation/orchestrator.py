@@ -1,4 +1,4 @@
-"""Master Orchestrator — single command to run the full DIGITAL LABOUR operation.
+﻿"""Master Orchestrator — single command to run the full DIGITAL LABOUR operation.
 
 Runs the daily sales + ops automation loop and optionally starts all background
 services (API, scheduler, C-Suite, alerts, resonance sync).
@@ -12,6 +12,7 @@ Usage:
 
 import argparse
 import json
+import logging
 import os
 import subprocess
 import sys
@@ -28,6 +29,19 @@ load_dotenv(PROJECT_ROOT / ".env")
 
 LOG_DIR = PROJECT_ROOT / "output" / "orchestrator_logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+# ── Structured logging ─────────────────────────────────────────────────────
+_LOG_FMT = logging.Formatter("%(asctime)s [%(levelname)s] orchestrator — %(message)s")
+logger = logging.getLogger("orchestrator")
+if not logger.handlers:
+    _sh = logging.StreamHandler()
+    _sh.setFormatter(_LOG_FMT)
+    logger.addHandler(_sh)
+    _fh = logging.FileHandler(LOG_DIR / "orchestrator.log", encoding="utf-8")
+    _fh.setFormatter(_LOG_FMT)
+    logger.addHandler(_fh)
+    logger.setLevel(logging.INFO)
+logger.propagate = False
 
 
 # ── Daily Outreach Cycle ───────────────────────────────────────
@@ -48,14 +62,14 @@ def run_daily_cycle(lead_count: int = 5, auto_approve: bool = True):
     run_id = now.strftime("%Y%m%d_%H%M%S")
     log_file = LOG_DIR / f"daily_{run_id}.json"
 
-    print(f"\n{'='*60}")
-    print(f"  DAILY AUTOMATION CYCLE — {now.strftime('%Y-%m-%d %H:%M UTC')}")
-    print(f"{'='*60}")
+    logger.info(f"\n{'='*60}")
+    logger.info(f"  DAILY AUTOMATION CYCLE — {now.strftime('%Y-%m-%d %H:%M UTC')}")
+    logger.info(f"{'='*60}")
 
     results = {"run_id": run_id, "started": now.isoformat(), "steps": {}}
 
     # Step 1: Generate leads
-    print(f"\n[STEP 1] Generating {lead_count} outreach leads...")
+    logger.info(f"\n[STEP 1] Generating {lead_count} outreach leads...")
     try:
         gen_results = generate_batch(count=lead_count, priority="high")
         if not gen_results:
@@ -66,33 +80,33 @@ def run_daily_cycle(lead_count: int = 5, auto_approve: bool = True):
             "total": len(gen_results),
             "passed": passed,
         }
-        print(f"  -> {passed}/{len(gen_results)} passed QA")
+        logger.info(f"  -> {passed}/{len(gen_results)} passed QA")
     except Exception as e:
         results["steps"]["generate"] = {"status": "error", "error": str(e)}
-        print(f"  -> ERROR: {e}")
+        logger.info(f"  -> ERROR: {e}")
 
     # Step 2: Send approved outreach
-    print(f"\n[STEP 2] Sending approved outreach (auto_approve={auto_approve})...")
+    logger.info(f"\n[STEP 2] Sending approved outreach (auto_approve={auto_approve})...")
     try:
         sent = send_approved(auto_approve=auto_approve)
         results["steps"]["send"] = {"status": "ok", "count": len(sent)}
-        print(f"  -> {len(sent)} emails processed")
+        logger.info(f"  -> {len(sent)} emails processed")
     except Exception as e:
         results["steps"]["send"] = {"status": "error", "error": str(e)}
-        print(f"  -> ERROR: {e}")
+        logger.info(f"  -> ERROR: {e}")
 
     # Step 3: Follow-ups
-    print(f"\n[STEP 3] Processing follow-ups...")
+    logger.info(f"\n[STEP 3] Processing follow-ups...")
     try:
         followups = send_followups()
         results["steps"]["followups"] = {"status": "ok", "count": len(followups)}
-        print(f"  -> {len(followups)} follow-ups sent")
+        logger.info(f"  -> {len(followups)} follow-ups sent")
     except Exception as e:
         results["steps"]["followups"] = {"status": "error", "error": str(e)}
-        print(f"  -> ERROR: {e}")
+        logger.info(f"  -> ERROR: {e}")
 
     # Step 4: Health check
-    print(f"\n[STEP 4] Running health check...")
+    logger.info(f"\n[STEP 4] Running health check...")
     try:
         from dashboard.health import full_dashboard
         dashboard = full_dashboard()
@@ -103,20 +117,20 @@ def run_daily_cycle(lead_count: int = 5, auto_approve: bool = True):
             "providers_up": providers_up,
             "queue": dashboard.get("queue", {}),
         }
-        print(f"  -> {providers_up}/4 LLM providers up")
-        print(f"  -> Queue: {dashboard.get('queue', {})}")
+        logger.info(f"  -> {providers_up}/4 LLM providers up")
+        logger.info(f"  -> Queue: {dashboard.get('queue', {})}")
     except Exception as e:
         results["steps"]["health"] = {"status": "error", "error": str(e)}
-        print(f"  -> Health check error: {e}")
+        logger.info(f"  -> Health check error: {e}")
 
     # Step 5: Pipeline status
-    print(f"\n[STEP 5] Pipeline status:")
+    logger.info(f"\n[STEP 5] Pipeline status:")
     show_status()
 
     # Save log
     results["finished"] = datetime.now(timezone.utc).isoformat()
     log_file.write_text(json.dumps(results, indent=2), encoding="utf-8")
-    print(f"\n[LOG] Saved to {log_file.name}")
+    logger.info(f"\n[LOG] Saved to {log_file.name}")
 
     return results
 
@@ -152,15 +166,15 @@ _running_procs: list[subprocess.Popen] = []
 
 def launch_all_services():
     """Start all background services as subprocesses."""
-    print(f"\n{'='*60}")
-    print("  LAUNCHING DIGITAL LABOUR SERVICES")
-    print(f"{'='*60}")
+    logger.info(f"\n{'='*60}")
+    logger.info("  LAUNCHING DIGITAL LABOUR SERVICES")
+    logger.info(f"{'='*60}")
 
     env = os.environ.copy()
     env["PYTHONIOENCODING"] = "utf-8"
 
     for svc in SERVICES:
-        print(f"\n  Starting {svc['name']}...")
+        logger.info(f"\n  Starting {svc['name']}...")
         try:
             proc = subprocess.Popen(
                 svc["cmd"],
@@ -171,15 +185,15 @@ def launch_all_services():
                 creationflags=subprocess.CREATE_NEW_PROCESS_GROUP,
             )
             _running_procs.append(proc)
-            print(f"    PID {proc.pid} — {svc['name']} started")
+            logger.info(f"    PID {proc.pid} — {svc['name']} started")
         except Exception as e:
-            print(f"    FAILED: {e}")
+            logger.info(f"    FAILED: {e}")
 
-    print(f"\n{'='*60}")
-    print(f"  {len(_running_procs)} services running")
-    print(f"  API: http://localhost:8000")
-    print(f"  Press Ctrl+C to stop all")
-    print(f"{'='*60}")
+    logger.info(f"\n{'='*60}")
+    logger.info(f"  {len(_running_procs)} services running")
+    logger.info(f"  API: http://localhost:8000")
+    logger.info(f"  Press Ctrl+C to stop all")
+    logger.info(f"{'='*60}")
 
 
 def wait_for_services():
@@ -190,15 +204,15 @@ def wait_for_services():
             for i, proc in enumerate(_running_procs):
                 rc = proc.poll()
                 if rc is not None:
-                    print(f"  [WARN] {SERVICES[i]['name']} exited with code {rc}")
+                    logger.warning(f"  [WARN] {SERVICES[i]['name']} exited with code {rc}")
             time.sleep(30)
     except KeyboardInterrupt:
-        print("\n\n[SHUTDOWN] Stopping all services...")
+        logger.info("\n\n[SHUTDOWN] Stopping all services...")
         for proc in _running_procs:
             proc.terminate()
         for proc in _running_procs:
             proc.wait(timeout=5)
-        print("[SHUTDOWN] All services stopped.")
+        logger.info("[SHUTDOWN] All services stopped.")
 
 
 # ── Operational Status ─────────────────────────────────────────
@@ -207,44 +221,44 @@ def show_full_status():
     """Show comprehensive operational status."""
     from automation.outreach import show_status as outreach_status
 
-    print(f"\n{'='*60}")
-    print("  DIGITAL LABOUR — OPERATIONAL STATUS")
-    print(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
-    print(f"{'='*60}")
+    logger.info(f"\n{'='*60}")
+    logger.info("  DIGITAL LABOUR — OPERATIONAL STATUS")
+    logger.info(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
+    logger.info(f"{'='*60}")
 
     # SMTP status
     smtp_pass = os.getenv("SMTP_PASS", "")
     smtp_user = os.getenv("SMTP_USER", "")
-    print(f"\n  SMTP: {'CONFIGURED' if smtp_pass else 'NOT CONFIGURED (file mode)'}")
-    print(f"  SMTP User: {smtp_user or 'not set'}")
+    logger.info(f"\n  SMTP: {'CONFIGURED' if smtp_pass else 'NOT CONFIGURED (file mode)'}")
+    logger.info(f"  SMTP User: {smtp_user or 'not set'}")
 
     # LLM providers
     providers = ["OPENAI_API_KEY", "ANTHROPIC_API_KEY", "GEMINI_API_KEY", "GROK_API_KEY"]
     active = sum(1 for p in providers if os.getenv(p, ""))
-    print(f"  LLM Providers: {active}/4 configured")
+    logger.info(f"  LLM Providers: {active}/4 configured")
 
     # Stripe
     stripe_key = os.getenv("STRIPE_SECRET_KEY", "")
-    print(f"  Stripe: {'CONFIGURED' if stripe_key else 'NOT SET'}")
+    logger.info(f"  Stripe: {'CONFIGURED' if stripe_key else 'NOT SET'}")
     if stripe_key and stripe_key.startswith("sk_test_"):
-        print(f"           (TEST MODE)")
+        logger.info(f"           (TEST MODE)")
 
     # Client profiles
     clients_dir = PROJECT_ROOT / "clients"
     client_count = 0
     if clients_dir.exists():
         client_count = len(list(clients_dir.glob("*.json")))
-    print(f"  Client Profiles: {client_count}")
+    logger.info(f"  Client Profiles: {client_count}")
 
     # Recent orchestrator logs
     if LOG_DIR.exists():
         logs = sorted(LOG_DIR.glob("daily_*.json"), reverse=True)
         if logs:
             last = json.loads(logs[0].read_text(encoding="utf-8"))
-            print(f"\n  Last Daily Run: {last.get('started', 'unknown')}")
+            logger.info(f"\n  Last Daily Run: {last.get('started', 'unknown')}")
             for step, data in last.get("steps", {}).items():
                 status = data.get("status", "?")
-                print(f"    {step}: {status}")
+                logger.info(f"    {step}: {status}")
 
     # Outreach pipeline
     outreach_status()
@@ -258,10 +272,10 @@ def show_full_status():
         for entry in inbox_log:
             cat = entry.get("category", "unknown")
             cats[cat] = cats.get(cat, 0) + 1
-        print(f"\n  Inbox: {len(inbox_log)} processed | {leads_count} leads saved | "
+        logger.info(f"\n  Inbox: {len(inbox_log)} processed | {leads_count} leads saved | "
               f"{cats.get('reply', 0)} replies | {cats.get('spam', 0)} spam")
     except Exception:
-        print(f"\n  Inbox: not yet checked (run: python -m automation.inbox_reader --status)")
+        logger.info(f"\n  Inbox: not yet checked (run: python -m automation.inbox_reader --status)")
 
     # Registration progress
     try:
@@ -271,20 +285,20 @@ def show_full_status():
         reg_done = sum(1 for s in src.values() if s["status"] in ("registered", "configured", "active", "earning"))
         reg_total = len(src)
         earning = sum(1 for s in src.values() if s["status"] == "earning")
-        print(f"\n  Platforms: {reg_done}/{reg_total} registered | {earning} earning | ${tracker_data.get('total_revenue', 0):,.2f} revenue")
+        logger.info(f"\n  Platforms: {reg_done}/{reg_total} registered | {earning} earning | ${tracker_data.get('total_revenue', 0):,.2f} revenue")
     except Exception:
-        print(f"\n  Platforms: unable to read tracker")
+        logger.info(f"\n  Platforms: unable to read tracker")
 
     # Queue depth
     try:
         from dispatcher.queue import TaskQueue
         q = TaskQueue()
         stats = q.stats()
-        print(f"  Task Queue: {stats.get('pending', 0)} pending, "
+        logger.info(f"  Task Queue: {stats.get('pending', 0)} pending, "
               f"{stats.get('completed', 0)} completed, "
               f"{stats.get('failed', 0)} failed")
     except Exception:
-        print(f"  Task Queue: unable to read")
+        logger.info(f"  Task Queue: unable to read")
 
 
 # ── CLI ────────────────────────────────────────────────────────

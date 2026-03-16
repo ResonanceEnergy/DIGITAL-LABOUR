@@ -22,7 +22,7 @@ import json
 import os
 import sys
 import time
-from collections import defaultdict
+from collections import defaultdict, deque
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -35,7 +35,7 @@ from datetime import datetime, timezone
 from fastapi import FastAPI, HTTPException, Header, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse, Response
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from typing import Optional
 
 
@@ -81,6 +81,9 @@ RATE_LIMIT = 100      # requests per window (PRD spec)
 RATE_WINDOW = 60.0    # seconds
 _BUCKET_STALE = 300.0  # purge IPs idle for 5 minutes
 _HEALTHCHECK_PATHS = {"/health", "/health/"}
+
+# ── Error log buffer (last 50 errors, in-memory) ──────────────────
+_error_log: deque[dict] = deque(maxlen=50)
 
 
 @rapid_app.middleware("http")
@@ -265,6 +268,13 @@ class UnifiedRequest(BaseModel):
     provider: str = Field(default="", description="LLM provider: openai|anthropic|gemini|grok")
     client: str = Field(default="direct", description="Client identifier for billing/tracking")
 
+    @field_validator("agent")
+    @classmethod
+    def agent_must_be_valid(cls, v: str) -> str:
+        if v not in ALL_AGENTS:
+            raise ValueError(f"Unknown agent '{v}'. Valid options: {ALL_AGENTS}")
+        return v
+
 
 @rapid_app.post("/v1/run", response_model=AgentResponse)
 async def run_agent(req: UnifiedRequest):
@@ -273,9 +283,6 @@ async def run_agent(req: UnifiedRequest):
     This is the universal endpoint — use /agents to see input schemas per agent.
     """
     await verify_api_key()
-    if req.agent not in ALL_AGENTS:
-        raise HTTPException(status_code=400, detail=f"Unknown agent: {req.agent}. Must be one of: {ALL_AGENTS}")
-
     start = time.time()
     try:
         from dispatcher.router import create_event, route_task
@@ -298,7 +305,28 @@ async def run_agent(req: UnifiedRequest):
             qa_status=result.get("qa", {}).get("status", "UNKNOWN"),
         )
     except Exception as e:
+        _error_log.append({
+            "ts": datetime.now(timezone.utc).isoformat(),
+            "endpoint": "/v1/run",
+            "agent": req.agent,
+            "error": str(e),
+        })
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@rapid_app.get("/v1/errors")
+async def get_error_log():
+    """Return the last 50 API errors captured in the in-memory error buffer."""
+    await verify_api_key()
+    return {"errors": list(_error_log), "count": len(_error_log)}
+
+
+@rapid_app.get("/v1/metrics")
+async def agent_metrics():
+    """Return per-agent call count and average response time since last restart."""
+    await verify_api_key()
+    from dispatcher.router import get_metrics
+    return {"metrics": get_metrics(), "timestamp": datetime.now(timezone.utc).isoformat()}
 
 
 @rapid_app.get("/agents")
@@ -333,6 +361,7 @@ def list_agents():
 
 @rapid_app.get("/")
 def api_root():
+    """API root — returns service info, version, and available endpoints."""
     return {
         "name": "Digital Labour — AI Agents API",
         "version": "2.0.0",
@@ -349,6 +378,7 @@ def api_root():
 
 @rapid_app.get("/health")
 def health():
+    """Health check — returns 200 with healthy status when the service is up."""
     return {"status": "healthy", "timestamp": datetime.now(timezone.utc).isoformat()}
 
 

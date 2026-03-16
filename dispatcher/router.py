@@ -11,6 +11,7 @@ import json
 import os
 import sys
 import time
+from collections import defaultdict
 from pathlib import Path
 from uuid import uuid4
 from datetime import datetime, timezone, timedelta
@@ -126,6 +127,21 @@ class DailyTracker:
 
 
 tracker = DailyTracker()
+
+# ── Agent execution metrics (in-memory, reset on restart) ─────────────────
+_agent_metrics: dict[str, dict] = defaultdict(lambda: {"calls": 0, "total_ms": 0, "errors": 0})
+
+
+def get_metrics() -> dict:
+    """Return per-agent call count, error count, and average latency."""
+    return {
+        agent: {
+            "calls": m["calls"],
+            "errors": m["errors"],
+            "avg_ms": round(m["total_ms"] / m["calls"], 1) if m["calls"] > 0 else 0,
+        }
+        for agent, m in _agent_metrics.items()
+    }
 
 
 # ── Event Creation ──────────────────────────────────────────────────────────
@@ -549,9 +565,12 @@ def route_task(event: dict) -> dict:
         event["qa"]["status"] = "FAIL"
         event["qa"]["issues"] = [str(e)]
         print(f"[ERROR] {e}")
+        _agent_metrics[task_type]["errors"] += 1
 
     elapsed_ms = int((time.time() - start) * 1000)
     event["metrics"]["latency_ms"] = elapsed_ms
+    _agent_metrics[task_type]["calls"] += 1
+    _agent_metrics[task_type]["total_ms"] += elapsed_ms
 
     # Log the event (legacy JSONL)
     log_event(event)

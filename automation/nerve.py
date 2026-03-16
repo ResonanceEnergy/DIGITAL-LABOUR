@@ -1,4 +1,4 @@
-"""NERVE — Nexus Engine for Resilient Vigilant Execution.
+﻿"""NERVE — Nexus Engine for Resilient Vigilant Execution.
 
 The autonomous 24/7 daemon that runs DIGITAL LABOUR without human intervention.
 Self-checking, self-healing, self-motivated. Only escalates truly critical issues.
@@ -21,6 +21,7 @@ Usage:
 
 import argparse
 import json
+import logging
 import sys
 import time
 import traceback
@@ -39,6 +40,19 @@ from automation.self_check import run_full_check, find_gaps, heal_issues
 STATE_FILE = PROJECT_ROOT / "data" / "nerve_state.json"
 LOG_DIR = PROJECT_ROOT / "data" / "nerve_logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+# ── Structured logging ─────────────────────────────────────────────────────
+_LOG_FMT = logging.Formatter("%(asctime)s [%(levelname)s] nerve — %(message)s")
+logger = logging.getLogger("nerve")
+if not logger.handlers:
+    _sh = logging.StreamHandler()
+    _sh.setFormatter(_LOG_FMT)
+    logger.addHandler(_sh)
+    _fh = logging.FileHandler(LOG_DIR / "nerve.log", encoding="utf-8")
+    _fh.setFormatter(_LOG_FMT)
+    logger.addHandler(_fh)
+    logger.setLevel(logging.INFO)
+logger.propagate = False
 
 # ── Cycle timing ───────────────────────────────────────────────
 CYCLE_INTERVAL_MINUTES = 60      # Full cycle every hour
@@ -65,9 +79,9 @@ def run_cycle() -> dict:
     cycle_num = state.get("cycles_run", 0) + 1
     now = datetime.now(timezone.utc)
 
-    print(f"\n{'='*70}")
-    print(f"  NERVE CYCLE #{cycle_num} — {now.strftime('%Y-%m-%d %H:%M UTC')}")
-    print(f"{'='*70}")
+    logger.info(f"\n{'='*70}")
+    logger.info(f"  NERVE CYCLE #{cycle_num} — {now.strftime('%Y-%m-%d %H:%M UTC')}")
+    logger.info(f"{'='*70}")
 
     cycle_report = {
         "cycle": cycle_num,
@@ -79,13 +93,13 @@ def run_cycle() -> dict:
     }
 
     # ── Phase 1: Self-Check ────────────────────────────────────
-    print(f"\n[PHASE 1] Deep Self-Check...")
+    logger.info(f"\n[PHASE 1] Deep Self-Check...")
     try:
         check_report = run_full_check()
         status = check_report["status"]
         issue_count = check_report["metrics"]["issue_count"]
         opp_count = check_report["metrics"]["opportunity_count"]
-        print(f"  System: {status} | Issues: {issue_count} | Opportunities: {opp_count}")
+        logger.info(f"  System: {status} | Issues: {issue_count} | Opportunities: {opp_count}")
         cycle_report["phases"]["self_check"] = {"status": status, "issues": issue_count}
 
         log_decision(
@@ -95,18 +109,18 @@ def run_cycle() -> dict:
             outcome=f"System {status}, {issue_count} issues found",
         )
     except Exception as e:
-        print(f"  [ERROR] Self-check failed: {e}")
+        logger.error(f"  [ERROR] Self-check failed: {e}")
         check_report = {"checks": {}, "issues": [], "status": "UNKNOWN"}
         cycle_report["phases"]["self_check"] = {"status": "error", "error": str(e)}
 
     # ── Phase 2: Gap Analysis & Auto-Heal ──────────────────────
-    print(f"\n[PHASE 2] Gap Analysis & Auto-Heal...")
+    logger.info(f"\n[PHASE 2] Gap Analysis & Auto-Heal...")
     try:
         gaps = find_gaps(check_report)
         if gaps:
-            print(f"  Found {len(gaps)} gaps:")
+            logger.info(f"  Found {len(gaps)} gaps:")
             for g in gaps:
-                print(f"    [{g['severity']}] {g['description']}")
+                logger.info(f"    [{g['severity']}] {g['description']}")
 
             heal_results = heal_issues(gaps)
             healed = sum(1 for r in heal_results if r.get("success"))
@@ -118,23 +132,23 @@ def run_cycle() -> dict:
             }
             cycle_report["issues_healed"] = healed
             cycle_report["escalations"] = escalated
-            print(f"  Healed: {healed} | Escalated: {escalated}")
+            logger.info(f"  Healed: {healed} | Escalated: {escalated}")
         else:
-            print(f"  No gaps found — system healthy.")
+            logger.info(f"  No gaps found — system healthy.")
             cycle_report["phases"]["healing"] = {"gaps_found": 0}
     except Exception as e:
-        print(f"  [ERROR] Healing failed: {e}")
+        logger.error(f"  [ERROR] Healing failed: {e}")
         cycle_report["phases"]["healing"] = {"error": str(e)}
 
     # ── Phase 3: Prospect Replenishment ────────────────────────
-    print(f"\n[PHASE 3] Prospect Pipeline...")
+    logger.info(f"\n[PHASE 3] Prospect Pipeline...")
     try:
         from automation.outreach import load_prospects
         remaining = len(load_prospects())
-        print(f"  Prospects remaining: {remaining}")
+        logger.info(f"  Prospects remaining: {remaining}")
 
         if remaining < MIN_PROSPECTS_THRESHOLD:
-            print(f"  Below threshold ({MIN_PROSPECTS_THRESHOLD}). Replenishing...")
+            logger.info(f"  Below threshold ({MIN_PROSPECTS_THRESHOLD}). Replenishing...")
             from automation.prospect_engine import generate_prospects
             added = generate_prospects(count=25)
             remaining += added
@@ -148,17 +162,17 @@ def run_cycle() -> dict:
 
         cycle_report["phases"]["prospects"] = {"remaining": remaining}
     except Exception as e:
-        print(f"  [ERROR] Prospect check failed: {e}")
+        logger.error(f"  [ERROR] Prospect check failed: {e}")
         cycle_report["phases"]["prospects"] = {"error": str(e)}
 
     # ── Phase 4: Outreach Execution ────────────────────────────
-    print(f"\n[PHASE 4] Outreach Execution...")
+    logger.info(f"\n[PHASE 4] Outreach Execution...")
     try:
         from automation.outreach import load_prospects, generate_batch, send_approved, send_followups
 
         prospects = load_prospects()
         if prospects:
-            print(f"  Running outreach batch ({OUTREACH_BATCH_SIZE} leads)...")
+            logger.info(f"  Running outreach batch ({OUTREACH_BATCH_SIZE} leads)...")
             gen_results = generate_batch(count=OUTREACH_BATCH_SIZE, priority="high")
             if not gen_results:
                 gen_results = generate_batch(count=OUTREACH_BATCH_SIZE, priority="all")
@@ -181,25 +195,25 @@ def run_cycle() -> dict:
                 "sent": len(sent),
             }
         else:
-            print(f"  No prospects available. Skipping outreach.")
+            logger.info(f"  No prospects available. Skipping outreach.")
             cycle_report["phases"]["outreach"] = {"status": "no_prospects"}
 
         # Follow-ups always
         followups = send_followups()
         cycle_report["phases"]["followups"] = {"sent": len(followups)}
         if followups:
-            print(f"  Sent {len(followups)} follow-ups")
+            logger.info(f"  Sent {len(followups)} follow-ups")
     except Exception as e:
-        print(f"  [ERROR] Outreach failed: {e}")
+        logger.error(f"  [ERROR] Outreach failed: {e}")
         cycle_report["phases"]["outreach"] = {"error": str(e)}
 
     # ── Phase 5: C-Suite Executive Cadence ─────────────────────
-    print(f"\n[PHASE 5] C-Suite Cadence...")
+    logger.info(f"\n[PHASE 5] C-Suite Cadence...")
     try:
         from c_suite.scheduler import run_due_actions
         actions = run_due_actions()
         if actions:
-            print(f"  Ran: {', '.join(actions)}")
+            logger.info(f"  Ran: {', '.join(actions)}")
             log_decision(
                 actor="NERVE",
                 action="csuite_cadence",
@@ -208,37 +222,37 @@ def run_cycle() -> dict:
             )
             cycle_report["decisions_made"] += 1
         else:
-            print(f"  No C-Suite actions due.")
+            logger.info(f"  No C-Suite actions due.")
         cycle_report["phases"]["csuite"] = {"actions": actions}
     except Exception as e:
-        print(f"  [ERROR] C-Suite cadence failed: {e}")
+        logger.error(f"  [ERROR] C-Suite cadence failed: {e}")
         cycle_report["phases"]["csuite"] = {"error": str(e)}
 
     # ── Phase 6: Health Snapshot ───────────────────────────────
-    print(f"\n[PHASE 6] Health Snapshot...")
+    logger.info(f"\n[PHASE 6] Health Snapshot...")
     try:
         from dashboard.health import full_dashboard
         dashboard = full_dashboard()
         providers = dashboard.get("health", {}).get("llm_providers", [])
         queue = dashboard.get("queue", {})
-        print(f"  Providers: {', '.join(providers) if providers else 'NONE'}")
-        print(f"  Queue: {queue}")
-        print(f"  Clients: {dashboard.get('active_clients', 0)}")
+        logger.info(f"  Providers: {', '.join(providers) if providers else 'NONE'}")
+        logger.info(f"  Queue: {queue}")
+        logger.info(f"  Clients: {dashboard.get('active_clients', 0)}")
         cycle_report["phases"]["health"] = {
             "providers_up": len(providers),
             "queue": queue,
         }
     except Exception as e:
-        print(f"  [ERROR] Health snapshot failed: {e}")
+        logger.error(f"  [ERROR] Health snapshot failed: {e}")
 
     # ── Phase 7: Revenue Check ─────────────────────────────────
-    print(f"\n[PHASE 7] Revenue Check...")
+    logger.info(f"\n[PHASE 7] Revenue Check...")
     try:
         from automation.revenue_daemon import check_stripe_revenue
         rev = check_stripe_revenue()
         new_charges = rev.get("new_charges", 0)
         total = rev.get("total", 0)
-        print(f"  Stripe total: ${total:.2f} | New charges: {new_charges}")
+        logger.info(f"  Stripe total: ${total:.2f} | New charges: {new_charges}")
         if new_charges > 0:
             log_decision(
                 actor="NERVE",
@@ -249,17 +263,17 @@ def run_cycle() -> dict:
             cycle_report["decisions_made"] += 1
         cycle_report["phases"]["revenue"] = {"total": total, "new": new_charges}
     except Exception as e:
-        print(f"  [ERROR] Revenue check failed: {e}")
+        logger.error(f"  [ERROR] Revenue check failed: {e}")
         cycle_report["phases"]["revenue"] = {"error": str(e)}
 
     # ── Phase 8: Freelancing Job Hunt (every 3 cycles) ────────
     if cycle_num % 3 == 0:
-        print(f"\n[PHASE 8] Freelancing Job Hunt Cycle...")
+        logger.info(f"\n[PHASE 8] Freelancing Job Hunt Cycle...")
         try:
             from automation.job_aggregator import aggregate, export_feed
             feed = aggregate(max_age_hours=24)
             unbid = [j for j in feed if not j.get("already_bid") and j.get("rank_score", 0) >= 0.25]
-            print(f"  Aggregated {len(feed)} jobs, {len(unbid)} unbid opportunities")
+            logger.info(f"  Aggregated {len(feed)} jobs, {len(unbid)} unbid opportunities")
             export_feed(feed, "")
             log_decision(
                 actor="NERVE",
@@ -274,17 +288,17 @@ def run_cycle() -> dict:
                 "top_platforms": list(set(j["platform"] for j in feed[:10])),
             }
         except Exception as e:
-            print(f"  [ERROR] Job hunt aggregation failed: {e}")
+            logger.error(f"  [ERROR] Job hunt aggregation failed: {e}")
             cycle_report["phases"]["job_hunt"] = {"error": str(e)}
 
     # ── Phase 9: Autobidder Scan (every 2 cycles) ─────────────
     if cycle_num % 2 == 0:
-        print(f"\n[PHASE 9] Autobidder Scan...")
+        logger.info(f"\n[PHASE 9] Autobidder Scan...")
         try:
             from automation.autobidder import run_scan
             scan_result = run_scan()
             bids_made = scan_result.get("bids_queued", 0) if isinstance(scan_result, dict) else 0
-            print(f"  Autobidder: {bids_made} bids queued")
+            logger.info(f"  Autobidder: {bids_made} bids queued")
             log_decision(
                 actor="NERVE",
                 action="autobidder_scan",
@@ -294,12 +308,12 @@ def run_cycle() -> dict:
             cycle_report["decisions_made"] += 1
             cycle_report["phases"]["autobidder"] = {"bids_queued": bids_made}
         except Exception as e:
-            print(f"  [ERROR] Autobidder scan failed: {e}")
+            logger.error(f"  [ERROR] Autobidder scan failed: {e}")
             cycle_report["phases"]["autobidder"] = {"error": str(e)}
 
     # ── Phase 10: Delivery Check (every 4 cycles) ─────────────
     if cycle_num % 4 == 0:
-        print(f"\n[PHASE 10] Cross-Platform Delivery Check...")
+        logger.info(f"\n[PHASE 10] Cross-Platform Delivery Check...")
         delivery_summary = {}
         # Check Fiverr orders
         try:
@@ -320,12 +334,12 @@ def run_cycle() -> dict:
 
     # ── Phase 11: FAIL Reprocessing (every 6 cycles) ───────────
     if cycle_num % 6 == 0:
-        print(f"\n[PHASE 11] FAIL Reprocessing...")
+        logger.info(f"\n[PHASE 11] FAIL Reprocessing...")
         try:
             from automation.reprocess import find_fail_files, reprocess
             fails = find_fail_files()
             if fails:
-                print(f"  Found {len(fails)} FAIL files. Reprocessing up to 5...")
+                logger.info(f"  Found {len(fails)} FAIL files. Reprocessing up to 5...")
                 result = reprocess(count=5)
                 log_decision(
                     actor="NERVE",
@@ -336,15 +350,15 @@ def run_cycle() -> dict:
                 cycle_report["decisions_made"] += 1
                 cycle_report["phases"]["reprocess"] = result
             else:
-                print(f"  No FAIL files to reprocess.")
+                logger.info(f"  No FAIL files to reprocess.")
                 cycle_report["phases"]["reprocess"] = {"status": "none_found"}
         except Exception as e:
-            print(f"  [ERROR] Reprocessing failed: {e}")
+            logger.error(f"  [ERROR] Reprocessing failed: {e}")
             cycle_report["phases"]["reprocess"] = {"error": str(e)}
 
     # ── Phase 12: OpenClaw Revenue Reconciliation (every 4 cycles) ──
     if cycle_num % 4 == 0:
-        print(f"\n[PHASE 12] OpenClaw Revenue Reconciliation...")
+        logger.info(f"\n[PHASE 12] OpenClaw Revenue Reconciliation...")
         try:
             from openclaw.engine import OpenClawEngine
             oc = OpenClawEngine()
@@ -358,7 +372,7 @@ def run_cycle() -> dict:
             cycle_report["decisions_made"] += 1
             cycle_report["phases"]["openclaw_revenue"] = rev
         except Exception as e:
-            print(f"  [ERROR] OpenClaw revenue check failed: {e}")
+            logger.error(f"  [ERROR] OpenClaw revenue check failed: {e}")
             cycle_report["phases"]["openclaw_revenue"] = {"error": str(e)}
 
     # ── Finalize ───────────────────────────────────────────────
@@ -378,10 +392,10 @@ def run_cycle() -> dict:
         state["started_at"] = now.isoformat()
     _save_state(state)
 
-    print(f"\n{'='*70}")
-    print(f"  NERVE CYCLE #{cycle_num} COMPLETE — {elapsed:.1f}s")
-    print(f"  Decisions: {cycle_report['decisions_made']} | Healed: {cycle_report['issues_healed']} | Escalations: {cycle_report['escalations']}")
-    print(f"{'='*70}")
+    logger.info(f"\n{'='*70}")
+    logger.info(f"  NERVE CYCLE #{cycle_num} COMPLETE — {elapsed:.1f}s")
+    logger.info(f"  Decisions: {cycle_report['decisions_made']} | Healed: {cycle_report['issues_healed']} | Escalations: {cycle_report['escalations']}")
+    logger.info(f"{'='*70}")
 
     return cycle_report
 
@@ -390,13 +404,13 @@ def run_cycle() -> dict:
 
 def daemon_loop():
     """Run NERVE continuously — the autonomous heartbeat."""
-    print(f"\n{'#'*70}")
-    print(f"  NERVE DAEMON ONLINE")
-    print(f"  Nexus Engine for Resilient Vigilant Execution")
-    print(f"  Cycle interval: {CYCLE_INTERVAL_MINUTES} minutes")
-    print(f"  Outreach batch: {OUTREACH_BATCH_SIZE} leads/cycle")
-    print(f"  Press Ctrl+C to stop")
-    print(f"{'#'*70}")
+    logger.info(f"\n{'#'*70}")
+    logger.info(f"  NERVE DAEMON ONLINE")
+    logger.info(f"  Nexus Engine for Resilient Vigilant Execution")
+    logger.info(f"  Cycle interval: {CYCLE_INTERVAL_MINUTES} minutes")
+    logger.info(f"  Outreach batch: {OUTREACH_BATCH_SIZE} leads/cycle")
+    logger.info(f"  Press Ctrl+C to stop")
+    logger.info(f"{'#'*70}")
 
     log_decision(
         actor="NERVE",
@@ -414,7 +428,7 @@ def daemon_loop():
             run_cycle()
             consecutive_failures = 0
         except KeyboardInterrupt:
-            print("\n\n[NERVE] Daemon stopped by operator.")
+            logger.info("\n\n[NERVE] Daemon stopped by operator.")
             log_decision(
                 actor="NERVE",
                 action="daemon_stop",
@@ -424,7 +438,7 @@ def daemon_loop():
             break
         except Exception as e:
             consecutive_failures += 1
-            print(f"\n[NERVE] Cycle failed: {e}")
+            logger.info(f"\n[NERVE] Cycle failed: {e}")
             traceback.print_exc()
 
             log_decision(
@@ -442,7 +456,7 @@ def daemon_loop():
                     severity="CRITICAL",
                     recommended_action="Manual intervention required. Check logs.",
                 )
-                print(f"\n[NERVE] {consecutive_failures} consecutive failures. Pausing for 10 minutes...")
+                logger.info(f"\n[NERVE] {consecutive_failures} consecutive failures. Pausing for 10 minutes...")
                 time.sleep(600)
                 consecutive_failures = 0
             else:
@@ -451,11 +465,11 @@ def daemon_loop():
                 continue
 
         # Wait for next cycle
-        print(f"\n[NERVE] Next cycle in {CYCLE_INTERVAL_MINUTES} minutes...")
+        logger.info(f"\n[NERVE] Next cycle in {CYCLE_INTERVAL_MINUTES} minutes...")
         try:
             time.sleep(CYCLE_INTERVAL_MINUTES * 60)
         except KeyboardInterrupt:
-            print("\n[NERVE] Daemon stopped.")
+            logger.info("\n[NERVE] Daemon stopped.")
             break
 
 
@@ -464,39 +478,39 @@ def daemon_loop():
 def show_status():
     """Display NERVE operational status."""
     state = _load_state()
-    print(f"\n{'='*60}")
-    print(f"  NERVE — Operational Status")
-    print(f"{'='*60}")
-    print(f"  Cycles run: {state.get('cycles_run', 0)}")
-    print(f"  First started: {state.get('started_at', 'never')}")
-    print(f"  Last cycle: {state.get('last_cycle', 'never')}")
-    print(f"  Last status: {state.get('last_status', 'unknown')}")
+    logger.info(f"\n{'='*60}")
+    logger.info(f"  NERVE — Operational Status")
+    logger.info(f"{'='*60}")
+    logger.info(f"  Cycles run: {state.get('cycles_run', 0)}")
+    logger.info(f"  First started: {state.get('started_at', 'never')}")
+    logger.info(f"  Last cycle: {state.get('last_cycle', 'never')}")
+    logger.info(f"  Last status: {state.get('last_status', 'unknown')}")
 
     # Recent decisions
     summary = decision_summary(hours=24)
-    print(f"\n── Last 24h ──")
-    print(f"  Decisions: {summary['total_decisions']}")
-    print(f"  By actor: {summary['by_actor']}")
-    print(f"  Pending escalations: {summary['escalations_pending']}")
+    logger.info(f"\n── Last 24h ──")
+    logger.info(f"  Decisions: {summary['total_decisions']}")
+    logger.info(f"  By actor: {summary['by_actor']}")
+    logger.info(f"  Pending escalations: {summary['escalations_pending']}")
 
     # Pending escalations
     esc = get_escalations(unacknowledged_only=True)
     if esc:
-        print(f"\n── Pending Escalations ──")
+        logger.info(f"\n── Pending Escalations ──")
         for e in esc[-5:]:
-            print(f"  [{e['severity']}] {e['issue']} ({e['timestamp'][:16]})")
+            logger.info(f"  [{e['severity']}] {e['issue']} ({e['timestamp'][:16]})")
 
 
 def show_decisions(limit: int = 20):
     """Show recent autonomous decisions."""
     decisions = get_decisions(limit=limit)
-    print(f"\n{'='*60}")
-    print(f"  NERVE — Recent Decisions (last {limit})")
-    print(f"{'='*60}")
+    logger.info(f"\n{'='*60}")
+    logger.info(f"  NERVE — Recent Decisions (last {limit})")
+    logger.info(f"{'='*60}")
     for d in decisions:
         ts = d['timestamp'][:16]
-        print(f"  [{ts}] {d['actor']}: {d['action']}")
-        print(f"           {d['outcome']}")
+        logger.info(f"  [{ts}] {d['actor']}: {d['action']}")
+        logger.info(f"           {d['outcome']}")
 
 
 # ── CLI ────────────────────────────────────────────────────────
