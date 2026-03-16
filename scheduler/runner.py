@@ -1,6 +1,7 @@
 """Task scheduler — runs recurring tasks for retainer clients.
 
 Reads client profiles from /clients/*.json and dispatches tasks on schedule.
+For sales_outreach, pulls real prospect data from automation/prospects.csv.
 Designed to be run as a background process or via cron/Task Scheduler.
 
 Usage:
@@ -10,6 +11,7 @@ Usage:
 """
 
 import argparse
+import csv
 import json
 import sys
 import time
@@ -21,6 +23,43 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 CLIENTS_DIR = PROJECT_ROOT / "clients"
 SCHEDULE_DB = PROJECT_ROOT / "data" / "schedule_state.json"
+PROSPECTS_CSV = PROJECT_ROOT / "automation" / "prospects.csv"
+PROSPECT_STATE = PROJECT_ROOT / "data" / "prospect_queue_state.json"
+
+
+def _load_prospects() -> list[dict]:
+    """Load prospects from CSV. Returns list of dicts with company/role/contact data."""
+    if not PROSPECTS_CSV.exists():
+        return []
+    with open(PROSPECTS_CSV, encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def _get_next_prospects(count: int) -> list[dict]:
+    """Get the next N un-queued prospects, tracking position."""
+    prospects = _load_prospects()
+    if not prospects:
+        return []
+
+    # Load position state
+    state = {}
+    if PROSPECT_STATE.exists():
+        state = json.loads(PROSPECT_STATE.read_text(encoding="utf-8"))
+    offset = state.get("offset", 0)
+
+    # Get next batch (wrap around if we exhaust the list)
+    batch = []
+    for i in range(count):
+        idx = (offset + i) % len(prospects)
+        batch.append(prospects[idx])
+
+    # Save new offset
+    state["offset"] = (offset + count) % len(prospects)
+    state["last_queued"] = datetime.now(timezone.utc).isoformat()
+    PROSPECT_STATE.parent.mkdir(parents=True, exist_ok=True)
+    PROSPECT_STATE.write_text(json.dumps(state, indent=2), encoding="utf-8")
+
+    return batch
 
 
 def _load_state() -> dict:
@@ -129,15 +168,35 @@ def process_due_tasks(dry_run: bool = False) -> list[dict]:
 
         queue = TaskQueue()
         queued = 0
+        daily_target = task_info["daily_target"]
 
-        for _ in range(task_info["daily_target"]):
-            task_id = queue.enqueue(
-                task_type=task_info["task_type"],
-                inputs={"provider": task_info["provider"]},
-                client=cid,
-                provider=task_info["provider"],
-            )
-            queued += 1
+        # For sales_outreach, pull real prospect data
+        if task_info["task_type"] == "sales_outreach":
+            prospects = _get_next_prospects(daily_target)
+            for prospect in prospects:
+                task_id = queue.enqueue(
+                    task_type=task_info["task_type"],
+                    inputs={
+                        "company": prospect.get("company", ""),
+                        "role": prospect.get("role", ""),
+                        "contact_name": prospect.get("contact_name", ""),
+                        "contact_email": prospect.get("contact_email", ""),
+                        "vertical": prospect.get("vertical", ""),
+                        "provider": task_info["provider"] or "openai",
+                    },
+                    client=cid,
+                    provider=task_info["provider"] or "openai",
+                )
+                queued += 1
+        else:
+            for _ in range(daily_target):
+                task_id = queue.enqueue(
+                    task_type=task_info["task_type"],
+                    inputs={"provider": task_info["provider"] or "openai"},
+                    client=cid,
+                    provider=task_info["provider"] or "openai",
+                )
+                queued += 1
 
         # Update state
         month_key = now.strftime("%Y-%m")

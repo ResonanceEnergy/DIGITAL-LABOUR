@@ -276,7 +276,7 @@ def _reflect(response: str, system_prompt: str, user_message: str,
     )
 
     try:
-        return json.loads(raw)
+        return json.loads(raw, strict=False)
     except json.JSONDecodeError:
         return {"overall_score": 5.0, "pass": False,
                 "improvements": ["Could not parse reflection"], "critical_issues": []}
@@ -294,8 +294,8 @@ def _repair_json(raw: str) -> str:
     # Strip trailing commas before } or ]
     raw = re.sub(r',\s*([}\]])', r'\1', raw)
 
-    # Strip comments
-    raw = re.sub(r'//.*?$', '', raw, flags=re.MULTILINE)
+    # Remove non-whitespace control characters
+    raw = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', raw)
 
     return raw.strip()
 
@@ -306,7 +306,7 @@ def _extract_output(raw: str, config: SuperConfig) -> str:
         return raw
 
     try:
-        data = json.loads(_repair_json(raw))
+        data = json.loads(_repair_json(raw), strict=False)
         if isinstance(data, dict) and "reasoning" in data:
             # Log reasoning but don't include in final output
             reasoning = data.pop("reasoning", "")

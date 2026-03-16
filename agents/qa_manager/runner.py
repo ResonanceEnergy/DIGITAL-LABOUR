@@ -195,7 +195,8 @@ def verify_deliverable(
 
     raw = llm_call(prompt, user_msg, provider=provider,
                     temperature=0.2, json_mode=True)
-    verdict = QAVerdict.model_validate_json(raw)
+    data = json.loads(raw, strict=False)
+    verdict = QAVerdict.model_validate(data)
 
     # Enforce score thresholds
     if verdict.quality_score < 70:

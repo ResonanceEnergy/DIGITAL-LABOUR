@@ -91,7 +91,8 @@ def resolver_agent(ticket: str, kb: str = "", policies: str = "", provider: str 
     if policies:
         user_msg += f"\n\nPOLICIES:\n{policies}"
     raw = call_llm(prompt, user_msg, provider)
-    return SupportOutput.model_validate_json(raw)
+    data = json.loads(raw, strict=False)
+    return SupportOutput.model_validate(data)
 
 
 def qa_agent(ticket: str, output: SupportOutput, provider: str | None = None) -> QAResult:
@@ -102,7 +103,8 @@ def qa_agent(ticket: str, output: SupportOutput, provider: str | None = None) ->
         "agent_output": output.model_dump(),
     }, indent=2)
     raw = call_llm(prompt, user_msg, provider)
-    return QAResult.model_validate_json(raw)
+    data = json.loads(raw, strict=False)
+    return QAResult.model_validate(data)
 
 
 # ── Pipeline ────────────────────────────────────────────────────────────────

@@ -1,0 +1,70 @@
+{
+  "cycle": 20,
+  "started": "2026-03-16T17:32:15.078309+00:00",
+  "phases": {
+    "self_check": {
+      "status": "GREEN",
+      "issues": 0
+    },
+    "healing": {
+      "gaps_found": 2,
+      "healed": 2,
+      "escalated": 0
+    },
+    "prospects": {
+      "remaining": 1
+    },
+    "outreach": {
+      "generated": 1,
+      "qa_passed": 0,
+      "sent": 0
+    },
+    "followups": {
+      "sent": 0
+    },
+    "csuite": {
+      "actions": []
+    },
+    "health": {
+      "providers_up": 4,
+      "queue": {
+        "queued": 66,
+        "running": 10,
+        "completed": 0,
+        "failed": 0,
+        "total": 76
+      }
+    },
+    "revenue": {
+      "total": 60.0,
+      "new": 0
+    },
+    "autobidder": {
+      "bids_queued": 0
+    },
+    "delivery_check": {
+      "fiverr": "checked"
+    },
+    "openclaw_revenue": {
+      "sources": {
+        "stripe": {
+          "total": 60.0,
+          "new_charges": 0
+        },
+        "internal_billing": {
+          "total_revenue": 24.6,
+          "total_cost": 0.3,
+          "gross_margin": 24.3,
+          "total_tasks": 13
+        }
+      },
+      "total": 60.0,
+      "checked_at": "2026-03-16T17:32:57.194434+00:00"
+    }
+  },
+  "decisions_made": 5,
+  "issues_healed": 2,
+  "escalations": 0,
+  "finished": "2026-03-16T17:32:57.195444+00:00",
+  "elapsed_seconds": 42.1
+}

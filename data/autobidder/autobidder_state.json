@@ -1,0 +1,13 @@
+{
+  "total_bids": 0,
+  "total_spend": 0.0,
+  "daily_spend": 0.0,
+  "daily_bids": 0,
+  "daily_reset_date": "2026-03-16",
+  "consecutive_failures": 0,
+  "paused": false,
+  "pause_reason": null,
+  "seen_project_ids": [],
+  "scans_run": 1,
+  "last_scan": "2026-03-16T17:32:56.458352+00:00"
+}

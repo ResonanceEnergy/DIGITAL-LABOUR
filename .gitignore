@@ -5,3 +5,4 @@ __pycache__/
 *.pyo
 output/
 *.log
+data/agent_cache/

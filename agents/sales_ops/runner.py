@@ -25,7 +25,7 @@ load_dotenv(PROJECT_ROOT / ".env")
 
 sys.path.insert(0, str(PROJECT_ROOT))
 from utils.dl_agent import make_bridge
-llm_call = make_bridge("sales_ops")
+llm_call = make_bridge("sales_ops", chain_of_thought=False)
 
 
 # ── Models ──────────────────────────────────────────────────────────────────
@@ -90,7 +90,8 @@ def research_agent(company: str, role: str, provider: str | None = None) -> Lead
     prompt = load_prompt("research")
     user_msg = f"Company: {company}\nTarget Role: {role}"
     raw = call_llm(prompt, user_msg, provider)
-    return LeadEnrichment.model_validate_json(raw)
+    data = json.loads(raw, strict=False)
+    return LeadEnrichment.model_validate(data)
 
 
 def copy_agent(enrichment: LeadEnrichment, product: str, tone: str = "direct", provider: str | None = None) -> EmailSequence:
@@ -102,7 +103,8 @@ def copy_agent(enrichment: LeadEnrichment, product: str, tone: str = "direct", p
         "tone": tone,
     }, indent=2)
     raw = call_llm(prompt, user_msg, provider)
-    return EmailSequence.model_validate_json(raw)
+    data = json.loads(raw, strict=False)
+    return EmailSequence.model_validate(data)
 
 
 def qa_agent(enrichment: LeadEnrichment, emails: EmailSequence, provider: str | None = None) -> QAResult:
@@ -113,7 +115,8 @@ def qa_agent(enrichment: LeadEnrichment, emails: EmailSequence, provider: str | 
         "emails": emails.model_dump(),
     }, indent=2)
     raw = call_llm(prompt, user_msg, provider)
-    return QAResult.model_validate_json(raw)
+    data = json.loads(raw, strict=False)
+    return QAResult.model_validate(data)
 
 
 # ── Pipeline ────────────────────────────────────────────────────────────────

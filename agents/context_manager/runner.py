@@ -148,7 +148,8 @@ def enrich_task(task_type: str, client_id: str,
 
     raw = llm_call(prompt, user_msg, provider=provider,
                     temperature=0.3, json_mode=True)
-    enrichment = ContextEnrichment.model_validate_json(raw)
+    data = json.loads(raw, strict=False)
+    enrichment = ContextEnrichment.model_validate(data)
 
     # Update client profile
     now = datetime.now(timezone.utc).isoformat()
@@ -208,7 +209,8 @@ def coordinate_agents(task_type: str, client_id: str,
 
     raw = llm_call(prompt, user_msg, provider=provider,
                     temperature=0.3, json_mode=True)
-    enrichment = ContextEnrichment.model_validate_json(raw)
+    data = json.loads(raw, strict=False)
+    enrichment = ContextEnrichment.model_validate(data)
     _log_action("coordinate", client_id, task_type, enrichment)
     return enrichment
 

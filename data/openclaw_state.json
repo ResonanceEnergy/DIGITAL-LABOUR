@@ -1,0 +1,39 @@
+{
+  "cycles_run": 1,
+  "total_bids": 0,
+  "total_deliveries": 0,
+  "total_revenue_tracked": 0.0,
+  "last_cycle": "2026-03-16T17:15:02.982507+00:00",
+  "platform_stats": {
+    "freelancer": {
+      "bids": 0,
+      "wins": 0,
+      "delivered": 0,
+      "revenue": 0.0
+    },
+    "upwork": {
+      "bids": 0,
+      "wins": 0,
+      "delivered": 0,
+      "revenue": 0.0
+    },
+    "fiverr": {
+      "bids": 0,
+      "wins": 0,
+      "delivered": 0,
+      "revenue": 0.0
+    },
+    "pph": {
+      "bids": 0,
+      "wins": 0,
+      "delivered": 0,
+      "revenue": 0.0
+    },
+    "guru": {
+      "bids": 0,
+      "wins": 0,
+      "delivered": 0,
+      "revenue": 0.0
+    }
+  }
+}

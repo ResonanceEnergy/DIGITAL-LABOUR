@@ -138,6 +138,10 @@ rapid_app.include_router(monitor_router)
 from api.matrix_monitor import router as matrix_router
 rapid_app.include_router(matrix_router)
 
+# ── OpenClaw Freelance Automation Engine ───────────────────────────────
+from api.openclaw import router as openclaw_router
+rapid_app.include_router(openclaw_router)
+
 
 @rapid_app.get("/matrix", response_class=HTMLResponse)
 def matrix_dashboard():

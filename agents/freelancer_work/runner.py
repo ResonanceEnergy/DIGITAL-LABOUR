@@ -204,7 +204,8 @@ def generate_bid(project: FreelancerProject, matches: list[dict], provider: str 
     }, indent=2)
 
     raw = call_llm(prompt, user_msg, provider)
-    return BidOutput.model_validate_json(raw)
+    data = json.loads(raw, strict=False)
+    return BidOutput.model_validate(data)
 
 
 def qa_bid(project: FreelancerProject, bid: BidOutput, provider: str | None = None) -> QAResult:
@@ -223,7 +224,8 @@ def qa_bid(project: FreelancerProject, bid: BidOutput, provider: str | None = No
     }, indent=2)
 
     raw = call_llm(prompt, user_msg, provider)
-    return QAResult.model_validate_json(raw)
+    data = json.loads(raw, strict=False)
+    return QAResult.model_validate(data)
 
 
 def plan_delivery(project: FreelancerProject, matches: list[dict], provider: str | None = None) -> DeliveryPlan:
@@ -269,7 +271,8 @@ def generate_client_message(
     }, indent=2)
 
     raw = call_llm(prompt, user_msg, provider)
-    return ClientMessage.model_validate_json(raw)
+    data = json.loads(raw, strict=False)
+    return ClientMessage.model_validate(data)
 
 
 def execute_delivery_step(step: DeliveryStep, project: FreelancerProject) -> ExecutionResult:
