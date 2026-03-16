@@ -1,7 +1,7 @@
 ---
 name: digital-labour
 version: 1.0.0
-description: "29 AI agents for business automation - sales outreach, lead gen, content creation, SEO, ad copy, bookkeeping, proposals, market research, business plans, tech docs, data entry, web scraping, CRM ops, cross-platform freelancing automation (Upwork, Fiverr, Freelancer.com, PeoplePerHour, Guru), and more. 7 multi-agent pipelines with QA verification on every output. Powered by GPT-4o, Claude, Gemini, and Grok."
+description: "33 AI agents for business automation - sales outreach, lead gen, content creation, SEO, ad copy, bookkeeping, proposals, market research, business plans, tech docs, data entry, web scraping, CRM ops, cross-platform freelancing automation (Upwork, Fiverr, Freelancer.com, PeoplePerHour, Guru), and more. 7 multi-agent pipelines with QA verification on every output. Powered by GPT-4o, Claude, Gemini, and Grok."
 tags: [ai-agents, business-automation, sales, lead-generation, content-creation, seo, bookkeeping, proposals, market-research, freelancing, saas, api]
 author: Resonance Energy
 homepage: https://digital-labour-api-production.up.railway.app
@@ -20,9 +20,9 @@ metadata:
 compatibility: "Requires Python 3.6+ (stdlib only, no pip installs). Requires DIGITAL_LABOUR_API_URL environment variable (defaults to production API)."
 ---
 
-# ⚡ Digital Labour — 29 AI Agents for Business Automation
+# ⚡ Digital Labour — 33 AI Agents for Business Automation
 
-> **Your entire back-office, automated.** Run any of 29 specialized AI agents through plain English. Sales outreach, lead generation, content repurposing, SEO, ad copy, bookkeeping, proposals, market research, tech docs, cross-platform freelancing automation (Upwork, Fiverr, Freelancer.com, PeoplePerHour, Guru) — all with built-in QA verification.
+> **Your entire back-office, automated.** Run any of 33 specialized AI agents through plain English. Sales outreach, lead generation, content repurposing, SEO, ad copy, bookkeeping, proposals, market research, tech docs, cross-platform freelancing automation (Upwork, Fiverr, Freelancer.com, PeoplePerHour, Guru) — all with built-in QA verification.
 
 ## Quick Start
 

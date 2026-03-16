@@ -252,9 +252,75 @@ def run_cycle() -> dict:
         print(f"  [ERROR] Revenue check failed: {e}")
         cycle_report["phases"]["revenue"] = {"error": str(e)}
 
-    # ── Phase 8: FAIL Reprocessing (every 6 cycles) ────────────
+    # ── Phase 8: Freelancing Job Hunt (every 3 cycles) ────────
+    if cycle_num % 3 == 0:
+        print(f"\n[PHASE 8] Freelancing Job Hunt Cycle...")
+        try:
+            from automation.job_aggregator import aggregate, export_feed
+            feed = aggregate(max_age_hours=24)
+            unbid = [j for j in feed if not j.get("already_bid") and j.get("rank_score", 0) >= 0.25]
+            print(f"  Aggregated {len(feed)} jobs, {len(unbid)} unbid opportunities")
+            export_feed(feed, "")
+            log_decision(
+                actor="NERVE",
+                action="job_hunt_aggregate",
+                reasoning=f"Cycle #{cycle_num} — periodic job aggregation",
+                outcome=f"{len(feed)} total, {len(unbid)} actionable opportunities",
+            )
+            cycle_report["decisions_made"] += 1
+            cycle_report["phases"]["job_hunt"] = {
+                "total": len(feed),
+                "unbid": len(unbid),
+                "top_platforms": list(set(j["platform"] for j in feed[:10])),
+            }
+        except Exception as e:
+            print(f"  [ERROR] Job hunt aggregation failed: {e}")
+            cycle_report["phases"]["job_hunt"] = {"error": str(e)}
+
+    # ── Phase 9: Autobidder Scan (every 2 cycles) ─────────────
+    if cycle_num % 2 == 0:
+        print(f"\n[PHASE 9] Autobidder Scan...")
+        try:
+            from automation.autobidder import run_scan
+            scan_result = run_scan()
+            bids_made = scan_result.get("bids_queued", 0) if isinstance(scan_result, dict) else 0
+            print(f"  Autobidder: {bids_made} bids queued")
+            log_decision(
+                actor="NERVE",
+                action="autobidder_scan",
+                reasoning=f"Cycle #{cycle_num} — automated bid scanning",
+                outcome=f"{bids_made} bids queued for review",
+            )
+            cycle_report["decisions_made"] += 1
+            cycle_report["phases"]["autobidder"] = {"bids_queued": bids_made}
+        except Exception as e:
+            print(f"  [ERROR] Autobidder scan failed: {e}")
+            cycle_report["phases"]["autobidder"] = {"error": str(e)}
+
+    # ── Phase 10: Delivery Check (every 4 cycles) ─────────────
+    if cycle_num % 4 == 0:
+        print(f"\n[PHASE 10] Cross-Platform Delivery Check...")
+        delivery_summary = {}
+        # Check Fiverr orders
+        try:
+            from automation.fiverr_orders import show_status as fiverr_status
+            fiverr_status()
+            delivery_summary["fiverr"] = "checked"
+        except Exception as e:
+            delivery_summary["fiverr"] = f"error: {e}"
+        # Log
+        log_decision(
+            actor="NERVE",
+            action="delivery_check",
+            reasoning=f"Cycle #{cycle_num} — periodic delivery pipeline check",
+            outcome=f"Platforms checked: {list(delivery_summary.keys())}",
+        )
+        cycle_report["decisions_made"] += 1
+        cycle_report["phases"]["delivery_check"] = delivery_summary
+
+    # ── Phase 11: FAIL Reprocessing (every 6 cycles) ───────────
     if cycle_num % 6 == 0:
-        print(f"\n[PHASE 8] FAIL Reprocessing...")
+        print(f"\n[PHASE 11] FAIL Reprocessing...")
         try:
             from automation.reprocess import find_fail_files, reprocess
             fails = find_fail_files()

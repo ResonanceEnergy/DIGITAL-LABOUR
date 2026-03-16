@@ -197,6 +197,97 @@ def _load_scraped_projects(log_path: Path) -> list[dict]:
     return projects
 
 
+def poll_upwork_projects() -> list[dict]:
+    """Poll Upwork projects from browser-scraped job log."""
+    scraped_log = PROJECT_ROOT / "data" / "upwork_jobs" / "job_log.jsonl"
+    if not scraped_log.exists():
+        return []
+
+    projects = []
+    lines = scraped_log.read_text(encoding="utf-8").strip().split("\n")
+    cutoff = (datetime.now(timezone.utc) - timedelta(hours=24)).isoformat()
+
+    for line in lines:
+        if not line.strip():
+            continue
+        try:
+            p = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+
+        found_at = p.get("found_at", "")
+        if found_at < cutoff:
+            continue
+
+        projects.append({
+            "id": p.get("url", "").split("/")[-1] or p.get("title", "")[:40],
+            "title": p.get("title", ""),
+            "description": p.get("description", ""),
+            "budget_min": 0,
+            "budget_max": _parse_budget_str(p.get("budget", "")),
+            "currency": "USD",
+            "skills": p.get("skills", []),
+            "platform": "upwork",
+            "url": p.get("url", ""),
+        })
+    return projects
+
+
+def _parse_budget_str(budget_str: str) -> float:
+    """Extract numeric budget from string like '$250 - $750'."""
+    import re
+    nums = re.findall(r'[\d,]+\.?\d*', str(budget_str).replace(',', ''))
+    return float(nums[-1]) if nums else 0
+
+
+def poll_pph_projects() -> list[dict]:
+    """Poll PeoplePerHour projects from browser-scraped job log."""
+    scraped_log = PROJECT_ROOT / "data" / "pph_jobs" / "project_log.jsonl"
+    if not scraped_log.exists():
+        return []
+    return _load_generic_scraped(scraped_log, "pph")
+
+
+def poll_guru_projects() -> list[dict]:
+    """Poll Guru projects from browser-scraped job log."""
+    scraped_log = PROJECT_ROOT / "data" / "guru_jobs" / "project_log.jsonl"
+    if not scraped_log.exists():
+        return []
+    return _load_generic_scraped(scraped_log, "guru")
+
+
+def _load_generic_scraped(log_path: Path, platform: str) -> list[dict]:
+    """Load projects from any browser-scraped JSONL log."""
+    projects = []
+    lines = log_path.read_text(encoding="utf-8").strip().split("\n")
+    cutoff = (datetime.now(timezone.utc) - timedelta(hours=24)).isoformat()
+
+    for line in lines:
+        if not line.strip():
+            continue
+        try:
+            p = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+
+        scraped_at = p.get("scraped_at", p.get("found_at", ""))
+        if scraped_at < cutoff:
+            continue
+
+        projects.append({
+            "id": str(p.get("id", p.get("url", "").split("/")[-1] or p.get("title", "")[:40])),
+            "title": p.get("title", ""),
+            "description": p.get("description", ""),
+            "budget_min": p.get("budget_min", 0),
+            "budget_max": p.get("budget_max", 0),
+            "currency": p.get("currency", "USD"),
+            "skills": p.get("skills", []),
+            "platform": platform,
+            "url": p.get("url", ""),
+        })
+    return projects
+
+
 def poll_platform_projects(platform: str) -> list[dict]:
     """Poll any supported platform for new projects.
 
@@ -206,9 +297,9 @@ def poll_platform_projects(platform: str) -> list[dict]:
     """
     pollers = {
         "freelancer": poll_freelancer_projects,
-        # Future: "upwork": poll_upwork_projects,
-        # Future: "peopleperhour": poll_pph_projects,
-        # Future: "guru": poll_guru_projects,
+        "upwork": poll_upwork_projects,
+        "pph": poll_pph_projects,
+        "guru": poll_guru_projects,
     }
     poller = pollers.get(platform)
     if poller:
@@ -366,7 +457,7 @@ def run_scan(dry_run: bool = False) -> dict:
         return report
 
     # Poll all active platforms
-    platforms = ["freelancer"]  # Add more as APIs are wired
+    platforms = ["freelancer", "upwork", "pph", "guru"]
     all_projects = []
     for platform in platforms:
         try:
