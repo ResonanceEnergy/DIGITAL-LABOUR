@@ -375,6 +375,39 @@ def run_cycle() -> dict:
             logger.error(f"  [ERROR] OpenClaw revenue check failed: {e}")
             cycle_report["phases"]["openclaw_revenue"] = {"error": str(e)}
 
+    # ── Phase 13: Inbox Sales Response (every cycle) ──────────
+    logger.info(f"\n[PHASE 13] Inbox Sales Response (sales@bit-rage-labour.com)...")
+    try:
+        # First: pull fresh emails from IMAP
+        from automation.inbox_reader import process_inbox
+        inbox_result = process_inbox()
+        new_leads = inbox_result.get("leads", 0) + inbox_result.get("demos", 0)
+        logger.info(f"  Inbox: {inbox_result.get('processed', 0)} processed, {new_leads} new leads")
+
+        # Then: auto-respond to any unresponded leads
+        from openclaw.inbox_agent import process_new_leads
+        reply_result = process_new_leads(dry_run=False)
+        if reply_result["processed"] > 0:
+            logger.info(f"  Responses: {reply_result['sent']} sent, {reply_result['errors']} errors")
+            log_decision(
+                actor="NERVE",
+                action="inbox_response",
+                reasoning=f"Cycle #{cycle_num} — inbound lead auto-response",
+                outcome=f"{reply_result['processed']} drafted, {reply_result['sent']} sent",
+            )
+            cycle_report["decisions_made"] += 1
+        else:
+            logger.info(f"  No new leads pending response.")
+
+        cycle_report["phases"]["inbox"] = {
+            "emails_processed": inbox_result.get("processed", 0),
+            "new_leads": new_leads,
+            "responses_sent": reply_result["sent"],
+        }
+    except Exception as e:
+        logger.error(f"  [ERROR] Inbox processing failed: {e}")
+        cycle_report["phases"]["inbox"] = {"error": str(e)}
+
     # ── Finalize ───────────────────────────────────────────────
     cycle_report["finished"] = datetime.now(timezone.utc).isoformat()
     elapsed = (datetime.now(timezone.utc) - now).total_seconds()
