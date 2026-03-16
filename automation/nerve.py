@@ -342,6 +342,25 @@ def run_cycle() -> dict:
             print(f"  [ERROR] Reprocessing failed: {e}")
             cycle_report["phases"]["reprocess"] = {"error": str(e)}
 
+    # ── Phase 12: OpenClaw Revenue Reconciliation (every 4 cycles) ──
+    if cycle_num % 4 == 0:
+        print(f"\n[PHASE 12] OpenClaw Revenue Reconciliation...")
+        try:
+            from openclaw.engine import OpenClawEngine
+            oc = OpenClawEngine()
+            rev = oc.reconcile_revenue()
+            log_decision(
+                actor="NERVE",
+                action="openclaw_revenue",
+                reasoning=f"Cycle #{cycle_num} — periodic revenue reconciliation",
+                outcome=f"Total: ${rev.get('total', 0):.2f} across {len(rev.get('sources', {}))} sources",
+            )
+            cycle_report["decisions_made"] += 1
+            cycle_report["phases"]["openclaw_revenue"] = rev
+        except Exception as e:
+            print(f"  [ERROR] OpenClaw revenue check failed: {e}")
+            cycle_report["phases"]["openclaw_revenue"] = {"error": str(e)}
+
     # ── Finalize ───────────────────────────────────────────────
     cycle_report["finished"] = datetime.now(timezone.utc).isoformat()
     elapsed = (datetime.now(timezone.utc) - now).total_seconds()

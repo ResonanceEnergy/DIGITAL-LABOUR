@@ -1,0 +1,1 @@
+{"event_type": "ncl.sync.v1.alops.task_completed", "timestamp": "2026-03-16T16:05:52.026257+00:00", "source": "Digital-Labour", "pillar": "AGENCY", "data": {"event_id": "d1826dfe-8c65-402d-8b4b-aaf158dd8afe", "task_type": "sales_outreach", "client_id": "test-client", "qa_status": "PASS", "latency_ms": 0, "cost_usd": 0}}

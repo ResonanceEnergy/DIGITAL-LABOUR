@@ -53,6 +53,10 @@ PRICING = {
     # Platform automation & ops
     "ops_brief": {"per_task": 2.00, "currency": "USD"},
     "freelancer_work": {"per_task": 1.50, "currency": "USD"},
+    "upwork_work": {"per_task": 2.00, "currency": "USD"},
+    "fiverr_work": {"per_task": 1.50, "currency": "USD"},
+    "pph_work": {"per_task": 1.50, "currency": "USD"},
+    "guru_work": {"per_task": 1.50, "currency": "USD"},
 }
 
 # Retainer tiers (monthly)

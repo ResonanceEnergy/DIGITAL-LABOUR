@@ -30,6 +30,7 @@ from dispatcher.router import DAILY_LIMITS, create_event, route_task
 from api.monitor import router as monitor_router
 from api.payments import router as payment_router
 from api.matrix_monitor import router as matrix_router
+from api.openclaw import router as openclaw_router
 
 app = FastAPI(
     title="Digital Labour Intake API",
@@ -85,6 +86,9 @@ app.include_router(payment_router)
 
 # DIGITAL LABOUR MATRIX MONITOR — Mobile C2
 app.include_router(matrix_router)
+
+# OpenClaw Automation Engine
+app.include_router(openclaw_router)
 
 
 @app.get("/ops", response_class=HTMLResponse)

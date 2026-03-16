@@ -504,7 +504,7 @@
     "role": "VP of Sales",
     "contact_email": "colleen.knuff@amplitude.com",
     "follow_up_1_due": "2026-03-15T20:06:06.903303+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T20:06:06.903303+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Amplitude_800e61.json"
@@ -514,7 +514,7 @@
     "role": "Head of Sales",
     "contact_email": "erik.malin@flexport.com",
     "follow_up_1_due": "2026-03-15T20:06:13.636654+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T20:06:13.636654+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Flexport_6977a5.json"
@@ -524,7 +524,7 @@
     "role": "Director of Operations",
     "contact_email": "akhil.piplani@shipbob.com",
     "follow_up_1_due": "2026-03-15T20:06:25.605527+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T20:06:25.605527+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Shipbob_b9cbb7.json"
@@ -534,7 +534,7 @@
     "role": "VP of Business Development",
     "contact_email": "carlos.cashman@thrasio.com",
     "follow_up_1_due": "2026-03-15T20:06:32.951175+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T20:06:32.951175+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Thrasio_4b56a9.json"
@@ -544,7 +544,7 @@
     "role": "VP of Client Services",
     "contact_email": "rob.lenois@vaynermedia.com",
     "follow_up_1_due": "2026-03-15T20:06:40.487359+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T20:06:40.487359+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_VaynerMedia_74411b.json"
@@ -554,7 +554,7 @@
     "role": "Head of Growth",
     "contact_email": "michael@junglescout.com",
     "follow_up_1_due": "2026-03-15T22:34:09.697495+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T22:34:09.697495+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Jungle_Scout_5b4833.json"
@@ -564,7 +564,7 @@
     "role": "VP of Marketing",
     "contact_email": "sarah.jones@pattern.com",
     "follow_up_1_due": "2026-03-15T22:34:17.663303+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T22:34:17.663303+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Pattern_deb2e9.json"
@@ -574,7 +574,7 @@
     "role": "VP of Sales",
     "contact_email": "sam@planetscale.com",
     "follow_up_1_due": "2026-03-15T22:34:23.203631+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T22:34:23.203631+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_PlanetScale_8c5230.json"
@@ -584,7 +584,7 @@
     "role": "VP of Sales",
     "contact_email": "katrina.wong@segment.com",
     "follow_up_1_due": "2026-03-15T22:35:21.139077+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T22:35:21.139077+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Segment_1b607e.json"
@@ -594,7 +594,7 @@
     "role": "VP of Sales",
     "contact_email": "josh.broehl@stord.com",
     "follow_up_1_due": "2026-03-15T22:35:28.090845+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T22:35:28.090845+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Stord_dc6fee.json"

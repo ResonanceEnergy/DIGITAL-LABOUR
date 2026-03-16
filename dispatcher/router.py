@@ -54,6 +54,10 @@ DAILY_LIMITS = {
     "automation_manager": 30,
     # Platform automation
     "freelancer_work": 30,
+    "upwork_work": 30,
+    "fiverr_work": 30,
+    "pph_work": 30,
+    "guru_work": 30,
 }
 
 TOKEN_BUDGETS = {
@@ -85,6 +89,10 @@ TOKEN_BUDGETS = {
     "automation_manager": 15000,
     # Platform automation
     "freelancer_work": 30000,
+    "upwork_work": 30000,
+    "fiverr_work": 30000,
+    "pph_work": 30000,
+    "guru_work": 30000,
 }
 
 
@@ -482,6 +490,51 @@ def route_task(event: dict) -> dict:
                 project_data=inputs.get("project"),
                 provider=provider,
                 dry_run=inputs.get("dry_run", False),
+            )
+            if result:
+                event["outputs"] = result.model_dump() if hasattr(result, "model_dump") else result
+                event["qa"]["status"] = result.qa.status if result.qa else "PASS"
+
+        elif task_type == "upwork_work":
+            from agents.upwork_work.runner import run_pipeline as upwork_pipeline
+            result = upwork_pipeline(
+                action=inputs.get("action", "bid"),
+                job_data=inputs.get("job_data"),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump() if hasattr(result, "model_dump") else result
+                event["qa"]["status"] = result.qa.status if result.qa else "PASS"
+
+        elif task_type == "fiverr_work":
+            from agents.fiverr_work.runner import run_pipeline as fiverr_pipeline
+            result = fiverr_pipeline(
+                action=inputs.get("action", "deliver"),
+                order_data=inputs.get("order_data"),
+                request_data=inputs.get("request_data"),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump() if hasattr(result, "model_dump") else result
+                event["qa"]["status"] = result.qa.status if result.qa else "PASS"
+
+        elif task_type == "pph_work":
+            from agents.pph_work.runner import run_pipeline as pph_pipeline
+            result = pph_pipeline(
+                action=inputs.get("action", "propose"),
+                job_data=inputs.get("job_data"),
+                provider=provider,
+            )
+            if result:
+                event["outputs"] = result.model_dump() if hasattr(result, "model_dump") else result
+                event["qa"]["status"] = result.qa.status if result.qa else "PASS"
+
+        elif task_type == "guru_work":
+            from agents.guru_work.runner import run_pipeline as guru_pipeline
+            result = guru_pipeline(
+                action=inputs.get("action", "quote"),
+                job_data=inputs.get("job_data"),
+                provider=provider,
             )
             if result:
                 event["outputs"] = result.model_dump() if hasattr(result, "model_dump") else result
