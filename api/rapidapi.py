@@ -63,7 +63,7 @@ rapid_app.add_middleware(
     allow_origins=[
         "https://digital-labour.com",
         "https://www.digital-labour.com",
-        "https://digital-labour-api-production.up.railway.app",
+        "https://bitrage-labour-api-production.up.railway.app",
         "http://localhost:8000",
         "http://127.0.0.1:8000",
     ],
@@ -76,27 +76,44 @@ rapid_app.add_middleware(
 
 # ── Rate Limiting (in-memory sliding window) ─────────────────────
 _rate_buckets: dict[str, list[float]] = defaultdict(list)
-RATE_LIMIT = 60       # requests per window
+_bucket_last_seen: dict[str, float] = {}
+RATE_LIMIT = 100      # requests per window (PRD spec)
 RATE_WINDOW = 60.0    # seconds
+_BUCKET_STALE = 300.0  # purge IPs idle for 5 minutes
+_HEALTHCHECK_PATHS = {"/health", "/health/"}
 
 
 @rapid_app.middleware("http")
 async def rate_limit_middleware(request: Request, call_next):
-    """Simple IP-based rate limiting."""
+    """IP-based sliding-window rate limiting (100 req/min per IP)."""
+    # Skip rate limiting for internal healthcheck probes
+    if request.url.path in _HEALTHCHECK_PATHS:
+        return await call_next(request)
+
     client_ip = request.client.host if request.client else "unknown"
     now = time.time()
-    bucket = _rate_buckets[client_ip]
-    # Prune old entries
     cutoff = now - RATE_WINDOW
-    _rate_buckets[client_ip] = [t for t in bucket if t > cutoff]
+
+    # Prune old timestamps in-place
     bucket = _rate_buckets[client_ip]
+    bucket[:] = [t for t in bucket if t > cutoff]
+    _bucket_last_seen[client_ip] = now
+
     if len(bucket) >= RATE_LIMIT:
         return JSONResponse(
             status_code=429,
             content={"detail": "Rate limit exceeded. Try again later."},
-            headers={"Retry-After": str(int(RATE_WINDOW))}
+            headers={"Retry-After": str(int(RATE_WINDOW))},
         )
     bucket.append(now)
+
+    # Periodic cleanup: drop stale IPs (every ~100 requests)
+    if sum(len(v) for v in _rate_buckets.values()) % 100 == 0:
+        stale = [ip for ip, ts in _bucket_last_seen.items() if now - ts > _BUCKET_STALE]
+        for ip in stale:
+            _rate_buckets.pop(ip, None)
+            _bucket_last_seen.pop(ip, None)
+
     response = await call_next(request)
     response.headers["X-RateLimit-Limit"] = str(RATE_LIMIT)
     response.headers["X-RateLimit-Remaining"] = str(max(0, RATE_LIMIT - len(bucket)))

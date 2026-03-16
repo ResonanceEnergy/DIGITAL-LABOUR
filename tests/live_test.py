@@ -2,7 +2,7 @@
 import httpx
 import json
 
-BASE = "https://digital-labour-api-production.up.railway.app"
+BASE = "https://bitrage-labour-api-production.up.railway.app"
 
 # Test unified /v1/run with a support ticket
 print("Testing /v1/run with support_ticket agent...")

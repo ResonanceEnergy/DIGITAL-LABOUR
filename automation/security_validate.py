@@ -22,7 +22,7 @@ import urllib.error
 
 DOMAINS = [
     "digital-labour.com",
-    "digital-labour-api-production.up.railway.app",
+    "bitrage-labour-api-production.up.railway.app",
 ]
 
 REQUIRED_HEADERS = {

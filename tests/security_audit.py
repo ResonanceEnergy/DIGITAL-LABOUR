@@ -24,7 +24,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # ── Config ──
 WEBSITE = "https://digital-labour.com"
-API_BASE = "https://digital-labour-api-production.up.railway.app"
+API_BASE = "https://bitrage-labour-api-production.up.railway.app"
 DOMAIN = "digital-labour.com"
 
 FINDINGS = []

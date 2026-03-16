@@ -4,13 +4,13 @@ version: 1.0.0
 description: "33 AI agents for business automation - sales outreach, lead gen, content creation, SEO, ad copy, bookkeeping, proposals, market research, business plans, tech docs, data entry, web scraping, CRM ops, cross-platform freelancing automation (Upwork, Fiverr, Freelancer.com, PeoplePerHour, Guru), and more. 7 multi-agent pipelines with QA verification on every output. Powered by GPT-4o, Claude, Gemini, and Grok."
 tags: [ai-agents, business-automation, sales, lead-generation, content-creation, seo, bookkeeping, proposals, market-research, freelancing, saas, api]
 author: Resonance Energy
-homepage: https://digital-labour-api-production.up.railway.app
+homepage: https://bitrage-labour-api-production.up.railway.app
 metadata:
   author: Resonance Energy
   version: "1.0.0"
   openclaw:
     emoji: ⚡
-    homepage: "https://digital-labour-api-production.up.railway.app"
+    homepage: "https://bitrage-labour-api-production.up.railway.app"
     requires:
       env:
         - DIGITAL_LABOUR_API_URL
@@ -28,7 +28,7 @@ compatibility: "Requires Python 3.6+ (stdlib only, no pip installs). Requires DI
 
 Set your API URL (or use the default production endpoint):
 ```bash
-export DIGITAL_LABOUR_API_URL="https://digital-labour-api-production.up.railway.app"
+export DIGITAL_LABOUR_API_URL="https://bitrage-labour-api-production.up.railway.app"
 ```
 
 Test the connection:
@@ -197,7 +197,7 @@ Chain agents together for complex operations:
 
 ## API Details
 
-- **Base URL**: `https://digital-labour-api-production.up.railway.app`
+- **Base URL**: `https://bitrage-labour-api-production.up.railway.app`
 - **Universal Endpoint**: `POST /v1/run`
 - **Agent List**: `GET /agents`
 - **Health Check**: `GET /health`
@@ -209,7 +209,7 @@ Chain agents together for complex operations:
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `DIGITAL_LABOUR_API_URL` | Yes | `https://digital-labour-api-production.up.railway.app` | API base URL |
+| `DIGITAL_LABOUR_API_URL` | Yes | `https://bitrage-labour-api-production.up.railway.app` | API base URL |
 | `DIGITAL_LABOUR_API_KEY` | No | *(none)* | Optional API key for authenticated access |
 
 ## Important Notes

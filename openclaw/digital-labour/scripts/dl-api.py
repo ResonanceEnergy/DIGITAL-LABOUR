@@ -18,7 +18,7 @@ import urllib.request
 
 BASE_URL = os.environ.get(
     "DIGITAL_LABOUR_API_URL",
-    "https://digital-labour-api-production.up.railway.app",
+    "https://bitrage-labour-api-production.up.railway.app",
 ).rstrip("/")
 
 API_KEY = os.environ.get("DIGITAL_LABOUR_API_KEY", "")
