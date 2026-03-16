@@ -39,10 +39,13 @@ def system_health() -> dict:
     for db_name in ["task_queue.db", "kpi.db", "billing.db"]:
         checks[db_name] = (data_dir / db_name).exists()
 
-    # Check agent modules
-    for agent in ["sales_ops", "support", "content_repurpose", "doc_extract"]:
-        runner = PROJECT_ROOT / "agents" / agent / "runner.py"
-        checks[f"agent_{agent}"] = runner.exists()
+    # Check all agent modules (scan agents/ directory)
+    agents_dir = PROJECT_ROOT / "agents"
+    if agents_dir.exists():
+        for name in sorted(agents_dir.iterdir()):
+            if name.is_dir() and not name.name.startswith("_"):
+                runner = name / "runner.py"
+                checks[f"agent_{name.name}"] = runner.exists()
 
     # Check key directories
     for d in ["output", "kpi/logs", "clients"]:

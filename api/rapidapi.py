@@ -118,7 +118,8 @@ async def security_headers(request: Request, call_next):
         "max-age=31536000; includeSubDomains; preload"
     )
     response.headers["Content-Security-Policy"] = (
-        "default-src 'self'; script-src 'self' 'unsafe-inline'; "
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; "
         "style-src 'self' 'unsafe-inline'; "
         "img-src 'self' data:; font-src 'self'; connect-src 'self'; "
         "frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
@@ -128,6 +129,10 @@ async def security_headers(request: Request, call_next):
 # ── Mount the full intake API (all 24 agents via /tasks) ────────
 from api.intake import app as intake_app
 rapid_app.mount("/intake", intake_app)
+
+# ── Operations Monitor API (ops dashboard data endpoints) ──────────────
+from api.monitor import router as monitor_router
+rapid_app.include_router(monitor_router)
 
 # ── DIGITAL LABOUR MATRIX MONITOR (mobile C2 dashboard) ────────────────
 from api.matrix_monitor import router as matrix_router

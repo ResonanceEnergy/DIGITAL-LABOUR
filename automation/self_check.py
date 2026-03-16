@@ -381,7 +381,8 @@ def heal_issues(gaps: list[dict]) -> list[dict]:
                 q = TaskQueue()
                 # Process next batch from queue
                 processed = 0
-                for _ in range(min(queued, 10)):
+                backlog = q.stats().get("queued", 0)
+                for _ in range(min(backlog, 10)):
                     task = q.dequeue()
                     if task:
                         processed += 1

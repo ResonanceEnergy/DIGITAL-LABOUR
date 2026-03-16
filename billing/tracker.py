@@ -21,10 +21,38 @@ DB_PATH = PROJECT_ROOT / "data" / "billing.db"
 
 # Pricing per task type (what we charge the client, not our LLM cost)
 PRICING = {
+    # Core revenue agents
     "sales_outreach": {"per_task": 2.40, "currency": "USD"},
     "support_ticket": {"per_task": 1.00, "currency": "USD"},
     "content_repurpose": {"per_task": 3.00, "currency": "USD"},
     "doc_extract": {"per_task": 1.50, "currency": "USD"},
+    # Lead gen & marketing
+    "lead_gen": {"per_task": 2.00, "currency": "USD"},
+    "email_marketing": {"per_task": 2.00, "currency": "USD"},
+    "seo_content": {"per_task": 4.00, "currency": "USD"},
+    "social_media": {"per_task": 1.50, "currency": "USD"},
+    "ad_copy": {"per_task": 2.00, "currency": "USD"},
+    "market_research": {"per_task": 5.00, "currency": "USD"},
+    # Operations
+    "data_entry": {"per_task": 0.80, "currency": "USD"},
+    "web_scraper": {"per_task": 1.00, "currency": "USD"},
+    "crm_ops": {"per_task": 1.20, "currency": "USD"},
+    "bookkeeping": {"per_task": 2.00, "currency": "USD"},
+    # Professional services
+    "proposal_writer": {"per_task": 5.00, "currency": "USD"},
+    "product_desc": {"per_task": 1.50, "currency": "USD"},
+    "resume_writer": {"per_task": 3.00, "currency": "USD"},
+    "business_plan": {"per_task": 8.00, "currency": "USD"},
+    "press_release": {"per_task": 4.00, "currency": "USD"},
+    "tech_docs": {"per_task": 3.50, "currency": "USD"},
+    # Management (internal — lower pricing)
+    "context_manager": {"per_task": 0.50, "currency": "USD"},
+    "qa_manager": {"per_task": 0.50, "currency": "USD"},
+    "production_manager": {"per_task": 0.50, "currency": "USD"},
+    "automation_manager": {"per_task": 0.50, "currency": "USD"},
+    # Platform automation & ops
+    "ops_brief": {"per_task": 2.00, "currency": "USD"},
+    "freelancer_work": {"per_task": 1.50, "currency": "USD"},
 }
 
 # Retainer tiers (monthly)

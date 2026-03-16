@@ -531,6 +531,22 @@ def route_task(event: dict) -> dict:
     except Exception:
         pass  # Never let relay hooks break task delivery
 
+    # ── BILLING — record usage and calculate charge ──
+    if event["qa"]["status"] == "PASS":
+        try:
+            from billing.tracker import BillingTracker
+            bt = BillingTracker()
+            billing_result = bt.record_and_bill(
+                client=event.get("client_id", "direct"),
+                task_type=task_type,
+                task_id=event.get("event_id", ""),
+                llm_cost=event.get("metrics", {}).get("cost_estimate", 0.0),
+            )
+            event["billing"]["amount"] = billing_result.get("charge", 0.0)
+            event["billing"]["status"] = "billed"
+        except Exception:
+            pass  # Never let billing failures break task delivery
+
     return event
 
 

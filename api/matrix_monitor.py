@@ -122,8 +122,11 @@ def sitrep(_auth=Depends(verify_matrix_auth)):
     # Inbox
     inbox = _inbox_status()
 
-    # Recent decisions
+    # Recent decisions (C2 + NERVE autonomous)
     decisions = _recent_decisions(5)
+
+    # NERVE autonomous decisions (from JSONL audit trail)
+    nerve_decisions = _nerve_decisions(5)
 
     # Alerts pending
     alerts = _pending_alerts()
@@ -143,6 +146,7 @@ def sitrep(_auth=Depends(verify_matrix_auth)):
         "inbox": inbox,
         "fleet": fleet,
         "recent_decisions": decisions,
+        "nerve_decisions": nerve_decisions,
         "alerts_pending": alerts,
     }
 
@@ -261,7 +265,11 @@ def _overall_status(daemons, health, queue) -> str:
     """RED / AMBER / GREEN overall status."""
     # Remote daemons (on Railway) are assumed alive — can't verify from here
     dead_daemons = sum(1 for d in daemons if not d["alive"] and d.get("location") != "remote")
-    failed_checks = sum(1 for c in health.get("checks", []) if not c.get("ok"))
+    # health is a flat dict of check_name → bool/value; count False values
+    failed_checks = sum(
+        1 for k, v in health.items()
+        if isinstance(v, bool) and not v
+    )
     failed_tasks = queue.get("failed", 0)
 
     if dead_daemons >= 3 or failed_checks >= 3:
@@ -269,6 +277,23 @@ def _overall_status(daemons, health, queue) -> str:
     elif dead_daemons >= 1 or failed_checks >= 1 or failed_tasks > 5:
         return "AMBER"
     return "GREEN"
+
+
+def _nerve_decisions(limit: int = 10) -> list[dict]:
+    """Load recent NERVE autonomous decisions from JSONL audit trail."""
+    nerve_log = PROJECT_ROOT / "data" / "nerve_logs" / "decisions.jsonl"
+    if not nerve_log.exists():
+        return []
+    try:
+        entries = []
+        with open(nerve_log, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    entries.append(json.loads(line))
+        return entries[-limit:]
+    except Exception:
+        return []
 
 
 def _outreach_status() -> dict:
@@ -416,11 +441,12 @@ def _kill_daemons(cmd: C2Command) -> dict:
     killed = []
     if DAEMON_PIDS.exists():
         pids = json.loads(DAEMON_PIDS.read_text(encoding="utf-8"))
-        for name, pid in pids.items():
+        for name, info in pids.items():
+            pid = info["pid"] if isinstance(info, dict) else info
             try:
                 os.kill(pid, signal.SIGTERM)
                 killed.append(name)
-            except (ProcessLookupError, PermissionError, OSError):
+            except (ProcessLookupError, PermissionError, OSError, TypeError):
                 pass
     return {"status": "killed", "daemons": killed}
 
