@@ -357,16 +357,72 @@ def generate_bid(project: dict, match: dict) -> dict:
 def submit_bid(bid: dict) -> dict:
     """Submit a bid to the platform API.
 
-    TODO: Replace with real API call:
-        POST https://www.freelancer.com/api/projects/0.1/bids/
-        Body: {project_id, bidder_id, amount, period, milestone_percentage, description}
+    Routes to platform-specific submission based on bid['platform'].
+    Falls back to queued status if API credentials are missing.
 
     Returns updated bid dict with submission result.
     """
-    # Placeholder — logs bid as "queued" until API is wired
-    bid["status"] = "queued"
-    bid["submitted_at"] = datetime.now(timezone.utc).isoformat()
-    bid["submission_note"] = "API not yet connected — bid queued for manual submission"
+    import os
+    import urllib.request
+    import urllib.error
+
+    platform = bid.get("platform", "freelancer")
+    now = datetime.now(timezone.utc).isoformat()
+
+    if platform == "freelancer":
+        token = os.getenv("FREELANCER_API_TOKEN", "")
+        if not token:
+            bid["status"] = "queued"
+            bid["submitted_at"] = now
+            bid["submission_note"] = "FREELANCER_API_TOKEN not set — bid queued for manual submission"
+            return bid
+
+        payload = json.dumps({
+            "project_id": int(bid.get("project_id", 0)),
+            "amount": bid.get("bid_amount_usd", 0),
+            "period": 7,
+            "milestone_percentage": 100,
+            "description": bid.get("body", ""),
+        }).encode("utf-8")
+
+        req = urllib.request.Request(
+            "https://www.freelancer.com/api/projects/0.1/bids/",
+            data=payload,
+            method="POST",
+            headers={
+                "freelancer-oauth-v1": token,
+                "Content-Type": "application/json",
+            },
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                result = json.loads(resp.read().decode("utf-8"))
+            if result.get("status") == "success":
+                bid["status"] = "submitted"
+                bid["submitted_at"] = now
+                bid["api_response_id"] = result.get("result", {}).get("id", "")
+                bid["submission_note"] = "Submitted via Freelancer API"
+            else:
+                bid["status"] = "api_error"
+                bid["submitted_at"] = now
+                bid["submission_note"] = f"API returned: {result.get('message', 'unknown error')}"
+        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
+            bid["status"] = "api_error"
+            bid["submitted_at"] = now
+            bid["submission_note"] = f"API call failed: {e}"
+
+    elif platform == "upwork":
+        # Upwork API requires OAuth2 — queue for manual submission
+        bid["status"] = "queued"
+        bid["submitted_at"] = now
+        bid["submission_note"] = "Upwork requires OAuth2 flow — bid queued for manual submission"
+
+    else:
+        # PPH, Guru, etc. — no API, queue for manual
+        bid["status"] = "queued"
+        bid["submitted_at"] = now
+        bid["submission_note"] = f"No API integration for {platform} — bid queued for manual submission"
+
     return bid
 
 

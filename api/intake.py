@@ -31,6 +31,7 @@ from api.monitor import router as monitor_router
 from api.payments import router as payment_router
 from api.matrix_monitor import router as matrix_router
 from api.openclaw import router as openclaw_router
+from api.lead_magnet import router as lead_router
 
 app = FastAPI(
     title="Digital Labour Intake API",
@@ -89,6 +90,9 @@ app.include_router(matrix_router)
 
 # OpenClaw Automation Engine
 app.include_router(openclaw_router)
+
+# Lead Magnet — Inbound lead capture + free demo
+app.include_router(lead_router)
 
 
 @app.get("/ops", response_class=HTMLResponse)
