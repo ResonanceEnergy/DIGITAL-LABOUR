@@ -134,6 +134,15 @@ def sitrep(_auth=Depends(verify_matrix_auth)):
     # Agent fleet status
     fleet = _fleet_status()
 
+    # Watchdog status
+    watchdog = _watchdog_live_status()
+
+    # OpenClaw status
+    openclaw = _openclaw_status()
+
+    # C-Suite last verdicts
+    csuite = _csuite_status()
+
     return {
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "status": _overall_status(daemons, health, queue),
@@ -145,6 +154,9 @@ def sitrep(_auth=Depends(verify_matrix_auth)):
         "outreach": outreach,
         "inbox": inbox,
         "fleet": fleet,
+        "watchdog": watchdog,
+        "openclaw": openclaw,
+        "csuite": csuite,
         "recent_decisions": decisions,
         "nerve_decisions": nerve_decisions,
         "alerts_pending": alerts,
@@ -169,6 +181,20 @@ def execute_command(cmd: C2Command, _auth=Depends(verify_matrix_auth)):
         "check_inbox": _check_inbox,
         "run_proposals": _run_proposals,
         "system_check": _system_check,
+        "watchdog_status": _watchdog_status,
+        "watchdog_stop": _watchdog_stop,
+        "watchdog_start": _watchdog_start,
+        "nerve_status": _nerve_status,
+        "revenue_summary": _revenue_summary,
+        "daily_cycle": _daily_cycle,
+        "openclaw_cycle": _openclaw_cycle,
+        "openclaw_scan": _openclaw_scan,
+        "openclaw_inbox": _openclaw_inbox,
+        "boardroom_quick": _boardroom_quick,
+        "outreach_push": _outreach_push,
+        "upwork_hunt": _upwork_hunt,
+        "unit_economics": _unit_economics,
+        "full_status": _full_status,
     }
 
     handler = actions.get(cmd.action)
@@ -360,6 +386,87 @@ def _fleet_status() -> list[dict]:
     return fleet
 
 
+def _watchdog_live_status() -> dict:
+    """Live watchdog status for sitrep."""
+    status_file = DATA_DIR / "watchdog_status.json"
+    nerve_state = DATA_DIR / "nerve_state.json"
+    result = {"running": False, "nerve_alive": False, "restarts_last_hour": 0}
+
+    if status_file.exists():
+        try:
+            ws = json.loads(status_file.read_text(encoding="utf-8"))
+            result["running"] = True
+            result["watchdog_pid"] = ws.get("watchdog_pid")
+            result["nerve_pid"] = ws.get("nerve_pid")
+            result["nerve_alive"] = ws.get("nerve_alive", False)
+            result["uptime_hours"] = ws.get("uptime_hours", 0)
+            result["restarts_last_hour"] = ws.get("restarts_last_hour", 0)
+        except Exception:
+            pass
+
+    if nerve_state.exists():
+        try:
+            ns = json.loads(nerve_state.read_text(encoding="utf-8"))
+            result["nerve_cycles"] = ns.get("cycles_run", 0)
+            last = ns.get("last_cycle", "")
+            if last:
+                age = (datetime.now(timezone.utc) - datetime.fromisoformat(last)).total_seconds() / 60
+                result["nerve_last_cycle_min"] = round(age, 1)
+                result["nerve_stale"] = age > 90
+        except Exception:
+            pass
+
+    return result
+
+
+def _openclaw_status() -> dict:
+    """OpenClaw engine status for sitrep."""
+    state_file = DATA_DIR / "openclaws_state.json"
+    result = {"active": False, "cycles": 0}
+
+    if state_file.exists():
+        try:
+            state = json.loads(state_file.read_text(encoding="utf-8"))
+            result["active"] = True
+            result["cycles"] = state.get("cycles_run", 0)
+            result["last_cycle"] = state.get("last_cycle", "")
+            result["platforms"] = state.get("platforms", [])
+        except Exception:
+            pass
+
+    # Check for job data
+    for platform in ["upwork_jobs", "fiverr_orders", "freelancer_jobs"]:
+        pdir = DATA_DIR / platform
+        if pdir.is_dir():
+            result[platform] = len(list(pdir.glob("*.json")))
+
+    return result
+
+
+def _csuite_status() -> dict:
+    """C-Suite last verdicts for sitrep."""
+    sched_file = DATA_DIR / "csuite_schedule.json"
+    result = {"last_meeting": "", "executives": []}
+
+    if sched_file.exists():
+        try:
+            sched = json.loads(sched_file.read_text(encoding="utf-8"))
+            result["last_meeting"] = sched.get("last_meeting", "")
+            result["next_meeting"] = sched.get("next_meeting", "")
+            for exec_name in ["axiom", "vectis", "ledgr"]:
+                exec_data = sched.get(exec_name, {})
+                if exec_data:
+                    result["executives"].append({
+                        "name": exec_name.upper(),
+                        "last_run": exec_data.get("last_run", ""),
+                        "verdict": exec_data.get("verdict", ""),
+                    })
+        except Exception:
+            pass
+
+    return result
+
+
 def _recent_decisions(limit: int = 10) -> list[dict]:
     """Load recent C2 decisions."""
     if not DECISION_LOG.exists():
@@ -542,6 +649,204 @@ def _system_check(cmd: C2Command) -> dict:
             timeout=120,
         )
         return {"status": "completed", "output": result.stdout[:1000]}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _watchdog_status(cmd: C2Command) -> dict:
+    """Get watchdog + NERVE subprocess status."""
+    status_file = DATA_DIR / "watchdog_status.json"
+    if status_file.exists():
+        try:
+            return json.loads(status_file.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return {"status": "unknown", "message": "watchdog_status.json not found"}
+
+
+def _watchdog_stop(cmd: C2Command) -> dict:
+    """Signal the watchdog to stop gracefully."""
+    stop_flag = DATA_DIR / "watchdog_stop.flag"
+    stop_flag.parent.mkdir(parents=True, exist_ok=True)
+    stop_flag.write_text(datetime.now(timezone.utc).isoformat(), encoding="utf-8")
+    return {"status": "stop_signal_sent", "flag": str(stop_flag)}
+
+
+def _watchdog_start(cmd: C2Command) -> dict:
+    """Start the watchdog (which starts NERVE)."""
+    # Remove stop flag if present
+    stop_flag = DATA_DIR / "watchdog_stop.flag"
+    if stop_flag.exists():
+        stop_flag.unlink()
+    try:
+        if sys.platform == "win32":
+            proc = subprocess.Popen(
+                [sys.executable, "-m", "automation.watchdog"],
+                cwd=str(PROJECT_ROOT),
+                creationflags=subprocess.CREATE_NEW_PROCESS_GROUP | subprocess.DETACHED_PROCESS,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
+        else:
+            proc = subprocess.Popen(
+                [sys.executable, "-m", "automation.watchdog"],
+                cwd=str(PROJECT_ROOT),
+                start_new_session=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
+        return {"status": "started", "pid": proc.pid}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _nerve_status(cmd: C2Command) -> dict:
+    """Get NERVE daemon status from state file."""
+    nerve_state = DATA_DIR / "nerve_state.json"
+    if nerve_state.exists():
+        try:
+            state = json.loads(nerve_state.read_text(encoding="utf-8"))
+            # Check staleness
+            last = state.get("last_cycle", "")
+            if last:
+                last_dt = datetime.fromisoformat(last)
+                age_min = (datetime.now(timezone.utc) - last_dt).total_seconds() / 60
+                state["minutes_since_cycle"] = round(age_min, 1)
+                state["stale"] = age_min > 90
+            return state
+        except Exception:
+            pass
+    return {"status": "unknown", "message": "nerve_state.json not found"}
+
+
+def _revenue_summary(cmd: C2Command) -> dict:
+    """Run revenue daemon summary."""
+    try:
+        result = subprocess.run(
+            [sys.executable, "-m", "automation.revenue_daemon", "--summary"],
+            cwd=str(PROJECT_ROOT),
+            capture_output=True, text=True, timeout=30,
+        )
+        return {"status": "ok", "output": result.stdout[:1000]}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _daily_cycle(cmd: C2Command) -> dict:
+    """Trigger orchestrator daily outreach cycle."""
+    try:
+        proc = subprocess.Popen(
+            [sys.executable, "-m", "automation.orchestrator", "--daily"],
+            cwd=str(PROJECT_ROOT),
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        )
+        # Don't wait — this can take minutes
+        return {"status": "launched", "pid": proc.pid}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _openclaw_cycle(cmd: C2Command) -> dict:
+    """Run OpenClaw freelance automation cycle."""
+    try:
+        proc = subprocess.Popen(
+            [sys.executable, "-m", "openclaw.engine"],
+            cwd=str(PROJECT_ROOT),
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        )
+        return {"status": "launched", "pid": proc.pid}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _openclaw_scan(cmd: C2Command) -> dict:
+    """OpenClaw scan-only (aggregate + score, no bidding)."""
+    try:
+        result = subprocess.run(
+            [sys.executable, "-m", "openclaw.engine", "--scan-only"],
+            cwd=str(PROJECT_ROOT),
+            capture_output=True, text=True, timeout=60,
+        )
+        return {"status": "ok", "output": result.stdout[:1000]}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _openclaw_inbox(cmd: C2Command) -> dict:
+    """Check OpenClaw inbox for new leads."""
+    try:
+        result = subprocess.run(
+            [sys.executable, "-m", "openclaw.inbox_agent", "--check"],
+            cwd=str(PROJECT_ROOT),
+            capture_output=True, text=True, timeout=30,
+        )
+        return {"status": "ok", "output": result.stdout[:500]}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _boardroom_quick(cmd: C2Command) -> dict:
+    """Run C-Suite quick standup."""
+    try:
+        proc = subprocess.Popen(
+            [sys.executable, "c_suite/boardroom.py", "--quick"],
+            cwd=str(PROJECT_ROOT),
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        )
+        return {"status": "launched", "pid": proc.pid}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _outreach_push(cmd: C2Command) -> dict:
+    """50-message outreach blast."""
+    try:
+        proc = subprocess.Popen(
+            [sys.executable, "-m", "automation.outreach_push", "--count", "50"],
+            cwd=str(PROJECT_ROOT),
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        )
+        return {"status": "launched", "pid": proc.pid}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _upwork_hunt(cmd: C2Command) -> dict:
+    """Upwork job hunt — search and score."""
+    search_term = cmd.target or "ai agent"
+    try:
+        result = subprocess.run(
+            [sys.executable, "-m", "automation.upwork_jobhunt", "--search", search_term, "--dry-run"],
+            cwd=str(PROJECT_ROOT),
+            capture_output=True, text=True, timeout=60,
+        )
+        return {"status": "ok", "output": result.stdout[:1000]}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _unit_economics(cmd: C2Command) -> dict:
+    """Run unit economics report."""
+    try:
+        result = subprocess.run(
+            [sys.executable, "-m", "kpi.unit_economics"],
+            cwd=str(PROJECT_ROOT),
+            capture_output=True, text=True, timeout=30,
+        )
+        return {"status": "ok", "output": result.stdout[:1500]}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _full_status(cmd: C2Command) -> dict:
+    """Full system status via launch.py."""
+    try:
+        result = subprocess.run(
+            [sys.executable, "launch.py", "--status"],
+            cwd=str(PROJECT_ROOT),
+            capture_output=True, text=True, timeout=30,
+        )
+        return {"status": "ok", "output": result.stdout[:1500]}
     except Exception as e:
         return {"status": "error", "message": str(e)}
 

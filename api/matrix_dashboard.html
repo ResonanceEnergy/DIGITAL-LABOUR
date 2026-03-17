@@ -294,7 +294,7 @@ body {
 .toast.show { opacity: 1; }
 
 /* ── Bottom spacer for fixed C2 bar ── */
-.spacer { height: 100px; }
+.spacer { height: 240px; }
 
 /* ── Loading ── */
 .loading {
@@ -441,6 +441,37 @@ body {
   </div>
 </div>
 
+<!-- Watchdog & NERVE -->
+<div class="section" id="sec-watchdog">
+  <div class="section-header" onclick="toggleSection('sec-watchdog')">
+    <span class="section-title">Watchdog &amp; NERVE</span>
+    <span class="section-badge" id="watchdog-badge">--</span>
+  </div>
+  <div class="section-body">
+    <div class="outreach-row" id="watchdog-stats"></div>
+  </div>
+</div>
+
+<!-- OpenClaw Freelance -->
+<div class="section" id="sec-openclaw">
+  <div class="section-header" onclick="toggleSection('sec-openclaw')">
+    <span class="section-title">OpenClaw</span>
+    <span class="section-badge" id="openclaw-badge">--</span>
+  </div>
+  <div class="section-body">
+    <div class="outreach-row" id="openclaw-stats"></div>
+  </div>
+</div>
+
+<!-- C-Suite -->
+<div class="section" id="sec-csuite">
+  <div class="section-header" onclick="toggleSection('sec-csuite')">
+    <span class="section-title">C-Suite</span>
+    <span class="section-badge" id="csuite-badge">--</span>
+  </div>
+  <div class="section-body" id="csuite-body"></div>
+</div>
+
 <!-- Agent Fleet -->
 <div class="section collapsed" id="sec-fleet">
   <div class="section-header" onclick="toggleSection('sec-fleet')">
@@ -485,7 +516,7 @@ body {
 
 <!-- C2 Command Bar -->
 <div class="c2-bar">
-  <div class="c2-actions">
+  <div class="c2-actions" style="grid-template-columns:repeat(4,1fr);max-height:220px;overflow-y:auto">
     <div class="c2-btn" onclick="c2('restart_daemons')">
       <div class="c2-icon">&#9889;</div>
       <div class="c2-label">Restart</div>
@@ -501,6 +532,54 @@ body {
     <div class="c2-btn" onclick="c2('system_check')">
       <div class="c2-icon">&#128269;</div>
       <div class="c2-label">Sys Check</div>
+    </div>
+    <div class="c2-btn" onclick="c2('watchdog_status')">
+      <div class="c2-icon">&#128021;</div>
+      <div class="c2-label">Watchdog</div>
+    </div>
+    <div class="c2-btn" onclick="c2('nerve_status')">
+      <div class="c2-icon">&#129504;</div>
+      <div class="c2-label">NERVE</div>
+    </div>
+    <div class="c2-btn" onclick="c2('daily_cycle')">
+      <div class="c2-icon">&#128260;</div>
+      <div class="c2-label">Daily</div>
+    </div>
+    <div class="c2-btn" onclick="c2('revenue_summary')">
+      <div class="c2-icon">&#128176;</div>
+      <div class="c2-label">Revenue</div>
+    </div>
+    <div class="c2-btn" onclick="c2('openclaw_cycle')">
+      <div class="c2-icon">&#129430;</div>
+      <div class="c2-label">OpenClaw</div>
+    </div>
+    <div class="c2-btn" onclick="c2('openclaw_scan')">
+      <div class="c2-icon">&#128301;</div>
+      <div class="c2-label">Scan Jobs</div>
+    </div>
+    <div class="c2-btn" onclick="c2('boardroom_quick')">
+      <div class="c2-icon">&#127981;</div>
+      <div class="c2-label">C-Suite</div>
+    </div>
+    <div class="c2-btn" onclick="c2('outreach_push')">
+      <div class="c2-icon">&#128640;</div>
+      <div class="c2-label">Blitz 50</div>
+    </div>
+    <div class="c2-btn" onclick="c2('upwork_hunt')">
+      <div class="c2-icon">&#128270;</div>
+      <div class="c2-label">Upwork</div>
+    </div>
+    <div class="c2-btn" onclick="c2('unit_economics')">
+      <div class="c2-icon">&#128200;</div>
+      <div class="c2-label">Economics</div>
+    </div>
+    <div class="c2-btn" onclick="c2('full_status')">
+      <div class="c2-icon">&#128202;</div>
+      <div class="c2-label">Full Status</div>
+    </div>
+    <div class="c2-btn" onclick="c2('run_proposals')">
+      <div class="c2-icon">&#128213;</div>
+      <div class="c2-label">Proposals</div>
     </div>
   </div>
 </div>
@@ -621,6 +700,48 @@ function render(d) {
     <div class="stat-block"><div class="stat-val">${o.prospects_remaining || 0}</div><div class="stat-label">Prospects</div></div>
   `;
 
+  // Watchdog & NERVE
+  const w = d.watchdog || {};
+  const wRunning = w.running ? 'ON' : 'OFF';
+  const wColor = w.running ? 'var(--green)' : 'var(--red)';
+  const nStale = w.nerve_stale ? ' (STALE)' : '';
+  document.getElementById('watchdog-badge').textContent = wRunning;
+  document.getElementById('watchdog-badge').style.color = wColor;
+  document.getElementById('watchdog-stats').innerHTML = `
+    <div class="stat-block"><div class="stat-val" style="color:${wColor}">${wRunning}</div><div class="stat-label">Watchdog</div></div>
+    <div class="stat-block"><div class="stat-val" style="color:${w.nerve_alive?'var(--green)':'var(--red)'}">${w.nerve_alive?'ALIVE':'DOWN'}</div><div class="stat-label">NERVE</div></div>
+    <div class="stat-block"><div class="stat-val">${w.nerve_cycles||0}</div><div class="stat-label">Cycles</div></div>
+    <div class="stat-block"><div class="stat-val">${w.nerve_last_cycle_min != null ? w.nerve_last_cycle_min+'m' : '--'}${nStale}</div><div class="stat-label">Last Cycle</div></div>
+    <div class="stat-block"><div class="stat-val">${w.restarts_last_hour||0}</div><div class="stat-label">Restarts/hr</div></div>
+    <div class="stat-block"><div class="stat-val">${(w.uptime_hours||0).toFixed(1)}h</div><div class="stat-label">Uptime</div></div>
+  `;
+
+  // OpenClaw
+  const oc = d.openclaw || {};
+  document.getElementById('openclaw-badge').textContent = oc.active ? oc.cycles + ' cycles' : 'IDLE';
+  document.getElementById('openclaw-stats').innerHTML = `
+    <div class="stat-block"><div class="stat-val">${oc.cycles||0}</div><div class="stat-label">Cycles</div></div>
+    <div class="stat-block"><div class="stat-val">${oc.upwork_jobs||0}</div><div class="stat-label">Upwork</div></div>
+    <div class="stat-block"><div class="stat-val">${oc.fiverr_orders||0}</div><div class="stat-label">Fiverr</div></div>
+    <div class="stat-block"><div class="stat-val">${oc.freelancer_jobs||0}</div><div class="stat-label">Freelancer</div></div>
+  `;
+
+  // C-Suite
+  const cs = d.csuite || {};
+  const execs = cs.executives || [];
+  document.getElementById('csuite-badge').textContent = execs.length ? execs.length + ' execs' : '--';
+  document.getElementById('csuite-body').innerHTML = execs.length === 0 ?
+    '<div style="font-size:10px;color:var(--dim)">No C-Suite data yet</div>' :
+    execs.map(ex => {
+      const icon = {AXIOM:'&#128081;', VECTIS:'&#9881;', LEDGR:'&#128178;'}[ex.name] || '&#128100;';
+      return `<div style="font-size:10px;padding:4px 0;display:flex;gap:8px;align-items:center">
+        <span>${icon}</span>
+        <span style="color:var(--cyan);font-weight:600;width:50px">${ex.name}</span>
+        <span style="flex:1;color:var(--dim)">${ex.verdict || 'pending'}</span>
+        <span style="color:var(--dim);font-size:9px">${ex.last_run ? new Date(ex.last_run).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}) : '--'}</span>
+      </div>`;
+    }).join('');
+
   // Fleet
   const fleet = d.fleet || [];
   document.getElementById('fleet-badge').textContent = readyAgents + '/' + fleet.length;
@@ -693,7 +814,9 @@ async function c2(action, target, reason) {
       body: JSON.stringify({action, target: target||'', reason: reason||'', operator:'mobile'})
     });
     const data = await res.json();
-    showToast(action + ': ' + (data.result?.status || 'done'));
+    const r = data.result || {};
+    const msg = r.output ? action + ':\n' + r.output.substring(0,200) : action + ': ' + (r.status || 'done');
+    showToast(msg);
     setTimeout(fetchSitrep, 2000);
   } catch(e) {
     showToast('Error: ' + e.message);
