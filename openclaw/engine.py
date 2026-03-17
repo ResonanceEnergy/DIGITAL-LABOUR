@@ -452,6 +452,75 @@ class OpenClawEngine:
         except Exception as e:
             return {"error": str(e), "platform": platform, "action": action}
 
+    # ── Platform Setup ──────────────────────────────────────────────────────
+
+    def platform_setup(self, platforms: list[str] | None = None, headless: bool = False) -> dict:
+        """One-time setup: deploy gigs to Fiverr and fill profiles on Upwork/PPH/Guru.
+
+        Fiverr:   generate cover images -> deploy top-4 gigs via Playwright browser
+        Upwork:   fill freelancer profile + post top services
+        PPH/Guru: fill profile (requires manual login first)
+
+        Args:
+            platforms: Subset of ["fiverr", "upwork", "pph", "guru"] (default: all)
+            headless:  Run browser in headless mode (requires saved cookies)
+
+        Returns:
+            Setup report per platform
+        """
+        target = platforms or ["fiverr", "upwork", "pph", "guru"]
+        report: dict[str, Any] = {
+            "started": datetime.now(timezone.utc).isoformat(),
+            "platforms": target,
+            "results": {},
+        }
+
+        print(f"\n[OPENCLAW] Platform Setup — {', '.join(target)}")
+
+        if "fiverr" in target:
+            print("\n  [FIVERR] Generating gig images + deploying top-4 gigs...")
+            try:
+                from automation.fiverr_automation import generate_all_images, deploy_all_browser, DEFAULT_TOP_4
+                img_paths = generate_all_images()
+                print(f"      {len(img_paths)} cover images generated")
+                deploy_all_browser(gig_indices=DEFAULT_TOP_4)
+                report["results"]["fiverr"] = {
+                    "images_generated": len(img_paths),
+                    "gigs_deployed": len(DEFAULT_TOP_4),
+                    "gig_indices": DEFAULT_TOP_4,
+                    "status": "ok",
+                }
+            except Exception as e:
+                print(f"      ERROR: {e}")
+                report["results"]["fiverr"] = {"status": "error", "error": str(e)}
+
+        if "upwork" in target:
+            print("\n  [UPWORK] Filling profile + posting services...")
+            try:
+                from automation.platform_automation import fill_profile, UPWORK_PROFILE
+                fill_profile("upwork")
+                report["results"]["upwork"] = {"profile_filled": True, "status": "ok"}
+            except Exception as e:
+                print(f"      ERROR: {e}")
+                report["results"]["upwork"] = {"status": "error", "error": str(e)}
+
+        for platform in ["pph", "guru"]:
+            if platform in target:
+                print(f"\n  [{platform.upper()}] Filling profile...")
+                try:
+                    from automation.platform_automation import fill_profile
+                    fill_profile(platform)
+                    report["results"][platform] = {"profile_filled": True, "status": "ok"}
+                except Exception as e:
+                    print(f"      ERROR: {e}")
+                    report["results"][platform] = {"status": "error", "error": str(e)}
+
+        report["finished"] = datetime.now(timezone.utc).isoformat()
+        self._log("platform_setup", {"platforms": target, "results": report["results"]})
+        ok = sum(1 for r in report["results"].values() if r.get("status") == "ok")
+        print(f"\n[OPENCLAW] Platform Setup complete — {ok}/{len(target)} platforms OK")
+        return report
+
     # ── Status ──────────────────────────────────────────────────────────────
 
     def status(self) -> dict:
@@ -474,11 +543,12 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="OpenClaw Engine — Digital Labour Automation")
-    parser.add_argument("command", choices=["status", "cycle", "pipeline", "revenue", "dispatch"],
+    parser.add_argument("command", choices=["status", "cycle", "pipeline", "revenue", "dispatch", "setup"],
                         help="Command to run")
     parser.add_argument("--pipeline", type=str, help="Pipeline name for 'pipeline' command")
-    parser.add_argument("--platforms", type=str, help="Comma-separated platforms for 'cycle'")
+    parser.add_argument("--platforms", type=str, help="Comma-separated platforms for 'cycle' or 'setup'")
     parser.add_argument("--scan-only", action="store_true", help="Aggregate only, don't bid")
+    parser.add_argument("--headless", action="store_true", help="Run browser headless for 'setup'")
     parser.add_argument("--agent", type=str, help="Agent name for 'dispatch'")
     parser.add_argument("--inputs", type=str, help="JSON inputs for 'dispatch'")
     parser.add_argument("--provider", type=str, default="openai", help="LLM provider")
@@ -514,3 +584,8 @@ if __name__ == "__main__":
             inputs = json.loads(args.inputs) if args.inputs else {}
             result = engine.dispatch_to_agent(args.agent, inputs, provider=args.provider)
             print(json.dumps(result, indent=2, default=str))
+
+    elif args.command == "setup":
+        platforms = args.platforms.split(",") if args.platforms else None
+        result = engine.platform_setup(platforms=platforms, headless=args.headless)
+        print(json.dumps(result, indent=2, default=str))

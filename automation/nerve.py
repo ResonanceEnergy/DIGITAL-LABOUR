@@ -408,6 +408,35 @@ def run_cycle() -> dict:
         logger.error(f"  [ERROR] Inbox processing failed: {e}")
         cycle_report["phases"]["inbox"] = {"error": str(e)}
 
+    # ── Phase 14: OpenClaw Full Freelance Cycle (every 2 cycles) ──
+    if cycle_num % 2 == 0:
+        logger.info(f"\n[PHASE 14] OpenClaw Freelance Cycle (all platforms)...")
+        try:
+            from openclaw.engine import OpenClawEngine
+            oc = OpenClawEngine()
+            fc_result = oc.freelance_cycle(
+                platforms=["freelancer", "upwork", "fiverr", "pph", "guru"],
+                scan_only=False,
+            )
+            jobs_found = fc_result.get("phases", {}).get("aggregation", {}).get("total_jobs", 0)
+            bids_queued = fc_result.get("phases", {}).get("bidding", {}).get("bids_queued", 0)
+            logger.info(f"  Jobs found: {jobs_found} | Bids queued: {bids_queued}")
+            log_decision(
+                actor="NERVE",
+                action="openclaw_freelance_cycle",
+                reasoning=f"Cycle #{cycle_num} — full cross-platform job hunt + bid",
+                outcome=f"{jobs_found} jobs aggregated, {bids_queued} bids queued",
+            )
+            cycle_report["decisions_made"] += 1
+            cycle_report["phases"]["openclaw_freelance"] = {
+                "jobs_found": jobs_found,
+                "bids_queued": bids_queued,
+                "elapsed_s": fc_result.get("elapsed_s", 0),
+            }
+        except Exception as e:
+            logger.error(f"  [ERROR] OpenClaw freelance cycle failed: {e}")
+            cycle_report["phases"]["openclaw_freelance"] = {"error": str(e)}
+
     # ── Finalize ───────────────────────────────────────────────
     cycle_report["finished"] = datetime.now(timezone.utc).isoformat()
     elapsed = (datetime.now(timezone.utc) - now).total_seconds()

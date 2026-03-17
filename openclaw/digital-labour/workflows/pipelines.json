@@ -71,5 +71,16 @@
       {"agent": "bookkeeping", "inputs": {"transactions": "$FROM_STEP_1.result", "period": "weekly"}},
       {"agent": "sales_ops", "inputs": {"action": "optimize", "win_rates": "$FROM_STEP_1.result", "market_rates": "$FROM_STEP_2.result"}}
     ]
+  },
+  {
+    "name": "platform_setup",
+    "description": "One-time: deploy top-4 Fiverr gigs (images + browser) + Upwork profile + PPH/Guru onboarding",
+    "steps": [
+      {"agent": "fiverr_work", "inputs": {"action": "generate_images", "gig_indices": [3, 7, 8, 16]}},
+      {"agent": "fiverr_work", "inputs": {"action": "deploy_gigs", "gig_indices": [3, 7, 8, 16]}},
+      {"agent": "upwork_work", "inputs": {"action": "setup_profile"}},
+      {"agent": "upwork_work", "inputs": {"action": "post_services", "count": 5}},
+      {"agent": "qa", "inputs": {"task": "verify_platform_setup", "platforms": ["fiverr", "upwork"], "check": "gigs_active"}}
+    ]
   }
 ]
