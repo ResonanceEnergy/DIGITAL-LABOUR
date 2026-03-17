@@ -115,7 +115,16 @@ def generate_prospects(count: int = 25) -> int:
         prospects = json.loads(cleaned)
 
         if not isinstance(prospects, list):
-            raise ValueError("LLM returned non-list response")
+            # LLM sometimes wraps the array in a dict key like {"prospects": [...]}
+            if isinstance(prospects, dict):
+                for key in ("prospects", "leads", "companies", "results", "data"):
+                    if isinstance(prospects.get(key), list):
+                        prospects = prospects[key]
+                        break
+                else:
+                    raise ValueError("LLM returned non-list response")
+            else:
+                raise ValueError("LLM returned non-list response")
 
         # Validate and deduplicate
         valid = []

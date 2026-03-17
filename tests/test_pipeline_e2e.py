@@ -97,7 +97,6 @@ class TestPipelineE2E:
     def _run_single_task(self, task_type: str, inputs: dict) -> dict:
         """Run one task through the complete pipeline (mocked LLM)."""
         from dispatcher.router import create_event, route_task
-        from kpi.logger import log_task_event
         from billing.tracker import BillingTracker
         from utils.cost_tracker import estimate_task_cost
 
@@ -117,23 +116,9 @@ class TestPipelineE2E:
         result_event["billing"]["status"] = "billed"
         result_event["metrics"]["latency_ms"] = int(duration_s * 1000)
 
-        # Step 68 — Log to KPI
+        # Step 68 — Record billing usage (KPI logging is done inside route_task)
         cost_info = estimate_task_cost(task_type, inputs.get("provider", "openai"))
         llm_cost  = cost_info.get("cost_usd", 0.0)
-        log_task_event(
-            task_id    = event["event_id"],
-            task_type  = task_type,
-            status     = "complete",
-            client     = event["client_id"],
-            provider   = inputs.get("provider", "openai"),
-            qa_status  = result_event["qa"].get("status", "FAIL"),
-            duration_s = duration_s,
-            cost_usd   = llm_cost,
-            tokens_in  = cost_info.get("tokens_in", 0),
-            tokens_out = cost_info.get("tokens_out", 0),
-        )
-
-        # Step 68 — Record billing usage
         bt = BillingTracker()
         billing_record = bt.record_usage(
             client    = event["client_id"],
@@ -217,7 +202,7 @@ class TestPipelineE2E:
         original_db = kpi_mod.DB_PATH
         test_db = tmp_path / "kpi_test.db"
         kpi_mod.DB_PATH = test_db
-        kpi_mod._init_db()
+        kpi_mod._get_db().close()  # initialises schema in test_db
 
         patches = _patch_all_pipelines({})
 

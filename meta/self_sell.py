@@ -111,7 +111,9 @@ def run_self_sell(
         "send_status": "pending_review",  # Human must approve before sending
     }
 
-    filename = f"meta_{company.replace(' ', '_')}_{uuid4().hex[:6]}.json"
+    import re as _re
+    safe_name = _re.sub(r'[^\w\-]', '_', company)[:40].strip('_')
+    filename = f"meta_{safe_name}_{uuid4().hex[:6]}.json"
     filepath = meta_dir / filename
     filepath.write_text(json.dumps(output, indent=2), encoding="utf-8")
 

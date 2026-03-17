@@ -92,7 +92,7 @@ def run_push(count: int = 50, provider: str = "openai", dry_run: bool = False) -
     """Run the full 50-message outreach push campaign."""
     print()
     print("=" * 70)
-    print(f"  DIGITAL LABOUR — DIRECT SALES PUSH")
+    print(f"  DIGITAL LABOUR - DIRECT SALES PUSH")
     print(f"  Targets: {count}  |  Provider: {provider.upper()}  |  "
           f"Mode: {'DRY RUN' if dry_run else 'LIVE'}")
     print("=" * 70)
@@ -133,7 +133,7 @@ def run_push(count: int = 50, provider: str = "openai", dry_run: bool = False) -
                 provider = provider,
             )
             qa_status = result.get("qa_status", "UNKNOWN")
-            print(f"→ QA: {qa_status}")
+            print(f"-> QA: {qa_status}")
             generated.append({
                 "company":   company,
                 "role":      role,
@@ -143,7 +143,7 @@ def run_push(count: int = 50, provider: str = "openai", dry_run: bool = False) -
                 "result":    result,
             })
         except Exception as exc:
-            print(f"→ ERROR: {exc}")
+            print(f"-> ERROR: {exc}")
             fails.append({"company": company, "role": role, "error": str(exc)})
 
         if i < len(targets):
@@ -153,7 +153,7 @@ def run_push(count: int = 50, provider: str = "openai", dry_run: bool = False) -
     print(f"\n[PUSH] Generation complete: {len(pass_results)}/{len(targets)} passed QA")
 
     if dry_run:
-        print(f"[PUSH] DRY RUN — skipping send. {len(pass_results)} messages ready.")
+        print(f"[PUSH] DRY RUN - skipping send. {len(pass_results)} messages ready.")
         summary = {
             "mode":         "dry_run",
             "timestamp":    datetime.now(timezone.utc).isoformat(),
@@ -196,9 +196,9 @@ def run_push(count: int = 50, provider: str = "openai", dry_run: bool = False) -
 
 def _print_summary(summary: dict) -> None:
     print()
-    print("─" * 70)
+    print("-" * 70)
     print("  PUSH SUMMARY")
-    print("─" * 70)
+    print("-" * 70)
     print(f"  Targets loaded  : {summary['targets']}")
     print(f"  Generated       : {summary['generated']}")
     print(f"  Passed QA       : {summary['passed_qa']}")
@@ -208,7 +208,7 @@ def _print_summary(summary: dict) -> None:
     print(f"  Gen failures    : {summary['failed_gen']}")
     print(f"  Provider        : {summary['provider'].upper()}")
     print(f"  Mode            : {summary['mode'].upper()}")
-    print("─" * 70)
+    print("-" * 70)
     print()
 
 
@@ -216,7 +216,7 @@ def _print_summary(summary: dict) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Digital Labour — 50-message direct sales push (Step 94)"
+        description="Digital Labour - 50-message direct sales push (Step 94)"
     )
     parser.add_argument("--count",    type=int,  default=50,      help="Number of targets (default: 50)")
     parser.add_argument("--provider", type=str,  default="openai", help="LLM provider (default: openai)")

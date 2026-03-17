@@ -169,9 +169,11 @@ def run_pipeline(
 
 def save_output(output: SalesOpsOutput, output_dir: Path | None = None) -> Path:
     """Save output as JSON."""
+    import re as _re
     output_dir = output_dir or PROJECT_ROOT / "output" / "sales_ops"
     output_dir.mkdir(parents=True, exist_ok=True)
-    filename = f"{output.lead_enrichment.company_name.replace(' ', '_')}_{uuid4().hex[:6]}.json"
+    safe_name = _re.sub(r'[^\w\-]', '_', output.lead_enrichment.company_name)[:40].strip('_')
+    filename = f"{safe_name}_{uuid4().hex[:6]}.json"
     path = output_dir / filename
     path.write_text(output.model_dump_json(indent=2), encoding="utf-8")
     print(f"[SAVED] {path}")
