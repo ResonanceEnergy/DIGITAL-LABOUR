@@ -24,7 +24,72 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from dotenv import load_dotenv
+load_dotenv(PROJECT_ROOT / ".env")
+
 DAEMON_PID_FILE = PROJECT_ROOT / "data" / "daemon_pids.json"
+
+# ── Required environment keys by category ──────────────────────
+REQUIRED_KEYS = {
+    "core": ["MATRIX_AUTH_TOKEN"],
+    "email": ["SMTP_HOST", "SMTP_USER", "SMTP_PASS"],
+    "billing": ["STRIPE_API_KEY"],
+    "llm": ["OPENAI_API_KEY"],
+}
+
+RECOMMENDED_KEYS = {
+    "social": ["X_BEARER_TOKEN"],
+    "llm_backup": ["ANTHROPIC_API_KEY", "GEMINI_API_KEY"],
+}
+
+
+def check_env_keys() -> dict:
+    """Validate .env has required keys before daemon launch. Returns report."""
+    report = {"ok": True, "missing_required": [], "missing_recommended": [], "present": []}
+
+    for category, keys in REQUIRED_KEYS.items():
+        for key in keys:
+            val = os.environ.get(key, "")
+            if not val or val.startswith("your_") or val == "changeme":
+                report["missing_required"].append(f"{key} ({category})")
+                report["ok"] = False
+            else:
+                report["present"].append(key)
+
+    for category, keys in RECOMMENDED_KEYS.items():
+        for key in keys:
+            val = os.environ.get(key, "")
+            if not val or val.startswith("your_") or val == "changeme":
+                report["missing_recommended"].append(f"{key} ({category})")
+            else:
+                report["present"].append(key)
+
+    return report
+
+
+def print_env_report():
+    """Print .env validation report."""
+    report = check_env_keys()
+
+    print(f"\n── Environment Validation ──")
+    print(f"  Keys present: {len(report['present'])}")
+
+    if report["missing_required"]:
+        print(f"\n  [CRITICAL] Missing REQUIRED keys:")
+        for k in report["missing_required"]:
+            print(f"    ✗ {k}")
+
+    if report["missing_recommended"]:
+        print(f"\n  [WARN] Missing recommended keys:")
+        for k in report["missing_recommended"]:
+            print(f"    ~ {k}")
+
+    if report["ok"]:
+        print(f"\n  [OK] All required keys present. Ready to launch.")
+    else:
+        print(f"\n  [BLOCKED] Fix missing required keys in .env before launching daemons.")
+
+    return report
 
 
 # ── Daemon Management ──────────────────────────────────────────
@@ -60,7 +125,22 @@ def _is_running(pid: int) -> bool:
 
 def start_daemons():
     """Start all background daemons: NERVE, C-Suite, Task Scheduler."""
+    # Validate environment first
+    env_report = print_env_report()
+    if not env_report["ok"]:
+        print("\n  [ABORT] Cannot launch daemons with missing required keys.")
+        print("  Edit .env and retry: python launch.py --daemons")
+        return
+
+    # Clean stale PIDs
     pids = _load_pids()
+    stale = [name for name, info in pids.items() if not _is_running(info.get("pid", 0))]
+    for name in stale:
+        del pids[name]
+    if stale:
+        _save_pids(pids)
+        print(f"  [CLEANUP] Removed {len(stale)} stale PIDs: {', '.join(stale)}")
+
     python = sys.executable
     daemons = [
         {

@@ -1,0 +1,22 @@
+[
+  {
+    "mode": "dry_run",
+    "timestamp": "2026-03-17T00:37:24.498659+00:00",
+    "targets": 1,
+    "generated": 0,
+    "passed_qa": 0,
+    "sent": 0,
+    "failed_gen": 1,
+    "provider": "openai"
+  },
+  {
+    "mode": "dry_run",
+    "timestamp": "2026-03-17T00:39:24.609237+00:00",
+    "targets": 2,
+    "generated": 1,
+    "passed_qa": 1,
+    "sent": 0,
+    "failed_gen": 1,
+    "provider": "openai"
+  }
+]

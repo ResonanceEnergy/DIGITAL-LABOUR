@@ -22,6 +22,7 @@ Usage:
 import argparse
 import json
 import logging
+import signal
 import sys
 import time
 import traceback
@@ -58,6 +59,17 @@ logger.propagate = False
 CYCLE_INTERVAL_MINUTES = 60      # Full cycle every hour
 OUTREACH_BATCH_SIZE = 5          # Leads per outreach cycle
 MIN_PROSPECTS_THRESHOLD = 10     # Replenish below this
+
+# ── Graceful Shutdown ──────────────────────────────────────────
+_shutdown_requested = False
+
+
+def _handle_shutdown(signum, frame):
+    """Handle SIGTERM/SIGINT for graceful daemon shutdown."""
+    global _shutdown_requested
+    sig_name = signal.Signals(signum).name if hasattr(signal, 'Signals') else str(signum)
+    logger.info(f"\n[NERVE] Received {sig_name} — finishing current phase then shutting down...")
+    _shutdown_requested = True
 
 
 def _load_state() -> dict:
@@ -437,6 +449,76 @@ def run_cycle() -> dict:
             logger.error(f"  [ERROR] OpenClaw freelance cycle failed: {e}")
             cycle_report["phases"]["openclaw_freelance"] = {"error": str(e)}
 
+    # ── Phase 15: X/Twitter Daily Post (every cycle, self-throttled) ──
+    logger.info(f"\n[PHASE 15] X/Twitter Daily Post (@agentbravo069)...")
+    try:
+        from automation.x_poster import post_next, show_status as x_status
+        result = post_next()
+        if result.get("success"):
+            logger.info(f"  Posted tweet: {result.get('tweet_id')}")
+            log_decision(
+                actor="NERVE",
+                action="x_daily_post",
+                reasoning=f"Cycle #{cycle_num} — daily X/Twitter post",
+                outcome=f"Tweet posted: {result.get('tweet_id')}",
+            )
+            cycle_report["decisions_made"] += 1
+        elif result.get("queued"):
+            logger.info(f"  Tweet queued (API read-only, needs OAuth 1.0a)")
+        elif "Already posted today" in result.get("error", ""):
+            logger.info(f"  Already posted today — skipping.")
+        else:
+            logger.warning(f"  X post failed: {result.get('error', 'unknown')}")
+        cycle_report["phases"]["x_poster"] = result
+    except Exception as e:
+        logger.error(f"  [ERROR] X poster failed: {e}")
+        cycle_report["phases"]["x_poster"] = {"error": str(e)}
+
+    # ── Phase 16: Lead Scoring Refresh (every 3 cycles) ───────
+    if cycle_num % 3 == 0:
+        logger.info(f"\n[PHASE 16] Lead Scoring Refresh...")
+        try:
+            from automation.lead_scorer import score_all_prospects, get_top_prospects
+            scores = score_all_prospects(rescore=True)
+            top = get_top_prospects(5)
+            top_names = [t["company"] for t in top]
+            logger.info(f"  Scored {len(scores)} prospects. Top 5: {', '.join(top_names)}")
+            log_decision(
+                actor="NERVE",
+                action="lead_scoring",
+                reasoning=f"Cycle #{cycle_num} — periodic lead score refresh",
+                outcome=f"{len(scores)} scored, top: {', '.join(top_names)}",
+            )
+            cycle_report["phases"]["lead_scoring"] = {
+                "total_scored": len(scores),
+                "top_5": top_names,
+            }
+        except Exception as e:
+            logger.error(f"  [ERROR] Lead scoring failed: {e}")
+            cycle_report["phases"]["lead_scoring"] = {"error": str(e)}
+
+    # ── Phase 17: Email Tracking Sync (every cycle) ───────────
+    logger.info(f"\n[PHASE 17] Email Tracking Sync...")
+    try:
+        from automation.email_tracker import sync_inbox_replies, build_tracking_report
+        matches = sync_inbox_replies()
+        report = build_tracking_report()
+        funnel = report.get("funnel", {})
+        logger.info(f"  Funnel: {funnel.get('total_emails_sent', 0)} sent → {funnel.get('replies_received', 0)} replies ({funnel.get('reply_rate_pct', 0)}%)")
+        if matches > 0:
+            logger.info(f"  Synced {matches} new reply matches")
+            log_decision(
+                actor="NERVE",
+                action="email_tracking_sync",
+                reasoning=f"Cycle #{cycle_num} — synced inbox replies",
+                outcome=f"{matches} new replies matched, {funnel.get('reply_rate_pct', 0)}% reply rate",
+            )
+            cycle_report["decisions_made"] += 1
+        cycle_report["phases"]["email_tracking"] = funnel
+    except Exception as e:
+        logger.error(f"  [ERROR] Email tracking failed: {e}")
+        cycle_report["phases"]["email_tracking"] = {"error": str(e)}
+
     # ── Finalize ───────────────────────────────────────────────
     cycle_report["finished"] = datetime.now(timezone.utc).isoformat()
     elapsed = (datetime.now(timezone.utc) - now).total_seconds()
@@ -466,12 +548,20 @@ def run_cycle() -> dict:
 
 def daemon_loop():
     """Run NERVE continuously — the autonomous heartbeat."""
+    global _shutdown_requested
+
+    # Register signal handlers for graceful shutdown
+    signal.signal(signal.SIGTERM, _handle_shutdown)
+    signal.signal(signal.SIGINT, _handle_shutdown)
+    if hasattr(signal, "SIGBREAK"):  # Windows
+        signal.signal(signal.SIGBREAK, _handle_shutdown)
+
     logger.info(f"\n{'#'*70}")
     logger.info(f"  NERVE DAEMON ONLINE")
     logger.info(f"  Nexus Engine for Resilient Vigilant Execution")
     logger.info(f"  Cycle interval: {CYCLE_INTERVAL_MINUTES} minutes")
     logger.info(f"  Outreach batch: {OUTREACH_BATCH_SIZE} leads/cycle")
-    logger.info(f"  Press Ctrl+C to stop")
+    logger.info(f"  Graceful shutdown: SIGTERM/SIGINT/Ctrl+C")
     logger.info(f"{'#'*70}")
 
     log_decision(
@@ -485,18 +575,12 @@ def daemon_loop():
     consecutive_failures = 0
     max_failures = 5
 
-    while True:
+    while not _shutdown_requested:
         try:
             run_cycle()
             consecutive_failures = 0
         except KeyboardInterrupt:
-            logger.info("\n\n[NERVE] Daemon stopped by operator.")
-            log_decision(
-                actor="NERVE",
-                action="daemon_stop",
-                reasoning="Operator interrupted",
-                outcome="Clean shutdown",
-            )
+            _shutdown_requested = True
             break
         except Exception as e:
             consecutive_failures += 1
@@ -519,20 +603,40 @@ def daemon_loop():
                     recommended_action="Manual intervention required. Check logs.",
                 )
                 logger.info(f"\n[NERVE] {consecutive_failures} consecutive failures. Pausing for 10 minutes...")
-                time.sleep(600)
+                # Interruptible sleep
+                for _ in range(600):
+                    if _shutdown_requested:
+                        break
+                    time.sleep(1)
                 consecutive_failures = 0
             else:
-                # Brief pause before retry
-                time.sleep(60)
+                # Interruptible brief pause
+                for _ in range(60):
+                    if _shutdown_requested:
+                        break
+                    time.sleep(1)
                 continue
 
-        # Wait for next cycle
-        logger.info(f"\n[NERVE] Next cycle in {CYCLE_INTERVAL_MINUTES} minutes...")
-        try:
-            time.sleep(CYCLE_INTERVAL_MINUTES * 60)
-        except KeyboardInterrupt:
-            logger.info("\n[NERVE] Daemon stopped.")
+        if _shutdown_requested:
             break
+
+        # Interruptible wait for next cycle
+        logger.info(f"\n[NERVE] Next cycle in {CYCLE_INTERVAL_MINUTES} minutes...")
+        wait_seconds = CYCLE_INTERVAL_MINUTES * 60
+        for _ in range(wait_seconds):
+            if _shutdown_requested:
+                break
+            time.sleep(1)
+
+    # Clean shutdown
+    logger.info(f"\n[NERVE] Daemon shutting down gracefully.")
+    log_decision(
+        actor="NERVE",
+        action="daemon_stop",
+        reasoning="Graceful shutdown requested" if _shutdown_requested else "Operator interrupted",
+        outcome="Clean shutdown",
+    )
+    logger.info(f"[NERVE] Goodbye.")
 
 
 # ── Status Display ─────────────────────────────────────────────

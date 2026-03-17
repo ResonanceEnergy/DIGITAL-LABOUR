@@ -195,6 +195,10 @@ def execute_command(cmd: C2Command, _auth=Depends(verify_matrix_auth)):
         "upwork_hunt": _upwork_hunt,
         "unit_economics": _unit_economics,
         "full_status": _full_status,
+        "x_post": _x_post,
+        "x_status": _x_status,
+        "lead_scores": _lead_scores,
+        "email_funnel": _email_funnel,
     }
 
     handler = actions.get(cmd.action)
@@ -847,6 +851,60 @@ def _full_status(cmd: C2Command) -> dict:
             capture_output=True, text=True, timeout=30,
         )
         return {"status": "ok", "output": result.stdout[:1500]}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _x_post(cmd: C2Command) -> dict:
+    """Post next tweet via X Poster."""
+    try:
+        from automation.x_poster import post_next
+        result = post_next()
+        return {"status": "ok" if result.get("success") or result.get("queued") else "error", **result}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _x_status(cmd: C2Command) -> dict:
+    """X/Twitter posting status."""
+    try:
+        from automation.x_poster import _load_state, _load_tweets
+        state = _load_state()
+        tweets = _load_tweets()
+        return {
+            "status": "ok",
+            "total_tweets_available": len(tweets),
+            "total_posted": state.get("total_posted", 0),
+            "next_index": state.get("next_index", 0),
+            "last_posted_at": state.get("last_posted_at"),
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _lead_scores(cmd: C2Command) -> dict:
+    """Get top scored prospects."""
+    try:
+        from automation.lead_scorer import score_all_prospects, get_top_prospects
+        score_all_prospects()
+        top = get_top_prospects(10)
+        return {
+            "status": "ok",
+            "top_prospects": [
+                {"company": t["company"], "score": t["score"], "grade": t["grade"], "role": t["role"]}
+                for t in top
+            ],
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _email_funnel(cmd: C2Command) -> dict:
+    """Email tracking funnel summary."""
+    try:
+        from automation.email_tracker import build_tracking_report
+        report = build_tracking_report()
+        return {"status": "ok", "funnel": report.get("funnel", {})}
     except Exception as e:
         return {"status": "error", "message": str(e)}
 
