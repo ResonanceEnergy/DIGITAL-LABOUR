@@ -26,7 +26,10 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-PYTHON_EXE = sys.executable
+# Always use venv Python if available — prevents duplicate daemon sets
+# when watchdog is accidentally invoked via system Python
+_VENV_PYTHON = PROJECT_ROOT / ".venv" / "Scripts" / "python.exe"
+PYTHON_EXE = str(_VENV_PYTHON) if _VENV_PYTHON.exists() else sys.executable
 STATE_FILE = PROJECT_ROOT / "data" / "nerve_state.json"
 WATCHDOG_STATUS = PROJECT_ROOT / "data" / "watchdog_status.json"
 STOP_SIGNAL = PROJECT_ROOT / "data" / "watchdog_stop.flag"
@@ -60,6 +63,24 @@ def _save_status(state: dict):
 
 def _nerve_cmd() -> list[str]:
     return [PYTHON_EXE, "-m", "automation.nerve", "--daemon"]
+
+
+def _find_existing_nerve_pid() -> int | None:
+    """Find a running NERVE daemon process. Returns PID or None."""
+    try:
+        pids_file = PROJECT_ROOT / "data" / "daemon_pids.json"
+        if pids_file.exists():
+            pids = json.loads(pids_file.read_text(encoding="utf-8"))
+            nerve_pid = pids.get("NERVE", {}).get("pid")
+            if nerve_pid:
+                try:
+                    os.kill(nerve_pid, 0)  # Check if alive (signal 0 = no-op)
+                    return nerve_pid
+                except OSError:
+                    pass
+    except Exception:
+        pass
+    return None
 
 
 def _is_alive(proc: subprocess.Popen | None) -> bool:
@@ -138,11 +159,19 @@ def run_watchdog():
         logger.info("Starting NERVE daemon...")
         env = os.environ.copy()
         env["PYTHONIOENCODING"] = "utf-8"
+        # CREATE_NO_WINDOW prevents console popups on Windows
+        flags = 0
+        if os.name == "nt":
+            flags = subprocess.CREATE_NEW_PROCESS_GROUP | subprocess.CREATE_NO_WINDOW
+        nerve_log = LOG_FILE.parent / "nerve_daemon.log"
+        fh = open(nerve_log, "a", encoding="utf-8")
         proc = subprocess.Popen(
             _nerve_cmd(),
             cwd=str(PROJECT_ROOT),
             env=env,
-            creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0,
+            stdout=fh,
+            stderr=fh,
+            creationflags=flags,
         )
         logger.info(f"NERVE started — PID {proc.pid}")
         return proc
@@ -157,9 +186,19 @@ def run_watchdog():
     signal.signal(signal.SIGINT, _handle_signal)
     signal.signal(signal.SIGTERM, _handle_signal)
 
-    # Initial start
-    nerve_proc = _start_nerve()
-    restart_times.append(datetime.now(timezone.utc))
+    # Check for existing NERVE process (e.g. launched by bitrage before us)
+    existing_pid = _find_existing_nerve_pid()
+    if existing_pid:
+        logger.info(f"Adopting existing NERVE process — PID {existing_pid}")
+        # Create a lightweight wrapper so _is_alive() works
+        # We can't get a Popen handle for a process we didn't start,
+        # so we'll track it by PID and start fresh if it dies
+        nerve_proc = None  # Will be detected as dead on first check → clean restart
+        _adopted_pid = existing_pid
+    else:
+        nerve_proc = _start_nerve()
+        _adopted_pid = None
+        restart_times.append(datetime.now(timezone.utc))
 
     while not _shutdown[0]:
         # Check stop-signal file
@@ -172,10 +211,28 @@ def run_watchdog():
         # Update watchdog status file
         recent = _restart_count_last_hour(restart_times)
         uptime_h = (datetime.now(timezone.utc) - started_at).total_seconds() / 3600
+
+        # Resolve effective NERVE PID (adopted or spawned)
+        if _is_alive(nerve_proc):
+            effective_pid = nerve_proc.pid
+            nerve_healthy = True
+        elif _adopted_pid:
+            try:
+                os.kill(_adopted_pid, 0)
+                effective_pid = _adopted_pid
+                nerve_healthy = True
+            except OSError:
+                effective_pid = None
+                nerve_healthy = False
+                _adopted_pid = None  # Adopted process died — clear it
+        else:
+            effective_pid = None
+            nerve_healthy = False
+
         _save_status({
             "watchdog_pid": os.getpid(),
-            "nerve_pid": nerve_proc.pid if _is_alive(nerve_proc) else None,
-            "nerve_alive": _is_alive(nerve_proc),
+            "nerve_pid": effective_pid,
+            "nerve_alive": nerve_healthy,
             "uptime_hours": round(uptime_h, 2),
             "total_restarts": len(restart_times),
             "restarts_last_hour": recent,
@@ -184,7 +241,7 @@ def run_watchdog():
         })
 
         # ── Health check ──────────────────────────────────────────────
-        process_dead = not _is_alive(nerve_proc)
+        process_dead = not nerve_healthy
         state_stale = _nerve_state_is_stale()
 
         if not (process_dead or state_stale):
@@ -213,15 +270,23 @@ def run_watchdog():
                 time.sleep(wait)
 
         # Kill zombie if process is frozen (still "alive" but stale)
-        if _is_alive(nerve_proc) and state_stale:
+        if nerve_healthy and state_stale:
             logger.warning("Killing frozen NERVE process...")
-            try:
-                nerve_proc.terminate()
-                nerve_proc.wait(timeout=15)
-            except Exception:
-                nerve_proc.kill()
+            if _is_alive(nerve_proc):
+                try:
+                    nerve_proc.terminate()
+                    nerve_proc.wait(timeout=15)
+                except Exception:
+                    nerve_proc.kill()
+            elif _adopted_pid:
+                try:
+                    os.kill(_adopted_pid, signal.SIGTERM)
+                except OSError:
+                    pass
+                _adopted_pid = None
 
-        # Restart
+        # Restart — always via our own subprocess from now on
+        _adopted_pid = None
         nerve_proc = _start_nerve()
         last_restart = datetime.now(timezone.utc)
         restart_times.append(last_restart)

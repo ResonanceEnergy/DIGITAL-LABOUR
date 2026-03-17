@@ -25,9 +25,7 @@ Build:  pyinstaller bitrage.spec
 
 import argparse
 import json
-import logging
 import os
-import signal
 import subprocess
 import sys
 import time
@@ -186,12 +184,15 @@ def start_server():
         return existing
 
     log = open(LOG_DIR / "matrix_server.log", "a", encoding="utf-8")
+    flags = 0
+    if sys.platform == "win32":
+        flags = subprocess.CREATE_NEW_PROCESS_GROUP | subprocess.CREATE_NO_WINDOW
     proc = subprocess.Popen(
         [PYTHON, "-m", "uvicorn", "api.intake:app", "--host", "0.0.0.0", "--port", "8000"],
         cwd=str(PROJECT_ROOT),
         stdout=log,
         stderr=subprocess.STDOUT,
-        creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if sys.platform == "win32" else 0,
+        creationflags=flags,
     )
     pids["API Server"] = {
         "pid": proc.pid,
@@ -261,6 +262,9 @@ def start_daemons(include_watchdog=True):
         name = d["name"]
         if name == "Watchdog" and not include_watchdog:
             continue
+        # Watchdog spawns its own NERVE — skip standalone NERVE to avoid duplicates
+        if name == "NERVE" and include_watchdog:
+            continue
 
         existing_pid = pids.get(name, {}).get("pid")
         if existing_pid and _is_running(existing_pid):
@@ -270,12 +274,15 @@ def start_daemons(include_watchdog=True):
         cmd = [PYTHON] + d["cmd"]
         print(f"  [START] {name} — {d['desc']}")
         try:
+            flags = 0
+            if sys.platform == "win32":
+                flags = subprocess.CREATE_NEW_PROCESS_GROUP | subprocess.CREATE_NO_WINDOW
             proc = subprocess.Popen(
                 cmd,
                 cwd=str(PROJECT_ROOT),
                 stdout=subprocess.DEVNULL,
                 stderr=subprocess.DEVNULL,
-                creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if sys.platform == "win32" else 0,
+                creationflags=flags,
             )
             pids[name] = {
                 "pid": proc.pid,

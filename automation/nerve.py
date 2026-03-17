@@ -20,6 +20,7 @@ Usage:
 """
 
 import argparse
+import io
 import json
 import logging
 import signal
@@ -28,6 +29,11 @@ import time
 import traceback
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+
+# ── UTF-8 stdout fix for Windows (prevents charmap crashes) ────
+if sys.stdout and hasattr(sys.stdout, 'encoding') and sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -81,6 +87,42 @@ def _load_state() -> dict:
 def _save_state(state: dict):
     STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
     STATE_FILE.write_text(json.dumps(state, indent=2), encoding="utf-8")
+
+
+def _check_smtp_health() -> bool:
+    """Quick SMTP auth check — returns True if login succeeds, False otherwise."""
+    import os
+    import smtplib
+    smtp_host = os.getenv("SMTP_HOST", "")
+    smtp_user = os.getenv("SMTP_USER", "")
+    smtp_pass = os.getenv("SMTP_PASS", "")
+    if not (smtp_host and smtp_user and smtp_pass):
+        return False
+    try:
+        with smtplib.SMTP(smtp_host, int(os.getenv("SMTP_PORT", "587")), timeout=10) as s:
+            s.starttls()
+            s.login(smtp_user, smtp_pass)
+        return True
+    except Exception:
+        return False
+
+
+def _check_imap_health() -> bool:
+    """Quick IMAP auth check — returns True if login succeeds."""
+    import os
+    import imaplib
+    host = os.getenv("IMAP_HOST", "")
+    user = os.getenv("IMAP_USER", os.getenv("SMTP_USER", ""))
+    passwd = os.getenv("IMAP_PASS", os.getenv("SMTP_PASS", ""))
+    if not (host and user and passwd):
+        return False
+    try:
+        m = imaplib.IMAP4_SSL(host, timeout=10)
+        m.login(user, passwd)
+        m.logout()
+        return True
+    except Exception:
+        return False
 
 
 # ── Single NERVE Cycle ─────────────────────────────────────────
@@ -182,35 +224,48 @@ def run_cycle() -> dict:
     try:
         from automation.outreach import load_prospects, generate_batch, send_approved, send_followups
 
-        prospects = load_prospects()
-        if prospects:
-            logger.info(f"  Running outreach batch ({OUTREACH_BATCH_SIZE} leads)...")
-            gen_results = generate_batch(count=OUTREACH_BATCH_SIZE, priority="high")
-            if not gen_results:
-                gen_results = generate_batch(count=OUTREACH_BATCH_SIZE, priority="all")
-
-            passed = sum(1 for r in gen_results if r.get("qa_status") == "PASS")
-
-            # Auto-approve and send
-            sent = send_approved(auto_approve=True)
-
-            log_decision(
-                actor="NERVE",
-                action="outreach_cycle",
-                reasoning=f"Cycle #{cycle_num} — {len(prospects)} prospects available",
-                outcome=f"Generated {len(gen_results)} ({passed} passed QA), sent {len(sent)}",
-            )
-            cycle_report["decisions_made"] += 1
-            cycle_report["phases"]["outreach"] = {
-                "generated": len(gen_results),
-                "qa_passed": passed,
-                "sent": len(sent),
-            }
+        # Pre-flight: check SMTP health before spending LLM tokens
+        smtp_ok = _check_smtp_health()
+        if not smtp_ok:
+            logger.warning("  SMTP auth broken — skipping outreach generation (would waste LLM tokens).")
+            logger.warning("  Fix: update SMTP_PASS in .env with a valid Zoho app password.")
+            cycle_report["phases"]["outreach"] = {"status": "smtp_auth_broken", "skipped": True}
         else:
-            logger.info(f"  No prospects available. Skipping outreach.")
-            cycle_report["phases"]["outreach"] = {"status": "no_prospects"}
+            prospects = load_prospects()
+            if prospects:
+                logger.info(f"  Running outreach batch ({OUTREACH_BATCH_SIZE} leads)...")
+                gen_results = generate_batch(count=OUTREACH_BATCH_SIZE, priority="high")
+                if not gen_results:
+                    gen_results = generate_batch(count=OUTREACH_BATCH_SIZE, priority="all")
 
-        # Follow-ups always
+                passed = sum(1 for r in gen_results if r.get("qa_status") == "PASS")
+
+                # Auto-approve and send
+                sent = send_approved(auto_approve=True)
+
+                # Check if sends are all failing (auth dead mid-cycle)
+                failed = [s for s in sent if s.get("method") == "failed" and "Authentication" in s.get("error", "")]
+                if failed and len(failed) == len(sent):
+                    logger.warning(f"  All {len(failed)} sends failed with auth error — SMTP password is dead.")
+
+                log_decision(
+                    actor="NERVE",
+                    action="outreach_cycle",
+                    reasoning=f"Cycle #{cycle_num} — {len(prospects)} prospects available",
+                    outcome=f"Generated {len(gen_results)} ({passed} passed QA), sent {len(sent)}",
+                )
+                cycle_report["decisions_made"] += 1
+                cycle_report["phases"]["outreach"] = {
+                    "generated": len(gen_results),
+                    "qa_passed": passed,
+                    "sent": len(sent),
+                    "auth_failures": len(failed),
+                }
+            else:
+                logger.info(f"  No prospects available. Skipping outreach.")
+                cycle_report["phases"]["outreach"] = {"status": "no_prospects"}
+
+        # Follow-ups always (file-queued, don't need SMTP right now)
         followups = send_followups()
         cycle_report["phases"]["followups"] = {"sent": len(followups)}
         if followups:
@@ -389,36 +444,41 @@ def run_cycle() -> dict:
 
     # ── Phase 13: Inbox Sales Response (every cycle) ──────────
     logger.info(f"\n[PHASE 13] Inbox Sales Response (sales@bit-rage-labour.com)...")
-    try:
-        # First: pull fresh emails from IMAP
-        from automation.inbox_reader import process_inbox
-        inbox_result = process_inbox()
-        new_leads = inbox_result.get("leads", 0) + inbox_result.get("demos", 0)
-        logger.info(f"  Inbox: {inbox_result.get('processed', 0)} processed, {new_leads} new leads")
+    if not _check_imap_health():
+        logger.warning("  IMAP auth broken — skipping inbox processing.")
+        logger.warning("  Fix: update IMAP_PASS / SMTP_PASS in .env with a valid Zoho app password.")
+        cycle_report["phases"]["inbox"] = {"skipped": "IMAP auth broken"}
+    else:
+        try:
+            # First: pull fresh emails from IMAP
+            from automation.inbox_reader import process_inbox
+            inbox_result = process_inbox()
+            new_leads = inbox_result.get("leads", 0) + inbox_result.get("demos", 0)
+            logger.info(f"  Inbox: {inbox_result.get('processed', 0)} processed, {new_leads} new leads")
 
-        # Then: auto-respond to any unresponded leads
-        from openclaw.inbox_agent import process_new_leads
-        reply_result = process_new_leads(dry_run=False)
-        if reply_result["processed"] > 0:
-            logger.info(f"  Responses: {reply_result['sent']} sent, {reply_result['errors']} errors")
-            log_decision(
-                actor="NERVE",
-                action="inbox_response",
-                reasoning=f"Cycle #{cycle_num} — inbound lead auto-response",
-                outcome=f"{reply_result['processed']} drafted, {reply_result['sent']} sent",
-            )
-            cycle_report["decisions_made"] += 1
-        else:
-            logger.info(f"  No new leads pending response.")
+            # Then: auto-respond to any unresponded leads
+            from openclaw.inbox_agent import process_new_leads
+            reply_result = process_new_leads(dry_run=False)
+            if reply_result["processed"] > 0:
+                logger.info(f"  Responses: {reply_result['sent']} sent, {reply_result['errors']} errors")
+                log_decision(
+                    actor="NERVE",
+                    action="inbox_response",
+                    reasoning=f"Cycle #{cycle_num} — inbound lead auto-response",
+                    outcome=f"{reply_result['processed']} drafted, {reply_result['sent']} sent",
+                )
+                cycle_report["decisions_made"] += 1
+            else:
+                logger.info(f"  No new leads pending response.")
 
-        cycle_report["phases"]["inbox"] = {
-            "emails_processed": inbox_result.get("processed", 0),
-            "new_leads": new_leads,
-            "responses_sent": reply_result["sent"],
-        }
-    except Exception as e:
-        logger.error(f"  [ERROR] Inbox processing failed: {e}")
-        cycle_report["phases"]["inbox"] = {"error": str(e)}
+            cycle_report["phases"]["inbox"] = {
+                "emails_processed": inbox_result.get("processed", 0),
+                "new_leads": new_leads,
+                "responses_sent": reply_result["sent"],
+            }
+        except Exception as e:
+            logger.error(f"  [ERROR] Inbox processing failed: {e}")
+            cycle_report["phases"]["inbox"] = {"error": str(e)}
 
     # ── Phase 14: OpenClaw Full Freelance Cycle (every 2 cycles) ──
     if cycle_num % 2 == 0:
