@@ -26,10 +26,11 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-# Always use venv Python if available — prevents duplicate daemon sets
-# when watchdog is accidentally invoked via system Python
+# Always use venv pythonw (windowless) if available — prevents both
+# duplicate daemon sets and console host (conhost.exe) window popups
+_VENV_PYTHONW = PROJECT_ROOT / ".venv" / "Scripts" / "pythonw.exe"
 _VENV_PYTHON = PROJECT_ROOT / ".venv" / "Scripts" / "python.exe"
-PYTHON_EXE = str(_VENV_PYTHON) if _VENV_PYTHON.exists() else sys.executable
+PYTHON_EXE = str(_VENV_PYTHONW) if _VENV_PYTHONW.exists() else (str(_VENV_PYTHON) if _VENV_PYTHON.exists() else sys.executable)
 STATE_FILE = PROJECT_ROOT / "data" / "nerve_state.json"
 WATCHDOG_STATUS = PROJECT_ROOT / "data" / "watchdog_status.json"
 STOP_SIGNAL = PROJECT_ROOT / "data" / "watchdog_stop.flag"
@@ -159,10 +160,10 @@ def run_watchdog():
         logger.info("Starting NERVE daemon...")
         env = os.environ.copy()
         env["PYTHONIOENCODING"] = "utf-8"
-        # CREATE_NO_WINDOW prevents console popups on Windows
+        # DETACHED_PROCESS fully detaches from console (no conhost.exe)
         flags = 0
         if os.name == "nt":
-            flags = subprocess.CREATE_NEW_PROCESS_GROUP | subprocess.CREATE_NO_WINDOW
+            flags = subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP
         nerve_log = LOG_FILE.parent / "nerve_daemon.log"
         fh = open(nerve_log, "a", encoding="utf-8")
         proc = subprocess.Popen(

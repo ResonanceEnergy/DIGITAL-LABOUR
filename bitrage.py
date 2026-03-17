@@ -47,6 +47,9 @@ load_dotenv(PROJECT_ROOT / ".env")
 
 VENV_PYTHON = PROJECT_ROOT / ".venv" / "Scripts" / "python.exe"
 PYTHON = str(VENV_PYTHON) if VENV_PYTHON.exists() else sys.executable
+# pythonw.exe = windowless Python — no console host for background daemons
+VENV_PYTHONW = PROJECT_ROOT / ".venv" / "Scripts" / "pythonw.exe"
+PYTHONW = str(VENV_PYTHONW) if VENV_PYTHONW.exists() else PYTHON
 DAEMON_PID_FILE = PROJECT_ROOT / "data" / "daemon_pids.json"
 LOG_DIR = PROJECT_ROOT / "data"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -186,9 +189,9 @@ def start_server():
     log = open(LOG_DIR / "matrix_server.log", "a", encoding="utf-8")
     flags = 0
     if sys.platform == "win32":
-        flags = subprocess.CREATE_NEW_PROCESS_GROUP | subprocess.CREATE_NO_WINDOW
+        flags = subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP
     proc = subprocess.Popen(
-        [PYTHON, "-m", "uvicorn", "api.intake:app", "--host", "0.0.0.0", "--port", "8000"],
+        [PYTHONW, "-m", "uvicorn", "api.intake:app", "--host", "0.0.0.0", "--port", "8000"],
         cwd=str(PROJECT_ROOT),
         stdout=log,
         stderr=subprocess.STDOUT,
@@ -197,7 +200,7 @@ def start_server():
     pids["API Server"] = {
         "pid": proc.pid,
         "started": datetime.now(timezone.utc).isoformat(),
-        "cmd": f"{PYTHON} -m uvicorn api.intake:app --host 0.0.0.0 --port 8000",
+        "cmd": f"{PYTHONW} -m uvicorn api.intake:app --host 0.0.0.0 --port 8000",
     }
     _save_pids(pids)
     print(f"  [START] API Server — PID {proc.pid}")
@@ -271,12 +274,12 @@ def start_daemons(include_watchdog=True):
             print(f"  [SKIP] {name} already running (PID {existing_pid})")
             continue
 
-        cmd = [PYTHON] + d["cmd"]
+        cmd = [PYTHONW] + d["cmd"]
         print(f"  [START] {name} — {d['desc']}")
         try:
             flags = 0
             if sys.platform == "win32":
-                flags = subprocess.CREATE_NEW_PROCESS_GROUP | subprocess.CREATE_NO_WINDOW
+                flags = subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP
             proc = subprocess.Popen(
                 cmd,
                 cwd=str(PROJECT_ROOT),
