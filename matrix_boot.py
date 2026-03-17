@@ -1,11 +1,16 @@
-"""DIGITAL LABOUR MATRIX — Auto-launch script.
+"""DEPRECATED — Use bitrage.py or 'BIT RAGE.exe' instead.
 
-Starts the FastAPI server + all daemons on system boot.
-Install via Windows Task Scheduler or run manually.
+This file is kept for backwards compatibility. All functionality has been
+consolidated into bitrage.py (the master launcher).
 
-Usage:
-    python matrix_boot.py          # Start everything
-    python matrix_boot.py --stop   # Kill daemons + server
+Replacement commands:
+    bitrage.py start       # replaces: python matrix_boot.py
+    bitrage.py stop        # replaces: python matrix_boot.py --stop
+
+Original description:
+    DIGITAL LABOUR MATRIX — Auto-launch script.
+    Starts the FastAPI server + all daemons on system boot.
+    Install via Windows Task Scheduler or run manually.
 
 Task Scheduler setup:
     Trigger: At startup

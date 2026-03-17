@@ -3,11 +3,11 @@
   "total_spend": 0.0,
   "daily_spend": 0.0,
   "daily_bids": 0,
-  "daily_reset_date": "2026-03-16",
+  "daily_reset_date": "2026-03-17",
   "consecutive_failures": 0,
   "paused": false,
   "pause_reason": null,
   "seen_project_ids": [],
-  "scans_run": 2,
-  "last_scan": "2026-03-16T19:34:21.688212+00:00"
+  "scans_run": 4,
+  "last_scan": "2026-03-17T11:10:22.392362+00:00"
 }

@@ -1,8 +1,15 @@
-"""Health Dashboard — real-time system status and KPI overview.
+"""DEPRECATED as CLI — Use bitrage.py health or bitrage_monitor.py --once instead.
 
-Usage:
-    python dashboard/health.py              # Full dashboard
-    python dashboard/health.py --json       # JSON output
+This module is still imported as a library by bitrage.py and bitrage_monitor.py.
+Do NOT delete it. The CLI entry point (__main__ block) is superseded.
+
+Replacement commands:
+    bitrage.py health              # replaces: python dashboard/health.py
+    bitrage_monitor.py --once      # replaces: python dashboard/health.py (visual)
+    bitrage_monitor.py --json      # replaces: python dashboard/health.py --json
+
+Original description:
+    Health Dashboard — real-time system status and KPI overview.
 """
 
 import argparse

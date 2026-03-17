@@ -199,6 +199,11 @@ def execute_command(cmd: C2Command, _auth=Depends(verify_matrix_auth)):
         "x_status": _x_status,
         "lead_scores": _lead_scores,
         "email_funnel": _email_funnel,
+        "ncc_status": _ncc_status,
+        "ncl_brief": _ncl_brief,
+        "aac_snapshot": _aac_snapshot,
+        "resonance_sync": _resonance_sync,
+        "resonance_status": _resonance_status,
     }
 
     handler = actions.get(cmd.action)
@@ -905,6 +910,74 @@ def _email_funnel(cmd: C2Command) -> dict:
         from automation.email_tracker import build_tracking_report
         report = build_tracking_report()
         return {"status": "ok", "funnel": report.get("funnel", {})}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _ncc_status(cmd: C2Command) -> dict:
+    """Check NCC relay health and flush outbox."""
+    try:
+        from resonance.ncc_bridge import ncc
+        health = ncc.relay_health()
+        outbox = ncc.flush()
+        return {"status": "ok", "relay": "online" if health else "offline",
+                "health": health, "outbox_flushed": outbox}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _ncl_brief(cmd: C2Command) -> dict:
+    """Pull latest NCL intelligence brief."""
+    try:
+        from resonance.ncl_bridge import ncl
+        digest = ncl.intelligence_digest() if ncl.available else None
+        brief = (ncl.latest_daily_brief() or "")[:500] if ncl.available else None
+        return {"status": "ok", "available": ncl.available,
+                "digest": digest, "brief": brief}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _aac_snapshot(cmd: C2Command) -> dict:
+    """Pull AAC BANK financial snapshot."""
+    try:
+        from resonance.aac_bridge import aac
+        return {"status": "ok", "snapshot": aac.snapshot()}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _resonance_sync(cmd: C2Command) -> dict:
+    """Run all resonance sync jobs now."""
+    try:
+        from resonance.sync import run_all
+        run_all()
+        return {"status": "ok", "sync": "completed"}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _resonance_status(cmd: C2Command) -> dict:
+    """Show resonance sync health status."""
+    try:
+        from resonance.ncc_bridge import ncc
+        from resonance.ncl_bridge import ncl
+        ncc_health = ncc.relay_health()
+        # Outbox depth
+        outbox_dir = PROJECT_ROOT / "data" / "ncc_outbox"
+        queued = 0
+        if outbox_dir.exists():
+            queued = sum(1 for f in outbox_dir.glob("*.ndjson")
+                         for line in f.read_text(encoding="utf-8").strip().splitlines() if line)
+        # Sync state
+        sync_file = PROJECT_ROOT / "data" / "resonance_sync_state.json"
+        last_sync = "never"
+        if sync_file.exists():
+            state = json.loads(sync_file.read_text(encoding="utf-8"))
+            last_sync = state.get("last_check", "never")
+        return {"status": "ok", "ncc_relay": "online" if ncc_health else "offline",
+                "ncl_brain": "available" if ncl.available else "not found",
+                "outbox_depth": queued, "last_sync": last_sync}
     except Exception as e:
         return {"status": "error", "message": str(e)}
 

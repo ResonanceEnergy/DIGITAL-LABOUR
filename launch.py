@@ -1,15 +1,18 @@
-"""Master Launch Script — Starts ALL Digital Labour automation in one shot.
+"""DEPRECATED — Use bitrage.py or 'BIT RAGE.exe' instead.
 
-Activates every daemon, checks follow-ups, fires revenue checks, opens platforms.
-One command to rule them all.
+This file is kept for backwards compatibility. All functionality has been
+consolidated into bitrage.py (the master launcher).
 
-Usage:
-    python launch.py                    # Full launch: all daemons + checks
-    python launch.py --daemons          # Start background daemons only
-    python launch.py --checks           # Run one-shot checks only (follow-ups, revenue, status)
-    python launch.py --platforms        # Open platform registration URLs
-    python launch.py --status           # Show status of all systems
-    python launch.py --kill             # Stop all running daemons
+Replacement commands:
+    bitrage.py start       # replaces: python launch.py
+    bitrage.py daemons     # replaces: python launch.py --daemons
+    bitrage.py checks      # replaces: python launch.py --checks
+    bitrage.py status      # replaces: python launch.py --status
+    bitrage.py stop        # replaces: python launch.py --kill
+
+Original description:
+    Master Launch Script — Starts ALL Digital Labour automation in one shot.
+    Activates every daemon, checks follow-ups, fires revenue checks, opens platforms.
 """
 
 import argparse

@@ -1,4 +1,6 @@
-# NERVE Health Check
+# DEPRECATED — Use bitrage.py start (includes watchdog auto-management)
+#
+# Original: NERVE Health Check
 # Runs every 5 minutes via Windows Task Scheduler.
 # Ensures the watchdog process is alive; restarts it if not.
 # Logs to data/health_check.log.

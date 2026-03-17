@@ -1,7 +1,13 @@
-"""Setup script — paste your API keys and this writes your .env file.
+"""DEPRECATED — Use bitrage.py setup or 'BIT RAGE.exe' instead.
 
-Usage:
-    python setup_keys.py
+This file is kept for backwards compatibility. All functionality has been
+consolidated into bitrage.py (the master launcher).
+
+Replacement command:
+    bitrage.py setup       # replaces: python setup_keys.py
+
+Original description:
+    Setup script — paste your API keys and this writes your .env file.
 """
 
 import os

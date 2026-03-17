@@ -1,4 +1,6 @@
-# NERVE Startup Installer
+# DEPRECATED — Use bitrage.py start (consolidated daemon management)
+#
+# Original: NERVE Startup Installer
 # Registers Windows Task Scheduler tasks so NERVE + Watchdog run automatically
 # on every boot and stay alive via a 5-minute health check.
 #

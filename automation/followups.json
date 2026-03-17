@@ -738,5 +738,125 @@
     "follow_up_2_due": "2026-03-22T18:23:59.601663+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_L.E.K._Consulting_595147.json"
+  },
+  {
+    "company": "HubSpot",
+    "role": "Director of Customer Success",
+    "contact_email": "yamini.rangan@hubspot.com",
+    "follow_up_1_due": "2026-03-20T10:36:24.676928+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T10:36:24.676928+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_HubSpot_b8b66d.json"
+  },
+  {
+    "company": "Pendo.io",
+    "role": "Head of Customer Support",
+    "contact_email": "sarah.johnson@pendoio.com",
+    "follow_up_1_due": "2026-03-20T10:36:40.213521+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T10:36:40.213521+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Pendo_io_4939af.json"
+  },
+  {
+    "company": "R/GA",
+    "role": "VP of New Business",
+    "contact_email": "sean.lyons@rga.com",
+    "follow_up_1_due": "2026-03-20T10:36:49.192523+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T10:36:49.192523+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_R_GA_18ab12.json"
+  },
+  {
+    "company": "R/GA",
+    "role": "VP of New Business",
+    "contact_email": "sean.lyons@rga.com",
+    "follow_up_1_due": "2026-03-20T10:36:57.398764+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T10:36:57.398764+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_R_GA_701d08.json"
+  },
+  {
+    "company": "Sendoso",
+    "role": "VP of Sales",
+    "contact_email": "vpsales@sendoso.com",
+    "follow_up_1_due": "2026-03-20T10:36:58.362157+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T10:36:58.362157+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Sendoso_8a29d8.json"
+  },
+  {
+    "company": "ClickUp",
+    "role": "Head of Customer Success",
+    "contact_email": "melissa@clickup.com",
+    "follow_up_1_due": "2026-03-20T11:09:20.148799+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T11:09:20.148799+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_ClickUp_e5ff78.json"
+  },
+  {
+    "company": "Faire",
+    "role": "Director of Sales",
+    "contact_email": "jeff.kolovson@faire.com",
+    "follow_up_1_due": "2026-03-20T11:09:56.397939+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T11:09:56.397939+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Faire_1d82b3.json"
+  },
+  {
+    "company": "Monday.com",
+    "role": "Director of Sales",
+    "contact_email": "scott.opitz@mondaycom.com",
+    "follow_up_1_due": "2026-03-20T11:10:07.999214+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T11:10:07.999214+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Monday_com_189744.json"
+  },
+  {
+    "company": "Carta",
+    "role": "Head of Customer Success",
+    "contact_email": "kaitlin@carta.com",
+    "follow_up_1_due": "2026-03-20T12:01:28.288213+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T12:01:28.288213+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Carta_5d8f1c.json"
+  },
+  {
+    "company": "Coda",
+    "role": "Director of Operations",
+    "contact_email": "lane@coda.com",
+    "follow_up_1_due": "2026-03-20T12:01:34.912660+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T12:01:34.912660+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Coda_5afbf2.json"
+  },
+  {
+    "company": "Greenhouse",
+    "role": "Head of Recruitment",
+    "contact_email": "chintan@greenhouse.com",
+    "follow_up_1_due": "2026-03-20T12:01:41.891558+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T12:01:41.891558+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Greenhouse_9838ae.json"
+  },
+  {
+    "company": "Notarize",
+    "role": "VP of Customer Support",
+    "contact_email": "sarah.johnson@notarize.com",
+    "follow_up_1_due": "2026-03-20T12:01:49.078273+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T12:01:49.078273+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Notarize_a91e43.json"
   }
 ]

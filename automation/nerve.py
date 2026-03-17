@@ -519,6 +519,28 @@ def run_cycle() -> dict:
         logger.error(f"  [ERROR] Email tracking failed: {e}")
         cycle_report["phases"]["email_tracking"] = {"error": str(e)}
 
+    # ── Phase 18: Resonance Sync (NCC/NCL/AAC — every 3 cycles) ──
+    if cycle_num % 3 == 0:
+        logger.info(f"\n[PHASE 18] Resonance Sync (NCC/NCL/AAC)...")
+        try:
+            from resonance.sync import run_due_jobs
+            ran_jobs = run_due_jobs()
+            if ran_jobs:
+                logger.info(f"  Resonance sync ran: {', '.join(ran_jobs)}")
+                log_decision(
+                    actor="NERVE",
+                    action="resonance_sync",
+                    reasoning=f"Cycle #{cycle_num} — cross-pillar sync",
+                    outcome=f"Ran: {', '.join(ran_jobs)}",
+                )
+                cycle_report["decisions_made"] += 1
+            else:
+                logger.info(f"  No sync jobs due this cycle")
+            cycle_report["phases"]["resonance_sync"] = {"ran": ran_jobs}
+        except Exception as e:
+            logger.error(f"  [ERROR] Resonance sync failed: {e}")
+            cycle_report["phases"]["resonance_sync"] = {"error": str(e)}
+
     # ── Finalize ───────────────────────────────────────────────
     cycle_report["finished"] = datetime.now(timezone.utc).isoformat()
     elapsed = (datetime.now(timezone.utc) - now).total_seconds()

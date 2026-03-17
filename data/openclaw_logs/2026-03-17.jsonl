@@ -1,0 +1,3 @@
+{"ts": "2026-03-17T11:10:21.534006+00:00", "type": "revenue_check", "sources": {"stripe": {"total": 60.0, "new_charges": 0}, "internal_billing": {"total_revenue": 9112.7, "total_cost": 65.4981, "gross_margin": 9047.2, "total_tasks": 4223}}, "total": 60.0, "checked_at": "2026-03-17T11:10:21.533936+00:00"}
+{"ts": "2026-03-17T11:10:22.851479+00:00", "type": "revenue_check", "sources": {"stripe": {"total": 60.0, "new_charges": 0}, "internal_billing": {"total_revenue": 9112.7, "total_cost": 65.4981, "gross_margin": 9047.2, "total_tasks": 4223}}, "total": 60.0, "checked_at": "2026-03-17T11:10:22.851380+00:00"}
+{"ts": "2026-03-17T11:10:22.942386+00:00", "type": "freelance_cycle", "cycle_id": "491be455", "jobs": 0, "bids": 0, "elapsed_s": 0.5742571353912354}

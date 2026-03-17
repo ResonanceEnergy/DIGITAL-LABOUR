@@ -1,4 +1,6 @@
-"""Portfolio Sample Generator — run each of our 20 agents with demo data
+"""DEPRECATED — Use bitrage.py checks or bitrage_monitor.py --command instead.
+
+Original: Portfolio Sample Generator — run each of our 20 agents with demo data
 to produce portfolio samples that prove capabilities to potential clients.
 
 Generates one showcase piece per agent, saves to output/portfolio/.

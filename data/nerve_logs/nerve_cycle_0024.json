@@ -1,0 +1,112 @@
+{
+  "cycle": 24,
+  "started": "2026-03-17T10:47:12.660246+00:00",
+  "phases": {
+    "self_check": {
+      "status": "GREEN",
+      "issues": 0
+    },
+    "healing": {
+      "gaps_found": 1,
+      "healed": 1,
+      "escalated": 0
+    },
+    "prospects": {
+      "remaining": 23
+    },
+    "outreach": {
+      "generated": 5,
+      "qa_passed": 3,
+      "sent": 3
+    },
+    "followups": {
+      "sent": 0
+    },
+    "csuite": {
+      "actions": []
+    },
+    "health": {
+      "providers_up": 4,
+      "queue": {
+        "queued": 54,
+        "running": 20,
+        "completed": 13,
+        "failed": 0,
+        "total": 87
+      }
+    },
+    "revenue": {
+      "total": 60.0,
+      "new": 0
+    },
+    "job_hunt": {
+      "total": 0,
+      "unbid": 0,
+      "top_platforms": []
+    },
+    "autobidder": {
+      "bids_queued": 0
+    },
+    "delivery_check": {
+      "fiverr": "error: No module named 'playwright'"
+    },
+    "reprocess": {
+      "success": 0,
+      "still_fail": 4
+    },
+    "openclaw_revenue": {
+      "sources": {
+        "stripe": {
+          "total": 60.0,
+          "new_charges": 0
+        },
+        "internal_billing": {
+          "total_revenue": 9112.7,
+          "total_cost": 65.4981,
+          "gross_margin": 9047.2,
+          "total_tasks": 4223
+        }
+      },
+      "total": 60.0,
+      "checked_at": "2026-03-17T11:10:21.533936+00:00"
+    },
+    "inbox": {
+      "error": "b'[AUTHENTICATIONFAILED] Invalid credentials(Failure)'"
+    },
+    "openclaw_freelance": {
+      "jobs_found": 0,
+      "bids_queued": 0,
+      "elapsed_s": 0.6
+    },
+    "x_poster": {
+      "success": false,
+      "error": "Already posted today at 10:37 UTC. Wait 20h between posts.",
+      "last_posted": "2026-03-17T10:37:16.642861+00:00"
+    },
+    "lead_scoring": {
+      "total_scored": 101,
+      "top_5": [
+        "Coda",
+        "Loopio",
+        "Turing",
+        "Klaviyo",
+        "Vanta"
+      ]
+    },
+    "email_tracking": {
+      "total_emails_sent": 82,
+      "unique_companies": 81,
+      "followups_sent": 60,
+      "replies_received": 0,
+      "reply_rate_pct": 0.0,
+      "stale_leads": 0,
+      "dead_leads": 0,
+      "active_followups": 60
+    }
+  },
+  "decisions_made": 7,
+  "issues_healed": 1,
+  "escalations": 0,
+  "finished": "2026-03-17T11:10:24.272589+00:00",
+  "elapsed_seconds": 1391.6
+}

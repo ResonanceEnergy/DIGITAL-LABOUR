@@ -1,0 +1,66 @@
+{
+  "cycle": 25,
+  "started": "2026-03-17T11:55:16.745749+00:00",
+  "phases": {
+    "self_check": {
+      "status": "GREEN",
+      "issues": 0
+    },
+    "healing": {
+      "gaps_found": 1,
+      "healed": 1,
+      "escalated": 0
+    },
+    "prospects": {
+      "remaining": 20
+    },
+    "outreach": {
+      "generated": 5,
+      "qa_passed": 4,
+      "sent": 4
+    },
+    "followups": {
+      "sent": 0
+    },
+    "csuite": {
+      "actions": []
+    },
+    "health": {
+      "providers_up": 4,
+      "queue": {
+        "queued": 44,
+        "running": 30,
+        "completed": 13,
+        "failed": 0,
+        "total": 87
+      }
+    },
+    "revenue": {
+      "total": 60.0,
+      "new": 0
+    },
+    "inbox": {
+      "error": "b'[AUTHENTICATIONFAILED] Invalid credentials(Failure)'"
+    },
+    "x_poster": {
+      "success": false,
+      "error": "Already posted today at 10:37 UTC. Wait 20h between posts.",
+      "last_posted": "2026-03-17T10:37:16.642861+00:00"
+    },
+    "email_tracking": {
+      "total_emails_sent": 86,
+      "unique_companies": 85,
+      "followups_sent": 60,
+      "replies_received": 0,
+      "reply_rate_pct": 0.0,
+      "stale_leads": 0,
+      "dead_leads": 0,
+      "active_followups": 60
+    }
+  },
+  "decisions_made": 1,
+  "issues_healed": 1,
+  "escalations": 0,
+  "finished": "2026-03-17T12:01:50.667425+00:00",
+  "elapsed_seconds": 393.9
+}

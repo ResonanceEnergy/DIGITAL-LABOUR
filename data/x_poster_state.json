@@ -1,0 +1,15 @@
+{
+  "posted": [
+    {
+      "index": 0,
+      "posted_at": "2026-03-17T10:37:16.642927+00:00",
+      "success": false,
+      "tweet_id": null,
+      "char_count": 255
+    }
+  ],
+  "next_index": 1,
+  "total_posted": 1,
+  "last_posted_at": "2026-03-17T10:37:16.642861+00:00",
+  "errors": []
+}

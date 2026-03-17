@@ -1,0 +1,68 @@
+{
+  "cycle": 23,
+  "started": "2026-03-17T10:27:46.601875+00:00",
+  "phases": {
+    "self_check": {
+      "status": "GREEN",
+      "issues": 0
+    },
+    "healing": {
+      "gaps_found": 2,
+      "healed": 2,
+      "escalated": 0
+    },
+    "prospects": {
+      "remaining": 27
+    },
+    "outreach": {
+      "generated": 5,
+      "qa_passed": 3,
+      "sent": 5
+    },
+    "followups": {
+      "sent": 0
+    },
+    "csuite": {
+      "actions": []
+    },
+    "health": {
+      "providers_up": 4,
+      "queue": {
+        "queued": 64,
+        "running": 10,
+        "completed": 13,
+        "failed": 0,
+        "total": 87
+      }
+    },
+    "revenue": {
+      "total": 60.0,
+      "new": 0
+    },
+    "inbox": {
+      "error": "b'[AUTHENTICATIONFAILED] Invalid credentials(Failure)'"
+    },
+    "x_poster": {
+      "success": false,
+      "error": "Bearer token cannot post tweets (read-only). Need OAuth 1.0a user tokens.",
+      "status_code": 403,
+      "queued": true,
+      "queue_file": "C:\\dev\\DIGITAL LABOUR\\DIGITAL LABOUR\\data\\x_queue\\tweet_20260317_103716_a26f1bbe.json"
+    },
+    "email_tracking": {
+      "total_emails_sent": 79,
+      "unique_companies": 78,
+      "followups_sent": 60,
+      "replies_received": 0,
+      "reply_rate_pct": 0.0,
+      "stale_leads": 0,
+      "dead_leads": 0,
+      "active_followups": 60
+    }
+  },
+  "decisions_made": 1,
+  "issues_healed": 2,
+  "escalations": 0,
+  "finished": "2026-03-17T10:37:16.784225+00:00",
+  "elapsed_seconds": 570.2
+}

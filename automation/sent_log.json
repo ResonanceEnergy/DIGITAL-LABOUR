@@ -762,5 +762,137 @@
     "method": "failed",
     "source_file": "meta_L.E.K._Consulting_595147.json",
     "error": "'charmap' codec can't encode character '\\u2192' in position 27: character maps to <undefined>"
+  },
+  {
+    "company": "HubSpot",
+    "role": "Director of Customer Success",
+    "contact_name": "Yamini Rangan",
+    "contact_email": "yamini.rangan@hubspot.com",
+    "subject": "Simplify Your Customer Success Integration",
+    "sent_at": "2026-03-17T10:36:23.462946+00:00",
+    "method": "failed",
+    "source_file": "meta_HubSpot_b8b66d.json",
+    "error": "(535, b'Authentication Failed')"
+  },
+  {
+    "company": "Pendo.io",
+    "role": "Head of Customer Support",
+    "contact_name": "Sarah Johnson",
+    "contact_email": "sarah.johnson@pendoio.com",
+    "subject": "Enhancing Customer Feedback with AI",
+    "sent_at": "2026-03-17T10:36:36.393393+00:00",
+    "method": "failed",
+    "source_file": "meta_Pendo_io_4939af.json",
+    "error": "(535, b'Authentication Failed')"
+  },
+  {
+    "company": "R/GA",
+    "role": "VP of New Business",
+    "contact_name": "Sean Lyons",
+    "contact_email": "sean.lyons@rga.com",
+    "subject": "Enhance Your AI Platform with Seamless Support",
+    "sent_at": "2026-03-17T10:36:48.192331+00:00",
+    "method": "failed",
+    "source_file": "meta_R_GA_18ab12.json",
+    "error": "(535, b'Authentication Failed')"
+  },
+  {
+    "company": "R/GA",
+    "role": "VP of New Business",
+    "contact_name": "Sean Lyons",
+    "contact_email": "sean.lyons@rga.com",
+    "subject": "Enhance Your AI Platform with Seamless Support",
+    "sent_at": "2026-03-17T10:36:56.333379+00:00",
+    "method": "failed",
+    "source_file": "meta_R_GA_701d08.json",
+    "error": "(535, b'Authentication Failed')"
+  },
+  {
+    "company": "Sendoso",
+    "role": "VP of Sales",
+    "contact_name": "Not specified",
+    "contact_email": "vpsales@sendoso.com",
+    "subject": "Sendoso's new AI features + rep adoption",
+    "sent_at": "2026-03-17T10:36:57.413483+00:00",
+    "method": "failed",
+    "source_file": "meta_Sendoso_8a29d8.json",
+    "error": "(535, b'Authentication Failed')"
+  },
+  {
+    "company": "ClickUp",
+    "role": "Head of Customer Success",
+    "contact_name": "Melissa Rosenthal",
+    "contact_email": "melissa@clickup.com",
+    "subject": "ClickUp 3.0 rollout - managing the support surge?",
+    "sent_at": "2026-03-17T11:09:11.202511+00:00",
+    "method": "failed",
+    "source_file": "meta_ClickUp_e5ff78.json",
+    "error": "(535, b'Authentication Failed')"
+  },
+  {
+    "company": "Faire",
+    "role": "Director of Sales",
+    "contact_name": "Jeff Kolovson",
+    "contact_email": "jeff.kolovson@faire.com",
+    "subject": "Faire Direct expansion - sales team scaling",
+    "sent_at": "2026-03-17T11:09:55.209824+00:00",
+    "method": "failed",
+    "source_file": "meta_Faire_1d82b3.json",
+    "error": "(535, b'Authentication Failed')"
+  },
+  {
+    "company": "Monday.com",
+    "role": "Director of Sales",
+    "contact_name": "Scott Opitz",
+    "contact_email": "scott.opitz@mondaycom.com",
+    "subject": "WorkCanvas positioning support",
+    "sent_at": "2026-03-17T11:10:07.041038+00:00",
+    "method": "failed",
+    "source_file": "meta_Monday_com_189744.json",
+    "error": "(535, b'Authentication Failed')"
+  },
+  {
+    "company": "Carta",
+    "role": "Head of Customer Success",
+    "contact_name": "Kaitlin Thaney",
+    "contact_email": "kaitlin@carta.com",
+    "subject": "Carta's liquidity expansion + CS team bandwidth",
+    "sent_at": "2026-03-17T12:01:26.767809+00:00",
+    "method": "failed",
+    "source_file": "meta_Carta_5d8f1c.json",
+    "error": "(535, b'Authentication Failed')"
+  },
+  {
+    "company": "Coda",
+    "role": "Director of Operations",
+    "contact_name": "Lane Shackleton",
+    "contact_email": "lane@coda.com",
+    "subject": "Coda's AI rollout - ops scaling question",
+    "sent_at": "2026-03-17T12:01:34.053551+00:00",
+    "method": "failed",
+    "source_file": "meta_Coda_5afbf2.json",
+    "error": "(535, b'Authentication Failed')"
+  },
+  {
+    "company": "Greenhouse",
+    "role": "Head of Recruitment",
+    "contact_name": "Chintan Thakkar",
+    "contact_email": "chintan@greenhouse.com",
+    "subject": "AI screening launch + your own hiring velocity",
+    "sent_at": "2026-03-17T12:01:40.957272+00:00",
+    "method": "failed",
+    "source_file": "meta_Greenhouse_9838ae.json",
+    "error": "(535, b'Authentication Failed')"
+  },
+  {
+    "company": "Notarize",
+    "role": "VP of Customer Support",
+    "contact_name": "Sarah Johnson",
+    "contact_email": "sarah.johnson@notarize.com",
+    "subject": "Scaling support for millions of notarizations",
+    "sent_at": "2026-03-17T12:01:48.125232+00:00",
+    "method": "failed",
+    "source_file": "meta_Notarize_a91e43.json",
+    "error": "(535, b'Authentication Failed')"
   }
 ]

@@ -1,22 +1,22 @@
 {
   "NERVE": {
-    "pid": 21984,
-    "started": "2026-03-16T16:31:17.824870+00:00",
-    "cmd": "C:\\dev\\DIGITAL LABOUR\\DIGITAL LABOUR\\.venv\\Scripts\\python.exe -m automation.nerve --daemon"
+    "pid": 33516,
+    "started": "2026-03-17T11:55:16.605309+00:00",
+    "cmd": "C:\\Python314\\python.exe -m automation.nerve --daemon"
   },
   "C-Suite Scheduler": {
-    "pid": 14140,
-    "started": "2026-03-16T16:31:17.830357+00:00",
-    "cmd": "C:\\dev\\DIGITAL LABOUR\\DIGITAL LABOUR\\.venv\\Scripts\\python.exe c_suite/scheduler.py --daemon"
+    "pid": 12432,
+    "started": "2026-03-17T11:55:16.610503+00:00",
+    "cmd": "C:\\Python314\\python.exe c_suite/scheduler.py --daemon"
   },
   "Task Scheduler": {
-    "pid": 21948,
-    "started": "2026-03-16T16:31:17.837392+00:00",
-    "cmd": "C:\\dev\\DIGITAL LABOUR\\DIGITAL LABOUR\\.venv\\Scripts\\python.exe scheduler/runner.py --daemon"
+    "pid": 788,
+    "started": "2026-03-17T11:55:16.624868+00:00",
+    "cmd": "C:\\Python314\\python.exe scheduler/runner.py --daemon"
   },
   "Revenue Daemon": {
-    "pid": 23256,
-    "started": "2026-03-16T16:31:17.843534+00:00",
-    "cmd": "C:\\dev\\DIGITAL LABOUR\\DIGITAL LABOUR\\.venv\\Scripts\\python.exe -m automation.revenue_daemon --daemon"
+    "pid": 35180,
+    "started": "2026-03-17T11:55:16.641051+00:00",
+    "cmd": "C:\\Python314\\python.exe -m automation.revenue_daemon --daemon"
   }
 }

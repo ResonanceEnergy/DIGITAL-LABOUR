@@ -1,11 +1,16 @@
-"""Executive Dashboard — C-Suite command view of DIGITAL LABOUR.
+"""DEPRECATED as CLI — Use bitrage_monitor.py --exec or 'BIT RAGE MATRIX MONITOR.exe' instead.
 
-Unified console output showing all three executives' status,
-the execution queue, and system vitals at a glance.
+This module is still imported as a library by bitrage_monitor.py.
+Do NOT delete it. The CLI entry point (__main__ block) is superseded.
 
-Usage:
-    python c_suite/exec_dashboard.py              # Full dashboard
-    python c_suite/exec_dashboard.py --json        # JSON output
+Replacement commands:
+    bitrage_monitor.py --exec      # replaces: python c_suite/exec_dashboard.py
+    bitrage_monitor.py --json      # replaces: python c_suite/exec_dashboard.py --json
+
+Original description:
+    Executive Dashboard — C-Suite command view of DIGITAL LABOUR.
+    Unified console output showing all three executives' status,
+    the execution queue, and system vitals at a glance.
 """
 
 import argparse
