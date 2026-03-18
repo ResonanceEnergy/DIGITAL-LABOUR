@@ -11,16 +11,26 @@ Usage:
 """
 
 import argparse
+import base64
 import hashlib
+import hmac
+import io
 import json
 import os
 import re
 import sys
 import time
+import urllib.parse
+import uuid
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 import requests
+
+# ── UTF-8 stdout fix for Windows ──────────────────────────────
+if sys.stdout and hasattr(sys.stdout, 'encoding') and sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -78,8 +88,61 @@ def _save_state(state: dict):
 
 # ── X API Posting ──────────────────────────────────────────────
 
+def _has_oauth1a_creds() -> bool:
+    """Check if OAuth 1.0a user-context credentials are configured."""
+    return all(os.getenv(k) for k in ("X_API_KEY", "X_API_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_SECRET"))
+
+
+def _oauth1a_sign(method: str, url: str, body_params: dict | None = None) -> dict:
+    """Build OAuth 1.0a Authorization header using HMAC-SHA1 signing.
+    Returns headers dict ready for requests."""
+    api_key = os.getenv("X_API_KEY", "")
+    api_secret = os.getenv("X_API_SECRET", "")
+    access_token = os.getenv("X_ACCESS_TOKEN", "")
+    access_secret = os.getenv("X_ACCESS_SECRET", "")
+
+    oauth_params = {
+        "oauth_consumer_key": api_key,
+        "oauth_nonce": uuid.uuid4().hex,
+        "oauth_signature_method": "HMAC-SHA1",
+        "oauth_timestamp": str(int(time.time())),
+        "oauth_token": access_token,
+        "oauth_version": "1.0",
+    }
+
+    # Combine all params for signature base string
+    all_params = {**oauth_params}
+    if body_params:
+        all_params.update(body_params)
+
+    # Sort and percent-encode
+    param_string = "&".join(
+        f"{urllib.parse.quote(k, safe='')}={urllib.parse.quote(str(v), safe='')}"
+        for k, v in sorted(all_params.items())
+    )
+
+    base_string = f"{method.upper()}&{urllib.parse.quote(url, safe='')}&{urllib.parse.quote(param_string, safe='')}"
+    signing_key = f"{urllib.parse.quote(api_secret, safe='')}&{urllib.parse.quote(access_secret, safe='')}"
+
+    signature = base64.b64encode(
+        hmac.new(signing_key.encode(), base_string.encode(), hashlib.sha1).digest()
+    ).decode()
+
+    oauth_params["oauth_signature"] = signature
+
+    auth_header = "OAuth " + ", ".join(
+        f'{urllib.parse.quote(k, safe="")}="{urllib.parse.quote(v, safe="")}"'
+        for k, v in sorted(oauth_params.items())
+    )
+
+    return {
+        "Authorization": auth_header,
+        "Content-Type": "application/json",
+    }
+
+
 def _get_auth_headers() -> dict:
-    """Build OAuth headers for X API v2 using Bearer token."""
+    """Build OAuth headers for X API v2 using Bearer token (read-only fallback)."""
     token = os.getenv("X_BEARER_TOKEN", "")
     if not token:
         raise RuntimeError("X_BEARER_TOKEN not set in .env")
@@ -90,11 +153,18 @@ def _get_auth_headers() -> dict:
 
 
 def _post_tweet_api(text: str) -> dict:
-    """Post a tweet using X API v2. Returns API response dict."""
-    headers = _get_auth_headers()
+    """Post a tweet using X API v2. Prefers OAuth 1.0a, falls back to Bearer."""
     payload = {"text": text}
 
-    resp = requests.post(X_TWEET_URL, headers=headers, json=payload, timeout=30)
+    if _has_oauth1a_creds():
+        # OAuth 1.0a User Context — can create tweets
+        # For JSON body posts, the body params are NOT included in the signature base string
+        headers = _oauth1a_sign("POST", X_TWEET_URL)
+        resp = requests.post(X_TWEET_URL, headers=headers, json=payload, timeout=30)
+    else:
+        # Bearer token — read-only, will get 403
+        headers = _get_auth_headers()
+        resp = requests.post(X_TWEET_URL, headers=headers, json=payload, timeout=30)
 
     if resp.status_code == 201:
         data = resp.json()
@@ -102,11 +172,9 @@ def _post_tweet_api(text: str) -> dict:
         print(f"  [X] Posted tweet {tweet_id}")
         return {"success": True, "tweet_id": tweet_id, "data": data}
     elif resp.status_code == 403:
-        # OAuth 2.0 App-Only (Bearer) tokens can't post — need OAuth 1.0a User Context
-        # Fall back to file-based queuing
         return {
             "success": False,
-            "error": "Bearer token cannot post tweets (read-only). Need OAuth 1.0a user tokens.",
+            "error": "403 Forbidden — Bearer token is read-only. Set X_API_KEY/X_API_SECRET/X_ACCESS_TOKEN/X_ACCESS_SECRET for OAuth 1.0a.",
             "status_code": resp.status_code,
             "queued": True,
         }

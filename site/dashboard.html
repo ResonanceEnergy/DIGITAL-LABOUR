@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital Labour — Income Command Center</title>
+<title>Bit Rage Labour — Income Command Center</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -95,7 +95,7 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;b
 <body>
 
 <div class="header">
-  <h1><span>Digital Labour</span> — Income Command Center</h1>
+  <h1><span>Bit Rage Labour</span> — Income Command Center</h1>
   <a href="index.html" class="back">← Back to Site</a>
 </div>
 
@@ -132,10 +132,11 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;b
   <div class="actions">
     <h3>Priority Actions — Phase 1</h3>
     <div class="action-list">
-      <div class="action"><span class="priority now">NOW</span> Switch Stripe to LIVE mode (set STRIPE_LIVE=1 in .env)</div>
+      <div class="action"><span class="priority now">NOW</span> Get Stripe LIVE keys + run: python -m billing.payment_links (switch from test mode)</div>
+      <div class="action"><span class="priority now">NOW</span> Activate FormSubmit: submit lead form on bit-rage-labour.com then click confirmation email at sales@bit-rage-labour.com</div>
       <div class="action"><span class="priority now">NOW</span> Fire email blast: python -m automation.outreach --auto-approve</div>
       <div class="action"><span class="priority now">NOW</span> Create Freelancer.com agency account</div>
-      <div class="action"><span class="priority now">NOW</span> Create Fiverr seller account &amp; post 4 gigs</div>
+      <div class="action"><span class="priority soon">SOON</span> Complete Fiverr gig deployment (top-4 deploying via OpenClaw automation)</div>
       <div class="action"><span class="priority soon">SOON</span> Create RapidAPI provider account &amp; upload OpenAPI spec</div>
       <div class="action"><span class="priority soon">SOON</span> Deploy first Chatbase white-label bot for a client</div>
       <div class="action"><span class="priority soon">SOON</span> Register on Upwork as AI agent developer</div>
@@ -147,7 +148,7 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;b
 </div>
 
 <div class="footer">
-  Digital Labour Income Dashboard — Digital Labour &copy; 2026<br>
+  Bit Rage Labour Income Dashboard — Bit Rage Labour &copy; 2026<br>
   Refresh: <code>python -m income.tracker</code> | Update: <code>python -m income.tracker --update SOURCE STATUS</code>
 </div>
 
@@ -157,10 +158,10 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;b
 var TRACKER_DATA = {
   "total_revenue": 0,
   "sources": {
-    "stripe_direct": {"name":"Stripe Direct Sales","category":"direct","status":"active","revenue_total":0,"notes":"10 products. 10 payment links live. LIVE mode ON.","url":"https://dashboard.stripe.com"},
+    "stripe_direct": {"name":"Stripe Direct Sales","category":"direct","status":"configured","revenue_total":0,"notes":"10 payment links generated. TEST mode — awaiting LIVE keys.","url":"https://dashboard.stripe.com"},
     "email_outreach": {"name":"Email Outreach","category":"direct","status":"active","revenue_total":0,"notes":"50 emails sent. 50 follow-ups scheduled.","url":""},
     "freelancer": {"name":"Freelancer.com","category":"freelance","status":"researched","revenue_total":0,"notes":"Profile + 3 bid templates exported.","url":"https://freelancer.com"},
-    "fiverr": {"name":"Fiverr AI Services","category":"freelance","status":"researched","revenue_total":0,"notes":"4 gigs exported. Ready to register.","url":"https://fiverr.com"},
+    "fiverr": {"name":"Fiverr AI Services","category":"freelance","status":"registered","revenue_total":0,"notes":"Account live. Top-4 gigs deploying via browser automation.","url":"https://fiverr.com"},
     "upwork": {"name":"Upwork Premium","category":"freelance","status":"researched","revenue_total":0,"notes":"Profile + portfolio + 2 specialized profiles exported.","url":"https://upwork.com"},
     "virtuals": {"name":"Virtuals Protocol ACP","category":"crypto","status":"not_started","revenue_total":0,"notes":"$479M aGDP, $3.3M agent revenue","url":"https://virtuals.io"},
     "agentverse": {"name":"Fetch.ai Agentverse","category":"crypto","status":"not_started","revenue_total":0,"notes":"2.7M agents registered","url":"https://agentverse.ai"},

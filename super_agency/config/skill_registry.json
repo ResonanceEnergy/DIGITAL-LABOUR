@@ -209,7 +209,7 @@
       "registered_at": "2026-03-15T00:00:00"
     },
     "dl_bridge": {
-      "description": "Digital Labour integration bridge — primary mission connector",
+      "description": "Bit Rage Labour integration bridge — primary mission connector",
       "capabilities": [
         "dl_sync",
         "dl_fleet_status",

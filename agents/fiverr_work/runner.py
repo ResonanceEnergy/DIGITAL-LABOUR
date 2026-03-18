@@ -127,10 +127,10 @@ Include:
 - Description of what was delivered
 - Any notes or recommendations for the buyer
 
-Sign off as Digital Labour."""
+Sign off as Bit Rage Labour."""
 
     response = llm_call(
-        system="You are a delivery specialist for Digital Labour, an AI-powered services agency on Fiverr.",
+        system="You are a delivery specialist for Bit Rage Labour, an AI-powered services agency on Fiverr.",
         user=prompt,
         provider=provider,
     )
@@ -157,7 +157,7 @@ The response should:
 - Suggest a competitive price
 - Propose a realistic delivery time
 
-Sign off as Digital Labour."""
+Sign off as Bit Rage Labour."""
 
     response = llm_call(
         system="You are a sales specialist responding to buyer requests on Fiverr.",

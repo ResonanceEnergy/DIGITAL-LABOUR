@@ -127,7 +127,7 @@ def main():
 
     # Report
     print("=" * 70)
-    print("  DIGITAL LABOUR — CODEBASE AUDIT")
+    print("  BIT RAGE LABOUR — CODEBASE AUDIT")
     print("=" * 70)
     print(f"\n  Files: {stats['files']} | Lines: {stats['lines']:,} | Functions: {stats['functions']} | Classes: {stats['classes']}")
     print(f"\n  ERRORS:   {len(errors)}")

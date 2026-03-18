@@ -1,5 +1,5 @@
-"""DIGITAL LABOUR Portfolio Company: Crimson-Compass"""
+"""BIT RAGE LABOUR Portfolio Company: Crimson-Compass"""
 
 __version__ = "1.0.0"
-__author__ = "DIGITAL LABOUR"
+__author__ = "BIT RAGE LABOUR"
 __description__ = "Crimson-Compass portfolio company"

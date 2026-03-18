@@ -200,7 +200,7 @@ def generate_gig_image(gig_index: int, gig: dict, output_dir: Optional[Path] = N
 
     # --- Brand name ---
     font_brand = _get_font("bold", 22)
-    draw.text((120, 45), "DIGITAL LABOUR SYSTEMS", font=font_brand, fill=COLORS["accent"])
+    draw.text((120, 45), "BIT RAGE LABOUR SYSTEMS", font=font_brand, fill=COLORS["accent"])
 
     # --- Gig number badge ---
     badge_x = IMG_W - 120
@@ -351,21 +351,24 @@ def _save_cookies(context):
 
 def login_flow():
     """Open Fiverr in browser for manual login. Saves session for reuse."""
-    print("\n  Opening Fiverr — log in manually. Session will be saved.")
-    print("  Close the browser when done.\n")
+    print("\n  Opening Fiverr — log in manually.")
+    print("  When you're logged in, just close the browser window. Session will be saved.\n")
     pw, browser, context = _launch_browser()
     page = context.new_page()
     page.goto(f"{FIVERR_BASE}/login", wait_until="domcontentloaded")
     try:
-        page.wait_for_url("**/seller_dashboard**", timeout=300000)  # 5 min
-        print("  Login detected! Session saved.")
-        _save_cookies(context)
+        # Wait up to 10 minutes — user logs in and eventually closes browser
+        page.wait_for_event("close", timeout=600000)
     except Exception:
-        print("  Browser closed or timeout. Saving cookies anyway...")
-        _save_cookies(context)
-    context.close()
-    browser.close()
-    pw.stop()
+        pass
+    _save_cookies(context)
+    print("  Cookies saved. You can now run --deploy or --guided.")
+    try:
+        context.close()
+        browser.close()
+        pw.stop()
+    except Exception:
+        pass
 
 
 def _wait_and_fill(page, selector: str, value: str, timeout: int = 5000):

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Backlog Management System
+BIT RAGE LABOUR Backlog Management System
 Comprehensive task tracking and AI-powered prioritization
 """
 

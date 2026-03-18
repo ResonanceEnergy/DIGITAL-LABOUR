@@ -8,7 +8,7 @@ def mock_cto_agent_file(tmp_path):
     Creates a mock 'cto_agent.py' file for testing. This fixture is used to avoid
     dependency on the actual file and to test in a controlled environment.
     """
-    dir_path = tmp_path / "DIGITAL LABOUR" / "Digital-Labour" / "agents"
+    dir_path = tmp_path / "BIT RAGE LABOUR" / "Digital-Labour" / "agents"
     dir_path.mkdir(parents=True, exist_ok=True)
     file_path = dir_path / "cto_agent.py"
     
@@ -68,7 +68,7 @@ def test_empty_file_scenario(tmp_path):
     Tests the behavior when reading from an entirely empty cto_agent.py file.
     Verifies that no lines are returned, and no error is thrown.
     """
-    dir_path = tmp_path / "DIGITAL LABOUR" / "Digital-Labour" / "agents"
+    dir_path = tmp_path / "BIT RAGE LABOUR" / "Digital-Labour" / "agents"
     dir_path.mkdir(parents=True, exist_ok=True)
     file_path = dir_path / "cto_agent.py"
     file_path.write_text("")  # Create an empty file

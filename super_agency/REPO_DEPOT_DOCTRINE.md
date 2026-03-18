@@ -43,7 +43,7 @@ BASEMENT: INFRASTRUCTURE & SUPPORT
 
 ## �🎯 CORE PHILOSOPHY
 
-The **REPO DEPOT** is the beating heart of DIGITAL LABOUR operations - a self-sustaining flywheel where digital AI agents build, maintain, and evolve software repositories brick by brick. Every cycle generates momentum, every repo becomes a foundation for the next, creating exponential growth through intelligent automation.
+The **REPO DEPOT** is the beating heart of BIT RAGE LABOUR operations - a self-sustaining flywheel where digital AI agents build, maintain, and evolve software repositories brick by brick. Every cycle generates momentum, every repo becomes a foundation for the next, creating exponential growth through intelligent automation.
 
 ### The Flywheel Mechanics
 ```
@@ -462,4 +462,4 @@ quality_gates:
 
 ---
 
-*This doctrine represents the evolution from manual development to AI-orchestrated software creation. The REPO DEPOT flywheel transforms DIGITAL LABOUR from a development team into an intelligent software factory, where AI agents work 24/7 to build, maintain, and evolve our digital empire.*
+*This doctrine represents the evolution from manual development to AI-orchestrated software creation. The REPO DEPOT flywheel transforms BIT RAGE LABOUR from a development team into an intelligent software factory, where AI agents work 24/7 to build, maintain, and evolve our digital empire.*

@@ -1273,7 +1273,7 @@ class RepoManager:
                     "-m",
                     message,
                     "--author",
-                    f"{author} <{author.lower()}@digital-labour.com>",
+                    f"{author} <{author.lower()}@bit-rage-labour.com>",
                 ],
                 cwd=repo_path,
                 check=True,

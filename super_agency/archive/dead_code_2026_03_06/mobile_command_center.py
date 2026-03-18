@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Mobile Command Center (16GB Optimized)
+BIT RAGE LABOUR Mobile Command Center (16GB Optimized)
 Flask web server for mobile remote access - lightweight version
-Implements DIGITAL LABOUR Share Protocol (SASP)
+Implements BIT RAGE LABOUR Share Protocol (SASP)
 """
 
 from flask import Flask, render_template, jsonify, request
@@ -504,7 +504,7 @@ def trigger_memory_optimization():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    print("🚀 Starting DIGITAL LABOUR Mobile Command Center...")
+    print("🚀 Starting BIT RAGE LABOUR Mobile Command Center...")
     print("� Optimized for macOS Sequoia 15.7.3 - Apple M1 8GB")
     print("🧠 Memory limits: 256MB (mobile), 512MB (services)")
     print("�📱 Access from your phone at: http://YOUR_LOCAL_IP:8080")

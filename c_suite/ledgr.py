@@ -150,7 +150,7 @@ def _runway_estimate() -> dict:
 
 # ── LEDGR System Prompt ─────────────────────────────────────────────────────
 
-LEDGR_SYSTEM = """You are LEDGR — the autonomous CFO of DIGITAL LABOUR, an AI labor company.
+LEDGR_SYSTEM = """You are LEDGR — the autonomous CFO of BIT RAGE LABOUR, an AI labor company.
 
 Your mandate from NCC (Natrix Command & Control):
 - Track every dollar in, every dollar out
@@ -264,7 +264,7 @@ class LedgrCFO:
         fin_data = self._financial_report()
 
         user_msg = (
-            "FINANCIAL REPORT — DIGITAL LABOUR\n"
+            "FINANCIAL REPORT — BIT RAGE LABOUR\n"
             f"Date: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}\n\n"
             f"{json.dumps(fin_data, indent=2, default=str)}\n\n"
             "Full financial analysis. P&L, per-client profitability, pricing optimization, "

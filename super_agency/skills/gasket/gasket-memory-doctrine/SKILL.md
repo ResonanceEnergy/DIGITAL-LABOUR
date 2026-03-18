@@ -4,7 +4,7 @@ description: Manage GASKET memory doctrine — read, search, update system memor
 metadata: {"openclaw":{"emoji":"🧠","os":["darwin"]}}
 ---
 
-GASKET Memory Doctrine manages the DIGITAL LABOUR knowledge base.
+GASKET Memory Doctrine manages the BIT RAGE LABOUR knowledge base.
 
 ## Memory Locations
 - `{baseDir}/../memory/` — Daily logs (`memory/YYYY-MM-DD.md`)

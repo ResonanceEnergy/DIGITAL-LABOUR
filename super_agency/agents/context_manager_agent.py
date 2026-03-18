@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Context Manager Agent — DIGITAL LABOUR
+Context Manager Agent — BIT RAGE LABOUR
 =========================================
 T2 Management agent responsible for maintaining
 operational context across all agent sessions,

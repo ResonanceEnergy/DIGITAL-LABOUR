@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Batch Processor
+BIT RAGE LABOUR Batch Processor
 Run multiple CPU maximization cycles in parallel for maximum throughput
 """
 
@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 class BatchProcessor:
-    """Batch processor for running multiple DIGITAL LABOUR operations in parallel"""
+    """Batch processor for running multiple BIT RAGE LABOUR operations in parallel"""
 
     def __init__(self, batch_size: int = 4):
         self.root = Path(__file__).resolve().parent
@@ -193,7 +193,7 @@ def main():
     """Main batch processing function"""
     import argparse
 
-    parser = argparse.ArgumentParser(description="DIGITAL LABOUR Batch Processor")
+    parser = argparse.ArgumentParser(description="BIT RAGE LABOUR Batch Processor")
     parser.add_argument("--cycles", type=int, default=10, help="Number of cycles to run")
     parser.add_argument("--batch-size", type=int, default=4, help="Batch size for parallel processing")
     parser.add_argument("--continuous", type=int, help="Run continuous processing for N minutes")
@@ -201,7 +201,7 @@ def main():
 
     args = parser.parse_args()
 
-    print("🔥 DIGITAL LABOUR Batch Processor")
+    print("🔥 BIT RAGE LABOUR Batch Processor")
     print("=" * 50)
     print(f"Mode: {args.mode}")
     print(f"Batch Size: {args.batch_size}")

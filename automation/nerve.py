@@ -1,6 +1,6 @@
 ﻿"""NERVE — Nexus Engine for Resilient Vigilant Execution.
 
-The autonomous 24/7 daemon that runs DIGITAL LABOUR without human intervention.
+The autonomous 24/7 daemon that runs BIT RAGE LABOUR without human intervention.
 Self-checking, self-healing, self-motivated. Only escalates truly critical issues.
 
 NERVE wraps the existing orchestrator, outreach pipeline, C-Suite scheduler,
@@ -764,7 +764,7 @@ def show_decisions(limit: int = 20):
 # ── CLI ────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="NERVE — Autonomous DIGITAL LABOUR daemon")
+    parser = argparse.ArgumentParser(description="NERVE — Autonomous BIT RAGE LABOUR daemon")
     parser.add_argument("--daemon", action="store_true", help="Run 24/7 daemon mode")
     parser.add_argument("--status", action="store_true", help="Show NERVE status")
     parser.add_argument("--decisions", action="store_true", help="Show recent decisions")

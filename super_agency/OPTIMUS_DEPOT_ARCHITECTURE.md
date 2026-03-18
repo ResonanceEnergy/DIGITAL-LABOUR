@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **OPTIMUS OPENCLAW DEPOT ENGINE** is the unified orchestration engine for the DIGITAL LABOUR platform. It consolidates 9 internal subsystems into a single process with cross-platform communication (macOS QUSAR ↔ Windows x64 QFORGE).
+The **OPTIMUS OPENCLAW DEPOT ENGINE** is the unified orchestration engine for the BIT RAGE LABOUR platform. It consolidates 9 internal subsystems into a single process with cross-platform communication (macOS QUSAR ↔ Windows x64 QFORGE).
 
 ## Architecture
 

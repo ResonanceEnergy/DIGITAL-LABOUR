@@ -23,7 +23,7 @@ class ParallelPortfolioIntel:
 
     def __init__(self):
         self.root = Path(__file__).resolve(
-        ).parents[1] / "ResonanceEnergy_DigitalLabour"
+        ).parents[1] / "ResonanceEnergy_BitRageLabour"
         self.config = json.loads(
             (self.root / "config" / "settings.json").read_text())
         self.repos_base = Path(self.config.get(

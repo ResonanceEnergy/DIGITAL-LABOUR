@@ -1,5 +1,5 @@
 #!/bin/bash
-# Digital Labour Mobile Remote Access Setup
+# Bit Rage Labour Mobile Remote Access Setup
 # Run locally and access from anywhere with phone/iPad
 
 set -e
@@ -112,8 +112,8 @@ setup_local_server() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Digital Labour">
-    <title>Digital Labour Command Center</title>
+    <meta name="apple-mobile-web-app-title" content="Bit Rage Labour">
+    <title>Bit Rage Labour Command Center</title>
     <link rel="stylesheet" href="/static/css/mobile.css">
     <link rel="apple-touch-icon" href="/static/icons/icon-192.png">
     <link rel="manifest" href="/static/manifest.json">
@@ -121,7 +121,7 @@ setup_local_server() {
 <body>
     <div class="mobile-container">
         <header class="mobile-header">
-            <h1>🚀 Digital Labour</h1>
+            <h1>🚀 Bit Rage Labour</h1>
             <div class="status-indicator" id="connection-status">🔄 Connecting...</div>
         </header>
 
@@ -206,7 +206,7 @@ EOF
 
     # Create mobile CSS
     cat > static/css/mobile.css << 'EOF'
-/* Mobile-first responsive design for Digital Labour */
+/* Mobile-first responsive design for Bit Rage Labour */
 * {
     margin: 0;
     padding: 0;
@@ -417,7 +417,7 @@ EOF
 
     # Create mobile JavaScript
     cat > static/js/mobile.js << 'EOF'
-// Mobile Digital Labour Command Center JavaScript
+// Mobile Bit Rage Labour Command Center JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize app
@@ -628,9 +628,9 @@ EOF
     # Create web app manifest
     cat > static/manifest.json << 'EOF'
 {
-    "name": "Digital Labour Command Center",
-    "short_name": "Digital Labour",
-    "description": "Mobile command center for Digital Labour operations",
+    "name": "Bit Rage Labour Command Center",
+    "short_name": "Bit Rage Labour",
+    "description": "Mobile command center for Bit Rage Labour operations",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#1a1a2e",
@@ -681,7 +681,7 @@ EOF
     cat > mobile_command_center.py << 'EOF'
 #!/usr/bin/env python3
 """
-Digital Labour Mobile Command Center Web Server
+Bit Rage Labour Mobile Command Center Web Server
 Provides mobile-optimized web interface for remote access
 """
 
@@ -784,7 +784,7 @@ def create_backup():
         return "Backup process started"
 
 if __name__ == '__main__':
-    print("🚀 Digital Labour Mobile Command Center")
+    print("🚀 Bit Rage Labour Mobile Command Center")
     print("🌐 Access from your phone/iPad at:")
     print(f"   Local: http://localhost:8080")
     print(f"   Network: http://{os.environ.get('LOCAL_IP', 'your-ip')}:8080")
@@ -837,7 +837,7 @@ tunnels:
   command-center:
     addr: 8080
     proto: http
-    hostname: DIGITAL LABOUR.ngrok.io
+    hostname: BIT RAGE LABOUR.ngrok.io
 EOF
 
     log_warning "Please set your ngrok auth token:"
@@ -878,7 +878,7 @@ setup_cloudflare() {
 tunnel: Digital-Labour-mobile
 credentials-file: ~/.cloudflared/tunnel.json
 ingress:
-  - hostname: mobile.DIGITAL LABOUR.local
+  - hostname: mobile.BIT RAGE LABOUR.local
     service: http://localhost:8080
   - service: http_status:404
 EOF
@@ -891,7 +891,7 @@ generate_instructions() {
     log_mobile "Generating mobile access instructions..."
 
     cat > MOBILE_ACCESS_README.md << EOF
-# 📱 Digital Labour Mobile Remote Access
+# 📱 Bit Rage Labour Mobile Remote Access
 
 Your command center is now configured for mobile access from anywhere!
 
@@ -918,8 +918,8 @@ Your command center is now configured for mobile access from anywhere!
 - **Best for**: Home/office network access
 
 ### Remote Access (from anywhere)
-- **ngrok**: https://DIGITAL LABOUR.ngrok.io
-- **Cloudflare**: https://mobile.DIGITAL LABOUR.local
+- **ngrok**: https://BIT RAGE LABOUR.ngrok.io
+- **Cloudflare**: https://mobile.BIT RAGE LABOUR.local
 
 ## 📱 Mobile Setup Instructions
 
@@ -928,14 +928,14 @@ Your command center is now configured for mobile access from anywhere!
 2. Navigate to your access URL
 3. Tap the share button (📤)
 4. Select "Add to Home Screen"
-5. Name it "Digital Labour Command"
+5. Name it "Bit Rage Labour Command"
 6. Tap "Add" - now you have an app!
 
 ### Android Setup
 1. Open Chrome on your device
 2. Navigate to your access URL
 3. Tap the menu (⋮) → "Add to Home screen"
-4. Name it "Digital Labour Command"
+4. Name it "Bit Rage Labour Command"
 5. Tap "Add" - now you have an app!
 
 ## 🎮 Mobile Features
@@ -1027,7 +1027,7 @@ start_services() {
 
 # Main setup
 main() {
-    echo "📱 Digital Labour Mobile Remote Access Setup"
+    echo "📱 Bit Rage Labour Mobile Remote Access Setup"
     echo "=========================================="
     echo ""
     echo "This will configure your command center to run locally"
@@ -1105,7 +1105,7 @@ EOF
 
 # Main execution
 main() {
-    echo "📱 Digital Labour Mobile Remote Access Setup"
+    echo "📱 Bit Rage Labour Mobile Remote Access Setup"
     echo "=========================================="
     echo ""
     echo "Setting up local command center with mobile access..."

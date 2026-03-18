@@ -24,8 +24,8 @@
     "aac_synced": true,
     "status": "synced"
   },
-  "digital_labour": {
-    "system": "DigitalLabour",
+  "bit_rage_labour": {
+    "system": "BitRageLabour",
     "action": "sync",
     "synced_at": "2026-03-15T13:47:00.551314-07:00",
     "status": "synced",

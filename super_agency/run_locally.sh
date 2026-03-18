@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Digital Labour Local Runner
+# Bit Rage Labour Local Runner
 # Comprehensive step-by-step execution and monitoring
 
 set -e
@@ -235,7 +235,7 @@ generate_reports() {
     local report_file="$REPORTS_DIR/DL_REPOrt_$timestamp.md"
 
     cat > "$report_file" << EOF
-# Digital Labour System Report
+# Bit Rage Labour System Report
 **Generated:** $(date)
 **Duration:** Session run
 **Status:** Active
@@ -290,7 +290,7 @@ cleanup_processes() {
         fi
     done
 
-    # Kill any remaining Digital Labour processes
+    # Kill any remaining Bit Rage Labour processes
     pkill -f "cpu_maximizer\|aac_\|inner_council" 2>/dev/null || true
 
     log_success "Cleanup completed"
@@ -298,7 +298,7 @@ cleanup_processes() {
 
 show_menu() {
     echo
-    log_header "Digital Labour LOCAL RUNNER"
+    log_header "Bit Rage Labour LOCAL RUNNER"
     echo "1) Run Full System (Recommended)"
     echo "2) Start Inner Council Only"
     echo "3) Start AAC System Only"
@@ -312,7 +312,7 @@ show_menu() {
 }
 
 run_full_system() {
-    log_header "RUNNING FULL Digital Labour SYSTEM"
+    log_header "RUNNING FULL Bit Rage Labour SYSTEM"
 
     update_progress "full_system" "STARTED" "Complete system deployment"
 
@@ -351,7 +351,7 @@ run_full_system() {
     generate_reports
 
     update_progress "full_system" "COMPLETED" "Full system run completed"
-    log_success "Full Digital Labour system run completed!"
+    log_success "Full Bit Rage Labour system run completed!"
 }
 
 # Main execution

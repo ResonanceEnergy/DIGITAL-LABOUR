@@ -8,14 +8,14 @@ Replacement commands:
     bitrage.py stop        # replaces: python matrix_boot.py --stop
 
 Original description:
-    DIGITAL LABOUR MATRIX — Auto-launch script.
+    BIT RAGE LABOUR MATRIX — Auto-launch script.
     Starts the FastAPI server + all daemons on system boot.
     Install via Windows Task Scheduler or run manually.
 
 Task Scheduler setup:
     Trigger: At startup
-    Action:  pythonw.exe "C:\\dev\\DIGITAL LABOUR\\DIGITAL LABOUR\\matrix_boot.py"
-    Start in: C:\\dev\\DIGITAL LABOUR\\DIGITAL LABOUR
+    Action:  pythonw.exe "C:\\dev\\BIT RAGE LABOUR\\BIT RAGE LABOUR\\matrix_boot.py"
+    Start in: C:\\dev\\BIT RAGE LABOUR\\BIT RAGE LABOUR
 """
 
 import subprocess
@@ -69,7 +69,7 @@ def main():
         return
 
     print("[MATRIX] ═══════════════════════════════")
-    print("[MATRIX]  DIGITAL LABOUR MATRIX — AUTO BOOT")
+    print("[MATRIX]  BIT RAGE LABOUR MATRIX — AUTO BOOT")
     print("[MATRIX] ═══════════════════════════════")
     print(f"[MATRIX] Python: {PYTHON}")
     print(f"[MATRIX] Root:   {ROOT}")

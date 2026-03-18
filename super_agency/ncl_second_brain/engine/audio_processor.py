@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Audio Processor for DIGITAL LABOUR Phase 2
+Audio Processor for BIT RAGE LABOUR Phase 2
 Local-first podcast and audio transcription pipeline
 
 Processes audio content with:
@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 
 class AudioProcessor:
     """
-    Complete audio processing pipeline for DIGITAL LABOUR
+    Complete audio processing pipeline for BIT RAGE LABOUR
     Local-first, privacy-preserving, provenance-tracked
     """
 
@@ -430,7 +430,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Process audio for DIGITAL LABOUR")
+        description="Process audio for BIT RAGE LABOUR")
     parser.add_argument("audio_url", help="URL or path to audio file")
     parser.add_argument("--metadata", help="JSON metadata file")
     parser.add_argument("--output-dir", help="Output directory")

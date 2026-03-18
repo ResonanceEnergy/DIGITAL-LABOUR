@@ -14,7 +14,7 @@ sys.path.insert(0, str(WORKSPACE))
 
 @pytest.fixture
 def workspace():
-    """Return the Digital Labour workspace path."""
+    """Return the Bit Rage Labour workspace path."""
     return WORKSPACE
 
 

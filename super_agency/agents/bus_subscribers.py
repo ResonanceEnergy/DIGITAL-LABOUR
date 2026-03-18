@@ -2,7 +2,7 @@
 """
 Bus Subscribers — wires handlers to message bus topics.
 
-Called once at boot from run_digital_labour.py to connect the pub/sub plumbing.
+Called once at boot from run_bit_rage_labour.py to connect the pub/sub plumbing.
 """
 
 import json
@@ -83,7 +83,7 @@ def _on_integration_sync(msg):
     logger.info(f"[BUS] Integration sync: {src}")
 
 
-# ── DIGITAL LABOUR event handlers (primary mission) ─────────
+# ── BIT RAGE LABOUR event handlers (primary mission) ─────────
 
 _DL_KPI_LOG = ROOT / "logs" / "dl_events.ndjson"
 
@@ -477,42 +477,42 @@ def register_all():
         "portfolio.sync.*", _on_integration_sync,
     )
 
-    # ── DIGITAL LABOUR events (primary mission) ──
+    # ── BIT RAGE LABOUR events (primary mission) ──
     bus.subscribe(
-        "digital_labour.task.completed",
+        "bit_rage_labour.task.completed",
         _on_dl_task_completed,
     )
     bus.subscribe(
-        "digital_labour.task.failed",
+        "bit_rage_labour.task.failed",
         _on_dl_task_failed,
     )
     bus.subscribe(
-        "digital_labour.revenue.*",
+        "bit_rage_labour.revenue.*",
         _on_dl_revenue,
     )
     bus.subscribe(
-        "digital_labour.fleet.status",
+        "bit_rage_labour.fleet.status",
         _on_dl_fleet_status,
     )
     bus.subscribe(
-        "digital_labour.nerve.*",
+        "bit_rage_labour.nerve.*",
         _on_dl_nerve_cycle,
     )
     bus.subscribe(
-        "digital_labour.csuite.report",
+        "bit_rage_labour.csuite.report",
         _on_dl_csuite_report,
     )
     bus.subscribe(
-        "digital_labour.qa.alert",
+        "bit_rage_labour.qa.alert",
         _on_dl_qa_alert,
     )
     bus.subscribe(
-        "digital_labour.client.*",
+        "bit_rage_labour.client.*",
         _on_dl_client_event,
     )
     # Legacy catch-all for any DL sync events
     bus.subscribe(
-        "digital_labour.sync.*",
+        "bit_rage_labour.sync.*",
         _on_integration_sync,
     )
     bus.subscribe(

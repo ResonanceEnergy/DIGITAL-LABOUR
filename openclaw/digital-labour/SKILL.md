@@ -1,5 +1,5 @@
 ---
-name: digital-labour
+name: bit-rage-labour
 description: "33 AI agents for business automation - sales outreach, lead gen, content creation, SEO, ad copy, bookkeeping, proposals, market research, business plans, tech docs, data entry, web scraping, CRM ops, cross-platform freelancing automation (Upwork, Fiverr, Freelancer.com, PeoplePerHour, Guru), and more. 7 multi-agent pipelines with QA verification on every output. Powered by GPT-4o, Claude, Gemini, and Grok."
 metadata:
   author: Resonance Energy
@@ -9,14 +9,14 @@ metadata:
     homepage: "https://bitrage-labour-api-production.up.railway.app"
     requires:
       env:
-        - DIGITAL_LABOUR_API_URL
+        - BIT_RAGE_LABOUR_API_URL
       bins:
         - python3
-    primaryEnv: DIGITAL_LABOUR_API_URL
-compatibility: "Requires Python 3.6+ (stdlib only, no pip installs). Requires DIGITAL_LABOUR_API_URL environment variable (defaults to production API)."
+    primaryEnv: BIT_RAGE_LABOUR_API_URL
+compatibility: "Requires Python 3.6+ (stdlib only, no pip installs). Requires BIT_RAGE_LABOUR_API_URL environment variable (defaults to production API)."
 ---
 
-# ⚡ Digital Labour — 33 AI Agents for Business Automation
+# ⚡ Bit Rage Labour — 33 AI Agents for Business Automation
 
 > **Your entire back-office, automated.** Run any of 33 specialized AI agents through plain English. Sales outreach, lead generation, content repurposing, SEO, ad copy, bookkeeping, proposals, market research, tech docs, cross-platform freelancing automation (Upwork, Fiverr, Freelancer.com, PeoplePerHour, Guru) — all with built-in QA verification.
 
@@ -24,7 +24,7 @@ compatibility: "Requires Python 3.6+ (stdlib only, no pip installs). Requires DI
 
 Set your API URL (or use the default production endpoint):
 ```bash
-export DIGITAL_LABOUR_API_URL="https://bitrage-labour-api-production.up.railway.app"
+export BIT_RAGE_LABOUR_API_URL="https://bitrage-labour-api-production.up.railway.app"
 ```
 
 Test the connection:
@@ -54,7 +54,7 @@ python3 {baseDir}/scripts/dl-api.py run support_ticket '{"ticket_text": "My orde
 | **content_repurpose** | `run content_repurpose '{"content":"<blog post text>"}'` | Repurpose content into tweets, LinkedIn, newsletters |
 | **seo_content** | `run seo_content '{"keyword":"AI automation","content_type":"blog"}'` | SEO-optimized content (blog/landing/pillar pages) |
 | **social_media** | `run social_media '{"topic":"AI trends","platform":"linkedin","cta_goal":"drive signups"}'` | Platform-native social posts with CTAs |
-| **press_release** | `run press_release '{"announcement":"Product launch","company":"Digital Labour"}'` | PR-ready press releases |
+| **press_release** | `run press_release '{"announcement":"Product launch","company":"Bit Rage Labour"}'` | PR-ready press releases |
 
 ### Operations & Data (4 agents)
 | Agent | Command | What it does |
@@ -205,8 +205,8 @@ Chain agents together for complex operations:
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `DIGITAL_LABOUR_API_URL` | Yes | `https://bitrage-labour-api-production.up.railway.app` | API base URL |
-| `DIGITAL_LABOUR_API_KEY` | No | *(none)* | Optional API key for authenticated access |
+| `BIT_RAGE_LABOUR_API_URL` | Yes | `https://bitrage-labour-api-production.up.railway.app` | API base URL |
+| `BIT_RAGE_LABOUR_API_KEY` | No | *(none)* | Optional API key for authenticated access |
 
 ## Important Notes
 

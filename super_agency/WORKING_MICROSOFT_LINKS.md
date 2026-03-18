@@ -34,7 +34,7 @@
 3. Go to: "Your info" → "Manage how you sign in to Microsoft"
 4. Click: "Add email" or "Add alias"
 5. Add: `gripandripphdd@outlook.com`
-6. Add: `acceleratedarDigital Labour@outlook.com`
+6. Add: `acceleratedarBit Rage Labour@outlook.com`
 
 **This gives you unified sign-in without full account merge!**
 

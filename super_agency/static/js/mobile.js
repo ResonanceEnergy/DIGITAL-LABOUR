@@ -1,4 +1,4 @@
-// DIGITAL LABOUR Mobile JavaScript
+// BIT RAGE LABOUR Mobile JavaScript
 // Touch interactions, PWA features, and real-time updates
 
 class MobileCommandCenter {

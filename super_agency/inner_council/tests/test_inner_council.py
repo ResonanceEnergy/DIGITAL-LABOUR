@@ -368,12 +368,12 @@ class TestIntegration:
     @pytest.mark.xfail(
         reason="root-level agents package shadowed by inner_council/agents in sys.path")
     def test_run_script_import(self):
-        """Ensure run_digital_labour can be imported without errors"""
+        """Ensure run_bit_rage_labour can be imported without errors"""
         root_dir = str(Path(__file__).parent.parent.parent)
         if root_dir not in sys.path:
             sys.path.insert(0, root_dir)
-        import run_digital_labour
-        assert hasattr(run_digital_labour, 'main')
+        import run_bit_rage_labour
+        assert hasattr(run_bit_rage_labour, 'main')
 
 
 if __name__ == "__main__":

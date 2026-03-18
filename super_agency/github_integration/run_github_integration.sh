@@ -1,5 +1,5 @@
 #!/bin/bash
-# Digital Labour GitHub Integration Runner
+# Bit Rage Labour GitHub Integration Runner
 # Usage: ./run_github_integration.sh [command] [options]
 
 set -e
@@ -97,7 +97,7 @@ case "$COMMAND" in
         python3 -c "
 from github_integration_system import GitHubIntegrationSystem
 system = GitHubIntegrationSystem()
-system.create_repository('$REPO_NAME', '$REPO_NAME - Digital Labour Project', True)
+system.create_repository('$REPO_NAME', '$REPO_NAME - Bit Rage Labour Project', True)
         "
         ;;
 
@@ -137,7 +137,7 @@ system.create_pull_request('$REPO_NAME', '$TITLE', '$BODY', 'feature-branch')
         ;;
 
     "help"|*)
-        echo "Digital Labour GitHub Integration Runner"
+        echo "Bit Rage Labour GitHub Integration Runner"
         echo "Usage: ./run_github_integration.sh <command> [options]"
         echo ""
         echo "Commands:"

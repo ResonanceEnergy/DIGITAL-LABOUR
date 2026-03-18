@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Global Intelligence Network for DIGITAL LABOUR
+Global Intelligence Network for BIT RAGE LABOUR
 Implements worldwide data integration, intelligence aggregation,
 and global monitoring capabilities.
 

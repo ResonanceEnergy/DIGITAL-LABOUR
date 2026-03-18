@@ -1,4 +1,4 @@
-"""Stripe Account Bootstrap — Guided setup wizard for Digital Labour payments.
+"""Stripe Account Bootstrap — Guided setup wizard for Bit Rage Labour payments.
 
 Walks through:
     1. Validate Stripe API key
@@ -231,7 +231,7 @@ def test_checkout():
     result = payments.create_checkout(
         client="dl-test",
         amount_cents=100,
-        description="Digital Labour — Test Payment ($1.00)",
+        description="Bit Rage Labour — Test Payment ($1.00)",
     )
 
     if "error" in result:
@@ -263,7 +263,7 @@ def business_setup_guide():
     print("  1. BUSINESS DETAILS")
     print("     https://dashboard.stripe.com/settings/account")
     print("     - Business type: Individual / Sole Proprietor / Company")
-    print("     - Business name: Digital Labour (or your legal name)")
+    print("     - Business name: Bit Rage Labour (or your legal name)")
     print("     - Country, address, phone")
     print()
     print("  2. BANK ACCOUNT (for payouts)")
@@ -278,7 +278,7 @@ def business_setup_guide():
     print()
     print("  4. BRANDING")
     print("     https://dashboard.stripe.com/settings/branding")
-    print("     - Company name on receipts: 'Digital Labour'")
+    print("     - Company name on receipts: 'Bit Rage Labour'")
     print("     - Support email, icon, accent color (#00ff88)")
     print()
     print("  5. GO LIVE")
@@ -333,7 +333,7 @@ def print_summary():
 
 def full_setup():
     """Run the complete setup wizard."""
-    banner("DIGITAL LABOUR — STRIPE PAYMENT SETUP")
+    banner("BIT RAGE LABOUR — STRIPE PAYMENT SETUP")
     print("  This wizard will configure Stripe for payment collection.")
     print("  You'll need a Stripe account (free to create).")
     print()
@@ -374,7 +374,7 @@ def full_setup():
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Stripe Setup Wizard for Digital Labour")
+    parser = argparse.ArgumentParser(description="Stripe Setup Wizard for Bit Rage Labour")
     parser.add_argument("--check", action="store_true", help="Check config status only")
     parser.add_argument("--products", action="store_true", help="Create products only")
     parser.add_argument("--test", action="store_true", help="Run test checkout only")

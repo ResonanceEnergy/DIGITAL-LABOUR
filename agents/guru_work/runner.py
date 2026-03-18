@@ -79,14 +79,14 @@ Skills: {', '.join(job.get('skills', []))}
 
 Include:
 - Professional cover letter (150-200 words)
-- Why Digital Labour is the best fit
+- Why Bit Rage Labour is the best fit
 - Mention AI-powered tools for speed and accuracy
 - Competitive pricing suggestion
 
-Sign off as Digital Labour — AI-Powered Business Services."""
+Sign off as Bit Rage Labour — AI-Powered Business Services."""
 
     response = llm_call(
-        system="You are a proposal writer for Digital Labour on Guru.com.",
+        system="You are a proposal writer for Bit Rage Labour on Guru.com.",
         user=prompt,
         provider=provider,
     )

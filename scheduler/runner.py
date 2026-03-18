@@ -227,7 +227,7 @@ def daemon_loop(interval_minutes: int = 5):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Digital Labour Task Scheduler")
+    parser = argparse.ArgumentParser(description="Bit Rage Labour Task Scheduler")
     parser.add_argument("--daemon", action="store_true", help="Run continuously")
     parser.add_argument("--check", action="store_true", help="Dry run — show due tasks")
     parser.add_argument("--interval", type=int, default=5, help="Check interval in minutes (daemon mode)")

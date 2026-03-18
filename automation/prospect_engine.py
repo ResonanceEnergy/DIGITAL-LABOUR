@@ -38,7 +38,7 @@ ROLES = [
     "VP of Marketing", "Head of Sales Ops", "Chief Revenue Officer",
 ]
 
-PROSPECT_PROMPT = """You are a B2B sales intelligence agent for DIGITAL LABOUR — an AI labor company
+PROSPECT_PROMPT = """You are a B2B sales intelligence agent for BIT RAGE LABOUR — an AI labor company
 that provides AI workers for sales outreach, customer support, content repurposing,
 and document extraction. Starting at $1/task, 98% margins, QA-checked outputs.
 

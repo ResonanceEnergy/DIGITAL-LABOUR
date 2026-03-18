@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Doctrine Evolution Framework
+BIT RAGE LABOUR Doctrine Evolution Framework
 Structured doctrine updates with impact assessment and governance
 """
 

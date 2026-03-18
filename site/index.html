@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'self' https://formsubmit.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Digital Labour — AI Agents That Bite Back</title>
+<title>Bit Rage Labour — AI Agents That Bite Back</title>
 <meta name="description" content="Aggressive AI workers for sales outreach, support resolution, content repurposing, and document extraction. Pay per task. No hiring. No mercy on your workload.">
-<meta name="keywords" content="AI agents, digital labour, sales automation, support automation, content repurposing, document extraction, AI workers, Digital Labour">
-<meta property="og:title" content="Digital Labour — AI Agents That Bite Back">
+<meta name="keywords" content="AI agents, bit rage labour, sales automation, support automation, content repurposing, document extraction, AI workers, Bit Rage Labour">
+<meta property="og:title" content="Bit Rage Labour — AI Agents That Bite Back">
 <meta property="og:description" content="Four relentless AI agents. Sales outreach, support resolution, content repurposing, document extraction. Pay per task. They never sleep.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://digital-labour.com">
-<meta property="og:image" content="https://digital-labour.com/logo.png">
-<link rel="canonical" href="https://digital-labour.com">
+<meta property="og:url" content="https://bit-rage-labour.com">
+<meta property="og:image" content="https://bit-rage-labour.com/logo.png">
+<link rel="canonical" href="https://bit-rage-labour.com">
 <link rel="icon" type="image/png" href="logo.png">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -231,6 +231,27 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 .how-callout{max-width:640px;margin:48px auto 0;text-align:center}
 .retainer-heading{text-align:center;font-size:1.3rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px}
 #customRow{display:none}
+
+/* About / Expertise */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr}}
+.about-text h3{font-size:1.4rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:16px}
+.about-text p{color:var(--muted);font-size:0.95rem;line-height:1.7;margin-bottom:16px}
+.about-text .highlight{color:var(--red-bright);font-weight:700}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.about-stat{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center}
+.about-stat .stat-num{font-size:1.8rem;font-weight:900;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.about-stat .stat-label{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
+
+/* Service Catalog */
+.svc-category{margin-bottom:36px}
+.svc-category h4{font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;color:var(--red);font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.svc-item{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:16px;transition:all .3s;display:flex;align-items:start;gap:10px}
+.svc-item:hover{border-color:var(--red);transform:translateY(-2px);box-shadow:0 8px 24px rgba(224,27,36,0.06)}
+.svc-item .svc-dot{width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:6px}
+.svc-item h5{font-size:0.95rem;font-weight:700;margin-bottom:4px;color:var(--white)}
+.svc-item p{font-size:0.8rem;color:var(--muted);line-height:1.4}
 </style>
 </head>
 <body>
@@ -241,16 +262,17 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 <!-- NAV -->
 <nav class="nav">
 <div class="container nav-inner">
-  <a href="#" class="nav-brand"><img src="logo.png" alt="Digital Labour Logo">Bit <span>Rage</span> Labour</a>
+  <a href="#" class="nav-brand"><img src="logo.png" alt="Bit Rage Labour Logo">Bit <span>Rage</span> Labour</a>
   <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
   <div class="nav-links">
+    <a href="#about">About</a>
     <a href="#agents">Agents</a>
     <a href="#how">How It Works</a>
     <a href="#demos">Proof</a>
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
     <a href="/blog">Blog</a>
-    <a href="mailto:hello@digital-labour.com">Contact</a>
+    <a href="mailto:sales@bit-rage-labour.com">Contact</a>
     <a href="dashboard.html">Dashboard</a>
     <a href="#start" class="nav-cta">Get Started</a>
   </div>
@@ -261,8 +283,8 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 <header class="hero">
 <div class="container">
   <div class="hero-logo" id="heroLogo">
-    <img src="logo.png" alt="Digital Labour Logo">
-    <video id="rageVideo" muted loop playsinline preload="auto" aria-label="Digital Labour — Rage Spin"></video>
+    <img src="logo.png" alt="Bit Rage Labour Logo">
+    <video id="rageVideo" muted loop playsinline preload="auto" aria-label="Bit Rage Labour — Rage Spin"></video>
   </div>
   <div class="hero-badge">Now Accepting Clients</div>
   <h1>AI Agents That <em>Bite Back</em></h1>
@@ -270,7 +292,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
   <div class="btn-row btn-row-center">
     <a class="btn btn-primary" href="#start">Get 2 Free Leads</a>
     <a class="btn btn-outline" href="#demos">See Real Outputs</a>
-    <a class="btn btn-ghost" href="mailto:hello@digital-labour.com">Email Us</a>
+    <a class="btn btn-ghost" href="mailto:sales@bit-rage-labour.com">Email Us</a>
   </div>
   <div class="hero-metrics">
     <div class="metric"><div class="num">4</div><div class="label">Live Agents</div></div>
@@ -292,7 +314,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 <!-- WHY US -->
 <section id="why">
 <div class="container">
-  <div class="section-tag">Why Digital Labour</div>
+  <div class="section-tag">Why Bit Rage Labour</div>
   <h2>Not Another ChatGPT Wrapper</h2>
   <p class="subtitle">Purpose-built multi-agent pipelines that research, generate, verify, and deliver. Every single time.</p>
   <div class="grid-4">
@@ -320,8 +342,89 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 </div>
 </section>
 
+<!-- ABOUT / EXPERTISE -->
+<section id="about" class="section-dark">
+<div class="container">
+  <div class="section-tag">About Us</div>
+  <h2>Who We Are</h2>
+  <p class="subtitle">A Canada-based AI company building production-grade autonomous agents &mdash; not prototypes, not wrappers.</p>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <h3>Our Expertise</h3>
+      <p>Bit Rage Labour is built by <span class="highlight">Resonance Energy</span> &mdash; engineers who ship real AI systems into production. We specialize in <span class="highlight">multi-agent pipelines</span> that chain research, generation, quality assurance, and delivery into fully autonomous workflows.</p>
+      <p>We don't sell prompts or API wrappers. Every agent is a purpose-built pipeline backed by <span class="highlight">four LLM providers</span> (OpenAI, Anthropic, Gemini, Grok) with automatic failover. Every output runs through QA verification before it reaches you.</p>
+      <p>Our platform powers <span class="highlight">24 specialized AI agents</span> across sales, marketing, content, operations, and professional writing &mdash; all accessible via REST API, webhook, or email. Pay per task. No contracts. No lock-in.</p>
+    </div>
+    <div>
+      <div class="about-stats">
+        <div class="about-stat"><div class="stat-num">24</div><div class="stat-label">AI Agents</div></div>
+        <div class="about-stat"><div class="stat-num">4</div><div class="stat-label">LLM Providers</div></div>
+        <div class="about-stat"><div class="stat-num">&lt;14s</div><div class="stat-label">Avg Delivery</div></div>
+        <div class="about-stat"><div class="stat-num">0%</div><div class="stat-label">Data Retention</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full Service Catalog -->
+  <div class="mt-48">
+    <div class="section-tag">Services</div>
+    <h2>Full Service Catalog</h2>
+    <p class="subtitle">24 agents covering every business function. Each one is a multi-step pipeline with built-in QA.</p>
+
+    <div class="svc-category">
+      <h4>Sales &amp; Growth</h4>
+      <div class="svc-grid">
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Sales Outreach</h5><p>Company enrichment, signal detection, personalized 3-email sequences</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Lead Generation</h5><p>Targeted prospect discovery with scoring and qualification</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Email Marketing</h5><p>Campaign copy, subject lines, and sequence optimization</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>CRM Operations</h5><p>Contact enrichment, pipeline updates, and data hygiene</p></div></div>
+      </div>
+    </div>
+
+    <div class="svc-category">
+      <h4>Content &amp; Marketing</h4>
+      <div class="svc-grid">
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Content Repurposing</h5><p>Blog &rarr; LinkedIn, Twitter, email, Instagram in seconds</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>SEO Content</h5><p>Keyword-optimized articles, meta descriptions, and briefs</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Social Media</h5><p>Platform-specific posts with tone and length optimization</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Ad Copy</h5><p>Headlines, body copy, and CTAs for paid campaigns</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Press Releases</h5><p>Professional PR drafts with proper formatting and quotes</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Product Descriptions</h5><p>Conversion-focused copy for e-commerce and SaaS</p></div></div>
+      </div>
+    </div>
+
+    <div class="svc-category">
+      <h4>Operations &amp; Data</h4>
+      <div class="svc-grid">
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Support Resolution</h5><p>Ticket triage, severity scoring, and draft responses</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Document Extraction</h5><p>Invoices, contracts, resumes &rarr; structured JSON with confidence scores</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Data Entry</h5><p>Structured data processing, cleaning, and formatting</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Web Scraping</h5><p>Targeted data collection with structured output</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Bookkeeping</h5><p>Transaction categorization, reconciliation, and reporting</p></div></div>
+      </div>
+    </div>
+
+    <div class="svc-category">
+      <h4>Professional Writing</h4>
+      <div class="svc-grid">
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Proposal Writer</h5><p>Tailored business proposals with competitive positioning</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Resume Writer</h5><p>ATS-optimized resumes and cover letters</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Technical Docs</h5><p>API documentation, user guides, and knowledge bases</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Business Plans</h5><p>Market analysis, financial projections, and strategy docs</p></div></div>
+        <div class="svc-item"><div class="svc-dot"></div><div><h5>Market Research</h5><p>Competitor analysis, market sizing, and trend reports</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tc mt-40">
+    <a class="btn btn-ghost" href="mailto:sales@bit-rage-labour.com?subject=Service%20Inquiry&body=I%27m%20interested%20in%20learning%20more%20about%3A%20">Ask About Any Service &rarr;</a>
+  </div>
+</div>
+</section>
+
 <!-- AGENTS -->
-<section id="agents" class="section-dark">
+<section id="agents">
 <div class="container">
   <div class="section-tag">The Workforce</div>
   <h2>Four Agents. Zero Employees.</h2>
@@ -339,7 +442,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>QA-verified before delivery</li>
         <li>CRM-ready JSON/CSV export</li>
       </ul>
-      <a class="agent-email" href="mailto:sales@digital-labour.com?subject=Sales%20Ops%20Agent%20—%20Free%20Trial&body=I%20want%20to%20try%20the%20Sales%20Ops%20Agent.%0A%0ACompany%20to%20target%3A%20%0ATarget%20role%3A%20%0AMy%20company%3A%20">&#9993; Get 2 Free Leads &rarr;</a>
+      <a class="agent-email" href="mailto:sales@bit-rage-labour.com?subject=Sales%20Ops%20Agent%20—%20Free%20Trial&body=I%20want%20to%20try%20the%20Sales%20Ops%20Agent.%0A%0ACompany%20to%20target%3A%20%0ATarget%20role%3A%20%0AMy%20company%3A%20">&#9993; Get 2 Free Leads &rarr;</a>
     </div>
     <div class="agent-card">
       <div class="agent-icon icon-support"><video src="rage-spin-2.mp4" autoplay muted loop playsinline></video></div>
@@ -353,7 +456,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>Policy compliance checking</li>
         <li>Confidence scores on every output</li>
       </ul>
-      <a class="agent-email" href="mailto:sales@digital-labour.com?subject=Support%20Resolver%20—%20Free%20Trial&body=I%20want%20to%20try%20the%20Support%20Resolver.%0A%0ASample%20ticket%3A%20%0AMy%20company%3A%20">&#9993; Try Free Demo &rarr;</a>
+      <a class="agent-email" href="mailto:sales@bit-rage-labour.com?subject=Support%20Resolver%20—%20Free%20Trial&body=I%20want%20to%20try%20the%20Support%20Resolver.%0A%0ASample%20ticket%3A%20%0AMy%20company%3A%20">&#9993; Try Free Demo &rarr;</a>
     </div>
     <div class="agent-card">
       <div class="agent-icon icon-content"><video src="rage-spin-1.mp4" autoplay muted loop playsinline></video></div>
@@ -367,7 +470,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>Tweet length enforcement (&le;280)</li>
         <li>QA-verified accuracy</li>
       </ul>
-      <a class="agent-email" href="mailto:sales@digital-labour.com?subject=Content%20Repurposer%20—%20Free%20Sample&body=I%20want%20to%20try%20the%20Content%20Repurposer.%0A%0ABlog%20URL%3A%20%0AMy%20company%3A%20">&#9993; Get Free Sample &rarr;</a>
+      <a class="agent-email" href="mailto:sales@bit-rage-labour.com?subject=Content%20Repurposer%20—%20Free%20Sample&body=I%20want%20to%20try%20the%20Content%20Repurposer.%0A%0ABlog%20URL%3A%20%0AMy%20company%3A%20">&#9993; Get Free Sample &rarr;</a>
     </div>
     <div class="agent-card">
       <div class="agent-icon icon-docs"><video src="rage-spin-2.mp4" autoplay muted loop playsinline></video></div>
@@ -381,11 +484,11 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>Confidence scoring</li>
         <li>QA verification on every extraction</li>
       </ul>
-      <a class="agent-email" href="mailto:sales@digital-labour.com?subject=Document%20Extractor%20—%20Free%20Extract&body=I%20want%20to%20try%20the%20Document%20Extractor.%0A%0ADocument%20type%3A%20%0AMy%20company%3A%20">&#9993; Free Extraction &rarr;</a>
+      <a class="agent-email" href="mailto:sales@bit-rage-labour.com?subject=Document%20Extractor%20—%20Free%20Extract&body=I%20want%20to%20try%20the%20Document%20Extractor.%0A%0ADocument%20type%3A%20%0AMy%20company%3A%20">&#9993; Free Extraction &rarr;</a>
     </div>
   </div>
   <div class="tc mt-40">
-    <a class="email-cta" href="mailto:sales@digital-labour.com?subject=Custom%20Agent%20Inquiry&body=I%20need%20a%20custom%20agent%20for%3A%20">&#9993; Need a custom agent? Email us &rarr;</a>
+    <a class="email-cta" href="mailto:sales@bit-rage-labour.com?subject=Custom%20Agent%20Inquiry&body=I%20need%20a%20custom%20agent%20for%3A%20">&#9993; Need a custom agent? Email us &rarr;</a>
   </div>
 </div>
 </section>
@@ -423,7 +526,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
   </div>
   <div class="how-callout">
     <p class="muted fs-md">Every task runs through the full pipeline. No shortcuts. Every output is QA-verified before delivery. Results delivered via webhook, API poll, or email.</p>
-    <a class="email-cta mt-20" href="mailto:api@digital-labour.com?subject=API%20Access%20Request&body=I%27d%20like%20API%20access%20to%20Bit%20Rage%20Labour.%0A%0AMy%20company%3A%20%0AUse%20case%3A%20">&#128268; Request API Access &rarr;</a>
+    <a class="email-cta mt-20" href="mailto:sales@bit-rage-labour.com?subject=API%20Access%20Request&body=I%27d%20like%20API%20access%20to%20Bit%20Rage%20Labour.%0A%0AMy%20company%3A%20%0AUse%20case%3A%20">&#128268; Request API Access &rarr;</a>
   </div>
 </div>
 </section>
@@ -469,7 +572,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
   </div>
 
   <div class="tc mt-32">
-    <a class="btn btn-ghost" href="mailto:sales@digital-labour.com?subject=Custom%20Demo%20Request&body=I%27d%20like%20to%20see%20a%20demo%20for%20my%20company%3A%20%0A%0AIndustry%3A%20%0ATarget%20audience%3A%20">Want a demo for YOUR company? Email us &rarr;</a>
+    <a class="btn btn-ghost" href="mailto:sales@bit-rage-labour.com?subject=Custom%20Demo%20Request&body=I%27d%20like%20to%20see%20a%20demo%20for%20my%20company%3A%20%0A%0AIndustry%3A%20%0ATarget%20audience%3A%20">Want a demo for YOUR company? Email us &rarr;</a>
   </div>
 </div>
 </section>
@@ -492,7 +595,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>JSON/CSV export</li>
         <li>QA-verified delivery</li>
       </ul>
-      <a class="btn btn-outline btn-sm w-100" id="btn-sales" href="mailto:sales@digital-labour.com?subject=Sales%20Ops%20%E2%80%94%20Get%20Started&body=I%20want%20to%20start%20with%20Sales%20Ops%20Agent.%0A%0AMy%20email%3A%20%0ACompany%3A%20">Start Free</a>
+      <a class="btn btn-outline btn-sm w-100" id="btn-sales" href="mailto:sales@bit-rage-labour.com?subject=Sales%20Ops%20%E2%80%94%20Get%20Started&body=I%20want%20to%20start%20with%20Sales%20Ops%20Agent.%0A%0AMy%20email%3A%20%0ACompany%3A%20">Start Free</a>
       <a class="btn btn-ghost btn-sm buy-now w-100 mt-8" href="#start" data-product="sales_outreach">Buy Now — $2.40/lead</a>
     </div>
     <div class="price-card featured">
@@ -506,7 +609,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>~9.6s avg resolution</li>
         <li>Policy compliance checks</li>
       </ul>
-      <a class="btn btn-primary btn-sm w-100" id="btn-support" href="mailto:sales@digital-labour.com?subject=Support%20Resolver%20%E2%80%94%20Get%20Started&body=I%20want%20to%20start%20with%20Support%20Resolver.%0A%0AMy%20email%3A%20%0ACompany%3A%20">Start Free</a>
+      <a class="btn btn-primary btn-sm w-100" id="btn-support" href="mailto:sales@bit-rage-labour.com?subject=Support%20Resolver%20%E2%80%94%20Get%20Started&body=I%20want%20to%20start%20with%20Support%20Resolver.%0A%0AMy%20email%3A%20%0ACompany%3A%20">Start Free</a>
       <a class="btn btn-ghost btn-sm buy-now w-100 mt-8" href="#start" data-product="support_ticket">Buy Now — $1.00/ticket</a>
     </div>
     <div class="price-card">
@@ -520,7 +623,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
         <li>Blog &rarr; social in seconds</li>
         <li>Bulk discounts available</li>
       </ul>
-      <a class="btn btn-outline btn-sm w-100" id="btn-content" href="mailto:sales@digital-labour.com?subject=Content%20%2B%20Docs%20%E2%80%94%20Get%20Started&body=I%20want%20to%20start%20with%20Content%20%2B%20Doc%20agents.%0A%0AMy%20email%3A%20%0ACompany%3A%20">Start Free</a>
+      <a class="btn btn-outline btn-sm w-100" id="btn-content" href="mailto:sales@bit-rage-labour.com?subject=Content%20%2B%20Docs%20%E2%80%94%20Get%20Started&body=I%20want%20to%20start%20with%20Content%20%2B%20Doc%20agents.%0A%0AMy%20email%3A%20%0ACompany%3A%20">Start Free</a>
       <a class="btn btn-ghost btn-sm buy-now w-100 mt-8" href="#start" data-product="content_repurpose">Buy Now — $3.00/piece</a>
     </div>
   </div>
@@ -574,7 +677,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
   <div class="tc mt-40">
     <p class="muted fs-md"><strong class="white">Support retainers also available:</strong> Starter 200/mo $400 &bull; Growth 500/mo $800 &bull; Scale 1000/mo $1,400</p>
     <p class="muted mt-8 fs-sm">All plans include REST API access, webhook delivery, and budget enforcement.</p>
-    <a class="email-cta mt-16" href="mailto:sales@digital-labour.com?subject=Retainer%20Inquiry&body=I%27m%20interested%20in%20a%20monthly%20retainer.%0A%0AAgent%3A%20%0AVolume%3A%20%0ACompany%3A%20">&#128176; Ask about retainer pricing &rarr;</a>
+    <a class="email-cta mt-16" href="mailto:sales@bit-rage-labour.com?subject=Retainer%20Inquiry&body=I%27m%20interested%20in%20a%20monthly%20retainer.%0A%0AAgent%3A%20%0AVolume%3A%20%0ACompany%3A%20">&#128176; Ask about retainer pricing &rarr;</a>
   </div>
 </div>
 </section>
@@ -588,7 +691,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How is this different from ChatGPT?</div>
-    <div class="faq-a">ChatGPT is a general chat interface. Digital Labour runs purpose-built multi-agent pipelines &mdash; research, generate, QA verify &mdash; that produce structured, ready-to-use outputs. Every task goes through quality gates. You get JSON/CSV outputs, not chat responses.</div>
+    <div class="faq-a">ChatGPT is a general chat interface. Bit Rage Labour runs purpose-built multi-agent pipelines &mdash; research, generate, QA verify &mdash; that produce structured, ready-to-use outputs. Every task goes through quality gates. You get JSON/CSV outputs, not chat responses.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What LLMs do you use?</div>
@@ -600,11 +703,11 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I integrate this into my existing tools?</div>
-    <div class="faq-a">Yes. We provide a REST API (POST /tasks) with webhook callbacks. Send a task, get structured JSON/CSV back. Works with any CRM, helpdesk, or automation tool. API key included with every account. <a href="mailto:api@digital-labour.com?subject=API%20Integration%20Question">Email us for API docs</a>.</div>
+    <div class="faq-a">Yes. We provide a REST API (POST /tasks) with webhook callbacks. Send a task, get structured JSON/CSV back. Works with any CRM, helpdesk, or automation tool. API key included with every account. <a href="mailto:sales@bit-rage-labour.com?subject=API%20Integration%20Question">Email us for API docs</a>.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is there a free trial?</div>
-    <div class="faq-a">Yes. Every new account gets 2 free sales leads (full enrichment + 3-email sequence) and 5 free support ticket resolutions. No credit card required to start. <a href="mailto:sales@digital-labour.com?subject=Free%20Trial%20Request">Email us to claim yours</a>.</div>
+    <div class="faq-a">Yes. Every new account gets 2 free sales leads (full enrichment + 3-email sequence) and 5 free support ticket resolutions. No credit card required to start. <a href="mailto:sales@bit-rage-labour.com?subject=Free%20Trial%20Request">Email us to claim yours</a>.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What about data privacy?</div>
@@ -612,11 +715,11 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do you offer custom agents?</div>
-    <div class="faq-a">Yes. If you need a specialized agent for your workflow &mdash; custom research, domain-specific extraction, or unique output formats &mdash; <a href="mailto:sales@digital-labour.com?subject=Custom%20Agent%20Build%20Quote">email us for a custom build quote</a>.</div>
+    <div class="faq-a">Yes. If you need a specialized agent for your workflow &mdash; custom research, domain-specific extraction, or unique output formats &mdash; <a href="mailto:sales@bit-rage-labour.com?subject=Custom%20Agent%20Build%20Quote">email us for a custom build quote</a>.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Who built this?</div>
-    <div class="faq-a">Digital Labour is built by <strong>Resonance Energy</strong> &mdash; a Canada-based AI company. We build production AI systems, not prototypes. <a href="mailto:hello@digital-labour.com">Get in touch</a>.</div>
+    <div class="faq-a">Bit Rage Labour is built by <strong>Resonance Energy</strong> &mdash; a Canada-based AI company. We build production AI systems, not prototypes. <a href="mailto:sales@bit-rage-labour.com">Get in touch</a>.</div>
   </div>
 </div>
 </section>
@@ -624,7 +727,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
 <!-- CTA -->
 <section id="start" class="cta-section">
 <div class="container">
-  <div class="cta-logo"><video src="rage-spin-2.mp4" autoplay muted loop playsinline aria-label="Digital Labour"></video></div>
+  <div class="cta-logo"><video src="rage-spin-2.mp4" autoplay muted loop playsinline aria-label="Bit Rage Labour"></video></div>
   <h2>Ready to Unleash the Agents?</h2>
   <p class="subtitle">Enter your email. Pick a service. Get results — delivered within 24 hours.</p>
   <div class="lead-form" id="leadForm">
@@ -654,7 +757,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
       <p>We'll deliver your free demo to <strong id="confirmEmail"></strong> within 24 hours.</p>
     </div>
   </div>
-  <p class="muted mt-24 fs-sm">Or email directly: <a href="mailto:hello@digital-labour.com" class="fw-700">hello@digital-labour.com</a></p>
+  <p class="muted mt-24 fs-sm">Or email directly: <a href="mailto:sales@bit-rage-labour.com" class="fw-700">sales@bit-rage-labour.com</a></p>
 </div>
 </section>
 
@@ -666,7 +769,7 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
       <div class="footer-brand"><img src="logo.png" alt="Logo"><span>Bit <span class="red">Rage</span> Labour</span></div>
       <p>AI agents that bite back. Built by Resonance Energy.</p>
       <p class="mt-12">Four relentless agents. REST API. QA-verified outputs. Pay per task.</p>
-      <a class="email-cta mt-16" href="mailto:hello@digital-labour.com">&#9993; hello@digital-labour.com</a>
+      <a class="email-cta mt-16" href="mailto:sales@bit-rage-labour.com">&#9993; sales@bit-rage-labour.com</a>
     </div>
     <div>
       <h4>Product</h4>
@@ -674,25 +777,25 @@ section .subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-s
       <p><a href="#pricing">Pricing</a></p>
       <p><a href="#demos">Demo Outputs</a></p>
       <p><a href="#how">How It Works</a></p>
-      <p><a href="#why">Why Digital Labour</a></p>
+      <p><a href="#why">Why Bit Rage Labour</a></p>
     </div>
     <div>
       <h4>Resources</h4>
       <p><a href="/blog">Blog</a></p>
       <p><a href="#faq">FAQ</a></p>
-      <p><a href="mailto:api@digital-labour.com?subject=API%20Documentation%20Request">API Docs</a></p>
-      <p><a href="mailto:support@digital-labour.com?subject=Support%20Request">Support</a></p>
-      <p><a href="mailto:hello@digital-labour.com?subject=Partnership%20Inquiry">Partnerships</a></p>
+      <p><a href="mailto:sales@bit-rage-labour.com?subject=API%20Documentation%20Request">API Docs</a></p>
+      <p><a href="mailto:sales@bit-rage-labour.com?subject=Support%20Request">Support</a></p>
+      <p><a href="mailto:sales@bit-rage-labour.com?subject=Partnership%20Inquiry">Partnerships</a></p>
     </div>
     <div>
       <h4>Contact</h4>
-      <p><a href="mailto:hello@digital-labour.com">hello@digital-labour.com</a></p>
-      <p><a href="https://digital-labour.com">digital-labour.com</a></p>
-      <p class="mt-12 fs-xs muted">Digital Labour<br>A Resonance Energy Company<br>Canada</p>
+      <p><a href="mailto:sales@bit-rage-labour.com">sales@bit-rage-labour.com</a></p>
+      <p><a href="https://bit-rage-labour.com">bit-rage-labour.com</a></p>
+      <p class="mt-12 fs-xs muted">Bit Rage Labour<br>A Resonance Energy Company<br>Canada</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 Digital Labour. A Resonance Energy company. All rights reserved.</p>
+    <p>&copy; 2026 Bit Rage Labour. A Resonance Energy company. All rights reserved.</p>
   </div>
 </div>
 </footer>
@@ -737,7 +840,7 @@ function submitLead() {
     localStorage.setItem('dl_leads', JSON.stringify(leads));
   } catch(e) {}
 
-  // Submit to FormSubmit (delivers to hello@digital-labour.com)
+  // Submit to FormSubmit (delivers to sales@bit-rage-labour.com)
   var formData = new FormData();
   formData.append('email', data.email);
   formData.append('name', data.name || 'Not provided');
@@ -748,14 +851,14 @@ function submitLead() {
   formData.append('_template', 'table');
   formData.append('_captcha', 'false');
 
-  fetch('https://formsubmit.co/ajax/hello@digital-labour.com', {
+  fetch('https://formsubmit.co/ajax/sales@bit-rage-labour.com', {
     method: 'POST',
     body: formData
   }).catch(function() {
     // Fallback to mailto if FormSubmit fails
     var subject = encodeURIComponent('New Lead - ' + data.service + ' - ' + data.email);
     var body = encodeURIComponent('Email: ' + data.email + '\nName: ' + (data.name || 'N/A') + '\nCompany: ' + (data.company || 'N/A') + '\nService: ' + data.service + '\nCustom: ' + (data.custom_request || 'N/A'));
-    window.location.href = 'mailto:hello@digital-labour.com?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:sales@bit-rage-labour.com?subject=' + subject + '&body=' + body;
   });
 
   // Show success immediately

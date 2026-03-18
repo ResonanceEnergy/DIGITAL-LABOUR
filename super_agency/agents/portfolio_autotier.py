@@ -12,7 +12,7 @@ portfolio = json.loads(PORT.read_text(encoding='utf-8')
                        ) if PORT.exists() else {'repositories': []}
 now = datetime.now(timezone.utc)
 
-CORE_L = {'ResonanceEnergy_DigitalLabour',
+CORE_L = {'ResonanceEnergy_BitRageLabour',
     'Digital-Labour', 'NCC', 'NCL', 'AZ', 'NCC-Doctrine'}
 PRIO_RANK = {'critical': 4, 'high': 3, 'medium': 2, 'low': 1}
 

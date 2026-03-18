@@ -85,7 +85,7 @@ def _load_prompt(name: str) -> str:
 
 def strategist_agent(
     topic: str,
-    brand: str = "Digital Labour — AI automation agency",
+    brand: str = "Bit Rage Labour — AI automation agency",
     platforms: list[str] = None,
     tone: str = "professional",
     cta_goal: str = "engagement",
@@ -122,7 +122,7 @@ def qa_agent(plan: SocialMediaPlan, provider: str = "openai") -> QAResult:
 
 def run_pipeline(
     topic: str,
-    brand: str = "Digital Labour — AI automation agency",
+    brand: str = "Bit Rage Labour — AI automation agency",
     platforms: list[str] = None,
     tone: str = "professional",
     cta_goal: str = "engagement",

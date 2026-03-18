@@ -210,7 +210,7 @@ a.btn:hover{{background:#00cc66}}</style></head>
 <body><div class="box"><h1>Payment Received</h1>
 <p>Thank you. Your payment has been processed successfully.</p>
 <p style="font-size:0.8em;color:#555">Session: {display_id}...</p>
-<a class="btn" href="mailto:sales@digital-labour.com?subject=Manage%20Billing">Manage Billing</a>
+<a class="btn" href="mailto:sales@bit-rage-labour.com?subject=Manage%20Billing">Manage Billing</a>
 </div></body></html>""")
 
 
@@ -287,8 +287,8 @@ def client_signup(req: SignupRequest):
         from delivery.sender import send_email
         send_email(
             to=req.email,
-            subject="Welcome to Digital Labour — Your API Key",
-            body_html=f"""<h2>Welcome to Digital Labour, {req.contact_name}!</h2>
+            subject="Welcome to Bit Rage Labour — Your API Key",
+            body_html=f"""<h2>Welcome to Bit Rage Labour, {req.contact_name}!</h2>
 <p>Your account is active. Here are your credentials:</p>
 <table style="border-collapse:collapse">
 <tr><td style="padding:4px 12px"><strong>Client ID</strong></td><td style="padding:4px 12px"><code>{req.client_id}</code></td></tr>
@@ -302,7 +302,7 @@ def client_signup(req: SignupRequest):
   -H "Content-Type: application/json" \\
   -d '{{"agent":"product_desc","inputs":{{"product_specs":"Your product details"}}}}'</pre>
 <p>Full docs: <a href="https://bitrage-labour-api-production.up.railway.app/agents">/agents</a></p>
-<p>Questions? Reply to this email or contact <a href="mailto:support@digital-labour.com">support@digital-labour.com</a></p>
+<p>Questions? Reply to this email or contact <a href="mailto:support@bit-rage-labour.com">support@bit-rage-labour.com</a></p>
 """,
         )
     except Exception:
@@ -314,7 +314,7 @@ def client_signup(req: SignupRequest):
         "api_key": api_key,
         "services": profile["services"],
         "pricing_model": req.pricing_model,
-        "message": "Welcome to Digital Labour. Use your API key to submit tasks.",
+        "message": "Welcome to Bit Rage Labour. Use your API key to submit tasks.",
     }
 
 
@@ -325,5 +325,5 @@ def signup_page():
     if html_path.exists():
         return HTMLResponse(html_path.read_text(encoding="utf-8"))
     # Fallback minimal form
-    return HTMLResponse("""<!DOCTYPE html><html><head><title>Digital Labour — Sign Up</title></head>
+    return HTMLResponse("""<!DOCTYPE html><html><head><title>Bit Rage Labour — Sign Up</title></head>
 <body><h1>Sign Up</h1><p>POST to /signup with JSON body. See API docs at /docs</p></body></html>""")

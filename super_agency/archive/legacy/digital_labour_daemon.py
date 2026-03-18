@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Background Daemon
-A robust, always-running background service that manages all DIGITAL LABOUR operations.
+BIT RAGE LABOUR Background Daemon
+A robust, always-running background service that manages all BIT RAGE LABOUR operations.
 
 Modern Best Practices Applied:
 - Watchdog pattern for self-healing
@@ -56,7 +56,7 @@ CONFIG = {
 }
 
 
-class DIGITAL LABOURDaemon:
+class BIT RAGE LABOURDaemon:
     """Main daemon class with watchdog and health monitoring."""
 
     def __init__(self):
@@ -90,11 +90,11 @@ class DIGITAL LABOURDaemon:
         signal.signal(signal.SIGINT, self._shutdown_handler)
         signal.signal(signal.SIGTERM, self._shutdown_handler)
 
-        self.logger.info("DIGITAL LABOUR Daemon initialized")
+        self.logger.info("BIT RAGE LABOUR Daemon initialized")
 
     def _setup_logging(self) -> logging.Logger:
         """Setup structured logging with rotation."""
-        logger = logging.getLogger("DIGITAL LABOURDaemon")
+        logger = logging.getLogger("BIT RAGE LABOURDaemon")
         logger.setLevel(logging.INFO)
 
         # Console handler
@@ -190,7 +190,7 @@ class DIGITAL LABOURDaemon:
                 "daemon_cpu_percent": psutil.Process().cpu_percent()
             }
 
-            # Check for DIGITAL LABOUR processes
+            # Check for BIT RAGE LABOUR processes
             dl_processes = []
             for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
                 try:
@@ -203,7 +203,7 @@ class DIGITAL LABOURDaemon:
                 except (psutil.NoSuchProcess, psutil.AccessDenied):
                     pass
 
-            metrics["digital_labour_processes"] = len(dl_processes)
+            metrics["bit_rage_labour_processes"] = len(dl_processes)
 
             return metrics
 
@@ -352,7 +352,7 @@ class DIGITAL LABOURDaemon:
     def run(self):
         """Main daemon loop."""
         self.logger.info("=" * 60)
-        self.logger.info("DIGITAL LABOUR DAEMON STARTED")
+        self.logger.info("BIT RAGE LABOUR DAEMON STARTED")
         self.logger.info(f"PID: {os.getpid()}")
         self.logger.info(f"Base Path: {self.base_path}")
         self.logger.info("=" * 60)
@@ -411,12 +411,12 @@ class DIGITAL LABOURDaemon:
         finally:
             self.logger.info("Daemon shutting down...")
             pid_file.unlink(missing_ok=True)
-            self.logger.info("DIGITAL LABOUR DAEMON STOPPED")
+            self.logger.info("BIT RAGE LABOUR DAEMON STOPPED")
 
 
 def main():
     """Entry point."""
-    daemon = DIGITAL LABOURDaemon()
+    daemon = BIT RAGE LABOURDaemon()
     daemon.run()
 
 

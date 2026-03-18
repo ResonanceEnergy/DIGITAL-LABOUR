@@ -1,10 +1,10 @@
 {
-  "manifest": "DIGITAL LABOUR Integration Manifest",
+  "manifest": "BIT RAGE LABOUR Integration Manifest",
   "version": "2.0.0",
   "created": "2026-03-15",
-  "rebrand_from": "Digital Labour",
-  "rebrand_to": "DIGITAL LABOUR",
-  "concept": "Digital Labour Autonomous AI Orchestration Platform",
+  "rebrand_from": "Bit Rage Labour",
+  "rebrand_to": "BIT RAGE LABOUR",
+  "concept": "Bit Rage Labour Autonomous AI Orchestration Platform",
   "status": "COMPLETE",
 
   "rebrand_summary": {
@@ -26,24 +26,24 @@
 
   "string_replacements": {
     "display_name": {
-      "old": "Digital Labour",
-      "new": "DIGITAL LABOUR"
+      "old": "Bit Rage Labour",
+      "new": "BIT RAGE LABOUR"
     },
     "slug": {
       "old": "Digital-Labour",
-      "new": "digital-labour"
+      "new": "bit-rage-labour"
     },
     "cicd_artifacts": {
       "old": "Digital-Labour-{platform}",
-      "new": "digital-labour-{platform}"
+      "new": "bit-rage-labour-{platform}"
     },
     "docker_service": {
       "old": "Digital-Labour",
-      "new": "digital-labour"
+      "new": "bit-rage-labour"
     },
     "email_domain": {
-      "old": "digital-labour.com",
-      "new": "DigitalLabour"
+      "old": "bit-rage-labour.com",
+      "new": "BitRageLabour"
     }
   },
 
@@ -55,19 +55,19 @@
       "DL_REPO"
     ],
     "filenames": [
-      "run_digital_labour.py",
-      "logs/digital_labour.log",
+      "run_bit_rage_labour.py",
+      "logs/bit_rage_labour.log",
       ".dl_progress",
       "DL_DOCTRINE_MEMORY.md",
       "DL_LAUNCH_GUIDE.md",
       "DL_MEMORY_DOCTRINE.md",
       "DL_OPERATIONAL_ARCHITECTURE.md",
-      "unified_digital_labour_orchestrator.py"
+      "unified_bit_rage_labour_orchestrator.py"
     ],
     "python_identifiers": [
       "super_agency (package coverage path in CI)",
-      "_report_to_digital_labour (inner_council method)",
-      "digital_labour_dir (test path variable)"
+      "_report_to_bit_rage_labour (inner_council method)",
+      "bit_rage_labour_dir (test path variable)"
     ],
     "migration_phase": "Phase 2 — file renames with import aliasing"
   },
@@ -104,14 +104,14 @@
     "hierarchy": "4 new T2 DEFAULT_ASSIGNMENTS",
     "skill_registry": "4 new agent entries with capabilities",
     "agent_mandates": "4 new mandates (v2.0.0)",
-    "boot_script": "4 new daemon loops in run_digital_labour.py"
+    "boot_script": "4 new daemon loops in run_bit_rage_labour.py"
   },
 
   "core_files_modified": [
     "pyproject.toml",
     "README.md",
     "start.py",
-    "run_digital_labour.py",
+    "run_bit_rage_labour.py",
     "organization_structure.json",
     "agent_mandates.json",
     "config/skill_registry.json",
@@ -133,32 +133,32 @@
     "description": "File rename migration (post-stabilization)",
     "status": "COMPLETED",
     "tasks": [
-      "✅ Renamed run_super_agency.py → run_digital_labour.py",
+      "✅ Renamed run_super_agency.py → run_bit_rage_labour.py",
       "✅ Renamed SUPER_AGENCY_*.md doctrine files → DL_*.md",
       "✅ Migrated env vars: SUPER_AGENCY_* → DL_*",
-      "✅ Renamed super_agency.log → digital_labour.log",
+      "✅ Renamed super_agency.log → bit_rage_labour.log",
       "✅ Updated all Super-Agency / Bit Rage brand references",
       "✅ Renamed .super_agency_progress → .dl_progress"
     ]
   },
 
-  "digital_labour_integration": {
+  "bit_rage_labour_integration": {
     "status": "MERGED",
-    "concept": "All agent operations now branded as Digital Labour under Digital Labour",
+    "concept": "All agent operations now branded as Bit Rage Labour under Bit Rage Labour",
     "subsystems_integrated": [
       "NCC (Neural Command Center)",
       "NCL (Neural Curation Layer)",
       "AAC (Autonomous Accounting Core)",
-      "Digital Labour (workforce management)",
+      "Bit Rage Labour (workforce management)",
       "QUSAR (Quantum-Unified Strategic Agent Router)",
       "QForge (Quantum Forge Optimizer)"
     ]
   },
 
   "orphan_status": {
-    "old_identity": "Digital Labour",
+    "old_identity": "Bit Rage Labour",
     "status": "ORPHANED",
     "remaining_references": "Only in archive/ and repos/ (preserved for historical record)",
-    "new_identity": "DIGITAL LABOUR — Digital Labour Platform"
+    "new_identity": "BIT RAGE LABOUR — Bit Rage Labour Platform"
   }
 }

@@ -72,7 +72,7 @@ DEFAULT_PROVIDER=openai
 
 def main():
     print("=" * 50)
-    print("  DIGITAL LABOUR — API Key Setup")
+    print("  BIT RAGE LABOUR — API Key Setup")
     print("=" * 50)
     print()
     print("Paste each API key when prompted.")

@@ -9,7 +9,7 @@ Core Philosophy:
 - Flywheel effect through continuous build cycles
 - Quality gates and automated optimization
 
-Author: DIGITAL LABOUR AI
+Author: BIT RAGE LABOUR AI
 Updated: February 22, 2026
 """
 
@@ -98,7 +98,7 @@ class RepoSpec:
     template: str = "standard"
     priority: int = 1
     deadline: Optional[datetime] = None
-    owner: str = "digital_labour"
+    owner: str = "bit_rage_labour"
 
 
 @dataclass

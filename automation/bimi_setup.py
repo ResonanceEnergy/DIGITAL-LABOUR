@@ -1,7 +1,7 @@
 """
 BIMI / DMARC / SPF / DKIM — Automated Setup & Verification
 ============================================================
-Checks all email authentication prerequisites for digital-labour.com,
+Checks all email authentication prerequisites for bit-rage-labour.com,
 generates the exact DNS records needed, and verifies they're live.
 
 Usage:
@@ -17,7 +17,7 @@ import urllib.error
 from pathlib import Path
 from datetime import datetime
 
-DOMAIN = "digital-labour.com"
+DOMAIN = "bit-rage-labour.com"
 BIMI_LOGO_URL = f"https://{DOMAIN}/.well-known/bimi/logo.svg"
 DMARC_EMAIL = f"dmarc@{DOMAIN}"
 LOGO_LOCAL = Path(__file__).resolve().parent.parent / "site" / ".well-known" / "bimi" / "logo.svg"
@@ -179,7 +179,7 @@ def check_logo_hosted() -> dict:
                 "fix": "Push site/ to GitHub Pages and ensure CNAME is set"}
     except Exception as e:
         return {"name": "Logo Hosted", "status": "FAIL", "detail": str(e),
-                "fix": "Ensure GitHub Pages is deployed and CNAME points to digital-labour.com"}
+                "fix": "Ensure GitHub Pages is deployed and CNAME points to bit-rage-labour.com"}
 
 
 def check_logo_local() -> dict:

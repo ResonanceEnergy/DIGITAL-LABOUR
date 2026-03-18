@@ -1,4 +1,4 @@
-"""BIT RAGE — Master Launcher & Control Panel for Digital Labour.
+"""BIT RAGE — Master Launcher & Control Panel for Bit Rage Labour.
 
 Consolidates: launch.py, matrix_boot.py, setup_keys.py, watchdog,
               dashboard/health.py, and all daemon management.
@@ -65,7 +65,7 @@ BANNER = f"""
 ║   ██████╔╝██║   ██║       ██║  ██║██║  ██║╚██████╔╝███████╗   ║
 ║   ╚═════╝ ╚═╝   ╚═╝       ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ║
 ║                                                               ║
-║   DIGITAL LABOUR — Master Control v{VERSION:<25}        ║
+║   BIT RAGE LABOUR — Master Control v{VERSION:<25}        ║
 ║   24 AI Agents • NERVE • C-Suite • NCC/NCL/AAC               ║
 ╚═══════════════════════════════════════════════════════════════╝
 """
@@ -794,7 +794,7 @@ def interactive_menu():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="BIT RAGE — Digital Labour Master Control",
+        description="BIT RAGE — Bit Rage Labour Master Control",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="Run without arguments for interactive menu.",
     )

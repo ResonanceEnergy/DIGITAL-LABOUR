@@ -37,7 +37,7 @@ load_dotenv(PROJECT_ROOT / ".env")
 INBOX_DIR = PROJECT_ROOT / "data" / "inbox"
 RESPONDED_LOG = PROJECT_ROOT / "data" / "inbox_responses.json"
 FROM_EMAIL = os.getenv("SMTP_FROM", os.getenv("SMTP_USER", "sales@bit-rage-labour.com"))
-FROM_NAME = "Digital Labour AI"
+FROM_NAME = "Bit Rage Labour AI"
 
 # ── SMTP Config ───────────────────────────────────────────────
 
@@ -50,7 +50,7 @@ SMTP_PASS = os.getenv("SMTP_PASS", "")
 # ── Response Templates (LLM fallback) ────────────────────────
 
 _PROMPTS = {
-    "lead": """You are the AI sales assistant for Digital Labour, an autonomous AI agency.
+    "lead": """You are the AI sales assistant for Bit Rage Labour, an autonomous AI agency.
 Reply to this inbound lead with a short, confident, personalized email.
 
 Lead email:
@@ -61,13 +61,13 @@ Body: {body}
 Instructions:
 - 3–4 short paragraphs max
 - Acknowledge their specific situation
-- Briefly explain what Digital Labour does: 24 AI agents handling sales outreach, content, research, proposals, CRM, bookkeeping, and more
+- Briefly explain what Bit Rage Labour does: 24 AI agents handling sales outreach, content, research, proposals, CRM, bookkeeping, and more
 - Suggest a 15-min discovery call via Calendly (use placeholder [CALENDLY_LINK])
-- Sign off as: The Digital Labour Team | sales@bit-rage-labour.com
+- Sign off as: The Bit Rage Labour Team | sales@bit-rage-labour.com
 - Plain text only, no markdown
 - Do NOT include a subject line in the output""",
 
-    "demo_request": """You are the AI sales assistant for Digital Labour, an autonomous AI agency.
+    "demo_request": """You are the AI sales assistant for Bit Rage Labour, an autonomous AI agency.
 Reply to this demo/trial request with a warm, action-oriented email.
 
 Request email:
@@ -80,11 +80,11 @@ Instructions:
 - Confirm their request and express enthusiasm
 - Tell them their free trial is being set up and they will receive API credentials within 24 hours
 - Ask them to reply with: their company name, primary use case, and preferred LLM (OpenAI/Anthropic/Gemini)
-- Sign off as: The Digital Labour Team | sales@bit-rage-labour.com
+- Sign off as: The Bit Rage Labour Team | sales@bit-rage-labour.com
 - Plain text only, no markdown
 - Do NOT include a subject line""",
 
-    "reply": """You are the AI sales assistant for Digital Labour, an autonomous AI agency.
+    "reply": """You are the AI sales assistant for Bit Rage Labour, an autonomous AI agency.
 Reply to this response to our cold outreach email.
 
 Their reply:
@@ -97,11 +97,11 @@ Instructions:
 - If they expressed interest: confirm next steps, offer a quick call, include [CALENDLY_LINK]
 - If they asked a question: answer it concisely and invite them to continue the conversation
 - If they asked to be removed (unsubscribe): politely acknowledge, confirm removal, stop following up
-- Sign off as: The Digital Labour Team | sales@bit-rage-labour.com
+- Sign off as: The Bit Rage Labour Team | sales@bit-rage-labour.com
 - Plain text only, no markdown
 - Do NOT include a subject line""",
 
-    "support": """You are the customer support AI for Digital Labour.
+    "support": """You are the customer support AI for Bit Rage Labour.
 Reply to this support request professionally.
 
 Support request:
@@ -113,7 +113,7 @@ Instructions:
 - Acknowledge the issue within 2 sentences
 - Tell them a support specialist will follow up within 4 hours during business hours
 - If it looks like a billing issue, mention they can also reach us at sales@bit-rage-labour.com
-- Sign off as: Digital Labour Support | sales@bit-rage-labour.com
+- Sign off as: Bit Rage Labour Support | sales@bit-rage-labour.com
 - Plain text only, no markdown
 - Do NOT include a subject line""",
 }
@@ -197,12 +197,12 @@ def draft_response(lead: dict) -> Optional[str]:
         # Fallback: generic template
         return (
             f"Hi {lead.get('from_name', 'there')},\n\n"
-            "Thank you for reaching out to Digital Labour.\n\n"
+            "Thank you for reaching out to Bit Rage Labour.\n\n"
             "We'd love to learn more about your needs. Could you share a bit more about "
             "your company and what you're trying to automate or improve?\n\n"
             "You can also book a quick 15-minute call here: [CALENDLY_LINK]\n\n"
             "Looking forward to connecting.\n\n"
-            "The Digital Labour Team\nsales@bit-rage-labour.com"
+            "The Bit Rage Labour Team\nsales@bit-rage-labour.com"
         )
 
 

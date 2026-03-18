@@ -143,7 +143,7 @@ class ConductorIntegrationManager:
                 "to_agent": agent_id,
                 "message_type": "system_welcome",
                 "content": {
-                    "message": f"Welcome to DIGITAL LABOUR Operations Center: {center_details['name']}",
+                    "message": f"Welcome to BIT RAGE LABOUR Operations Center: {center_details['name']}",
                     "agent_name": agent_name,
                     "agent_role": agent_data["role"],
                     "center_id": center_id,

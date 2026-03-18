@@ -3,7 +3,7 @@
 Agent Hierarchy & Delegation Framework
 ========================================
 Defines the formal agent hierarchy, capability registry,
-and task routing for the DIGITAL LABOUR multi-agent system.
+and task routing for the BIT RAGE LABOUR multi-agent system.
 
 Hierarchy tiers:
   T0 — Strategic: CEO, Inner Council

@@ -1,4 +1,4 @@
-# DIGITAL LABOUR Agent Architecture Specification
+# BIT RAGE LABOUR Agent Architecture Specification
 
 ## Agent Integration Matrix
 
@@ -125,4 +125,4 @@ Agent assignments are configured in `unified_orchestrator_config.json`:
 1. Implement QFORGE and QUSAR component availability checks
 2. Configure Matrix Monitor deployment parameters
 3. Test full agent orchestration workflows
-4. Integrate with existing DIGITAL LABOUR task scheduler
+4. Integrate with existing BIT RAGE LABOUR task scheduler

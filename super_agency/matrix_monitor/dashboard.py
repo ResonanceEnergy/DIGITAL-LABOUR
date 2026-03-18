@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Comprehensive Monitoring Dashboard
-Integrated monitoring system for all DIGITAL LABOUR components
+BIT RAGE LABOUR Comprehensive Monitoring Dashboard
+Integrated monitoring system for all BIT RAGE LABOUR components
 """
 
 import asyncio
@@ -41,7 +41,7 @@ logging.basicConfig(level=logging.INFO,
 logger = logging.getLogger(__name__)
 
 class ComprehensiveMonitoringDashboard:
-    """Comprehensive monitoring dashboard for all DIGITAL LABOUR systems"""
+    """Comprehensive monitoring dashboard for all BIT RAGE LABOUR systems"""
 
     def __init__(self):
         self.metrics_store = {}
@@ -117,7 +117,7 @@ class ComprehensiveMonitoringDashboard:
         <!DOCTYPE html>
         <html>
         <head>
-            <title>DIGITAL LABOUR Monitoring Dashboard</title>
+            <title>BIT RAGE LABOUR Monitoring Dashboard</title>
             <style>
                 body { font-family: Arial, sans-serif; margin: 20px; }
                 .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
@@ -127,7 +127,7 @@ class ComprehensiveMonitoringDashboard:
             </style>
         </head>
         <body>
-            <h1>DIGITAL LABOUR Comprehensive Monitoring Dashboard</h1>
+            <h1>BIT RAGE LABOUR Comprehensive Monitoring Dashboard</h1>
             <div id="status">Loading...</div>
             <script>
                 async function updateStatus() {
@@ -171,8 +171,8 @@ class ComprehensiveMonitoringDashboard:
             return []
 
     async def start_comprehensive_monitoring(self) -> Dict[str, Any]:
-        """Start comprehensive monitoring of all DIGITAL LABOUR systems"""
-        logger.info("🚀 Starting Comprehensive DIGITAL LABOUR Monitoring")
+        """Start comprehensive monitoring of all BIT RAGE LABOUR systems"""
+        logger.info("🚀 Starting Comprehensive BIT RAGE LABOUR Monitoring")
 
         try:
             # Start monitoring thread
@@ -456,7 +456,7 @@ class ComprehensiveMonitoringDashboard:
             # Check for scheduled tasks (Windows Task Scheduler)
             import subprocess
             result = subprocess.run(
-                ["schtasks", "/query", "/tn", "DigitalLabour-DailyOperations"],
+                ["schtasks", "/query", "/tn", "BitRageLabour-DailyOperations"],
                 capture_output=True, text=True)
 
             if result.returncode == 0:
@@ -940,7 +940,7 @@ class ComprehensiveMonitoringDashboard:
             # Check critical system files
             critical_files = [
                 "portfolio.json",
-                "unified_digital_labour_orchestrator.py",
+                "unified_bit_rage_labour_orchestrator.py",
                 "comprehensive_monitoring_dashboard.py",
                 "quasmem_optimization.py"
             ]
@@ -1289,7 +1289,7 @@ class ComprehensiveMonitoringDashboard:
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DIGITAL LABOUR Comprehensive Monitoring</title>
+    <title>BIT RAGE LABOUR Comprehensive Monitoring</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
@@ -1324,7 +1324,7 @@ class ComprehensiveMonitoringDashboard:
 <body>
     <div class="container">
         <div class="header">
-            <h1>🚀 DIGITAL LABOUR Comprehensive Monitoring</h1>
+            <h1>🚀 BIT RAGE LABOUR Comprehensive Monitoring</h1>
             <p>Real-time system health, performance tracking, and intelligent oversight</p>
             <div id="overall-status" class="status-badge">Loading...</div>
         </div>

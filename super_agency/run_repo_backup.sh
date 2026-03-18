@@ -1,8 +1,8 @@
 #!/bin/bash
-# Digital Labour Auto Repo Backup Runner
+# Bit Rage Labour Auto Repo Backup Runner
 # Triggered every 15 minutes by launchd
 
-cd "$HOME/repos/DIGITAL LABOUR-Shared"
+cd "$HOME/repos/BIT RAGE LABOUR-Shared"
 
 # Run the backup
 python3 auto_repo_backup.py >> backup_logs/scheduler.log 2>&1

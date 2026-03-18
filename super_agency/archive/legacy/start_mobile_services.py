@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Mobile Services Launcher
+BIT RAGE LABOUR Mobile Services Launcher
 Starts Matrix Maximizer and Mobile Command Center for iPhone/iPad testing
 """
 
@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 
 class MobileServicesLauncher:
-    """Launcher for DIGITAL LABOUR mobile services"""
+    """Launcher for BIT RAGE LABOUR mobile services"""
 
     def __init__(self):
         self.base_dir = Path(__file__).parent
@@ -114,8 +114,8 @@ class MobileServicesLauncher:
             return False
 
     def start_all_services(self):
-        """Start all DIGITAL LABOUR mobile services"""
-        print("🎯 Starting DIGITAL LABOUR Mobile Services")
+        """Start all BIT RAGE LABOUR mobile services"""
+        print("🎯 Starting BIT RAGE LABOUR Mobile Services")
         print("=" * 50)
 
         success_count = 0
@@ -147,9 +147,9 @@ class MobileServicesLauncher:
         print("   🖥️ Desktop UI: http://localhost:8081/desktop")
 
         if success_count >= 2:
-            print("\n✅ DIGITAL LABOUR Mobile Services: OPERATIONAL")
+            print("\n✅ BIT RAGE LABOUR Mobile Services: OPERATIONAL")
         else:
-            print("\n❌ DIGITAL LABOUR Mobile Services: ISSUES DETECTED")
+            print("\n❌ BIT RAGE LABOUR Mobile Services: ISSUES DETECTED")
 
         return success_count >= 2
 

@@ -160,7 +160,7 @@ def _deliver_email(
     task_id: str, task_type: str, outputs: dict, client: str, email_to: str, timestamp: str
 ) -> dict:
     """Send task outputs via SMTP email."""
-    subject = f"[Digital Labour] {task_type} complete — {task_id[:8]}"
+    subject = f"[Bit Rage Labour] {task_type} complete — {task_id[:8]}"
     body_html = f"""<h2>Task Delivered</h2>
 <table>
 <tr><td><strong>Task ID</strong></td><td>{task_id}</td></tr>

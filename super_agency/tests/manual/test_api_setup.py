@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-YouTube API Setup Test - DIGITAL LABOUR
+YouTube API Setup Test - BIT RAGE LABOUR
 Tests YouTube Data API v3 connectivity and Council 52 configuration
 """
 

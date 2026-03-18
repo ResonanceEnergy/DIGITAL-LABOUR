@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Operations Interface Launcher
+BIT RAGE LABOUR Operations Interface Launcher
 Choose between chat interface or API server
 """
 
@@ -11,7 +11,7 @@ import subprocess
 def show_menu():
     """Display the main menu"""
     print("""
-🤖 DIGITAL LABOUR Operations Interface
+🤖 BIT RAGE LABOUR Operations Interface
 ═══════════════════════════════════════
 
 Choose your interface:
@@ -103,13 +103,13 @@ def run_tests():
 def show_help():
     """Show help and documentation"""
     print("""
-📚 DIGITAL LABOUR Operations Interface - Help
+📚 BIT RAGE LABOUR Operations Interface - Help
 ═══════════════════════════════════════════════
 
 OVERVIEW
 ────────
 The Operations Command Interface (OCI) enables real-time conversational access
-to all DIGITAL LABOUR departments and operations. You can talk naturally with
+to all BIT RAGE LABOUR departments and operations. You can talk naturally with
 department heads and get immediate operational updates.
 
 AVAILABLE INTERFACES
@@ -163,7 +163,7 @@ SYSTEM ARCHITECTURE
 • operations_command_interface.py - Core OCI logic
 • operations_chat.py - Interactive chat interface
 • operations_api.py - REST API server
-• Integrated with existing DIGITAL LABOUR systems
+• Integrated with existing BIT RAGE LABOUR systems
 • Real-time data from portfolio, agents, and operations
 
 TECHNICAL FEATURES
@@ -175,7 +175,7 @@ TECHNICAL FEATURES
 • Executive context awareness
 • Conversation history tracking
 
-For technical support or questions, contact the DIGITAL LABOUR operations team.
+For technical support or questions, contact the BIT RAGE LABOUR operations team.
     """.strip())
 
 def main():

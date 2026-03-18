@@ -565,10 +565,10 @@ def collect_git() -> Dict[str, Any]:
 
 
 # ─────────────────────────────────────────────────────────────
-# 13. PROCESS COLLECTOR — running DIGITAL LABOUR processes
+# 13. PROCESS COLLECTOR — running BIT RAGE LABOUR processes
 # ─────────────────────────────────────────────────────────────
 def collect_processes() -> Dict[str, Any]:
-    """Check which DIGITAL LABOUR processes are currently running."""
+    """Check which BIT RAGE LABOUR processes are currently running."""
     result = {"services": [], "python_processes": 0}
 
     known_services = {

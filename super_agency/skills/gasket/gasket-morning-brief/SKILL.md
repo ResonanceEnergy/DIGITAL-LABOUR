@@ -4,7 +4,7 @@ description: Generate GASKET morning briefing — system health, tasks, git stat
 metadata: {"openclaw":{"emoji":"☀️","os":["darwin"]}}
 ---
 
-Generate a comprehensive morning briefing for the DIGITAL LABOUR operator.
+Generate a comprehensive morning briefing for the BIT RAGE LABOUR operator.
 
 ## Briefing Structure
 

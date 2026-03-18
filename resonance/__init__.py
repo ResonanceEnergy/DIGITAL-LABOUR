@@ -1,13 +1,13 @@
-"""Resonance Energy Integration Layer — DIGITAL LABOUR ↔ NCC/NCL/AAC
+"""Resonance Energy Integration Layer — BIT RAGE LABOUR ↔ NCC/NCL/AAC
 
-This package bridges DIGITAL LABOUR (AGENCY pillar — ALOPS division)
+This package bridges BIT RAGE LABOUR (AGENCY pillar — ALOPS division)
 into the Resonance Energy triad:
 
     NCC  (Natrix Command & Control)  — Supreme governance, relay port 8787
     NCL  (BRAIN)                     — Insight engine, knowledge pump
     AAC  (BANK)                      — Capital management, trading, risk
 
-DIGITAL LABOUR operates as:
+BIT RAGE LABOUR operates as:
     source: "Digital-Labour"
     pillar: "AGENCY"
     division: "ALOPS" (AI Labour Operations)

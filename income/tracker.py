@@ -153,7 +153,7 @@ def print_status():
 
     print(f"""
 {'='*70}
-  DIGITAL LABOUR — INCOME TRACKER
+  BIT RAGE LABOUR — INCOME TRACKER
 {'='*70}
   Total Revenue:   ${total:,.2f}
   Sources Earning: {earning_count}/19

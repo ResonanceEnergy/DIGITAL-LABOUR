@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Oversight Framework
+BIT RAGE LABOUR Oversight Framework
 Comprehensive monitoring and audit system for APIs, accounts, and intelligence operations
 """
 
@@ -14,7 +14,7 @@ import hashlib
 import requests
 
 class OversightFramework:
-    """Comprehensive oversight system for DIGITAL LABOUR operations"""
+    """Comprehensive oversight system for BIT RAGE LABOUR operations"""
 
     def __init__(self, config_path: str = "oversight_config.json"):
         self.config_path = config_path
@@ -117,9 +117,9 @@ class OversightFramework:
             ]
         )
 
-        self.logger = logging.getLogger("DigitalLabour.Oversight")
-        self.security_logger = logging.getLogger("DIGITAL LABOUR.Security")
-        self.api_logger = logging.getLogger("DIGITAL LABOUR.API")
+        self.logger = logging.getLogger("BitRageLabour.Oversight")
+        self.security_logger = logging.getLogger("BIT RAGE LABOUR.Security")
+        self.api_logger = logging.getLogger("BIT RAGE LABOUR.API")
 
     def audit_api_call(self, api_name: str, endpoint: str,
                         response_time: float, success: bool,
@@ -448,7 +448,7 @@ def get_executive_ethics_report(days: int = 7) -> Dict:
     """Convenience function for executive ethics reporting"""
     return oversight.get_executive_ethics_report(days)
     # Test the oversight framework
-    print("🛡️ DIGITAL LABOUR Oversight Framework Test")
+    print("🛡️ BIT RAGE LABOUR Oversight Framework Test")
     print("=" * 50)
 
     # Test API auditing

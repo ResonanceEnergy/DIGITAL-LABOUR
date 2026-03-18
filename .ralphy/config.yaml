@@ -3,7 +3,7 @@
 
 # Project info (auto-detected, edit if needed)
 project:
-  name: "DIGITAL LABOUR"
+  name: "BIT RAGE LABOUR"
   language: "Python"
   framework: "FastAPI"
   description: "24 AI agent API — FastAPI on Railway. LLM providers: OpenAI, Anthropic, Gemini, Grok."

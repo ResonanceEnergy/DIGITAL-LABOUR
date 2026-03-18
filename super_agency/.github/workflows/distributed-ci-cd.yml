@@ -1,4 +1,4 @@
-name: DIGITAL LABOUR Distributed CI/CD
+name: BIT RAGE LABOUR Distributed CI/CD
 
 on:
   push:
@@ -162,10 +162,10 @@ jobs:
         include:
           - os: windows-latest
             build_name: 'windows'
-            artifact_name: 'digital-labour-windows'
+            artifact_name: 'bit-rage-labour-windows'
           - os: macos-latest
             build_name: 'macos'
-            artifact_name: 'digital-labour-macos'
+            artifact_name: 'bit-rage-labour-macos'
 
     steps:
     - name: Checkout code
@@ -314,13 +314,13 @@ jobs:
     - name: Download build artifacts
       uses: actions/download-artifact@v3
       with:
-        name: digital-labour-macos-${{ github.run_number }}
+        name: bit-rage-labour-macos-${{ github.run_number }}
         path: ./artifacts/macos
 
     - name: Download Windows build artifacts
       uses: actions/download-artifact@v3
       with:
-        name: digital-labour-windows-${{ github.run_number }}
+        name: bit-rage-labour-windows-${{ github.run_number }}
         path: ./artifacts/windows
 
     - name: Configure AWS credentials
@@ -332,9 +332,9 @@ jobs:
 
     - name: Deploy to AWS S3
       run: |
-        aws s3 sync ./artifacts/ s3://digital-labour-${{ matrix.environment }}-releases/${{ github.run_number }}/ --delete
-        aws s3 cp ./artifacts/macos/digital-labour-macos s3://digital-labour-${{ matrix.environment }}-releases/${{ github.run_number }}/digital-labour-macos --acl public-read
-        aws s3 cp ./artifacts/windows/digital-labour-windows.exe s3://digital-labour-${{ matrix.environment }}-releases/${{ github.run_number }}/digital-labour-windows.exe --acl public-read
+        aws s3 sync ./artifacts/ s3://bit-rage-labour-${{ matrix.environment }}-releases/${{ github.run_number }}/ --delete
+        aws s3 cp ./artifacts/macos/bit-rage-labour-macos s3://bit-rage-labour-${{ matrix.environment }}-releases/${{ github.run_number }}/bit-rage-labour-macos --acl public-read
+        aws s3 cp ./artifacts/windows/bit-rage-labour-windows.exe s3://bit-rage-labour-${{ matrix.environment }}-releases/${{ github.run_number }}/bit-rage-labour-windows.exe --acl public-read
 
     - name: Deploy to EC2 instances
       run: |
@@ -348,14 +348,14 @@ jobs:
           # Create deployment script
           cat > deploy.sh << EOF
         #!/bin/bash
-        # Deployment script for DIGITAL LABOUR
+        # Deployment script for BIT RAGE LABOUR
 
         # Download latest release
-        aws s3 cp s3://digital-labour-${{ matrix.environment }}-releases/${{ github.run_number }}/digital-labour-macos /usr/local/bin/digital-labour
-        chmod +x /usr/local/bin/digital-labour
+        aws s3 cp s3://bit-rage-labour-${{ matrix.environment }}-releases/${{ github.run_number }}/bit-rage-labour-macos /usr/local/bin/bit-rage-labour
+        chmod +x /usr/local/bin/bit-rage-labour
 
         # Restart service
-        systemctl restart digital-labour || service digital-labour restart || true
+        systemctl restart bit-rage-labour || service bit-rage-labour restart || true
 
         # Health check
         curl -f http://localhost:5000/health || exit 1
@@ -402,11 +402,11 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: v${{ github.run_number }}
-        release_name: DIGITAL LABOUR v${{ github.run_number }}
+        release_name: BIT RAGE LABOUR v${{ github.run_number }}
         draft: false
         prerelease: false
         body: |
-          ## DIGITAL LABOUR Release v${{ github.run_number }}
+          ## BIT RAGE LABOUR Release v${{ github.run_number }}
 
           ### Changes
           - Multi-platform builds (macOS, Windows)
@@ -415,8 +415,8 @@ jobs:
           - Performance optimizations
 
           ### Downloads
-          - [macOS Binary](https://digital-labour-releases.s3.amazonaws.com/${{ github.run_number }}/digital-labour-macos)
-          - [Windows Binary](https://digital-labour-releases.s3.amazonaws.com/${{ github.run_number }}/digital-labour-windows.exe)
+          - [macOS Binary](https://bit-rage-labour-releases.s3.amazonaws.com/${{ github.run_number }}/bit-rage-labour-macos)
+          - [Windows Binary](https://bit-rage-labour-releases.s3.amazonaws.com/${{ github.run_number }}/bit-rage-labour-windows.exe)
 
           ### Deployment
           - AWS infrastructure updated
@@ -429,8 +429,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./release-artifacts/digital-labour-macos-${{ github.run_number }}/digital-labour-macos
-        asset_name: digital-labour-macos
+        asset_path: ./release-artifacts/bit-rage-labour-macos-${{ github.run_number }}/bit-rage-labour-macos
+        asset_name: bit-rage-labour-macos
         asset_content_type: application/octet-stream
 
     - name: Upload Windows Release Asset
@@ -439,8 +439,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./release-artifacts/digital-labour-windows-${{ github.run_number }}/digital-labour-windows.exe
-        asset_name: digital-labour-windows.exe
+        asset_path: ./release-artifacts/bit-rage-labour-windows-${{ github.run_number }}/bit-rage-labour-windows.exe
+        asset_name: bit-rage-labour-windows.exe
         asset_content_type: application/octet-stream
 
   # Post-deployment Testing
@@ -466,7 +466,7 @@ jobs:
     - name: Run smoke tests
       run: |
         # Test API endpoints
-        API_URL=$(aws cloudformation describe-stacks --stack-name digital-labour-dev --query 'Stacks[0].Outputs[?OutputKey==`ApiUrl`].OutputValue' --output text)
+        API_URL=$(aws cloudformation describe-stacks --stack-name bit-rage-labour-dev --query 'Stacks[0].Outputs[?OutputKey==`ApiUrl`].OutputValue' --output text)
 
         if [ -n "$API_URL" ]; then
           # Test health endpoint
@@ -495,7 +495,7 @@ jobs:
       with:
         status: ${{ job.status }}
         text: |
-          DIGITAL LABOUR CI/CD Pipeline ${{ job.status }}
+          BIT RAGE LABOUR CI/CD Pipeline ${{ job.status }}
 
           Branch: ${{ github.ref }}
           Commit: ${{ github.sha }}
@@ -513,9 +513,9 @@ jobs:
         server_port: 465
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
-        subject: DIGITAL LABOUR CI/CD Failed
+        subject: BIT RAGE LABOUR CI/CD Failed
         body: |
-          DIGITAL LABOUR CI/CD pipeline failed.
+          BIT RAGE LABOUR CI/CD pipeline failed.
 
           Branch: ${{ github.ref }}
           Commit: ${{ github.sha }}
@@ -523,4 +523,4 @@ jobs:
 
           Check the GitHub Actions logs for details.
         to: ${{ secrets.ALERT_EMAIL }}
-        from: DIGITAL LABOUR CI/CD <cicd@DigitalLabour.ai>
+        from: BIT RAGE LABOUR CI/CD <cicd@BitRageLabour.ai>

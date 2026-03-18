@@ -154,7 +154,7 @@ print(json.dumps({
             }
         }),
         "instructions": """\
-GASKET Memory Doctrine manages the DIGITAL LABOUR knowledge base.
+GASKET Memory Doctrine manages the BIT RAGE LABOUR knowledge base.
 
 Memory locations:
 - {baseDir}/../memory/ — Daily logs (memory/YYYY-MM-DD.md)
@@ -286,7 +286,7 @@ print(json.dumps({
             }
         }),
         "instructions": """\
-Generate a comprehensive morning briefing for the DIGITAL LABOUR operator.
+Generate a comprehensive morning briefing for the BIT RAGE LABOUR operator.
 
 Structure:
 1. **System Health**: CPU, memory, disk across QUSAR (macOS) + QFORGE status
@@ -315,7 +315,7 @@ Format the brief cleanly with sections, emojis, and actionable items.
             }
         }),
         "instructions": """\
-Zero-friction capture for the DIGITAL LABOUR second brain.
+Zero-friction capture for the BIT RAGE LABOUR second brain.
 
 When the user texts anything that should be remembered — ideas, links, books,
 reminders, decisions, observations — capture it immediately:
@@ -345,7 +345,7 @@ The power is in ZERO FRICTION. Capture as easy as texting.
             }
         }),
         "instructions": """\
-Self-healing infrastructure agent for the DIGITAL LABOUR platform.
+Self-healing infrastructure agent for the BIT RAGE LABOUR platform.
 
 Automated checks (run via cron):
 1. **OpenClaw Gateway Health**: curl http://127.0.0.1:18789/health
@@ -528,7 +528,7 @@ CRITICAL RULE: NEVER store API keys in agent environment or skill files.
 GASKET_SOUL = """\
 ## SOUL.md — AGENT GASKET
 
-You are AGENT GASKET v2.0, the QUSAR Integration Agent for DIGITAL LABOUR.
+You are AGENT GASKET v2.0, the QUSAR Integration Agent for BIT RAGE LABOUR.
 
 **Personality**: Precise, infrastructure-focused, always-on. You speak in clear
 status reports and actionable recommendations. You are the system backbone.
@@ -540,7 +540,7 @@ status reports and actionable recommendations. You are the system backbone.
 - Memory doctrine: System memory management, doctrine maintenance
 - Matrix Maximizer: Performance visualization, project intelligence
 
-**Your Role in DIGITAL LABOUR**:
+**Your Role in BIT RAGE LABOUR**:
 You are one half of a dual-agent system:
 - **You (GASKET)**: macOS QUSAR environment — intervention, intelligence, optimization
 - **OPTIMUS**: Windows QFORGE environment — real-time telemetry, monitoring

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR CPU Control Center
+BIT RAGE LABOUR CPU Control Center
 Master coordinator for maximum CPU utilization across all systems
 """
 
@@ -78,10 +78,10 @@ class CPUControlCenter:
     def launch_portfolio_intel(self) -> subprocess.Popen:
         """Launch parallel portfolio intelligence"""
         try:
-            cmd = [sys.executable, str(self.root / "ResonanceEnergy_DigitalLabour" / "agents" / "parallel_portfolio_intel.py")]
+            cmd = [sys.executable, str(self.root / "ResonanceEnergy_BitRageLabour" / "agents" / "parallel_portfolio_intel.py")]
             process = subprocess.Popen(
                 cmd,
-                cwd=self.root / "ResonanceEnergy_DigitalLabour",
+                cwd=self.root / "ResonanceEnergy_BitRageLabour",
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 text=True
@@ -351,14 +351,14 @@ def save_results(results: Dict[str, Any], filename: str) -> Path:
 
 def main():
     """Main CPU Control Center function"""
-    parser = argparse.ArgumentParser(description="DIGITAL LABOUR CPU Control Center")
+    parser = argparse.ArgumentParser(description="BIT RAGE LABOUR CPU Control Center")
     parser.add_argument("mode", choices=["maximum", "balanced", "diagnostic"], help="Operation mode")
     parser.add_argument("--duration", type=int, default=10, help="Duration in minutes (for maximum/balanced modes)")
     parser.add_argument("--save-results", action="store_true", help="Save results to file")
 
     args = parser.parse_args()
 
-    print("🎛️ DIGITAL LABOUR CPU Control Center")
+    print("🎛️ BIT RAGE LABOUR CPU Control Center")
     print("=" * 50)
 
     system_info = CPUControlCenter().get_system_info()

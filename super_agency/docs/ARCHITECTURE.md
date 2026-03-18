@@ -19,7 +19,7 @@ This document describes the architectural structure of the Digital-Labour reposi
 - `bin/`
 - `config/`
 - `oversight_logs/`
-- `ResonanceEnergy_DigitalLabour/`
+- `ResonanceEnergy_BitRageLabour/`
 - `github_integration/`
 - `cicd_workflows/`
 - `setup/`

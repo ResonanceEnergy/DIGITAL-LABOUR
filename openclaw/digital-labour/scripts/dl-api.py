@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Digital Labour API client — stdlib only, zero pip installs.
+"""Bit Rage Labour API client — stdlib only, zero pip installs.
 
 Usage:
     python3 dl-api.py health
@@ -17,11 +17,11 @@ import urllib.error
 import urllib.request
 
 BASE_URL = os.environ.get(
-    "DIGITAL_LABOUR_API_URL",
+    "BIT_RAGE_LABOUR_API_URL",
     "https://bitrage-labour-api-production.up.railway.app",
 ).rstrip("/")
 
-API_KEY = os.environ.get("DIGITAL_LABOUR_API_KEY", "")
+API_KEY = os.environ.get("BIT_RAGE_LABOUR_API_KEY", "")
 
 VALID_AGENTS = [
     "sales_outreach", "support_ticket", "content_repurpose", "doc_extract",

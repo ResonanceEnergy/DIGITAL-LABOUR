@@ -190,7 +190,7 @@ The proposal should:
 - End with a clear call to action
 - Sound human, warm, and confident — not generic
 
-Sign off as "Digital Labour — AI-Powered Business Services"
+Sign off as "Bit Rage Labour — AI-Powered Business Services"
 """
     # Try OpenAI
     api_key = os.getenv("OPENAI_API_KEY")
@@ -213,12 +213,12 @@ Sign off as "Digital Labour — AI-Powered Business Services"
 
 I came across your project "{title}" and I'm confident I can help.
 
-I run Digital Labour, an AI-powered business services agency. We specialise in exactly this type of work and use advanced automation tools to deliver fast, accurate results.
+I run Bit Rage Labour, an AI-powered business services agency. We specialise in exactly this type of work and use advanced automation tools to deliver fast, accurate results.
 
 I'd love to discuss your requirements in more detail and get started quickly.
 
 Best regards,
-Digital Labour — AI-Powered Business Services"""
+Bit Rage Labour — AI-Powered Business Services"""
 
 
 # ── Search Projects ─────────────────────────────────────────────────────────

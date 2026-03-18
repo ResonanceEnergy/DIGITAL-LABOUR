@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Continuous Memory Backup System.
+BIT RAGE LABOUR Continuous Memory Backup System.
 
 Prevents memory blanks through real-time backup
 and synchronization.

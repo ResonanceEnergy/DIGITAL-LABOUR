@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 NCC Resource Allocator
-Manages computational and API resources for DIGITAL LABOUR operations
+Manages computational and API resources for BIT RAGE LABOUR operations
 """
 
 import json

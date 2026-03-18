@@ -92,7 +92,7 @@ def run_push(count: int = 50, provider: str = "openai", dry_run: bool = False) -
     """Run the full 50-message outreach push campaign."""
     print()
     print("=" * 70)
-    print(f"  DIGITAL LABOUR - DIRECT SALES PUSH")
+    print(f"  BIT RAGE LABOUR - DIRECT SALES PUSH")
     print(f"  Targets: {count}  |  Provider: {provider.upper()}  |  "
           f"Mode: {'DRY RUN' if dry_run else 'LIVE'}")
     print("=" * 70)
@@ -216,7 +216,7 @@ def _print_summary(summary: dict) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Digital Labour - 50-message direct sales push (Step 94)"
+        description="Bit Rage Labour - 50-message direct sales push (Step 94)"
     )
     parser.add_argument("--count",    type=int,  default=50,      help="Number of targets (default: 50)")
     parser.add_argument("--provider", type=str,  default="openai", help="LLM provider (default: openai)")

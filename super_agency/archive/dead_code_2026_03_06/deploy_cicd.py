@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR CI/CD Deployment System
+BIT RAGE LABOUR CI/CD Deployment System
 Activate workflow templates across all portfolio repositories
 """
 

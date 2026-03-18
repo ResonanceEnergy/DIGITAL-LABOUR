@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SYSTEM LAUNCHER - Controlled startup of DIGITAL LABOUR components
+SYSTEM LAUNCHER - Controlled startup of BIT RAGE LABOUR components
 """
 
 import sys
@@ -39,7 +39,7 @@ def main():
     """Main launcher function"""
     workspace = Path(__file__).parent
 
-    print("🚀 DIGITAL LABOUR SYSTEM LAUNCHER")
+    print("🚀 BIT RAGE LABOUR SYSTEM LAUNCHER")
     print("="*50)
 
     # Change to workspace directory

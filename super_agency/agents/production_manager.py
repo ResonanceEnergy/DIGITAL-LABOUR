@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Production Manager Agent — DIGITAL LABOUR
+Production Manager Agent — BIT RAGE LABOUR
 =============================================
 T2 Management agent responsible for production
 readiness, deployment gates, service health, and
@@ -179,7 +179,7 @@ class ProductionManagerAgent:
 
     def _check_watchdog_log(self) -> dict[str, Any]:
         """Check for recent watchdog restarts."""
-        log_file = ROOT / "logs" / "digital_labour.log"
+        log_file = ROOT / "logs" / "bit_rage_labour.log"
         restarts = 0
         dead_services: list[str] = []
 

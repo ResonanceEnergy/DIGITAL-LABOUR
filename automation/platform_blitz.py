@@ -36,7 +36,7 @@ SS_DIR.mkdir(parents=True, exist_ok=True)
 STATE_FILE = PROJECT / "data" / "platform_blitz_state.json"
 CV_PDF = PROJECT / "output" / "CV_digitallabour.pdf"
 CV_FALLBACKS = [
-    PROJECT / "output" / "digital_labour_systems.pdf",
+    PROJECT / "output" / "bit_rage_labour_systems.pdf",
     PROJECT / "output" / "CV_digitallabour_clean.pdf",
 ]
 

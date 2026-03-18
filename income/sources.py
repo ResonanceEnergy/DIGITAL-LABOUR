@@ -1,4 +1,4 @@
-"""MASTER INCOME SOURCE REGISTRY — Every revenue channel for Digital Labour.
+"""MASTER INCOME SOURCE REGISTRY — Every revenue channel for Bit Rage Labour.
 
 Ranked by ROI, speed-to-first-dollar, and integration effort.
 
@@ -55,7 +55,7 @@ TIER_1 = [
         notes="21 active AI agent jobs right now. Average bids $54-$6280. "
               "List as agency, bid on agent-building contracts.",
         how=[
-            "1. Create Freelancer.com agency profile as 'Digital Labour — AI Agent Workforce'",
+            "1. Create Freelancer.com agency profile as 'Bit Rage Labour — AI Agent Workforce'",
             "2. List all 4 agents as capabilities (Sales Ops, Support, Content, Doc Extract)",
             "3. Bid on AI agent jobs — focus on $200-$2000 range for fast wins",
             "4. Use existing worker agents to DELIVER the work (auto-fulfillment)",
@@ -74,26 +74,26 @@ TIER_1 = [
         notes="Fiverr has dedicated 'AI Services' category. "
               "Sell agent outputs as gigs: email copywriting, doc extraction, content repurposing.",
         how=[
-            "1. Create Fiverr seller profile as 'DigitalLabour'",
+            "1. Create Fiverr seller profile as 'BitRageLabour'",
             "2. Create 4 gigs matching each agent's capability:",
             "   - 'AI Sales Email Generator' ($25-100/batch)",
             "   - 'AI Document Data Extraction' ($15-50/doc)",
             "   - 'AI Content Repurposer — Turn 1 piece into 10' ($30-75)",
             "   - 'AI Customer Support Bot Setup' ($100-500)",
-            "3. Use Digital Labour agents to auto-fulfill orders",
+            "3. Use Bit Rage Labour agents to auto-fulfill orders",
             "4. Scale with Fiverr Pro application for premium pricing",
         ],
     ),
 
     # ── 2. Direct Stripe Sales (already configured) ──────────────────────
     IncomeSource(
-        name="Direct Stripe Sales — digital-labour.com",
+        name="Direct Stripe Sales — bit-rage-labour.com",
         category="DIRECT_SALES",
         integration="WEBHOOK",
         effort=1,
         speed_days=1,
         monthly_upside=5000,
-        url="https://digital-labour.com",
+        url="https://bit-rage-labour.com",
         notes="10 Stripe products ALREADY configured (test mode). "
               "Switch to live mode, enable payment links, embed on website. "
               "Products: sales_outreach $2.40/lead, support_ticket $1/ticket, "
@@ -102,7 +102,7 @@ TIER_1 = [
         how=[
             "1. Switch Stripe to LIVE mode (flip test→live keys in .env)",
             "2. Create Stripe Payment Links for all 10 products",
-            "3. Embed payment links on digital-labour.com landing page",
+            "3. Embed payment links on bit-rage-labour.com landing page",
             "4. Add checkout flow: payment → auto-create client → assign agent",
             "5. Enable Stripe Checkout Sessions for subscription products",
         ],
@@ -141,7 +141,7 @@ TIER_1 = [
         url="",
         notes="50 prospects now have real emails (enriched via email_discovery.py). "
               "sent_log.json is empty/reset. Ready for re-blast. "
-              "Zoho SMTP configured: sales@digital-labour.com.",
+              "Zoho SMTP configured: sales@bit-rage-labour.com.",
         how=[
             "1. Run: python -m automation.outreach (sends to all 50 enriched prospects)",
             "2. NERVE daemon monitors responses and triggers followups",
@@ -223,7 +223,7 @@ TIER_2 = [
               "Builder earned $1.2M OLAS in one year.",
         how=[
             "1. Install Olas Stack toolchain (stack.olas.network)",
-            "2. Wrap Digital Labour agents in Olas SDK",
+            "2. Wrap Bit Rage Labour agents in Olas SDK",
             "3. Register as Sovereign Agent on Mech Marketplace",
             "4. Apply for Accelerator — up to $100K grant",
             "5. Earn OLAS Dev Rewards for registered agent components",
@@ -247,8 +247,8 @@ TIER_2 = [
               "$elizaOS token ecosystem.",
         how=[
             "1. npm install -g @elizaos/cli",
-            "2. Wrap Digital Labour agents as ElizaOS plugins",
-            "3. elizaos login → elizaos deploy --project-name digital-labour",
+            "2. Wrap Bit Rage Labour agents as ElizaOS plugins",
+            "3. elizaos login → elizaos deploy --project-name bit-rage-labour",
             "4. Register on Eliza Cloud marketplace for discoverability",
             "5. Enable X402 crypto payments for agent services",
             "6. On-chain agent discovery via ERC-8004",
@@ -291,7 +291,7 @@ TIER_2 = [
               "Also can earn as Capital/Code/Compute contributor.",
         how=[
             "1. Register as Morpheus Builder at mor.org",
-            "2. Build Digital Labour as a Morpheus-compatible agent application",
+            "2. Build Bit Rage Labour as a Morpheus-compatible agent application",
             "3. Earn MOR tokens based on usage of your agents",
             "4. Optional: provide stETH as Capital contributor for additional MOR",
             "5. Optional: contribute code to Morpheus codebase for Code rewards",
@@ -340,7 +340,7 @@ TIER_3 = [
               "90+ integrations. Can BYOK (bring your own key).",
         how=[
             "1. Sign up at botpress.com (free PAYG tier)",
-            "2. Build agent templates for Digital Labour use cases",
+            "2. Build agent templates for Bit Rage Labour use cases",
             "3. Deploy agents on client behalf via Botpress APIs",
             "4. Charge clients for 'Managed AI Agent' service",
             "5. Botpress handles infra; you handle relationship + customization",
@@ -362,7 +362,7 @@ TIER_3 = [
               "Free tier: 200 actions/mo, unlimited agents.",
         how=[
             "1. Sign up at app.relevanceai.com (free tier)",
-            "2. Build Digital Labour agents using Relevance AI tools",
+            "2. Build Bit Rage Labour agents using Relevance AI tools",
             "3. List on Relevance Marketplace for discovery",
             "4. Offer as managed service to clients via Relevance platform",
             "5. Scale to Team plan ($234/mo) for 84K actions/year",
@@ -382,10 +382,10 @@ TIER_3 = [
               "Customer generated 2000+ leads in one month. "
               "Chrome extension. 7000+ app integrations.",
         how=[
-            "1. Build Digital Labour Zapier Agent templates",
+            "1. Build Bit Rage Labour Zapier Agent templates",
             "2. Publish to Zapier Agent template gallery",
             "3. Use Zapier Agents for own lead gen (auto-prospect, auto-qualify)",
-            "4. Connect Zapier to Digital Labour API for auto-fulfillment",
+            "4. Connect Zapier to Bit Rage Labour API for auto-fulfillment",
             "5. Earn via template usage + consulting on agent setup",
         ],
     ),
@@ -412,7 +412,7 @@ TIER_4 = [
               "Strategies: swaps, lending, bridging, perps.",
         how=[
             "1. Sign up at wayfinder.ai",
-            "2. Deploy Digital Labour as Wayfinder agent",
+            "2. Deploy Bit Rage Labour as Wayfinder agent",
             "3. Configure DeFi strategies (yield farming, arb)",
             "4. Self-custody wallet earns from strategy execution",
             "5. $PROMPT token rewards for active agents",
@@ -465,7 +465,7 @@ TIER_5 = [
             "2. Complete profile verification + skills tests",
             "3. Apply for AI/ML specialized categories",
             "4. Bid on enterprise AI agent projects ($5K-$50K)",
-            "5. Deliver using Digital Labour's agent infrastructure",
+            "5. Deliver using Bit Rage Labour's agent infrastructure",
         ],
     ),
 
@@ -480,12 +480,12 @@ TIER_5 = [
         url="",
         notes="Sell 'AI Agent Workforce' setup as consulting. "
               "$2K-$10K/client for setup + $500-$2K/mo retainer. "
-              "Use existing Digital Labour infrastructure to deliver.",
+              "Use existing Bit Rage Labour infrastructure to deliver.",
         how=[
             "1. Create consulting offer deck (ai-workforce-setup.pdf)",
             "2. Price: $2K setup fee + $750/mo managed service",
             "3. Use email outreach to pitch to enriched prospects",
-            "4. Client gets white-label Digital Labour agents",
+            "4. Client gets white-label Bit Rage Labour agents",
             "5. Recurring revenue from monthly management retainer",
         ],
     ),
@@ -518,7 +518,7 @@ def print_roadmap():
     """Print the full ranked roadmap."""
     ranked = get_ranked_sources()
     print("\n" + "=" * 80)
-    print("  DIGITAL LABOUR — MASTER INCOME ROADMAP (Ranked by ROI Score)")
+    print("  BIT RAGE LABOUR — MASTER INCOME ROADMAP (Ranked by ROI Score)")
     print("=" * 80)
 
     for i, src in enumerate(ranked, 1):

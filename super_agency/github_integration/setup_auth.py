@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 GitHub Authentication Setup Helper
-Helps configure and test GitHub authentication for DIGITAL LABOUR
+Helps configure and test GitHub authentication for BIT RAGE LABOUR
 """
 
 import os
@@ -179,7 +179,7 @@ def create_auth_summary():
 - Use minimal required permissions
 
 ---
-*DIGITAL LABOUR GitHub Authentication Setup*
+*BIT RAGE LABOUR GitHub Authentication Setup*
 """
 
     with open("AUTH_SETUP_SUMMARY.md", 'w') as f:
@@ -189,7 +189,7 @@ def create_auth_summary():
 
 def main():
     """Main setup function"""
-    print("🔐 DIGITAL LABOUR GitHub Authentication Setup")
+    print("🔐 BIT RAGE LABOUR GitHub Authentication Setup")
     print("=" * 50)
 
     # Load environment

@@ -1,10 +1,10 @@
 # ResonanceEnergy_Enterprise
 
-**Company Repository** - DIGITAL LABOUR Portfolio Company
+**Company Repository** - BIT RAGE LABOUR Portfolio Company
 
 ## Overview
 
-ResonanceEnergy_Enterprise is a portfolio company within the DIGITAL LABOUR ecosystem.
+ResonanceEnergy_Enterprise is a portfolio company within the BIT RAGE LABOUR ecosystem.
 
 ## Repository Information
 
@@ -13,4 +13,4 @@ ResonanceEnergy_Enterprise is a portfolio company within the DIGITAL LABOUR ecos
 - **Autonomy Level**: L1
 - **Language**: Python
 - **Risk Tier**: CRITICAL
-- **Parent Organization**: DIGITAL LABOUR
+- **Parent Organization**: BIT RAGE LABOUR

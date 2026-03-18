@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Doctrine Preservation System
+BIT RAGE LABOUR Doctrine Preservation System
 Immutable doctrine storage and validation engine
 """
 

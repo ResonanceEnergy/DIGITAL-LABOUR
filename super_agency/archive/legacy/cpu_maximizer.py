@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR CPU Maximizer
+BIT RAGE LABOUR CPU Maximizer
 Parallel processing orchestrator for maximum computational output
 """
 
@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 class CPUMaximizer:
-    """Maximizes CPU utilization across all DIGITAL LABOUR systems"""
+    """Maximizes CPU utilization across all BIT RAGE LABOUR systems"""
 
     def __init__(self, max_workers=None):
         self.max_workers = max_workers or mp.cpu_count()
@@ -87,14 +87,14 @@ class CPUMaximizer:
 
         def run_analysis(task: str) -> tuple:
             try:
-                script_path = self.root / "ResonanceEnergy_DigitalLabour" / "agents" / task
+                script_path = self.root / "ResonanceEnergy_BitRageLabour" / "agents" / task
                 if not script_path.exists():
                     return task, {"success": False, "error": "Script not found"}
 
                 start_time = time.time()
                 result = subprocess.run([sys.executable, str(script_path)],
                                       capture_output=True, text=True,
-                                      cwd=self.root / "ResonanceEnergy_DigitalLabour")
+                                      cwd=self.root / "ResonanceEnergy_BitRageLabour")
                 end_time = time.time()
 
                 return task, {
@@ -246,7 +246,7 @@ class CPUMaximizer:
 
 def main():
     """Main CPU maximization function"""
-    print("🔥 DIGITAL LABOUR CPU Maximizer")
+    print("🔥 BIT RAGE LABOUR CPU Maximizer")
     print("=" * 50)
     print(f"CPU Cores Available: {mp.cpu_count()}")
     print()

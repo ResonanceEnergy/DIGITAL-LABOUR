@@ -1,10 +1,10 @@
 # SUPERSTONK-TRADER
 
-**Company Repository** - DIGITAL LABOUR Portfolio Company
+**Company Repository** - BIT RAGE LABOUR Portfolio Company
 
 ## Overview
 
-SUPERSTONK-TRADER is a portfolio company within the DIGITAL LABOUR ecosystem.
+SUPERSTONK-TRADER is a portfolio company within the BIT RAGE LABOUR ecosystem.
 
 ## Repository Information
 
@@ -14,7 +14,7 @@ SUPERSTONK-TRADER is a portfolio company within the DIGITAL LABOUR ecosystem.
 - **Language**: Python
 - **Risk Tier**: MEDIUM
 - **Created**: February 20, 2026
-- **Parent Organization**: DIGITAL LABOUR
+- **Parent Organization**: BIT RAGE LABOUR
 
 ## Directory Structure
 
@@ -29,8 +29,8 @@ SUPERSTONK-TRADER/
 
 ## Integration Status
 
-This repository is part of the DIGITAL LABOUR NCC-Doctrine integration framework.
+This repository is part of the BIT RAGE LABOUR NCC-Doctrine integration framework.
 
 ## Contact
 
-For questions about this company repository, contact the DIGITAL LABOUR executive team.
+For questions about this company repository, contact the BIT RAGE LABOUR executive team.

@@ -42,7 +42,7 @@ COPY_DIR = PROJECT_ROOT / "output" / "platform_copy"
 CV_PDF = PROJECT_ROOT / "output" / "CV_digitallabour.pdf"
 # Fallback CVs
 CV_FALLBACKS = [
-    PROJECT_ROOT / "output" / "digital_labour_systems.pdf",
+    PROJECT_ROOT / "output" / "bit_rage_labour_systems.pdf",
     PROJECT_ROOT / "output" / "CV_digitallabour_clean.pdf",
 ]
 

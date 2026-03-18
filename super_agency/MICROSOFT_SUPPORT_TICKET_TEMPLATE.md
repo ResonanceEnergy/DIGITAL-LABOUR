@@ -1,30 +1,30 @@
 # 📝 Microsoft Support Ticket Template
-## Account Merge Request - DIGITAL LABOUR Operations
+## Account Merge Request - BIT RAGE LABOUR Operations
 
-**Subject:** Urgent Account Merge Request - DIGITAL LABOUR Business Consolidation
+**Subject:** Urgent Account Merge Request - BIT RAGE LABOUR Business Consolidation
 
 ---
 
 **Dear Microsoft Support Team,**
 
-I am requesting assistance to merge three Microsoft accounts as part of consolidating my DIGITAL LABOUR operations. This is critical for maintaining unified access to Azure, VS Code, cloud storage, and other Microsoft services.
+I am requesting assistance to merge three Microsoft accounts as part of consolidating my BIT RAGE LABOUR operations. This is critical for maintaining unified access to Azure, VS Code, cloud storage, and other Microsoft services.
 
 **Primary Account (Keep This One):**
 - Email: nate@gripandripp.onmicrosoft.com
 - Type: Business/Organization Account
-- Purpose: DIGITAL LABOUR primary operations
+- Purpose: BIT RAGE LABOUR primary operations
 
 **Secondary Accounts (Merge Into Primary):**
 1. Email: gripandripphdd@outlook.com
    - Type: Personal Outlook Account
    - Services: VS Code extensions, personal cloud storage files
 
-2. Email: acceleratedarDigital Labour@outlook.com
+2. Email: acceleratedarBit Rage Labour@outlook.com
    - Type: Personal Outlook Account
    - Services: Financial data, trading applications
 
 **Reason for Merge:**
-I am consolidating multiple Microsoft accounts to streamline my DIGITAL LABOUR operations. The business account (nate@gripandripp.onmicrosoft.com) should serve as the primary account for all Azure, VS Code, cloud storage, and related services.
+I am consolidating multiple Microsoft accounts to streamline my BIT RAGE LABOUR operations. The business account (nate@gripandripp.onmicrosoft.com) should serve as the primary account for all Azure, VS Code, cloud storage, and related services.
 
 **Services Impacted:**
 - Azure subscriptions and resources
@@ -35,7 +35,7 @@ I am consolidating multiple Microsoft accounts to streamline my DIGITAL LABOUR o
 - GitHub integrations
 
 **Urgency:**
-High - This affects ongoing DIGITAL LABOUR development and operations. Multiple accounts are causing fragmentation of critical business data and development environments.
+High - This affects ongoing BIT RAGE LABOUR development and operations. Multiple accounts are causing fragmentation of critical business data and development environments.
 
 **Preferred Solution:**
 Merge all data and services from the secondary accounts into the primary business account (nate@gripandripp.onmicrosoft.com). If full merge is not possible, please provide guidance on adding aliases or alternative consolidation methods.
@@ -54,7 +54,7 @@ Thank you for your assistance with this important account consolidation.
 
 **Best regards,**  
 [Your Full Name]  
-DIGITAL LABOUR Operations  
+BIT RAGE LABOUR Operations  
 nate@gripandripp.onmicrosoft.com
 
 ---

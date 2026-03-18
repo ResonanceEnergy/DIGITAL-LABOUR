@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Launch script for full DIGITAL LABOUR runtime mode.
-Digital Labour autonomous orchestration platform.
+Launch script for full BIT RAGE LABOUR runtime mode.
+Bit Rage Labour autonomous orchestration platform.
 Updated for departmental matrix structure.
 Features auto-restart watchdog for crashed daemon threads.
 """
@@ -84,7 +84,7 @@ _console.setFormatter(_formatter)
 
 # Rotating file handler: 5 MB per file, keep 5 backups
 _file_handler = logging.handlers.RotatingFileHandler(
-    _LOG_DIR / "digital_labour.log",
+    _LOG_DIR / "bit_rage_labour.log",
     maxBytes=5_000_000, backupCount=5,
     encoding="utf-8",
 )
@@ -255,8 +255,8 @@ def _watchdog_cycle():
 
 def main():
     logger.info(
-        "Starting DIGITAL LABOUR runtime - "
-        "Digital Labour Primary v4.0 "
+        "Starting BIT RAGE LABOUR runtime - "
+        "Bit Rage Labour Primary v4.0 "
         "(auto-restart watchdog)"
     )
 
@@ -547,8 +547,8 @@ def main():
         )
 
     logger.info(
-        "DIGITAL LABOUR operational — "
-        "Digital Labour primary"
+        "BIT RAGE LABOUR operational — "
+        "Bit Rage Labour primary"
     )
     logger.info("Press Ctrl+C to shutdown")
 
@@ -564,7 +564,7 @@ def main():
     except Exception as e:
         logger.error(f"Unexpected error in main loop: {e}")
     finally:
-        logger.info("DIGITAL LABOUR shutdown complete")
+        logger.info("BIT RAGE LABOUR shutdown complete")
 
 
 if __name__ == '__main__':

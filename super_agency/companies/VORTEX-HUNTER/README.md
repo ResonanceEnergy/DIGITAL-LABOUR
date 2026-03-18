@@ -1,10 +1,10 @@
 # VORTEX-HUNTER
 
-**Company Repository** - DIGITAL LABOUR Portfolio Company
+**Company Repository** - BIT RAGE LABOUR Portfolio Company
 
 ## Overview
 
-VORTEX-HUNTER is a portfolio company within the DIGITAL LABOUR ecosystem.
+VORTEX-HUNTER is a portfolio company within the BIT RAGE LABOUR ecosystem.
 
 ## Repository Information
 
@@ -13,7 +13,7 @@ VORTEX-HUNTER is a portfolio company within the DIGITAL LABOUR ecosystem.
 - **Autonomy Level**: L1
 - **Risk Tier**: HIGH
 - **Created**: February 20, 2026
-- **Parent Organization**: DIGITAL LABOUR
+- **Parent Organization**: BIT RAGE LABOUR
 
 ## Directory Structure
 
@@ -28,8 +28,8 @@ VORTEX-HUNTER/
 
 ## Integration Status
 
-This repository is part of the DIGITAL LABOUR NCC-Doctrine integration framework.
+This repository is part of the BIT RAGE LABOUR NCC-Doctrine integration framework.
 
 ## Contact
 
-For questions about this company repository, contact the DIGITAL LABOUR executive team.
+For questions about this company repository, contact the BIT RAGE LABOUR executive team.

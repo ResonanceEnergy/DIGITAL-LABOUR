@@ -1,5 +1,5 @@
 # SOCIAL CONTENT — Ready-to-Post
-## Digital Labour — 30 Days of Posts
+## Bit Rage Labour — 30 Days of Posts
 
 ---
 
@@ -408,7 +408,7 @@ Each one passes QA before delivery.
 An SDR does 30 per day.
 My agent does 100+ per hour.
 
-digital-labour.com
+bit-rage-labour.com
 ```
 
 ### Tweet 3

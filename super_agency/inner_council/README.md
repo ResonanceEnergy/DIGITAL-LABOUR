@@ -1,7 +1,7 @@
-# Inner Council - DIGITAL LABOUR Strategic Intelligence Network
+# Inner Council - BIT RAGE LABOUR Strategic Intelligence Network
 
 ## Overview
-The Inner Council is DIGITAL LABOUR's strategic intelligence network that monitors and analyzes content from 28 key YouTube channels to provide daily policy adjustments, steering, planning, and execution guidance.
+The Inner Council is BIT RAGE LABOUR's strategic intelligence network that monitors and analyzes content from 28 key YouTube channels to provide daily policy adjustments, steering, planning, and execution guidance.
 
 ## Mission
 Serve as the primary sensory input from real-world data, providing comprehensive analysis for project planning, integration, and strategic decision-making.
@@ -80,12 +80,12 @@ inner_council/
 
 ### Content Analysis Categories
 - **Key Insights**: Core learnings and emerging trends
-- **Policy Implications**: How insights affect DIGITAL LABOUR operations
+- **Policy Implications**: How insights affect BIT RAGE LABOUR operations
 - **Strategic Recommendations**: Actionable suggestions for planning
 - **Risk Assessments**: Potential threats and opportunities
 
 ### Intelligence Quality Metrics
-- **Relevance Score**: How applicable to DIGITAL LABOUR mission
+- **Relevance Score**: How applicable to BIT RAGE LABOUR mission
 - **Impact Potential**: Expected influence on operations
 - **Confidence Level**: Reliability of analysis
 - **Timeliness**: How current the information is
@@ -118,7 +118,7 @@ python inner_council/council.py --report
 python inner_council/council.py --status
 ```
 
-### Integration with DIGITAL LABOUR
+### Integration with BIT RAGE LABOUR
 ```python
 from inner_council.council import InnerCouncil
 
@@ -168,5 +168,5 @@ orchestrator.process_council_intelligence(daily_report)
 - Ethical use of public information only
 
 ---
-*Inner Council - DIGITAL LABOUR's Strategic Intelligence Network*
+*Inner Council - BIT RAGE LABOUR's Strategic Intelligence Network*
 *Established: 2026-02-20*

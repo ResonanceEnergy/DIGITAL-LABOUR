@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Inner Council - DIGITAL LABOUR's Strategic Intelligence Network
+Inner Council - BIT RAGE LABOUR's Strategic Intelligence Network
 Daily monitoring and analysis of key YouTube channels for policy guidance
 """
 
@@ -43,7 +43,7 @@ class ContentAnalysis:
 
 class InnerCouncil:
     """
-    DIGITAL LABOUR's Inner Council - Strategic Intelligence Network
+    BIT RAGE LABOUR's Inner Council - Strategic Intelligence Network
     Monitors key YouTube channels for daily policy adjustments and planning
     """
 
@@ -171,7 +171,7 @@ class InnerCouncil:
 
         key_insights = [
             f"Emerging trends in {self.council_members[member_name].expertise.lower()}",
-            "Strategic implications for DIGITAL LABOUR operations",
+            "Strategic implications for BIT RAGE LABOUR operations",
             "Potential integration opportunities with existing systems"
         ]
 
@@ -265,7 +265,7 @@ def main():
     """CLI interface for Inner Council operations"""
     import argparse
 
-    parser = argparse.ArgumentParser(description="DIGITAL LABOUR Inner Council")
+    parser = argparse.ArgumentParser(description="BIT RAGE LABOUR Inner Council")
     parser.add_argument("--monitor", action="store_true",
                         help="Monitor channels for new content")
     parser.add_argument("--report", action="store_true",

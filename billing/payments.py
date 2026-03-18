@@ -1,6 +1,6 @@
 """Stripe Payment Gateway — Handles checkout, subscriptions, and webhooks.
 
-Connects DIGITAL LABOUR billing to Stripe for real payment collection.
+Connects BIT RAGE LABOUR billing to Stripe for real payment collection.
 
 Setup:
     1. Create Stripe account at https://stripe.com
@@ -50,7 +50,7 @@ PRODUCTS_CACHE = PROJECT_ROOT / "data" / "stripe_products.json"
 
 
 class PaymentGateway:
-    """Stripe payment integration for Digital Labour."""
+    """Stripe payment integration for Bit Rage Labour."""
 
     def __init__(self):
         self.api_key = os.getenv("STRIPE_API_KEY", "")
@@ -144,7 +144,7 @@ class PaymentGateway:
         # Per-task products
         for task_type, pricing in PRICING.items():
             product = stripe.Product.create(
-                name=f"Digital Labour — {task_type.replace('_', ' ').title()}",
+                name=f"Bit Rage Labour — {task_type.replace('_', ' ').title()}",
                 description=f"AI-powered {task_type.replace('_', ' ')} task",
             )
             price = stripe.Price.create(
@@ -157,7 +157,7 @@ class PaymentGateway:
         # Retainer subscription products
         for tier_name, tier in RETAINER_TIERS.items():
             product = stripe.Product.create(
-                name=f"Digital Labour — {tier_name.replace('_', ' ').title()} Retainer",
+                name=f"Bit Rage Labour — {tier_name.replace('_', ' ').title()} Retainer",
                 description=f"{tier['tasks']} {tier['type'].replace('_', ' ')} tasks/month",
             )
             price = stripe.Price.create(
@@ -201,7 +201,7 @@ class PaymentGateway:
             bt_conn = bt._conn()
             client_row = bt_conn.execute("SELECT email FROM clients WHERE client = ?", (client,)).fetchone()
             bt_conn.close()
-            email = client_row["email"] if client_row else f"{client}@clients.digital-labour.com"
+            email = client_row["email"] if client_row else f"{client}@clients.bit-rage-labour.com"
 
         customer = stripe.Customer.create(
             name=client,
@@ -234,7 +234,7 @@ class PaymentGateway:
                 "price_data": {
                     "currency": "usd",
                     "unit_amount": amount_cents,
-                    "product_data": {"name": description or f"Digital Labour Invoice — {client}"},
+                    "product_data": {"name": description or f"Bit Rage Labour Invoice — {client}"},
                 },
                 "quantity": 1,
             }],

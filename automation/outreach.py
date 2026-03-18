@@ -13,11 +13,17 @@ Usage:
 
 import argparse
 import csv
+import io
 import json
 import sys
 import time
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+
+# ── UTF-8 stdout fix for Windows (prevents charmap crashes) ────
+if sys.stdout and hasattr(sys.stdout, 'encoding') and sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -212,13 +218,13 @@ def send_approved(auto_approve: bool = False) -> list[dict]:
             outfile = send_dir / f"email_{company.replace(' ', '_')}.json"
             outfile.write_text(json.dumps({
                 "to": contact_email or f"[FIND EMAIL for {role} at {company}]",
-                "from": smtp_from or "sales@digital-labour.com",
+                "from": smtp_from or "sales@bit-rage-labour.com",
                 "subject": subject,
                 "body": body,
                 "follow_up_1": emails.get("follow_up_1", {}),
                 "follow_up_2": emails.get("follow_up_2", {}),
             }, indent=2), encoding="utf-8")
-            print(f"  [FILE] {company} → {outfile.name}")
+            print(f"  [FILE] {company} -> {outfile.name}")
         else:
             # Actually send via SMTP
             if not contact_email:
@@ -246,7 +252,7 @@ def send_approved(auto_approve: bool = False) -> list[dict]:
                         server.login(smtp_user, smtp_pass)
                         server.sendmail(smtp_from, [contact_email], msg.as_string())
 
-                    print(f"  [SENT] {company} → {contact_email}")
+                    print(f"  [SENT] {company} -> {contact_email}")
                 except Exception as e:
                     record["method"] = "failed"
                     record["error"] = str(e)
@@ -334,12 +340,12 @@ def _queue_followup(fu: dict, email_data: dict, fu_type: str):
     outfile = send_dir / f"{fu_type}_{company}.json"
     outfile.write_text(json.dumps({
         "to": fu.get("contact_email") or f"[FIND EMAIL for {fu['role']} at {fu['company']}]",
-        "from": "sales@digital-labour.com",
+        "from": "sales@bit-rage-labour.com",
         "subject": email_data.get("subject", f"Following up — {fu['company']}"),
         "body": email_data.get("body", ""),
         "type": fu_type,
     }, indent=2), encoding="utf-8")
-    print(f"  [{fu_type.upper()}] {fu['company']} → queued")
+    print(f"  [{fu_type.upper()}] {fu['company']} -> queued")
 
 
 # ── Pipeline Status ────────────────────────────────────────────

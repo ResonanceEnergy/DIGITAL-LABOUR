@@ -1,4 +1,4 @@
-"""SQLite-backed task queue for Digital Labour dispatcher.
+"""SQLite-backed task queue for Bit Rage Labour dispatcher.
 
 Usage:
     from dispatcher.queue import TaskQueue

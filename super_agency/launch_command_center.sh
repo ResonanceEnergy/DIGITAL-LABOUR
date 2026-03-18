@@ -1,10 +1,10 @@
 #!/bin/bash
-# Digital Labour Distributed Command Center Launcher
+# Bit Rage Labour Distributed Command Center Launcher
 # One-command setup and launch for the entire distributed system
 
 set -e
 
-echo "🚀 Digital Labour Distributed Command Center"
+echo "🚀 Bit Rage Labour Distributed Command Center"
 echo "=========================================="
 echo ""
 
@@ -168,9 +168,9 @@ launch_services() {
     fi
 
     # Launch iOS app (if on macOS)
-    if [ "$PLATFORM" = "macos" ] && [ -d "ios/DIGITAL LABOURCommand" ]; then
+    if [ "$PLATFORM" = "macos" ] && [ -d "ios/BIT RAGE LABOURCommand" ]; then
         log_info "Opening iOS project..."
-        open ios/DIGITAL LABOURCommand/DIGITAL LABOURCommand.xcodeproj
+        open ios/BIT RAGE LABOURCommand/BIT RAGE LABOURCommand.xcodeproj
     fi
 
     log_success "Services launched successfully"
@@ -179,7 +179,7 @@ launch_services() {
 # Show status
 show_status() {
     echo ""
-    log_success "Digital Labour Command Center Status"
+    log_success "Bit Rage Labour Command Center Status"
     echo "====================================="
 
     # Check local services
@@ -209,7 +209,7 @@ show_status() {
         echo "  ✅ AWS: Configured"
 
         # Check EC2 instances
-        INSTANCE_COUNT=$(aws ec2 describe-instances --filters "Name=tag:Project,Values=Digital Labour" "Name=instance-state-name,Values=running" --query 'length(Reservations[*].Instances[*])' --output text 2>/dev/null || echo "0")
+        INSTANCE_COUNT=$(aws ec2 describe-instances --filters "Name=tag:Project,Values=Bit Rage Labour" "Name=instance-state-name,Values=running" --query 'length(Reservations[*].Instances[*])' --output text 2>/dev/null || echo "0")
         echo "  📊 EC2 Instances: $INSTANCE_COUNT running"
 
         # Check S3 bucket
@@ -252,7 +252,7 @@ stop_services() {
 # Main menu
 show_menu() {
     echo ""
-    echo "Digital Labour Command Center Menu"
+    echo "Bit Rage Labour Command Center Menu"
     echo "================================="
     echo "1. Setup Everything (Local + Cloud)"
     echo "2. Setup Local Only"

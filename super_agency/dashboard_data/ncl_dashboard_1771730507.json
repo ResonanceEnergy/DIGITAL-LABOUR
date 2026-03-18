@@ -473,7 +473,7 @@
             "Deployment"
           ]
         },
-        "digital_labour": {
+        "bit_rage_labour": {
           "name": "Digital-Labour",
           "description": "Repository: Digital-Labour",
           "status": "active",
@@ -1054,7 +1054,7 @@
             "Deployment"
           ]
         },
-        "digital_labour": {
+        "bit_rage_labour": {
           "name": "Digital-Labour",
           "description": "Repository: Digital-Labour",
           "status": "active",
@@ -1234,7 +1234,7 @@
           "Documentation",
           "Deployment"
         ],
-        "digital_labour": [
+        "bit_rage_labour": [
           "Code development",
           "Testing",
           "Documentation",
@@ -1426,7 +1426,7 @@
           "demo",
           "resonance_energy_systems",
           "resonanceenergy_enterprise",
-          "digital_labour"
+          "bit_rage_labour"
         ],
         "datasets": [
           {

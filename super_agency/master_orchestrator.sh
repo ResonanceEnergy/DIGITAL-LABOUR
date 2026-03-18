@@ -1,11 +1,11 @@
 #!/bin/bash
-# Digital Labour Master Orchestrator
+# Bit Rage Labour Master Orchestrator
 # Consolidates all scheduled tasks into one service
 # Runs every 15 minutes via launchd
 
 set -eu
 
-WORKSPACE="$HOME/repos/DIGITAL LABOUR-Shared"
+WORKSPACE="$HOME/repos/BIT RAGE LABOUR-Shared"
 LOG_DIR="$WORKSPACE/orchestrator_logs"
 LOG_FILE="$LOG_DIR/master_$(date +%Y%m%d).log"
 
@@ -36,7 +36,7 @@ run_task() {
 
 # Header
 log "═══════════════════════════════════════════════════════"
-log "🚀 Digital Labour MASTER ORCHESTRATOR"
+log "🚀 Bit Rage Labour MASTER ORCHESTRATOR"
 log "═══════════════════════════════════════════════════════"
 
 # Task 1: Cross-platform refresh

@@ -157,7 +157,7 @@ class DepartmentalAgentManager:
 
 def main():
     """Main departmental management function"""
-    print("🏢 DIGITAL LABOUR Departmental Agent Management System")
+    print("🏢 BIT RAGE LABOUR Departmental Agent Management System")
     print("=" * 60)
 
     root_path = Path(__file__).resolve().parent

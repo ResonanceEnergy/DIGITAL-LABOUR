@@ -1,4 +1,4 @@
-"""OpenClaw Engine — Central automation orchestrator for Digital Labour.
+"""OpenClaw Engine — Central automation orchestrator for Bit Rage Labour.
 
 Connects all platform automation (job hunt, bidding, delivery, revenue tracking)
 into a single dispatch layer that NERVE runs autonomously.
@@ -37,7 +37,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from dotenv import load_dotenv
 load_dotenv(PROJECT_ROOT / ".env")
 
-PIPELINES_FILE = PROJECT_ROOT / "openclaw" / "digital-labour" / "workflows" / "pipelines.json"
+PIPELINES_FILE = PROJECT_ROOT / "openclaw" / "bit-rage-labour" / "workflows" / "pipelines.json"
 STATE_FILE = PROJECT_ROOT / "data" / "openclaw_state.json"
 LOG_DIR = PROJECT_ROOT / "data" / "openclaw_logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -72,7 +72,7 @@ AGENT_DISPATCH = {
 
 
 class OpenClawEngine:
-    """Central orchestration engine for all Digital Labour automation."""
+    """Central orchestration engine for all Bit Rage Labour automation."""
 
     def __init__(self):
         self.state = self._load_state()
@@ -542,7 +542,7 @@ class OpenClawEngine:
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="OpenClaw Engine — Digital Labour Automation")
+    parser = argparse.ArgumentParser(description="OpenClaw Engine — Bit Rage Labour Automation")
     parser.add_argument("command", choices=["status", "cycle", "pipeline", "revenue", "dispatch", "setup"],
                         help="Command to run")
     parser.add_argument("--pipeline", type=str, help="Pipeline name for 'pipeline' command")

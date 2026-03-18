@@ -1,4 +1,4 @@
-# DIGITAL LABOUR — MASTER INCOME ROADMAP
+# BIT RAGE LABOUR — MASTER INCOME ROADMAP
 ## The Next-Generation Revenue Playbook
 
 ---
@@ -25,7 +25,7 @@
 ### 1. Stripe Live Mode (DAY 1)
 - Switch Stripe from test → live
 - Create Payment Links for all 10 products
-- Embed on digital-labour.com
+- Embed on bit-rage-labour.com
 - **Revenue: $5,000/mo potential**
 
 ### 2. Freelancer.com Profile (DAY 1-2)
@@ -42,7 +42,7 @@
 ### 4. Email Blast — 50 Enriched Prospects (DAY 3-4)
 - 50 prospects now have REAL emails (enriched)
 - sent_log.json is reset/empty — ready to fire
-- Zoho SMTP: sales@digital-labour.com
+- Zoho SMTP: sales@bit-rage-labour.com
 - **Revenue: $3,000/mo potential**
 
 ### 5. Chatbase White-Label (DAY 4-5)
@@ -194,4 +194,4 @@ Key stats from research:
 - **Freelancer.com**: 21 active AI agent jobs right now, bids up to $6,280
 
 This is NOT hypothetical. These platforms are LIVE. Agents are transacting.
-Money is moving. Digital Labour needs to be on ALL of them.
+Money is moving. Bit Rage Labour needs to be on ALL of them.

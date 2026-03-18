@@ -1,4 +1,4 @@
-# DIGITAL LABOUR — AI Labor Catalog
+# BIT RAGE LABOUR — AI Labor Catalog
 
 ## We Sell Digital Labor, Not Software
 
@@ -71,5 +71,5 @@ If weekly pass rate drops below 80%, that week's deliverables are free.
 
 ---
 
-*DIGITAL LABOUR — AI Labor Operations Division*  
+*BIT RAGE LABOUR — AI Labor Operations Division*  
 *Part of Resonance Energy*

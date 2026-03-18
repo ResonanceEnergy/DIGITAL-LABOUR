@@ -1,6 +1,6 @@
-# 📱 DIGITAL LABOUR Mobile Remote Access
+# 📱 BIT RAGE LABOUR Mobile Remote Access
 
-Run your DIGITAL LABOUR command center locally at home/office and access it securely from anywhere using your phone or iPad.
+Run your BIT RAGE LABOUR command center locally at home/office and access it securely from anywhere using your phone or iPad.
 
 ## 🚀 Quick Start (3 Steps)
 
@@ -55,14 +55,14 @@ Run your DIGITAL LABOUR command center locally at home/office and access it secu
 2. Go to your command center URL
 3. Tap the **share button** (📤)
 4. Select **"Add to Home Screen"**
-5. Name it **"DIGITAL LABOUR Command"**
+5. Name it **"BIT RAGE LABOUR Command"**
 6. Tap **"Add"** → Now you have a native app!
 
 ### Android Setup
 1. Open **Chrome** on your device
 2. Go to your command center URL
 3. Tap the **menu** (⋮) → **"Add to Home screen"**
-4. Name it **"DIGITAL LABOUR Command"**
+4. Name it **"BIT RAGE LABOUR Command"**
 5. Tap **"Add"** → Now you have a native app!
 
 ## 🎮 Using Your Mobile Command Center
@@ -266,13 +266,13 @@ Run your DIGITAL LABOUR command center locally at home/office and access it secu
 1. Check this README
 2. Run diagnostic commands
 3. Check GitHub issues
-4. Contact DIGITAL LABOUR support
+4. Contact BIT RAGE LABOUR support
 
 ---
 
 ## 🎉 Success Stories
 
-*"Running DIGITAL LABOUR on my home server, controlling everything from my iPad while traveling. Game changer!"* - Remote Executive
+*"Running BIT RAGE LABOUR on my home server, controlling everything from my iPad while traveling. Game changer!"* - Remote Executive
 
 *"Set up in my office, now my whole team can access the command center from their phones. Brilliant!"* - Team Lead
 

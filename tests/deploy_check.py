@@ -1,4 +1,4 @@
-"""Deploy readiness check for Digital Labour.
+"""Deploy readiness check for Bit Rage Labour.
 
 Validates all components needed for production deployment.
 
@@ -20,7 +20,7 @@ if sys.stdout.encoding.lower() != "utf-8":
 
 def main():
     print("=" * 60)
-    print("DIGITAL LABOUR -- DEPLOY READINESS CHECK")
+    print("BIT RAGE LABOUR -- DEPLOY READINESS CHECK")
     print("=" * 60)
 
     errors = []

@@ -14,7 +14,7 @@
 | 🟡 Media & Marketing Operations | medium | 0% (0/3) | 16 | 0.0 MB | 0 |
 | 🟡 Alternative History & Research | medium | 0% (0/2) | 8 | 0.0 MB | 0 |
 | 🟡 Digital Products & Business | medium | 0% (0/3) | 4991 | 1619.28 MB | 8 |
-| 🔴 DIGITAL LABOUR Platform | critical | 50% (3/6) | 5128 | 84.67 MB | 8 |
+| 🔴 BIT RAGE LABOUR Platform | critical | 50% (3/6) | 5128 | 84.67 MB | 8 |
 
 ---
 ## Human Health & Longevity
@@ -156,7 +156,7 @@
 - [Crimson-Compass] Increase test coverage for modified code.
 
 ---
-## DIGITAL LABOUR Platform
+## BIT RAGE LABOUR Platform
 *Core platform infrastructure — the agency itself, command centers, doctrine*
 
 **Status:** active | **Priority:** critical | **Repos:** 10/10

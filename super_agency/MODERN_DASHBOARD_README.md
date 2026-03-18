@@ -127,4 +127,4 @@ streamlit run streamlit_matrix_maximizer.py \
 
 ---
 
-**Built for the DIGITAL LABOUR - 2026 Edition** 🚀✨
+**Built for the BIT RAGE LABOUR - 2026 Edition** 🚀✨

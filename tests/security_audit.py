@@ -1,7 +1,7 @@
-"""DIGITAL LABOUR SECURITY AUDIT — Automated vulnerability scanner.
+"""BIT RAGE LABOUR SECURITY AUDIT — Automated vulnerability scanner.
 
 Checks:
-1. Website (digital-labour.com) — headers, leaks, SSL
+1. Website (bit-rage-labour.com) — headers, leaks, SSL
 2. API (Railway) — auth bypass, info exposure, C2 access
 3. DNS — SPF, DKIM, DMARC, BIMI
 4. Codebase — hardcoded secrets, exposed keys
@@ -23,9 +23,9 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # ── Config ──
-WEBSITE = "https://digital-labour.com"
+WEBSITE = "https://bit-rage-labour.com"
 API_BASE = "https://bitrage-labour-api-production.up.railway.app"
-DOMAIN = "digital-labour.com"
+DOMAIN = "bit-rage-labour.com"
 
 FINDINGS = []
 PASS_COUNT = 0
@@ -53,7 +53,7 @@ def finding(severity, category, message, detail=""):
 def fetch(url, method="GET", data=None, headers=None, timeout=10):
     """Safe HTTP fetch."""
     ctx = ssl.create_default_context()
-    hdrs = {"User-Agent": "DigitalLabour-SecurityAudit/1.0"}
+    hdrs = {"User-Agent": "BitRageLabour-SecurityAudit/1.0"}
     if headers:
         hdrs.update(headers)
     req = urllib.request.Request(url, method=method, headers=hdrs)
@@ -75,7 +75,7 @@ def fetch(url, method="GET", data=None, headers=None, timeout=10):
 # ═══════════════════════════════════════════════════════════════════════════
 
 def audit_website():
-    print("\n══ WEBSITE SECURITY: digital-labour.com ══")
+    print("\n══ WEBSITE SECURITY: bit-rage-labour.com ══")
 
     status, headers, body = fetch(WEBSITE)
     if status != 200:
@@ -105,7 +105,7 @@ def audit_website():
 
     # Source code analysis
     urls_found = re.findall(r'https?://[^\s"\'<>]+', text)
-    api_urls = [u for u in urls_found if "railway" in u or "digital-labour-api" in u]
+    api_urls = [u for u in urls_found if "railway" in u or "bit-rage-labour-api" in u]
     if api_urls:
         finding("HIGH", "WEBSITE-LEAK", "API URL exposed in website source",
                 "\n".join(api_urls[:3]))
@@ -436,7 +436,7 @@ def audit_github():
 
 def generate_report():
     print("\n" + "═" * 60)
-    print("  DIGITAL LABOUR SECURITY AUDIT — SUMMARY")
+    print("  BIT RAGE LABOUR SECURITY AUDIT — SUMMARY")
     print(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print("═" * 60)
 
@@ -493,7 +493,7 @@ def generate_report():
 
 if __name__ == "__main__":
     print("═" * 60)
-    print("  DIGITAL LABOUR SECURITY AUDIT")
+    print("  BIT RAGE LABOUR SECURITY AUDIT")
     print(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print("═" * 60)
 

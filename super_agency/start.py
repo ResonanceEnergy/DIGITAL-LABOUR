@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR - Quick Start
+BIT RAGE LABOUR - Quick Start
 Verifies environment, loads .env, and launches the runtime.
 """
 
@@ -78,6 +78,6 @@ if __name__ == "__main__":
         print("[WARN] Some optional checks failed "
               "- system may run in degraded mode")
 
-    print("--- Launching DIGITAL LABOUR ---\n")
-    from run_digital_labour import main  # noqa: E402
+    print("--- Launching BIT RAGE LABOUR ---\n")
+    from run_bit_rage_labour import main  # noqa: E402
     main()

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR iPhone/iPad Matrix Maximizer Fix
+BIT RAGE LABOUR iPhone/iPad Matrix Maximizer Fix
 Comprehensive fix for mobile interface issues
 """
 
@@ -14,7 +14,7 @@ def fix_mobile_interfaces():
     """Apply comprehensive fixes for mobile interfaces"""
 
     base_dir = Path(__file__).parent
-    print("🔧 Applying DIGITAL LABOUR Mobile Interface Fixes")
+    print("🔧 Applying BIT RAGE LABOUR Mobile Interface Fixes")
     print("=" * 60)
 
     # Fix 1: Update Matrix Maximizer to work with mobile command center
@@ -87,7 +87,7 @@ service_status = {
             return jsonify({
                 'status': 'operational',
                 'timestamp': datetime.now().isoformat(),
-                'system': 'DIGITAL LABOUR Matrix Maximizer',
+                'system': 'BIT RAGE LABOUR Matrix Maximizer',
                 'mobile_optimized': True,
                 'supported_devices': ['iPhone 15', 'iPad Pro', 'Android'],
                 'features': ['Real-time monitoring', 'Touch optimization', 'Liquid Glass UI']
@@ -261,9 +261,9 @@ service_status = {
     manifest_file = base_dir / "static" / "manifest_iphone.json"
 
     iphone_manifest = {
-        "name": "Pocket Pulsar - DIGITAL LABOUR",
+        "name": "Pocket Pulsar - BIT RAGE LABOUR",
         "short_name": "Pocket Pulsar",
-        "description": "DIGITAL LABOUR Mobile Command Center - iPhone Optimized",
+        "description": "BIT RAGE LABOUR Mobile Command Center - iPhone Optimized",
         "start_url": "/iphone",
         "display": "standalone",
         "background_color": "#0a0a14",
@@ -293,7 +293,7 @@ service_status = {
     print("   ✅ Updated iPhone PWA manifest")
 
     print("\n" + "=" * 60)
-    print("✅ DIGITAL LABOUR Mobile Interface Fixes Applied")
+    print("✅ BIT RAGE LABOUR Mobile Interface Fixes Applied")
     print("\n🔗 Test Commands:")
     print("   python3 start_mobile_services.py    # Start all services")
     print("   python3 test_mobile_interfaces.py   # Test interfaces")

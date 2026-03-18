@@ -124,7 +124,7 @@ def _escalate(message: str):
             return  # No SMTP configured — silent
 
         msg = EmailMessage()
-        msg["Subject"] = f"[DIGITAL LABOUR] Watchdog escalation — {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+        msg["Subject"] = f"[BIT RAGE LABOUR] Watchdog escalation — {datetime.now().strftime('%Y-%m-%d %H:%M')}"
         msg["From"] = smtp_user
         msg["To"] = alert_to
         msg.set_content(message)

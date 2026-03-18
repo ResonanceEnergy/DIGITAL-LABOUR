@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Agent AZ - Council Chairman Approval System
-Supreme authority for all DIGITAL LABOUR decisions and plan approvals
+Supreme authority for all BIT RAGE LABOUR decisions and plan approvals
 """
 
 import json
@@ -202,7 +202,7 @@ class AgentAZ:
 def create_api_account_plan() -> Dict:
     """Create the API & Account plan for AZ approval"""
     return {
-        "title": "DIGITAL LABOUR API & Account Creation Plan - Phase 1-6",
+        "title": "BIT RAGE LABOUR API & Account Creation Plan - Phase 1-6",
         "objective": "Establish comprehensive API infrastructure and account system with full oversight",
         "doctrine_alignment": {
             "mission_compliance": "Intelligence synthesis and strategic guidance",

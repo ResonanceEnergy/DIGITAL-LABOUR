@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Matrix Monitor UI for DIGITAL LABOUR
+Matrix Monitor UI for BIT RAGE LABOUR
 Version: 1.1
 Adapted from AAC repository; provides a live dashboard of agent state, swarms,
 global network and quantum integration status.
@@ -97,7 +97,7 @@ class MatrixMonitor:
     def _render(self, status: Dict[str, Any]):
         # clear screen
         print("\n\x1b[2J\x1b[H", end="")
-        print("=== DIGITAL LABOUR MATRIX MONITOR ===")
+        print("=== BIT RAGE LABOUR MATRIX MONITOR ===")
         print(json.dumps(status, indent=2, default=str))
         if global_network:
             print("Nodes in Global Intelligence Network:",

@@ -1,4 +1,4 @@
-# Digital Labour — Copilot Instructions
+# Bit Rage Labour — Copilot Instructions
 
 ## GitButler Auto-Commit
 When you generate code or modify files, run the gitbutler update branches MCP tool (`gitbutler_update_branches`) to automatically commit and manage branch state.

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-OpenClaw Integration Agent for Digital Labour
+OpenClaw Integration Agent for Bit Rage Labour
 
-Integrates OpenClaw autonomous AI agent capabilities into the Digital Labour platform.
+Integrates OpenClaw autonomous AI agent capabilities into the Bit Rage Labour platform.
 Provides messaging interfaces, workflow automation, and autonomous task execution.
 """
 
@@ -37,12 +37,12 @@ class OpenClawIntegrationAgent:
                 name="openclaw_integrator",
                 system_message="""You are an expert OpenClaw integration specialist.
                 Your role is to seamlessly integrate OpenClaw autonomous AI capabilities
-                into the Digital Labour platform, enabling advanced messaging interfaces,
+                into the Bit Rage Labour platform, enabling advanced messaging interfaces,
                 workflow automation, and autonomous task execution.
 
                 Key responsibilities:
                 - Configure OpenClaw messaging platforms (Telegram, Discord, WhatsApp)
-                - Create and manage OpenClaw skills for Digital Labour workflows
+                - Create and manage OpenClaw skills for Bit Rage Labour workflows
                 - Set up secure communication channels between agents
                 - Monitor and optimize OpenClaw performance
                 - Implement CRITICAL security boundaries and access controls
@@ -59,7 +59,7 @@ class OpenClawIntegrationAgent:
                 - Use read-only access wherever possible
                 - Regular security audits and log reviews
 
-                Focus on creating powerful, secure integrations that enhance DIGITAL LABOUR autonomy.""",
+                Focus on creating powerful, secure integrations that enhance BIT RAGE LABOUR autonomy.""",
                 model_client=self.model_client,)
         else:
             self.agent = None
@@ -322,10 +322,10 @@ class OpenClawIntegrationAgent:
                 "status": "error",
             }
 
-    def create_DIGITAL LABOUR_skill(
+    def create_BIT RAGE LABOUR_skill(
         self, skill_name: str, description: str, code: str
     ) -> Dict[str, Any]:
-        """Create a custom OpenClaw skill for Digital Labour integration"""
+        """Create a custom OpenClaw skill for Bit Rage Labour integration"""
         try:
             ensure_dir(OPENCLAW_SKILLS_DIR)
 
@@ -333,7 +333,7 @@ class OpenClawIntegrationAgent:
 
             # Create skill template
             skill_template = f"""
-// DIGITAL LABOUR Integration Skill: {skill_name}
+// BIT RAGE LABOUR Integration Skill: {skill_name}
 // {description}
 
 const {{ exec }} = require('child_process');
@@ -347,7 +347,7 @@ class {skill_name}Skill {{
 
     async execute(message, context) {{
         try {{
-            // DIGITAL LABOUR integration code
+            // BIT RAGE LABOUR integration code
             {code}
 
             return {{

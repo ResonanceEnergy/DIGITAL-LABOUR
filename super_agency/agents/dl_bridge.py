@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Digital Labour Integration Bridge
+Bit Rage Labour Integration Bridge
 ===================================
-Connects DIGITAL LABOUR infrastructure to Digital Labour operations.
+Connects BIT RAGE LABOUR infrastructure to Bit Rage Labour operations.
 DL is the primary mission — this bridge ensures SA's hierarchy,
 bus, orchestrator, and memory doctrine all serve DL objectives.
 
@@ -40,7 +40,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DL_ROOT = Path(
     os.getenv(
         "DIGITAL_LABOUR_ROOT",
-        r"C:\Dev\DIGITAL LABOUR\DIGITAL LABOUR",
+        r"C:\Dev\BIT RAGE LABOUR\BIT RAGE LABOUR",
     )
 )
 
@@ -70,8 +70,8 @@ def _emit(
 
 
 class DLBridge:
-    """Bridge between DIGITAL LABOUR infrastructure and
-    Digital Labour operations.
+    """Bridge between BIT RAGE LABOUR infrastructure and
+    Bit Rage Labour operations.
 
     Designed to be called from:
     1. SA orchestrator (as first pipeline stage)
@@ -217,9 +217,9 @@ class DLBridge:
         """Publish a DL task event to SA bus."""
         status = event.get("status", "completed")
         topic = (
-            "digital_labour.task.completed"
+            "bit_rage_labour.task.completed"
             if status == "completed"
-            else "digital_labour.task.failed"
+            else "bit_rage_labour.task.failed"
         )
         _emit(topic, event)
 
@@ -227,7 +227,7 @@ class DLBridge:
         self, amount: float, client_id: str, **kw,
     ) -> None:
         """Publish revenue event to SA bus."""
-        _emit("digital_labour.revenue.received", {
+        _emit("bit_rage_labour.revenue.received", {
             "amount": amount,
             "client_id": client_id,
             **kw,
@@ -236,13 +236,13 @@ class DLBridge:
     def publish_fleet_update(self) -> None:
         """Publish current fleet status to SA bus."""
         status = self.fleet_status()
-        _emit("digital_labour.fleet.status", status)
+        _emit("bit_rage_labour.fleet.status", status)
 
     def publish_nerve_phase(
         self, phase: str, details: Optional[dict] = None,
     ) -> None:
         """Publish NERVE cycle phase to SA bus."""
-        _emit(f"digital_labour.nerve.{phase}", {
+        _emit(f"bit_rage_labour.nerve.{phase}", {
             "phase": phase,
             **(details or {}),
         })
@@ -252,7 +252,7 @@ class DLBridge:
     ) -> None:
         """Publish C-Suite board report to SA bus."""
         _emit(
-            "digital_labour.csuite.report",
+            "bit_rage_labour.csuite.report",
             board_data,
         )
 
@@ -260,7 +260,7 @@ class DLBridge:
         self, agent: str, pass_rate: float,
     ) -> None:
         """Publish QA alert to SA bus for escalation."""
-        _emit("digital_labour.qa.alert", {
+        _emit("bit_rage_labour.qa.alert", {
             "agent": agent,
             "pass_rate": pass_rate,
         })
@@ -269,7 +269,7 @@ class DLBridge:
         self, event: str, client_id: str, **kw,
     ) -> None:
         """Publish client lifecycle event to SA bus."""
-        _emit(f"digital_labour.client.{event}", {
+        _emit(f"bit_rage_labour.client.{event}", {
             "event": event,
             "client_id": client_id,
             **kw,
@@ -311,11 +311,11 @@ class DLBridge:
 
         if not self.available:
             logger.warning(
-                "[DL Bridge] Digital Labour repo not "
+                "[DL Bridge] Bit Rage Labour repo not "
                 "found at %s",
                 self.dl_root,
             )
-            _emit("digital_labour.sync.offline", {
+            _emit("bit_rage_labour.sync.offline", {
                 "dl_root": str(self.dl_root),
             })
             result["status"] = "offline"
@@ -342,7 +342,7 @@ class DLBridge:
         self._cache("revenue", revenue)
         result["revenue"] = revenue
 
-        _emit("digital_labour.sync.complete", result)
+        _emit("bit_rage_labour.sync.complete", result)
         logger.info(
             "[DL Bridge] Sync complete — "
             "%d agents, queue=%s",

@@ -1,4 +1,4 @@
-# Digital Labour Union — Website
+# Bit Rage Labour Union — Website
 
 Production website for [digitallabourunion.com](https://digitallabourunion.com).
 

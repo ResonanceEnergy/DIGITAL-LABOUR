@@ -7,8 +7,8 @@ import os
 import subprocess
 from pathlib import Path
 
-# Add the ResonanceEnergy_DigitalLabour path
-repo_path = Path(__file__).parent / "ResonanceEnergy_DigitalLabour"
+# Add the ResonanceEnergy_BitRageLabour path
+repo_path = Path(__file__).parent / "ResonanceEnergy_BitRageLabour"
 sys.path.insert(0, str(repo_path))
 
 def run_agent(agent_name, description):
@@ -39,7 +39,7 @@ def main():
     print("🚀 Starting Resonance Energy Portfolio Intelligence System")
     print("=" * 60)
 
-    # Change to the ResonanceEnergy_DigitalLabour directory
+    # Change to the ResonanceEnergy_BitRageLabour directory
     os.chdir(repo_path)
 
     # Run the agents in sequence

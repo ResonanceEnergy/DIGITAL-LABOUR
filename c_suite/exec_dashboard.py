@@ -8,7 +8,7 @@ Replacement commands:
     bitrage_monitor.py --json      # replaces: python c_suite/exec_dashboard.py --json
 
 Original description:
-    Executive Dashboard — C-Suite command view of DIGITAL LABOUR.
+    Executive Dashboard — C-Suite command view of BIT RAGE LABOUR.
     Unified console output showing all three executives' status,
     the execution queue, and system vitals at a glance.
 """
@@ -70,7 +70,7 @@ def print_exec_dashboard():
 
     print()
     print("╔══════════════════════════════════════════════════════════════════════╗")
-    print("║           NCC — DIGITAL LABOUR EXECUTIVE COMMAND CENTER            ║")
+    print("║           NCC — BIT RAGE LABOUR EXECUTIVE COMMAND CENTER            ║")
     print("╠══════════════════════════════════════════════════════════════════════╣")
     print(f"║  Timestamp: {data['timestamp']:<56} ║")
     print("╠══════════════════════════════════════════════════════════════════════╣")

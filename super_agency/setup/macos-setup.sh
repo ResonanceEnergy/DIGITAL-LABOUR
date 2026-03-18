@@ -1,10 +1,10 @@
 #!/bin/bash
-# Digital Labour macOS Command Center Setup
+# Bit Rage Labour macOS Command Center Setup
 # This script sets up the complete macOS development and production environment
 
 set -e
 
-echo "🚀 Digital Labour macOS Command Center Setup"
+echo "🚀 Bit Rage Labour macOS Command Center Setup"
 echo "=========================================="
 
 # Colors for output
@@ -84,24 +84,24 @@ install_dev_tools() {
     log_success "Xcode installed"
 }
 
-# Set up Digital Labour project
-setup_digital_labour() {
-    log_info "Setting up Digital Labour project..."
+# Set up Bit Rage Labour project
+setup_bit_rage_labour() {
+    log_info "Setting up Bit Rage Labour project..."
 
-    # Create Digital Labour directory
-    digital_labour_dir="$HOME/Digital-Labour"
-    if [ ! -d "$digital_labour_dir" ]; then
-        mkdir -p "$digital_labour_dir"
-        log_success "Digital Labour directory created"
+    # Create Bit Rage Labour directory
+    bit_rage_labour_dir="$HOME/Digital-Labour"
+    if [ ! -d "$bit_rage_labour_dir" ]; then
+        mkdir -p "$bit_rage_labour_dir"
+        log_success "Bit Rage Labour directory created"
     else
-        log_warning "Digital Labour directory already exists"
+        log_warning "Bit Rage Labour directory already exists"
     fi
 
-    cd "$digital_labour_dir"
+    cd "$bit_rage_labour_dir"
 
     # Clone or update repository
     if [ ! -d ".git" ]; then
-        log_info "Cloning Digital Labour repository..."
+        log_info "Cloning Bit Rage Labour repository..."
         gh repo clone ResonanceEnergy/Digital-Labour .
         log_success "Repository cloned"
     else
@@ -186,7 +186,7 @@ setup_matrix_monitor() {
     cat > matrix_monitor/config.json << EOF
 {
   "matrix_monitor": {
-    "title": "Digital Labour Command Center",
+    "title": "Bit Rage Labour Command Center",
     "refresh_interval": 30,
     "panels": [
       {
@@ -282,11 +282,11 @@ setup_ios_dev() {
     sudo gem install cocoapods
 
     # Create iOS app template
-    mkdir -p ios/DIGITAL LABOURCommand
-    cd ios/DIGITAL LABOURCommand
+    mkdir -p ios/BIT RAGE LABOURCommand
+    cd ios/BIT RAGE LABOURCommand
 
     # Initialize Xcode project
-    cat > DIGITAL LABOURCommand.xcodeproj/project.pbxproj << EOF
+    cat > BIT RAGE LABOURCommand.xcodeproj/project.pbxproj << EOF
 // !$*UTF8*$!
 {
 	archiveVersion = 1;
@@ -296,15 +296,15 @@ setup_ios_dev() {
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D60589B238F83C700BF7E4D /* DIGITAL LABOURCommandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D60589A238F83C700BF7E4D /* DIGITAL LABOURCommandApp.swift */; };
+		1D60589B238F83C700BF7E4D /* BIT RAGE LABOURCommandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D60589A238F83C700BF7E4D /* BIT RAGE LABOURCommandApp.swift */; };
 		1D60589D238F83C700BF7E4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D60589C238F83C700BF7E4D /* ContentView.swift */; };
 		1D60589F238F83C700BF7E4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D60589E238F83C700BF7E4D /* Assets.xcassets */; };
 		1D6058A2238F83C700BF7E4D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D6058A1238F83C700BF7E4D /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1D605897238F83C700BF7E4D /* DIGITAL LABOURCommand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DIGITAL LABOURCommand.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1D60589A238F83C700BF7E4D /* DIGITAL LABOURCommandApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIGITAL LABOURCommandApp.swift; sourceTree = "<group>"; };
+		1D605897238F83C700BF7E4D /* BIT RAGE LABOURCommand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BIT RAGE LABOURCommand.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D60589A238F83C700BF7E4D /* BIT RAGE LABOURCommandApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BIT RAGE LABOURCommandApp.swift; sourceTree = "<group>"; };
 		1D60589C238F83C700BF7E4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1D60589E238F83C700BF7E4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D6058A1238F83C700BF7E4D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Preview Assets.xcassets; sourceTree = "<group>"; };
@@ -324,26 +324,26 @@ setup_ios_dev() {
 		1D60588E238F83C700BF7E4D = {
 			isa = PBXGroup;
 			children = (
-				1D605899238F83C700BF7E4D /* DIGITAL LABOURCommand */,
+				1D605899238F83C700BF7E4D /* BIT RAGE LABOURCommand */,
 				1D6058A0238F83C700BF7E4D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1D605899238F83C700BF7E4D /* DIGITAL LABOURCommand */ = {
+		1D605899238F83C700BF7E4D /* BIT RAGE LABOURCommand */ = {
 			isa = PBXGroup;
 			children = (
-				1D60589A238F83C700BF7E4D /* DIGITAL LABOURCommandApp.swift */,
+				1D60589A238F83C700BF7E4D /* BIT RAGE LABOURCommandApp.swift */,
 				1D60589C238F83C700BF7E4D /* ContentView.swift */,
 				1D60589E238F83C700BF7E4D /* Assets.xcassets */,
 				1D6058A1238F83C700BF7E4D /* Preview Assets.xcassets */,
 			);
-			path = DIGITAL LABOURCommand;
+			path = BIT RAGE LABOURCommand;
 			sourceTree = "<group>";
 		};
 		1D6058A0238F83C700BF7E4D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D605897238F83C700BF7E4D /* DIGITAL LABOURCommand.app */,
+				1D605897238F83C700BF7E4D /* BIT RAGE LABOURCommand.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -351,9 +351,9 @@ setup_ios_dev() {
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D605896238F83C700BF7E4D /* DIGITAL LABOURCommand */ = {
+		1D605896238F83C700BF7E4D /* BIT RAGE LABOURCommand */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058AA238F83C700BF7E4D /* Build configuration list for PBXNativeTarget "DIGITAL LABOURCommand" */;
+			buildConfigurationList = 1D6058AA238F83C700BF7E4D /* Build configuration list for PBXNativeTarget "BIT RAGE LABOURCommand" */;
 			buildPhases = (
 				1D605893238F83C700BF7E4D /* Sources */,
 				1D605894238F83C700BF7E4D /* Frameworks */,
@@ -363,9 +363,9 @@ setup_ios_dev() {
 			);
 			dependencies = (
 			);
-			name = DIGITAL LABOURCommand;
-			productName = DIGITAL LABOURCommand;
-			productReference = 1D605897238F83C700BF7E4D /* DIGITAL LABOURCommand.app */;
+			name = BIT RAGE LABOURCommand;
+			productName = BIT RAGE LABOURCommand;
+			productReference = 1D605897238F83C700BF7E4D /* BIT RAGE LABOURCommand.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -382,7 +382,7 @@ setup_ios_dev() {
 					};
 				};
 			};
-			buildConfigurationList = 1D605892238F83C700BF7E4D /* Build configuration list for PBXProject "DIGITAL LABOURCommand" */;
+			buildConfigurationList = 1D605892238F83C700BF7E4D /* Build configuration list for PBXProject "BIT RAGE LABOURCommand" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -395,7 +395,7 @@ setup_ios_dev() {
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D605896238F83C700BF7E4D /* DIGITAL LABOURCommand */,
+				1D605896238F83C700BF7E4D /* BIT RAGE LABOURCommand */,
 			);
 		};
 /* End PBXProject section */
@@ -417,7 +417,7 @@ setup_ios_dev() {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D60589B238F83C700BF7E4D /* DIGITAL LABOURCommandApp.swift in Sources */,
+				1D60589B238F83C700BF7E4D /* BIT RAGE LABOURCommandApp.swift in Sources */,
 				1D60589D238F83C700BF7E4D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,7 +548,7 @@ setup_ios_dev() {
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D605892238F83C700BF7E4D /* Build configuration list for PBXProject "DIGITAL LABOURCommand" */ = {
+		1D605892238F83C700BF7E4D /* Build configuration list for PBXProject "BIT RAGE LABOURCommand" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058A5238F83C700BF7E4D /* Debug */,
@@ -557,7 +557,7 @@ setup_ios_dev() {
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1D6058AA238F83C700BF7E4D /* Build configuration list for PBXNativeTarget "DIGITAL LABOURCommand" */ = {
+		1D6058AA238F83C700BF7E4D /* Build configuration list for PBXNativeTarget "BIT RAGE LABOURCommand" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058A7238F83C700BF7E4D /* Debug */,
@@ -573,18 +573,18 @@ setup_ios_dev() {
 EOF
 
     # Create Swift files
-    cat > DIGITAL LABOURCommandApp.swift << EOF
+    cat > BIT RAGE LABOURCommandApp.swift << EOF
 //
-//  DIGITAL LABOURCommandApp.swift
-//  DIGITAL LABOURCommand
+//  BIT RAGE LABOURCommandApp.swift
+//  BIT RAGE LABOURCommand
 //
-//  Created by Digital Labour Setup on 2026-02-20.
+//  Created by Bit Rage Labour Setup on 2026-02-20.
 //
 
 import SwiftUI
 
 @main
-struct DIGITAL LABOURCommandApp: App {
+struct BIT RAGE LABOURCommandApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -596,9 +596,9 @@ EOF
     cat > ContentView.swift << EOF
 //
 //  ContentView.swift
-//  DIGITAL LABOURCommand
+//  BIT RAGE LABOURCommand
 //
-//  Created by Digital Labour Setup on 2026-02-20.
+//  Created by Bit Rage Labour Setup on 2026-02-20.
 //
 
 import SwiftUI
@@ -620,7 +620,7 @@ struct ContentView: View {
                             .font(.system(size: 40))
                             .foregroundColor(.blue)
                         VStack(alignment: .leading) {
-                            Text("Digital Labour")
+                            Text("Bit Rage Labour")
                                 .font(.title)
                                 .fontWeight(.bold)
                             Text("Command Center")
@@ -743,7 +743,7 @@ class CommandCenterViewModel: ObservableObject {
 
     func startMonitoring() {
         // Start monitoring systems
-        // This would connect to the Digital Labour APIs
+        // This would connect to the Bit Rage Labour APIs
         Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { _ in
             self.checkSystemStatus()
         }
@@ -777,9 +777,9 @@ create_launch_scripts() {
     # Create main launch script
     cat > launch_command_center.sh << 'EOF'
 #!/bin/bash
-# Digital Labour Command Center Launcher
+# Bit Rage Labour Command Center Launcher
 
-echo "🚀 Digital Labour Command Center"
+echo "🚀 Bit Rage Labour Command Center"
 echo "=============================="
 
 # Check if virtual environment exists
@@ -823,12 +823,12 @@ EOF
 # Main setup function
 main() {
     echo ""
-    log_info "Starting Digital Labour macOS Command Center Setup..."
+    log_info "Starting Bit Rage Labour macOS Command Center Setup..."
     echo ""
 
     install_homebrew
     install_dev_tools
-    setup_digital_labour
+    setup_bit_rage_labour
     setup_vscode
     setup_matrix_monitor
     setup_galactia
@@ -836,7 +836,7 @@ main() {
     create_launch_scripts
 
     echo ""
-    log_success "🎉 Digital Labour macOS Command Center Setup Complete!"
+    log_success "🎉 Bit Rage Labour macOS Command Center Setup Complete!"
     echo ""
     echo "Next steps:"
     echo "1. Run: ./launch_command_center.sh"

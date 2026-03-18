@@ -1,7 +1,7 @@
 # CORE PROJECT
 
 ## Overview
-The Core Project encompasses the fundamental infrastructure and systems that power Digital Labour Operations. This includes system architecture, core services, utilities, and the foundational components that enable all other functionality.
+The Core Project encompasses the fundamental infrastructure and systems that power Bit Rage Labour Operations. This includes system architecture, core services, utilities, and the foundational components that enable all other functionality.
 
 ## Key Components
 
@@ -32,4 +32,4 @@ The Core Project encompasses the fundamental infrastructure and systems that pow
 - Agents Project for AI-driven operations
 - Flywheel Project for automated development
 - Matrix Maximizer for performance optimization
-- All DIGITAL LABOUR subsystems
+- All BIT RAGE LABOUR subsystems

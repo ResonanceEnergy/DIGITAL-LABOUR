@@ -3,7 +3,7 @@ set -euo pipefail
 
 # ========= CONFIGURABLES =========
 ORG="${ORG:-ResonanceEnergy}"
-REPO="${REPO:-ResonanceEnergy_DIGITAL LABOUR}"
+REPO="${REPO:-ResonanceEnergy_BIT RAGE LABOUR}"
 PRIVACY="${PRIVACY:-public}"     # public | private
 RUN_DAILY="${RUN_DAILY:-0}"      # 1 to run first daily cycle after push
 # Where to construct the repo locally:
@@ -546,7 +546,7 @@ else
 fi
 
 git add .
-git commit -m "bootstrap: Digital Labour (NORTH_STAR, portfolio, agents, council & policies)" || true
+git commit -m "bootstrap: Bit Rage Labour (NORTH_STAR, portfolio, agents, council & policies)" || true
 
 # create PR on origin/main (idempotent)
 if ! git remote get-url origin >/dev/null 2>&1; then
@@ -567,7 +567,7 @@ git push -u origin feature/agents-orchestration --no-verify || true
 if gh pr view --repo "$ORG/$REPO" --head feature/agents-orchestration >/dev/null 2>&1; then
   echo "PR already exists"
 else
-  gh pr create --repo "$ORG/$REPO" --title "bootstrap: Digital Labour (agents + orchestration)" --body "Adds agent orchestration pack, bootstrap script and initial assets." --base main --head feature/agents-orchestration || true
+  gh pr create --repo "$ORG/$REPO" --title "bootstrap: Bit Rage Labour (agents + orchestration)" --body "Adds agent orchestration pack, bootstrap script and initial assets." --base main --head feature/agents-orchestration || true
 fi
 
 # optional first run
@@ -576,4 +576,4 @@ if [ "$RUN_DAILY" = "1" ]; then
   ./bin/run_daily.sh || true
 fi
 
-echo "✅ Digital Labour bootstrap saved locally at: $SUPER_DIR"
+echo "✅ Bit Rage Labour bootstrap saved locally at: $SUPER_DIR"

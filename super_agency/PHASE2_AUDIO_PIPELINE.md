@@ -9,7 +9,7 @@
 
 ## 🎯 OBJECTIVE
 
-Build a local-first podcast and audio transcription pipeline that enables DIGITAL LABOUR to process spoken content with the same intelligence and provenance tracking as written content.
+Build a local-first podcast and audio transcription pipeline that enables BIT RAGE LABOUR to process spoken content with the same intelligence and provenance tracking as written content.
 
 **Key Requirements**:
 - Local processing (no cloud APIs)
@@ -439,10 +439,10 @@ def test_processing_speed():
 - NCL enrichment with insights
 - Provenance tracking
 
-**Impact**: DIGITAL LABOUR can now "listen" to the world, extracting intelligence from spoken content with the same rigor as written content.
+**Impact**: BIT RAGE LABOUR can now "listen" to the world, extracting intelligence from spoken content with the same rigor as written content.
 
 **Next**: Document processing pipeline implementation.
 
 ---
 
-*Audio processing represents a quantum leap in DIGITAL LABOUR's intelligence gathering capabilities, enabling comprehensive multi-modal content understanding.*
+*Audio processing represents a quantum leap in BIT RAGE LABOUR's intelligence gathering capabilities, enabling comprehensive multi-modal content understanding.*

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-MATRIX MAXIMIZER 2.0 - DIGITAL LABOUR Project Management & Intelligence Platform
-Advanced project tracking, forecasting, and intervention system for the DIGITAL LABOUR
+MATRIX MAXIMIZER 2.0 - BIT RAGE LABOUR Project Management & Intelligence Platform
+Advanced project tracking, forecasting, and intervention system for the BIT RAGE LABOUR
 
 Features:
 - Real-time project monitoring and completion cycle tracking
@@ -960,7 +960,7 @@ class MatrixMaximizer:
             return "AZ_RESPONSE: Message received. Council Chairman authority maintained for all strategic decisions."
 
     def _initialize_data_collection(self):
-        """Initialize data collection from all DIGITAL LABOUR components"""
+        """Initialize data collection from all BIT RAGE LABOUR components"""
         self.metrics_store = {
             'timestamp': datetime.now().isoformat(),
             'system': self._collect_system_metrics(),
@@ -1003,7 +1003,7 @@ class MatrixMaximizer:
             return {}
 
     def _collect_agent_metrics(self) -> Dict[str, Any]:
-        """Collect metrics from all DIGITAL LABOUR agents"""
+        """Collect metrics from all BIT RAGE LABOUR agents"""
         agents = {}
 
         # Core agents

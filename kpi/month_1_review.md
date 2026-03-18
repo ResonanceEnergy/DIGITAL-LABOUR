@@ -1,4 +1,4 @@
-# DIGITAL LABOUR — Month 1 Revenue Review
+# BIT RAGE LABOUR — Month 1 Revenue Review
 
 ## Period: [Month/Year]
 ## Prepared: [Date]

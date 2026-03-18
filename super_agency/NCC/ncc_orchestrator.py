@@ -1,6 +1,6 @@
 """
 Neural Command Center (NCC) Orchestrator
-Main orchestration system for DIGITAL LABOUR operations
+Main orchestration system for BIT RAGE LABOUR operations
 """
 
 import asyncio

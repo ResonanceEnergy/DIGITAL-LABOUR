@@ -1,4 +1,4 @@
-# 🚀 DIGITAL LABOUR LAUNCH SEQUENCE
+# 🚀 BIT RAGE LABOUR LAUNCH SEQUENCE
 ## Complete System Deployment Guide
 ## Date: February 20, 2026
 
@@ -6,7 +6,7 @@
 
 ## 📋 MISSION BRIEFING
 
-**Objective:** Deploy distributed DIGITAL LABOUR command center with MacBook operations and Windows heavy computation.
+**Objective:** Deploy distributed BIT RAGE LABOUR command center with MacBook operations and Windows heavy computation.
 
 **Architecture:**
 - **MacBook (8GB M1/16GB):** Operations hub, mobile interface, lightweight processing
@@ -17,7 +17,7 @@
 - **8GB M1 MacBook:** Ultra-conservative memory mode, Windows delegation
 - **16GB MacBook:** Full operations mode, local processing available
 
-**Expected Outcome:** Fully operational DIGITAL LABOUR accessible from mobile devices.
+**Expected Outcome:** Fully operational BIT RAGE LABOUR accessible from mobile devices.
 
 ---
 
@@ -43,7 +43,7 @@ echo "macOS: $(sw_vers -productVersion)"
 
 #### Step 1.1A: 8GB M1 Setup
 ```bash
-# Navigate to DIGITAL LABOUR directory
+# Navigate to BIT RAGE LABOUR directory
 cd /path/to/Digital-Labour
 
 # Make scripts executable
@@ -55,7 +55,7 @@ chmod +x macbook_8gb_m1_setup.sh m1_8gb_launch.sh optimize_m1_8gb.sh
 
 **Expected Output:**
 ```
-🚀 DIGITAL LABOUR 8GB M1 MacBook Setup
+🚀 BIT RAGE LABOUR 8GB M1 MacBook Setup
 ==================================
 📊 RAM: 8.0GB
 🔧 Chip: Apple M1
@@ -74,7 +74,7 @@ chmod +x macbook_8gb_m1_setup.sh m1_8gb_launch.sh optimize_m1_8gb.sh
 
 #### Step 1.3A: Launch 8GB M1 System
 ```bash
-# Start ultra-lightweight DIGITAL LABOUR
+# Start ultra-lightweight BIT RAGE LABOUR
 ./m1_8gb_launch.sh
 ```
 
@@ -89,7 +89,7 @@ chmod +x macbook_8gb_m1_setup.sh m1_8gb_launch.sh optimize_m1_8gb.sh
 
 ### Option B: 16GB+ MacBook Setup (Full Operations Mode)
 ```bash
-# Navigate to DIGITAL LABOUR directory
+# Navigate to BIT RAGE LABOUR directory
 cd /path/to/Digital-Labour
 
 # Make scripts executable
@@ -101,7 +101,7 @@ chmod +x macbook_16gb_setup.sh test_16gb_setup.sh macbook_launch.sh
 
 **Expected Output:**
 ```
-🍎 DIGITAL LABOUR 16GB MacBook Setup
+🍎 BIT RAGE LABOUR 16GB MacBook Setup
 ==================================
 ✅ RAM check passed: 16GB
 ✅ Python installed
@@ -118,7 +118,7 @@ chmod +x macbook_16gb_setup.sh test_16gb_setup.sh macbook_launch.sh
 
 **Expected Output:**
 ```
-🧪 DIGITAL LABOUR 16GB MacBook Test
+🧪 BIT RAGE LABOUR 16GB MacBook Test
 =================================
 ✅ RAM: 16GB (sufficient)
 ✅ Python: Python 3.x.x
@@ -141,7 +141,7 @@ chmod +x macbook_16gb_setup.sh test_16gb_setup.sh macbook_launch.sh
 
 **Expected Output:**
 ```
-🚀 Starting DIGITAL LABOUR (16GB MacBook Mode)
+🚀 Starting BIT RAGE LABOUR (16GB MacBook Mode)
 📊 Memory: 16GB
 📱 Starting Mobile Command Center...
 ⚙️ Starting Operations Interface...
@@ -163,7 +163,7 @@ chmod +x macbook_16gb_setup.sh test_16gb_setup.sh macbook_launch.sh
 
 ### Step 2.1: Windows Setup
 ```powershell
-# On Windows machine, navigate to DIGITAL LABOUR
+# On Windows machine, navigate to BIT RAGE LABOUR
 cd C:\path\to\Digital-Labour
 ```
 
@@ -184,7 +184,7 @@ cd C:\path\to\Digital-Labour
 
 **Expected Output (both variants):**
 ```
-🔄 DIGITAL LABOUR Distributed Setup (SASP v1.0)
+🔄 BIT RAGE LABOUR Distributed Setup (SASP v1.0)
 =================================
 Mac IP: 192.168.1.100
 Windows: Heavy computation
@@ -231,7 +231,7 @@ ifconfig | grep "inet " | grep -v 127.0.0.1
 2. **Navigate to:** http://[MAC_IP]:8080
 3. **Tap share button** (iOS) or menu (Android)
 4. **Select "Add to Home Screen"**
-5. **Name:** "DIGITAL LABOUR Command"
+5. **Name:** "BIT RAGE LABOUR Command"
 6. **Expected:** App icon appears on home screen
 
 ### Step 3.4: Mobile Interface Test

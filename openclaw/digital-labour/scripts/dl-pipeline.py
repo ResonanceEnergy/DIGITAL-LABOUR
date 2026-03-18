@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Digital Labour Pipeline Runner — execute multi-agent workflows.
+"""Bit Rage Labour Pipeline Runner — execute multi-agent workflows.
 
 Usage:
     python3 dl-pipeline.py lead_to_close --industry fintech --region "North America" --role CTO
@@ -17,11 +17,11 @@ import urllib.error
 import urllib.request
 
 BASE_URL = os.environ.get(
-    "DIGITAL_LABOUR_API_URL",
+    "BIT_RAGE_LABOUR_API_URL",
     "https://bitrage-labour-api-production.up.railway.app",
 ).rstrip("/")
 
-API_KEY = os.environ.get("DIGITAL_LABOUR_API_KEY", "")
+API_KEY = os.environ.get("BIT_RAGE_LABOUR_API_KEY", "")
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 WORKFLOWS_FILE = os.path.join(SCRIPT_DIR, "..", "workflows", "pipelines.json")

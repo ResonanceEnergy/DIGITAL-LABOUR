@@ -33,13 +33,13 @@
       "severity": "MEDIUM",
       "last_seen": "2026-03-11T02:51:38.474452-06:00"
     },
-    "research_digital_labour_platform_no_output": {
+    "research_bit_rage_labour_platform_no_output": {
       "first_seen": "2026-03-11T02:25:14.412533-06:00",
       "times_seen": 2,
       "severity": "MEDIUM",
       "last_seen": "2026-03-11T02:51:38.474470-06:00"
     },
-    "research_digital_labour_platform_milestones": {
+    "research_bit_rage_labour_platform_milestones": {
       "first_seen": "2026-03-11T02:25:14.412564-06:00",
       "times_seen": 2,
       "severity": "MEDIUM",

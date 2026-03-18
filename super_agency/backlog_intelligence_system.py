@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Backlog Intelligence System
+BIT RAGE LABOUR Backlog Intelligence System
 AI-powered priority suggestions and dependency optimization
 """
 

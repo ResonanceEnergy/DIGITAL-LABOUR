@@ -88,6 +88,9 @@ C2_COMMANDS = {
     "openclaw_cycle": "Run OpenClaw automation cycle",
     "openclaw_scan": "Scan for OpenClaw tasks",
     "openclaw_inbox": "Process OpenClaw inbox",
+    "fiverr_setup": "Deploy top-4 Fiverr gigs via OpenClaw platform_setup",
+    "fiverr_deploy_all": "Deploy all 20 Fiverr gigs via browser automation",
+    "fiverr_deploy_top4": "Deploy gigs 1,2,3,4 (Sales/Support/Content/Docs) via browser",
     "boardroom_quick": "Run quick C-Suite standup",
     "outreach_push": "Push outreach batch to prospects",
     "upwork_hunt": "Run Upwork job hunt scanner",
@@ -501,6 +504,9 @@ def execute_c2(action: str, target: str = "", reason: str = ""):
         "aac_snapshot": _c2_aac_snapshot,
         "resonance_sync": _c2_resonance_sync,
         "resonance_status": _c2_resonance_status,
+        "fiverr_setup": _c2_fiverr_setup,
+        "fiverr_deploy_all": _c2_fiverr_deploy_all,
+        "fiverr_deploy_top4": _c2_fiverr_deploy_top4,
     }
 
     handler = handlers.get(action)
@@ -653,6 +659,40 @@ def _c2_resonance_sync(target=""):
 
 def _c2_resonance_status(target=""):
     return _collect_resonance()
+
+
+def _c2_fiverr_setup(target=""):
+    """Deploy top-4 Fiverr gigs via OpenClaw engine.platform_setup.
+
+    Equivalent to:
+        from openclaw.engine import OpenClawEngine
+        OpenClawEngine().platform_setup(platforms=['fiverr'])
+    """
+    from openclaw.engine import OpenClawEngine
+    result = OpenClawEngine().platform_setup(platforms=["fiverr"])
+    return result
+
+
+def _c2_fiverr_deploy_all(target=""):
+    """Deploy all 20 Fiverr gigs via browser automation.
+
+    Equivalent to:
+        python -m automation.fiverr_automation --deploy
+    """
+    from automation.fiverr_automation import deploy_all_browser
+    deploy_all_browser()
+    return {"status": "deploy_all_complete"}
+
+
+def _c2_fiverr_deploy_top4(target=""):
+    """Deploy gigs 1,2,3,4 (Sales Outreach, Support Resolver, Content Repurposer, Doc Extractor).
+
+    Equivalent to:
+        python -m automation.fiverr_automation --deploy --gigs 1,2,3,4
+    """
+    from automation.fiverr_automation import deploy_all_browser
+    deploy_all_browser(gig_indices=[1, 2, 3, 4])
+    return {"status": "deploy_top4_complete", "gigs": [1, 2, 3, 4]}
 
 
 # ═══════════════════════════════════════════════════════════════

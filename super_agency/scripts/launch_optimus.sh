@@ -5,12 +5,12 @@
 set -euo pipefail
 
 PYTHON="/Users/gripandripphdd/botenv/bin/python"
-BOT="$HOME/repos/DIGITAL LABOUR-Shared/scripts/optimus_discord_bot.py"
-LOG_DIR="/tmp/DIGITAL LABOUR"
+BOT="$HOME/repos/BIT RAGE LABOUR-Shared/scripts/optimus_discord_bot.py"
+LOG_DIR="/tmp/BIT RAGE LABOUR"
 LOG="$LOG_DIR/optimus_bot.log"
 
 # Load env file if it exists
-ENV_FILE="$HOME/repos/DIGITAL LABOUR-Shared/.env.optimus"
+ENV_FILE="$HOME/repos/BIT RAGE LABOUR-Shared/.env.optimus"
 if [[ -f "$ENV_FILE" ]]; then
     set -a
     source "$ENV_FILE"

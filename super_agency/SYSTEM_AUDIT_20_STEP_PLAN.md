@@ -75,7 +75,7 @@ git commit -m "chore: remove runtime .pid files from tracking"
 |---|---|
 | `./` (root) | Keep as canonical |
 | `Digital-Labour/` | DELETE — full copy with own .git |
-| `DIGITAL LABOUR/Digital-Labour/` | DELETE — another full copy |
+| `BIT RAGE LABOUR/Digital-Labour/` | DELETE — another full copy |
 | `repos/Digital-Labour/` | DELETE or convert to git submodule |
 - Estimated savings: **~5+ GB** of duplicated files
 - Priority: **HIGH**

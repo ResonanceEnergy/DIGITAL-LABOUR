@@ -45,9 +45,9 @@ def test_matrix_maximizer():
             sys.path.insert(0, str(current_dir))
 
         # Add Digital-Labour to path for QUASMEM import
-        digital_labour_dir = current_dir / "Digital-Labour"
-        if str(digital_labour_dir) not in sys.path:
-            sys.path.insert(0, str(digital_labour_dir))
+        bit_rage_labour_dir = current_dir / "Digital-Labour"
+        if str(bit_rage_labour_dir) not in sys.path:
+            sys.path.insert(0, str(bit_rage_labour_dir))
 
         # Try to import Matrix Maximizer
         from matrix_maximizer import EnhancedMatrixMaximizer
@@ -77,9 +77,9 @@ def test_quasmem_integration():
     try:
         # Add Digital-Labour to path
         current_dir = Path(__file__).parent
-        digital_labour_dir = current_dir / "Digital-Labour"
-        if str(digital_labour_dir) not in sys.path:
-            sys.path.insert(0, str(digital_labour_dir))
+        bit_rage_labour_dir = current_dir / "Digital-Labour"
+        if str(bit_rage_labour_dir) not in sys.path:
+            sys.path.insert(0, str(bit_rage_labour_dir))
 
         # Try to import QUASMEM components
         from quasmem_optimization import quantum_memory_pool, get_memory_status, optimize_memory_usage

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR GitHub Integration Setup
+BIT RAGE LABOUR GitHub Integration Setup
 Initializes the GitHub integration system for the Resonance Energy portfolio
 """
 
@@ -136,7 +136,7 @@ def test_integration() -> bool:
 
 def create_setup_summary() -> None:
     """Create a setup summary file"""
-    summary = f"""# DIGITAL LABOUR GitHub Integration Setup Complete
+    summary = f"""# BIT RAGE LABOUR GitHub Integration Setup Complete
 ## Setup Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 ### ✅ Components Installed:
@@ -183,7 +183,7 @@ github_integration/
 - `pr <repo> <title> <body>` - Create pull request
 
 ---
-*DIGITAL LABOUR GitHub Integration v1.0*
+*BIT RAGE LABOUR GitHub Integration v1.0*
 """
 
     try:
@@ -195,7 +195,7 @@ github_integration/
 
 def main():
     """Main setup function"""
-    print("🚀 DIGITAL LABOUR GitHub Integration Setup")
+    print("🚀 BIT RAGE LABOUR GitHub Integration Setup")
     print("=" * 50)
 
     success = True

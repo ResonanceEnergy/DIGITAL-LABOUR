@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-QUSAR Orchestrator - Orchestration Layer for DIGITAL LABOUR
+QUSAR Orchestrator - Orchestration Layer for BIT RAGE LABOUR
 Handles feedback loops, goal formulation, and high-level coordination
 """
 
@@ -210,7 +210,7 @@ class QUSAROrchestrator:
             logger.warning(f"Could not load config: {e}, using defaults")
             return {
                 'communication': {'host': '127.0.0.1', 'port': 8888, 'use_tls': False},
-                'system': {'name': 'DIGITAL LABOUR'}
+                'system': {'name': 'BIT RAGE LABOUR'}
             }
 
     def start(self):

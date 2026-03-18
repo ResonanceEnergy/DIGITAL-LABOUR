@@ -11,7 +11,7 @@ Replacement commands:
     bitrage.py stop        # replaces: python launch.py --kill
 
 Original description:
-    Master Launch Script — Starts ALL Digital Labour automation in one shot.
+    Master Launch Script — Starts ALL Bit Rage Labour automation in one shot.
     Activates every daemon, checks follow-ups, fires revenue checks, opens platforms.
 """
 
@@ -169,7 +169,7 @@ def start_daemons():
     ]
 
     print(f"\n{'='*70}")
-    print(f"  DIGITAL LABOUR — DAEMON LAUNCH")
+    print(f"  BIT RAGE LABOUR — DAEMON LAUNCH")
     print(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print(f"{'='*70}\n")
 
@@ -240,7 +240,7 @@ def stop_daemons():
 def run_checks():
     """Run all one-shot checks: follow-ups, revenue, reprocess fails."""
     print(f"\n{'='*70}")
-    print(f"  DIGITAL LABOUR — SYSTEM CHECKS")
+    print(f"  BIT RAGE LABOUR — SYSTEM CHECKS")
     print(f"{'='*70}")
 
     # 1. Follow-up check
@@ -321,9 +321,9 @@ def open_platforms():
 # ── Status Display ─────────────────────────────────────────────
 
 def show_status():
-    """Show status of all Digital Labour systems."""
+    """Show status of all Bit Rage Labour systems."""
     print(f"\n{'='*70}")
-    print(f"  DIGITAL LABOUR — FULL STATUS")
+    print(f"  BIT RAGE LABOUR — FULL STATUS")
     print(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print(f"{'='*70}")
 
@@ -347,7 +347,7 @@ def show_status():
 # ── CLI ────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="Digital Labour Master Launch")
+    parser = argparse.ArgumentParser(description="Bit Rage Labour Master Launch")
     parser.add_argument("--daemons", action="store_true", help="Start all background daemons")
     parser.add_argument("--checks", action="store_true", help="Run one-shot system checks")
     parser.add_argument("--platforms", action="store_true", help="Open platform registration URLs")

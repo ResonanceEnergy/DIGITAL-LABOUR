@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Auto Repo Backup
+BIT RAGE LABOUR Auto Repo Backup
 Backs up all portfolio repositories every 15 minutes
 """
 
@@ -124,7 +124,7 @@ def run_backup():
     }
 
     print(f"=" * 60)
-    print(f"🔄 DIGITAL LABOUR REPO BACKUP - {timestamp}")
+    print(f"🔄 BIT RAGE LABOUR REPO BACKUP - {timestamp}")
     print(f"=" * 60)
     print(f"📂 Organization: {org}")
     print(f"📊 Repositories: {len(repos)}")

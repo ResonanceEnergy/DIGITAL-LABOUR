@@ -1,1 +1,1 @@
-"""Meta package — Digital Labour self-promotion and growth tools."""
+"""Meta package — Bit Rage Labour self-promotion and growth tools."""

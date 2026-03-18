@@ -1,5 +1,5 @@
 # COLD EMAIL SEQUENCES — By ICP
-## Digital Labour — Ready to Send
+## Bit Rage Labour — Ready to Send
 
 ---
 
@@ -58,7 +58,7 @@ If {Company} ever needs outbound at scale without hiring:
 → 100 leads/mo: $750
 → Delivered weekly. No contracts.
 
-Free demo standing anytime: digital-labour.com
+Free demo standing anytime: bit-rage-labour.com
 
 Either way, thanks for reading.
 ```
@@ -122,7 +122,7 @@ Last note — there's also a retainer option if this ever fits:
 
 No contracts, cancel anytime. Your reps review and send.
 
-Standing offer for a free test batch: digital-labour.com
+Standing offer for a free test batch: bit-rage-labour.com
 ```
 
 ---
@@ -186,7 +186,7 @@ Custom volumes available
 
 Every response QA-checked. Escalations auto-flagged.
 
-Free test: digital-labour.com
+Free test: bit-rage-labour.com
 ```
 
 ---
@@ -245,7 +245,7 @@ If this ever makes sense at scale, monthly packs start at $200 for 20 pieces.
 
 That's every blog post automatically turned into 5 platform-ready formats.
 
-Free test standing: digital-labour.com
+Free test standing: bit-rage-labour.com
 ```
 
 ---
@@ -312,7 +312,7 @@ If {Company} ever needs document processing at scale:
 → Bulk processing available
 → Any document type, any format
 
-Free test: digital-labour.com
+Free test: bit-rage-labour.com
 
 No commitments either way.
 ```
@@ -322,7 +322,7 @@ No commitments either way.
 ## SENDING RULES
 
 1. **Personalize the first line** — always reference something real about their company
-2. **Send from a warmed domain** — use sales@digital-labour.com (dedicated sales domain)
+2. **Send from a warmed domain** — use sales@bit-rage-labour.com (dedicated sales domain)
 3. **Volume**: 10-15 emails/day max to start (avoid spam filters)
 4. **Time**: Send at 8-9 AM in the prospect's timezone
 5. **Track**: Use a simple spreadsheet — sent, opened, replied, converted

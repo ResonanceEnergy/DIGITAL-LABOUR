@@ -1,10 +1,10 @@
 # Digital-Labour
 
-**Company Repository** - DIGITAL LABOUR Portfolio Company
+**Company Repository** - BIT RAGE LABOUR Portfolio Company
 
 ## Overview
 
-Digital-Labour is a portfolio company within the DIGITAL LABOUR ecosystem.
+Digital-Labour is a portfolio company within the BIT RAGE LABOUR ecosystem.
 
 ## Repository Information
 
@@ -13,4 +13,4 @@ Digital-Labour is a portfolio company within the DIGITAL LABOUR ecosystem.
 - **Autonomy Level**: L1
 - **Language**: Python
 - **Risk Tier**: CRITICAL
-- **Parent Organization**: DIGITAL LABOUR
+- **Parent Organization**: BIT RAGE LABOUR

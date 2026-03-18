@@ -858,5 +858,275 @@
     "follow_up_2_due": "2026-03-24T12:01:49.078273+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Notarize_a91e43.json"
+  },
+  {
+    "company": "Figma",
+    "role": "VP of Operations",
+    "contact_email": "dylan@figma.com",
+    "follow_up_1_due": "2026-03-20T16:22:32.698531+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T16:22:32.698531+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Figma_9c7bb3.json"
+  },
+  {
+    "company": "Figma",
+    "role": "VP of Operations",
+    "contact_email": "yuhki@figma.com",
+    "follow_up_1_due": "2026-03-20T16:22:41.487326+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T16:22:41.487326+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Figma_a23041.json"
+  },
+  {
+    "company": "Gong.io",
+    "role": "VP of Sales",
+    "contact_email": "udi@gongio.com",
+    "follow_up_1_due": "2026-03-20T16:22:49.343712+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T16:22:49.343712+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Gong_io_104772.json"
+  },
+  {
+    "company": "Gong.io",
+    "role": "VP of Sales",
+    "contact_email": "udi@gongio.com",
+    "follow_up_1_due": "2026-03-20T16:22:57.073410+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T16:22:57.073410+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Gong_io_a7ac4b.json"
+  },
+  {
+    "company": "Handshake",
+    "role": "Head of Recruitment",
+    "contact_email": "recruitment@handshake.com",
+    "follow_up_1_due": "2026-03-20T16:22:58.164258+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T16:22:58.164258+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Handshake_a06867.json"
+  },
+  {
+    "company": "Loopio",
+    "role": "Director of Sales",
+    "contact_email": "matt@loopio.com",
+    "follow_up_1_due": "2026-03-20T16:23:06.192058+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T16:23:06.192058+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Loopio_05850e.json"
+  },
+  {
+    "company": "Appfolio",
+    "role": "VP of Customer Support",
+    "contact_email": "jennifer.klabunde@appfolio.com",
+    "follow_up_1_due": "2026-03-20T17:29:15.120151+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T17:29:15.120151+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Appfolio_d9860e.json"
+  },
+  {
+    "company": "BambooHR",
+    "role": "Head of Operations",
+    "contact_email": "operations@bamboohr.com",
+    "follow_up_1_due": "2026-03-20T17:29:16.311006+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T17:29:16.311006+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_BambooHR_94c374.json"
+  },
+  {
+    "company": "Guru",
+    "role": "VP of Sales",
+    "contact_email": "rick@guru.com",
+    "follow_up_1_due": "2026-03-20T17:29:25.515096+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T17:29:25.515096+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Guru_42a786.json"
+  },
+  {
+    "company": "Turing",
+    "role": "CEO",
+    "contact_email": "jonathan@turing.com",
+    "follow_up_1_due": "2026-03-20T17:29:27.351534+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T17:29:27.351534+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Turing_143413.json"
+  },
+  {
+    "company": "Wealthsimple",
+    "role": "VP of Operations",
+    "contact_email": "sarah.aspler@wealthsimple.com",
+    "follow_up_1_due": "2026-03-20T17:29:35.195846+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T17:29:35.195846+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Wealthsimple_37e382.json"
+  },
+  {
+    "company": "BigCommerce",
+    "role": "VP of Enterprise Sales",
+    "contact_email": "russell.klein@bigcommerce.com",
+    "follow_up_1_due": "2026-03-20T18:36:14.009210+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T18:36:14.009210+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_BigCommerce_f042e5.json"
+  },
+  {
+    "company": "Compass",
+    "role": "VP of Agent Services",
+    "contact_email": "greg.hart@compass.com",
+    "follow_up_1_due": "2026-03-20T18:36:22.278880+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T18:36:22.278880+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Compass_79d56d.json"
+  },
+  {
+    "company": "Opendoor",
+    "role": "Director of Sales Operations",
+    "contact_email": "sarah.chen@opendoor.com",
+    "follow_up_1_due": "2026-03-20T18:36:30.175701+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T18:36:30.175701+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Opendoor_5f027d.json"
+  },
+  {
+    "company": "Shopify Plus",
+    "role": "Director of Partner Sales",
+    "contact_email": "brandon.chu@shopifyplus.com",
+    "follow_up_1_due": "2026-03-20T18:36:38.062260+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T18:36:38.062260+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Shopify_Plus_659ff4.json"
+  },
+  {
+    "company": "Zapier",
+    "role": "VP of Sales",
+    "contact_email": "tyler@zapier.com",
+    "follow_up_1_due": "2026-03-20T18:36:46.690591+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T18:36:46.690591+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Zapier_7088c1.json"
+  },
+  {
+    "company": "Affirm",
+    "role": "Head of Merchant Sales",
+    "contact_email": "max.levchin@affirm.com",
+    "follow_up_1_due": "2026-03-20T19:43:15.036750+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T19:43:15.036750+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Affirm_7a53c5.json"
+  },
+  {
+    "company": "Canva",
+    "role": "Head of Enterprise Sales",
+    "contact_email": "dave.rennie@canva.com",
+    "follow_up_1_due": "2026-03-20T19:43:23.275900+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T19:43:23.275900+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Canva_3f1f6a.json"
+  },
+  {
+    "company": "Chime",
+    "role": "Director of Customer Support",
+    "contact_email": "sarah.chen@chime.com",
+    "follow_up_1_due": "2026-03-20T19:43:30.985971+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T19:43:30.985971+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Chime_a3d238.json"
+  },
+  {
+    "company": "Robinhood",
+    "role": "VP of Customer Operations",
+    "contact_email": "christine.brown@robinhood.com",
+    "follow_up_1_due": "2026-03-20T19:43:38.229136+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T19:43:38.229136+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Robinhood_64c5fa.json"
+  },
+  {
+    "company": "Stripe",
+    "role": "Director of Sales Development",
+    "contact_email": "sarah.johnson@stripe.com",
+    "follow_up_1_due": "2026-03-20T19:43:46.390738+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T19:43:46.390738+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Stripe_19e1e3.json"
+  },
+  {
+    "company": "Miro",
+    "role": "VP of Sales",
+    "contact_email": "andrey@miro.com",
+    "follow_up_1_due": "2026-03-20T20:17:58.733146+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T20:17:58.733146+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Miro_1d26c0.json"
+  },
+  {
+    "company": "Webflow",
+    "role": "Head of Sales Operations",
+    "contact_email": "kyle@webflow.com",
+    "follow_up_1_due": "2026-03-20T20:18:21.238009+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T20:18:21.238009+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Webflow_fc4bcd.json"
+  },
+  {
+    "company": "Benchling",
+    "role": "Head of Customer Support",
+    "contact_email": "sarah.chen@benchling.com",
+    "follow_up_1_due": "2026-03-20T20:55:09.870625+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T20:55:09.870625+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Benchling_0a6ab5.json"
+  },
+  {
+    "company": "Docusign",
+    "role": "VP of Customer Support",
+    "contact_email": "loren.padelford@docusign.com",
+    "follow_up_1_due": "2026-03-20T20:55:17.918337+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T20:55:17.918337+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Docusign_ca4f7b.json"
+  },
+  {
+    "company": "Fetch Rewards",
+    "role": "VP of Sales",
+    "contact_email": "mike@fetchrewards.com",
+    "follow_up_1_due": "2026-03-20T20:55:24.908218+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T20:55:24.908218+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Fetch_Rewards_b4e346.json"
+  },
+  {
+    "company": "Klaviyo",
+    "role": "Director of Sales",
+    "contact_email": "alex.sheehan@klaviyo.com",
+    "follow_up_1_due": "2026-03-20T20:55:32.386649+00:00",
+    "follow_up_1_sent": false,
+    "follow_up_2_due": "2026-03-24T20:55:32.386649+00:00",
+    "follow_up_2_sent": false,
+    "source_file": "meta_Klaviyo_2c778a.json"
   }
 ]
