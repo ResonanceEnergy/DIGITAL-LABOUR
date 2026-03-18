@@ -282,6 +282,32 @@ def client_signup(req: SignupRequest):
         retainer=req.retainer_tier,
     )
 
+    # Send welcome email with API key
+    try:
+        from delivery.sender import send_email
+        send_email(
+            to=req.email,
+            subject="Welcome to Digital Labour — Your API Key",
+            body_html=f"""<h2>Welcome to Digital Labour, {req.contact_name}!</h2>
+<p>Your account is active. Here are your credentials:</p>
+<table style="border-collapse:collapse">
+<tr><td style="padding:4px 12px"><strong>Client ID</strong></td><td style="padding:4px 12px"><code>{req.client_id}</code></td></tr>
+<tr><td style="padding:4px 12px"><strong>API Key</strong></td><td style="padding:4px 12px"><code>{api_key}</code></td></tr>
+<tr><td style="padding:4px 12px"><strong>Services</strong></td><td style="padding:4px 12px">{', '.join(profile['services'])}</td></tr>
+<tr><td style="padding:4px 12px"><strong>Pricing</strong></td><td style="padding:4px 12px">{req.pricing_model}</td></tr>
+</table>
+<h3>Quick Start</h3>
+<pre>curl -X POST https://bitrage-labour-api-production.up.railway.app/v1/run \\
+  -H "X-API-Key: {api_key}" \\
+  -H "Content-Type: application/json" \\
+  -d '{{"agent":"product_desc","inputs":{{"product_specs":"Your product details"}}}}'</pre>
+<p>Full docs: <a href="https://bitrage-labour-api-production.up.railway.app/agents">/agents</a></p>
+<p>Questions? Reply to this email or contact <a href="mailto:support@digital-labour.com">support@digital-labour.com</a></p>
+""",
+        )
+    except Exception:
+        pass  # Don't fail signup if email fails
+
     return {
         "status": "registered",
         "client_id": req.client_id,

@@ -382,6 +382,18 @@ def health():
     return {"status": "healthy", "timestamp": datetime.now(timezone.utc).isoformat()}
 
 
+@rapid_app.get("/health/smtp")
+def health_smtp():
+    """SMTP connectivity check — tests Zoho SMTP auth."""
+    from delivery.sender import check_smtp
+    ok, message = check_smtp()
+    status_code = 200 if ok else 503
+    return JSONResponse(
+        status_code=status_code,
+        content={"smtp": "ok" if ok else "error", "detail": message},
+    )
+
+
 @rapid_app.post("/v1/sales", response_model=AgentResponse)
 async def sales_outreach(req: SalesRequest):
     """Generate personalized sales outreach for a target company + role.

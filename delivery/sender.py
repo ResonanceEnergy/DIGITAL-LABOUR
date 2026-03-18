@@ -3,12 +3,15 @@
 Supports: file export (JSON/CSV/Markdown), email via SMTP, webhook POST.
 
 Usage:
-    from delivery.sender import deliver
+    from delivery.sender import deliver, send_email, check_smtp
     deliver(task_id="abc", outputs={...}, method="file")
+    send_email("user@example.com", "Subject", "<h1>Body</h1>")
+    ok, msg = check_smtp()
 """
 
 import csv
 import json
+import logging
 import os
 import smtplib
 import sys
@@ -22,7 +25,82 @@ import httpx
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+logger = logging.getLogger("delivery.sender")
+
 OUTPUT_DIR = PROJECT_ROOT / "output" / "deliveries"
+
+
+# ── SMTP helpers ────────────────────────────────────────────────
+
+def _smtp_config() -> dict:
+    """Return SMTP config from env vars."""
+    return {
+        "host": os.getenv("SMTP_HOST", ""),
+        "port": int(os.getenv("SMTP_PORT", "587")),
+        "user": os.getenv("SMTP_USER", ""),
+        "password": os.getenv("SMTP_PASS", ""),
+        "from_addr": os.getenv("SMTP_FROM", "") or os.getenv("SMTP_USER", ""),
+    }
+
+
+def check_smtp() -> tuple[bool, str]:
+    """Test SMTP connectivity + auth. Returns (ok, message)."""
+    cfg = _smtp_config()
+    if not all([cfg["host"], cfg["user"], cfg["password"]]):
+        return False, "SMTP not configured (missing SMTP_HOST/SMTP_USER/SMTP_PASS)"
+    try:
+        with smtplib.SMTP(cfg["host"], cfg["port"], timeout=10) as server:
+            server.ehlo()
+            server.starttls()
+            server.ehlo()
+            server.login(cfg["user"], cfg["password"])
+        return True, "SMTP OK"
+    except smtplib.SMTPAuthenticationError:
+        return False, "SMTP authentication failed — check SMTP_PASS (needs Zoho App Password)"
+    except Exception as e:
+        return False, f"SMTP connection error: {e}"
+
+
+def send_email(to: str, subject: str, body_html: str, body_text: str = "") -> dict:
+    """Send a single email. Returns {"ok": bool, "error": str|None}.
+
+    Args:
+        to: Recipient email address
+        subject: Email subject line
+        body_html: HTML body content
+        body_text: Optional plain-text fallback (auto-generated from HTML if empty)
+    """
+    cfg = _smtp_config()
+    if not all([cfg["host"], cfg["user"], cfg["password"]]):
+        logger.error("SMTP not configured — cannot send email to %s", to)
+        return {"ok": False, "error": "SMTP not configured"}
+    if not to:
+        return {"ok": False, "error": "No recipient address"}
+
+    msg = MIMEMultipart("alternative")
+    msg["From"] = cfg["from_addr"]
+    msg["To"] = to
+    msg["Subject"] = subject
+
+    # Plain-text fallback
+    if not body_text:
+        import re
+        body_text = re.sub(r"<[^>]+>", "", body_html)
+    msg.attach(MIMEText(body_text, "plain"))
+    msg.attach(MIMEText(body_html, "html"))
+
+    try:
+        with smtplib.SMTP(cfg["host"], cfg["port"], timeout=15) as server:
+            server.ehlo()
+            server.starttls()
+            server.ehlo()
+            server.login(cfg["user"], cfg["password"])
+            server.send_message(msg)
+        logger.info("Email sent to %s — %s", to, subject)
+        return {"ok": True, "error": None}
+    except Exception as e:
+        logger.error("Email to %s failed: %s", to, e)
+        return {"ok": False, "error": str(e)}
 
 
 def deliver(
@@ -81,40 +159,22 @@ def _deliver_file(task_id: str, task_type: str, outputs: dict, client: str, time
 def _deliver_email(
     task_id: str, task_type: str, outputs: dict, client: str, email_to: str, timestamp: str
 ) -> dict:
-    """Send outputs via SMTP email."""
-    smtp_host = os.getenv("SMTP_HOST", "")
-    smtp_port = int(os.getenv("SMTP_PORT", "587"))
-    smtp_user = os.getenv("SMTP_USER", "")
-    smtp_pass = os.getenv("SMTP_PASS", "")
-    smtp_from = os.getenv("SMTP_FROM", smtp_user)
-
-    if not all([smtp_host, smtp_user, smtp_pass, email_to]):
-        return {"status": "skipped", "method": "email", "reason": "SMTP not configured or no recipient"}
-
+    """Send task outputs via SMTP email."""
     subject = f"[Digital Labour] {task_type} complete — {task_id[:8]}"
-    body = f"""Task ID: {task_id}
-Type: {task_type}
-Client: {client}
-Delivered: {timestamp}
-
---- Output ---
-{json.dumps(outputs, indent=2)}
+    body_html = f"""<h2>Task Delivered</h2>
+<table>
+<tr><td><strong>Task ID</strong></td><td>{task_id}</td></tr>
+<tr><td><strong>Type</strong></td><td>{task_type}</td></tr>
+<tr><td><strong>Client</strong></td><td>{client}</td></tr>
+<tr><td><strong>Delivered</strong></td><td>{timestamp}</td></tr>
+</table>
+<h3>Output</h3>
+<pre>{json.dumps(outputs, indent=2)}</pre>
 """
-
-    msg = MIMEMultipart()
-    msg["From"] = smtp_from
-    msg["To"] = email_to
-    msg["Subject"] = subject
-    msg.attach(MIMEText(body, "plain"))
-
-    try:
-        with smtplib.SMTP(smtp_host, smtp_port) as server:
-            server.starttls()
-            server.login(smtp_user, smtp_pass)
-            server.send_message(msg)
+    result = send_email(email_to, subject, body_html)
+    if result["ok"]:
         return {"status": "delivered", "method": "email", "to": email_to}
-    except Exception as e:
-        return {"status": "error", "method": "email", "error": str(e)}
+    return {"status": "error", "method": "email", "error": result["error"]}
 
 
 def _deliver_webhook(
