@@ -6,7 +6,7 @@
     "follow_up_1_due": "2026-03-14T09:37:36.681307+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:37:36.681307+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Animalz_842466.json"
   },
   {
@@ -16,7 +16,7 @@
     "follow_up_1_due": "2026-03-14T09:38:02.373165+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:02.373165+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Apollo.io_0e0223.json"
   },
   {
@@ -26,7 +26,7 @@
     "follow_up_1_due": "2026-03-14T09:38:08.183260+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:08.183260+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Brex_d13a07.json"
   },
   {
@@ -36,7 +36,7 @@
     "follow_up_1_due": "2026-03-14T09:38:14.181905+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:14.181905+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Calendly_3ace85.json"
   },
   {
@@ -46,7 +46,7 @@
     "follow_up_1_due": "2026-03-14T09:38:19.254626+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:19.254626+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Clearbit_32207b.json"
   },
   {
@@ -56,7 +56,7 @@
     "follow_up_1_due": "2026-03-14T09:38:23.222378+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:23.222378+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Close_c92c1e.json"
   },
   {
@@ -66,7 +66,7 @@
     "follow_up_1_due": "2026-03-14T09:38:30.377604+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:30.377604+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Convertkit_d6eb96.json"
   },
   {
@@ -76,7 +76,7 @@
     "follow_up_1_due": "2026-03-14T09:38:34.290175+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:34.290175+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Deel_5747e1.json"
   },
   {
@@ -86,7 +86,7 @@
     "follow_up_1_due": "2026-03-14T09:38:35.927405+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:35.927405+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Directive_eea3c9.json"
   },
   {
@@ -96,7 +96,7 @@
     "follow_up_1_due": "2026-03-14T09:38:39.971340+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:39.971340+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Drift_9590bd.json"
   },
   {
@@ -106,7 +106,7 @@
     "follow_up_1_due": "2026-03-14T09:38:41.365884+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:41.365884+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Foundation_Marketing_153ccb.json"
   },
   {
@@ -116,7 +116,7 @@
     "follow_up_1_due": "2026-03-14T09:38:46.881684+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:46.881684+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Freshdesk_590512.json"
   },
   {
@@ -126,7 +126,7 @@
     "follow_up_1_due": "2026-03-14T09:38:50.823891+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:50.823891+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Front_b730d0.json"
   },
   {
@@ -136,7 +136,7 @@
     "follow_up_1_due": "2026-03-14T09:38:55.655950+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:55.655950+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Gorgias_838caa.json"
   },
   {
@@ -146,7 +146,7 @@
     "follow_up_1_due": "2026-03-14T09:38:56.912801+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:56.912801+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Grow_and_Convert_687280.json"
   },
   {
@@ -156,7 +156,7 @@
     "follow_up_1_due": "2026-03-14T09:39:01.528375+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:01.528375+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Gusto_9913f2.json"
   },
   {
@@ -166,7 +166,7 @@
     "follow_up_1_due": "2026-03-14T09:39:05.172682+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:05.172682+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Help_Scout_4c345b.json"
   },
   {
@@ -176,7 +176,7 @@
     "follow_up_1_due": "2026-03-14T09:39:06.444267+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:06.444267+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Hunter.io_d32c91.json"
   },
   {
@@ -186,7 +186,7 @@
     "follow_up_1_due": "2026-03-14T09:39:10.967288+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:10.967288+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Intercom_52615f.json"
   },
   {
@@ -196,7 +196,7 @@
     "follow_up_1_due": "2026-03-14T09:39:17.796757+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:17.796757+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Lattice_9b26d7.json"
   },
   {
@@ -206,7 +206,7 @@
     "follow_up_1_due": "2026-03-14T09:39:21.514740+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:21.514740+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Lemlist_c5def2.json"
   },
   {
@@ -216,7 +216,7 @@
     "follow_up_1_due": "2026-03-14T09:39:22.889522+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:22.889522+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Linear_e97e2b.json"
   },
   {
@@ -226,7 +226,7 @@
     "follow_up_1_due": "2026-03-14T09:39:27.241700+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:27.241700+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Loom_61005e.json"
   },
   {
@@ -236,7 +236,7 @@
     "follow_up_1_due": "2026-03-14T09:39:31.397696+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:31.397696+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Lusha_c28b12.json"
   },
   {
@@ -246,7 +246,7 @@
     "follow_up_1_due": "2026-03-14T09:39:36.613568+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:36.613568+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Mailshake_97271c.json"
   },
   {
@@ -256,7 +256,7 @@
     "follow_up_1_due": "2026-03-14T09:39:41.664167+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:41.664167+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Mixmax_a3b471.json"
   },
   {
@@ -266,7 +266,7 @@
     "follow_up_1_due": "2026-03-14T09:39:46.597797+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:46.597797+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Notion_c80a23.json"
   },
   {
@@ -276,7 +276,7 @@
     "follow_up_1_due": "2026-03-14T09:39:47.880536+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:47.880536+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Omniscient_Digital_5b7e98.json"
   },
   {
@@ -286,7 +286,7 @@
     "follow_up_1_due": "2026-03-14T09:39:53.148407+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:53.148407+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Outreach_2d9245.json"
   },
   {
@@ -296,7 +296,7 @@
     "follow_up_1_due": "2026-03-14T09:39:58.865558+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:58.865558+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Pipedrive_6a00fa.json"
   },
   {
@@ -306,7 +306,7 @@
     "follow_up_1_due": "2026-03-14T09:40:04.465788+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:04.465788+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Ramp_67b2bc.json"
   },
   {
@@ -316,7 +316,7 @@
     "follow_up_1_due": "2026-03-14T09:40:05.885289+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:05.885289+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Reply.io_3583a5.json"
   },
   {
@@ -326,7 +326,7 @@
     "follow_up_1_due": "2026-03-14T09:40:09.516734+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:09.516734+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Rippling_23906a.json"
   },
   {
@@ -336,7 +336,7 @@
     "follow_up_1_due": "2026-03-14T09:40:14.209863+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:14.209863+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Salesloft_061d48.json"
   },
   {
@@ -346,7 +346,7 @@
     "follow_up_1_due": "2026-03-14T09:40:18.603455+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:18.603455+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Seamless.AI_edfb43.json"
   },
   {
@@ -356,7 +356,7 @@
     "follow_up_1_due": "2026-03-14T09:40:22.566826+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:22.566826+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Siege_Media_417f5f.json"
   },
   {
@@ -366,7 +366,7 @@
     "follow_up_1_due": "2026-03-14T09:40:24.019826+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:24.019826+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Single_Grain_cdbec6.json"
   },
   {
@@ -376,7 +376,7 @@
     "follow_up_1_due": "2026-03-14T09:40:28.872556+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:28.872556+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Snov.io_73b41e.json"
   },
   {
@@ -386,7 +386,7 @@
     "follow_up_1_due": "2026-03-14T09:40:34.012186+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:34.012186+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Soapbox_2fa9e1.json"
   },
   {
@@ -396,7 +396,7 @@
     "follow_up_1_due": "2026-03-14T09:40:38.043703+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:38.043703+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Supabase_0c45f5.json"
   },
   {
@@ -406,7 +406,7 @@
     "follow_up_1_due": "2026-03-14T09:40:41.618388+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:41.618388+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Typeform_cbdc35.json"
   },
   {
@@ -416,7 +416,7 @@
     "follow_up_1_due": "2026-03-14T09:40:45.167192+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:45.167192+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Unbounce_5f0571.json"
   },
   {
@@ -426,7 +426,7 @@
     "follow_up_1_due": "2026-03-14T09:40:49.728118+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:49.728118+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Velocity_Partners_8b8584.json"
   },
   {
@@ -436,7 +436,7 @@
     "follow_up_1_due": "2026-03-14T09:40:54.679031+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:54.679031+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Vercel_be7ef2.json"
   },
   {
@@ -446,7 +446,7 @@
     "follow_up_1_due": "2026-03-14T09:40:59.382802+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:59.382802+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Vidyard_b82bce.json"
   },
   {
@@ -456,7 +456,7 @@
     "follow_up_1_due": "2026-03-14T09:41:05.670297+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:41:05.670297+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_WebFX_a830e3.json"
   },
   {
@@ -466,7 +466,7 @@
     "follow_up_1_due": "2026-03-14T09:41:07.099705+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:41:07.099705+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Woodpecker_0c9c44.json"
   },
   {
@@ -476,7 +476,7 @@
     "follow_up_1_due": "2026-03-14T09:41:11.465022+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:41:11.465022+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Yesware_cf280e.json"
   },
   {
@@ -486,7 +486,7 @@
     "follow_up_1_due": "2026-03-14T09:41:15.110006+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:41:15.110006+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_Zendesk_2178ee.json"
   },
   {
@@ -496,7 +496,7 @@
     "follow_up_1_due": "2026-03-14T09:41:18.714143+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:41:18.714143+00:00",
-    "follow_up_2_sent": false,
+    "follow_up_2_sent": true,
     "source_file": "meta_ZoomInfo_65aa62.json"
   },
   {
