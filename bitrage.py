@@ -219,11 +219,6 @@ DAEMONS = [
         "desc": "Nexus Engine — 24/7 autonomous cycles",
     },
     {
-        "name": "Watchdog",
-        "cmd": ["-m", "automation.watchdog"],
-        "desc": "NERVE process guardian — auto-restart on crash",
-    },
-    {
         "name": "C-Suite Scheduler",
         "cmd": ["c_suite/scheduler.py", "--daemon"],
         "desc": "Executive cadence — standup, CFO, COO ops",
@@ -246,7 +241,7 @@ DAEMONS = [
 ]
 
 
-def start_daemons(include_watchdog=True):
+def start_daemons():
     """Start all background daemons."""
     env_report = print_env_report()
     if not env_report["ok"]:
@@ -263,11 +258,6 @@ def start_daemons(include_watchdog=True):
 
     for d in DAEMONS:
         name = d["name"]
-        if name == "Watchdog" and not include_watchdog:
-            continue
-        # Watchdog spawns its own NERVE — skip standalone NERVE to avoid duplicates
-        if name == "NERVE" and include_watchdog:
-            continue
 
         existing_pid = pids.get(name, {}).get("pid")
         if existing_pid and _is_running(existing_pid):
@@ -311,10 +301,6 @@ def stop_all():
     print(f"  BIT RAGE — STOPPING ALL PROCESSES")
     print(f"{'='*65}\n")
 
-    # Write watchdog stop signal
-    stop_flag = PROJECT_ROOT / "data" / "watchdog_stop.flag"
-    stop_flag.write_text("stop", encoding="utf-8")
-
     for name, info in list(pids.items()):
         pid = info.get("pid")
         if pid and _is_running(pid):
@@ -331,10 +317,6 @@ def stop_all():
             print(f"  [SKIP] {name} — not running")
 
     _save_pids({})
-
-    # Clean watchdog stop flag
-    if stop_flag.exists():
-        stop_flag.unlink()
 
     print(f"\n  All processes stopped.")
 
@@ -662,7 +644,6 @@ def run_preflight():
     # 6. Critical modules import check
     critical_modules = [
         ("automation.nerve", "NERVE daemon"),
-        ("automation.watchdog", "Watchdog"),
         ("automation.orchestrator", "Orchestrator"),
         ("automation.outreach", "Outreach pipeline"),
         ("automation.self_check", "Self-check"),
