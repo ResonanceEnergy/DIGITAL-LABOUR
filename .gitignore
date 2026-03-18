@@ -5,7 +5,8 @@ __pycache__/
 *.pyo
 output/
 *.log
-data/agent_cache/
+data/
+.mypy_cache/
 
 # Build artifacts
 dist/

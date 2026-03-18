@@ -1,5 +1,22 @@
 {
   "diffEditor.maxComputationTime": 0,
+  "files.watcherExclude": {
+    "**/data/**": true,
+    "**/.mypy_cache/**": true,
+    "**/output/**": true,
+    "**/__pycache__/**": true
+  },
+  "files.exclude": {
+    "data/nerve_logs": true,
+    "data/openclaw_logs": true,
+    "data/*.log": true,
+    "data/nerve_cycle_*.json": true,
+    ".mypy_cache": true
+  },
+  "search.exclude": {
+    "**/data/**": true,
+    "**/.mypy_cache/**": true
+  },
   "mcp": {
     "servers": {
       "gitbutler-mcp": {
