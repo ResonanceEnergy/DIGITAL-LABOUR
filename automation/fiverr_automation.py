@@ -582,6 +582,8 @@ def deploy_all_browser(gig_indices: Optional[list[int]] = None):
     print("\n  Launching browser...")
     pw, browser, context = _launch_browser(headless=False)
     page = context.new_page()
+    page.set_default_timeout(10000)
+    page.set_default_navigation_timeout(20000)
 
     # Check if logged in
     page.goto(f"{FIVERR_BASE}/seller_dashboard", wait_until="domcontentloaded")
@@ -609,7 +611,11 @@ def deploy_all_browser(gig_indices: Optional[list[int]] = None):
         gig = FIVERR_GIGS[idx - 1]
         print(f"\n  ── GIG {idx}: {gig['title'][:60]}...")
         img_path = _find_gig_image(idx)
-        result = deploy_gig_browser(page, idx, gig, img_path)
+        try:
+            result = deploy_gig_browser(page, idx, gig, img_path)
+        except Exception as exc:
+            print(f"    ERROR deploying gig {idx}: {exc}")
+            result = {"gig": idx, "title": gig["title"], "status": "error", "steps": {}, "error": str(exc)}
         results.append(result)
 
         state["gigs"][str(idx)] = {
@@ -637,16 +643,22 @@ def deploy_all_browser(gig_indices: Optional[list[int]] = None):
     except Exception:
         pass
 
-    # Keep browser open for 60s for user review, then close
-    print("  Browser stays open 60s for review...")
+    # Keep browser open briefly for user review, then close
+    print("  Browser closing in 5s... (Ctrl+C to skip)")
     try:
-        time.sleep(60)
+        time.sleep(5)
     except KeyboardInterrupt:
         pass
-    _save_cookies(context)
-    context.close()
-    browser.close()
-    pw.stop()
+    try:
+        _save_cookies(context)
+    except Exception:
+        pass
+    try:
+        context.close()
+        browser.close()
+        pw.stop()
+    except Exception:
+        pass
 
 
 # ── PUBLISH DRAFT GIGS ────────────────────────────────────────
