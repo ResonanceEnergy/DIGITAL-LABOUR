@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "doctrine_version": "2.0",
+    "description": "Default client QA profile — applied when no client-specific profile exists"
+  },
+  "profile_id": "default",
+  "banned_phrases": [],
+  "tone_rules": ["professional", "non-offensive"],
+  "required_fields": [],
+  "min_confidence": 0.70,
+  "factual_review_required": false,
+  "delivery_channel": "file",
+  "webhook_url": "",
+  "notification_email": ""
+}

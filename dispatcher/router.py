@@ -8,6 +8,7 @@ Usage:
 
 import argparse
 import json
+import logging
 import os
 import sys
 import time
@@ -15,6 +16,10 @@ from collections import defaultdict
 from pathlib import Path
 from uuid import uuid4
 from datetime import datetime, timezone, timedelta
+
+logger = logging.getLogger("dispatcher.router")
+
+DOCTRINE_VERSION = "2.0"
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -25,6 +30,38 @@ load_dotenv(PROJECT_ROOT / ".env")
 
 
 # ── Config ──────────────────────────────────────────────────────────────────
+
+# ── Agent Registry ──────────────────────────────────────────────────────────
+
+_REGISTRY_PATH = PROJECT_ROOT / "config" / "agent_registry.json"
+
+
+def _load_registry() -> dict:
+    """Load agent registry from config. Returns empty dict on error."""
+    if _REGISTRY_PATH.exists():
+        try:
+            return json.loads(_REGISTRY_PATH.read_text(encoding="utf-8")).get("agents", {})
+        except Exception as exc:
+            logger.warning("Failed to load agent registry: %s", exc)
+    return {}
+
+
+AGENT_REGISTRY: dict = _load_registry()
+
+
+def _registry_get(agent: str, key: str, default):
+    """Get a field from the agent registry with fallback."""
+    return AGENT_REGISTRY.get(agent, {}).get(key, default)
+
+
+def save_registry():
+    """Persist the in-memory registry back to disk."""
+    existing = {}
+    if _REGISTRY_PATH.exists():
+        existing = json.loads(_REGISTRY_PATH.read_text(encoding="utf-8"))
+    existing["agents"] = AGENT_REGISTRY
+    _REGISTRY_PATH.write_text(json.dumps(existing, indent=2), encoding="utf-8")
+
 
 DAILY_LIMITS = {
     "sales_outreach": 50,
@@ -147,16 +184,21 @@ def get_metrics() -> dict:
 # ── Event Creation ──────────────────────────────────────────────────────────
 
 def create_event(task_type: str, inputs: dict, client_id: str = "direct") -> dict:
+    lineage_id = str(uuid4())
     return {
         "event_id": str(uuid4()),
+        "lineage_id": lineage_id,
+        "schema_version": "2.0",
+        "doctrine_version": DOCTRINE_VERSION,
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "client_id": client_id,
         "task_type": task_type,
         "inputs": inputs,
         "constraints": {
-            "time_budget_sec": 300,
-            "max_retries": 1,
+            "time_budget_sec": _registry_get(task_type, "max_execution_seconds", 45),
+            "max_retries": _registry_get(task_type, "max_retries", 2),
             "token_budget": TOKEN_BUDGETS.get(task_type, 20000),
+            "cost_ceiling_usd": _registry_get(task_type, "cost_ceiling_usd", 0.50),
         },
         "outputs": {},
         "qa": {"status": "PENDING", "issues": [], "revision_notes": ""},
@@ -178,11 +220,20 @@ def route_task(event: dict) -> dict:
     inputs = event["inputs"]
     start = time.time()
 
+    # ── Agent disabled check ──────────────────────────────────────
+    if _registry_get(task_type, "disabled", False):
+        event["qa"]["status"] = "FAIL"
+        event["qa"]["issues"] = [f"Agent '{task_type}' is disabled"]
+        event["qa"]["failure_reason"] = "AGENT_DISABLED"
+        logger.warning("[BLOCKED] Agent %s is disabled in registry", task_type)
+        return _finalize_event(event, start, task_type)
+
     if not tracker.can_accept(task_type):
         event["qa"]["status"] = "FAIL"
         event["qa"]["issues"] = [f"Daily limit reached for {task_type}"]
-        print(f"[LIMIT] Daily limit reached for {task_type}")
-        return event
+        event["qa"]["failure_reason"] = "DAILY_LIMIT_REACHED"
+        logger.info("[LIMIT] Daily limit reached for %s", task_type)
+        return _finalize_event(event, start, task_type)
 
     tracker.increment(task_type)
 
@@ -559,65 +610,103 @@ def route_task(event: dict) -> dict:
         else:
             event["qa"]["status"] = "FAIL"
             event["qa"]["issues"] = [f"Unknown task type: {task_type}"]
-            print(f"[ERROR] Unknown task type: {task_type}")
+            event["qa"]["failure_reason"] = "UNKNOWN_TASK_TYPE"
+            logger.error("[ERROR] Unknown task type: %s", task_type)
 
     except Exception as e:
         event["qa"]["status"] = "FAIL"
         event["qa"]["issues"] = [str(e)]
-        print(f"[ERROR] {e}")
+        event["qa"]["failure_reason"] = "UNKNOWN_FAILURE"
+        logger.error("[ERROR] %s: %s", task_type, e)
         _agent_metrics[task_type]["errors"] += 1
 
-    elapsed_ms = int((time.time() - start) * 1000)
+    # ── Execution ceiling check ──────────────────────────────────
+    elapsed_s = time.time() - start
+    ceiling = _registry_get(task_type, "max_execution_seconds", 45)
+    if elapsed_s > ceiling:
+        logger.warning(
+            "[CEILING] %s exceeded max_execution_seconds (%ss > %ss)",
+            task_type, round(elapsed_s, 1), ceiling,
+        )
+        event["qa"]["issues"].append(
+            f"EXECUTION_CEILING_BREACH: {round(elapsed_s, 1)}s > {ceiling}s limit"
+        )
+        if event["qa"]["status"] == "PASS":
+            # Delivered but logged as a ceiling breach — keep PASS, flag in metadata
+            event["metrics"]["ceiling_breached"] = True
+
+    elapsed_ms = int(elapsed_s * 1000)
     event["metrics"]["latency_ms"] = elapsed_ms
     _agent_metrics[task_type]["calls"] += 1
     _agent_metrics[task_type]["total_ms"] += elapsed_ms
 
+    return _finalize_event(event, start, task_type, elapsed_ms=elapsed_ms)
+
+
+def _finalize_event(event: dict, start: float, task_type: str, elapsed_ms: int | None = None) -> dict:
+    """Log, notify, and bill every task — success or failure. Fail closed."""
+    if elapsed_ms is None:
+        elapsed_ms = int((time.time() - start) * 1000)
+
+    provider = event.get("inputs", {}).get("provider", "")
+    qa_status = event["qa"].get("status", "FAIL")
+    failure_reason = event["qa"].get("failure_reason", "")
+
+    # Every task MUST produce an artifact — ensure status is set
+    if qa_status not in ("PASS", "FAIL"):
+        event["qa"]["status"] = "FAIL"
+        event["qa"]["failure_reason"] = "MISSING_STATUS"
+        qa_status = "FAIL"
+
     # Log the event (legacy JSONL)
     log_event(event)
 
-    # Structured KPI log
+    # Structured KPI log — always fires (success AND failure)
     try:
         from kpi.logger import log_task_event
         log_task_event(
             task_id=event.get("event_id", ""),
+            lineage_id=event.get("lineage_id", ""),
             task_type=task_type,
-            status="completed" if event["qa"]["status"] == "PASS" else "failed",
-            client=event.get("client", ""),
+            status="completed" if qa_status == "PASS" else "failed",
+            client=event.get("client_id", ""),
             provider=provider or "",
-            qa_status=event["qa"]["status"],
+            qa_status=qa_status,
+            failure_reason=failure_reason,
             duration_s=elapsed_ms / 1000,
         )
-    except Exception:
-        pass  # Don't let logging failures break the pipeline
+    except Exception as exc:
+        logger.error("KPI log failed for %s: %s", task_type, exc)
 
-    # C-Suite event feed — executives consume this for real-time awareness
+    # C-Suite event feed
     try:
         _csuite_notify(event)
-    except Exception:
-        pass  # Never let executive hooks break task delivery
+    except Exception as exc:
+        logger.warning("C-Suite notify failed: %s", exc)
 
     # NCC Relay — publish task event to Resonance Energy governance
     try:
         from resonance.ncc_bridge import ncc
         ncc.publish_task_event(event)
     except Exception:
-        pass  # Never let relay hooks break task delivery
+        pass  # Optional relay — failure must never block delivery
 
-    # ── BILLING — record usage and calculate charge ──
-    if event["qa"]["status"] == "PASS":
-        try:
-            from billing.tracker import BillingTracker
-            bt = BillingTracker()
-            billing_result = bt.record_and_bill(
-                client=event.get("client_id", "direct"),
-                task_type=task_type,
-                task_id=event.get("event_id", ""),
-                llm_cost=event.get("metrics", {}).get("cost_estimate", 0.0),
-            )
-            event["billing"]["amount"] = billing_result.get("charge", 0.0)
-            event["billing"]["status"] = "billed"
-        except Exception:
-            pass  # Never let billing failures break task delivery
+    # ── BILLING — always record, even on failure (amount=0 for FAIL) ──
+    try:
+        from billing.tracker import BillingTracker
+        bt = BillingTracker()
+        billing_result = bt.record_usage(
+            client=event.get("client_id", "direct"),
+            task_type=task_type,
+            task_id=event.get("event_id", ""),
+            llm_cost=event.get("metrics", {}).get("cost_estimate", 0.0),
+            status=qa_status,
+        )
+        event["billing"]["amount"] = billing_result.get("charge", 0.0)
+        event["billing"]["status"] = "billed" if qa_status == "PASS" else "no_charge"
+        event["billing"]["doctrine_version"] = DOCTRINE_VERSION
+    except Exception as exc:
+        logger.error("Billing record failed for %s: %s", task_type, exc)
 
     return event
 

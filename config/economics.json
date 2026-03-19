@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "doctrine_version": "2.0",
+    "description": "BRS 2.0 financial thresholds — margin alerts, burn ceilings, cost anomaly detection"
+  },
+  "min_margin_pct": 85.0,
+  "max_daily_burn_usd": 50.0,
+  "cost_explosion_multiplier": 2.0,
+  "per_agent_alert_ceiling_usd": 5.0,
+  "alert_email": "",
+  "alert_log_level": "CRITICAL"
+}

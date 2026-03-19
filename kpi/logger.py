@@ -26,6 +26,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 LOGS_DIR = PROJECT_ROOT / "kpi" / "logs"
 DB_PATH = PROJECT_ROOT / "data" / "kpi.db"
+DOCTRINE_VERSION = "2.0"
 
 
 def _ensure_dirs():
@@ -40,21 +41,25 @@ def _get_db() -> sqlite3.Connection:
     conn.execute("PRAGMA journal_mode=WAL")
     conn.executescript("""
         CREATE TABLE IF NOT EXISTS events (
-            id            INTEGER PRIMARY KEY AUTOINCREMENT,
-            task_id       TEXT NOT NULL,
-            task_type     TEXT NOT NULL,
-            client        TEXT DEFAULT '',
-            provider      TEXT DEFAULT '',
-            status        TEXT NOT NULL,
-            qa_status     TEXT DEFAULT '',
-            duration_s    REAL DEFAULT 0.0,
-            cost_usd      REAL DEFAULT 0.0,
-            tokens_in     INTEGER DEFAULT 0,
-            tokens_out    INTEGER DEFAULT 0,
-            error         TEXT DEFAULT '',
-            metadata      TEXT DEFAULT '{}',
-            timestamp     TEXT NOT NULL
+            id              INTEGER PRIMARY KEY AUTOINCREMENT,
+            task_id         TEXT NOT NULL,
+            lineage_id      TEXT DEFAULT '',
+            task_type       TEXT NOT NULL,
+            client          TEXT DEFAULT '',
+            provider        TEXT DEFAULT '',
+            status          TEXT NOT NULL,
+            qa_status       TEXT DEFAULT '',
+            failure_reason  TEXT DEFAULT '',
+            duration_s      REAL DEFAULT 0.0,
+            cost_usd        REAL DEFAULT 0.0,
+            tokens_in       INTEGER DEFAULT 0,
+            tokens_out      INTEGER DEFAULT 0,
+            error           TEXT DEFAULT '',
+            doctrine_version TEXT DEFAULT '2.0',
+            metadata        TEXT DEFAULT '{}',
+            timestamp       TEXT NOT NULL
         );
+        CREATE INDEX IF NOT EXISTS idx_events_lineage ON events(lineage_id);
         CREATE INDEX IF NOT EXISTS idx_events_time ON events(timestamp);
         CREATE INDEX IF NOT EXISTS idx_events_client ON events(client);
         CREATE INDEX IF NOT EXISTS idx_events_type ON events(task_type);
@@ -70,6 +75,8 @@ def log_task_event(
     client: str = "",
     provider: str = "",
     qa_status: str = "",
+    failure_reason: str = "",
+    lineage_id: str = "",
     duration_s: float = 0.0,
     cost_usd: float = 0.0,
     tokens_in: int = 0,
@@ -83,16 +90,19 @@ def log_task_event(
 
     event = {
         "task_id": task_id,
+        "lineage_id": lineage_id,
         "task_type": task_type,
         "client": client,
         "provider": provider,
         "status": status,
         "qa_status": qa_status,
+        "failure_reason": failure_reason,
         "duration_s": round(duration_s, 3),
         "cost_usd": round(cost_usd, 6),
         "tokens_in": tokens_in,
         "tokens_out": tokens_out,
         "error": error,
+        "doctrine_version": DOCTRINE_VERSION,
         "metadata": metadata or {},
         "timestamp": timestamp,
     }
@@ -107,13 +117,14 @@ def log_task_event(
     conn = _get_db()
     conn.execute(
         """INSERT INTO events
-           (task_id, task_type, client, provider, status, qa_status,
-            duration_s, cost_usd, tokens_in, tokens_out, error, metadata, timestamp)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+           (task_id, lineage_id, task_type, client, provider, status, qa_status,
+            failure_reason, duration_s, cost_usd, tokens_in, tokens_out, error,
+            doctrine_version, metadata, timestamp)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
-            task_id, task_type, client, provider, status, qa_status,
-            duration_s, cost_usd, tokens_in, tokens_out, error,
-            json.dumps(metadata or {}), timestamp,
+            task_id, lineage_id, task_type, client, provider, status, qa_status,
+            failure_reason, duration_s, cost_usd, tokens_in, tokens_out, error,
+            DOCTRINE_VERSION, json.dumps(metadata or {}), timestamp,
         ),
     )
     conn.commit()

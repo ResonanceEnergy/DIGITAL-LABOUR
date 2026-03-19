@@ -15,6 +15,7 @@ import logging
 import os
 import smtplib
 import sys
+import time
 from datetime import datetime, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -28,6 +29,19 @@ sys.path.insert(0, str(PROJECT_ROOT))
 logger = logging.getLogger("delivery.sender")
 
 OUTPUT_DIR = PROJECT_ROOT / "output" / "deliveries"
+DELIVERY_LOG = PROJECT_ROOT / "kpi" / "delivery_log.jsonl"
+
+_WEBHOOK_RETRY_DELAYS = (1, 5, 30)  # seconds between attempts
+
+
+def _write_delivery_receipt(receipt: dict) -> None:
+    """Append an immutable delivery receipt to kpi/delivery_log.jsonl."""
+    DELIVERY_LOG.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        with open(DELIVERY_LOG, "a", encoding="utf-8") as f:
+            f.write(json.dumps(receipt) + "\n")
+    except Exception as exc:
+        logger.error("Failed to write delivery receipt: %s", exc)
 
 
 # ── SMTP helpers ────────────────────────────────────────────────
@@ -153,7 +167,13 @@ def _deliver_file(task_id: str, task_type: str, outputs: dict, client: str, time
     }
     filepath.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
-    return {"status": "delivered", "method": "file", "path": str(filepath)}
+    receipt = {
+        "task_id": task_id, "task_type": task_type, "client": client,
+        "method": "file", "delivery_status": "complete",
+        "path": str(filepath), "delivered_at": timestamp,
+    }
+    _write_delivery_receipt(receipt)
+    return {"delivery_status": "complete", "method": "file", "path": str(filepath)}
 
 
 def _deliver_email(
@@ -173,8 +193,20 @@ def _deliver_email(
 """
     result = send_email(email_to, subject, body_html)
     if result["ok"]:
-        return {"status": "delivered", "method": "email", "to": email_to}
-    return {"status": "error", "method": "email", "error": result["error"]}
+        receipt = {
+            "task_id": task_id, "task_type": task_type, "client": client,
+            "method": "email", "delivery_status": "complete",
+            "to": email_to, "delivered_at": timestamp,
+        }
+        _write_delivery_receipt(receipt)
+        return {"delivery_status": "complete", "method": "email", "to": email_to}
+    receipt = {
+        "task_id": task_id, "task_type": task_type, "client": client,
+        "method": "email", "delivery_status": "failed",
+        "to": email_to, "error": result["error"], "delivered_at": timestamp,
+    }
+    _write_delivery_receipt(receipt)
+    return {"delivery_status": "failed", "method": "email", "error": result["error"]}
 
 
 def _deliver_webhook(
@@ -192,12 +224,36 @@ def _deliver_webhook(
         "outputs": outputs,
     }
 
-    try:
-        resp = httpx.post(webhook_url, json=payload, timeout=30.0)
-        resp.raise_for_status()
-        return {"status": "delivered", "method": "webhook", "url": webhook_url, "http_status": resp.status_code}
-    except Exception as e:
-        return {"status": "error", "method": "webhook", "error": str(e)}
+    last_error = ""
+    for attempt, delay in enumerate(_WEBHOOK_RETRY_DELAYS, start=1):
+        try:
+            resp = httpx.post(webhook_url, json=payload, timeout=30.0)
+            resp.raise_for_status()
+            receipt = {
+                "task_id": task_id, "task_type": task_type, "client": client,
+                "method": "webhook", "delivery_status": "complete",
+                "url": webhook_url, "http_status": resp.status_code,
+                "attempt": attempt, "delivered_at": timestamp,
+            }
+            _write_delivery_receipt(receipt)
+            return {
+                "delivery_status": "complete", "method": "webhook",
+                "url": webhook_url, "http_status": resp.status_code, "attempt": attempt,
+            }
+        except Exception as exc:
+            last_error = str(exc)
+            logger.warning("Webhook attempt %d/%d failed: %s", attempt, len(_WEBHOOK_RETRY_DELAYS), exc)
+            if attempt < len(_WEBHOOK_RETRY_DELAYS):
+                time.sleep(delay)
+
+    receipt = {
+        "task_id": task_id, "task_type": task_type, "client": client,
+        "method": "webhook", "delivery_status": "failed",
+        "url": webhook_url, "error": last_error,
+        "attempts": len(_WEBHOOK_RETRY_DELAYS), "delivered_at": timestamp,
+    }
+    _write_delivery_receipt(receipt)
+    return {"delivery_status": "failed", "method": "webhook", "error": last_error}
 
 
 def export_csv(tasks: list[dict], filepath: Path | str) -> str:

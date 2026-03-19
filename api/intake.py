@@ -9,13 +9,17 @@ Usage:
 """
 
 import sys
+import re
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+import logging
 from datetime import datetime, timezone
 from typing import Literal
+
+logger = logging.getLogger("api.intake")
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request
@@ -163,6 +167,45 @@ def blog_post(slug: str):
 
 queue = TaskQueue()
 
+# ── Input Sanitization ──────────────────────────────────────────────────────
+
+_MAX_FIELD_LENGTH = 32_000
+_INJECTION_PATTERNS = re.compile(
+    r"(ignore previous|disregard (all |your )?instructions|you are now|"
+    r"<script|javascript:|on\w+\s*=|"
+    r"union\s+select|drop\s+table|;\s*delete|"
+    r"&&|\|\||;\s*[a-z]+|\$\(|`)",
+    re.IGNORECASE,
+)
+
+
+def sanitize_input(inputs: dict) -> dict:
+    """Strip control chars, limit field lengths, detect injection patterns.
+
+    Raises HTTPException 413 on oversized payload, logs SUSPICIOUS_INPUT on
+    detected injection patterns but allows through (flagged only).
+    """
+    total_chars = 0
+    sanitized: dict = {}
+    for key, value in inputs.items():
+        if isinstance(value, str):
+            clean = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", "", value)
+            if len(clean) > _MAX_FIELD_LENGTH:
+                raise HTTPException(
+                    status_code=413,
+                    detail=f"Field '{key}' exceeds maximum length ({_MAX_FIELD_LENGTH} chars)",
+                )
+            total_chars += len(clean)
+            if _INJECTION_PATTERNS.search(clean):
+                logger.warning("[SUSPICIOUS_INPUT] Injection pattern in field '%s'", key)
+            sanitized[key] = clean
+        else:
+            sanitized[key] = value
+
+    if total_chars > _MAX_FIELD_LENGTH * 3:
+        raise HTTPException(status_code=413, detail="Total payload size exceeds limit")
+    return sanitized
+
 
 # ── Request / Response Models ───────────────────────────────────────────────
 
@@ -215,10 +258,13 @@ def submit_task(req: TaskRequest):
                 detail=f"Daily limit ({limit}) reached for {req.task_type}. Resets at midnight UTC.",
             )
 
+    # Sanitize inputs (injection detection + size limits)
+    sanitized_inputs = sanitize_input(req.inputs)
+
     # Enqueue
     task_id = queue.enqueue(
         task_type=req.task_type,
-        inputs=req.inputs,
+        inputs=sanitized_inputs,
         client=req.client,
         provider=req.provider,
         priority=req.priority,
@@ -235,7 +281,7 @@ def submit_task(req: TaskRequest):
                 from dispatcher.router import create_event
                 event = create_event(
                     task_type=req.task_type,
-                    inputs={**req.inputs, "provider": req.provider} if req.provider else req.inputs,
+                    inputs={**sanitized_inputs, "provider": req.provider} if req.provider else sanitized_inputs,
                     client_id=req.client or "direct",
                 )
                 result = route_task(event)
@@ -292,6 +338,52 @@ def client_budget(client: str):
 @app.get("/health")
 def health():
     return {"status": "ok", "timestamp": datetime.now(timezone.utc).isoformat()}
+
+
+@app.get("/trace/{lineage_id}")
+def trace_lineage(lineage_id: str):
+    """Return all KPI log events for a given lineage_id."""
+    from kpi.logger import get_events
+    events = get_events(limit=500)
+    matched = [e for e in events if e.get("lineage_id") == lineage_id]
+    if not matched:
+        raise HTTPException(status_code=404, detail=f"No events found for lineage_id: {lineage_id}")
+    return {"lineage_id": lineage_id, "events": matched, "count": len(matched)}
+
+
+@app.get("/agents")
+def list_agents():
+    """Return the agent registry (agent configs, ceilings, status)."""
+    from dispatcher.router import AGENT_REGISTRY
+    return {
+        "doctrine_version": "2.0",
+        "agent_count": len(AGENT_REGISTRY),
+        "agents": AGENT_REGISTRY,
+    }
+
+
+@app.post("/admin/agents/{name}/disable")
+def disable_agent(name: str, reason: str = ""):
+    """Immediately disable an agent. All new tasks for this agent will be rejected."""
+    from dispatcher.router import AGENT_REGISTRY, save_registry
+    if name not in AGENT_REGISTRY:
+        raise HTTPException(status_code=404, detail=f"Agent '{name}' not found in registry")
+    AGENT_REGISTRY[name]["disabled"] = True
+    save_registry()
+    logger.warning("[ADMIN] Agent '%s' disabled. Reason: %s", name, reason or "(none)")
+    return {"agent": name, "disabled": True, "reason": reason}
+
+
+@app.post("/admin/agents/{name}/enable")
+def enable_agent(name: str):
+    """Re-enable a previously disabled agent."""
+    from dispatcher.router import AGENT_REGISTRY, save_registry
+    if name not in AGENT_REGISTRY:
+        raise HTTPException(status_code=404, detail=f"Agent '{name}' not found in registry")
+    AGENT_REGISTRY[name]["disabled"] = False
+    save_registry()
+    logger.info("[ADMIN] Agent '%s' re-enabled.", name)
+    return {"agent": name, "disabled": False}
 
 
 @app.get("/dashboard")

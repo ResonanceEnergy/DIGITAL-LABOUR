@@ -136,10 +136,11 @@ class BillingTracker:
         conn.close()
 
     def record_usage(
-        self, client: str, task_type: str, task_id: str = "", llm_cost: float = 0.0
+        self, client: str, task_type: str, task_id: str = "", llm_cost: float = 0.0,
+        status: str = "PASS",
     ) -> dict:
-        """Record a billable task. Calculates charge based on pricing."""
-        charge = PRICING.get(task_type, {}).get("per_task", 0.0)
+        """Record a task execution. Charge applies only on PASS; FAIL is recorded at amount=0."""
+        charge = PRICING.get(task_type, {}).get("per_task", 0.0) if status == "PASS" else 0.0
         now = datetime.now(timezone.utc).isoformat()
 
         conn = self._conn()
@@ -278,6 +279,37 @@ class BillingTracker:
                 print(f"[BILLING] Invoice for {client}: ${inv['total_charge']:.2f} ({inv['tasks_count']} tasks)")
 
         return invoices
+
+    def per_agent_economics(self, days: int = 30) -> dict:
+        """Return per-agent P&L: tasks, revenue, llm_cost, margin per task type."""
+        cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
+        conn = self._conn()
+        rows = conn.execute(
+            "SELECT task_type, llm_cost, charge FROM usage WHERE timestamp >= ?", (cutoff,)
+        ).fetchall()
+        conn.close()
+
+        agents: dict[str, dict] = {}
+        for r in rows:
+            t = r["task_type"]
+            if t not in agents:
+                agents[t] = {"tasks": 0, "revenue": 0.0, "llm_cost": 0.0}
+            agents[t]["tasks"] += 1
+            agents[t]["revenue"] += r["charge"]
+            agents[t]["llm_cost"] += r["llm_cost"]
+
+        result = {}
+        for t, v in agents.items():
+            margin = v["revenue"] - v["llm_cost"]
+            margin_pct = (margin / v["revenue"] * 100) if v["revenue"] > 0 else 0.0
+            result[t] = {
+                "tasks": v["tasks"],
+                "revenue": round(v["revenue"], 2),
+                "llm_cost": round(v["llm_cost"], 4),
+                "margin": round(margin, 2),
+                "margin_pct": round(margin_pct, 1),
+            }
+        return result
 
     def record_and_bill(
         self, client: str, task_type: str, task_id: str = "", llm_cost: float = 0.0

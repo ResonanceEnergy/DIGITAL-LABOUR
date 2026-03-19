@@ -1,0 +1,106 @@
+{
+  "_meta": {
+    "doctrine_version": "2.0",
+    "schema_version": "1.0",
+    "updated": "2026-03-18"
+  },
+  "rules": {
+    "QA-001": {
+      "id": "QA-001",
+      "name": "non_empty_output",
+      "description": "Output must not be empty or whitespace-only",
+      "applies_to": ["all"],
+      "severity": "hard_fail"
+    },
+    "QA-002": {
+      "id": "QA-002",
+      "name": "no_placeholder_text",
+      "description": "Output must not contain placeholder text like [INSERT], TODO, PLACEHOLDER, <FILL_IN>",
+      "applies_to": ["all"],
+      "severity": "hard_fail"
+    },
+    "QA-003": {
+      "id": "QA-003",
+      "name": "minimum_length",
+      "description": "Output must meet minimum character length thresholds per task type",
+      "applies_to": ["sales_outreach", "content_repurpose", "seo_content", "proposal_writer", "business_plan", "press_release", "tech_docs"],
+      "severity": "hard_fail",
+      "params": {
+        "sales_outreach": 200,
+        "content_repurpose": 500,
+        "seo_content": 800,
+        "proposal_writer": 1000,
+        "business_plan": 2000,
+        "press_release": 400,
+        "tech_docs": 500
+      }
+    },
+    "QA-004": {
+      "id": "QA-004",
+      "name": "no_banned_phrases",
+      "description": "Output must not contain phrases from the client's banned phrases list or global banned list",
+      "applies_to": ["all"],
+      "severity": "hard_fail"
+    },
+    "QA-005": {
+      "id": "QA-005",
+      "name": "schema_compliance",
+      "description": "Output must match the declared JSON schema for its task type",
+      "applies_to": ["all"],
+      "severity": "hard_fail"
+    },
+    "QA-006": {
+      "id": "QA-006",
+      "name": "professional_tone",
+      "description": "Output must maintain professional, non-offensive language",
+      "applies_to": ["sales_outreach", "email_marketing", "content_repurpose", "seo_content", "social_media", "press_release"],
+      "severity": "hard_fail"
+    },
+    "QA-007": {
+      "id": "QA-007",
+      "name": "factual_claims_flagged",
+      "description": "Outputs with factual claims about specific companies, people, or statistics must be flagged for human review",
+      "applies_to": ["market_research", "press_release", "business_plan"],
+      "severity": "soft_warn"
+    },
+    "QA-008": {
+      "id": "QA-008",
+      "name": "minimum_confidence_score",
+      "description": "QA confidence score must be >= 0.70 to pass; >= 0.50 for retry; < 0.50 is hard fail",
+      "applies_to": ["all"],
+      "severity": "hard_fail",
+      "params": {
+        "pass_threshold": 0.70,
+        "retry_threshold": 0.50
+      }
+    },
+    "QA-009": {
+      "id": "QA-009",
+      "name": "personalization_present",
+      "description": "Sales outreach must include company-specific personalization (company name, role, context)",
+      "applies_to": ["sales_outreach"],
+      "severity": "hard_fail"
+    },
+    "QA-010": {
+      "id": "QA-010",
+      "name": "cta_present",
+      "description": "Outreach and marketing content must include a clear call-to-action",
+      "applies_to": ["sales_outreach", "email_marketing", "social_media", "ad_copy"],
+      "severity": "hard_fail"
+    },
+    "QA-011": {
+      "id": "QA-011",
+      "name": "structured_data_parseable",
+      "description": "Data entry, doc extract, and CRM outputs must be valid parseable JSON",
+      "applies_to": ["data_entry", "doc_extract", "crm_ops", "bookkeeping"],
+      "severity": "hard_fail"
+    },
+    "QA-012": {
+      "id": "QA-012",
+      "name": "no_pii_in_output",
+      "description": "Outputs must not expose PII that was not present in the input (no hallucinated emails, phone numbers, SSNs)",
+      "applies_to": ["all"],
+      "severity": "hard_fail"
+    }
+  }
+}
