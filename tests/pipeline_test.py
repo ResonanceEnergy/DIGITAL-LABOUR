@@ -165,7 +165,17 @@ def main():
     parser = argparse.ArgumentParser(description="Bit Rage Labour Pipeline Test")
     parser.add_argument("--agent", choices=list(TEST_INPUTS.keys()), help="Test a specific agent only")
     parser.add_argument("--provider", help="Force a specific LLM provider")
+    parser.add_argument("--live", action="store_true",
+                        help="Required flag to confirm real API calls and spend.")
     args = parser.parse_args()
+
+    if not args.live:
+        print("\n[PIPELINE TEST] Dry-run mode — no API calls made.")
+        print("  This test fires real LLM calls across all 4 agent types.")
+        print("  Each run costs ~$0.15-0.50 depending on provider.")
+        print("\n  To actually run: python tests/pipeline_test.py --live")
+        print("  Single agent:   python tests/pipeline_test.py --live --agent sales_outreach")
+        return 0
 
     agents = [args.agent] if args.agent else list(TEST_INPUTS.keys())
 

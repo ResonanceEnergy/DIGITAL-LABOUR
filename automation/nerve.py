@@ -43,6 +43,7 @@ load_dotenv(PROJECT_ROOT / ".env")
 
 from automation.decision_log import log_decision, log_escalation, decision_summary, get_decisions, get_escalations
 from automation.self_check import run_full_check, find_gaps, heal_issues
+from utils.dl_agent import set_active_client, clear_active_client
 
 STATE_FILE = PROJECT_ROOT / "data" / "nerve_state.json"
 LOG_DIR = PROJECT_ROOT / "data" / "nerve_logs"
@@ -136,6 +137,7 @@ def run_cycle() -> dict:
     logger.info(f"\n{'='*70}")
     logger.info(f"  NERVE CYCLE #{cycle_num} — {now.strftime('%Y-%m-%d %H:%M UTC')}")
     logger.info(f"{'='*70}")
+    set_active_client("nerve_scheduler")
 
     cycle_report = {
         "cycle": cycle_num,
@@ -622,6 +624,7 @@ def run_cycle() -> dict:
     logger.info(f"  NERVE CYCLE #{cycle_num} COMPLETE — {elapsed:.1f}s")
     logger.info(f"  Decisions: {cycle_report['decisions_made']} | Healed: {cycle_report['issues_healed']} | Escalations: {cycle_report['escalations']}")
     logger.info(f"{'='*70}")
+    clear_active_client()
 
     return cycle_report
 

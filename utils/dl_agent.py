@@ -33,6 +33,22 @@ from utils.llm_client import call_llm, list_available_providers, get_default_pro
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CACHE_DIR = PROJECT_ROOT / "data" / "agent_cache"
+
+# ── Client context for cost attribution ────────────────────────
+# Set via set_active_client() before batch operations to tag cost records.
+_ACTIVE_CLIENT_ID: str = ""
+
+
+def set_active_client(client_id: str) -> None:
+    """Set the active client context so _track_cost() can attribute costs."""
+    global _ACTIVE_CLIENT_ID
+    _ACTIVE_CLIENT_ID = client_id
+
+
+def clear_active_client() -> None:
+    """Clear the active client context after a batch is complete."""
+    global _ACTIVE_CLIENT_ID
+    _ACTIVE_CLIENT_ID = ""
 METRICS_DIR = PROJECT_ROOT / "data" / "agent_metrics"
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 METRICS_DIR.mkdir(parents=True, exist_ok=True)
@@ -232,6 +248,8 @@ def _track_cost(agent_name: str, provider: str, input_tokens: int,
         "duration_s": round(duration_s, 2),
         "cached": cached,
     }
+    if _ACTIVE_CLIENT_ID:
+        record["client"] = _ACTIVE_CLIENT_ID
 
     date_str = datetime.now(timezone.utc).strftime("%Y%m%d")
     metrics_file = METRICS_DIR / f"costs_{date_str}.jsonl"
@@ -543,7 +561,7 @@ def make_super(agent_name: str, temperature: float = 0.7,
 # ── Drop-in bridge: replaces call_llm with zero call-site changes ──────────
 
 def make_bridge(agent_name: str, default_temperature: float = 0.7,
-                self_reflect: bool = True, chain_of_thought: bool = True,
+                self_reflect: bool | None = None, chain_of_thought: bool = True,
                 cache_enabled: bool = True, reflect_threshold: float = 7.0,
                 quality_dims: list[str] | None = None):
     """Create a call_llm-compatible function that routes through super_call.
@@ -555,6 +573,9 @@ def make_bridge(agent_name: str, default_temperature: float = 0.7,
     All existing call_llm(...) calls work unchanged — they now get:
     chain-of-thought, self-reflection, caching, failover, cost tracking.
     """
+    # Resolve self_reflect: explicit arg wins; otherwise read DL_REFLECT env var (default off)
+    _self_reflect = self_reflect if self_reflect is not None else os.getenv("DL_REFLECT", "false").lower() == "true"
+
     def bridge(system_prompt: str = "", user_prompt: str = "",
                user_message: str = "", provider: str | None = None,
                temperature: float = default_temperature,
@@ -565,7 +586,7 @@ def make_bridge(agent_name: str, default_temperature: float = 0.7,
             temperature=temperature,
             json_mode=json_mode,
             failover_enabled=fallback,
-            self_reflect=self_reflect,
+            self_reflect=_self_reflect,
             chain_of_thought=chain_of_thought,
             cache_enabled=cache_enabled,
             reflect_threshold=reflect_threshold,
