@@ -1,6 +1,10 @@
 # ResonanceEnergy • Public Repositories
 
-_Total: 4_
+_Total: 5_
+
+## Core / Command / Brain
+
+- [ResonanceEnergy/AAC](https://github.com/ResonanceEnergy/AAC) — ACCELERATED ARBITRAGE CORPORATION
 
 ## Products / Experiences / IP Worlds
 
