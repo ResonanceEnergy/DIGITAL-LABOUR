@@ -1,6 +1,6 @@
-﻿"""NERVE — Nexus Engine for Resilient Vigilant Execution.
+"""NERVE — Nexus Engine for Resilient Vigilant Execution.
 
-The autonomous 24/7 daemon that runs BIT RAGE LABOUR without human intervention.
+The autonomous 24/7 daemon that runs DIGITAL LABOUR without human intervention.
 Self-checking, self-healing, self-motivated. Only escalates truly critical issues.
 
 NERVE wraps the existing orchestrator, outreach pipeline, C-Suite scheduler,
@@ -603,6 +603,90 @@ def run_cycle() -> dict:
             logger.error(f"  [ERROR] Resonance sync failed: {e}")
             cycle_report["phases"]["resonance_sync"] = {"error": str(e)}
 
+    # ── Phase 19: Followup Scheduler (every cycle) ──────────
+    logger.info(f"\n[PHASE 19] Followup Scheduler...")
+    try:
+        from automation.followup_scheduler import run_followups
+        fu_result = run_followups(dry_run=False)
+        sent_count = fu_result.get("sent", 0)
+        if sent_count:
+            logger.info(f"  Sent {sent_count} scheduled follow-ups")
+            log_decision(
+                actor="NERVE",
+                action="followup_scheduler",
+                reasoning=f"Cycle #{cycle_num} — scheduled multi-touch follow-ups",
+                outcome=f"{sent_count} follow-ups sent",
+            )
+            cycle_report["decisions_made"] += 1
+        else:
+            logger.info(f"  No follow-ups due this cycle")
+        cycle_report["phases"]["followup_scheduler"] = fu_result
+    except Exception as e:
+        logger.error(f"  [ERROR] Followup scheduler failed: {e}")
+        cycle_report["phases"]["followup_scheduler"] = {"error": str(e)}
+
+    # ── Phase 20: Retainer Pitcher (every 6 cycles) ───────────
+    if cycle_num % 6 == 0:
+        logger.info(f"\n[PHASE 20] Retainer Pitcher...")
+        try:
+            from automation.retainer_pitcher import auto_pitch
+            pitch_result = auto_pitch(dry_run=False)
+            pitched = pitch_result.get("pitched", 0)
+            if pitched:
+                logger.info(f"  Pitched {pitched} retainer candidates")
+                log_decision(
+                    actor="NERVE",
+                    action="retainer_pitcher",
+                    reasoning=f"Cycle #{cycle_num} — periodic retainer upsell",
+                    outcome=f"{pitched} clients pitched for retainers",
+                )
+                cycle_report["decisions_made"] += 1
+            else:
+                logger.info(f"  No retainer candidates qualified")
+            cycle_report["phases"]["retainer_pitcher"] = pitch_result
+        except Exception as e:
+            logger.error(f"  [ERROR] Retainer pitcher failed: {e}")
+            cycle_report["phases"]["retainer_pitcher"] = {"error": str(e)}
+
+    # ── Phase 21: Referral Tracker Status (every 6 cycles) ────
+    if cycle_num % 6 == 0:
+        logger.info(f"\n[PHASE 21] Referral Tracker...")
+        try:
+            from automation.referral_tracker import get_stats
+            ref_stats = get_stats()
+            logger.info(f"  Referral codes: {ref_stats['active_codes']} | "
+                        f"Conversions: {ref_stats['total_conversions']} | "
+                        f"Credit: ${ref_stats['total_credit_earned']:.2f}")
+            cycle_report["phases"]["referral_tracker"] = ref_stats
+        except Exception as e:
+            logger.error(f"  [ERROR] Referral tracker failed: {e}")
+            cycle_report["phases"]["referral_tracker"] = {"error": str(e)}
+
+    # ── Phase 22: LinkedIn Daily Post (every cycle, self-throttled) ──
+    logger.info(f"\n[PHASE 22] LinkedIn Daily Post...")
+    try:
+        from automation.linkedin_poster import post_next as li_post_next
+        li_result = li_post_next()
+        if li_result.get("success"):
+            logger.info(f"  Posted to LinkedIn")
+            log_decision(
+                actor="NERVE",
+                action="linkedin_daily_post",
+                reasoning=f"Cycle #{cycle_num} — daily LinkedIn post",
+                outcome=f"Post published",
+            )
+            cycle_report["decisions_made"] += 1
+        elif li_result.get("queued"):
+            logger.info(f"  LinkedIn post queued (API keys needed)")
+        elif "Already posted today" in li_result.get("error", ""):
+            logger.info(f"  Already posted to LinkedIn today — skipping.")
+        else:
+            logger.warning(f"  LinkedIn post failed: {li_result.get('error', 'unknown')}")
+        cycle_report["phases"]["linkedin_poster"] = li_result
+    except Exception as e:
+        logger.error(f"  [ERROR] LinkedIn poster failed: {e}")
+        cycle_report["phases"]["linkedin_poster"] = {"error": str(e)}
+
     # ── Finalize ───────────────────────────────────────────────
     cycle_report["finished"] = datetime.now(timezone.utc).isoformat()
     elapsed = (datetime.now(timezone.utc) - now).total_seconds()
@@ -767,7 +851,7 @@ def show_decisions(limit: int = 20):
 # ── CLI ────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="NERVE — Autonomous BIT RAGE LABOUR daemon")
+    parser = argparse.ArgumentParser(description="NERVE — Autonomous DIGITAL LABOUR daemon")
     parser.add_argument("--daemon", action="store_true", help="Run 24/7 daemon mode")
     parser.add_argument("--status", action="store_true", help="Show NERVE status")
     parser.add_argument("--decisions", action="store_true", help="Show recent decisions")

@@ -103,7 +103,7 @@ def writer_agent(product: str, platform: str = "google_search",
     user_msg += f"\nProduct/Service:\n{product}"
     raw = call_llm(system_prompt=system, user_prompt=user_msg,
                    provider=provider, json_mode=True)
-    return WriterOutput(**json.loads(raw))
+    return parse_llm_json(raw, WriterOutput)
 
 
 def qa_agent(ads: WriterOutput, provider: str = "openai") -> QAResult:
@@ -111,7 +111,7 @@ def qa_agent(ads: WriterOutput, provider: str = "openai") -> QAResult:
     user_msg = f"Ad copy to validate:\n{json.dumps(ads.model_dump(), indent=2)}"
     raw = call_llm(system_prompt=system, user_prompt=user_msg,
                    provider=provider, json_mode=True)
-    return QAResult(**json.loads(raw))
+    return parse_llm_json(raw, QAResult)
 
 
 def run_pipeline(product: str, platform: str = "google_search",

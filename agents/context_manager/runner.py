@@ -26,6 +26,7 @@ from pydantic import BaseModel, Field
 load_dotenv(PROJECT_ROOT / ".env")
 
 from utils.dl_agent import make_bridge
+from utils.llm_client import parse_llm_json
 llm_call = make_bridge("context_manager", default_temperature=0.3)
 
 
@@ -148,8 +149,7 @@ def enrich_task(task_type: str, client_id: str,
 
     raw = llm_call(prompt, user_msg, provider=provider,
                     temperature=0.3, json_mode=True)
-    data = json.loads(raw, strict=False)
-    enrichment = ContextEnrichment.model_validate(data)
+    enrichment = parse_llm_json(raw, ContextEnrichment)
 
     # Update client profile
     now = datetime.now(timezone.utc).isoformat()
@@ -209,8 +209,7 @@ def coordinate_agents(task_type: str, client_id: str,
 
     raw = llm_call(prompt, user_msg, provider=provider,
                     temperature=0.3, json_mode=True)
-    data = json.loads(raw, strict=False)
-    enrichment = ContextEnrichment.model_validate(data)
+    enrichment = parse_llm_json(raw, ContextEnrichment)
     _log_action("coordinate", client_id, task_type, enrichment)
     return enrichment
 

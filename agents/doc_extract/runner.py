@@ -21,6 +21,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from utils.dl_agent import make_bridge
+from utils.llm_client import parse_llm_json
 call_llm = make_bridge("doc_extract")
 
 PROMPT_DIR = Path(__file__).resolve().parent
@@ -68,8 +69,7 @@ def extractor_agent(document_text: str, doc_type: str = "auto", provider: str | 
     prompt = (PROMPT_DIR / "extractor_prompt.md").read_text(encoding="utf-8")
     user_msg = json.dumps({"document_text": document_text, "doc_type": doc_type})
     raw = call_llm(prompt, user_msg, provider=provider)
-    data = json.loads(raw)
-    return Extraction(**data)
+    return parse_llm_json(raw, Extraction)
 
 
 def qa_agent(document_text: str, extraction: Extraction, provider: str | None = None) -> QAResult:
@@ -80,8 +80,7 @@ def qa_agent(document_text: str, extraction: Extraction, provider: str | None = 
         "extraction": extraction.model_dump(),
     })
     raw = call_llm(prompt, user_msg, provider=provider)
-    data = json.loads(raw)
-    return QAResult(**data)
+    return parse_llm_json(raw, QAResult)
 
 
 # ── Pipeline ────────────────────────────────────────────────────────────────

@@ -22,6 +22,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from utils.dl_agent import make_bridge
+from utils.llm_client import parse_llm_json
 call_llm = make_bridge("content_repurpose")
 
 PROMPT_DIR = Path(__file__).resolve().parent
@@ -72,8 +73,7 @@ def analyzer_agent(source_text: str, provider: str | None = None) -> ContentAnal
     """Analyze source content and extract key insights."""
     prompt = (PROMPT_DIR / "analyzer_prompt.md").read_text(encoding="utf-8")
     raw = call_llm(prompt, source_text, provider=provider)
-    data = json.loads(raw)
-    return ContentAnalysis(**data)
+    return parse_llm_json(raw, ContentAnalysis)
 
 
 def writer_agent(
@@ -89,8 +89,7 @@ def writer_agent(
         "requested_formats": fmt_list,
     })
     raw = call_llm(prompt, user_msg, provider=provider)
-    data = json.loads(raw)
-    return RepurposedContent(**data)
+    return parse_llm_json(raw, RepurposedContent)
 
 
 def qa_agent(analysis: ContentAnalysis, content: RepurposedContent, provider: str | None = None) -> QAResult:
@@ -101,8 +100,7 @@ def qa_agent(analysis: ContentAnalysis, content: RepurposedContent, provider: st
         "content": content.model_dump(),
     })
     raw = call_llm(prompt, user_msg, provider=provider)
-    data = json.loads(raw)
-    return QAResult(**data)
+    return parse_llm_json(raw, QAResult)
 
 
 # ── Pipeline ────────────────────────────────────────────────────────────────

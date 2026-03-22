@@ -25,6 +25,7 @@ from pydantic import BaseModel, Field
 load_dotenv(PROJECT_ROOT / ".env")
 
 from utils.dl_agent import make_bridge
+from utils.llm_client import parse_llm_json
 llm_call = make_bridge("qa_manager", self_reflect=False)
 
 
@@ -195,8 +196,7 @@ def verify_deliverable(
 
     raw = llm_call(prompt, user_msg, provider=provider,
                     temperature=0.2, json_mode=True)
-    data = json.loads(raw, strict=False)
-    verdict = QAVerdict.model_validate(data)
+    verdict = parse_llm_json(raw, QAVerdict)
 
     # Enforce score thresholds
     if verdict.quality_score < 70:

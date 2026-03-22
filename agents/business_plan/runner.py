@@ -24,6 +24,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from utils.dl_agent import make_bridge  # noqa: E402
+from utils.llm_client import parse_llm_json  # noqa: E402
 call_llm = make_bridge("business_plan")
 
 PROMPT_DIR = Path(__file__).resolve().parent
@@ -170,7 +171,7 @@ def planner_agent(business_idea: str, plan_type: str = "startup",
     user_msg += f"\nBusiness Idea:\n{business_idea}"
     raw = call_llm(system_prompt=system, user_prompt=user_msg,
                    provider=provider, json_mode=True)
-    return PlannerOutput(**json.loads(raw))
+    return parse_llm_json(raw, PlannerOutput)
 
 
 def qa_agent(plan: PlannerOutput, provider: str = "openai") -> QAResult:
@@ -178,7 +179,7 @@ def qa_agent(plan: PlannerOutput, provider: str = "openai") -> QAResult:
     user_msg = f"Business plan to validate:\n{json.dumps(plan.model_dump(), indent=2)}"
     raw = call_llm(system_prompt=system, user_prompt=user_msg,
                    provider=provider, json_mode=True)
-    return QAResult(**json.loads(raw))
+    return parse_llm_json(raw, QAResult)
 
 
 def run_pipeline(business_idea: str, plan_type: str = "startup",
