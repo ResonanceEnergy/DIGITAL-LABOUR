@@ -224,6 +224,17 @@ def financials(days: int = 30):
         return {"total_revenue": 0, "total_cost": 0, "gross_margin": 0, "total_tasks": 0}
 
 
+@router.get("/financials/agents")
+def financials_per_agent(days: int = 30):
+    """Per-agent P&L: tasks, revenue, llm_cost, margin, margin_pct."""
+    try:
+        from billing.tracker import BillingTracker
+        bt = BillingTracker()
+        return bt.per_agent_economics(days=days)
+    except Exception:
+        return {}
+
+
 @router.get("/financials/trend")
 def financial_trend(days: int = 30):
     """Daily revenue and cost trend."""

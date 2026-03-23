@@ -1,4 +1,4 @@
-# BIT RAGE LABOUR Operations Mode - Terminal Independence Guarantee
+# DIGITAL LABOUR Operations Mode - Terminal Independence Guarantee
 
 ## ✅ OPERATIONS MODE: TERMINAL-INDEPENDENT
 
@@ -203,4 +203,4 @@ python parallel_orchestrator.py
 
 ---
 
-*BIT RAGE LABOUR Operations Mode: Terminal-Independent, Fully Autonomous, Enterprise-Ready* 🚀
+*DIGITAL LABOUR Operations Mode: Terminal-Independent, Fully Autonomous, Enterprise-Ready* 🚀

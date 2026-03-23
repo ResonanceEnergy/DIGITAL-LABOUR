@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Automated launcher for the Bit Rage Labour runtime
+# Automated launcher for the DIGITAL LABOUR runtime
 # - installs dependencies
 # - verifies AAC UI assets directory
 # - starts run_bit_rage_labour.py
@@ -16,5 +16,5 @@ else
     echo "No AAC monitor module present; using simple console UI."
 fi
 
-echo "[2/3] Starting Bit Rage Labour in run mode..."
+echo "[2/3] Starting DIGITAL LABOUR in run mode..."
 python run_bit_rage_labour.py

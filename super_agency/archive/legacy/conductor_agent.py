@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BIT RAGE LABOUR Conductor Agent
+DIGITAL LABOUR Conductor Agent
 Orchestrates Inner Council agents using AutoGen and CrewAI patterns
 Maximizes distributed intelligence and resource efficiency
 """
@@ -39,7 +39,7 @@ from agents.integrate_cell import IntegrateCellAgent
 from agents.openclaw_integration import OpenClawIntegrationAgent
 
 class ConductorAgent:
-    """Master orchestrator for BIT RAGE LABOUR agents"""
+    """Master orchestrator for DIGITAL LABOUR agents"""
 
     def __init__(self):
         """Initialize Conductor Agent."""
@@ -274,7 +274,7 @@ class ConductorAgent:
             }
 
         # Example: Send a summary of the integration results to a default platform
-        summary_message = f"Bit Rage Labour Orchestration Cycle Update:\n"
+        summary_message = f"DIGITAL LABOUR Orchestration Cycle Update:\n"
         summary_message += f"Integration Status: {integration_data.get('integration_status', 'N/A')}\n"
         summary_message += f"Results: {json.dumps(integration_data.get('results', {}), indent=2)}"
 

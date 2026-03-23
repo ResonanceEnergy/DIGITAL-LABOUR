@@ -152,7 +152,7 @@ def _draw_invoice(invoice: dict) -> bytes:
         y -= gap
 
     # Header
-    add(50, "BIT RAGE LABOUR", 22)
+    add(50, "DIGITAL LABOUR", 22)
     nl(18)
     add(50, "AI Workforce — Invoice", 10)
     nl(30)
@@ -225,7 +225,7 @@ def _draw_invoice(invoice: dict) -> bytes:
     nl()
     add(50, "Terms: Due upon receipt. Net 14 days.", 9)
     nl(30)
-    add(50, "Thank you for choosing Bit Rage Labour.", 10)
+    add(50, "Thank you for choosing DIGITAL LABOUR.", 10)
 
     pdf.add_page(lines)
     return pdf.build()

@@ -77,7 +77,7 @@ def generate_proposal(title: str, description: str) -> str:
         pitch_blocks.append("Multi-LLM integration — GPT-4o, Claude, Gemini with failover.")
     if not pitch_blocks:
         pitch_blocks.append("Production AI systems with Python, FastAPI, and multi-LLM integration.")
-    return f"Hi,\n\n{chr(10).join(pitch_blocks[:3])}\n\n— Bit Rage Labour"
+    return f"Hi,\n\n{chr(10).join(pitch_blocks[:3])}\n\n— DIGITAL LABOUR"
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

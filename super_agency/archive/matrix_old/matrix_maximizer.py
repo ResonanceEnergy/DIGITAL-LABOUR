@@ -1,6 +1,6 @@
 """
 MATRIX MAXIMIZER V3.0 - Complete Rewrite
-BIT RAGE LABOUR Project Management & Intelligence Platform
+DIGITAL LABOUR Project Management & Intelligence Platform
 REPO DEPOT Integration System
 
 A clean, robust, and reliable project management system with:

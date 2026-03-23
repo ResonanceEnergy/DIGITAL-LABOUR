@@ -1,2 +1,2 @@
-# C-Suite Executive Agents — BIT RAGE LABOUR
+# C-Suite Executive Agents — DIGITAL LABOUR
 # AXIOM (CEO) | VECTIS (COO) | LEDGR (CFO) | Board Room | Scheduler

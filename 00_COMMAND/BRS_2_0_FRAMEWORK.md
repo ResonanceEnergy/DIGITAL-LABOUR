@@ -1,4 +1,4 @@
-# BRS 2.0 — BIT RAGE SYSTEMS MASTER FRAMEWORK
+# BRS 2.0 — DIGITAL LABOUR MASTER FRAMEWORK
 ## 250 Macrohard Insights — Atlantis Reconstruction Model
 **Classification**: ALOPS Doctrine  
 **Status**: ACTIVE — FRAMEWORK LOCKED  
@@ -2870,3 +2870,12 @@ BRS 2.0 is the intentional reconstruction of a lost operational civilization —
 **Total Insights**: 250  
 **Framework Version**: BRS 2.0  
 **Next Phase**: Implementation — section by section  
+
+---
+
+## LINKED DOCUMENTS
+
+- **Implementation Plan**: `00_COMMAND/BRS_2_0_IMPLEMENTATION_PLAN.md`
+- **Doctrine Changelog**: `00_COMMAND/DOCTRINE_CHANGELOG.md`
+- **Post-Mortem Template**: `00_COMMAND/POST_MORTEM_TEMPLATE.md`
+- **Post-Mortems**: `00_COMMAND/post_mortems/`

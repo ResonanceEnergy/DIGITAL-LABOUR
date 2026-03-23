@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Quantum Computing Integration for BIT RAGE LABOUR
+Quantum Computing Integration for DIGITAL LABOUR
 Implements quantum algorithms, quantum-classical hybrid computing,
 and quantum-enhanced decision making.
 

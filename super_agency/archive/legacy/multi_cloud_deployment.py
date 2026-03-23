@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Multi-Cloud Deployment Capabilities for BIT RAGE LABOUR
+Multi-Cloud Deployment Capabilities for DIGITAL LABOUR
 Implements cloud provider orchestration, deployment automation,
 and resource optimization across multiple cloud platforms.
 

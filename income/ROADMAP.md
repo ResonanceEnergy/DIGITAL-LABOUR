@@ -1,4 +1,4 @@
-# BIT RAGE LABOUR — MASTER INCOME ROADMAP
+# DIGITAL LABOUR — MASTER INCOME ROADMAP
 ## The Next-Generation Revenue Playbook
 
 ---
@@ -194,4 +194,4 @@ Key stats from research:
 - **Freelancer.com**: 21 active AI agent jobs right now, bids up to $6,280
 
 This is NOT hypothetical. These platforms are LIVE. Agents are transacting.
-Money is moving. Bit Rage Labour needs to be on ALL of them.
+Money is moving. DIGITAL LABOUR needs to be on ALL of them.

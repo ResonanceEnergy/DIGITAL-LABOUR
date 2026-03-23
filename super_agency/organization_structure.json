@@ -1,20 +1,20 @@
 {
   "organization": {
-    "name": "BIT RAGE LABOUR",
+    "name": "DIGITAL LABOUR",
     "structure": "Vertically Integrated Enterprise",
     "version": "4.0",
     "last_updated": "2026-03-15",
-    "primary_mission": "BIT RAGE LABOUR",
-    "mission_statement": "Deploy and monetize autonomous AI agents as modular digital labor units. Every department, agent, and system exists to support Bit Rage Labour objectives.",
+    "primary_mission": "DIGITAL LABOUR",
+    "mission_statement": "Deploy and monetize autonomous AI agents as modular digital labor units. Every department, agent, and system exists to support DIGITAL LABOUR objectives.",
     "pillars": {
-      "AGENCY": "BIT RAGE LABOUR — Operational framework, hierarchy, orchestration",
-      "ALOPS": "Bit Rage Labour — AI labor operations, the revenue engine",
+      "AGENCY": "DIGITAL LABOUR — Operational framework, hierarchy, orchestration",
+      "ALOPS": "DIGITAL LABOUR — AI labor operations, the revenue engine",
       "BANK": "AAC — Accounting, equity bank, financial operations"
     }
   },
   "primary_directive": {
-    "objective": "BIT RAGE LABOUR",
-    "description": "All BIT RAGE LABOUR infrastructure serves Bit Rage Labour. The hierarchy provides the framework. The orchestrator runs the pipeline. The bus carries DL events. Intelligence feeds DL strategy. Every agent either directly produces revenue through DL or supports those that do.",
+    "objective": "DIGITAL LABOUR",
+    "description": "All DIGITAL LABOUR infrastructure serves DIGITAL LABOUR. The hierarchy provides the framework. The orchestrator runs the pipeline. The bus carries DL events. Intelligence feeds DL strategy. Every agent either directly produces revenue through DL or supports those that do.",
     "kpis": [
       "DL revenue per month",
       "DL tasks completed per day",
@@ -27,10 +27,10 @@
   "departments": {
     "executive_council": {
       "name": "Executive Council",
-      "description": "Strategic oversight — all decisions measured against Bit Rage Labour objectives",
+      "description": "Strategic oversight — all decisions measured against DIGITAL LABOUR objectives",
       "authority_level": "AZ_FINAL",
       "head": "Agent AZ",
-      "primary_focus": "Bit Rage Labour growth, revenue targets, strategic resource allocation",
+      "primary_focus": "DIGITAL LABOUR growth, revenue targets, strategic resource allocation",
       "members": [
         {
           "id": "agent_az",
@@ -47,7 +47,7 @@
         "ledgr_cfo": {"tier": 2, "role": "DL Revenue & Margins", "reports_to": "axiom_ceo"}
       },
       "responsibilities": [
-        "Set Bit Rage Labour growth targets and mandates",
+        "Set DIGITAL LABOUR growth targets and mandates",
         "Enforce ALOPS doctrine across all departments",
         "Crisis management for DL operations",
         "Cross-departmental coordination for DL pipeline",
@@ -55,7 +55,7 @@
       ]
     },
     "bit_rage_labour_operations": {
-      "name": "Bit Rage Labour Operations",
+      "name": "DIGITAL LABOUR Operations",
       "description": "THE PRIMARY DEPARTMENT — autonomous AI labor workforce that earns revenue",
       "authority_level": "HIGH",
       "head": "AXIOM (CEO Agent)",
@@ -65,7 +65,7 @@
         "c_suite": {
           "name": "C-Suite Executive Layer",
           "description": "AXIOM (CEO), VECTIS (COO), LEDGR (CFO) + BoardRoom synthesizer",
-          "integration_source": "BIT RAGE LABOUR/c_suite/",
+          "integration_source": "DIGITAL LABOUR/c_suite/",
           "agents": [
             {
               "id": "axiom_ceo",
@@ -93,7 +93,7 @@
         "worker_agents": {
           "name": "Worker Agent Fleet",
           "description": "26 autonomous task-execution agents that deliver paid outcomes",
-          "integration_source": "BIT RAGE LABOUR/agents/",
+          "integration_source": "DIGITAL LABOUR/agents/",
           "tier": 3,
           "agent_types": [
             "sales_ops", "support", "content_repurpose", "doc_extract",
@@ -107,19 +107,19 @@
         "dispatcher": {
           "name": "Task Dispatcher",
           "description": "Routes tasks to agents with daily limits and token budget enforcement",
-          "integration_source": "BIT RAGE LABOUR/dispatcher/",
+          "integration_source": "DIGITAL LABOUR/dispatcher/",
           "tier": 2
         },
         "nerve_daemon": {
           "name": "NERVE Autonomous Daemon",
           "description": "24/7 autonomous cycle: self-check, gap analysis, prospecting, outreach, C-Suite cadence",
-          "integration_source": "BIT RAGE LABOUR/automation/nerve.py",
+          "integration_source": "DIGITAL LABOUR/automation/nerve.py",
           "tier": 3
         },
         "intake_api": {
           "name": "Client Intake API",
           "description": "FastAPI webhook for task submission, client onboarding, payment processing",
-          "integration_source": "BIT RAGE LABOUR/api/intake.py",
+          "integration_source": "DIGITAL LABOUR/api/intake.py",
           "tier": 4,
           "port": 8000
         }
@@ -130,7 +130,7 @@
       "description": "Information gathering and analysis — feeds DL strategy and market intelligence",
       "authority_level": "HIGH",
       "head": "Intelligence Director",
-      "dl_mandate": "All intelligence products must include actionable insights for Bit Rage Labour growth",
+      "dl_mandate": "All intelligence products must include actionable insights for DIGITAL LABOUR growth",
       "subdepartments": {
         "youtube_intelligence": {
           "name": "YouTube Intelligence Division",
@@ -273,7 +273,7 @@
     },
     "financial_operations": {
       "name": "Financial Operations Department",
-      "description": "All Bit Rage Labour financials — AAC accounting, equity bank, DL revenue, cost management",
+      "description": "All DIGITAL LABOUR financials — AAC accounting, equity bank, DL revenue, cost management",
       "authority_level": "STANDARD",
       "head": "Financial Director",
       "dl_mandate": "Track DL revenue, enforce margins, manage billing and invoicing",
@@ -289,8 +289,8 @@
         },
         "dl_revenue_tracking": {
           "name": "DL Revenue & Billing Division",
-          "description": "Bit Rage Labour billing, invoicing, retainer management, cost-per-task tracking",
-          "integration_source": "BIT RAGE LABOUR/billing/",
+          "description": "DIGITAL LABOUR billing, invoicing, retainer management, cost-per-task tracking",
+          "integration_source": "DIGITAL LABOUR/billing/",
           "agents": [
             {
               "id": "ledgr_cfo",
@@ -347,7 +347,7 @@
   },
   "dl_integration_manifest": {
     "status": "READY_FOR_MERGE",
-    "source_repo": "C:\\Dev\\BIT RAGE LABOUR\\BIT RAGE LABOUR",
+    "source_repo": "C:\\Dev\\DIGITAL LABOUR\\DIGITAL LABOUR",
     "target_repo": "C:\\Dev\\DIGITAL-LABOUR",
     "resonance_bridges": {
       "ncc_bridge": "resonance/ncc_bridge.py — publishes DL events to NCC relay",
@@ -376,7 +376,7 @@
     "status": "separated",
     "rationale": "Council serves as strategic oversight — all strategy measured against DL objectives",
     "boundaries": [
-      "Council sets Bit Rage Labour growth targets and mandates",
+      "Council sets DIGITAL LABOUR growth targets and mandates",
       "DL C-Suite (AXIOM/VECTIS/LEDGR) reports to Executive Council",
       "Departments handle operational execution in service of DL",
       "Council approval required for major structural changes",

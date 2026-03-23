@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BIT RAGE LABOUR HEALTH CHECK SYSTEM
+DIGITAL LABOUR HEALTH CHECK SYSTEM
 Provides standardized health check endpoints for all agency components
 """
 

@@ -45,7 +45,7 @@ INTEGRATIONS = (
     ROOT / "tools" / "system_integrations.py"
 )
 
-# Bit Rage Labour sync bridge
+# DIGITAL LABOUR sync bridge
 DL_BRIDGE = ROOT / "agents" / "dl_bridge.py"
 
 # Autonomous brain modules
@@ -271,8 +271,8 @@ def _run_stage_with_args(
 def main():
     """Run the full orchestration pipeline."""
     log(
-        "Running Bit Rage Labour Orchestrator — "
-        "Bit Rage Labour Primary\u2026"
+        "Running DIGITAL LABOUR Orchestrator — "
+        "DIGITAL LABOUR Primary\u2026"
     )
     log(
         "Pipeline: DL-Sync \u2192 PortfolioSync "
@@ -290,7 +290,7 @@ def main():
 
     cwd = str(ROOT)
 
-    # ── BIT RAGE LABOUR sync (first — it's the mission) ──
+    # ── DIGITAL LABOUR sync (first — it's the mission) ──
     if DL_BRIDGE.exists():
         _run_stage(
             "DL Bridge Sync", DL_BRIDGE, cwd,
@@ -381,8 +381,8 @@ def main():
     )
 
     log(
-        "Bit Rage Labour orchestration complete — "
-        "Bit Rage Labour primary."
+        "DIGITAL LABOUR orchestration complete — "
+        "DIGITAL LABOUR primary."
     )
     _emit("orchestrator.run.done", {})
 

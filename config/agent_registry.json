@@ -11,270 +11,434 @@
       "cost_ceiling_usd": 0.15,
       "max_execution_seconds": 45,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "qa_fail", "empty_company"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail",
+        "empty_company"
+      ],
       "authority_scope": "outreach_generation",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "support_ticket": {
       "one_liner": "Resolves inbound support tickets using KB and policies",
       "cost_ceiling_usd": 0.08,
       "max_execution_seconds": 30,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "empty_ticket"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "empty_ticket"
+      ],
       "authority_scope": "ticket_resolution",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "content_repurpose": {
       "one_liner": "Transforms source content into multiple platform-specific formats",
-      "cost_ceiling_usd": 0.20,
+      "cost_ceiling_usd": 0.2,
       "max_execution_seconds": 60,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "qa_fail", "empty_source"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail",
+        "empty_source"
+      ],
       "authority_scope": "content_production",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "doc_extract": {
       "one_liner": "Extracts structured data and key information from documents",
       "cost_ceiling_usd": 0.12,
       "max_execution_seconds": 45,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "empty_document", "parse_error"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "empty_document",
+        "parse_error"
+      ],
       "authority_scope": "document_processing",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "lead_gen": {
       "one_liner": "Generates qualified leads matching ICP from industry and geo parameters",
       "cost_ceiling_usd": 0.15,
       "max_execution_seconds": 45,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "empty_industry"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "empty_industry"
+      ],
       "authority_scope": "lead_generation",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "email_marketing": {
       "one_liner": "Creates targeted email marketing sequences for business goals",
       "cost_ceiling_usd": 0.18,
       "max_execution_seconds": 60,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "qa_fail"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail"
+      ],
       "authority_scope": "email_production",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "seo_content": {
       "one_liner": "Produces SEO-optimized articles, blog posts, and landing page copy",
       "cost_ceiling_usd": 0.25,
       "max_execution_seconds": 75,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "qa_fail", "empty_topic"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail",
+        "empty_topic"
+      ],
       "authority_scope": "seo_production",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "social_media": {
       "one_liner": "Creates platform-specific social media posts with CTAs",
       "cost_ceiling_usd": 0.12,
       "max_execution_seconds": 30,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "empty_topic"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "empty_topic"
+      ],
       "authority_scope": "social_production",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "data_entry": {
       "one_liner": "Cleans, structures, and normalizes raw data into formats",
       "cost_ceiling_usd": 0.08,
       "max_execution_seconds": 30,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "empty_data", "parse_error"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "empty_data",
+        "parse_error"
+      ],
       "authority_scope": "data_processing",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "web_scraper": {
       "one_liner": "Extracts structured business intel from web page content",
       "cost_ceiling_usd": 0.08,
       "max_execution_seconds": 30,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "empty_content"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "empty_content"
+      ],
       "authority_scope": "web_extraction",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "crm_ops": {
       "one_liner": "Cleans, deduplicates, and enriches CRM data",
-      "cost_ceiling_usd": 0.10,
+      "cost_ceiling_usd": 0.1,
       "max_execution_seconds": 30,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "empty_crm_data"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "empty_crm_data"
+      ],
       "authority_scope": "crm_management",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "bookkeeping": {
       "one_liner": "Categorizes transactions and produces bookkeeping summaries",
       "cost_ceiling_usd": 0.12,
       "max_execution_seconds": 45,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "empty_financial_data"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "empty_financial_data"
+      ],
       "authority_scope": "financial_ops",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "proposal_writer": {
       "one_liner": "Writes professional project proposals from briefs",
-      "cost_ceiling_usd": 0.30,
+      "cost_ceiling_usd": 0.3,
       "max_execution_seconds": 90,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "qa_fail", "empty_brief"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail",
+        "empty_brief"
+      ],
       "authority_scope": "proposal_production",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "product_desc": {
       "one_liner": "Writes conversion-focused product descriptions for platforms",
       "cost_ceiling_usd": 0.12,
       "max_execution_seconds": 30,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "qa_fail"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail"
+      ],
       "authority_scope": "copy_production",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "resume_writer": {
       "one_liner": "Produces professional resumes optimized for target roles",
-      "cost_ceiling_usd": 0.20,
+      "cost_ceiling_usd": 0.2,
       "max_execution_seconds": 60,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "qa_fail", "empty_career_data"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail",
+        "empty_career_data"
+      ],
       "authority_scope": "resume_production",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "ad_copy": {
       "one_liner": "Creates platform-specific advertising copy with CTAs",
       "cost_ceiling_usd": 0.12,
       "max_execution_seconds": 30,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "qa_fail"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail"
+      ],
       "authority_scope": "ad_production",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "market_research": {
       "one_liner": "Produces structured market research reports and competitive analysis",
-      "cost_ceiling_usd": 0.40,
+      "cost_ceiling_usd": 0.4,
       "max_execution_seconds": 120,
       "max_retries": 1,
-      "failure_modes": ["llm_timeout", "schema_violation", "qa_fail", "empty_topic"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail",
+        "empty_topic"
+      ],
       "authority_scope": "research_production",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "business_plan": {
       "one_liner": "Creates comprehensive business plans from ideas and parameters",
-      "cost_ceiling_usd": 0.50,
+      "cost_ceiling_usd": 0.5,
       "max_execution_seconds": 150,
       "max_retries": 1,
-      "failure_modes": ["llm_timeout", "schema_violation", "qa_fail", "empty_business_idea"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail",
+        "empty_business_idea"
+      ],
       "authority_scope": "plan_production",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "press_release": {
       "one_liner": "Writes polished press releases for announcements",
       "cost_ceiling_usd": 0.18,
       "max_execution_seconds": 60,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "qa_fail", "empty_announcement"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail",
+        "empty_announcement"
+      ],
       "authority_scope": "pr_production",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "tech_docs": {
       "one_liner": "Produces technical documentation from code and specs",
       "cost_ceiling_usd": 0.25,
       "max_execution_seconds": 75,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "qa_fail", "empty_content"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail",
+        "empty_content"
+      ],
       "authority_scope": "docs_production",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "ops_brief": {
       "one_liner": "Generates structured operational briefs and status reports",
       "cost_ceiling_usd": 0.15,
       "max_execution_seconds": 45,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation"
+      ],
       "authority_scope": "ops_reporting",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "context_manager": {
       "one_liner": "Enriches and validates context for downstream agent tasks",
       "cost_ceiling_usd": 0.06,
       "max_execution_seconds": 20,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "context_denied"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "context_denied"
+      ],
       "authority_scope": "context_ops",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "qa_manager": {
       "one_liner": "Applies multi-rule quality verification to agent outputs",
-      "cost_ceiling_usd": 0.10,
+      "cost_ceiling_usd": 0.1,
       "max_execution_seconds": 30,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "low_confidence"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "low_confidence"
+      ],
       "authority_scope": "qa_ops",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "production_manager": {
       "one_liner": "Manages capacity, task sequencing, and production pipeline state",
       "cost_ceiling_usd": 0.08,
       "max_execution_seconds": 20,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation"
+      ],
       "authority_scope": "production_ops",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "automation_manager": {
       "one_liner": "Controls and monitors platform automation bots",
       "cost_ceiling_usd": 0.08,
       "max_execution_seconds": 20,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "platform_offline"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "platform_offline"
+      ],
       "authority_scope": "automation_ops",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "freelancer_work": {
       "one_liner": "Bids and delivers work on Freelancer.com platform",
-      "cost_ceiling_usd": 0.20,
+      "cost_ceiling_usd": 0.2,
       "max_execution_seconds": 60,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "platform_error", "qa_fail"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "platform_error",
+        "qa_fail"
+      ],
       "authority_scope": "platform_freelancer",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "upwork_work": {
       "one_liner": "Bids and delivers work on Upwork platform",
-      "cost_ceiling_usd": 0.20,
+      "cost_ceiling_usd": 0.2,
       "max_execution_seconds": 60,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "platform_error", "qa_fail"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "platform_error",
+        "qa_fail"
+      ],
       "authority_scope": "platform_upwork",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "fiverr_work": {
       "one_liner": "Delivers Fiverr orders via agent-assisted fulfillment",
-      "cost_ceiling_usd": 0.20,
+      "cost_ceiling_usd": 0.2,
       "max_execution_seconds": 60,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "platform_error", "qa_fail"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "platform_error",
+        "qa_fail"
+      ],
       "authority_scope": "platform_fiverr",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "pph_work": {
       "one_liner": "Proposes and fulfills work on PeoplePerHour",
-      "cost_ceiling_usd": 0.20,
+      "cost_ceiling_usd": 0.2,
       "max_execution_seconds": 60,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "platform_error", "qa_fail"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "platform_error",
+        "qa_fail"
+      ],
       "authority_scope": "platform_pph",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     },
     "guru_work": {
       "one_liner": "Quotes and delivers work on Guru platform",
-      "cost_ceiling_usd": 0.20,
+      "cost_ceiling_usd": 0.2,
       "max_execution_seconds": 60,
       "max_retries": 2,
-      "failure_modes": ["llm_timeout", "schema_violation", "platform_error", "qa_fail"],
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "platform_error",
+        "qa_fail"
+      ],
       "authority_scope": "platform_guru",
-      "disabled": false
+      "disabled": false,
+      "billing_surface_verified": true
     }
   }
 }

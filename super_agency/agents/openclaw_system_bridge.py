@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-OpenClaw System Bridge v1.0 — BIT RAGE LABOUR
+OpenClaw System Bridge v1.0 — DIGITAL LABOUR
 ==========================================
 System-wide OpenClaw gateway bridge serving ALL 5 departments,
 47+ Inner Council agents, NCC/NCL subsystems, REPO DEPOT, Matrix Monitor,
 and all 27 managed repos.
 
 Extends the GASKET-specific bridge to provide OpenClaw capabilities
-across every agent, department, division, and process in BIT RAGE LABOUR.
+across every agent, department, division, and process in DIGITAL LABOUR.
 
 Architecture:
     OpenClaw Gateway (ws://127.0.0.1:18789)
@@ -201,7 +201,7 @@ class DepartmentRouter:
 
 class OpenClawSystemBridge:
     """
-    System-wide OpenClaw bridge serving ALL BIT RAGE LABOUR components.
+    System-wide OpenClaw bridge serving ALL DIGITAL LABOUR components.
 
     Provides:
     - Department-level message routing
@@ -440,7 +440,7 @@ class OpenClawSystemBridge:
         now = datetime.now()
         brief_parts = []
 
-        brief_parts.append(f"# BIT RAGE LABOUR MORNING BRIEF")
+        brief_parts.append(f"# DIGITAL LABOUR MORNING BRIEF")
         brief_parts.append(f"**Date**: {now.strftime('%A, %B %d, %Y')}")
         brief_parts.append(f"**Generated**: {now.strftime('%I:%M %p')}")
         brief_parts.append(f"**OpenClaw System Bridge**: v{self.version}")

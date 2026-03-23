@@ -89,6 +89,30 @@ def run_burn_check(write_report: bool = False) -> dict:
             logger.warning(msg)
             per_agent_alerts.append(msg)
 
+    # Alert: per-agent cost explosion (vs yesterday)
+    for agent, metrics in today_data.items():
+        agent_cost = metrics.get("llm_cost", 0.0)
+        agent_yesterday = yesterday_data.get(agent, {}).get("llm_cost", 0.0) - agent_cost
+        if agent_yesterday > 0 and agent_cost >= agent_yesterday * explode_mult:
+            msg = (
+                f"[AGENT_COST_EXPLOSION] {agent} today ${agent_cost:.4f} "
+                f">= {explode_mult}× yesterday ${max(agent_yesterday, 0):.4f}"
+            )
+            logger.warning(msg)
+            per_agent_alerts.append(msg)
+
+    # Alert: per-agent negative margin
+    for agent, metrics in today_data.items():
+        agent_revenue = metrics.get("revenue", 0.0)
+        agent_cost = metrics.get("llm_cost", 0.0)
+        if agent_revenue > 0 and agent_cost > agent_revenue:
+            msg = (
+                f"[NEGATIVE_MARGIN] {agent} revenue ${agent_revenue:.4f} "
+                f"< cost ${agent_cost:.4f}"
+            )
+            logger.warning(msg)
+            per_agent_alerts.append(msg)
+
     # Alert: margin below threshold
     if total_revenue_today > 0:
         margin_pct = (total_revenue_today - total_cost_today) / total_revenue_today * 100

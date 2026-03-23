@@ -6,10 +6,31 @@
       "success": false,
       "tweet_id": null,
       "char_count": 255
+    },
+    {
+      "index": 1,
+      "posted_at": "2026-03-20T08:47:50.027128+00:00",
+      "success": false,
+      "tweet_id": null,
+      "char_count": 228
+    },
+    {
+      "index": 2,
+      "posted_at": "2026-03-21T19:13:48.671261+00:00",
+      "success": false,
+      "tweet_id": null,
+      "char_count": 205
+    },
+    {
+      "index": 3,
+      "posted_at": "2026-03-22T15:14:17.678386+00:00",
+      "success": false,
+      "tweet_id": null,
+      "char_count": 279
     }
   ],
-  "next_index": 1,
-  "total_posted": 1,
-  "last_posted_at": "2026-03-17T10:37:16.642861+00:00",
+  "next_index": 4,
+  "total_posted": 4,
+  "last_posted_at": "2026-03-22T15:14:17.678386+00:00",
   "errors": []
 }

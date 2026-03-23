@@ -1,5 +1,5 @@
 # NCC C-SUITE GOVERNANCE DOCTRINE
-## BIT RAGE LABOUR — Autonomous Executive Layer
+## DIGITAL LABOUR — Autonomous Executive Layer
 
 **Authority**: NCC — Natrix Command & Control
 **Version**: 1.0
@@ -9,7 +9,7 @@
 
 ## THE TRIAD
 
-BIT RAGE LABOUR is governed by three autonomous AI executives — the **OpenClaw C-Suite**.
+DIGITAL LABOUR is governed by three autonomous AI executives — the **OpenClaw C-Suite**.
 Each executive is an LLM-powered agent that reads real system data, reasons about it,
 and produces structured directives. They report to NCC and command the 4 worker agents.
 
@@ -231,4 +231,4 @@ output/c_suite/
 
 *OpenClaw C-Suite — Autonomous Executive Intelligence*
 *Authority: NCC — Natrix Command & Control*
-*Division: BIT RAGE LABOUR — ALOPS*
+*Division: DIGITAL LABOUR — ALOPS*

@@ -1,5 +1,5 @@
 # 30-DAY REVENUE BLITZ — Daily Action Calendar
-## Bit Rage Labour — Starting March 10, 2026
+## DIGITAL LABOUR — Starting March 10, 2026
 
 ---
 
@@ -21,7 +21,7 @@
 - [ ] Post LinkedIn #1 (see SOCIAL_CONTENT.md — "I replaced an SDR with AI")
 - [ ] Send 10 LinkedIn connection requests to SaaS founders (10-50 employees)
 - [ ] Send 5 DMs to existing connections (use dm_templates.md)
-- [ ] Set up Twitter/X account (@BitRageLabour) if not exists
+- [ ] Set up Twitter/X account (@DigitalLabour) if not exists
 - [ ] Post Tweet #1: Demo output screenshot + offer
 - [ ] Post first Reddit thread (r/SaaS — value-first post from SOCIAL_CONTENT.md)
 

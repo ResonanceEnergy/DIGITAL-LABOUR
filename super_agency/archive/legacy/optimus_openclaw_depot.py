@@ -2244,7 +2244,7 @@ class OptimusOpenClawDepot:
             pass
         return {
             'communication': {'host': '127.0.0.1', 'port': 8888},
-            'system': {'name': 'BIT RAGE LABOUR'}
+            'system': {'name': 'DIGITAL LABOUR'}
         }
 
     def _register_handlers(self):

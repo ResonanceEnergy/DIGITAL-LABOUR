@@ -1,4 +1,4 @@
-"""Security & SSL/TLS Certificate Validator for Bit Rage Labour.
+"""Security & SSL/TLS Certificate Validator for DIGITAL LABOUR.
 
 Checks:
   1. SSL/TLS certificate validity, expiry, cipher strength

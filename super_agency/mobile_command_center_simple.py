@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BIT RAGE LABOUR Mobile Command Center - REMOTE ENABLED VERSION
+DIGITAL LABOUR Mobile Command Center - REMOTE ENABLED VERSION
 Supports distributed architecture: macOS (mobile) + Windows (processing)
 """
 
@@ -84,7 +84,7 @@ service_status = {
 def index():
     """index handler."""
     return f"""
-    <h1>🚀 BIT RAGE LABOUR Mobile Command Center</h1>
+    <h1>🚀 DIGITAL LABOUR Mobile Command Center</h1>
     <p>Simplified version - WORKING!</p>
     <p><strong>Current Date:</strong> February 21, 2026</p>
     <ul>
@@ -200,7 +200,7 @@ def get_status():
                 'online_nodes': data.get('online_nodes', 9),
                 'total_nodes': data.get('total_nodes', 9),
                 'remote_config': REMOTE_CONFIG,
-                'message': 'BIT RAGE LABOUR Mobile Command Center is operational!'
+                'message': 'DIGITAL LABOUR Mobile Command Center is operational!'
             })
     except Exception:
         pass
@@ -215,7 +215,7 @@ def get_status():
         'online_nodes': 9,
         'total_nodes': 9,
         'remote_config': REMOTE_CONFIG,
-        'message': 'BIT RAGE LABOUR Mobile Command Center is operational!'
+        'message': 'DIGITAL LABOUR Mobile Command Center is operational!'
     })
 
 @app.route('/api/quasmem')
@@ -489,7 +489,7 @@ def serve_static(filename):
         return f"Static file not found: {filename}", 404
 
 if __name__ == '__main__':
-    print("🚀 Starting SIMPLIFIED BIT RAGE LABOUR Mobile Command Center...")
+    print("🚀 Starting SIMPLIFIED DIGITAL LABOUR Mobile Command Center...")
     print("📍 Access at: http://localhost:8081")
     print("�️ Desktop UI at: http://localhost:8081/desktop")
     print("📱 iPhone UI at: http://localhost:8081/iphone")

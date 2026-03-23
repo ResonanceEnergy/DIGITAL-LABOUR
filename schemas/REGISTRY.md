@@ -14,11 +14,12 @@ Each value is an object with the following fields:
 |---|---|---|---|
 | `one_liner` | string | Yes | Single-sentence description of what the agent does |
 | `cost_ceiling_usd` | float | Yes | Max LLM cost per task in USD. Tasks exceed this log a `[CEILING]` warning |
-| `max_execution_seconds` | int | Yes | Soft time budget; router logs warning if exceeded |
+| `max_execution_seconds` | int | Yes | Hard time limit; router fails task with `HARD_TIMEOUT` if exceeded |
 | `max_retries` | int | Yes | Max retries on QA fail before marking task FAILED |
 | `failure_modes` | string[] | Yes | Known failure modes: `llm_timeout`, `schema_violation`, `qa_fail`, `empty_output`, etc. |
 | `authority_scope` | string | Yes | Governance tier: `"internal"` (no external calls) \| `"external_read"` \| `"external_write"` |
 | `disabled` | bool | Yes | If `true`, router returns `AGENT_DISABLED` immediately without hitting LLM |
+| `billing_surface_verified` | bool | Yes | Confirms every execution path produces a billing event (P1.5 audit) |
 
 ---
 

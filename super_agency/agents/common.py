@@ -166,7 +166,7 @@ class CommonAgent:
             self.agent = AssistantAgent(
                 "common_utilities_agent", model_client=self.model_client,
                 system_message="""You are a utility agent providing common functionality and support services
-                for the BIT RAGE LABOUR distributed intelligence system.
+                for the DIGITAL LABOUR distributed intelligence system.
 
                 Your role is to:
                 - Provide utility functions and data processing

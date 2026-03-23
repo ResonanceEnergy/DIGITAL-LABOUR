@@ -1,4 +1,4 @@
-"""Shared pytest fixtures for the Bit Rage Labour test suite."""
+"""Shared pytest fixtures for the DIGITAL LABOUR test suite."""
 
 from unittest.mock import patch
 

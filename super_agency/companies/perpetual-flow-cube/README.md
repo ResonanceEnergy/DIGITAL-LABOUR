@@ -1,10 +1,10 @@
 # perpetual-flow-cube
 
-**Company Repository** - BIT RAGE LABOUR Portfolio Company
+**Company Repository** - DIGITAL LABOUR Portfolio Company
 
 ## Overview
 
-perpetual-flow-cube is a portfolio company within the BIT RAGE LABOUR ecosystem.
+perpetual-flow-cube is a portfolio company within the DIGITAL LABOUR ecosystem.
 
 ## Repository Information
 
@@ -14,7 +14,7 @@ perpetual-flow-cube is a portfolio company within the BIT RAGE LABOUR ecosystem.
 - **Language**: Python
 - **Risk Tier**: HIGH
 - **Created**: February 20, 2026
-- **Parent Organization**: BIT RAGE LABOUR
+- **Parent Organization**: DIGITAL LABOUR
 
 ## Directory Structure
 
@@ -29,8 +29,8 @@ perpetual-flow-cube/
 
 ## Integration Status
 
-This repository is part of the BIT RAGE LABOUR NCC-Doctrine integration framework.
+This repository is part of the DIGITAL LABOUR NCC-Doctrine integration framework.
 
 ## Contact
 
-For questions about this company repository, contact the BIT RAGE LABOUR executive team.
+For questions about this company repository, contact the DIGITAL LABOUR executive team.

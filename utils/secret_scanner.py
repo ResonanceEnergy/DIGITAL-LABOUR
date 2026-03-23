@@ -8,9 +8,16 @@ Usage:
     from utils.secret_scanner import scan_text, mask_secrets
     findings = scan_text(text)
     safe_text = mask_secrets(text)
+
+    # Nightly log scan (prod)
+    python utils/secret_scanner.py --scan-logs
 """
+import logging
 import re
+from pathlib import Path
 from typing import NamedTuple
+
+logger = logging.getLogger("utils.secret_scanner")
 
 
 class Finding(NamedTuple):
@@ -68,6 +75,9 @@ def scan_text(text: str) -> list[Finding]:
                 length=len(raw),
                 masked_sample=masked,
             ))
+    if findings:
+        logger.critical("[SECRET_LEAK_DETECTED] %d secret(s) found: %s",
+                        len(findings), ", ".join(f.pattern_name for f in findings))
     return findings
 
 
@@ -101,11 +111,47 @@ def has_secrets(text: str) -> bool:
     return any(pat.search(text) for _, _, pat in _PATTERNS)
 
 
+def scan_log_files(log_dir: Path | None = None) -> dict:
+    """Nightly scan of JSONL log files for leaked secrets.
+
+    Returns dict with total_findings and per-file breakdown.
+    """
+    if log_dir is None:
+        log_dir = Path(__file__).resolve().parent.parent / "kpi" / "logs"
+    if not log_dir.exists():
+        return {"scanned": 0, "total_findings": 0, "files": {}}
+
+    total = 0
+    file_results: dict[str, list[dict]] = {}
+    scanned = 0
+
+    for log_file in sorted(log_dir.glob("*.jsonl")):
+        scanned += 1
+        text = log_file.read_text(encoding="utf-8", errors="replace")
+        findings = scan_text(text)
+        if findings:
+            file_results[log_file.name] = [f._asdict() for f in findings]
+            total += len(findings)
+
+    result = {"scanned": scanned, "total_findings": total, "files": file_results}
+    if total > 0:
+        logger.critical("[SECRET_LEAK_DETECTED] Nightly scan: %d leak(s) in %d file(s)",
+                        total, len(file_results))
+    else:
+        logger.info("[SECRET_SCAN] Nightly scan clean: %d files checked", scanned)
+    return result
+
+
 if __name__ == "__main__":
     import json
     import sys
 
-    if len(sys.argv) > 1:
+    if "--scan-logs" in sys.argv:
+        report = scan_log_files()
+        print(json.dumps(report, indent=2))
+        sys.exit(0 if report["total_findings"] == 0 else 1)
+
+    if len(sys.argv) > 1 and sys.argv[1] != "--scan-logs":
         sample = " ".join(sys.argv[1:])
     else:
         sample = "Contact me at user@example.com, key=sk-abc123XYZabc123XYZabc123XYZabc123"

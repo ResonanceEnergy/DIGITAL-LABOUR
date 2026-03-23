@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Production Manager Agent — BIT RAGE LABOUR
+Production Manager Agent — DIGITAL LABOUR
 =============================================
 T2 Management agent responsible for production
 readiness, deployment gates, service health, and

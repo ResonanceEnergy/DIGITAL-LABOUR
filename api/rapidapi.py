@@ -1,4 +1,4 @@
-"""RapidAPI Integration — Expose Bit Rage Labour agents as public API products.
+"""RapidAPI Integration — Expose DIGITAL LABOUR agents as public API products.
 
 Wraps existing agent endpoints into a format suitable for listing on RapidAPI Hub.
 Provides standalone FastAPI app with API key auth, rate limiting, and usage tracking.
@@ -7,7 +7,7 @@ Steps to list on RapidAPI:
     1. Create account: https://rapidapi.com/auth/sign-up
     2. Go to: https://rapidapi.com/provider/dashboard
     3. Click "My APIs" → "Add New API"
-    4. Name: "Bit Rage Labour — AI Agents"
+    4. Name: "DIGITAL LABOUR — AI Agents"
     5. Category: Artificial Intelligence
     6. Upload OpenAPI spec: python -m api.rapidapi --spec > openapi.json
     7. Set base URL to your deployed server
@@ -18,7 +18,9 @@ Usage:
     python -m api.rapidapi --serve    # Run standalone RapidAPI-ready server
 """
 
+import hashlib
 import json
+import logging
 import os
 import sys
 import time
@@ -45,7 +47,7 @@ from typing import Optional
 _on_railway = bool(os.environ.get("RAILWAY_ENVIRONMENT"))
 
 rapid_app = FastAPI(
-    title="Bit Rage Labour — AI Agents API",
+    title="DIGITAL LABOUR — AI Agents API",
     version="2.0.0",
     description=(
         "24 AI agents for sales outreach, lead generation, content creation, "
@@ -80,7 +82,13 @@ _bucket_last_seen: dict[str, float] = {}
 RATE_LIMIT = 100      # requests per window (PRD spec)
 RATE_WINDOW = 60.0    # seconds
 _BUCKET_STALE = 300.0  # purge IPs idle for 5 minutes
+_MAX_BUCKETS = 10_000  # hard cap on tracked IPs
+_CLEANUP_INTERVAL = 100  # run cleanup every N requests
+_request_counter = 0
 _HEALTHCHECK_PATHS = {"/health", "/health/"}
+
+# ── Logging ───────────────────────────────────────────────────────
+logger = logging.getLogger("rapidapi")
 
 # ── Error log buffer (last 50 errors, in-memory) ──────────────────
 _error_log: deque[dict] = deque(maxlen=50)
@@ -110,12 +118,21 @@ async def rate_limit_middleware(request: Request, call_next):
         )
     bucket.append(now)
 
-    # Periodic cleanup: drop stale IPs (every ~100 requests)
-    if sum(len(v) for v in _rate_buckets.values()) % 100 == 0:
+    # Deterministic cleanup every N requests
+    global _request_counter
+    _request_counter += 1
+    if _request_counter >= _CLEANUP_INTERVAL:
+        _request_counter = 0
+        # Evict stale IPs
         stale = [ip for ip, ts in _bucket_last_seen.items() if now - ts > _BUCKET_STALE]
         for ip in stale:
             _rate_buckets.pop(ip, None)
             _bucket_last_seen.pop(ip, None)
+        # Hard cap: if still over limit, evict oldest entries
+        while len(_rate_buckets) > _MAX_BUCKETS:
+            oldest_ip = min(_bucket_last_seen, key=_bucket_last_seen.get)
+            _rate_buckets.pop(oldest_ip, None)
+            _bucket_last_seen.pop(oldest_ip, None)
 
     response = await call_next(request)
     response.headers["X-RateLimit-Limit"] = str(RATE_LIMIT)
@@ -154,7 +171,7 @@ rapid_app.mount("/intake", intake_app)
 from api.monitor import router as monitor_router
 rapid_app.include_router(monitor_router)
 
-# ── BIT RAGE LABOUR MATRIX MONITOR (mobile C2 dashboard) ────────────────
+# ── DIGITAL LABOUR MATRIX MONITOR (mobile C2 dashboard) ────────────────
 from api.matrix_monitor import router as matrix_router
 rapid_app.include_router(matrix_router)
 
@@ -165,7 +182,7 @@ rapid_app.include_router(openclaw_router)
 
 @rapid_app.get("/matrix", response_class=HTMLResponse)
 def matrix_dashboard():
-    """Serve the BIT RAGE LABOUR MATRIX MONITOR — mobile C2 dashboard."""
+    """Serve the DIGITAL LABOUR MATRIX MONITOR — mobile C2 dashboard."""
     html_path = Path(__file__).parent / "matrix_dashboard.html"
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
@@ -174,7 +191,7 @@ def matrix_dashboard():
 def matrix_manifest():
     """PWA manifest for Add to Home Screen."""
     return JSONResponse({
-        "name": "BIT RAGE LABOUR MATRIX",
+        "name": "DIGITAL LABOUR MATRIX",
         "short_name": "MATRIX",
         "start_url": "/matrix",
         "display": "standalone",
@@ -239,9 +256,20 @@ async def verify_api_key(
             raise HTTPException(status_code=403, detail="Invalid RapidAPI proxy secret")
         return True
 
-    # Direct API key for non-RapidAPI usage
+    # Direct API key for non-RapidAPI usage — validate against stored hashes
     if x_api_key:
-        return True
+        key_hash = hashlib.sha256(x_api_key.encode()).hexdigest()
+        clients_dir = PROJECT_ROOT / "clients"
+        if clients_dir.exists():
+            for profile_path in clients_dir.glob("*.json"):
+                try:
+                    profile = json.loads(profile_path.read_text(encoding="utf-8"))
+                    if profile.get("api_key_hash") == key_hash:
+                        return True
+                except Exception:
+                    continue
+        # No matching hash found
+        raise HTTPException(status_code=403, detail="Invalid API key")
 
     # In development/test, allow unauthenticated
     if not RAPIDAPI_SECRET:
@@ -305,13 +333,14 @@ async def run_agent(req: UnifiedRequest):
             qa_status=result.get("qa", {}).get("status", "UNKNOWN"),
         )
     except Exception as e:
+        logger.exception("Agent %s failed", req.agent)
         _error_log.append({
             "ts": datetime.now(timezone.utc).isoformat(),
             "endpoint": "/v1/run",
             "agent": req.agent,
             "error": str(e),
         })
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Internal server error")
 
 
 @rapid_app.get("/v1/errors")
@@ -363,7 +392,7 @@ def list_agents():
 def api_root():
     """API root — returns service info, version, and available endpoints."""
     return {
-        "name": "Bit Rage Labour — AI Agents API",
+        "name": "DIGITAL LABOUR — AI Agents API",
         "version": "2.0.0",
         "agents": ALL_AGENTS,
         "endpoints": {
@@ -420,7 +449,8 @@ async def sales_outreach(req: SalesRequest):
             qa_status=result.get("qa_status", "UNKNOWN"),
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.exception("Sales agent failed")
+        raise HTTPException(status_code=500, detail="Internal server error")
 
 
 @rapid_app.post("/v1/support", response_model=AgentResponse)
@@ -448,7 +478,8 @@ async def support_ticket(req: SupportRequest):
             qa_status=result.get("qa_status", "UNKNOWN"),
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.exception("Support agent failed")
+        raise HTTPException(status_code=500, detail="Internal server error")
 
 
 @rapid_app.post("/v1/content", response_model=AgentResponse)
@@ -476,7 +507,8 @@ async def repurpose_content(req: ContentRequest):
             qa_status=result.get("qa_status", "UNKNOWN"),
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.exception("Content agent failed")
+        raise HTTPException(status_code=500, detail="Internal server error")
 
 
 @rapid_app.post("/v1/extract", response_model=AgentResponse)
@@ -505,7 +537,8 @@ async def extract_document(req: DocExtractRequest):
             qa_status=result.get("qa_status", "UNKNOWN"),
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.exception("Extract agent failed")
+        raise HTTPException(status_code=500, detail="Internal server error")
 
 
 # ── OpenAPI Spec Export ─────────────────────────────────────────
@@ -516,7 +549,7 @@ def export_openapi_spec() -> dict:
     # Add RapidAPI-specific extensions
     spec["info"]["x-rapidapi-host"] = "bit-rage-labour.p.rapidapi.com"
     spec["info"]["contact"] = {
-        "name": "Bit Rage Labour",
+        "name": "DIGITAL LABOUR",
         "email": "api@bit-rage-labour.com",
         "url": "https://bit-rage-labour.com",
     }

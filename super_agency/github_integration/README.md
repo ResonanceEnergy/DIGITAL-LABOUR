@@ -1,7 +1,7 @@
 # GitHub Integration System
-## BIT RAGE LABOUR GitHub Operations Framework
+## DIGITAL LABOUR GitHub Operations Framework
 
-**Mission:** Seamless integration of GitHub operations into BIT RAGE LABOUR workflows for automated repository management, CI/CD, security, and compliance.
+**Mission:** Seamless integration of GitHub operations into DIGITAL LABOUR workflows for automated repository management, CI/CD, security, and compliance.
 
 **Status:** ACTIVE - GitHub Integration Framework
 

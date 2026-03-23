@@ -25,7 +25,7 @@ OUTPUT_PATH  = PROJECT_ROOT / "data" / "stripe_products.json"
 RETAINER_PRODUCTS = [
     {
         "key":         "sales_starter",
-        "name":        "Bit Rage Labour — Sales Starter",
+        "name":        "Digital Labour — Sales Starter",
         "description": "AI sales automation: 50 tasks/mo (outreach, lead gen, CRM ops)",
         "price_cents": 75000,      # $750/mo
         "tasks":       50,
@@ -33,7 +33,7 @@ RETAINER_PRODUCTS = [
     },
     {
         "key":         "sales_growth",
-        "name":        "Bit Rage Labour — Sales Growth",
+        "name":        "Digital Labour — Sales Growth",
         "description": "AI sales automation: 100 tasks/mo (outreach, lead gen, CRM ops)",
         "price_cents": 140000,     # $1 400/mo
         "tasks":       100,
@@ -41,7 +41,7 @@ RETAINER_PRODUCTS = [
     },
     {
         "key":         "sales_scale",
-        "name":        "Bit Rage Labour — Sales Scale",
+        "name":        "Digital Labour — Sales Scale",
         "description": "AI sales automation: 200 tasks/mo (outreach, lead gen, CRM ops)",
         "price_cents": 250000,     # $2 500/mo
         "tasks":       200,
@@ -49,7 +49,7 @@ RETAINER_PRODUCTS = [
     },
     {
         "key":         "support_starter",
-        "name":        "Bit Rage Labour — Support Starter",
+        "name":        "Digital Labour — Support Starter",
         "description": "AI support automation: 200 tickets/mo (triage, resolve, escalate)",
         "price_cents": 40000,      # $400/mo
         "tasks":       200,
@@ -57,7 +57,7 @@ RETAINER_PRODUCTS = [
     },
     {
         "key":         "support_growth",
-        "name":        "Bit Rage Labour — Support Growth",
+        "name":        "Digital Labour — Support Growth",
         "description": "AI support automation: 500 tickets/mo (triage, resolve, escalate)",
         "price_cents": 80000,      # $800/mo
         "tasks":       500,
@@ -65,7 +65,7 @@ RETAINER_PRODUCTS = [
     },
     {
         "key":         "support_scale",
-        "name":        "Bit Rage Labour — Support Scale",
+        "name":        "Digital Labour — Support Scale",
         "description": "AI support automation: 1 000 tickets/mo (triage, resolve, escalate)",
         "price_cents": 140000,     # $1 400/mo
         "tasks":       1000,
@@ -75,11 +75,11 @@ RETAINER_PRODUCTS = [
 
 # Per-task pay-as-you-go products for top 5 agents
 PER_TASK_PRODUCTS = [
-    {"key": "payg_sales_outreach",   "name": "Bit Rage Labour — Sales Outreach (per task)",     "price_cents": 240},
-    {"key": "payg_support_ticket",   "name": "Bit Rage Labour — Support Ticket (per task)",     "price_cents": 100},
-    {"key": "payg_lead_gen",         "name": "Bit Rage Labour — Lead Generation (per task)",    "price_cents": 300},
-    {"key": "payg_market_research",  "name": "Bit Rage Labour — Market Research (per task)",    "price_cents": 500},
-    {"key": "payg_business_plan",    "name": "Bit Rage Labour — Business Plan (per task)",      "price_cents": 800},
+    {"key": "payg_sales_outreach",   "name": "Digital Labour — Sales Outreach (per task)",     "price_cents": 240},
+    {"key": "payg_support_ticket",   "name": "Digital Labour — Support Ticket (per task)",     "price_cents": 100},
+    {"key": "payg_lead_gen",         "name": "Digital Labour — Lead Generation (per task)",    "price_cents": 300},
+    {"key": "payg_market_research",  "name": "Digital Labour — Market Research (per task)",    "price_cents": 500},
+    {"key": "payg_business_plan",    "name": "Digital Labour — Business Plan (per task)",      "price_cents": 800},
 ]
 
 
@@ -267,7 +267,7 @@ def check_products() -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Bit Rage Labour — Stripe product setup")
+    parser = argparse.ArgumentParser(description="Digital Labour — Stripe product setup")
     group  = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--create",   action="store_true", help="Create all Stripe products (idempotent)")
     group.add_argument("--list",     action="store_true", help="List locally tracked products")

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BIT RAGE LABOUR API & Account Setup Orchestrator
+DIGITAL LABOUR API & Account Setup Orchestrator
 Coordinates YouTube API setup and Microsoft account creation
 """
 
@@ -97,7 +97,7 @@ def test_full_system():
 
 def main():
     """Main setup orchestrator"""
-    print("🏛️ BIT RAGE LABOUR COUNCIL 52 SETUP ORCHESTRATOR")
+    print("🏛️ DIGITAL LABOUR COUNCIL 52 SETUP ORCHESTRATOR")
     print("=" * 60)
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 

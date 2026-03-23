@@ -1,6 +1,6 @@
-"""Meta Sales Ops — BIT RAGE LABOUR selling itself using its own Sales Ops agent.
+"""Meta Sales Ops — DIGITAL LABOUR selling itself using its own Sales Ops agent.
 
-This module automates cold outreach for Bit Rage Labour's own services.
+This module automates cold outreach for DIGITAL LABOUR's own services.
 It feeds target companies into the Sales Ops pipeline with DL-specific product
 positioning, then queues the output for human review before sending.
 
@@ -26,24 +26,24 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 PRODUCT_DESCRIPTIONS = {
     "sales_outreach": (
-        "Bit Rage Labour runs an AI agent that researches a target company, "
+        "DIGITAL LABOUR runs an AI agent that researches a target company, "
         "finds a real signal (funding round, product launch, hiring surge), "
         "and writes a 3-email outreach sequence referencing that signal. "
         "Not templates — each output is personalized and QA-checked. "
         "80%+ first-pass quality rate, 13 seconds per lead."
     ),
     "support_ticket": (
-        "Bit Rage Labour runs an AI agent that triages inbound support tickets, "
+        "DIGITAL LABOUR runs an AI agent that triages inbound support tickets, "
         "matches them against your knowledge base, and drafts professional responses. "
         "Handles tier-1 tickets end-to-end, escalates complex ones with context."
     ),
     "content_repurpose": (
-        "Bit Rage Labour runs an AI agent that takes a single piece of content "
+        "DIGITAL LABOUR runs an AI agent that takes a single piece of content "
         "(blog post, video transcript, whitepaper) and repurposes it into "
         "LinkedIn posts, tweet threads, email newsletters, and short-form summaries."
     ),
     "full_suite": (
-        "Bit Rage Labour provides an AI workforce that handles sales outreach, "
+        "DIGITAL LABOUR provides an AI workforce that handles sales outreach, "
         "customer support, and content repurposing — end-to-end, QA-checked, "
         "delivered as ready-to-use outputs. No tools to learn, no prompts to write. "
         "You submit work, we deliver results. Starting at $1/task."

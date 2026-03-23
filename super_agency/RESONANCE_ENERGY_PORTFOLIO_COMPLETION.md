@@ -4,7 +4,7 @@
 
 **Date**: February 20, 2026
 **Status**: ✅ FULLY OPERATIONAL
-**System**: ResonanceEnergy_BitRageLabour Portfolio Intelligence
+**System**: ResonanceEnergy_DigitalLabour Portfolio Intelligence
 
 ---
 
@@ -44,7 +44,7 @@ The Resonance Energy Portfolio Intelligence System has been successfully impleme
 ## 📊 PORTFOLIO STATUS SUMMARY
 
 ### Repository Distribution by Tier:
-- **L (Large/Core)**: 6 repositories (NCC, NCL, AAC, ResonanceEnergy_BitRageLabour, NCC-Doctrine, demo)
+- **L (Large/Core)**: 6 repositories (NCC, NCL, AAC, ResonanceEnergy_DigitalLabour, NCC-Doctrine, demo)
 - **M (Medium/Active)**: 6 repositories (TESLACALLS2026, YOUTUBEDROP, TESLA-TECH, resonance-uy-py, perpetual-flow-cube, NATEBJONES)
 - **S (Small/Experimental)**: 12 repositories (remaining projects)
 

@@ -3,7 +3,7 @@
 Self-Check Validator -- System Integrity Monitor
 =================================================
 Validates the health and integrity of the entire
-BIT RAGE LABOUR system.  Checks configurations, pipeline
+DIGITAL LABOUR system.  Checks configurations, pipeline
 outputs, runtime state, and data quality.
 
 Validation categories:

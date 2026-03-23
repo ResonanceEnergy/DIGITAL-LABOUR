@@ -1,6 +1,6 @@
 """Stripe Payment Gateway — Handles checkout, subscriptions, and webhooks.
 
-Connects BIT RAGE LABOUR billing to Stripe for real payment collection.
+Connects DIGITAL LABOUR billing to Stripe for real payment collection.
 
 Setup:
     1. Create Stripe account at https://stripe.com
@@ -50,13 +50,33 @@ PRODUCTS_CACHE = PROJECT_ROOT / "data" / "stripe_products.json"
 
 
 class PaymentGateway:
-    """Stripe payment integration for Bit Rage Labour."""
+    """Stripe payment integration for DIGITAL LABOUR."""
 
     def __init__(self):
         self.api_key = os.getenv("STRIPE_API_KEY", "")
         self.webhook_secret = os.getenv("STRIPE_WEBHOOK_SECRET", "")
         self._stripe = None
+        self._validate_config()
         self._init_db()
+
+    def _validate_config(self):
+        """Fail-fast on dangerous Stripe misconfigurations."""
+        if not self.api_key:
+            logger.warning("STRIPE_API_KEY not set — payments disabled")
+            return
+        # C1: Detect live/test key mismatch
+        stripe_live = os.getenv("STRIPE_LIVE", "0")
+        if stripe_live == "1" and self.api_key.startswith("sk_test_"):
+            raise ValueError(
+                "STRIPE_LIVE=1 but STRIPE_API_KEY is a test key (sk_test_...). "
+                "Either set STRIPE_LIVE=0 or provide a live key (sk_live_...)."
+            )
+        # C2: Webhook secret must be valid when API key is set
+        if self.webhook_secret and not self.webhook_secret.startswith("whsec_"):
+            raise ValueError(
+                f"STRIPE_WEBHOOK_SECRET has invalid format (expected whsec_...). "
+                f"Get it from: https://dashboard.stripe.com/webhooks"
+            )
 
     @property
     def configured(self) -> bool:
@@ -144,7 +164,7 @@ class PaymentGateway:
         # Per-task products
         for task_type, pricing in PRICING.items():
             product = stripe.Product.create(
-                name=f"Bit Rage Labour — {task_type.replace('_', ' ').title()}",
+                name=f"DIGITAL LABOUR — {task_type.replace('_', ' ').title()}",
                 description=f"AI-powered {task_type.replace('_', ' ')} task",
             )
             price = stripe.Price.create(
@@ -157,7 +177,7 @@ class PaymentGateway:
         # Retainer subscription products
         for tier_name, tier in RETAINER_TIERS.items():
             product = stripe.Product.create(
-                name=f"Bit Rage Labour — {tier_name.replace('_', ' ').title()} Retainer",
+                name=f"DIGITAL LABOUR — {tier_name.replace('_', ' ').title()} Retainer",
                 description=f"{tier['tasks']} {tier['type'].replace('_', ' ')} tasks/month",
             )
             price = stripe.Price.create(
@@ -234,7 +254,7 @@ class PaymentGateway:
                 "price_data": {
                     "currency": "usd",
                     "unit_amount": amount_cents,
-                    "product_data": {"name": description or f"Bit Rage Labour Invoice — {client}"},
+                    "product_data": {"name": description or f"DIGITAL LABOUR Invoice — {client}"},
                 },
                 "quantity": 1,
             }],
@@ -324,6 +344,9 @@ class PaymentGateway:
 
     def handle_webhook(self, payload: bytes, sig_header: str) -> dict:
         """Process incoming Stripe webhook event."""
+        if not self.webhook_secret:
+            logger.error("Webhook received but STRIPE_WEBHOOK_SECRET is not configured")
+            return {"error": "Webhook signature verification not configured"}
         stripe = self._get_stripe()
 
         # Verify signature

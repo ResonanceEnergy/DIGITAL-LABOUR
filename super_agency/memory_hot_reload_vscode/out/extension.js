@@ -28,7 +28,7 @@ const vscode = __importStar(require("vscode"));
 const path = __importStar(require("path"));
 const fs = __importStar(require("fs"));
 function activate(context) {
-    console.log('🧠 BIT RAGE LABOUR Memory Hot Reload extension activated');
+    console.log('🧠 DIGITAL LABOUR Memory Hot Reload extension activated');
     // Track file watchers
     const fileWatchers = new Map();
     const memoryFiles = [
@@ -42,7 +42,7 @@ function activate(context) {
     // Status bar item
     const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
     statusBarItem.command = 'digitalLabourMemory.showMemoryStatus';
-    statusBarItem.tooltip = 'BIT RAGE LABOUR Memory System Status';
+    statusBarItem.tooltip = 'DIGITAL LABOUR Memory System Status';
     updateStatusBar('$(database) Memory: $(check)');
     // Register commands
     context.subscriptions.push(vscode.commands.registerCommand('digitalLabourMemory.startHotReload', startHotReload), vscode.commands.registerCommand('digitalLabourMemory.stopHotReload', stopHotReload), vscode.commands.registerCommand('digitalLabourMemory.showMemoryStatus', showMemoryStatus), vscode.commands.registerCommand('digitalLabourMemory.forceReload', forceReload));
@@ -229,7 +229,7 @@ try:
     integration = get_memory_integration_status()
     backup = get_backup_status()
     
-    print('🏢 BIT RAGE LABOUR MEMORY STATUS')
+    print('🏢 DIGITAL LABOUR MEMORY STATUS')
     print('=' * 40)
     print(f'🔗 Integration Active: {all(integration.values())}')
     print(f'🛡️ Backup Running: {backup.get(\"running\", False)}')
@@ -261,7 +261,7 @@ except Exception as e:
 }
 exports.activate = activate;
 function deactivate() {
-    console.log('🧠 BIT RAGE LABOUR Memory Hot Reload extension deactivated');
+    console.log('🧠 DIGITAL LABOUR Memory Hot Reload extension deactivated');
 }
 exports.deactivate = deactivate;
 //# sourceMappingURL=extension.js.map

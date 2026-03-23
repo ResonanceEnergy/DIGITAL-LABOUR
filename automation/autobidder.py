@@ -20,6 +20,7 @@ Usage:
 
 import argparse
 import json
+import os
 import sys
 import time
 import traceback
@@ -76,7 +77,9 @@ def _load_state() -> dict:
 
 
 def _save_state(state: dict):
-    STATE_FILE.write_text(json.dumps(state, indent=2), encoding="utf-8")
+    tmp = STATE_FILE.with_suffix(".tmp")
+    tmp.write_text(json.dumps(state, indent=2), encoding="utf-8")
+    os.replace(str(tmp), str(STATE_FILE))
 
 
 def _reset_daily_if_needed(state: dict) -> dict:

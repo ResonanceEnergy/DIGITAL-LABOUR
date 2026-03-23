@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BIT RAGE LABOUR Operations Chat
+DIGITAL LABOUR Operations Chat
 Conversational interface for real-time operational updates
 """
 
@@ -10,7 +10,7 @@ from datetime import datetime
 from operations_command_interface import handle_operations_query
 
 class OperationsChat:
-    """Conversational interface for BIT RAGE LABOUR operations"""
+    """Conversational interface for DIGITAL LABOUR operations"""
 
     def __init__(self):
         """Initialize."""
@@ -25,10 +25,10 @@ class OperationsChat:
     def display_welcome(self):
         """Display welcome message and available commands"""
         print("""
-🤖 BIT RAGE LABOUR Operations Command Interface (OCI)
+🤖 DIGITAL LABOUR Operations Command Interface (OCI)
 ═════════════════════════════════════════════════════
 
-Welcome to the BIT RAGE LABOUR Operations Chat!
+Welcome to the DIGITAL LABOUR Operations Chat!
 
 You can now talk to any department head and get real-time operational updates.
 

@@ -1,10 +1,10 @@
 # Resonance-Energy-Systems
 
-**Company Repository** - BIT RAGE LABOUR Portfolio Company
+**Company Repository** - DIGITAL LABOUR Portfolio Company
 
 ## Overview
 
-Resonance-Energy-Systems is a portfolio company within the BIT RAGE LABOUR ecosystem.
+Resonance-Energy-Systems is a portfolio company within the DIGITAL LABOUR ecosystem.
 
 ## Repository Information
 
@@ -13,4 +13,4 @@ Resonance-Energy-Systems is a portfolio company within the BIT RAGE LABOUR ecosy
 - **Autonomy Level**: L1
 - **Language**: Not specified
 - **Risk Tier**: HIGH
-- **Parent Organization**: BIT RAGE LABOUR
+- **Parent Organization**: DIGITAL LABOUR

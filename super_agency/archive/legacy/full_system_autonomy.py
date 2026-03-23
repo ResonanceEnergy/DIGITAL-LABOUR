@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Full System Autonomy for BIT RAGE LABOUR
+Full System Autonomy for DIGITAL LABOUR
 Implements autonomous decision-making, self-governance,
 and complete system independence.
 

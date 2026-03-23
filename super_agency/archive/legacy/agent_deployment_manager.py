@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Agent Integration & Deployment System
-Integrates and deploys all 30 operations center agents with the BIT RAGE LABOUR
+Integrates and deploys all 30 operations center agents with the DIGITAL LABOUR
 """
 
 import asyncio

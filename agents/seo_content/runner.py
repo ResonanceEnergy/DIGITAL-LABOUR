@@ -103,7 +103,7 @@ def _load_prompt(name: str) -> str:
 
 def keyword_agent(
     topic: str,
-    business: str = "Bit Rage Labour — AI automation agency",
+    business: str = "DIGITAL LABOUR — AI automation agency",
     audience: str = "",
     content_type: str = "blog",
     provider: str = "openai",
@@ -123,7 +123,7 @@ def keyword_agent(
 
 def writer_agent(
     keywords: KeywordResearch,
-    business: str = "Bit Rage Labour — AI automation agency",
+    business: str = "DIGITAL LABOUR — AI automation agency",
     tone: str = "professional",
     content_type: str = "blog",
     context: str = "",
@@ -165,7 +165,7 @@ def qa_agent(
 
 def run_pipeline(
     topic: str,
-    business: str = "Bit Rage Labour — AI automation agency",
+    business: str = "DIGITAL LABOUR — AI automation agency",
     audience: str = "",
     tone: str = "professional",
     content_type: str = "blog",

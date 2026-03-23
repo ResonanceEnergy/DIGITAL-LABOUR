@@ -9,7 +9,7 @@ Core Philosophy:
 - Flywheel effect through continuous build cycles
 - Quality gates and automated optimization
 
-Author: BIT RAGE LABOUR AI
+Author: DIGITAL LABOUR AI
 Updated: February 22, 2026
 """
 

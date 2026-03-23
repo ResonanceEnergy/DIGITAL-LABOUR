@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BIT RAGE LABOUR Agents Module
+DIGITAL LABOUR Agents Module
 Core AI agents for system orchestration and management
 OpenClaw Gateway integration via GASKET-OpenClaw Bridge + System-Wide Bridge
 """
@@ -55,4 +55,4 @@ __all__ = [
 ]
 
 __version__ = '3.1.0'
-__author__ = 'BIT RAGE LABOUR'
+__author__ = 'DIGITAL LABOUR'

@@ -1,9 +1,9 @@
 #!/bin/bash
-# Bit Rage Labour Memory Hot Reload VS Code Extension Installer
+# DIGITAL LABOUR Memory Hot Reload VS Code Extension Installer
 
 set -e
 
-echo "🧠 Bit Rage Labour Memory Hot Reload VS Code Extension"
+echo "🧠 DIGITAL LABOUR Memory Hot Reload VS Code Extension"
 echo "=================================================="
 
 # Check if vsce is installed
@@ -33,7 +33,7 @@ echo "✅ Installation Complete!"
 echo ""
 echo "🎯 Next Steps:"
 echo "1. Reload VS Code: Ctrl+Shift+P → 'Developer: Reload Window'"
-echo "2. Open Bit Rage Labour workspace"
+echo "2. Open DIGITAL LABOUR workspace"
 echo "3. Hot reload will start automatically"
 echo ""
 echo "🔥 Hot Code Reloading Active!"

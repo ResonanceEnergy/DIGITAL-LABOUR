@@ -1,4 +1,4 @@
-# Bit Rage Labour PRD
+# DIGITAL LABOUR Labour PRD
 
 ## Tasks
 

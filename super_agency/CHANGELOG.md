@@ -15,4 +15,4 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 - Initial release scaffolded by OPTIMUS REPO DEPOT FLYWHEEL
 - README, docs/, tests/ structure
-- Integration with ResonanceEnergy Bit Rage Labour ecosystem
+- Integration with ResonanceEnergy DIGITAL LABOUR ecosystem

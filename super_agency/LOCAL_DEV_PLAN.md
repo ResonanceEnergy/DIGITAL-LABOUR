@@ -1,4 +1,4 @@
-# BIT RAGE LABOUR Local Development & Deployment Plan
+# DIGITAL LABOUR Local Development & Deployment Plan
 
 ## Current Status (Feb 2026)
 ✅ **Phase 1 Complete**: MVP operational with core agent orchestration
@@ -45,7 +45,7 @@ python -m pytest tests/
 ### Enhancement Plan
 ```json
 {
-  "panel": "BIT RAGE LABOUR Matrix Monitor",
+  "panel": "DIGITAL LABOUR Matrix Monitor",
   "metrics": {
     "portfolio_health": "23 repos monitored",
     "agent_status": "All agents operational",

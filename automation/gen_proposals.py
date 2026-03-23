@@ -91,7 +91,7 @@ Happy to do a small sample task free so you can judge the quality firsthand befo
 
 Looking forward to your reply,
 Nathan
-Bit Rage Labour AI
+DIGITAL LABOUR AI
 
 Rate: {hourly} or {fixed} fixed per deliverable"""
 

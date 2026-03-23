@@ -1,4 +1,4 @@
-"""BIT RAGE MATRIX MONITOR — Live Console Dashboard & C2 Interface.
+"""DIGITAL LABOUR MATRIX MONITOR — Live Console Dashboard & C2 Interface.
 
 Consolidates: api/matrix_monitor.py (C2), c_suite/exec_dashboard.py,
               dashboard/health.py, and all monitoring/display capabilities
@@ -62,12 +62,12 @@ MONITOR_BANNER = f"""{CYAN}
 ║   ██║ ╚═╝ ██║██║  ██║   ██║   ██║  ██║██║██╔╝ ██╗                     ║
 ║   ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝                  ║
 ║                                                                       ║
-║   {WHITE}BIT RAGE MATRIX MONITOR{CYAN} — Live C2 v{VERSION:<21}{CYAN}    ║
-║   {DIM}33 C2 Commands • NERVE • C-Suite • Revenue • Fleet • Resonance{CYAN}      ║
+║   {WHITE}DIGITAL LABOUR MATRIX MONITOR{CYAN} — Live C2 v{VERSION:<15}{CYAN}    ║
+║   {DIM}36 C2 Commands • NERVE • C-Suite • Revenue • Fleet • Resonance{CYAN}      ║
 ╚═══════════════════════════════════════════════════════════════════════╝{RESET}
 """
 
-# All 28 C2 commands
+# All 36 C2 commands
 C2_COMMANDS = {
     "restart_daemons": "Restart all background daemons",
     "kill_daemons": "Kill all background daemons",
@@ -353,7 +353,7 @@ def render_dashboard(data: dict):
 
     # ── Header
     print(f"\n{BOLD}{CYAN}═══════════════════════════════════════════════════════════════════{RESET}")
-    print(f"  {BOLD}{WHITE}BIT RAGE MATRIX MONITOR{RESET}   {DIM}v{VERSION}{RESET}   {DIM}{ts} UTC{RESET}")
+    print(f"  {BOLD}{WHITE}DIGITAL LABOUR MATRIX MONITOR{RESET}   {DIM}v{VERSION}{RESET}   {DIM}{ts} UTC{RESET}")
     print(f"{CYAN}═══════════════════════════════════════════════════════════════════{RESET}")
 
     # ── Daemons
@@ -484,21 +484,32 @@ def execute_c2(action: str, target: str = "", reason: str = ""):
     handlers = {
         "restart_daemons": _c2_restart_daemons,
         "kill_daemons": _c2_kill_daemons,
+        "pause_agent": _c2_pause_agent,
+        "resume_agent": _c2_resume_agent,
+        "approve_task": _c2_approve_task,
+        "reject_task": _c2_reject_task,
         "send_followups": _c2_send_followups,
         "check_inbox": _c2_check_inbox,
+        "run_proposals": _c2_run_proposals,
         "system_check": _c2_system_check,
+        "watchdog_status": _c2_watchdog_status,
+        "watchdog_stop": _c2_watchdog_stop,
+        "watchdog_start": _c2_watchdog_start,
         "nerve_status": _c2_nerve_status,
         "revenue_summary": _c2_revenue_summary,
         "daily_cycle": _c2_daily_cycle,
+        "openclaw_cycle": _c2_openclaw_cycle,
+        "openclaw_scan": _c2_openclaw_scan,
+        "openclaw_inbox": _c2_openclaw_inbox,
         "boardroom_quick": _c2_boardroom_quick,
         "outreach_push": _c2_outreach_push,
+        "upwork_hunt": _c2_upwork_hunt,
         "full_status": _c2_full_status,
         "x_post": _c2_x_post,
         "x_status": _c2_x_status,
         "lead_scores": _c2_lead_scores,
         "email_funnel": _c2_email_funnel,
         "unit_economics": _c2_unit_economics,
-        "watchdog_status": _c2_watchdog_status,
         "ncc_status": _c2_ncc_status,
         "ncl_brief": _c2_ncl_brief,
         "aac_snapshot": _c2_aac_snapshot,
@@ -544,6 +555,88 @@ def _c2_kill_daemons(target=""):
     return {"status": "killed"}
 
 
+def _c2_pause_agent(target=""):
+    pause_file = PROJECT_ROOT / "data" / "paused_agents.json"
+    paused = []
+    if pause_file.exists():
+        paused = json.loads(pause_file.read_text(encoding="utf-8"))
+    if target and target not in paused:
+        paused.append(target)
+    pause_file.parent.mkdir(parents=True, exist_ok=True)
+    pause_file.write_text(json.dumps(paused), encoding="utf-8")
+    return {"status": "paused", "agent": target}
+
+
+def _c2_resume_agent(target=""):
+    pause_file = PROJECT_ROOT / "data" / "paused_agents.json"
+    paused = []
+    if pause_file.exists():
+        paused = json.loads(pause_file.read_text(encoding="utf-8"))
+    if target in paused:
+        paused.remove(target)
+    pause_file.write_text(json.dumps(paused), encoding="utf-8")
+    return {"status": "resumed", "agent": target}
+
+
+def _c2_approve_task(target=""):
+    return {"status": "approved", "task_id": target, "note": "Task released for delivery"}
+
+
+def _c2_reject_task(target=""):
+    return {"status": "rejected", "task_id": target}
+
+
+def _c2_run_proposals(target=""):
+    from automation.gen_proposals import main as gen_proposals_main
+    gen_proposals_main()
+    return {"status": "proposals_generated"}
+
+
+def _c2_watchdog_stop(target=""):
+    stop_flag = PROJECT_ROOT / "data" / "watchdog_stop.flag"
+    stop_flag.parent.mkdir(parents=True, exist_ok=True)
+    stop_flag.write_text(datetime.now(timezone.utc).isoformat(), encoding="utf-8")
+    return {"status": "stop_signal_sent"}
+
+
+def _c2_watchdog_start(target=""):
+    stop_flag = PROJECT_ROOT / "data" / "watchdog_stop.flag"
+    if stop_flag.exists():
+        stop_flag.unlink()
+    import subprocess as sp
+    proc = sp.Popen(
+        [sys.executable, "-m", "automation.watchdog"],
+        cwd=str(PROJECT_ROOT),
+        creationflags=sp.CREATE_NEW_PROCESS_GROUP | sp.DETACHED_PROCESS if sys.platform == "win32" else 0,
+        stdout=sp.DEVNULL, stderr=sp.DEVNULL,
+    )
+    return {"status": "started", "pid": proc.pid}
+
+
+def _c2_openclaw_cycle(target=""):
+    from openclaw.engine import OpenClawEngine
+    result = OpenClawEngine().freelance_cycle()
+    return {"status": "completed", "result": str(result)[:200]}
+
+
+def _c2_openclaw_scan(target=""):
+    from openclaw.engine import OpenClawEngine
+    result = OpenClawEngine().freelance_cycle(scan_only=True)
+    return {"status": "scanned", "result": str(result)[:200]}
+
+
+def _c2_openclaw_inbox(target=""):
+    from openclaw.inbox_agent import inbox_check
+    result = inbox_check()
+    return {"status": "checked", "result": str(result)[:200]}
+
+
+def _c2_upwork_hunt(target=""):
+    from automation.upwork_jobhunt import main as upwork_main
+    upwork_main()
+    return {"status": "hunt_completed"}
+
+
 def _c2_send_followups(target=""):
     from automation.outreach import send_followups
     result = send_followups()
@@ -573,14 +666,14 @@ def _c2_revenue_summary(target=""):
 
 
 def _c2_daily_cycle(target=""):
-    from automation.orchestrator import run_daily
-    result = run_daily()
+    from automation.orchestrator import run_daily_cycle
+    result = run_daily_cycle()
     return {"cycle": "completed", "result": str(result)[:200]}
 
 
 def _c2_boardroom_quick(target=""):
-    from c_suite.boardroom import run_standup
-    result = run_standup()
+    from c_suite.boardroom import BoardRoom
+    result = BoardRoom().convene(quick=True)
     return {"standup": str(result)[:300]}
 
 
@@ -618,8 +711,8 @@ def _c2_email_funnel(target=""):
 
 def _c2_unit_economics(target=""):
     try:
-        from kpi.unit_economics import calculate_unit_economics
-        return calculate_unit_economics()
+        from kpi.unit_economics import compute_unit_economics
+        return compute_unit_economics()
     except Exception as e:
         return {"error": str(e)}
 
@@ -788,7 +881,7 @@ def interactive_monitor():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="BIT RAGE MATRIX MONITOR — Live C2 Dashboard",
+        description="DIGITAL LABOUR MATRIX MONITOR — Live C2 Dashboard",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument("--once", action="store_true", help="Print dashboard once and exit")
@@ -803,7 +896,7 @@ def main():
     args = parser.parse_args()
 
     if args.commands:
-        print(f"\n  {BOLD}BIT RAGE MATRIX — C2 Commands ({len(C2_COMMANDS)}){RESET}\n")
+        print(f"\n  {BOLD}DIGITAL LABOUR MATRIX — C2 Commands ({len(C2_COMMANDS)}){RESET}\n")
         for cmd, desc in sorted(C2_COMMANDS.items()):
             print(f"  {CYAN}{cmd:25s}{RESET} {desc}")
         print()

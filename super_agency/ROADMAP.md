@@ -1,4 +1,4 @@
-# BIT RAGE LABOUR - ROADMAP TO SUCCESS
+# DIGITAL LABOUR - ROADMAP TO SUCCESS
 ## Resonance Energy | Updated March 6, 2026
 
 ---
@@ -152,7 +152,7 @@ Step 9. Dockerize                                          [1 day]
 *Goal: Run anywhere, not just this Windows machine*
 
 ### 4.1 Docker
-- [x] Create `Dockerfile` for the BIT RAGE LABOUR runtime (multi-stage build, non-root user)
+- [x] Create `Dockerfile` for the DIGITAL LABOUR runtime (multi-stage build, non-root user)
 - [x] Create `docker-compose.yml` with resource limits (2GB memory, 2 CPU)
 - [x] Mount `repos/`, `memory/`, `memory_backups/`, `logs/`, `reports/`, `knowledge/`, `council_meetings/` as volumes
 - [x] Environment variable injection via `.env` file

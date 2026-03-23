@@ -40,7 +40,11 @@ def _save_state(state: dict):
 
 def check_stripe_revenue() -> dict:
     """Check Stripe for recent charges and log new ones."""
-    import stripe
+    try:
+        import stripe
+    except ImportError:
+        print("  [WARN] stripe not installed — run: pip install stripe")
+        return {"total": 0, "new_charges": 0, "error": "stripe not installed"}
 
     api_key = os.getenv("STRIPE_API_KEY", "")
     if not api_key:

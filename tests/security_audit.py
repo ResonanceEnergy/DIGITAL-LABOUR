@@ -1,4 +1,4 @@
-"""BIT RAGE LABOUR SECURITY AUDIT — Automated vulnerability scanner.
+"""DIGITAL LABOUR SECURITY AUDIT — Automated vulnerability scanner.
 
 Checks:
 1. Website (bit-rage-labour.com) — headers, leaks, SSL
@@ -436,7 +436,7 @@ def audit_github():
 
 def generate_report():
     print("\n" + "═" * 60)
-    print("  BIT RAGE LABOUR SECURITY AUDIT — SUMMARY")
+    print("  DIGITAL LABOUR SECURITY AUDIT — SUMMARY")
     print(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print("═" * 60)
 
@@ -493,7 +493,7 @@ def generate_report():
 
 if __name__ == "__main__":
     print("═" * 60)
-    print("  BIT RAGE LABOUR SECURITY AUDIT")
+    print("  DIGITAL LABOUR SECURITY AUDIT")
     print(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print("═" * 60)
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 SYSTEM VALIDATION AND REPAIR SCRIPT
-Comprehensive fix for BIT RAGE LABOUR system components
+Comprehensive fix for DIGITAL LABOUR system components
 """
 
 import sys

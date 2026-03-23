@@ -1,4 +1,4 @@
-# BIT RAGE LABOUR Operational Architecture Diagrams
+# DIGITAL LABOUR Operational Architecture Diagrams
 
 ## 🏗️ Organizational Hierarchy Chart
 

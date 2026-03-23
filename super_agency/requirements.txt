@@ -1,4 +1,4 @@
-# Python dependencies for Bit Rage Labour
+# Python dependencies for DIGITAL LABOUR
 # Pinned to minimum compatible versions — matches pyproject.toml [project.dependencies]
 streamlit>=1.30.0
 psutil>=5.9.0

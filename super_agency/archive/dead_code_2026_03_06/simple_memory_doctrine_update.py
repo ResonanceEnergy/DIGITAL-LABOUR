@@ -67,7 +67,7 @@ def main():
     # Update memory doctrine
     print("   Updating memory doctrine...")
     memory_doctrine_path = os.path.join(workspace_root, "DL_MEMORY_DOCTRINE.md")
-    doctrine_content = f"""# BIT RAGE LABOUR Memory Doctrine - {timestamp}
+    doctrine_content = f"""# DIGITAL LABOUR Memory Doctrine - {timestamp}
 
 ## Current Memory State
 - Timestamp: {timestamp}
@@ -89,7 +89,7 @@ def main():
 - Cross-platform synchronization: IMPLEMENTED
 
 ## Doctrine Preservation
-This doctrine serves as the foundational memory framework for BIT RAGE LABOUR operations.
+This doctrine serves as the foundational memory framework for DIGITAL LABOUR operations.
 All critical decisions and system states are preserved through this doctrine.
 
 ---

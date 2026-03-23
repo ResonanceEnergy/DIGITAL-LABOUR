@@ -1,4 +1,4 @@
-# BIT RAGE LABOUR Companies Index
+# DIGITAL LABOUR Companies Index
 
 **Master Index of All Portfolio Companies**
 
@@ -58,7 +58,7 @@ Repos: GEET-PLASMA-PROJECT, ELECTRIC-UNIVERSE, perpetual-flow-cube, TESLA-TECH, 
 
 Repos: HUMAN-HEALTH
 
-### BIT RAGE LABOUR Platform [ACTIVE]
+### DIGITAL LABOUR Platform [ACTIVE]
 *Core platform infrastructure — the agency itself, command centers, doctrine*
 
 Repos: Digital-Labour, NCC, NCC-Doctrine, NCL, NATEBJONES, ResonanceEnergy_Enterprise, resonance-uy-py, DIGITAL-LABOUR, QUSAR, ENTERPRISE-EXCELERATION

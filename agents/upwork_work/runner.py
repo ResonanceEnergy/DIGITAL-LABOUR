@@ -96,7 +96,7 @@ Budget: ${job.get('budget_min', 0)}-${job.get('budget_max', 0)}
 """
 
     response = llm_call(
-        system="You are a proposal writer for Bit Rage Labour, an AI-powered business services agency.",
+        system="You are a proposal writer for DIGITAL LABOUR, an AI-powered business services agency.",
         user=user_prompt,
         provider=provider,
     )

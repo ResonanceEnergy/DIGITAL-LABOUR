@@ -110,7 +110,7 @@ Hi [name] — I run AI agents that research companies and write personalized col
 
 ## TASK 6: SET UP TWITTER/X
 
-**Handle:** @BitRageLabour (or @Bit Rage LabourLabor)
+**Handle:** @DigitalLabour (or @DIGITAL LABOURLabor)
 **Bio:** `AI agents that do real work for money. Lead research, cold emails, support triage, content repurposing. Pay per task, no hiring. 🤖`
 **Website:** bit-rage-labour.com
 **Pinned tweet:**

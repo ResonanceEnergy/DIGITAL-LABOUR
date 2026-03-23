@@ -1,4 +1,4 @@
-﻿"""Master Orchestrator — single command to run the full BIT RAGE LABOUR operation.
+"""Master Orchestrator — single command to run the full DIGITAL LABOUR operation.
 
 Runs the daily sales + ops automation loop and optionally starts all background
 services (API, scheduler, C-Suite, alerts, resonance sync).
@@ -167,7 +167,7 @@ _running_procs: list[subprocess.Popen] = []
 def launch_all_services():
     """Start all background services as subprocesses."""
     logger.info(f"\n{'='*60}")
-    logger.info("  LAUNCHING BIT RAGE LABOUR SERVICES")
+    logger.info("  LAUNCHING DIGITAL LABOUR SERVICES")
     logger.info(f"{'='*60}")
 
     env = os.environ.copy()
@@ -222,7 +222,7 @@ def show_full_status():
     from automation.outreach import show_status as outreach_status
 
     logger.info(f"\n{'='*60}")
-    logger.info("  BIT RAGE LABOUR — OPERATIONAL STATUS")
+    logger.info("  DIGITAL LABOUR — OPERATIONAL STATUS")
     logger.info(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     logger.info(f"{'='*60}")
 
@@ -305,7 +305,7 @@ def show_full_status():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="BIT RAGE LABOUR — Master Orchestrator",
+        description="DIGITAL LABOUR — Master Orchestrator",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

@@ -202,7 +202,7 @@ def _to_markdown(p: dict) -> str:
 
     lines.extend([
         f"",
-        f"## Why Bit Rage Labour?",
+        f"## Why DIGITAL LABOUR?",
         f"",
     ])
     for reason in p["why_bit_rage_labour"]:
@@ -228,7 +228,7 @@ def _to_markdown(p: dict) -> str:
         f"",
         f"---",
         f"",
-        f"*Bit Rage Labour — AI agents that work while you sleep.*",
+        f"*DIGITAL LABOUR — AI agents that work while you sleep.*",
         f"*sales@bit-rage-labour.com | bit-rage-labour.com*",
     ])
 

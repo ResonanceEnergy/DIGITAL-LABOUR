@@ -1,6 +1,6 @@
 """Resonance Sync Runner — Automated cross-pillar sync cadence.
 
-Publishes BIT RAGE LABOUR operational data to NCC Relay on a schedule
+Publishes DIGITAL LABOUR operational data to NCC Relay on a schedule
 and pulls intelligence from NCL + financials from AAC for C-Suite.
 
 Cadence:

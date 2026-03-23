@@ -4,12 +4,12 @@
 # Runs every 15 minutes via launchd. If a bot is not running,
 # tries launchctl first, then falls back to direct launch.
 # ─────────────────────────────────────────────────────────────────
-LOG_DIR="/tmp/BIT RAGE LABOUR"
+LOG_DIR="/tmp/DIGITAL LABOUR"
 LOG="$LOG_DIR/bot_watchdog.log"
 mkdir -p "$LOG_DIR"
 
 PYTHON="/Users/gripandripphdd/botenv/bin/python"
-ENV_FILE="$HOME/repos/BIT RAGE LABOUR-Shared/.env.optimus"
+ENV_FILE="$HOME/repos/DIGITAL LABOUR-Shared/.env.optimus"
 
 # Load token/guild env vars
 if [[ -f "$ENV_FILE" ]]; then
@@ -57,14 +57,14 @@ ensure_running() {
 
 # ── Watch OPTIMUS ──────────────────────────────────────────────────
 ensure_running \
-    "com.BIT RAGE LABOUR.optimusbot" \
-    "$HOME/repos/BIT RAGE LABOUR-Shared/scripts/optimus_discord_bot.py" \
+    "com.DIGITAL LABOUR.optimusbot" \
+    "$HOME/repos/DIGITAL LABOUR-Shared/scripts/optimus_discord_bot.py" \
     "OPTIMUS"
 
 # ── Watch GASKET (uncomment when GASKET bot is deployed) ──────────
 # ensure_running \
-#     "com.BIT RAGE LABOUR.gasketbot" \
-#     "$HOME/repos/BIT RAGE LABOUR-Shared/scripts/gasket_discord_bot.py" \
+#     "com.DIGITAL LABOUR.gasketbot" \
+#     "$HOME/repos/DIGITAL LABOUR-Shared/scripts/gasket_discord_bot.py" \
 #     "GASKET"
 
 # ── Trim log to last 500 lines ────────────────────────────────────

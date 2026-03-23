@@ -1,4 +1,4 @@
-"""BIT RAGE — Master Launcher & Control Panel for Bit Rage Labour.
+"""DIGITAL LABOUR — Master Launcher & Control Panel.
 
 Consolidates: launch.py, matrix_boot.py, setup_keys.py, watchdog,
               dashboard/health.py, and all daemon management.
@@ -65,7 +65,7 @@ BANNER = f"""
 ║   ██████╔╝██║   ██║       ██║  ██║██║  ██║╚██████╔╝███████╗   ║
 ║   ╚═════╝ ╚═╝   ╚═╝       ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ║
 ║                                                               ║
-║   BIT RAGE LABOUR — Master Control v{VERSION:<25}        ║
+║   DIGITAL LABOUR — Master Control v{VERSION:<25}          ║
 ║   24 AI Agents • NERVE • C-Suite • NCC/NCL/AAC               ║
 ╚═══════════════════════════════════════════════════════════════╝
 """
@@ -252,7 +252,7 @@ def start_daemons():
     pids = _load_pids()
 
     print(f"\n{'='*65}")
-    print(f"  BIT RAGE — DAEMON LAUNCH")
+    print(f"  DIGITAL LABOUR — DAEMON LAUNCH")
     print(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print(f"{'='*65}\n")
 
@@ -298,7 +298,7 @@ def stop_all():
         return
 
     print(f"\n{'='*65}")
-    print(f"  BIT RAGE — STOPPING ALL PROCESSES")
+    print(f"  DIGITAL LABOUR — STOPPING ALL PROCESSES")
     print(f"{'='*65}\n")
 
     for name, info in list(pids.items()):
@@ -475,7 +475,7 @@ def show_health():
 def run_checks():
     """Run one-shot checks: follow-ups, revenue, outreach, NERVE."""
     print(f"\n{'='*65}")
-    print(f"  BIT RAGE — SYSTEM CHECKS")
+    print(f"  DIGITAL LABOUR — SYSTEM CHECKS")
     print(f"{'='*65}")
 
     print(f"\n── Follow-Up Check ──")
@@ -542,7 +542,7 @@ def run_setup():
                 existing[k.strip()] = v.strip()
 
     print(f"\n{'='*65}")
-    print(f"  BIT RAGE — API Key Setup")
+    print(f"  DIGITAL LABOUR — API Key Setup")
     print(f"  Press Enter to keep existing value, or type new value.")
     print(f"{'='*65}\n")
 
@@ -586,7 +586,7 @@ def cmd_start():
 def run_sync():
     """Run NCC/NCL/AAC Resonance sync now."""
     print(f"\n{'='*65}")
-    print(f"  BIT RAGE — RESONANCE SYNC")
+    print(f"  DIGITAL LABOUR — RESONANCE SYNC")
     print(f"{'='*65}")
     try:
         from resonance.sync import run_all, show_status as sync_status
@@ -794,7 +794,7 @@ def interactive_menu():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="BIT RAGE — Bit Rage Labour Master Control",
+        description="DIGITAL LABOUR — Master Control",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="Run without arguments for interactive menu.",
     )

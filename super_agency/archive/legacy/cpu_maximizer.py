@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BIT RAGE LABOUR CPU Maximizer
+DIGITAL LABOUR CPU Maximizer
 Parallel processing orchestrator for maximum computational output
 """
 
@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 class CPUMaximizer:
-    """Maximizes CPU utilization across all BIT RAGE LABOUR systems"""
+    """Maximizes CPU utilization across all DIGITAL LABOUR systems"""
 
     def __init__(self, max_workers=None):
         self.max_workers = max_workers or mp.cpu_count()
@@ -246,7 +246,7 @@ class CPUMaximizer:
 
 def main():
     """Main CPU maximization function"""
-    print("🔥 BIT RAGE LABOUR CPU Maximizer")
+    print("🔥 DIGITAL LABOUR CPU Maximizer")
     print("=" * 50)
     print(f"CPU Cores Available: {mp.cpu_count()}")
     print()

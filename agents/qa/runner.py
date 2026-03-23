@@ -107,6 +107,83 @@ def _pre_check(output_text: str, task_type: str, client_id: str = "") -> Optiona
                 score=0, confidence=0.0, applied_rules=applied, failed_rule_id="QA-003",
             )
 
+    # QA-009: personalization present (sales_outreach only)
+    if task_type == "sales_outreach" and "QA-009" in QA_RULES:
+        applied.append("QA-009")
+        # Must reference at least a company name or role — not just generic text
+        lower = output_text.lower()
+        has_personalization = any([
+            "{{" not in output_text,  # no unfilled template vars
+            "dear hiring manager" not in lower,
+            "to whom it may concern" not in lower,
+        ])
+        generic_openers = ["dear sir", "dear madam", "dear hiring manager", "to whom it may concern"]
+        if any(g in lower for g in generic_openers):
+            return QAResult(
+                status="FAIL",
+                issues=["Sales outreach lacks personalization — uses generic opener"],
+                score=0, confidence=0.0, applied_rules=applied, failed_rule_id="QA-009",
+            )
+
+    # QA-010: CTA present
+    cta_types = {"sales_outreach", "email_marketing", "social_media", "ad_copy"}
+    if task_type in cta_types and "QA-010" in QA_RULES:
+        applied.append("QA-010")
+        cta_signals = [
+            "click", "sign up", "register", "book a", "schedule", "learn more",
+            "get started", "try", "subscribe", "download", "contact", "reply",
+            "call", "visit", "join", "apply", "buy", "order", "grab",
+            "let's chat", "let me know", "interested?", "reach out",
+        ]
+        lower = output_text.lower()
+        if not any(cta in lower for cta in cta_signals):
+            return QAResult(
+                status="FAIL",
+                issues=["Output missing a clear call-to-action (CTA)"],
+                score=0, confidence=0.0, applied_rules=applied, failed_rule_id="QA-010",
+            )
+
+    # QA-011: structured data parseable
+    structured_types = {"data_entry", "doc_extract", "crm_ops", "bookkeeping"}
+    if task_type in structured_types and "QA-011" in QA_RULES:
+        applied.append("QA-011")
+        try:
+            json.loads(output_text)
+        except (json.JSONDecodeError, TypeError):
+            return QAResult(
+                status="FAIL",
+                issues=["Output is not valid parseable JSON"],
+                score=0, confidence=0.0, applied_rules=applied, failed_rule_id="QA-011",
+            )
+
+    # QA-012: no PII in output (check for hallucinated PII patterns)
+    applied.append("QA-012")
+    pii_patterns = [
+        r"\b\d{3}-\d{2}-\d{4}\b",              # SSN
+        r"\b\d{16}\b",                           # credit card (16 digits)
+        r"\b\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}\b",  # credit card spaced
+    ]
+    for pat in pii_patterns:
+        if re.search(pat, output_text):
+            return QAResult(
+                status="FAIL",
+                issues=["Output contains potential PII (SSN or credit card pattern)"],
+                score=0, confidence=0.0, applied_rules=applied, failed_rule_id="QA-012",
+            )
+
+    # P3.2: Client profile — required_fields check
+    required_fields = profile.get("required_fields", [])
+    if required_fields:
+        lower = output_text.lower()
+        for field in required_fields:
+            if field.lower() not in lower:
+                return QAResult(
+                    status="FAIL",
+                    issues=[f"Required field missing from output: '{field}'"],
+                    score=0, confidence=0.0, applied_rules=applied,
+                    failed_rule_id="CLIENT_REQUIRED_FIELD",
+                )
+
     return None  # All pre-checks passed
 
 

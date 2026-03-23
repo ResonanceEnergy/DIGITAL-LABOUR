@@ -1,10 +1,10 @@
 # HUMAN-HEALTH
 
-**Company Repository** - BIT RAGE LABOUR Portfolio Company
+**Company Repository** - DIGITAL LABOUR Portfolio Company
 
 ## Overview
 
-HUMAN-HEALTH is a portfolio company within the BIT RAGE LABOUR ecosystem.
+HUMAN-HEALTH is a portfolio company within the DIGITAL LABOUR ecosystem.
 
 ## Repository Information
 
@@ -13,7 +13,7 @@ HUMAN-HEALTH is a portfolio company within the BIT RAGE LABOUR ecosystem.
 - **Autonomy Level**: L1
 - **Risk Tier**: HIGH
 - **Created**: February 20, 2026
-- **Parent Organization**: BIT RAGE LABOUR
+- **Parent Organization**: DIGITAL LABOUR
 
 ## Directory Structure
 
@@ -28,8 +28,8 @@ HUMAN-HEALTH/
 
 ## Integration Status
 
-This repository is part of the BIT RAGE LABOUR NCC-Doctrine integration framework.
+This repository is part of the DIGITAL LABOUR NCC-Doctrine integration framework.
 
 ## Contact
 
-For questions about this company repository, contact the BIT RAGE LABOUR executive team.
+For questions about this company repository, contact the DIGITAL LABOUR executive team.

@@ -1,4 +1,4 @@
-# Requirements for BIT RAGE LABOUR agents
+# Requirements for DIGITAL LABOUR LABOUR agents
 
 # LLM Providers
 openai>=1.12.0

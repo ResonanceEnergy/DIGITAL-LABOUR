@@ -1,4 +1,4 @@
-# BIT RAGE LABOUR CI/CD Deployment Guide
+# DIGITAL LABOUR CI/CD Deployment Guide
 
 ## Overview
 This directory contains CI/CD workflow templates for all portfolio repositories.

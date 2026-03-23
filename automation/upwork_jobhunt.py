@@ -205,7 +205,7 @@ I read through your project details and this is right in my wheelhouse.
 
 {chr(10).join(relevant)}
 
-I run an AI agent agency (Bit Rage Labour) with 20 specialized agents in production right now — so I'm not learning on your project, I'm applying proven systems.
+I run an AI agent agency (DIGITAL LABOUR) with 20 specialized agents in production right now — so I'm not learning on your project, I'm applying proven systems.
 
 **My approach for this project:**
 1. Quick discovery call or async scope (15 min)
@@ -216,7 +216,7 @@ Every deliverable passes automated QA before I send it. Happy to start with a sm
 
 Looking forward to discussing.
 
-— Bit Rage Labour
+— DIGITAL LABOUR
 Python | AI Agents | GPT-4o | Claude | FastAPI"""
 
     return proposal

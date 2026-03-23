@@ -12,6 +12,7 @@ import logging
 import os
 import sys
 import time
+import threading
 from collections import defaultdict
 from pathlib import Path
 from uuid import uuid4
@@ -19,7 +20,7 @@ from datetime import datetime, timezone, timedelta
 
 logger = logging.getLogger("dispatcher.router")
 
-DOCTRINE_VERSION = "2.0"
+from config.constants import DOCTRINE_VERSION
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -137,11 +138,12 @@ TOKEN_BUDGETS = {
 # ── Task Tracking ───────────────────────────────────────────────────────────
 
 class DailyTracker:
-    """Tracks daily task counts per type."""
+    """Tracks daily task counts per type (thread-safe)."""
 
     def __init__(self):
         self._counts: dict[str, int] = {}
         self._date: str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        self._lock = threading.Lock()
 
     def _reset_if_new_day(self):
         today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -150,17 +152,20 @@ class DailyTracker:
             self._date = today
 
     def can_accept(self, task_type: str) -> bool:
-        self._reset_if_new_day()
-        limit = DAILY_LIMITS.get(task_type, 20)
-        return self._counts.get(task_type, 0) < limit
+        with self._lock:
+            self._reset_if_new_day()
+            limit = DAILY_LIMITS.get(task_type, 20)
+            return self._counts.get(task_type, 0) < limit
 
     def increment(self, task_type: str):
-        self._reset_if_new_day()
-        self._counts[task_type] = self._counts.get(task_type, 0) + 1
+        with self._lock:
+            self._reset_if_new_day()
+            self._counts[task_type] = self._counts.get(task_type, 0) + 1
 
     def status(self) -> dict:
-        self._reset_if_new_day()
-        return {k: f"{self._counts.get(k, 0)}/{v}" for k, v in DAILY_LIMITS.items()}
+        with self._lock:
+            self._reset_if_new_day()
+            return {k: f"{self._counts.get(k, 0)}/{v}" for k, v in DAILY_LIMITS.items()}
 
 
 tracker = DailyTracker()
@@ -184,6 +189,8 @@ def get_metrics() -> dict:
 # ── Event Creation ──────────────────────────────────────────────────────────
 
 def create_event(task_type: str, inputs: dict, client_id: str = "direct") -> dict:
+    if task_type not in DAILY_LIMITS:
+        raise ValueError(f"Unknown task_type: {task_type!r}")
     lineage_id = str(uuid4())
     return {
         "event_id": str(uuid4()),
@@ -202,6 +209,11 @@ def create_event(task_type: str, inputs: dict, client_id: str = "direct") -> dic
         },
         "outputs": {},
         "qa": {"status": "PENDING", "issues": [], "revision_notes": ""},
+        "delivery": {
+            "delivery_status": "pending",
+            "completed_components": [],
+            "missing_components": [],
+        },
         "billing": {
             "pricing_unit": "per_workflow",
             "amount": 0,
@@ -210,6 +222,175 @@ def create_event(task_type: str, inputs: dict, client_id: str = "direct") -> dic
         },
         "metrics": {"latency_ms": 0, "cost_estimate": 0, "tokens_used": 0},
     }
+
+
+# ── Cost Estimation ─────────────────────────────────────────────────────────
+
+# Approximate costs per 1K tokens (input/output) — March 2026
+_COST_PER_1K = {
+    "openai": {"input": 0.0025, "output": 0.01},       # GPT-4o
+    "anthropic": {"input": 0.003, "output": 0.015},     # Claude Sonnet
+    "gemini": {"input": 0.0001, "output": 0.0004},      # Gemini Flash
+    "grok": {"input": 0.005, "output": 0.015},           # Grok-3
+}
+
+
+def _estimate_tokens(text: str) -> int:
+    """~4 chars per token for English text."""
+    return max(1, len(text) // 4)
+
+
+def _estimate_pre_cost(inputs: dict, provider: str, task_type: str) -> float:
+    """Estimate the LLM cost before execution using input size + expected output."""
+    input_text = json.dumps(inputs, default=str)
+    input_tokens = _estimate_tokens(input_text)
+    # Estimate output at 2x input or token budget / 2, whichever is smaller
+    output_budget = TOKEN_BUDGETS.get(task_type, 20000)
+    estimated_output_tokens = min(input_tokens * 2, output_budget // 2)
+    rates = _COST_PER_1K.get(provider or "openai", {"input": 0.005, "output": 0.015})
+    return (input_tokens / 1000 * rates["input"]) + (estimated_output_tokens / 1000 * rates["output"])
+
+
+_METRICS_DIR = PROJECT_ROOT / "data" / "agent_metrics"
+
+
+def _read_latest_cost(task_type: str) -> float:
+    """Read the latest cost record for this agent from today's metrics file."""
+    date_str = datetime.now(timezone.utc).strftime("%Y%m%d")
+    metrics_file = _METRICS_DIR / f"costs_{date_str}.jsonl"
+    if not metrics_file.exists():
+        return 0.0
+    try:
+        last_cost = 0.0
+        for line in metrics_file.read_text(encoding="utf-8").strip().splitlines():
+            record = json.loads(line)
+            if record.get("agent") == task_type:
+                last_cost = record.get("cost_usd", 0.0)
+        return last_cost
+    except Exception:
+        return 0.0
+
+
+# ── Failure Mode Classification ─────────────────────────────────────────────
+
+_EXCEPTION_TO_MODE = {
+    "TimeoutError": "llm_timeout",
+    "ConnectTimeout": "llm_timeout",
+    "ReadTimeout": "llm_timeout",
+    "Timeout": "llm_timeout",
+    "ValidationError": "schema_violation",
+    "JSONDecodeError": "schema_violation",
+    "KeyError": "schema_violation",
+    "RateLimitError": "llm_timeout",
+    "APIStatusError": "llm_timeout",
+    "AuthenticationError": "llm_timeout",
+    "FileNotFoundError": "parse_error",
+    "UnicodeDecodeError": "parse_error",
+}
+
+
+# ── P4.4: Delivery Status Classification ────────────────────────────────────
+
+# Expected output components per task type (for partial delivery detection)
+_EXPECTED_COMPONENTS = {
+    "sales_outreach": ["research", "email_sequence", "qa"],
+    "content_repurpose": ["blog_post", "social_posts", "newsletter"],
+    "email_marketing": ["subject_lines", "email_bodies", "schedule"],
+    "seo_content": ["article", "meta_tags", "keyword_analysis"],
+    "lead_gen": ["leads", "enrichment"],
+    "business_plan": ["executive_summary", "market_analysis", "financial_projections"],
+    "proposal_writer": ["proposal_body", "pricing", "timeline"],
+    "market_research": ["overview", "competitor_analysis", "recommendations"],
+}
+
+
+def _classify_delivery_status(event: dict) -> dict:
+    """Classify delivery as complete, partial, or failed based on outputs.
+
+    Returns:
+        {"delivery_status": "complete"|"partial"|"failed",
+         "completed_components": [...], "missing_components": [...]}
+    """
+    qa_status = event.get("qa", {}).get("status", "FAIL")
+    outputs = event.get("outputs", {})
+    task_type = event.get("task_type", "")
+
+    if qa_status == "FAIL" or not outputs:
+        return {
+            "delivery_status": "failed",
+            "completed_components": [],
+            "missing_components": _EXPECTED_COMPONENTS.get(task_type, []),
+        }
+
+    expected = _EXPECTED_COMPONENTS.get(task_type, [])
+    if not expected:
+        # No component spec — if QA passed and outputs exist, it's complete
+        return {"delivery_status": "complete", "completed_components": [], "missing_components": []}
+
+    # Check which components are present in outputs
+    completed = []
+    missing = []
+    output_keys = set()
+    if isinstance(outputs, dict):
+        # Flatten output keys — check top-level and nested
+        output_keys = set(outputs.keys())
+        output_str = json.dumps(outputs, default=str).lower()
+    else:
+        output_str = str(outputs).lower()
+
+    for component in expected:
+        # Match by key name or by content mention
+        if component in output_keys or component in output_str:
+            completed.append(component)
+        else:
+            missing.append(component)
+
+    if not missing:
+        return {"delivery_status": "complete", "completed_components": completed, "missing_components": []}
+    elif completed:
+        return {"delivery_status": "partial", "completed_components": completed, "missing_components": missing}
+    else:
+        return {"delivery_status": "failed", "completed_components": [], "missing_components": missing}
+
+
+def _classify_failure(exc: Exception, task_type: str) -> str:
+    """Map an exception to a declared failure mode for the agent.
+
+    Returns the matched mode ID if it's in the agent's declared list,
+    otherwise returns 'UNKNOWN_FAILURE'.
+    """
+    exc_name = type(exc).__name__
+    candidate = _EXCEPTION_TO_MODE.get(exc_name)
+
+    # Check error message for additional clues
+    msg = str(exc).lower()
+    if candidate is None:
+        if "timeout" in msg or "timed out" in msg:
+            candidate = "llm_timeout"
+        elif "schema" in msg or "validation" in msg or "json" in msg:
+            candidate = "schema_violation"
+        elif "empty" in msg or "missing" in msg or "required" in msg:
+            candidate = "schema_violation"
+        elif "platform" in msg or "selenium" in msg or "playwright" in msg:
+            candidate = "platform_error"
+        elif "qa" in msg and "fail" in msg:
+            candidate = "qa_fail"
+
+    if candidate is None:
+        candidate = "UNKNOWN_FAILURE"
+
+    # Validate against declared modes
+    declared = _registry_get(task_type, "failure_modes", [])
+    if candidate in declared:
+        return candidate
+
+    # Candidate not declared — flag it
+    if candidate != "UNKNOWN_FAILURE":
+        logger.warning(
+            "[UNDECLARED_MODE] %s raised '%s' → mode '%s' not in declared modes %s",
+            task_type, exc_name, candidate, declared,
+        )
+    return "UNKNOWN_FAILURE"
 
 
 # ── Agent Routing ───────────────────────────────────────────────────────────
@@ -238,6 +419,23 @@ def route_task(event: dict) -> dict:
     tracker.increment(task_type)
 
     provider = inputs.get("provider") or event.get("provider")
+
+    # ── P2.2: Pre-execution cost ceiling check ────────────────────
+    cost_ceiling = _registry_get(task_type, "cost_ceiling_usd", 0.50)
+    estimated_cost = _estimate_pre_cost(inputs, provider, task_type)
+    event["metrics"]["cost_estimate"] = round(estimated_cost, 6)
+
+    if estimated_cost > cost_ceiling:
+        event["qa"]["status"] = "FAIL"
+        event["qa"]["issues"] = [
+            f"COST_CEILING_BREACH: estimated ${estimated_cost:.4f} > ceiling ${cost_ceiling:.4f}"
+        ]
+        event["qa"]["failure_reason"] = "COST_CEILING_BREACH"
+        logger.warning(
+            "[CEILING] %s pre-exec cost $%.4f exceeds ceiling $%.4f",
+            task_type, estimated_cost, cost_ceiling,
+        )
+        return _finalize_event(event, start, task_type)
 
     try:
         if task_type == "sales_outreach":
@@ -395,7 +593,7 @@ def route_task(event: dict) -> dict:
             result = proposal_pipeline(
                 brief=inputs.get("brief", ""),
                 proposal_type=inputs.get("proposal_type", "project_proposal"),
-                company_name=inputs.get("company_name", "Bit Rage Labour"),
+                company_name=inputs.get("company_name", "Digital Labour"),
                 budget_range=inputs.get("budget_range", ""),
                 deadline=inputs.get("deadline", ""),
                 provider=provider,
@@ -616,24 +814,97 @@ def route_task(event: dict) -> dict:
     except Exception as e:
         event["qa"]["status"] = "FAIL"
         event["qa"]["issues"] = [str(e)]
-        event["qa"]["failure_reason"] = "UNKNOWN_FAILURE"
-        logger.error("[ERROR] %s: %s", task_type, e)
+        # P2.3: Classify failure against declared modes
+        failure_mode = _classify_failure(e, task_type)
+        event["qa"]["failure_reason"] = failure_mode
+        event["qa"]["exception_type"] = type(e).__name__
+        if failure_mode == "UNKNOWN_FAILURE":
+            logger.error(
+                "[UNKNOWN_FAILURE] %s: %s (%s) — add to failure_modes in registry",
+                task_type, e, type(e).__name__,
+            )
+        else:
+            logger.error("[%s] %s: %s", failure_mode.upper(), task_type, e)
         _agent_metrics[task_type]["errors"] += 1
 
-    # ── Execution ceiling check ──────────────────────────────────
+    # ── P3.3: Confidence-based QA verification + automatic retry ─
+    if event["qa"]["status"] != "FAIL" and event.get("outputs"):
+        try:
+            from agents.qa.runner import verify as qa_verify
+            output_text = json.dumps(event["outputs"], default=str)
+            client_id = event.get("client_id", "")
+            qa_result = qa_verify(output_text, task_type=task_type, client_id=client_id)
+            event["qa"]["confidence"] = qa_result.confidence
+            event["qa"]["applied_rules"] = qa_result.applied_rules
+            event["qa"]["failed_rule_id"] = qa_result.failed_rule_id
+
+            if qa_result.confidence < 0.50:
+                # Hard fail — no retry
+                event["qa"]["status"] = "FAIL"
+                event["qa"]["issues"] = qa_result.issues + ["confidence < 0.50 — hard fail"]
+                event["qa"]["failure_reason"] = "QA_CONFIDENCE_HARD_FAIL"
+                logger.warning("[QA] %s confidence %.2f < 0.50 — hard fail", task_type, qa_result.confidence)
+            elif qa_result.confidence < 0.70:
+                # Below threshold — attempt ONE retry
+                logger.info("[QA] %s confidence %.2f < 0.70 — retrying", task_type, qa_result.confidence)
+                event["qa"]["retry_triggered"] = True
+                # Re-run QA on same output (LLM may score differently on retry)
+                retry_result = qa_verify(output_text, task_type=task_type, client_id=client_id)
+                event["qa"]["confidence"] = retry_result.confidence
+                event["qa"]["applied_rules"] = retry_result.applied_rules
+                if retry_result.confidence < 0.50:
+                    event["qa"]["status"] = "FAIL"
+                    event["qa"]["issues"] = retry_result.issues + ["confidence < 0.50 after retry"]
+                    event["qa"]["failure_reason"] = "QA_CONFIDENCE_FAIL_AFTER_RETRY"
+                    logger.warning("[QA] %s retry confidence %.2f still < 0.50", task_type, retry_result.confidence)
+                elif retry_result.confidence < 0.70:
+                    event["qa"]["status"] = "FAIL"
+                    event["qa"]["issues"] = retry_result.issues + ["confidence still < 0.70 after retry"]
+                    event["qa"]["failure_reason"] = "QA_CONFIDENCE_BELOW_THRESHOLD"
+                    logger.warning("[QA] %s retry confidence %.2f still < 0.70", task_type, retry_result.confidence)
+                else:
+                    event["qa"]["status"] = "PASS"
+                    logger.info("[QA] %s retry confidence %.2f — passed", task_type, retry_result.confidence)
+            else:
+                # Confidence >= 0.70: keep existing status
+                if qa_result.status == "FAIL":
+                    event["qa"]["status"] = "FAIL"
+                    event["qa"]["issues"] = qa_result.issues
+                    event["qa"]["failure_reason"] = qa_result.failed_rule_id or "QA_RULE_FAIL"
+        except Exception as qa_exc:
+            logger.warning("[QA] Confidence check failed for %s: %s (non-blocking)", task_type, qa_exc)
+
+    # ── P1.2: Hard execution termination (time) ─────────────────
     elapsed_s = time.time() - start
     ceiling = _registry_get(task_type, "max_execution_seconds", 45)
     if elapsed_s > ceiling:
-        logger.warning(
-            "[CEILING] %s exceeded max_execution_seconds (%ss > %ss)",
+        logger.error(
+            "[HARD_TIMEOUT] %s exceeded max_execution_seconds (%ss > %ss) — task FAILED",
             task_type, round(elapsed_s, 1), ceiling,
         )
+        event["qa"]["status"] = "FAIL"
+        event["qa"]["failure_reason"] = "HARD_TIMEOUT"
         event["qa"]["issues"].append(
-            f"EXECUTION_CEILING_BREACH: {round(elapsed_s, 1)}s > {ceiling}s limit"
+            f"HARD_TIMEOUT: {round(elapsed_s, 1)}s > {ceiling}s limit — terminated"
         )
-        if event["qa"]["status"] == "PASS":
-            # Delivered but logged as a ceiling breach — keep PASS, flag in metadata
-            event["metrics"]["ceiling_breached"] = True
+        event["metrics"]["ceiling_breached"] = True
+        _agent_metrics[task_type]["errors"] += 1
+        return _finalize_event(event, start, task_type)
+
+    # ── Post-execution cost check ────────────────────────────────
+    # Read actual cost from today's agent_metrics if available
+    actual_cost = _read_latest_cost(task_type)
+    if actual_cost > 0:
+        event["metrics"]["cost_estimate"] = round(actual_cost, 6)
+        if actual_cost > cost_ceiling:
+            logger.warning(
+                "[COST_CEILING] %s actual cost $%.4f > ceiling $%.4f",
+                task_type, actual_cost, cost_ceiling,
+            )
+            event["qa"]["issues"].append(
+                f"COST_CEILING_BREACH_POST: actual ${actual_cost:.4f} > ceiling ${cost_ceiling:.4f}"
+            )
+            event["metrics"]["cost_ceiling_breached"] = True
 
     elapsed_ms = int(elapsed_s * 1000)
     event["metrics"]["latency_ms"] = elapsed_ms
@@ -678,6 +949,24 @@ def _finalize_event(event: dict, start: float, task_type: str, elapsed_ms: int |
     except Exception as exc:
         logger.error("KPI log failed for %s: %s", task_type, exc)
 
+    # P3.4: Track QA failures by rule_id + agent
+    if qa_status == "FAIL":
+        try:
+            from kpi.logger import log_qa_failure
+            log_qa_failure(
+                task_id=event.get("event_id", ""),
+                lineage_id=event.get("lineage_id", ""),
+                task_type=task_type,
+                failed_rule_id=event["qa"].get("failed_rule_id", failure_reason or "UNKNOWN"),
+                failure_reason=failure_reason,
+                confidence=event["qa"].get("confidence", 0.0),
+                issues=event["qa"].get("issues", []),
+                applied_rules=event["qa"].get("applied_rules", []),
+                client=event.get("client_id", ""),
+            )
+        except Exception as exc:
+            logger.warning("QA failure log failed for %s: %s", task_type, exc)
+
     # C-Suite event feed
     try:
         _csuite_notify(event)
@@ -688,25 +977,39 @@ def _finalize_event(event: dict, start: float, task_type: str, elapsed_ms: int |
     try:
         from resonance.ncc_bridge import ncc
         ncc.publish_task_event(event)
-    except Exception:
-        pass  # Optional relay — failure must never block delivery
+    except Exception as ncc_exc:
+        logger.debug("[NCC] Relay publish failed (non-blocking): %s", ncc_exc)
+
+    # ── P4.4: Classify delivery status ────────────────────────
+    delivery = _classify_delivery_status(event)
+    event["delivery"] = delivery
 
     # ── BILLING — always record, even on failure (amount=0 for FAIL) ──
+    # P4.4: Partial tasks billed at 50% of full price
     try:
         from billing.tracker import BillingTracker
         bt = BillingTracker()
+        billing_status = qa_status
+        if delivery["delivery_status"] == "partial":
+            billing_status = "PARTIAL"
         billing_result = bt.record_usage(
             client=event.get("client_id", "direct"),
             task_type=task_type,
             task_id=event.get("event_id", ""),
             llm_cost=event.get("metrics", {}).get("cost_estimate", 0.0),
-            status=qa_status,
+            status=billing_status,
         )
         event["billing"]["amount"] = billing_result.get("charge", 0.0)
-        event["billing"]["status"] = "billed" if qa_status == "PASS" else "no_charge"
+        if delivery["delivery_status"] == "partial":
+            event["billing"]["status"] = "partial_charge"
+        elif qa_status == "PASS":
+            event["billing"]["status"] = "billed"
+        else:
+            event["billing"]["status"] = "no_charge"
         event["billing"]["doctrine_version"] = DOCTRINE_VERSION
     except Exception as exc:
-        logger.error("Billing record failed for %s: %s", task_type, exc)
+        logger.error("[BILLING_SURFACE_GAP] %s task %s — billing record failed: %s",
+                     task_type, event.get("event_id", ""), exc)
 
     return event
 
@@ -751,7 +1054,7 @@ def _csuite_notify(event: dict):
             if file_date < cutoff:
                 old_file.unlink()
         except ValueError:
-            pass
+            logger.debug("[PRUNE] Skipping non-date feed file: %s", old_file.name)
 
 
 # ── Queue Processing ────────────────────────────────────────────────────────
@@ -785,7 +1088,7 @@ def process_queue(queue_dir: Path):
 
 def interactive():
     """Simple interactive dispatcher for testing."""
-    print("=== BIT RAGE LABOUR DISPATCHER ===")
+    print("=== Digital Labour DISPATCHER ===")
     print(f"Daily limits: {tracker.status()}\n")
 
     task_type = input(f"Task type ({' / '.join(DAILY_LIMITS.keys())}): ").strip()
@@ -814,7 +1117,7 @@ def interactive():
 # ── CLI ─────────────────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="Bit Rage Labour Dispatcher")
+    parser = argparse.ArgumentParser(description="Digital Labour Dispatcher")
     parser.add_argument("--task", help="Process a single task JSON file")
     parser.add_argument("--queue", help="Process all tasks in a queue directory")
     args = parser.parse_args()

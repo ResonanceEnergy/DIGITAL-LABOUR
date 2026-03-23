@@ -215,7 +215,7 @@ def send_approved(auto_approve: bool = False) -> list[dict]:
             # Save as ready-to-send file
             send_dir = PROJECT_ROOT / "output" / "ready_to_send"
             send_dir.mkdir(parents=True, exist_ok=True)
-            outfile = send_dir / f"email_{company.replace(' ', '_')}.json"
+            outfile = send_dir / f"email_{_sanitize_filename(company)}.json"
             outfile.write_text(json.dumps({
                 "to": contact_email or f"[FIND EMAIL for {role} at {company}]",
                 "from": smtp_from or "sales@bit-rage-labour.com",
@@ -232,7 +232,7 @@ def send_approved(auto_approve: bool = False) -> list[dict]:
                 print(f"  [SKIP] {company} — no email address found. Saved for manual send.")
                 send_dir = PROJECT_ROOT / "output" / "ready_to_send"
                 send_dir.mkdir(parents=True, exist_ok=True)
-                outfile = send_dir / f"email_{company.replace(' ', '_')}.json"
+                outfile = send_dir / f"email_{_sanitize_filename(company)}.json"
                 outfile.write_text(json.dumps({
                     "to": f"[FIND EMAIL for {role} at {company}]",
                     "subject": subject,
@@ -332,11 +332,19 @@ def send_followups() -> list[dict]:
     return results
 
 
+def _sanitize_filename(name: str) -> str:
+    """Make a string safe for use as a filename."""
+    import re
+    safe = name.replace(" ", "_")
+    safe = re.sub(r'[\\/:*?"<>|]', '_', safe)
+    return safe
+
+
 def _queue_followup(fu: dict, email_data: dict, fu_type: str):
     """Save follow-up email to ready_to_send."""
     send_dir = PROJECT_ROOT / "output" / "ready_to_send"
     send_dir.mkdir(parents=True, exist_ok=True)
-    company = fu["company"].replace(" ", "_")
+    company = _sanitize_filename(fu["company"])
     outfile = send_dir / f"{fu_type}_{company}.json"
     outfile.write_text(json.dumps({
         "to": fu.get("contact_email") or f"[FIND EMAIL for {fu['role']} at {fu['company']}]",
@@ -346,6 +354,109 @@ def _queue_followup(fu: dict, email_data: dict, fu_type: str):
         "type": fu_type,
     }, indent=2), encoding="utf-8")
     print(f"  [{fu_type.upper()}] {fu['company']} -> queued")
+
+
+# ── Flush Ready-to-Send Emails via SMTP ────────────────────────
+
+def flush_ready_to_send(dry_run: bool = False) -> dict:
+    """Send all emails in output/ready_to_send/ that have real email addresses.
+
+    Moves sent files to output/sent/, failed to output/failed/.
+    Returns summary dict with counts.
+    """
+    import os
+    import smtplib
+    from email.mime.text import MIMEText
+
+    send_dir = PROJECT_ROOT / "output" / "ready_to_send"
+    sent_dir = PROJECT_ROOT / "output" / "sent"
+    failed_dir = PROJECT_ROOT / "output" / "failed"
+
+    if not send_dir.exists():
+        print("[FLUSH] No ready_to_send directory.")
+        return {"sent": 0, "failed": 0, "skipped": 0}
+
+    smtp_host = os.getenv("SMTP_HOST", "")
+    smtp_port = int(os.getenv("SMTP_PORT", "587"))
+    smtp_user = os.getenv("SMTP_USER", "")
+    smtp_pass = os.getenv("SMTP_PASS", "")
+    smtp_from = os.getenv("SMTP_FROM", smtp_user)
+
+    if not smtp_pass:
+        print("[FLUSH] SMTP_PASS not set — cannot send.")
+        return {"sent": 0, "failed": 0, "skipped": 0, "error": "no SMTP_PASS"}
+
+    sent_dir.mkdir(parents=True, exist_ok=True)
+    failed_dir.mkdir(parents=True, exist_ok=True)
+
+    files = sorted(send_dir.glob("*.json"))
+    sent_count = 0
+    fail_count = 0
+    skip_count = 0
+
+    # Open one SMTP connection for the whole batch
+    try:
+        server = smtplib.SMTP(smtp_host, smtp_port, timeout=30)
+        server.starttls()
+        server.login(smtp_user, smtp_pass)
+    except Exception as e:
+        print(f"[FLUSH] SMTP connection failed: {e}")
+        return {"sent": 0, "failed": 0, "skipped": 0, "error": str(e)}
+
+    try:
+        for f in files:
+            data = json.loads(f.read_text(encoding="utf-8"))
+            to_addr = data.get("to", "")
+            subject = data.get("subject", "")
+            body = data.get("body", "")
+
+            if not to_addr or "@" not in to_addr or "FIND EMAIL" in to_addr:
+                skip_count += 1
+                continue
+
+            if not body:
+                skip_count += 1
+                continue
+
+            if dry_run:
+                print(f"  [DRY] Would send to {to_addr}: {subject[:60]}")
+                sent_count += 1
+                continue
+
+            try:
+                msg = MIMEText(body, "plain", "utf-8")
+                msg["Subject"] = subject
+                msg["From"] = smtp_from
+                msg["To"] = to_addr
+
+                server.sendmail(smtp_from, [to_addr], msg.as_string())
+
+                data["sent_at"] = datetime.now(timezone.utc).isoformat()
+                data["sent_by"] = "flush"
+                dest = sent_dir / f.name
+                dest.write_text(json.dumps(data, indent=2), encoding="utf-8")
+                f.unlink()
+                sent_count += 1
+                print(f"  [SENT] {to_addr}")
+
+                time.sleep(2)  # Rate limit: ~30/min to avoid Zoho throttle
+            except Exception as e:
+                data["error"] = str(e)
+                data["failed_at"] = datetime.now(timezone.utc).isoformat()
+                dest = failed_dir / f.name
+                dest.write_text(json.dumps(data, indent=2), encoding="utf-8")
+                f.unlink()
+                fail_count += 1
+                print(f"  [FAIL] {to_addr}: {e}")
+    finally:
+        try:
+            server.quit()
+        except Exception:
+            pass
+
+    summary = {"sent": sent_count, "failed": fail_count, "skipped": skip_count}
+    print(f"\n[FLUSH] Done: {sent_count} sent, {fail_count} failed, {skip_count} skipped")
+    return summary
 
 
 # ── Pipeline Status ────────────────────────────────────────────
@@ -408,6 +519,8 @@ if __name__ == "__main__":
     parser.add_argument("--send-approved", action="store_true", help="Send all approved outreach")
     parser.add_argument("--auto-approve", action="store_true", help="Auto-approve QA-PASS leads and send")
     parser.add_argument("--follow-up", action="store_true", help="Send due follow-up emails")
+    parser.add_argument("--flush", action="store_true", help="Flush ready_to_send/ emails via SMTP")
+    parser.add_argument("--flush-dry", action="store_true", help="Dry-run flush (show what would send)")
     parser.add_argument("--status", action="store_true", help="Show pipeline status")
     args = parser.parse_args()
 
@@ -421,5 +534,9 @@ if __name__ == "__main__":
         send_approved(auto_approve=True)
     elif args.follow_up:
         send_followups()
+    elif args.flush:
+        flush_ready_to_send(dry_run=False)
+    elif args.flush_dry:
+        flush_ready_to_send(dry_run=True)
     else:
         parser.print_help()

@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-03-17T23:54:36.216839+00:00",
+  "generated_at": "2026-03-22T17:24:07.798244+00:00",
   "funnel": {
-    "total_emails_sent": 113,
-    "unique_companies": 110,
-    "followups_sent": 60,
+    "total_emails_sent": 182,
+    "unique_companies": 175,
+    "followups_sent": 134,
     "replies_received": 0,
     "reply_rate_pct": 0.0,
     "stale_leads": 0,
     "dead_leads": 0,
-    "active_followups": 60
+    "active_followups": 74
   },
   "companies": [
     {
@@ -18,11 +18,11 @@
       "role": "Founder",
       "first_sent": "2026-03-11T09:37:34.372055+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Apollo.io",
@@ -31,11 +31,11 @@
       "role": "Head of Sales",
       "first_sent": "2026-03-11T09:38:00.761017+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Brex",
@@ -44,11 +44,11 @@
       "role": "Head of Sales",
       "first_sent": "2026-03-11T09:38:06.729172+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Calendly",
@@ -57,11 +57,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-11T09:38:12.426859+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Clearbit",
@@ -70,11 +70,11 @@
       "role": "VP of Marketing",
       "first_sent": "2026-03-11T09:38:17.865674+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Close",
@@ -83,11 +83,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-11T09:38:21.862218+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Convertkit",
@@ -96,11 +96,11 @@
       "role": "Head of Growth",
       "first_sent": "2026-03-11T09:38:28.879487+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Deel",
@@ -109,11 +109,11 @@
       "role": "Head of Sales",
       "first_sent": "2026-03-11T09:38:33.004442+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Directive",
@@ -122,11 +122,11 @@
       "role": "CEO",
       "first_sent": "2026-03-11T09:38:34.291709+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Drift",
@@ -135,11 +135,11 @@
       "role": "Head of Growth",
       "first_sent": "2026-03-11T09:38:38.656037+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Foundation Marketing",
@@ -148,11 +148,11 @@
       "role": "CEO",
       "first_sent": "2026-03-11T09:38:39.973752+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Freshdesk",
@@ -161,11 +161,11 @@
       "role": "Head of Support",
       "first_sent": "2026-03-11T09:38:45.481707+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Front",
@@ -174,11 +174,11 @@
       "role": "Head of Sales",
       "first_sent": "2026-03-11T09:38:49.540520+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Gorgias",
@@ -187,11 +187,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-11T09:38:54.283025+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Grow and Convert",
@@ -200,11 +200,11 @@
       "role": "CEO",
       "first_sent": "2026-03-11T09:38:55.657729+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Gusto",
@@ -213,11 +213,11 @@
       "role": "VP of Marketing",
       "first_sent": "2026-03-11T09:38:59.948272+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Help Scout",
@@ -226,11 +226,11 @@
       "role": "VP of Customer Success",
       "first_sent": "2026-03-11T09:39:03.809778+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Hunter.io",
@@ -239,11 +239,11 @@
       "role": "CEO",
       "first_sent": "2026-03-11T09:39:05.174548+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Intercom",
@@ -252,11 +252,11 @@
       "role": "VP of Support",
       "first_sent": "2026-03-11T09:39:09.616553+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Lattice",
@@ -265,11 +265,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-11T09:39:16.438559+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Lemlist",
@@ -278,11 +278,11 @@
       "role": "Head of Growth",
       "first_sent": "2026-03-11T09:39:20.254008+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Linear",
@@ -291,11 +291,11 @@
       "role": "CEO",
       "first_sent": "2026-03-11T09:39:21.517211+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Loom",
@@ -304,11 +304,11 @@
       "role": "VP of Marketing",
       "first_sent": "2026-03-11T09:39:25.974131+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Lusha",
@@ -317,11 +317,11 @@
       "role": "Head of Growth",
       "first_sent": "2026-03-11T09:39:29.812837+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Mailshake",
@@ -330,11 +330,11 @@
       "role": "Head of Growth",
       "first_sent": "2026-03-11T09:39:35.385243+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Mixmax",
@@ -343,11 +343,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-11T09:39:40.330929+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Notion",
@@ -356,11 +356,11 @@
       "role": "Head of Growth",
       "first_sent": "2026-03-11T09:39:45.334604+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Omniscient Digital",
@@ -369,11 +369,11 @@
       "role": "Founder",
       "first_sent": "2026-03-11T09:39:46.600348+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Outreach",
@@ -382,11 +382,11 @@
       "role": "Director of SDR",
       "first_sent": "2026-03-11T09:39:51.541029+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Pipedrive",
@@ -395,11 +395,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-11T09:39:57.478583+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Ramp",
@@ -408,11 +408,11 @@
       "role": "VP of Growth",
       "first_sent": "2026-03-11T09:40:03.115867+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Reply.io",
@@ -421,11 +421,11 @@
       "role": "CEO",
       "first_sent": "2026-03-11T09:40:04.467806+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Rippling",
@@ -434,11 +434,11 @@
       "role": "Director of SDR",
       "first_sent": "2026-03-11T09:40:08.095185+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Salesloft",
@@ -447,11 +447,11 @@
       "role": "VP of Revenue",
       "first_sent": "2026-03-11T09:40:12.810861+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Seamless.AI",
@@ -460,11 +460,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-11T09:40:17.137983+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Siege Media",
@@ -473,11 +473,11 @@
       "role": "Head of Content",
       "first_sent": "2026-03-11T09:40:21.186142+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Single Grain",
@@ -486,11 +486,11 @@
       "role": "Founder",
       "first_sent": "2026-03-11T09:40:22.569435+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Snov.io",
@@ -499,11 +499,11 @@
       "role": "Head of Growth",
       "first_sent": "2026-03-11T09:40:27.515577+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Soapbox",
@@ -512,11 +512,11 @@
       "role": "Founder",
       "first_sent": "2026-03-11T09:40:32.632475+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Supabase",
@@ -525,11 +525,11 @@
       "role": "Head of Growth",
       "first_sent": "2026-03-11T09:40:36.613303+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Typeform",
@@ -538,11 +538,11 @@
       "role": "Head of Growth",
       "first_sent": "2026-03-11T09:40:40.240535+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Unbounce",
@@ -551,11 +551,11 @@
       "role": "VP of Marketing",
       "first_sent": "2026-03-11T09:40:43.816539+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Velocity Partners",
@@ -564,11 +564,11 @@
       "role": "Managing Director",
       "first_sent": "2026-03-11T09:40:48.351363+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Vercel",
@@ -577,11 +577,11 @@
       "role": "Head of Sales",
       "first_sent": "2026-03-11T09:40:52.969762+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Vidyard",
@@ -590,11 +590,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-11T09:40:57.986448+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "WebFX",
@@ -603,11 +603,11 @@
       "role": "Director of Operations",
       "first_sent": "2026-03-11T09:41:04.354725+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Woodpecker",
@@ -616,11 +616,11 @@
       "role": "CEO",
       "first_sent": "2026-03-11T09:41:05.673972+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Yesware",
@@ -629,11 +629,11 @@
       "role": "Head of Revenue",
       "first_sent": "2026-03-11T09:41:10.012027+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Zendesk",
@@ -642,11 +642,11 @@
       "role": "Director of CS",
       "first_sent": "2026-03-11T09:41:13.778007+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "ZoomInfo",
@@ -655,11 +655,11 @@
       "role": "Head of Growth",
       "first_sent": "2026-03-11T09:41:17.130029+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 6
+      "days_since_first": 11
     },
     {
       "company": "Amplitude",
@@ -668,11 +668,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-12T20:05:23.899346+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 5
+      "days_since_first": 9
     },
     {
       "company": "Flexport",
@@ -681,11 +681,11 @@
       "role": "Head of Sales",
       "first_sent": "2026-03-12T20:06:10.874080+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 5
+      "days_since_first": 9
     },
     {
       "company": "Shipbob",
@@ -694,11 +694,11 @@
       "role": "Director of Operations",
       "first_sent": "2026-03-12T20:06:22.936619+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 5
+      "days_since_first": 9
     },
     {
       "company": "Thrasio",
@@ -707,11 +707,11 @@
       "role": "VP of Business Development",
       "first_sent": "2026-03-12T20:06:29.771357+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 5
+      "days_since_first": 9
     },
     {
       "company": "VaynerMedia",
@@ -720,11 +720,11 @@
       "role": "VP of Client Services",
       "first_sent": "2026-03-12T20:06:37.645038+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 5
+      "days_since_first": 9
     },
     {
       "company": "Jungle Scout",
@@ -733,11 +733,11 @@
       "role": "Head of Growth",
       "first_sent": "2026-03-12T22:34:07.209141+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 5
+      "days_since_first": 9
     },
     {
       "company": "Pattern",
@@ -746,11 +746,11 @@
       "role": "VP of Marketing",
       "first_sent": "2026-03-12T22:34:14.215049+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 5
+      "days_since_first": 9
     },
     {
       "company": "PlanetScale",
@@ -759,11 +759,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-12T22:34:21.092182+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 5
+      "days_since_first": 9
     },
     {
       "company": "Segment",
@@ -772,11 +772,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-12T22:34:25.269679+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 5
+      "days_since_first": 9
     },
     {
       "company": "Stord",
@@ -785,11 +785,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-12T22:35:25.245131+00:00",
       "emails_sent": 1,
-      "followups_sent": 1,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
       "status": "following_up",
-      "days_since_first": 5
+      "days_since_first": 9
     },
     {
       "company": "Airtable",
@@ -798,11 +798,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-15T14:18:57.346668+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "following_up",
+      "days_since_first": 7
     },
     {
       "company": "Retool",
@@ -811,11 +811,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-15T14:19:01.371636+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "following_up",
+      "days_since_first": 7
     },
     {
       "company": "ShipHero",
@@ -824,11 +824,11 @@
       "role": "VP of Business Development",
       "first_sent": "2026-03-15T14:19:04.715092+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "following_up",
+      "days_since_first": 7
     },
     {
       "company": "Helium 10",
@@ -837,11 +837,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-15T15:19:31.068995+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "following_up",
+      "days_since_first": 7
     },
     {
       "company": "Bain & Company",
@@ -850,11 +850,11 @@
       "role": "Principal",
       "first_sent": "2026-03-15T16:20:43.264710+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "following_up",
+      "days_since_first": 7
     },
     {
       "company": "McKinsey Implementation",
@@ -863,11 +863,11 @@
       "role": "Partner",
       "first_sent": "2026-03-15T16:20:48.127162+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "following_up",
+      "days_since_first": 7
     },
     {
       "company": "Oliver Wyman",
@@ -876,11 +876,11 @@
       "role": "Partner",
       "first_sent": "2026-03-15T16:20:52.374801+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "following_up",
+      "days_since_first": 7
     },
     {
       "company": "Wieden+Kennedy",
@@ -889,11 +889,11 @@
       "role": "Business Director",
       "first_sent": "2026-03-15T16:20:56.199066+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "following_up",
+      "days_since_first": 7
     },
     {
       "company": "72andSunny",
@@ -902,11 +902,11 @@
       "role": "VP of Business Development",
       "first_sent": "2026-03-15T17:22:51.856884+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "following_up",
+      "days_since_first": 7
     },
     {
       "company": "Easyship",
@@ -915,11 +915,11 @@
       "role": "Head of Sales",
       "first_sent": "2026-03-15T17:22:54.041600+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "following_up",
+      "days_since_first": 7
     },
     {
       "company": "Kearney",
@@ -928,11 +928,11 @@
       "role": "Principal",
       "first_sent": "2026-03-15T17:22:57.389677+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "following_up",
+      "days_since_first": 7
     },
     {
       "company": "Sellics",
@@ -941,11 +941,11 @@
       "role": "VP of Growth",
       "first_sent": "2026-03-15T17:23:02.321113+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "following_up",
+      "days_since_first": 7
     },
     {
       "company": "Havas",
@@ -954,11 +954,11 @@
       "role": "VP of Client Services",
       "first_sent": "2026-03-15T18:23:54.072857+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "following_up",
+      "days_since_first": 6
     },
     {
       "company": "L.E.K. Consulting",
@@ -967,11 +967,11 @@
       "role": "Partner",
       "first_sent": "2026-03-15T18:23:58.303203+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "following_up",
+      "days_since_first": 6
     },
     {
       "company": "HubSpot",
@@ -984,7 +984,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "Pendo.io",
@@ -997,7 +997,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "R/GA",
@@ -1010,7 +1010,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "Sendoso",
@@ -1023,7 +1023,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "ClickUp",
@@ -1036,7 +1036,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "Faire",
@@ -1049,7 +1049,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "Monday.com",
@@ -1062,7 +1062,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "Carta",
@@ -1075,7 +1075,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "Coda",
@@ -1088,7 +1088,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "Greenhouse",
@@ -1101,7 +1101,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "Notarize",
@@ -1114,7 +1114,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "Figma",
@@ -1127,7 +1127,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "Gong.io",
@@ -1140,7 +1140,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "Handshake",
@@ -1153,7 +1153,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "Loopio",
@@ -1166,7 +1166,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 5
     },
     {
       "company": "Appfolio",
@@ -1179,7 +1179,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "BambooHR",
@@ -1192,7 +1192,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Guru",
@@ -1205,7 +1205,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Turing",
@@ -1218,7 +1218,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Wealthsimple",
@@ -1231,7 +1231,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "BigCommerce",
@@ -1244,7 +1244,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Compass",
@@ -1257,7 +1257,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Opendoor",
@@ -1270,7 +1270,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Shopify Plus",
@@ -1283,7 +1283,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Zapier",
@@ -1296,7 +1296,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Affirm",
@@ -1309,7 +1309,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Canva",
@@ -1322,7 +1322,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Chime",
@@ -1335,7 +1335,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Robinhood",
@@ -1348,7 +1348,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Stripe",
@@ -1361,7 +1361,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Miro",
@@ -1374,7 +1374,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Webflow",
@@ -1387,7 +1387,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Benchling",
@@ -1400,7 +1400,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Docusign",
@@ -1413,7 +1413,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Fetch Rewards",
@@ -1426,7 +1426,7 @@
       "replied": false,
       "reply_at": null,
       "status": "sent",
-      "days_since_first": 0
+      "days_since_first": 4
     },
     {
       "company": "Klaviyo",
@@ -1434,6 +1434,851 @@
       "contact_name": "Alex Sheehan",
       "role": "Director of Sales",
       "first_sent": "2026-03-17T20:55:31.545514+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 4
+    },
+    {
+      "company": "Airtame",
+      "contact_email": "first.last@airtame.com",
+      "contact_name": "Head of Customer Success",
+      "role": "Head of Customer Success",
+      "first_sent": "2026-03-20T08:44:38.656014+00:00",
+      "emails_sent": 2,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "AKQA",
+      "contact_email": "alex.frew@akqa.com",
+      "contact_name": "Alex Frew",
+      "role": "VP of Growth",
+      "first_sent": "2026-03-20T08:45:06.591503+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Divvy Homes",
+      "contact_email": "headsales@divvyhomes.com",
+      "contact_name": "Unknown",
+      "role": "Head of Sales",
+      "first_sent": "2026-03-20T08:45:08.941655+00:00",
+      "emails_sent": 2,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Huge",
+      "contact_email": "lbaumgartner@huge.com",
+      "contact_name": "Lucy Baumgartner",
+      "role": "Director of Business Development",
+      "first_sent": "2026-03-20T08:45:26.680165+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Lattice Engines",
+      "contact_email": "info@latticeengines.com",
+      "contact_name": "Unknown",
+      "role": "Director of Operations",
+      "first_sent": "2026-03-20T08:45:51.789097+00:00",
+      "emails_sent": 2,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Plaid",
+      "contact_email": "jpate@plaid.com",
+      "contact_name": "Jason Pate",
+      "role": "VP of Business Development",
+      "first_sent": "2026-03-20T08:46:09.598620+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Razorfish",
+      "contact_email": "firstname.lastname@razorfish.com (standard corporate format)",
+      "contact_name": "Contact research needed - no specific Head of Sales Operations identified in public sources",
+      "role": "Head of Sales Operations",
+      "first_sent": "2026-03-20T08:46:11.250992+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Rent the Runway",
+      "contact_email": "gkozel@renttherunway.com",
+      "contact_name": "Gaby Kozel",
+      "role": "Head of Customer Success",
+      "first_sent": "2026-03-20T08:46:36.183296+00:00",
+      "emails_sent": 2,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Rentberry",
+      "contact_email": "oleksandr@rentberry.com",
+      "contact_name": "Oleksandr Korol",
+      "role": "VP of Growth",
+      "first_sent": "2026-03-20T08:47:18.920389+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Vanta",
+      "contact_email": "{first}.{last}@vanta.com",
+      "contact_name": "Target Prospect",
+      "role": "Director of Sales",
+      "first_sent": "2026-03-20T08:47:20.581008+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Wunderman Thompson",
+      "contact_email": "jessica.romaniw@wundermanthompson.com",
+      "contact_name": "Jessica Romaniw",
+      "role": "VP of Client Services",
+      "first_sent": "2026-03-20T08:47:45.490549+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Chili Piper",
+      "contact_email": "first.last@chilipiper.com",
+      "contact_name": "Target Prospect",
+      "role": "VP of Revenue",
+      "first_sent": "2026-03-20T09:52:31.846210+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "KlientBoost",
+      "contact_email": "johnathan@klientboost.com",
+      "contact_name": "Johnathan Dane",
+      "role": "CEO",
+      "first_sent": "2026-03-20T09:52:33.654760+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Mutiny",
+      "contact_email": "{first}@mutinyhq.com",
+      "contact_name": "Target Contact",
+      "role": "VP of Marketing",
+      "first_sent": "2026-03-20T09:52:35.202640+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "SmartBug Media",
+      "contact_email": "cro@smartbugmedia.com",
+      "contact_name": "Chief Revenue Officer",
+      "role": "Chief Revenue Officer",
+      "first_sent": "2026-03-20T09:52:36.507028+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "UserGems",
+      "contact_email": "christian@usergems.com",
+      "contact_name": "Christian Kletzl",
+      "role": "VP of Sales",
+      "first_sent": "2026-03-20T09:53:03.205623+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Metadata.io",
+      "contact_email": "mark@metadata.io",
+      "contact_name": "Mark Huber",
+      "role": "VP of Marketing",
+      "first_sent": "2026-03-20T10:57:15.884839+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "NexHealth",
+      "contact_email": "{first_initial}{last_name}@nexhealth.com",
+      "contact_name": "VP of Sales",
+      "role": "VP of Sales",
+      "first_sent": "2026-03-20T10:57:17.889089+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Osmind",
+      "contact_email": "info@osmind.com",
+      "contact_name": "Unknown",
+      "role": "Head of Growth",
+      "first_sent": "2026-03-20T10:57:34.004331+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Pilot",
+      "contact_email": "hello@pilot.com",
+      "contact_name": "Unknown",
+      "role": "VP of Sales",
+      "first_sent": "2026-03-20T10:58:07.342401+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Qualified",
+      "contact_email": "{first}@qualified.com",
+      "contact_name": "",
+      "role": "VP of Sales",
+      "first_sent": "2026-03-20T10:58:08.697743+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Bench Accounting",
+      "contact_email": "craig.ryomoto@benchaccounting.com",
+      "contact_name": "Craig Ryomoto",
+      "role": "VP of Revenue",
+      "first_sent": "2026-03-20T12:04:28.024795+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Connor Group",
+      "contact_email": "matt.giammanco@connor.com",
+      "contact_name": "Matt Giammanco",
+      "role": "Head of Business Development",
+      "first_sent": "2026-03-20T12:04:40.716385+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "MadKudu",
+      "contact_email": "julien@madkudu.com",
+      "contact_name": "Julien Le Coupanec",
+      "role": "Head of Growth",
+      "first_sent": "2026-03-20T12:05:01.462244+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Reachdesk",
+      "contact_email": "alex.olley@reachdesk.com",
+      "contact_name": "Alex Olley",
+      "role": "Chief Revenue Officer",
+      "first_sent": "2026-03-20T12:05:02.725751+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Walker Sands",
+      "contact_email": "{first}.{last}@walkersands.com",
+      "contact_name": "",
+      "role": "VP of Business Development",
+      "first_sent": "2026-03-20T12:05:04.285757+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Lawmatics",
+      "contact_email": "michael@lawmatics.com",
+      "contact_name": "Michael Liller",
+      "role": "VP of Sales",
+      "first_sent": "2026-03-20T13:09:58.251924+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "LeadIQ",
+      "contact_email": "nick@leadiq.com",
+      "contact_name": "Nick Hart",
+      "role": "VP of Sales",
+      "first_sent": "2026-03-20T13:10:13.054122+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Lexion",
+      "contact_email": "jessica@lexion.com",
+      "contact_name": "Jessica Shapiro",
+      "role": "VP of Marketing",
+      "first_sent": "2026-03-20T13:10:25.221600+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Podia",
+      "contact_email": "hello@podia.com",
+      "contact_name": "Unknown",
+      "role": "Head of Customer Success",
+      "first_sent": "2026-03-20T13:10:51.967095+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "PracticePanther",
+      "contact_email": "jacob@practicepanther.com",
+      "contact_name": "Jacob Eisinger",
+      "role": "Director of Sales",
+      "first_sent": "2026-03-20T13:11:05.916382+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "360Learning",
+      "contact_email": "first.last@360learning.com",
+      "contact_name": "Current VP of Sales",
+      "role": "VP of Sales",
+      "first_sent": "2026-03-20T14:15:16.874508+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Gem",
+      "contact_email": "hello@gem.com",
+      "contact_name": "Unknown",
+      "role": "VP of Customer Success",
+      "first_sent": "2026-03-20T14:15:55.920620+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Loop Returns",
+      "contact_email": "sam.cates@loopreturns.com",
+      "contact_name": "Sam Cates",
+      "role": "Director of Customer Support",
+      "first_sent": "2026-03-20T14:16:15.821274+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Maven",
+      "contact_email": "first.last@mavenclinic.com",
+      "contact_name": "",
+      "role": "VP of Growth",
+      "first_sent": "2026-03-20T14:16:17.151968+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Secureframe",
+      "contact_email": "chris.lull@secureframe.com",
+      "contact_name": "Chris Lull",
+      "role": "VP of Sales",
+      "first_sent": "2026-03-20T14:16:30.359617+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Postscript",
+      "contact_email": "colin@postscript.io",
+      "contact_name": "Colin Davis",
+      "role": "Head of Sales",
+      "first_sent": "2026-03-20T15:17:36.994706+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Clearview Group",
+      "contact_email": "info@clearview.com",
+      "contact_name": "Unknown",
+      "role": "Director of Sales",
+      "first_sent": "2026-03-20T16:21:49.230354+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Healthie",
+      "contact_email": "tori@gethealthie.com",
+      "contact_name": "Tori Gammill",
+      "role": "Head of Customer Success",
+      "first_sent": "2026-03-20T16:21:51.388129+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Kruze Consulting",
+      "contact_email": "scott@kruzeconsulting.com",
+      "contact_name": "Scott Orn",
+      "role": "Head of Client Services",
+      "first_sent": "2026-03-20T16:22:10.123817+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Vivaldi Partners",
+      "contact_email": "ablanchon@vivaldigroup.com",
+      "contact_name": "Agathe Blanchon-Ehrsam",
+      "role": "Managing Partner",
+      "first_sent": "2026-03-20T16:22:12.231843+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "WebMechanix",
+      "contact_email": "chris@webmechanix.com",
+      "contact_name": "Chris Mechanic",
+      "role": "CEO",
+      "first_sent": "2026-03-20T16:22:13.710928+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 2
+    },
+    {
+      "company": "Capchase",
+      "contact_email": "chris@capchase.com",
+      "contact_name": "Chris Gsell",
+      "role": "VP of Sales",
+      "first_sent": "2026-03-20T19:48:27.083968+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 1
+    },
+    {
+      "company": "Everlaw",
+      "contact_email": "first.last@everlaw.com",
+      "contact_name": "Target Executive",
+      "role": "VP of Operations",
+      "first_sent": "2026-03-20T19:48:29.733186+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 1
+    },
+    {
+      "company": "LinkSquares",
+      "contact_email": "info@linksquares.com",
+      "contact_name": "Unknown",
+      "role": "VP of Customer Success",
+      "first_sent": "2026-03-20T19:49:02.842066+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 1
+    },
+    {
+      "company": "Modern Treasury",
+      "contact_email": "first.last@moderntreasury.com",
+      "contact_name": "Target Contact",
+      "role": "VP of Operations",
+      "first_sent": "2026-03-20T19:49:04.558000+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 1
+    },
+    {
+      "company": "SpotDraft",
+      "contact_email": "first.last@spotdraft.com",
+      "contact_name": "Head of Sales",
+      "role": "Head of Sales",
+      "first_sent": "2026-03-20T19:49:05.968821+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 1
+    },
+    {
+      "company": "Orum",
+      "contact_email": "colin.specter@orum.com",
+      "contact_name": "Colin Specter",
+      "role": "Head of Sales",
+      "first_sent": "2026-03-21T19:11:58.498248+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "Paro",
+      "contact_email": "{first}@paro.ai",
+      "contact_name": "",
+      "role": "VP of Growth",
+      "first_sent": "2026-03-21T19:12:00.286749+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "Ribbon Health",
+      "contact_email": "nate@ribbonhealth.com",
+      "contact_name": "Nate Maslak",
+      "role": "VP of Operations",
+      "first_sent": "2026-03-21T19:12:29.176418+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "Tegus",
+      "contact_email": "{first}.{last}@tegus.com",
+      "contact_name": "",
+      "role": "VP of Sales",
+      "first_sent": "2026-03-21T19:12:33.757511+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "HealthJoy",
+      "contact_email": "first.last@healthjoy.com",
+      "contact_name": "Target Contact",
+      "role": "Head of Customer Support",
+      "first_sent": "2026-03-22T15:13:41.634125+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "Mend",
+      "contact_email": "",
+      "contact_name": "",
+      "role": "VP of Customer Success",
+      "first_sent": "2026-03-22T15:13:55.712071+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "Spruce Health",
+      "contact_email": "{first}.{last}@sprucehealth.com",
+      "contact_name": "",
+      "role": "Director of Operations",
+      "first_sent": "2026-03-22T15:13:56.124813+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "TeachFX",
+      "contact_email": "",
+      "contact_name": "",
+      "role": "Director of Partnerships",
+      "first_sent": "2026-03-22T15:14:15.805751+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "Betts Recruiting",
+      "contact_email": "info@bettsrecruiting.com",
+      "contact_name": "Unknown",
+      "role": "VP of Operations",
+      "first_sent": "2026-03-22T16:19:05.898050+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "Italic",
+      "contact_email": "{first}@italic.com",
+      "contact_name": "",
+      "role": "VP of Customer Experience",
+      "first_sent": "2026-03-22T16:19:07.299232+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "JumpCrew",
+      "contact_email": "jarron@jumpcrew.com",
+      "contact_name": "Jarron Tite",
+      "role": "VP of Sales",
+      "first_sent": "2026-03-22T16:19:08.484538+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "Skaled",
+      "contact_email": "jake@skaled.com",
+      "contact_name": "Jake Dunlap",
+      "role": "CEO",
+      "first_sent": "2026-03-22T16:19:10.116833+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "Winning by Design",
+      "contact_email": "dan@winningbydesign.com",
+      "contact_name": "Dan Smith",
+      "role": "Managing Director",
+      "first_sent": "2026-03-22T16:19:11.751775+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "CloserIQ",
+      "contact_email": "{first}@closeriq.com",
+      "contact_name": "Unknown",
+      "role": "Head of Sales",
+      "first_sent": "2026-03-22T17:23:24.398910+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "Flowspace",
+      "contact_email": "",
+      "contact_name": "",
+      "role": "VP of Sales",
+      "first_sent": "2026-03-22T17:23:36.992765+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "Hunt Club",
+      "contact_email": "",
+      "contact_name": "",
+      "role": "Head of Talent",
+      "first_sent": "2026-03-22T17:23:53.316909+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "Sendle",
+      "contact_email": "",
+      "contact_name": "",
+      "role": "Head of Customer Support",
+      "first_sent": "2026-03-22T17:24:06.116360+00:00",
+      "emails_sent": 1,
+      "followups_sent": 0,
+      "replied": false,
+      "reply_at": null,
+      "status": "sent",
+      "days_since_first": 0
+    },
+    {
+      "company": "Springboard",
+      "contact_email": "alex.carter@springboard.com",
+      "contact_name": "Alex Carter",
+      "role": "Director of Admissions",
+      "first_sent": "2026-03-22T17:24:06.119398+00:00",
       "emails_sent": 1,
       "followups_sent": 0,
       "replied": false,

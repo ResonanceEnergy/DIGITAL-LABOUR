@@ -1,4 +1,4 @@
-# BIT RAGE LABOUR OPERATIONAL ARCHITECTURE
+# DIGITAL LABOUR OPERATIONAL ARCHITECTURE
 ## How Goals Are Achieved: Hierarchy, Data Flow & Responsibilities
 
 **Date**: February 20, 2026
@@ -10,7 +10,7 @@
 ## 🎯 HOW GOALS ARE ACHIEVED
 
 ### Goal Achievement Framework
-The BIT RAGE LABOUR achieves goals through a **distributed autonomous intelligence network** that operates as a "company-of-companies":
+The DIGITAL LABOUR achieves goals through a **distributed autonomous intelligence network** that operates as a "company-of-companies":
 
 1. **Mission-Driven Operation**: All actions align with the NORTH STAR mission
 2. **Autonomous Execution**: Agents operate within defined autonomy levels (L0-L3)
@@ -68,7 +68,7 @@ L-Tier (Large/Core Infrastructure)
 ├── NCC - Neural Cognitive Control
 ├── NCL - Knowledge Processing Engine
 ├── AAC - Automated Accounting Center
-├── ResonanceEnergy_BitRageLabour - Portfolio Intelligence
+├── ResonanceEnergy_DigitalLabour - Portfolio Intelligence
 └── NCC-Doctrine - Executive Governance
 
 M-Tier (Medium/Active Development)
@@ -202,7 +202,7 @@ Based on recent arXiv research on autonomous agents in business operations:
 - **Risk Assessment Integration**: Build risk evaluation into every decision loop
 - **Human-in-the-Loop Design**: Maintain emergency intervention capabilities
 
-**BIT RAGE LABOUR Implementation**: ✅ Council evaluation system with autonomy levels L0-L3
+**DIGITAL LABOUR Implementation**: ✅ Council evaluation system with autonomy levels L0-L3
 
 ### 2. **Agentic Business Process Management** (arXiv:2601.18833)
 **Key Insights**:
@@ -211,7 +211,7 @@ Based on recent arXiv research on autonomous agents in business operations:
 - **Process Mining Integration**: Learn from existing process patterns
 - **Human-Agent Collaboration**: Design for seamless human-agent interaction
 
-**BIT RAGE LABOUR Implementation**: ✅ Orchestrator system with event-driven agent coordination
+**DIGITAL LABOUR Implementation**: ✅ Orchestrator system with event-driven agent coordination
 
 ### 3. **Autonomous Business System via Neuro-symbolic AI** (arXiv:2601.15599)
 **Key Insights**:
@@ -220,7 +220,7 @@ Based on recent arXiv research on autonomous agents in business operations:
 - **Cross-Functional Process Reconfiguration**: Enable dynamic business process adaptation
 - **Knowledge Graph Foundation**: Build on structured knowledge representations
 
-**BIT RAGE LABOUR Implementation**: ✅ NCL (Neural Cognitive Layer) with neuro-symbolic processing
+**DIGITAL LABOUR Implementation**: ✅ NCL (Neural Cognitive Layer) with neuro-symbolic processing
 
 ### 4. **Practical Guide to Agentic AI Transition** (arXiv:2602.10122)
 **Key Insights**:
@@ -229,7 +229,7 @@ Based on recent arXiv research on autonomous agents in business operations:
 - **Measurement Framework**: Establish KPIs for agent performance
 - **Ethical Considerations**: Build value alignment into agent design
 
-**BIT RAGE LABOUR Implementation**: ✅ Doctrine-based governance with ethical rails
+**DIGITAL LABOUR Implementation**: ✅ Doctrine-based governance with ethical rails
 
 ### 5. **World of Workflows Benchmark** (arXiv:2601.22130)
 **Key Insights**:
@@ -238,7 +238,7 @@ Based on recent arXiv research on autonomous agents in business operations:
 - **Error Recovery**: Build robust failure handling and recovery mechanisms
 - **Performance Benchmarking**: Regular evaluation against enterprise scenarios
 
-**BIT RAGE LABOUR Implementation**: ✅ Multi-agent orchestration with error recovery
+**DIGITAL LABOUR Implementation**: ✅ Multi-agent orchestration with error recovery
 
 ---
 

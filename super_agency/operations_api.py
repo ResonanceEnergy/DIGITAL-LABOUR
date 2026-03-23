@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Operations API Server
-REST API for programmatic access to BIT RAGE LABOUR operations.
+REST API for programmatic access to DIGITAL LABOUR operations.
 Includes: operations, research, second brain, runtime status, & system metrics.
 """
 
@@ -197,7 +197,7 @@ async def health_check():
     """GET /api/v1/health - API health check"""
     return jsonify({
         "status": "healthy",
-        "service": "BIT RAGE LABOUR Operations API",
+        "service": "DIGITAL LABOUR Operations API",
         "version": "v1",
         "timestamp": datetime.now().isoformat()
     })
@@ -528,7 +528,7 @@ def internal_error(error):
     }), 500
 
 if __name__ == '__main__':
-    print("[LAUNCH] Starting BIT RAGE LABOUR Operations API Server...")
+    print("[LAUNCH] Starting DIGITAL LABOUR Operations API Server...")
     print("[API] Available endpoints:")
     print("   POST /api/v1/operations/query     - Process operational queries")
     print("   GET  /api/v1/operations/departments - List all departments")

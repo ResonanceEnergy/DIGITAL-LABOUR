@@ -1,4 +1,4 @@
-"""End-to-end pipeline test for Bit Rage Labour.
+"""End-to-end pipeline test for DIGITAL LABOUR.
 
 Tests the full chain: create_event → route_task → agent → QA → KPI log
 for every agent type. Uses a mock LLM to avoid real API calls / costs.
@@ -40,13 +40,13 @@ SAMPLE_INPUTS = {
     "web_scraper": {"page_content": "<h1>TestCorp</h1><p>We build SaaS tools.</p><a href='mailto:info@test.com'>Contact</a>", "target": "contacts"},
     "crm_ops": {"crm_data": "Lead: John Doe, Status: New, Score: 85\nLead: Jane Smith, Status: Contacted, Score: 60", "crm_task": "clean"},
     "bookkeeping": {"financial_data": "2026-03-01 Office Supplies $45.99\n2026-03-02 Client Payment +$1500", "books_task": "categorize"},
-    "proposal_writer": {"brief": "Build an AI chatbot for customer support", "proposal_type": "project_proposal", "company_name": "Bit Rage Labour"},
+    "proposal_writer": {"brief": "Build an AI chatbot for customer support", "proposal_type": "project_proposal", "company_name": "DIGITAL LABOUR"},
     "product_desc": {"raw_input": "Wireless noise-cancelling headphones with 30hr battery", "platform": "amazon"},
     "resume_writer": {"raw_input": "5 years Python dev, worked at Google and startup, BS CS", "target_role": "Senior Engineer"},
     "ad_copy": {"brief": "AI automation agency offering 24/7 support agents", "platform": "google_search", "goal": "conversions"},
     "market_research": {"brief": "AI agent market size and growth 2026", "report_type": "market_overview"},
     "business_plan": {"business_idea": "AI-powered freelance agency", "plan_type": "startup", "industry": "technology"},
-    "press_release": {"announcement": "Bit Rage Labour launches 20-agent AI workforce", "company_name": "Bit Rage Labour", "release_type": "product_launch"},
+    "press_release": {"announcement": "DIGITAL LABOUR launches 20-agent AI workforce", "company_name": "DIGITAL LABOUR", "release_type": "product_launch"},
     "tech_docs": {"content": "def run_pipeline(inputs): ...", "doc_type": "api_reference", "framework": "FastAPI"},
     "context_manager": {"action": "enrich", "target_task_type": "sales_outreach", "client_id": "test_client", "task_inputs": {"company": "TestCorp"}},
     "qa_manager": {"action": "verify", "target_task_type": "sales_outreach", "deliverable": {"subject": "Test", "body": "Hello"}, "client_id": "test_client"},
@@ -74,7 +74,7 @@ def mock_llm(*args, **kwargs):
         "headlines": ["AI Support Agents 24/7"],
         "report": "Market analysis report content.",
         "plan": "Executive summary of the business plan.",
-        "press_release": "FOR IMMEDIATE RELEASE: Bit Rage Labour launches...",
+        "press_release": "FOR IMMEDIATE RELEASE: DIGITAL LABOUR launches...",
         "documentation": "# API Reference\n\n## run_pipeline\n\nRuns the agent pipeline.",
         "qa_status": "PASS",
         "verdict": "APPROVED",
@@ -257,7 +257,7 @@ def test_api_models():
 
 def main():
     print("=" * 70)
-    print("BIT RAGE LABOUR — END-TO-END PIPELINE TEST")
+    print("DIGITAL LABOUR — END-TO-END PIPELINE TEST")
     print("=" * 70)
 
     results = {}

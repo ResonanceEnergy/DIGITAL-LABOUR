@@ -614,7 +614,7 @@ class GapAnalyzer:
                     "No integration sync reports"
                 ),
                 "detail": (
-                    "NCC/NCL/AAC/Bit Rage Labour sync "
+                    "NCC/NCL/AAC/DIGITAL LABOUR sync "
                     "has never produced output"
                 ),
                 "action": "run_integrations",

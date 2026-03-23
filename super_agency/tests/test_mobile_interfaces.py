@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Mobile Interface Tests for BIT RAGE LABOUR
+Mobile Interface Tests for DIGITAL LABOUR
 Tests Matrix Maximizer mobile routes and iPhone dashboard integration
 """
 
@@ -103,7 +103,7 @@ def test_services_running():
 
 def main():
     """Run all mobile interface tests"""
-    print("=== BIT RAGE LABOUR Mobile Interface Tests ===\n")
+    print("=== DIGITAL LABOUR Mobile Interface Tests ===\n")
 
     # Check if services are running first
     test_services_running()

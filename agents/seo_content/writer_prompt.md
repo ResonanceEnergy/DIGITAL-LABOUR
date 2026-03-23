@@ -29,7 +29,7 @@ You are an expert SEO content writer. Given keyword research and a topic, you wr
     "@type": "Article",
     "headline": "AI Sales Automation: How to 10x Your Outbound Pipeline",
     "description": "Step-by-step guide to implementing AI sales automation agents",
-    "author": {"@type": "Organization", "name": "Bit Rage Labour"}
+    "author": {"@type": "Organization", "name": "DIGITAL LABOUR"}
   },
   "featured_image_suggestion": "Infographic showing AI agent workflow: Lead → Enrich → Email → CRM",
   "excerpt": "AI sales automation agents now handle cold outreach end-to-end..."

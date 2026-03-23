@@ -76,7 +76,7 @@ class OperationsCentersManager:
             name="Core Agency Operations Center",
             repository="Digital-Labour",
             center_type=OperationsCenterType.CORE_AGENCY,
-            description="Central nervous system of the BIT RAGE LABOUR - coordinates all operations, intelligence synthesis, and autonomous decision-making",
+            description="Central nervous system of the DIGITAL LABOUR - coordinates all operations, intelligence synthesis, and autonomous decision-making",
             priority=1
         )
 

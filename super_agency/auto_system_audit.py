@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BIT RAGE LABOUR Auto System Audit
+DIGITAL LABOUR Auto System Audit
 Runs every 15 minutes to check system health and fix issues
 """
 
@@ -139,7 +139,7 @@ def run_full_audit():
 def print_audit_report(result):
     """Print formatted audit report"""
     print("=" * 60)
-    print(f"🔍 BIT RAGE LABOUR AUTO AUDIT - {result['timestamp']}")
+    print(f"🔍 DIGITAL LABOUR AUTO AUDIT - {result['timestamp']}")
     print("=" * 60)
 
     print(f"\n📊 System Metrics:")

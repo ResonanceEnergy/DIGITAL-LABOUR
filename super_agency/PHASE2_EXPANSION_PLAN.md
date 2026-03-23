@@ -324,7 +324,7 @@ class CrossRepoAnalyzer:
 ### Phase 2 Architecture Overview
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    BIT RAGE LABOUR Phase 2                     │
+│                    DIGITAL LABOUR Phase 2                     │
 ├─────────────────────────────────────────────────────────────┤
 │  Multi-Modal Ingestion    │  Agent Collaboration  │  Analytics │
 │  • Podcast processing     │  • Message bus        │  • Trends  │

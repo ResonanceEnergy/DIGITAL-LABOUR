@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🚀 BIT RAGE LABOUR - 24/7 PRODUCTION AGENT COLLABORATION SYSTEM
+🚀 DIGITAL LABOUR - 24/7 PRODUCTION AGENT COLLABORATION SYSTEM
 ============================================================
 Orchestrates OPTIMUS + GASKET agents for continuous forward progress
 on all ResonanceEnergy repositories with cross-platform sync.
@@ -484,7 +484,7 @@ def get_collaboration_instructions() -> str:
     """Get collaboration instructions for OPTIMUS and GASKET"""
     return """
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║       🚀 BIT RAGE LABOUR - AGENT COLLABORATION PROTOCOL 🚀                       ║
+║       🚀 DIGITAL LABOUR - AGENT COLLABORATION PROTOCOL 🚀                       ║
 ╠══════════════════════════════════════════════════════════════════════════════╣
 ║                                                                               ║
 ║  SYSTEM ARCHITECTURE:                                                         ║

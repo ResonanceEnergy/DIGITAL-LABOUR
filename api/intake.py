@@ -1,4 +1,4 @@
-"""FastAPI intake webhook for Bit Rage Labour.
+"""FastAPI intake webhook for DIGITAL LABOUR.
 
 Receives task requests via HTTP, validates them, queues them, and returns task IDs.
 Optionally processes immediately (sync mode) or returns for async pickup.
@@ -37,8 +37,15 @@ from api.matrix_monitor import router as matrix_router
 from api.openclaw import router as openclaw_router
 from api.lead_magnet import router as lead_router
 
+# P6.3 — Credential TTL check on startup
+try:
+    from utils.credential_ttl import check_credential_ttl
+    check_credential_ttl()
+except Exception:
+    pass
+
 app = FastAPI(
-    title="Bit Rage Labour Intake API",
+    title="DIGITAL LABOUR Intake API",
     version="1.0.0",
     description="Submit tasks to the AI workforce. Returns structured outputs.",
 )
@@ -89,7 +96,7 @@ app.include_router(monitor_router)
 # Payment & signup endpoints
 app.include_router(payment_router)
 
-# BIT RAGE LABOUR MATRIX MONITOR — Mobile C2
+# DIGITAL LABOUR MATRIX MONITOR — Mobile C2
 app.include_router(matrix_router)
 
 # OpenClaw Automation Engine
@@ -108,16 +115,16 @@ def ops_dashboard():
 
 @app.get("/matrix", response_class=HTMLResponse)
 def matrix_dashboard():
-    """Serve the BIT RAGE LABOUR MATRIX MONITOR — mobile C2 dashboard."""
+    """Serve the DIGITAL LABOUR MATRIX MONITOR — mobile C2 dashboard."""
     html_path = Path(__file__).parent / "matrix_dashboard.html"
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
 
 @app.get("/matrix/manifest.json")
 def matrix_manifest():
-    """PWA manifest for BIT RAGE LABOUR MATRIX — Add to Home Screen support."""
+    """PWA manifest for DIGITAL LABOUR MATRIX — Add to Home Screen support."""
     return JSONResponse({
-        "name": "BIT RAGE LABOUR MATRIX",
+        "name": "DIGITAL LABOUR MATRIX",
         "short_name": "MATRIX",
         "start_url": "/matrix",
         "display": "standalone",
@@ -180,10 +187,10 @@ _INJECTION_PATTERNS = re.compile(
 
 
 def sanitize_input(inputs: dict) -> dict:
-    """Strip control chars, limit field lengths, detect injection patterns.
+    """Strip control chars, limit field lengths, reject injection patterns.
 
-    Raises HTTPException 413 on oversized payload, logs SUSPICIOUS_INPUT on
-    detected injection patterns but allows through (flagged only).
+    Raises HTTPException 413 on oversized payload.
+    Raises HTTPException 400 on detected injection patterns.
     """
     total_chars = 0
     sanitized: dict = {}
@@ -198,6 +205,11 @@ def sanitize_input(inputs: dict) -> dict:
             total_chars += len(clean)
             if _INJECTION_PATTERNS.search(clean):
                 logger.warning("[SUSPICIOUS_INPUT] Injection pattern in field '%s'", key)
+                logger.warning("[REJECTED_INPUT] Injection pattern in field '%s'", key)
+                raise HTTPException(
+                    status_code=400,
+                    detail="Request rejected: suspicious input pattern detected",
+                )
             sanitized[key] = clean
         else:
             sanitized[key] = value
@@ -223,6 +235,7 @@ class TaskRequest(BaseModel):
     priority: int = Field(default=0, ge=0, le=10)
     inputs: dict = Field(default_factory=dict)
     sync: bool = Field(default=False, description="If True, process immediately and return result")
+    schema_version: str = Field(default="2.0", description="Schema version — must match current version")
 
 
 class TaskResponse(BaseModel):
@@ -249,6 +262,13 @@ class TaskStatus(BaseModel):
 @app.post("/tasks", response_model=TaskResponse)
 def submit_task(req: TaskRequest):
     """Submit a new task for processing."""
+    # P1.4: Schema version validation — reject mismatched versions
+    if req.schema_version != "2.0":
+        raise HTTPException(
+            status_code=422,
+            detail=f"Schema version mismatch: got '{req.schema_version}', expected '2.0'",
+        )
+
     # Budget check
     if req.client:
         limit = DAILY_LIMITS.get(req.task_type, 50)
@@ -291,8 +311,9 @@ def submit_task(req: TaskRequest):
                 queue.complete(task_id, outputs=outputs, qa_status=qa, cost_usd=cost)
                 return TaskResponse(task_id=task_id, status="completed", message=f"QA: {qa}")
             except Exception as e:
+                logger.exception("Task %s failed", task_id)
                 queue.fail(task_id, error=str(e))
-                raise HTTPException(status_code=500, detail=f"Task failed: {e}")
+                raise HTTPException(status_code=500, detail="Task processing failed")
 
     return TaskResponse(task_id=task_id, status="queued", message="Task queued for processing.")
 
@@ -402,7 +423,8 @@ def generate_invoice_pdf(client: str, days: int = 30):
         path = make_pdf(client, days=days)
         return FileResponse(path, media_type="application/pdf", filename=Path(path).name)
     except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        logger.exception("Invoice generation failed for %s", client)
+        raise HTTPException(status_code=400, detail="Invoice generation failed")
 
 
 if __name__ == "__main__":

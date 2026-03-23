@@ -1,17 +1,17 @@
 # NCC DOCTRINE INTEGRATION FRAMEWORK
-## BIT RAGE LABOUR - C-Suite Doctrine Integration Guide
+## DIGITAL LABOUR - C-Suite Doctrine Integration Guide
 
 **Integration Version:** 1.0  
-**Target Framework:** BIT RAGE LABOUR NCC + Council 52  
+**Target Framework:** DIGITAL LABOUR NCC + Council 52  
 **Effective Date:** February 20, 2026  
 
 ---
 
 ## EXECUTIVE SUMMARY
 
-This integration framework provides a systematic approach to extracting and integrating the most valuable components of the NCC-Doctrine into the BIT RAGE LABOUR framework. The integration focuses on executive command structures, decision frameworks, and oversight mechanisms that enhance the existing NCC and Council 52 systems without disrupting current operations.
+This integration framework provides a systematic approach to extracting and integrating the most valuable components of the NCC-Doctrine into the DIGITAL LABOUR framework. The integration focuses on executive command structures, decision frameworks, and oversight mechanisms that enhance the existing NCC and Council 52 systems without disrupting current operations.
 
-**Integration Principle:** Extract the best executive leadership components while preserving the BIT RAGE LABOUR's autonomous intelligence architecture and ethical foundations.
+**Integration Principle:** Extract the best executive leadership components while preserving the DIGITAL LABOUR's autonomous intelligence architecture and ethical foundations.
 
 ---
 

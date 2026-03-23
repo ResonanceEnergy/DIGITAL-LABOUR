@@ -25,7 +25,7 @@
     "status": "synced"
   },
   "bit_rage_labour": {
-    "system": "BitRageLabour",
+    "system": "DigitalLabour",
     "action": "sync",
     "synced_at": "2026-03-15T13:47:00.551314-07:00",
     "status": "synced",

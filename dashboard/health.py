@@ -119,7 +119,7 @@ def print_dashboard():
     rev = data["revenue_30d"]
 
     print("\n" + "=" * 60)
-    print("  BIT RAGE LABOUR — System Dashboard")
+    print("  Digital Labour — System Dashboard")
     print("=" * 60)
     print(f"  Timestamp: {data['timestamp']}")
 
@@ -164,7 +164,7 @@ def print_dashboard():
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Bit Rage Labour Health Dashboard")
+    parser = argparse.ArgumentParser(description="Digital Labour Health Dashboard")
     parser.add_argument("--json", action="store_true", help="Output as JSON")
     args = parser.parse_args()
 

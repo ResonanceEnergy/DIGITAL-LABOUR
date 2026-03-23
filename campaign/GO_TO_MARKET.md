@@ -1,4 +1,4 @@
-# Bit Rage Labour — GO-TO-MARKET WAR PLAN
+# DIGITAL LABOUR — GO-TO-MARKET WAR PLAN
 ## Revenue Generation Playbook — March 2026
 
 ---

@@ -1,4 +1,4 @@
-# BIT RAGE LABOUR
+# DIGITAL LABOUR LABOUR
 ## AI Labor Operations — Autonomous Agents That Earn
 
 This is not a chatbot. This is not a SaaS product.  

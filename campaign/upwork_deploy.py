@@ -20,7 +20,7 @@ OUTPUT_DIR = PROJECT_ROOT / "output" / "upwork_deploy"
 # ---------------------------------------------------------------
 
 AGENCY_PROFILE = {
-    "name": "Bit Rage Labour",
+    "name": "Digital Labour",
     "tagline": "AI Agent Agency -- Multi-Agent Pipelines for Any Business Task",
     "title": "AI Agent Developer | Multi-Agent Pipelines | Automation Architect",
     "hourly_rate": {"min": 50, "max": 200, "currency": "CAD"},
@@ -77,10 +77,10 @@ UPWORK_SERVICES = [
             "1. Research agent that pulls live company signals\n"
             "2. Writer agent that crafts personalized sequences\n"
             "3. QA agent that validates before sending\n\n"
-            "I've built 20 specialized AI agents at Bit Rage Labour. "
+            "I've built 20 specialized AI agents at Digital Labour. "
             "Average delivery under 60 seconds per lead.\n\n"
             "Happy to show a live demo on your prospect list.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "AI Sales Outreach Pipeline",
@@ -112,7 +112,7 @@ UPWORK_SERVICES = [
             "and escalation routing -- all in under 10 seconds per ticket.\n\n"
             "Works with Zendesk, Freshdesk, Intercom, or plain email.\n\n"
             "Happy to run a demo batch on 10 of your tickets.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "AI Support Ticket Resolver",
@@ -144,7 +144,7 @@ UPWORK_SERVICES = [
             "My AI pipeline takes one source piece and produces 5 platform-specific "
             "versions -- each optimized for engagement on its platform.\n\n"
             "I can process your first post as a free sample.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "Content Repurposing Pipeline",
@@ -176,7 +176,7 @@ UPWORK_SERVICES = [
             "My agent extracts structured JSON data from documents with "
             "confidence scores on every field.\n\n"
             "I'll process 5 of your documents as a sample.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "Document Extraction Agent",
@@ -208,7 +208,7 @@ UPWORK_SERVICES = [
             "Each lead comes with fit score, buying signals, and approach angle "
             "-- not just name and email.\n\n"
             "I'll deliver 5 sample leads for your ICP to prove quality.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "AI Lead Gen System",
@@ -238,7 +238,7 @@ UPWORK_SERVICES = [
             "{relevance_hook}\n\n"
             "I'll write a 5-email sequence with A/B subject lines, "
             "timing recommendations, and ready merge tags for your ESP.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "Email Marketing Sequences",
@@ -271,7 +271,7 @@ UPWORK_SERVICES = [
             "You'll get keyword-targeted articles with proper heading structure, "
             "meta tags, and readability scoring.\n\n"
             "I'll deliver a sample article for your primary keyword.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "SEO Content Pipeline",
@@ -300,7 +300,7 @@ UPWORK_SERVICES = [
             "I produce AI-optimized social media content. "
             "{relevance_hook}\n\n"
             "I'll create 10 posts across your platforms as a trial.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "Social Media Content Engine",
@@ -329,7 +329,7 @@ UPWORK_SERVICES = [
             "{relevance_hook}\n\n"
             "Send me a sample and I'll process the first 200 rows free "
             "so you can verify quality.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "AI Data Entry System",
@@ -358,7 +358,7 @@ UPWORK_SERVICES = [
             "I do AI-powered web data extraction. "
             "{relevance_hook}\n\n"
             "I'll extract a 10-page sample so you can verify the output format.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "AI Web Scraping Pipeline",
@@ -387,7 +387,7 @@ UPWORK_SERVICES = [
             "{relevance_hook}\n\n"
             "Export a sample of 250 records and I'll show you the dedup "
             "and standardization results.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "CRM Cleanup Agent",
@@ -415,7 +415,7 @@ UPWORK_SERVICES = [
             "I do AI-assisted bookkeeping data processing. "
             "{relevance_hook}\n\n"
             "I'll process 100 transactions as a sample.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "AI Bookkeeping Pipeline",
@@ -445,7 +445,7 @@ UPWORK_SERVICES = [
             "I write AI-powered proposals that win projects. "
             "{relevance_hook}\n\n"
             "I'll draft a 3-page proposal as a sample.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "AI Proposal Generator",
@@ -473,7 +473,7 @@ UPWORK_SERVICES = [
             "I write AI-optimized product descriptions. "
             "{relevance_hook}\n\n"
             "I'll write 5 sample descriptions for your products.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "Product Description Engine",
@@ -502,7 +502,7 @@ UPWORK_SERVICES = [
             "{relevance_hook}\n\n"
             "I'll review your current resume and show you the improvements "
             "before you commit.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "AI Resume Writer",
@@ -531,7 +531,7 @@ UPWORK_SERVICES = [
             "I write high-converting ad copy using AI. "
             "{relevance_hook}\n\n"
             "I'll write a sample campaign with A/B variations for your product.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "AI Ad Copy Engine",
@@ -560,7 +560,7 @@ UPWORK_SERVICES = [
             "I produce AI market research reports. "
             "{relevance_hook}\n\n"
             "I'll deliver a quick competitive overview as a sample.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "AI Market Research Engine",
@@ -591,7 +591,7 @@ UPWORK_SERVICES = [
             "{relevance_hook}\n\n"
             "I'll draft the executive summary and financials overview "
             "as a sample.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "AI Business Plan Generator",
@@ -621,7 +621,7 @@ UPWORK_SERVICES = [
             "I write AP-style press releases. "
             "{relevance_hook}\n\n"
             "I'll draft the headline, lead, and first quote as a sample.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "AI Press Release Writer",
@@ -650,7 +650,7 @@ UPWORK_SERVICES = [
             "I write AI-powered technical documentation. "
             "{relevance_hook}\n\n"
             "I'll document one endpoint or write one section as a sample.\n\n"
-            "Best,\nBit Rage Labour"
+            "Best,\nDigital Labour"
         ),
         "portfolio_item": {
             "title": "AI Technical Doc Writer",

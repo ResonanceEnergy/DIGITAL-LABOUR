@@ -7,6 +7,7 @@
   "max_daily_burn_usd": 50.0,
   "cost_explosion_multiplier": 2.0,
   "per_agent_alert_ceiling_usd": 5.0,
+  "runtime_cost_per_task_usd": 0.001,
   "alert_email": "",
   "alert_log_level": "CRITICAL"
 }

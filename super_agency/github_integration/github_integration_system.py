@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BIT RAGE LABOUR GitHub Integration System
+DIGITAL LABOUR GitHub Integration System
 Comprehensive GitHub operations management for the Resonance Energy portfolio
 """
 
@@ -150,7 +150,7 @@ class GitHubIntegrationSystem:
         command = [
             'repo', 'create',
             f'{self.org_name}/{name}',
-            '--description', description or f'{name} - BIT RAGE LABOUR Project'
+            '--description', description or f'{name} - DIGITAL LABOUR Project'
         ]
 
         if private:
@@ -418,7 +418,7 @@ jobs:
         private = visibility == 'private' or autonomy in [
             'L2', 'L3'] or tier in ['EXECUTIVE']
 
-        description = f"{name} - {tier} tier, {autonomy} autonomy - BIT RAGE LABOUR Portfolio"
+        description = f"{name} - {tier} tier, {autonomy} autonomy - DIGITAL LABOUR Portfolio"
 
         # Map tier to template
         template_map = {
@@ -503,7 +503,7 @@ jobs:
     def autonomous_sync(self) -> Dict:
         """
         Autonomous portfolio synchronization
-        Designed to be called automatically by the BIT RAGE LABOUR orchestration system
+        Designed to be called automatically by the DIGITAL LABOUR orchestration system
 
         Returns:
             Sync results with detailed status
@@ -624,7 +624,7 @@ def main():
             # Create specific repository
             repo_name = sys.argv[2]
             description = sys.argv[3] if len(
-                sys.argv) > 3 else f"{repo_name} - BIT RAGE LABOUR Project"
+                sys.argv) > 3 else f"{repo_name} - DIGITAL LABOUR Project"
             success = system.create_repository(repo_name, description, True)
             print(
                 f"Repository creation {'successful' if success else 'failed'}: {repo_name}")
@@ -637,7 +637,7 @@ def main():
                 "  python github_integration_system.py create <name> [description]  # Create repo")
     else:
         # Default: run autonomous sync
-        print("🤖 BIT RAGE LABOUR GitHub Integration System")
+        print("🤖 DIGITAL LABOUR GitHub Integration System")
         print("Running autonomous portfolio sync...")
         results = system.autonomous_sync()
         print("\n" + "="*50)

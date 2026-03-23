@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BIT RAGE LABOUR Complete System Integration Demo
+DIGITAL LABOUR Complete System Integration Demo
 Demonstrates all components working together
 """
 
@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 def main():
     """Complete system integration demo"""
 
-    print("🚀 BIT RAGE LABOUR Complete System Integration Demo")
+    print("🚀 DIGITAL LABOUR Complete System Integration Demo")
     print("=" * 60)
 
     try:
@@ -118,8 +118,8 @@ def main():
         print("\n🗜️  Context Compression Demo")
 
         conversation = [
-            {"role": "user", "content": "How does the BIT RAGE LABOUR memory system work?"},
-            {"role": "assistant", "content": "The BIT RAGE LABOUR uses a multi-layer memory architecture with ephemeral, session, and persistent layers. It includes semantic compression and vector-based retrieval."},
+            {"role": "user", "content": "How does the DIGITAL LABOUR memory system work?"},
+            {"role": "assistant", "content": "The DIGITAL LABOUR uses a multi-layer memory architecture with ephemeral, session, and persistent layers. It includes semantic compression and vector-based retrieval."},
             {"role": "user", "content": "What about cross-device synchronization?"},
             {"role": "assistant", "content": "Cross-device sync is handled by the SASP protocol, which provides secure authenticated communication between devices."}
         ]
@@ -161,7 +161,7 @@ def main():
 
         # Store semantic memories
         memories = [
-            "The BIT RAGE LABOUR doctrine emphasizes memory optimization and context preservation.",
+            "The DIGITAL LABOUR doctrine emphasizes memory optimization and context preservation.",
             "SASP protocol enables secure cross-device communication with RSA encryption.",
             "Vector databases provide semantic search capabilities for efficient information retrieval.",
             "Backlog intelligence uses AI to optimize task prioritization and dependency management."
@@ -276,7 +276,7 @@ def main():
         # Final success message
         print("\n🎉 COMPLETE SYSTEM INTEGRATION SUCCESSFUL!")
         print("=" * 60)
-        print("All BIT RAGE LABOUR components are working together:")
+        print("All DIGITAL LABOUR components are working together:")
         print("✅ Multi-layer Memory System")
         print("✅ Doctrine Preservation & Evolution")
         print("✅ AI-Powered Backlog Intelligence")
@@ -284,7 +284,7 @@ def main():
         print("✅ Secure SASP Protocol")
         print("✅ Semantic Vector Database")
         print("✅ Production Deployment & Monitoring")
-        print("\n🚀 BIT RAGE LABOUR is ready for production use!")
+        print("\n🚀 DIGITAL LABOUR is ready for production use!")
 
         return True
 

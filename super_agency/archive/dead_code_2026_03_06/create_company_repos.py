@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BIT RAGE LABOUR Company Repository Creator
+DIGITAL LABOUR Company Repository Creator
 Creates separate repositories for all companies in the NCC Doctrine portfolio
 """
 
@@ -44,11 +44,11 @@ def create_company_repositories():
         # Create README.md
         readme_content = f'''# {company_name}
 
-**Company Repository** - BIT RAGE LABOUR Portfolio Company
+**Company Repository** - DIGITAL LABOUR Portfolio Company
 
 ## Overview
 
-{company_name} is a portfolio company within the BIT RAGE LABOUR ecosystem.
+{company_name} is a portfolio company within the DIGITAL LABOUR ecosystem.
 
 ## Repository Information
 
@@ -57,7 +57,7 @@ def create_company_repositories():
 - **Autonomy Level**: {autonomy_level}
 - **Risk Tier**: {risk_tier}
 - **Created**: February 20, 2026
-- **Parent Organization**: BIT RAGE LABOUR
+- **Parent Organization**: DIGITAL LABOUR
 
 ## Directory Structure
 
@@ -72,11 +72,11 @@ def create_company_repositories():
 
 ## Integration Status
 
-This repository is part of the BIT RAGE LABOUR NCC-Doctrine integration framework.
+This repository is part of the DIGITAL LABOUR NCC-Doctrine integration framework.
 
 ## Contact
 
-For questions about this company repository, contact the BIT RAGE LABOUR executive team.
+For questions about this company repository, contact the DIGITAL LABOUR executive team.
 '''
 
         with open(company_dir / 'README.md', 'w', encoding='utf-8') as f:
@@ -169,10 +169,10 @@ logs/
 
         # Create basic __init__.py if it's a Python project
         with open(company_dir / 'src' / '__init__.py', 'w', encoding='utf-8') as f:
-            f.write(f'''"""BIT RAGE LABOUR Portfolio Company: {company_name}"""
+            f.write(f'''"""DIGITAL LABOUR Portfolio Company: {company_name}"""
 
 __version__ = "1.0.0"
-__author__ = "BIT RAGE LABOUR"
+__author__ = "DIGITAL LABOUR"
 __description__ = "{company_name} portfolio company"
 ''')
 
@@ -191,7 +191,7 @@ __description__ = "{company_name} portfolio company"
 def create_companies_index(companies):
     """Create a master index of all company repositories"""
 
-    index_content = '''# BIT RAGE LABOUR Companies Index
+    index_content = '''# DIGITAL LABOUR Companies Index
 
 **Master Index of All Portfolio Companies**
 
@@ -222,7 +222,7 @@ companies/
 
 ## Integration Status
 
-All company repositories are part of the BIT RAGE LABOUR NCC-Doctrine integration framework and are ready for development.
+All company repositories are part of the DIGITAL LABOUR NCC-Doctrine integration framework and are ready for development.
 
 ## Next Steps
 
@@ -233,7 +233,7 @@ All company repositories are part of the BIT RAGE LABOUR NCC-Doctrine integratio
 
 ## Contact
 
-BIT RAGE LABOUR Executive Team
+DIGITAL LABOUR Executive Team
 '''
 
     rows = []

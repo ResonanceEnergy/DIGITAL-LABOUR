@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-System Integrations — NCC, NCL, AAC, Bit Rage Labour.
+System Integrations — NCC, NCL, AAC, DIGITAL LABOUR.
 
-Bridges the four core subsystems into the BIT RAGE LABOUR
+Bridges the four core subsystems into the DIGITAL LABOUR
 orchestrator pipeline and message bus.
 
 Usage::
@@ -341,7 +341,7 @@ def aac_sync() -> dict[str, Any]:
     return result
 
 
-# ── Bit Rage Labour ───────────────────────────────────────────
+# ── DIGITAL LABOUR ───────────────────────────────────────────
 
 def _load_mandates() -> dict[str, Any]:
     """Load agent mandates."""
@@ -370,7 +370,7 @@ def _load_protocols() -> dict[str, Any]:
 
 
 def bit_rage_labour_status() -> dict[str, Any]:
-    """Track bit rage labour force status."""
+    """Track DIGITAL LABOUR force status."""
     result: dict[str, Any] = {
         "system": "BitRageLabour",
         "status": "unknown",
@@ -452,7 +452,7 @@ def bit_rage_labour_status() -> dict[str, Any]:
 
 
 def bit_rage_labour_sync() -> dict[str, Any]:
-    """Sync bit rage labour metrics and write report."""
+    """Sync DIGITAL LABOUR metrics and write report."""
     status = bit_rage_labour_status()
 
     report_file = LABOUR_DB / "labour_report_latest.json"

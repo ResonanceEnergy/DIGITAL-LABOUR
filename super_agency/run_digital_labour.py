@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Launch script for full BIT RAGE LABOUR runtime mode.
-Bit Rage Labour autonomous orchestration platform.
+Launch script for full DIGITAL LABOUR runtime mode.
+DIGITAL LABOUR autonomous orchestration platform.
 Updated for departmental matrix structure.
 Features auto-restart watchdog for crashed daemon threads.
 """
@@ -255,8 +255,8 @@ def _watchdog_cycle():
 
 def main():
     logger.info(
-        "Starting BIT RAGE LABOUR runtime - "
-        "Bit Rage Labour Primary v4.0 "
+        "Starting DIGITAL LABOUR runtime - "
+        "DIGITAL LABOUR Primary v4.0 "
         "(auto-restart watchdog)"
     )
 
@@ -547,8 +547,8 @@ def main():
         )
 
     logger.info(
-        "BIT RAGE LABOUR operational — "
-        "Bit Rage Labour primary"
+        "DIGITAL LABOUR operational — "
+        "DIGITAL LABOUR primary"
     )
     logger.info("Press Ctrl+C to shutdown")
 
@@ -564,7 +564,7 @@ def main():
     except Exception as e:
         logger.error(f"Unexpected error in main loop: {e}")
     finally:
-        logger.info("BIT RAGE LABOUR shutdown complete")
+        logger.info("DIGITAL LABOUR shutdown complete")
 
 
 if __name__ == '__main__':

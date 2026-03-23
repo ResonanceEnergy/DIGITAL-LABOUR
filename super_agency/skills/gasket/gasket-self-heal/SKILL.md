@@ -4,7 +4,7 @@ description: Self-healing infrastructure — detect, diagnose, fix issues autono
 metadata: {"openclaw":{"emoji":"🔧","os":["darwin"],"requires":{"bins":["python3"]}}}
 ---
 
-Self-healing infrastructure agent for the BIT RAGE LABOUR platform.
+Self-healing infrastructure agent for the DIGITAL LABOUR platform.
 
 ## Automated Checks
 
@@ -47,7 +47,7 @@ cd ~/repos/Digital-Labour && git status --porcelain | head -20
 
 ### 4. LaunchAgent Status
 ```bash
-launchctl list | grep BIT RAGE LABOUR
+launchctl list | grep DIGITAL LABOUR
 ```
 
 ### 5. Network — QFORGE Connectivity

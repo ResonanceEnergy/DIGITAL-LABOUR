@@ -213,6 +213,68 @@ def process_due_tasks(dry_run: bool = False) -> list[dict]:
     return results
 
 
+def _maybe_run_daily_burn():
+    """Run the daily burn report once per day (after 23:50)."""
+    now = datetime.now(timezone.utc)
+    if now.hour < 23 or now.minute < 50:
+        return
+    state = _load_state()
+    last_burn = state.get("_daily_burn", {}).get("last_date", "")
+    today = now.strftime("%Y-%m-%d")
+    if last_burn == today:
+        return
+    try:
+        from kpi.daily_burn import run_burn_check
+        report = run_burn_check(write_report=True)
+        print(f"[SCHEDULER] Daily burn report: status={report.get('status')}, "
+              f"cost=${report.get('total_cost_usd', 0):.4f}")
+        state["_daily_burn"] = {"last_date": today, "status": report.get("status")}
+        _save_state(state)
+    except Exception as e:
+        print(f"[SCHEDULER] Burn report error: {e}")
+
+
+# Quarterly doctrine review dates (first day of Q2, Q3, Q4, Q1+1)
+_QUARTERLY_REVIEW_MONTHS = {4, 7, 10, 1}
+
+
+def _maybe_quarterly_review_reminder():
+    """Log a doctrine review reminder on the first day of each quarter."""
+    now = datetime.now(timezone.utc)
+    if now.month not in _QUARTERLY_REVIEW_MONTHS or now.day != 1:
+        return
+    state = _load_state()
+    quarter_key = f"{now.year}-Q{(now.month - 1) // 3 + 1}"
+    last_review = state.get("_doctrine_review", {}).get("last_quarter", "")
+    if last_review == quarter_key:
+        return
+    print(f"[SCHEDULER] *** DOCTRINE REVIEW DUE *** Quarter {quarter_key}")
+    print(f"  Review agenda: failed insights vs reality, new patterns, sunset candidates")
+    print(f"  Output: updated BRS_2_0_FRAMEWORK.md + DOCTRINE_CHANGELOG.md entry")
+    state["_doctrine_review"] = {"last_quarter": quarter_key, "reminded": now.isoformat()}
+    _save_state(state)
+
+
+def _maybe_nightly_secret_scan():
+    """Run nightly secret scan of log files (after 23:50, same window as burn)."""
+    now = datetime.now(timezone.utc)
+    if now.hour < 23 or now.minute < 50:
+        return
+    state = _load_state()
+    last_scan = state.get("_secret_scan", {}).get("last_date", "")
+    today = now.strftime("%Y-%m-%d")
+    if last_scan == today:
+        return
+    try:
+        from utils.secret_scanner import scan_log_files
+        report = scan_log_files()
+        print(f"[SCHEDULER] Secret scan: {report['scanned']} files, {report['total_findings']} findings")
+        state["_secret_scan"] = {"last_date": today, "findings": report["total_findings"]}
+        _save_state(state)
+    except Exception as e:
+        print(f"[SCHEDULER] Secret scan error: {e}")
+
+
 def daemon_loop(interval_minutes: int = 5):
     """Run the scheduler continuously."""
     print(f"[SCHEDULER] Daemon started. Checking every {interval_minutes} min. Ctrl+C to stop.")
@@ -221,13 +283,16 @@ def daemon_loop(interval_minutes: int = 5):
             results = process_due_tasks()
             if results:
                 print(f"[SCHEDULER] Processed {len(results)} clients at {datetime.now(timezone.utc).isoformat()}")
+            _maybe_run_daily_burn()
+            _maybe_nightly_secret_scan()
+            _maybe_quarterly_review_reminder()
         except Exception as e:
             print(f"[SCHEDULER] Error: {e}")
         time.sleep(interval_minutes * 60)
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Bit Rage Labour Task Scheduler")
+    parser = argparse.ArgumentParser(description="DIGITAL LABOUR Task Scheduler")
     parser.add_argument("--daemon", action="store_true", help="Run continuously")
     parser.add_argument("--check", action="store_true", help="Dry run — show due tasks")
     parser.add_argument("--interval", type=int, default=5, help="Check interval in minutes (daemon mode)")

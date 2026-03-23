@@ -93,6 +93,7 @@ class BillingTracker:
                 task_id     TEXT DEFAULT '',
                 llm_cost    REAL DEFAULT 0.0,
                 charge      REAL DEFAULT 0.0,
+                doctrine_version TEXT DEFAULT '2.0',
                 timestamp   TEXT NOT NULL
             );
 
@@ -139,14 +140,21 @@ class BillingTracker:
         self, client: str, task_type: str, task_id: str = "", llm_cost: float = 0.0,
         status: str = "PASS",
     ) -> dict:
-        """Record a task execution. Charge applies only on PASS; FAIL is recorded at amount=0."""
-        charge = PRICING.get(task_type, {}).get("per_task", 0.0) if status == "PASS" else 0.0
+        """Record a task execution. Charge applies on PASS; 50% on PARTIAL; 0 on FAIL."""
+        full_price = PRICING.get(task_type, {}).get("per_task", 0.0)
+        if status == "PASS":
+            charge = full_price
+        elif status == "PARTIAL":
+            charge = round(full_price * 0.50, 2)
+        else:
+            charge = 0.0
         now = datetime.now(timezone.utc).isoformat()
 
         conn = self._conn()
         conn.execute(
-            "INSERT INTO usage (client, task_type, task_id, llm_cost, charge, timestamp) VALUES (?, ?, ?, ?, ?, ?)",
-            (client, task_type, task_id, llm_cost, charge, now),
+            "INSERT INTO usage (client, task_type, task_id, llm_cost, charge, doctrine_version, timestamp) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?)",
+            (client, task_type, task_id, llm_cost, charge, "2.0", now),
         )
         conn.commit()
         conn.close()
@@ -281,13 +289,23 @@ class BillingTracker:
         return invoices
 
     def per_agent_economics(self, days: int = 30) -> dict:
-        """Return per-agent P&L: tasks, revenue, llm_cost, margin per task type."""
+        """Return per-agent P&L: tasks, revenue, llm_cost, runtime_cost_est, margin per task type."""
         cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
         conn = self._conn()
         rows = conn.execute(
             "SELECT task_type, llm_cost, charge FROM usage WHERE timestamp >= ?", (cutoff,)
         ).fetchall()
         conn.close()
+
+        # Load runtime cost estimate from economics config
+        _econ_path = Path(__file__).resolve().parent.parent / "config" / "economics.json"
+        runtime_per_task = 0.001
+        if _econ_path.exists():
+            try:
+                _econ = json.loads(_econ_path.read_text(encoding="utf-8"))
+                runtime_per_task = _econ.get("runtime_cost_per_task_usd", 0.001)
+            except Exception:
+                pass
 
         agents: dict[str, dict] = {}
         for r in rows:
@@ -300,12 +318,17 @@ class BillingTracker:
 
         result = {}
         for t, v in agents.items():
-            margin = v["revenue"] - v["llm_cost"]
+            runtime_cost = v["tasks"] * runtime_per_task
+            total_cost = v["llm_cost"] + runtime_cost
+            margin = v["revenue"] - total_cost
             margin_pct = (margin / v["revenue"] * 100) if v["revenue"] > 0 else 0.0
             result[t] = {
                 "tasks": v["tasks"],
                 "revenue": round(v["revenue"], 2),
+                "billed_amount": round(v["revenue"], 2),
                 "llm_cost": round(v["llm_cost"], 4),
+                "runtime_cost_est": round(runtime_cost, 4),
+                "total_cost": round(total_cost, 4),
                 "margin": round(margin, 2),
                 "margin_pct": round(margin_pct, 1),
             }
@@ -344,7 +367,7 @@ class BillingTracker:
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Bit Rage Labour Billing")
+    parser = argparse.ArgumentParser(description="Digital Labour Billing")
     parser.add_argument("--invoice", type=str, help="Generate invoice for client")
     parser.add_argument("--invoice-all", action="store_true", help="Auto-generate all invoices")
     parser.add_argument("--report", action="store_true", help="Revenue report")

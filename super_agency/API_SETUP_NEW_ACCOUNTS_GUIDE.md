@@ -1,5 +1,5 @@
 # 🔍 API Examination & New Account Creation Guide
-## BIT RAGE LABOUR API Setup & Email Accounts
+## DIGITAL LABOUR API Setup & Email Accounts
 
 ## 🎯 **PHASE 1: YouTube Data API v3 Setup**
 
@@ -55,7 +55,7 @@ $env:YOUTUBE_API_KEY = "your_api_key_here"
    - Permissions: Full access to intelligence systems
 
 2. **operations@yourdomain.onmicrosoft.com**
-   - Purpose: BIT RAGE LABOUR operations
+   - Purpose: DIGITAL LABOUR operations
    - Permissions: SendAs, FullAccess across tenant
 
 3. **intelligence@yourdomain.onmicrosoft.com**
@@ -112,7 +112,7 @@ $env:YOUTUBE_API_KEY = "your_api_key_here"
    - Navigate to: "Azure Active Directory" → "App registrations"
 
 2. **Register Application:**
-   - Name: "BIT RAGE LABOUR Council 52"
+   - Name: "DIGITAL LABOUR Council 52"
    - Supported account types: "Accounts in this organizational directory"
    - Redirect URI: Leave blank for now
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BIT RAGE LABOUR Memory Doctrine System
+DIGITAL LABOUR Memory Doctrine System
 Multi-layer memory architecture for context management and persistence
 """
 

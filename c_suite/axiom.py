@@ -74,7 +74,7 @@ def _gather_client_count() -> int:
 
 # ── AXIOM System Prompt ─────────────────────────────────────────────────────
 
-AXIOM_SYSTEM = """You are AXIOM — the autonomous CEO of BIT RAGE LABOUR, an AI labor company.
+AXIOM_SYSTEM = """You are AXIOM — the autonomous CEO of DIGITAL LABOUR, an AI labor company.
 
 Your mandate from NCC (Natrix Command & Control):
 - Drive revenue growth above all else
@@ -169,7 +169,7 @@ class AxiomCEO:
         sitrep = self._situation_report()
 
         user_msg = (
-            "SITUATION REPORT — BIT RAGE LABOUR\n"
+            "SITUATION REPORT — DIGITAL LABOUR\n"
             f"Date: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}\n\n"
             f"{json.dumps(sitrep, indent=2, default=str)}\n\n"
             "Analyze this data. Produce your CEO directive. "

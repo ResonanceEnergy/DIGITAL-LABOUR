@@ -83,7 +83,7 @@ def _on_integration_sync(msg):
     logger.info(f"[BUS] Integration sync: {src}")
 
 
-# ── BIT RAGE LABOUR event handlers (primary mission) ─────────
+# ── DIGITAL LABOUR event handlers (primary mission) ─────────
 
 _DL_KPI_LOG = ROOT / "logs" / "dl_events.ndjson"
 
@@ -477,7 +477,7 @@ def register_all():
         "portfolio.sync.*", _on_integration_sync,
     )
 
-    # ── BIT RAGE LABOUR events (primary mission) ──
+    # ── DIGITAL LABOUR events (primary mission) ──
     bus.subscribe(
         "bit_rage_labour.task.completed",
         _on_dl_task_completed,

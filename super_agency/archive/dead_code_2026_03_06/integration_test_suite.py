@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 
 class IntegrationTestSuite:
     """
-    Comprehensive integration test suite for the Bit Rage Labour system.
+    Comprehensive integration test suite for the DIGITAL LABOUR system.
     Tests cross-component communication, agent orchestration, and flywheel workflows.
     """
 
@@ -42,7 +42,7 @@ class IntegrationTestSuite:
     async def run_all_tests(self) -> Dict[str, Any]:
         """Run the complete integration test suite"""
         self.start_time = datetime.now()
-        logger.info("🚀 Starting BIT RAGE LABOUR Integration Test Suite")
+        logger.info("🚀 Starting DIGITAL LABOUR Integration Test Suite")
 
         try:
             # Test 1: Component Initialization
@@ -360,7 +360,7 @@ class IntegrationTestSuite:
             duration = (self.end_time - self.start_time).total_seconds()
 
         report = {
-            "test_suite": "BIT RAGE LABOUR Integration Test Suite",
+            "test_suite": "DIGITAL LABOUR Integration Test Suite",
             "timestamp": datetime.now().isoformat(),
             "duration_seconds": duration,
             "total_tests": total_tests,
@@ -411,7 +411,7 @@ async def main():
 
     # Print results
     print("\n" + "=" * 60)
-    print("BIT RAGE LABOUR INTEGRATION TEST RESULTS")
+    print("DIGITAL LABOUR INTEGRATION TEST RESULTS")
     print("=" * 60)
     print(f"Total Tests: {report['total_tests']}")
     print(f"Passed: {report['passed_tests']}")

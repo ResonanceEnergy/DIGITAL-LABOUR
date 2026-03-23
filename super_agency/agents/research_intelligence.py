@@ -3,7 +3,7 @@
 Research Intelligence Agent
 ============================
 Autonomous agent that uses cognitive architecture + ML intelligence
-to drive research across the BIT RAGE LABOUR portfolio.
+to drive research across the DIGITAL LABOUR portfolio.
 
 Responsibilities:
 - Monitor research repos for knowledge gaps and opportunities

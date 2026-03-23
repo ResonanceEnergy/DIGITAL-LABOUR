@@ -20,7 +20,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 IMAGE_NAME = "bit-rage-labour-api"
-CONTAINER_NAME = "Bit Rage Labour-api"
+CONTAINER_NAME = "DIGITAL LABOUR-api"
 
 
 def build_docker():
@@ -88,7 +88,7 @@ def export_spec():
 
 def generate_fly_config():
     """Generate fly.io deployment config."""
-    config = """# fly.toml — Fly.io deployment for Bit Rage Labour API
+    config = """# fly.toml — Fly.io deployment for DIGITAL LABOUR API
 app = "bit-rage-labour-api"
 primary_region = "yyz"  # Toronto
 

@@ -1,10 +1,10 @@
 # Microsoft Account Merge Guide
-## Consolidating Your BIT RAGE LABOUR Accounts
+## Consolidating Your DIGITAL LABOUR Accounts
 
 **Your Accounts to Merge:**
 1. `gripandripphdd@outlook.com` (Primary Outlook account)
 2. `nate@gripandripp.onmicrosoft.com` (Business/organization account)
-3. `acceleratedarBit Rage Labour@outlook.com` (Secondary Outlook account)
+3. `acceleratedarDIGITAL LABOUR@outlook.com` (Secondary Outlook account)
 
 ## ⚠️ **IMPORTANT NOTICE**
 As an AI assistant, I **cannot** perform account merges directly. This process must be completed through official Microsoft support channels. I can only provide guidance.
@@ -38,12 +38,12 @@ When contacting support, have ready:
 - Associated phone numbers (if any)
 - Recovery email addresses
 - Security information/proof of ownership
-- Reason for merge (consolidating BIT RAGE LABOUR operations)
+- Reason for merge (consolidating DIGITAL LABOUR operations)
 
 ### **Step 4: Choose Primary Account**
 Decide which account will be your primary:
 - **Recommendation**: `nate@gripandripp.onmicrosoft.com` (business account)
-- This account can better serve your BIT RAGE LABOUR operations
+- This account can better serve your DIGITAL LABOUR operations
 - Outlook accounts can be migrated into business accounts
 
 ## 🔄 **Alternative Approaches**
@@ -72,11 +72,11 @@ Add secondary emails as aliases to your primary account:
 - Web: https://support.microsoft.com/en-us/business
 - Admin Portal: admin.microsoft.com → Support
 
-## ⚡ **BIT RAGE LABOUR Impact**
+## ⚡ **DIGITAL LABOUR Impact**
 
 **Accounts to Preserve:**
 - VS Code extensions and settings
-- Cloud storage files and BIT RAGE LABOUR documents
+- Cloud storage files and DIGITAL LABOUR documents
 - Azure subscriptions (if any)
 - Microsoft 365 licenses
 - GitHub integrations
@@ -108,10 +108,10 @@ Add secondary emails as aliases to your primary account:
 1. **Choose your primary account** (recommend: nate@gripandripp.onmicrosoft.com)
 2. **Backup all important data** from all accounts
 3. **Contact Microsoft support** using the links above
-4. **Provide clear documentation** of your BIT RAGE LABOUR use case
+4. **Provide clear documentation** of your DIGITAL LABOUR use case
 5. **Follow up** if you don't hear back within 48 hours
 
 ---
 
-**Remember**: Account merges can take time and may require multiple support interactions. Be patient and persistent with Microsoft support for your BIT RAGE LABOUR consolidation needs.</content>
+**Remember**: Account merges can take time and may require multiple support interactions. Be patient and persistent with Microsoft support for your DIGITAL LABOUR consolidation needs.</content>
 <parameter name="filePath">C:\Dev\DIGITAL-LABOUR\MICROSOFT_ACCOUNT_MERGE_GUIDE.md

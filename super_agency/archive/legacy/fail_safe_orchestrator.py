@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-BIT RAGE LABOUR FAIL-SAFE ORCHESTRATOR
+DIGITAL LABOUR FAIL-SAFE ORCHESTRATOR
 24/7/365 High Availability System for All Agency Components
 
 Ensures all critical components remain online and functioning:
-- BIT RAGE LABOUR (main orchestration)
+- DIGITAL LABOUR (main orchestration)
 - QUANTUM QFORGE (repository building)
 - QUANTUM QUSAR (goal orchestration)
 - MATRIX MONITOR (web dashboard)
@@ -35,7 +35,7 @@ sys.path.insert(0, str(parent_dir))
 sys.path.insert(0, str(parent_dir / "agents"))
 
 class FailSafeOrchestrator:
-    """24/7/365 High Availability Orchestrator for BIT RAGE LABOUR"""
+    """24/7/365 High Availability Orchestrator for DIGITAL LABOUR"""
 
     def __init__(self):
         self.name = "FAIL-SAFE ORCHESTRATOR"
@@ -56,7 +56,7 @@ class FailSafeOrchestrator:
         # Component definitions with their critical parameters
         self.components = {
             'bit_rage_labour': {
-                'name': 'BIT RAGE LABOUR',
+                'name': 'DIGITAL LABOUR',
                 'process_name': 'bit_rage_labour',
                 'command': ['python', 'bit_rage_labour_main.py'],
                 'working_dir': str(parent_dir),
@@ -180,7 +180,7 @@ class FailSafeOrchestrator:
 
     async def start_fail_safe_system(self):
         """Start the complete fail-safe orchestration system"""
-        self.logger.info("🚀 Starting BIT RAGE LABOUR FAIL-SAFE ORCHESTRATOR v1.0")
+        self.logger.info("🚀 Starting DIGITAL LABOUR FAIL-SAFE ORCHESTRATOR v1.0")
         self.logger.info("🎯 Ensuring 24/7/365 availability for all agency components")
 
         try:

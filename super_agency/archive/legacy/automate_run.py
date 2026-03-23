@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Automation helper for launching the BIT RAGE LABOUR from Python.
+Automation helper for launching the DIGITAL LABOUR from Python.
 Performs dependency installation, optional AAC UI sanity check, sample
 training of the decision optimizer, registration of test intelligence nodes
 and then starts the full runtime.
@@ -55,7 +55,7 @@ def register_sample_nodes():
 
 def launch():
     """main handler."""
-    print("[launch] Starting BIT RAGE LABOUR runtime")
+    print("[launch] Starting DIGITAL LABOUR runtime")
     # call main from run_bit_rage_labour to keep in-process
     try:
         import run_bit_rage_labour

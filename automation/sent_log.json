@@ -1191,5 +1191,695 @@
     "method": "failed",
     "source_file": "meta_Klaviyo_2c778a.json",
     "error": "(535, b'Authentication Failed')"
+  },
+  {
+    "company": "Airtame",
+    "role": "Head of Customer Success",
+    "contact_name": "Head of Customer Success",
+    "contact_email": "first.last@airtame.com",
+    "subject": "Airtame Hub rollout / CS bandwidth",
+    "sent_at": "2026-03-20T08:44:38.656014+00:00",
+    "method": "email",
+    "source_file": "meta_Airtame_2a880f.json"
+  },
+  {
+    "company": "Airtame",
+    "role": "Head of Customer Success",
+    "contact_name": "Sarah Nielsen",
+    "contact_email": "sarah.nielsen@airtame.com",
+    "subject": "Airtame Hub launch + customer success scaling",
+    "sent_at": "2026-03-20T08:44:40.919720+00:00",
+    "method": "email",
+    "source_file": "meta_Airtame_397e80.json"
+  },
+  {
+    "company": "AKQA",
+    "role": "VP of Growth",
+    "contact_name": "Alex Frew",
+    "contact_email": "alex.frew@akqa.com",
+    "subject": "AKQA's AI creative platform expansion",
+    "sent_at": "2026-03-20T08:45:06.591503+00:00",
+    "method": "email",
+    "source_file": "meta_AKQA_2d9010.json"
+  },
+  {
+    "company": "Divvy Homes",
+    "role": "Head of Sales",
+    "contact_name": "Unknown",
+    "contact_email": "headsales@divvyhomes.com",
+    "subject": "Divvy's Nashville/Denver expansion",
+    "sent_at": "2026-03-20T08:45:08.941655+00:00",
+    "method": "email",
+    "source_file": "meta_Divvy_Homes_23d4aa.json"
+  },
+  {
+    "company": "Divvy Homes",
+    "role": "Head of Sales",
+    "contact_name": "Spencer Thorp",
+    "contact_email": "spencer@divvyhomes.com",
+    "subject": "Divvy Agent Partner outreach",
+    "sent_at": "2026-03-20T08:45:10.150654+00:00",
+    "method": "email",
+    "source_file": "meta_Divvy_Homes_8428ab.json"
+  },
+  {
+    "company": "Huge",
+    "role": "Director of Business Development",
+    "contact_name": "Lucy Baumgartner",
+    "contact_email": "lbaumgartner@huge.com",
+    "subject": "AI workforce for Huge's growing project pipeline",
+    "sent_at": "2026-03-20T08:45:26.680165+00:00",
+    "method": "email",
+    "source_file": "meta_Huge_91748e.json"
+  },
+  {
+    "company": "Lattice Engines",
+    "role": "Director of Operations",
+    "contact_name": "Unknown",
+    "contact_email": "info@latticeengines.com",
+    "subject": "AI workforce scaling at D&B",
+    "sent_at": "2026-03-20T08:45:51.789097+00:00",
+    "method": "email",
+    "source_file": "meta_Lattice_Engines_270c03.json"
+  },
+  {
+    "company": "Lattice Engines",
+    "role": "Director of Operations",
+    "contact_name": "Alex Johnson",
+    "contact_email": "ajohnson@lattice-engines.com",
+    "subject": "D&B Rev.Up integration / CRM hygiene",
+    "sent_at": "2026-03-20T08:45:53.694529+00:00",
+    "method": "email",
+    "source_file": "meta_Lattice_Engines_8a481a.json"
+  },
+  {
+    "company": "Plaid",
+    "role": "VP of Business Development",
+    "contact_name": "Jason Pate",
+    "contact_email": "jpate@plaid.com",
+    "subject": "Plaid's expanding partner ecosystem",
+    "sent_at": "2026-03-20T08:46:09.598620+00:00",
+    "method": "email",
+    "source_file": "meta_Plaid_679417.json"
+  },
+  {
+    "company": "Razorfish",
+    "role": "Head of Sales Operations",
+    "contact_name": "Contact research needed - no specific Head of Sales Operations identified in public sources",
+    "contact_email": "firstname.lastname@razorfish.com (standard corporate format)",
+    "subject": "Razorfish's data analytics expansion",
+    "sent_at": "2026-03-20T08:46:11.250992+00:00",
+    "method": "email",
+    "source_file": "meta_Razorfish_1ab7f5.json"
+  },
+  {
+    "company": "Rent the Runway",
+    "role": "Head of Customer Success",
+    "contact_name": "Gaby Kozel",
+    "contact_email": "gkozel@renttherunway.com",
+    "subject": "RTR's logistics expansion impact on CS expectations",
+    "sent_at": "2026-03-20T08:46:36.183296+00:00",
+    "method": "email",
+    "source_file": "meta_Rent_the_Runway_19432f.json"
+  },
+  {
+    "company": "Rent the Runway",
+    "role": "Head of Customer Success",
+    "contact_name": "Anushka Salinas",
+    "contact_email": "asalinas@renttherunway.com",
+    "subject": "Subscription tiers & support efficiency",
+    "sent_at": "2026-03-20T08:47:02.918974+00:00",
+    "method": "email",
+    "source_file": "meta_Rent_the_Runway_3ff03d.json"
+  },
+  {
+    "company": "Rentberry",
+    "role": "VP of Growth",
+    "contact_name": "Oleksandr Korol",
+    "contact_email": "oleksandr@rentberry.com",
+    "subject": "Rentberry's marketplace scaling challenge",
+    "sent_at": "2026-03-20T08:47:18.920389+00:00",
+    "method": "email",
+    "source_file": "meta_Rentberry_8b27dd.json"
+  },
+  {
+    "company": "Vanta",
+    "role": "Director of Sales",
+    "contact_name": "Target Prospect",
+    "contact_email": "{first}.{last}@vanta.com",
+    "subject": "Series C and enterprise ramp",
+    "sent_at": "2026-03-20T08:47:20.581008+00:00",
+    "method": "email",
+    "source_file": "meta_Vanta_831637.json"
+  },
+  {
+    "company": "Wunderman Thompson",
+    "role": "VP of Client Services",
+    "contact_name": "Jessica Romaniw",
+    "contact_email": "jessica.romaniw@wundermanthompson.com",
+    "subject": "Intelligence in Everything platform ROI tracking",
+    "sent_at": "2026-03-20T08:47:45.490549+00:00",
+    "method": "email",
+    "source_file": "meta_Wunderman_Thompson_bc32fb.json"
+  },
+  {
+    "company": "Chili Piper",
+    "role": "VP of Revenue",
+    "contact_name": "Target Prospect",
+    "contact_email": "first.last@chilipiper.com",
+    "subject": "Distro expansion + AE follow-up",
+    "sent_at": "2026-03-20T09:52:31.846210+00:00",
+    "method": "email",
+    "source_file": "meta_Chili_Piper_27b143.json"
+  },
+  {
+    "company": "KlientBoost",
+    "role": "CEO",
+    "contact_name": "Johnathan Dane",
+    "contact_email": "johnathan@klientboost.com",
+    "subject": "Scaling revenue density",
+    "sent_at": "2026-03-20T09:52:33.654760+00:00",
+    "method": "email",
+    "source_file": "meta_KlientBoost_e60401.json"
+  },
+  {
+    "company": "Mutiny",
+    "role": "VP of Marketing",
+    "contact_name": "Target Contact",
+    "contact_email": "{first}@mutinyhq.com",
+    "subject": "Mutiny's AI copy rollout",
+    "sent_at": "2026-03-20T09:52:35.202640+00:00",
+    "method": "email",
+    "source_file": "meta_Mutiny_7afdd5.json"
+  },
+  {
+    "company": "SmartBug Media",
+    "role": "Chief Revenue Officer",
+    "contact_name": "Chief Revenue Officer",
+    "contact_email": "cro@smartbugmedia.com",
+    "subject": "Globalia acquisition / sales outreach",
+    "sent_at": "2026-03-20T09:52:36.507028+00:00",
+    "method": "email",
+    "source_file": "meta_SmartBug_Media_5265ab.json"
+  },
+  {
+    "company": "UserGems",
+    "role": "VP of Sales",
+    "contact_name": "Christian Kletzl",
+    "contact_email": "christian@usergems.com",
+    "subject": "Scaling the AE team",
+    "sent_at": "2026-03-20T09:53:03.205623+00:00",
+    "method": "email",
+    "source_file": "meta_UserGems_d0b79f.json"
+  },
+  {
+    "company": "Metadata.io",
+    "role": "VP of Marketing",
+    "contact_name": "Mark Huber",
+    "contact_email": "mark@metadata.io",
+    "subject": "Reactful acquisition + pipeline",
+    "sent_at": "2026-03-20T10:57:15.884839+00:00",
+    "method": "email",
+    "source_file": "meta_Metadata_io_af4618.json"
+  },
+  {
+    "company": "NexHealth",
+    "role": "VP of Sales",
+    "contact_name": "VP of Sales",
+    "contact_email": "{first_initial}{last_name}@nexhealth.com",
+    "subject": "Enterprise DSO pipeline",
+    "sent_at": "2026-03-20T10:57:17.889089+00:00",
+    "method": "email",
+    "source_file": "meta_NexHealth_5c8dff.json"
+  },
+  {
+    "company": "Osmind",
+    "role": "Head of Growth",
+    "contact_name": "Unknown",
+    "contact_email": "info@osmind.com",
+    "subject": "Osmind's new RCM capabilities",
+    "sent_at": "2026-03-20T10:57:34.004331+00:00",
+    "method": "email",
+    "source_file": "meta_Osmind_52c5fb.json"
+  },
+  {
+    "company": "Pilot",
+    "role": "VP of Sales",
+    "contact_name": "Unknown",
+    "contact_email": "hello@pilot.com",
+    "subject": "CFO advisory sales motion",
+    "sent_at": "2026-03-20T10:58:07.342401+00:00",
+    "method": "email",
+    "source_file": "meta_Pilot_1c8dff.json"
+  },
+  {
+    "company": "Qualified",
+    "role": "VP of Sales",
+    "contact_name": "",
+    "contact_email": "{first}@qualified.com",
+    "subject": "Piper launch / AE handoffs",
+    "sent_at": "2026-03-20T10:58:08.697743+00:00",
+    "method": "email",
+    "source_file": "meta_Qualified_d15f7d.json"
+  },
+  {
+    "company": "Bench Accounting",
+    "role": "VP of Revenue",
+    "contact_name": "Craig Ryomoto",
+    "contact_email": "craig.ryomoto@benchaccounting.com",
+    "subject": "Bench Tax expansion",
+    "sent_at": "2026-03-20T12:04:28.024795+00:00",
+    "method": "email",
+    "source_file": "meta_Bench_Accounting_451e03.json"
+  },
+  {
+    "company": "Connor Group",
+    "role": "Head of Business Development",
+    "contact_name": "Matt Giammanco",
+    "contact_email": "matt.giammanco@connor.com",
+    "subject": "Pre-IPO outreach capacity",
+    "sent_at": "2026-03-20T12:04:40.716385+00:00",
+    "method": "email",
+    "source_file": "meta_Connor_Group_49f8af.json"
+  },
+  {
+    "company": "MadKudu",
+    "role": "Head of Growth",
+    "contact_name": "Julien Le Coupanec",
+    "contact_email": "julien@madkudu.com",
+    "subject": "Your signal-based selling playbook",
+    "sent_at": "2026-03-20T12:05:01.462244+00:00",
+    "method": "email",
+    "source_file": "meta_MadKudu_bb4210.json"
+  },
+  {
+    "company": "Reachdesk",
+    "role": "Chief Revenue Officer",
+    "contact_name": "Alex Olley",
+    "contact_email": "alex.olley@reachdesk.com",
+    "subject": "Reachdesk AI & scaling outreach",
+    "sent_at": "2026-03-20T12:05:02.725751+00:00",
+    "method": "email",
+    "source_file": "meta_Reachdesk_8c6965.json"
+  },
+  {
+    "company": "Walker Sands",
+    "role": "VP of Business Development",
+    "contact_name": "",
+    "contact_email": "{first}.{last}@walkersands.com",
+    "subject": "State of B2B / pipeline",
+    "sent_at": "2026-03-20T12:05:04.285757+00:00",
+    "method": "email",
+    "source_file": "meta_Walker_Sands_618778.json"
+  },
+  {
+    "company": "Lawmatics",
+    "role": "VP of Sales",
+    "contact_name": "Michael Liller",
+    "contact_email": "michael@lawmatics.com",
+    "subject": "Time & Billing rollout",
+    "sent_at": "2026-03-20T13:09:58.251924+00:00",
+    "method": "email",
+    "source_file": "meta_Lawmatics_bf988a.json"
+  },
+  {
+    "company": "LeadIQ",
+    "role": "VP of Sales",
+    "contact_name": "Nick Hart",
+    "contact_email": "nick@leadiq.com",
+    "subject": "Scribe + SDR workflow",
+    "sent_at": "2026-03-20T13:10:13.054122+00:00",
+    "method": "email",
+    "source_file": "meta_LeadIQ_ef6c37.json"
+  },
+  {
+    "company": "Lexion",
+    "role": "VP of Marketing",
+    "contact_name": "Jessica Shapiro",
+    "contact_email": "jessica@lexion.com",
+    "subject": "Docusign acquisition / pipeline execution",
+    "sent_at": "2026-03-20T13:10:25.221600+00:00",
+    "method": "email",
+    "source_file": "meta_Lexion_10f2a6.json"
+  },
+  {
+    "company": "Podia",
+    "role": "Head of Customer Success",
+    "contact_name": "Unknown",
+    "contact_email": "hello@podia.com",
+    "subject": "scaling support for Podia's free plan",
+    "sent_at": "2026-03-20T13:10:51.967095+00:00",
+    "method": "email",
+    "source_file": "meta_Podia_b839e5.json"
+  },
+  {
+    "company": "PracticePanther",
+    "role": "Director of Sales",
+    "contact_name": "Jacob Eisinger",
+    "contact_email": "jacob@practicepanther.com",
+    "subject": "Cross-selling PantherPayments",
+    "sent_at": "2026-03-20T13:11:05.916382+00:00",
+    "method": "email",
+    "source_file": "meta_PracticePanther_497c55.json"
+  },
+  {
+    "company": "360Learning",
+    "role": "VP of Sales",
+    "contact_name": "Current VP of Sales",
+    "contact_email": "first.last@360learning.com",
+    "subject": "Enterprise AE ramp / AI Copilot",
+    "sent_at": "2026-03-20T14:15:16.874508+00:00",
+    "method": "email",
+    "source_file": "meta_360Learning_daeb1b.json"
+  },
+  {
+    "company": "Gem",
+    "role": "VP of Customer Success",
+    "contact_name": "Unknown",
+    "contact_email": "hello@gem.com",
+    "subject": "Gem ATS adoption / CS capacity",
+    "sent_at": "2026-03-20T14:15:55.920620+00:00",
+    "method": "email",
+    "source_file": "meta_Gem_72da16.json"
+  },
+  {
+    "company": "Loop Returns",
+    "role": "Director of Customer Support",
+    "contact_name": "Sam Cates",
+    "contact_email": "sam.cates@loopreturns.com",
+    "subject": "Shopify POS rollout / support volume",
+    "sent_at": "2026-03-20T14:16:15.821274+00:00",
+    "method": "email",
+    "source_file": "meta_Loop_Returns_a67585.json"
+  },
+  {
+    "company": "Maven",
+    "role": "VP of Growth",
+    "contact_name": "",
+    "contact_email": "first.last@mavenclinic.com",
+    "subject": "Series F & international CAC",
+    "sent_at": "2026-03-20T14:16:17.151968+00:00",
+    "method": "email",
+    "source_file": "meta_Maven_63e6eb.json"
+  },
+  {
+    "company": "Secureframe",
+    "role": "VP of Sales",
+    "contact_name": "Chris Lull",
+    "contact_email": "chris.lull@secureframe.com",
+    "subject": "Secureframe AI rollout",
+    "sent_at": "2026-03-20T14:16:30.359617+00:00",
+    "method": "email",
+    "source_file": "meta_Secureframe_df8d0c.json"
+  },
+  {
+    "company": "Postscript",
+    "role": "Head of Sales",
+    "contact_name": "Colin Davis",
+    "contact_email": "colin@postscript.io",
+    "subject": "Shopify Plus outreach / Infinity",
+    "sent_at": "2026-03-20T15:17:36.994706+00:00",
+    "method": "email",
+    "source_file": "meta_Postscript_a19740.json"
+  },
+  {
+    "company": "Clearview Group",
+    "role": "Director of Sales",
+    "contact_name": "Unknown",
+    "contact_email": "info@clearview.com",
+    "subject": "Clearview tech advisory expansion / sales outreach",
+    "sent_at": "2026-03-20T16:21:49.230354+00:00",
+    "method": "email",
+    "source_file": "meta_Clearview_Group_cfd3b9.json"
+  },
+  {
+    "company": "Healthie",
+    "role": "Head of Customer Success",
+    "contact_name": "Tori Gammill",
+    "contact_email": "tori@gethealthie.com",
+    "subject": "Healthie Harbor / CS scaling",
+    "sent_at": "2026-03-20T16:21:51.388129+00:00",
+    "method": "email",
+    "source_file": "meta_Healthie_77c236.json"
+  },
+  {
+    "company": "Kruze Consulting",
+    "role": "Head of Client Services",
+    "contact_name": "Scott Orn",
+    "contact_email": "scott@kruzeconsulting.com",
+    "subject": "800+ startup clients / onboarding",
+    "sent_at": "2026-03-20T16:22:10.123817+00:00",
+    "method": "email",
+    "source_file": "meta_Kruze_Consulting_a9f976.json"
+  },
+  {
+    "company": "Vivaldi Partners",
+    "role": "Managing Partner",
+    "contact_name": "Agathe Blanchon-Ehrsam",
+    "contact_email": "ablanchon@vivaldigroup.com",
+    "subject": "AI-driven brand transformation",
+    "sent_at": "2026-03-20T16:22:12.231843+00:00",
+    "method": "email",
+    "source_file": "meta_Vivaldi_Partners_bc0938.json"
+  },
+  {
+    "company": "WebMechanix",
+    "role": "CEO",
+    "contact_name": "Chris Mechanic",
+    "contact_email": "chris@webmechanix.com",
+    "subject": "AI overhead vs agency margins",
+    "sent_at": "2026-03-20T16:22:13.710928+00:00",
+    "method": "email",
+    "source_file": "meta_WebMechanix_31310b.json"
+  },
+  {
+    "company": "Capchase",
+    "role": "VP of Sales",
+    "contact_name": "Chris Gsell",
+    "contact_email": "chris@capchase.com",
+    "subject": "Capchase Pay outreach bandwidth",
+    "sent_at": "2026-03-20T19:48:27.083968+00:00",
+    "method": "email",
+    "source_file": "meta_Capchase_0b90ad.json"
+  },
+  {
+    "company": "Everlaw",
+    "role": "VP of Operations",
+    "contact_name": "Target Executive",
+    "contact_email": "first.last@everlaw.com",
+    "subject": "Everlaw AI rollout + ops bandwidth",
+    "sent_at": "2026-03-20T19:48:29.733186+00:00",
+    "method": "email",
+    "source_file": "meta_Everlaw_cf2e68.json"
+  },
+  {
+    "company": "LinkSquares",
+    "role": "VP of Customer Success",
+    "contact_name": "Unknown",
+    "contact_email": "info@linksquares.com",
+    "subject": "LinkSquares Prioritize / scaling support",
+    "sent_at": "2026-03-20T19:49:02.842066+00:00",
+    "method": "email",
+    "source_file": "meta_LinkSquares_5183e5.json"
+  },
+  {
+    "company": "Modern Treasury",
+    "role": "VP of Operations",
+    "contact_name": "Target Contact",
+    "contact_email": "first.last@moderntreasury.com",
+    "subject": "State of Payment Operations report",
+    "sent_at": "2026-03-20T19:49:04.558000+00:00",
+    "method": "email",
+    "source_file": "meta_Modern_Treasury_d8ee43.json"
+  },
+  {
+    "company": "SpotDraft",
+    "role": "Head of Sales",
+    "contact_name": "Head of Sales",
+    "contact_email": "first.last@spotdraft.com",
+    "subject": "scaling the NA enterprise team",
+    "sent_at": "2026-03-20T19:49:05.968821+00:00",
+    "method": "email",
+    "source_file": "meta_SpotDraft_af2bbb.json"
+  },
+  {
+    "company": "Orum",
+    "role": "Head of Sales",
+    "contact_name": "Colin Specter",
+    "contact_email": "colin.specter@orum.com",
+    "subject": "Orum's AI summaries + pipeline",
+    "sent_at": "2026-03-21T19:11:58.498248+00:00",
+    "method": "email",
+    "source_file": "meta_Orum_e9d9d9.json"
+  },
+  {
+    "company": "Paro",
+    "role": "VP of Growth",
+    "contact_name": "",
+    "contact_email": "{first}@paro.ai",
+    "subject": "scaling demand for fractional CFOs",
+    "sent_at": "2026-03-21T19:12:00.286749+00:00",
+    "method": "email",
+    "source_file": "meta_Paro_7d9f7a.json"
+  },
+  {
+    "company": "Ribbon Health",
+    "role": "VP of Operations",
+    "contact_name": "Nate Maslak",
+    "contact_email": "nate@ribbonhealth.com",
+    "subject": "Scaling ops for No Surprises Act",
+    "sent_at": "2026-03-21T19:12:29.176418+00:00",
+    "method": "email",
+    "source_file": "meta_Ribbon_Health_dcb511.json"
+  },
+  {
+    "company": "Tegus",
+    "role": "VP of Sales",
+    "contact_name": "",
+    "contact_email": "{first}.{last}@tegus.com",
+    "subject": "AlphaSense acquisition / cross-sell pipeline",
+    "sent_at": "2026-03-21T19:12:33.757511+00:00",
+    "method": "email",
+    "source_file": "meta_Tegus_1420a1.json"
+  },
+  {
+    "company": "HealthJoy",
+    "role": "Head of Customer Support",
+    "contact_name": "Target Contact",
+    "contact_email": "first.last@healthjoy.com",
+    "subject": "Cost Plus Drugs integration / support volume",
+    "sent_at": "2026-03-22T15:13:41.634125+00:00",
+    "method": "email",
+    "source_file": "meta_HealthJoy_57cd75.json"
+  },
+  {
+    "company": "Mend",
+    "role": "VP of Customer Success",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Mend AI rollout / customer support",
+    "sent_at": "2026-03-22T15:13:55.712071+00:00",
+    "method": "file",
+    "source_file": "meta_Mend_840977.json"
+  },
+  {
+    "company": "Spruce Health",
+    "role": "Director of Operations",
+    "contact_name": "",
+    "contact_email": "{first}.{last}@sprucehealth.com",
+    "subject": "Scaling support for new EHR integrations",
+    "sent_at": "2026-03-22T15:13:56.124813+00:00",
+    "method": "email",
+    "source_file": "meta_Spruce_Health_6f1c9d.json"
+  },
+  {
+    "company": "TeachFX",
+    "role": "Director of Partnerships",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Detroit Public Schools / partner enablement",
+    "sent_at": "2026-03-22T15:14:15.805751+00:00",
+    "method": "file",
+    "source_file": "meta_TeachFX_c0a93f.json"
+  },
+  {
+    "company": "Betts Recruiting",
+    "role": "VP of Operations",
+    "contact_name": "Unknown",
+    "contact_email": "info@bettsrecruiting.com",
+    "subject": "Betts Connect + agency ops",
+    "sent_at": "2026-03-22T16:19:05.898050+00:00",
+    "method": "email",
+    "source_file": "meta_Betts_Recruiting_94b9b3.json"
+  },
+  {
+    "company": "Italic",
+    "role": "VP of Customer Experience",
+    "contact_name": "",
+    "contact_email": "{first}@italic.com",
+    "subject": "open marketplace / support scaling",
+    "sent_at": "2026-03-22T16:19:07.299232+00:00",
+    "method": "email",
+    "source_file": "meta_Italic_9d7373.json"
+  },
+  {
+    "company": "JumpCrew",
+    "role": "VP of Sales",
+    "contact_name": "Jarron Tite",
+    "contact_email": "jarron@jumpcrew.com",
+    "subject": "scaling your sales pods",
+    "sent_at": "2026-03-22T16:19:08.484538+00:00",
+    "method": "email",
+    "source_file": "meta_JumpCrew_4c2f81.json"
+  },
+  {
+    "company": "Skaled",
+    "role": "CEO",
+    "contact_name": "Jake Dunlap",
+    "contact_email": "jake@skaled.com",
+    "subject": "AI outbound workflows at Skaled",
+    "sent_at": "2026-03-22T16:19:10.116833+00:00",
+    "method": "email",
+    "source_file": "meta_Skaled_f003a1.json"
+  },
+  {
+    "company": "Winning by Design",
+    "role": "Managing Director",
+    "contact_name": "Dan Smith",
+    "contact_email": "dan@winningbydesign.com",
+    "subject": "Scaling delivery + the Bowtie model",
+    "sent_at": "2026-03-22T16:19:11.751775+00:00",
+    "method": "email",
+    "source_file": "meta_Winning_by_Design_715bf8.json"
+  },
+  {
+    "company": "CloserIQ",
+    "role": "Head of Sales",
+    "contact_name": "Unknown",
+    "contact_email": "{first}@closeriq.com",
+    "subject": "Your recent GTM structuring guides",
+    "sent_at": "2026-03-22T17:23:24.398910+00:00",
+    "method": "email",
+    "source_file": "meta_CloserIQ_2bdf41.json"
+  },
+  {
+    "company": "Flowspace",
+    "role": "VP of Sales",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "TikTok Shop integration / outbound",
+    "sent_at": "2026-03-22T17:23:36.992765+00:00",
+    "method": "file",
+    "source_file": "meta_Flowspace_ae7458.json"
+  },
+  {
+    "company": "Hunt Club",
+    "role": "Head of Talent",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Guide acquisition + internal hiring",
+    "sent_at": "2026-03-22T17:23:53.316909+00:00",
+    "method": "file",
+    "source_file": "meta_Hunt_Club_f7833b.json"
+  },
+  {
+    "company": "Sendle",
+    "role": "Head of Customer Support",
+    "contact_name": "",
+    "contact_email": "",
+    "subject": "Sendle US expansion + WISMO",
+    "sent_at": "2026-03-22T17:24:06.116360+00:00",
+    "method": "file",
+    "source_file": "meta_Sendle_be9daf.json"
+  },
+  {
+    "company": "Springboard",
+    "role": "Director of Admissions",
+    "contact_name": "Alex Carter",
+    "contact_email": "alex.carter@springboard.com",
+    "subject": "university partnerships / admissions",
+    "sent_at": "2026-03-22T17:24:06.119398+00:00",
+    "method": "email",
+    "source_file": "meta_Springboard_18635f.json"
   }
 ]

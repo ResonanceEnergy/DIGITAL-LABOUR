@@ -16,6 +16,7 @@ Endpoints:
     GET  /signup                     — Signup form page
 """
 
+import hashlib
 import json
 import secrets
 import sys
@@ -265,7 +266,7 @@ def client_signup(req: SignupRequest):
         "delivery_method": req.delivery_method,
         "webhook_url": req.webhook_url,
         "notes": req.notes,
-        "api_key": api_key,
+        "api_key_hash": hashlib.sha256(api_key.encode()).hexdigest(),
         "status": "active",
         "onboarded_at": now,
     }
@@ -287,8 +288,8 @@ def client_signup(req: SignupRequest):
         from delivery.sender import send_email
         send_email(
             to=req.email,
-            subject="Welcome to Bit Rage Labour — Your API Key",
-            body_html=f"""<h2>Welcome to Bit Rage Labour, {req.contact_name}!</h2>
+            subject="Welcome to DIGITAL LABOUR — Your API Key",
+            body_html=f"""<h2>Welcome to DIGITAL LABOUR, {req.contact_name}!</h2>
 <p>Your account is active. Here are your credentials:</p>
 <table style="border-collapse:collapse">
 <tr><td style="padding:4px 12px"><strong>Client ID</strong></td><td style="padding:4px 12px"><code>{req.client_id}</code></td></tr>
@@ -314,7 +315,7 @@ def client_signup(req: SignupRequest):
         "api_key": api_key,
         "services": profile["services"],
         "pricing_model": req.pricing_model,
-        "message": "Welcome to Bit Rage Labour. Use your API key to submit tasks.",
+        "message": "Welcome to DIGITAL LABOUR. Use your API key to submit tasks.",
     }
 
 
@@ -325,5 +326,5 @@ def signup_page():
     if html_path.exists():
         return HTMLResponse(html_path.read_text(encoding="utf-8"))
     # Fallback minimal form
-    return HTMLResponse("""<!DOCTYPE html><html><head><title>Bit Rage Labour — Sign Up</title></head>
+    return HTMLResponse("""<!DOCTYPE html><html><head><title>DIGITAL LABOUR — Sign Up</title></head>
 <body><h1>Sign Up</h1><p>POST to /signup with JSON body. See API docs at /docs</p></body></html>""")

@@ -209,7 +209,7 @@ class IntegrateCellAgent:
                 system_message="""You are an expert system integration specialist with deep knowledge of
                 distributed systems, microservices architecture, and autonomous cell management.
 
-                Your role is to integrate new cells (repositories) into the BIT RAGE LABOUR ecosystem,
+                Your role is to integrate new cells (repositories) into the DIGITAL LABOUR ecosystem,
                 validate system coherence, manage inter-cell dependencies, and ensure operational integrity.
 
                 Key responsibilities:
@@ -286,7 +286,7 @@ class IntegrateCellAgent:
                 7. Security and Compliance Considerations
                 8. Performance Optimization Opportunities
 
-                Consider the cell's mandate, agents, and role within the broader BIT RAGE LABOUR ecosystem.
+                Consider the cell's mandate, agents, and role within the broader DIGITAL LABOUR ecosystem.
                 """
 
                 # Note: In full implementation, we would run the agent here

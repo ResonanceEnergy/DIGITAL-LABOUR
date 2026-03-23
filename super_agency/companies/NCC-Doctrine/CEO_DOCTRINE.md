@@ -9,7 +9,7 @@
 
 ## EXECUTIVE SUMMARY
 
-The CEO Command Doctrine establishes the supreme executive authority framework for the BIT RAGE LABOUR, defining the Chief Executive Officer's role as the ultimate strategic director and command authority. This doctrine integrates CEO leadership with NCC autonomous operations while maintaining human oversight of mission-critical decisions.
+The CEO Command Doctrine establishes the supreme executive authority framework for the DIGITAL LABOUR, defining the Chief Executive Officer's role as the ultimate strategic director and command authority. This doctrine integrates CEO leadership with NCC autonomous operations while maintaining human oversight of mission-critical decisions.
 
 ---
 
@@ -17,7 +17,7 @@ The CEO Command Doctrine establishes the supreme executive authority framework f
 
 ### 1.1 Supreme Command Authority
 
-The CEO holds ultimate authority over all BIT RAGE LABOUR operations with the following command hierarchy:
+The CEO holds ultimate authority over all DIGITAL LABOUR operations with the following command hierarchy:
 
 ```
 CEO Command Authority

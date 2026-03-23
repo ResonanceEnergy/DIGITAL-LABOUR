@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bit Rage Labour CPU Maximizer Quick Start
+# DIGITAL LABOUR CPU Maximizer Quick Start
 # Maximum CPU utilization for all repositories
 
 set -e
@@ -7,7 +7,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(dirname "$SCRIPT_DIR")"
 
-echo "🔥 Bit Rage Labour CPU Maximizer Quick Start"
+echo "🔥 DIGITAL LABOUR CPU Maximizer Quick Start"
 echo "=========================================="
 echo "Root Directory: $ROOT_DIR"
 echo "CPU Cores: $(nproc 2>/dev/null || echo 'Unknown')"

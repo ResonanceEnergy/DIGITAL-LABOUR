@@ -1,7 +1,7 @@
 {
   "name": "dl-memory-hot-reload",
-  "displayName": "Bit Rage Labour Memory Hot Reload",
-  "description": "Hot code reloading for BIT RAGE LABOUR memory systems with real-time blank prevention",
+  "displayName": "DIGITAL LABOUR Memory Hot Reload",
+  "description": "Hot code reloading for DIGITAL LABOUR memory systems with real-time blank prevention",
   "version": "2.0.0",
   "publisher": "bit-rage-labour",
   "engines": {
@@ -20,22 +20,22 @@
       {
         "command": "digitalLabourMemory.startHotReload",
         "title": "Start Memory Hot Reload",
-        "category": "Bit Rage Labour"
+        "category": "DIGITAL LABOUR"
       },
       {
         "command": "digitalLabourMemory.stopHotReload",
         "title": "Stop Memory Hot Reload",
-        "category": "Bit Rage Labour"
+        "category": "DIGITAL LABOUR"
       },
       {
         "command": "digitalLabourMemory.showMemoryStatus",
         "title": "Show Memory Status",
-        "category": "Bit Rage Labour"
+        "category": "DIGITAL LABOUR"
       },
       {
         "command": "digitalLabourMemory.forceReload",
         "title": "Force Memory Reload",
-        "category": "Bit Rage Labour"
+        "category": "DIGITAL LABOUR"
       }
     ],
     "keybindings": [
@@ -47,7 +47,7 @@
       }
     ],
     "configuration": {
-      "title": "Bit Rage Labour Memory Hot Reload",
+      "title": "DIGITAL LABOUR Memory Hot Reload",
       "properties": {
         "digitalLabourMemory.autoStart": {
           "type": "boolean",
@@ -72,7 +72,7 @@
       {
         "id": "memory-status",
         "text": "$(database) Memory: $(check)",
-        "tooltip": "Bit Rage Labour Memory System Status",
+        "tooltip": "DIGITAL LABOUR Memory System Status",
         "command": "digitalLabourMemory.showMemoryStatus",
         "alignment": "right",
         "priority": 100

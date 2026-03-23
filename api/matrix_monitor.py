@@ -1,4 +1,4 @@
-"""BIT RAGE LABOUR MATRIX MONITOR — Command & Control API.
+"""DIGITAL LABOUR MATRIX MONITOR — Command & Control API.
 
 Mobile-first C2 endpoints for real-time monitoring and decision-making.
 Mounted as /matrix on the main FastAPI app.
@@ -204,6 +204,9 @@ def execute_command(cmd: C2Command, _auth=Depends(verify_matrix_auth)):
         "aac_snapshot": _aac_snapshot,
         "resonance_sync": _resonance_sync,
         "resonance_status": _resonance_status,
+        "fiverr_setup": _fiverr_setup,
+        "fiverr_deploy_all": _fiverr_deploy_all,
+        "fiverr_deploy_top4": _fiverr_deploy_top4,
     }
 
     handler = actions.get(cmd.action)
@@ -255,7 +258,7 @@ def set_alert_config(config: AlertConfig, _auth=Depends(verify_matrix_auth)):
 @router.post("/alerts/test")
 def test_alert(_auth=Depends(verify_matrix_auth)):
     """Send a test alert to verify Telegram notifications work. Requires authentication."""
-    result = _send_telegram_alert("🧪 BIT RAGE LABOUR MATRIX TEST — Notifications are working!")
+    result = _send_telegram_alert("🧪 DIGITAL LABOUR MATRIX TEST — Notifications are working!")
     return result
 
 
@@ -286,8 +289,17 @@ def _daemon_status() -> list[dict]:
 
 
 def _is_pid_alive(pid: int) -> bool:
-    """Check if a process is running."""
+    """Check if a process is running (Windows-safe via ctypes)."""
     if not pid:
+        return False
+    if os.name == "nt":
+        import ctypes
+        kernel32 = ctypes.windll.kernel32
+        SYNCHRONIZE = 0x00100000
+        handle = kernel32.OpenProcess(SYNCHRONIZE, False, pid)
+        if handle:
+            kernel32.CloseHandle(handle)
+            return True
         return False
     try:
         os.kill(pid, 0)
@@ -541,7 +553,7 @@ def _restart_daemons(cmd: C2Command) -> dict:
     _kill_daemons(cmd)
     try:
         proc = subprocess.Popen(
-            [sys.executable, "launch.py", "--daemons"],
+            [sys.executable, "bitrage.py", "daemons"],
             cwd=str(PROJECT_ROOT),
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -651,7 +663,7 @@ def _system_check(cmd: C2Command) -> dict:
     """Run full system check."""
     try:
         result = subprocess.run(
-            [sys.executable, "launch.py", "--checks"],
+            [sys.executable, "bitrage.py", "checks"],
             cwd=str(PROJECT_ROOT),
             capture_output=True,
             text=True,
@@ -848,10 +860,10 @@ def _unit_economics(cmd: C2Command) -> dict:
 
 
 def _full_status(cmd: C2Command) -> dict:
-    """Full system status via launch.py."""
+    """Full system status via bitrage.py."""
     try:
         result = subprocess.run(
-            [sys.executable, "launch.py", "--status"],
+            [sys.executable, "bitrage.py", "status"],
             cwd=str(PROJECT_ROOT),
             capture_output=True, text=True, timeout=30,
         )
@@ -1010,8 +1022,40 @@ def _send_telegram_alert(message: str) -> dict:
         return {"status": "error", "message": str(e)}
 
 
+# ── Fiverr C2 Commands ───────────────────────────────────────────────────
+
+def _fiverr_setup(cmd: C2Command) -> dict:
+    """Deploy top-4 Fiverr gigs via OpenClaw engine.platform_setup."""
+    try:
+        from openclaw.engine import OpenClawEngine
+        result = OpenClawEngine().platform_setup(platforms=["fiverr"])
+        return {"status": "ok", "result": result}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _fiverr_deploy_all(cmd: C2Command) -> dict:
+    """Deploy all 20 Fiverr gigs via browser automation."""
+    try:
+        from automation.fiverr_automation import deploy_all_browser
+        deploy_all_browser()
+        return {"status": "deploy_all_complete"}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+def _fiverr_deploy_top4(cmd: C2Command) -> dict:
+    """Deploy gigs 1-4 (Sales/Support/Content/Docs) via browser."""
+    try:
+        from automation.fiverr_automation import deploy_all_browser
+        deploy_all_browser(gig_indices=[1, 2, 3, 4])
+        return {"status": "deploy_top4_complete", "gigs": [1, 2, 3, 4]}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
 def send_alert(message: str, severity: str = "INFO"):
     """Public function — other modules can import this to send alerts."""
     prefix = {"CRITICAL": "🔴", "HIGH": "🟠", "MEDIUM": "🟡", "INFO": "🔵"}.get(severity, "⚪")
-    full_msg = f"{prefix} <b>BIT RAGE LABOUR MATRIX</b>\n\n{message}\n\n<i>{datetime.now(timezone.utc).strftime('%H:%M UTC')}</i>"
+    full_msg = f"{prefix} <b>DIGITAL LABOUR MATRIX</b>\n\n{message}\n\n<i>{datetime.now(timezone.utc).strftime('%H:%M UTC')}</i>"
     return _send_telegram_alert(full_msg)

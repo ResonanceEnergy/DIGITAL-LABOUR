@@ -1,4 +1,4 @@
-# BIT RAGE LABOUR — Month 2 Plan
+# DIGITAL LABOUR — Month 2 Plan
 
 ## STATUS: READY FOR LAUNCH
 
@@ -122,4 +122,4 @@
 ---
 
 *Authority: NCC — Natrix Command & Control*
-*ALOPS Division — BIT RAGE LABOUR*
+*ALOPS Division — DIGITAL LABOUR*

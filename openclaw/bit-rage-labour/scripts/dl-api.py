@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bit Rage Labour API client — stdlib only, zero pip installs.
+"""DIGITAL LABOUR API client — stdlib only, zero pip installs.
 
 Usage:
     python3 dl-api.py health

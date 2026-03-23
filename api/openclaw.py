@@ -1,15 +1,26 @@
 """OpenClaw API routes — pipeline execution, freelance cycle, status."""
 
-from fastapi import APIRouter
-from pydantic import BaseModel
+from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel, field_validator
 
 router = APIRouter(prefix="/openclaw", tags=["OpenClaw"])
+
+# Valid platforms for dispatch
+_VALID_PLATFORMS = {"freelancer", "upwork", "fiverr", "pph", "guru"}
+_VALID_ACTIONS = {"bid", "propose", "deliver", "quote", "scan", "apply"}
 
 
 class PipelineRequest(BaseModel):
     name: str
     provider: str = "openai"
     variables: dict = {}
+
+    @field_validator("name")
+    @classmethod
+    def name_must_be_safe(cls, v: str) -> str:
+        if not v.isidentifier() and not v.replace("-", "").replace("_", "").isalnum():
+            raise ValueError(f"Invalid pipeline name: {v!r}")
+        return v
 
 
 class CycleRequest(BaseModel):
@@ -22,6 +33,20 @@ class DispatchRequest(BaseModel):
     action: str
     job_data: dict = {}
     provider: str = "openai"
+
+    @field_validator("platform")
+    @classmethod
+    def platform_must_be_valid(cls, v: str) -> str:
+        if v not in _VALID_PLATFORMS:
+            raise ValueError(f"Unknown platform '{v}'. Valid: {sorted(_VALID_PLATFORMS)}")
+        return v
+
+    @field_validator("action")
+    @classmethod
+    def action_must_be_valid(cls, v: str) -> str:
+        if v not in _VALID_ACTIONS:
+            raise ValueError(f"Unknown action '{v}'. Valid: {sorted(_VALID_ACTIONS)}")
+        return v
 
 
 @router.get("/status")

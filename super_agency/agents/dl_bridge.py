@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Bit Rage Labour Integration Bridge
+DIGITAL LABOUR Integration Bridge
 ===================================
-Connects BIT RAGE LABOUR infrastructure to Bit Rage Labour operations.
+Connects DIGITAL LABOUR infrastructure to DIGITAL LABOUR operations.
 DL is the primary mission — this bridge ensures SA's hierarchy,
 bus, orchestrator, and memory doctrine all serve DL objectives.
 
@@ -40,7 +40,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DL_ROOT = Path(
     os.getenv(
         "DIGITAL_LABOUR_ROOT",
-        r"C:\Dev\BIT RAGE LABOUR\BIT RAGE LABOUR",
+        r"C:\Dev\DIGITAL LABOUR\DIGITAL LABOUR",
     )
 )
 
@@ -70,8 +70,8 @@ def _emit(
 
 
 class DLBridge:
-    """Bridge between BIT RAGE LABOUR infrastructure and
-    Bit Rage Labour operations.
+    """Bridge between DIGITAL LABOUR infrastructure and
+    DIGITAL LABOUR operations.
 
     Designed to be called from:
     1. SA orchestrator (as first pipeline stage)
@@ -311,7 +311,7 @@ class DLBridge:
 
         if not self.available:
             logger.warning(
-                "[DL Bridge] Bit Rage Labour repo not "
+                "[DL Bridge] DIGITAL LABOUR repo not "
                 "found at %s",
                 self.dl_root,
             )

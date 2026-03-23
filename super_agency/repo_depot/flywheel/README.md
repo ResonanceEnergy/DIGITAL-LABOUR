@@ -1,7 +1,7 @@
 # FLYWHEEL PROJECT
 
 ## Overview
-The Flywheel Project implements the REPO DEPOT Flywheel - BIT RAGE LABOUR's AI-orchestrated software factory. This system creates self-sustaining development cycles where AI agents continuously build, test, optimize, and deploy software components.
+The Flywheel Project implements the REPO DEPOT Flywheel - DIGITAL LABOUR's AI-orchestrated software factory. This system creates self-sustaining development cycles where AI agents continuously build, test, optimize, and deploy software components.
 
 ## Flywheel Mechanics
 

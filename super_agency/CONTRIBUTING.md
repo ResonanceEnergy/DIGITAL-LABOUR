@@ -2,7 +2,7 @@
 
 ## Overview
 This repository is part of the **Resonance Energy** portfolio, managed by the
-**Bit Rage Labour repo DEPOT** flywheel (OPTIMUS + GASKET agents).
+**DIGITAL LABOUR repo DEPOT** flywheel (OPTIMUS + GASKET agents).
 
 ## How to Contribute
 
@@ -30,4 +30,4 @@ OPTIMUS and GASKET agents auto-commit improvements under the ResonanceEnergy aut
 Agent commits follow the same conventions above.
 
 ## Questions?
-Reach out via the Bit Rage Labour command center or open a GitHub Discussion.
+Reach out via the DIGITAL LABOUR command center or open a GitHub Discussion.

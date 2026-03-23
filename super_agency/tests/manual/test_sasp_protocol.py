@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 SASP Protocol Test Script
-Tests the BIT RAGE LABOUR Share Protocol implementation
+Tests the DIGITAL LABOUR Share Protocol implementation
 """
 
 import requests

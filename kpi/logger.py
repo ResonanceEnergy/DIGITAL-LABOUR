@@ -26,7 +26,8 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 LOGS_DIR = PROJECT_ROOT / "kpi" / "logs"
 DB_PATH = PROJECT_ROOT / "data" / "kpi.db"
-DOCTRINE_VERSION = "2.0"
+
+from config.constants import DOCTRINE_VERSION
 
 
 def _ensure_dirs():
@@ -201,3 +202,114 @@ def summary(days: int = 7, client: str | None = None) -> dict:
         "by_type": by_type,
         "by_provider": by_provider,
     }
+
+
+# ── P3.4: QA Failure Tracking ──────────────────────────────────────────────
+
+_QA_FAILURES_DB_INIT = False
+
+
+def _ensure_qa_table():
+    """Create the qa_failures table if it doesn't exist."""
+    global _QA_FAILURES_DB_INIT
+    if _QA_FAILURES_DB_INIT:
+        return
+    conn = _get_db()
+    conn.executescript("""
+        CREATE TABLE IF NOT EXISTS qa_failures (
+            id              INTEGER PRIMARY KEY AUTOINCREMENT,
+            task_id         TEXT NOT NULL,
+            lineage_id      TEXT DEFAULT '',
+            task_type       TEXT NOT NULL,
+            client          TEXT DEFAULT '',
+            failed_rule_id  TEXT NOT NULL,
+            failure_reason  TEXT DEFAULT '',
+            confidence      REAL DEFAULT 0.0,
+            issues          TEXT DEFAULT '[]',
+            applied_rules   TEXT DEFAULT '[]',
+            timestamp       TEXT NOT NULL
+        );
+        CREATE INDEX IF NOT EXISTS idx_qa_fail_rule ON qa_failures(failed_rule_id);
+        CREATE INDEX IF NOT EXISTS idx_qa_fail_agent ON qa_failures(task_type);
+        CREATE INDEX IF NOT EXISTS idx_qa_fail_time ON qa_failures(timestamp);
+    """)
+    conn.commit()
+    conn.close()
+    _QA_FAILURES_DB_INIT = True
+
+
+def log_qa_failure(
+    task_id: str,
+    task_type: str,
+    failed_rule_id: str,
+    failure_reason: str = "",
+    confidence: float = 0.0,
+    issues: list | None = None,
+    applied_rules: list | None = None,
+    client: str = "",
+    lineage_id: str = "",
+) -> dict:
+    """Log a QA failure for tracking by rule_id and agent."""
+    _ensure_qa_table()
+    now = datetime.now(timezone.utc).isoformat()
+
+    record = {
+        "task_id": task_id,
+        "lineage_id": lineage_id,
+        "task_type": task_type,
+        "client": client,
+        "failed_rule_id": failed_rule_id,
+        "failure_reason": failure_reason,
+        "confidence": round(confidence, 3),
+        "issues": issues or [],
+        "applied_rules": applied_rules or [],
+        "timestamp": now,
+    }
+
+    conn = _get_db()
+    conn.execute(
+        """INSERT INTO qa_failures
+           (task_id, lineage_id, task_type, client, failed_rule_id,
+            failure_reason, confidence, issues, applied_rules, timestamp)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+        (
+            task_id, lineage_id, task_type, client, failed_rule_id,
+            failure_reason, confidence,
+            json.dumps(issues or []), json.dumps(applied_rules or []), now,
+        ),
+    )
+    conn.commit()
+    conn.close()
+    return record
+
+
+def get_qa_failure_counts(days: int = 7) -> dict:
+    """Get QA failure counts grouped by (rule_id, agent) for the last N days.
+
+    Returns dict like:
+        {"QA-003|seo_content": 5, "QA-008|sales_outreach": 3, ...}
+    """
+    _ensure_qa_table()
+    from datetime import timedelta
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
+    conn = _get_db()
+    rows = conn.execute(
+        """SELECT failed_rule_id, task_type, COUNT(*) as cnt
+           FROM qa_failures
+           WHERE timestamp >= ?
+           GROUP BY failed_rule_id, task_type
+           ORDER BY cnt DESC""",
+        (cutoff,),
+    ).fetchall()
+    conn.close()
+    return {f"{r['failed_rule_id']}|{r['task_type']}": r["cnt"] for r in rows}
+
+
+def get_repeat_offenders(days: int = 7, min_count: int = 3) -> list[dict]:
+    """Get rule+agent combos that have failed >= min_count times (doctrine review candidates)."""
+    counts = get_qa_failure_counts(days=days)
+    return [
+        {"rule_id": k.split("|")[0], "agent": k.split("|")[1], "count": v}
+        for k, v in counts.items()
+        if v >= min_count
+    ]

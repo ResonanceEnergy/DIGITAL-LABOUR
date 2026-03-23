@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BIT RAGE LABOUR Memory Doctrine Service
+DIGITAL LABOUR Memory Doctrine Service
 Production-ready service launcher
 """
 
@@ -31,7 +31,7 @@ class MemoryDoctrineService:
         signal.signal(signal.SIGTERM, self.shutdown)
 
     def initialize_doctrine(self):
-        """Initialize core BIT RAGE LABOUR doctrine"""
+        """Initialize core DIGITAL LABOUR doctrine"""
         core_doctrine = {
             "version": "1.0.0",
             "memory_principles": [
@@ -56,7 +56,7 @@ class MemoryDoctrineService:
             }
         }
 
-        self.doctrine_system.store_doctrine(core_doctrine, "Core BIT RAGE LABOUR doctrine v1.0.0")
+        self.doctrine_system.store_doctrine(core_doctrine, "Core DIGITAL LABOUR doctrine v1.0.0")
         print("✅ Core doctrine initialized")
 
     def create_initial_backlog(self):

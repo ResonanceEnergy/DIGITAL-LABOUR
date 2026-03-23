@@ -9,7 +9,7 @@
 
 ## EXECUTIVE SUMMARY
 
-The CIO Intelligence Doctrine establishes the Chief Intelligence Officer's authority as the primary leader of the BIT RAGE LABOUR's intelligence framework, serving as Chairman of Council 52 and overseeing all intelligence operations. This doctrine integrates CIO leadership with NCC autonomous intelligence processing while maintaining ethical AI governance and intelligence quality assurance.
+The CIO Intelligence Doctrine establishes the Chief Intelligence Officer's authority as the primary leader of the DIGITAL LABOUR's intelligence framework, serving as Chairman of Council 52 and overseeing all intelligence operations. This doctrine integrates CIO leadership with NCC autonomous intelligence processing while maintaining ethical AI governance and intelligence quality assurance.
 
 ---
 

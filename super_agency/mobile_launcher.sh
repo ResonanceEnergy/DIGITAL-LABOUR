@@ -1,5 +1,5 @@
 #!/bin/bash
-# Bit Rage Labour Unified Mobile Launcher
+# DIGITAL LABOUR Unified Mobile Launcher
 # Run locally and access from anywhere with phone/iPad
 
 set -e
@@ -92,7 +92,7 @@ check_mobile_setup() {
 
 # Start local services
 start_local_services() {
-    log_launch "Starting local Bit Rage Labour services..."
+    log_launch "Starting local DIGITAL LABOUR services..."
 
     # Start Matrix Monitor
     if [ -f "matrix_monitor.py" ] || [ -d "matrix_monitor" ]; then
@@ -175,7 +175,7 @@ start_remote_tunnel() {
 # Show access information
 show_access_info() {
     echo ""
-    log_success "🎉 Bit Rage Labour Mobile Command Center is RUNNING!"
+    log_success "🎉 DIGITAL LABOUR Mobile Command Center is RUNNING!"
     echo ""
     echo "📱 ACCESS YOUR COMMAND CENTER FROM ANYWHERE:"
     echo ""
@@ -192,12 +192,12 @@ show_access_info() {
         if [ -n "$NGROK_URL" ]; then
             echo -e "   ${CYAN}$NGROK_URL${NC}"
         else
-            echo -e "   ${CYAN}https://BIT RAGE LABOUR.ngrok.io${NC} (check ngrok dashboard)"
+            echo -e "   ${CYAN}https://DIGITAL LABOUR.ngrok.io${NC} (check ngrok dashboard)"
         fi
         echo ""
     elif [ -f ".cloudflare.pid" ] && kill -0 $(cat .cloudflare.pid) 2>/dev/null; then
         echo "🌐 REMOTE ACCESS (from anywhere):"
-        echo -e "   ${CYAN}https://mobile.BIT RAGE LABOUR.local${NC}"
+        echo -e "   ${CYAN}https://mobile.DIGITAL LABOUR.local${NC}"
         echo ""
     fi
 
@@ -205,7 +205,7 @@ show_access_info() {
     echo "1. Open Safari/Chrome on your phone/iPad"
     echo "2. Navigate to one of the URLs above"
     echo "3. Tap share button → Add to Home Screen"
-    echo "4. Name it 'Bit Rage Labour Command'"
+    echo "4. Name it 'DIGITAL LABOUR Command'"
     echo ""
     echo "🎮 MOBILE FEATURES:"
     echo "   • Touch-optimized controls"
@@ -221,7 +221,7 @@ show_access_info() {
 
 # Stop all services
 stop_services() {
-    log_info "Stopping all Bit Rage Labour services..."
+    log_info "Stopping all DIGITAL LABOUR services..."
 
     # Stop mobile server
     if [ -f ".mobile_server.pid" ]; then
@@ -254,7 +254,7 @@ stop_services() {
 # Show status
 show_status() {
     echo ""
-    log_mobile "Bit Rage Labour Mobile Command Center Status"
+    log_mobile "DIGITAL LABOUR Mobile Command Center Status"
     echo "=========================================="
     echo ""
 
@@ -278,7 +278,7 @@ show_status() {
     if [ -f ".ngrok.pid" ] && kill -0 $(cat .ngrok.pid) 2>/dev/null; then
         echo -e "  🌐 Remote: Check ngrok dashboard (localhost:4040)"
     elif [ -f ".cloudflare.pid" ] && kill -0 $(cat .cloudflare.pid) 2>/dev/null; then
-        echo -e "  🌐 Remote: https://mobile.BIT RAGE LABOUR.local"
+        echo -e "  🌐 Remote: https://mobile.DIGITAL LABOUR.local"
     else
         echo -e "  ❌ Remote: No tunnel active"
     fi
@@ -295,7 +295,7 @@ show_status() {
 
 # Main execution
 main() {
-    echo "🚀📱 Bit Rage Labour Unified Mobile Launcher"
+    echo "🚀📱 DIGITAL LABOUR Unified Mobile Launcher"
     echo "========================================"
     echo ""
     echo "Run your command center locally and access from anywhere!"

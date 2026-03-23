@@ -1,4 +1,4 @@
-# BIT RAGE LABOUR — 100-STEP WAR PLAN
+# DIGITAL LABOUR — 100-STEP WAR PLAN
 ## Mission: Agents Making Money. No Excuses. Maximum Velocity.
 ### Target: 1000% build success rate → income as fast as physically possible
 ### STATUS: Steps 1–31, 35, 41–50, 53, 56–65, 69, 71–73, 79, 81–88, 91–93 COMPLETE. 4 agents LIVE. Full infrastructure built.
@@ -258,4 +258,4 @@
 ---
 
 *This plan is a living document. Check off steps as you go. Review weekly.*
-*Generated: March 7, 2026 | BIT RAGE LABOUR | NCC ALOPS Division*
+*Generated: March 7, 2026 | DIGITAL LABOUR | NCC ALOPS Division*

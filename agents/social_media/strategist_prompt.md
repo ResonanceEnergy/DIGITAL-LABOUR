@@ -52,7 +52,7 @@ You are an expert social media content strategist. Given a topic, brand context,
     {"day": "Friday", "platform": "twitter", "type": "engagement_poll"}
   ],
   "hashtag_strategy": {
-    "branded": ["#BitRageLabour", "#AILabour"],
+    "branded": ["#DigitalLabour", "#AILabour"],
     "industry": ["#AIAutomation", "#B2BSales", "#MarTech"],
     "trending": ["#FutureOfWork", "#AITools"]
   }

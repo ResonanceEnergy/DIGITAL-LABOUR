@@ -196,6 +196,37 @@ def run_cycle() -> dict:
         logger.error(f"  [ERROR] Healing failed: {e}")
         cycle_report["phases"]["healing"] = {"error": str(e)}
 
+    # ── Phase 2b: Stuck Task Cleanup ───────────────────────────
+    try:
+        import sqlite3
+        tq_path = PROJECT_ROOT / "data" / "task_queue.db"
+        if tq_path.exists():
+            cutoff = (datetime.now(timezone.utc) - timedelta(hours=1)).isoformat()
+            tq = sqlite3.connect(str(tq_path))
+            stuck = tq.execute(
+                "SELECT COUNT(*) FROM tasks WHERE status = 'running' AND started_at < ?", (cutoff,)
+            ).fetchone()[0]
+            if stuck > 0:
+                tq.execute(
+                    "UPDATE tasks SET status = 'failed', error = 'NERVE: stuck >1h, auto-failed' "
+                    "WHERE status = 'running' AND started_at < ?", (cutoff,)
+                )
+                tq.commit()
+                logger.info(f"  Unstuck {stuck} tasks (running >1h -> failed)")
+            tq.close()
+    except Exception as e:
+        logger.error(f"  [WARN] Task cleanup failed: {e}")
+
+    # ── Phase 2c: CRM Init ────────────────────────────────────
+    try:
+        crm_path = PROJECT_ROOT / "data" / "crm.db"
+        if not crm_path.exists():
+            from automation.crm_tracker import init_db
+            init_db()
+            logger.info("  Initialized crm.db")
+    except Exception as e:
+        logger.error(f"  [WARN] CRM init failed: {e}")
+
     # ── Phase 3: Prospect Replenishment ────────────────────────
     logger.info(f"\n[PHASE 3] Prospect Pipeline...")
     try:
@@ -272,6 +303,19 @@ def run_cycle() -> dict:
         cycle_report["phases"]["followups"] = {"sent": len(followups)}
         if followups:
             logger.info(f"  Sent {len(followups)} follow-ups")
+
+        # Flush any queued ready_to_send emails via SMTP
+        if smtp_ok:
+            try:
+                from automation.outreach import flush_ready_to_send
+                flush = flush_ready_to_send()
+                flushed = flush.get("sent", 0)
+                if flushed:
+                    logger.info(f"  Flushed {flushed} emails from ready_to_send/")
+                cycle_report["phases"]["flush"] = flush
+            except Exception as e:
+                logger.error(f"  [WARN] Flush failed: {e}")
+
     except Exception as e:
         logger.error(f"  [ERROR] Outreach failed: {e}")
         cycle_report["phases"]["outreach"] = {"error": str(e)}

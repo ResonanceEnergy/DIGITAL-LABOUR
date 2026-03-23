@@ -1,4 +1,4 @@
-# 🚀 BIT RAGE LABOUR - Cross-Platform Development Setup
+# 🚀 DIGITAL LABOUR - Cross-Platform Development Setup
 
 ## 📁 Shared Repository Location
 **Path:** `C:\Dev\DIGITAL-LABOUR\`

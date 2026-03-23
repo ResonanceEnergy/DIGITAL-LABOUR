@@ -1,4 +1,4 @@
-# 🚀 BIT RAGE LABOUR Distributed Command Center Setup
+# 🚀 DIGITAL LABOUR Distributed Command Center Setup
 ## Multi-Platform Architecture: macOS + Windows + AWS
 
 **Date**: February 20, 2026  
@@ -165,9 +165,9 @@ brew install --cask visual-studio-code
 brew install --cask xcode
 ```
 
-#### BIT RAGE LABOUR Setup
+#### DIGITAL LABOUR Setup
 ```bash
-# Clone BIT RAGE LABOUR repository
+# Clone DIGITAL LABOUR repository
 gh repo clone ResonanceEnergy/Digital-Labour ~/Digital-Labour
 
 # Set up Python environment
@@ -203,7 +203,7 @@ choco install vscode
 
 #### Build Environment Configuration
 ```powershell
-# Set up BIT RAGE LABOUR build environment
+# Set up DIGITAL LABOUR build environment
 cd C:\Digital-Labour
 python -m venv venv
 venv\Scripts\activate
@@ -221,7 +221,7 @@ pip install nuitka       # Advanced Python compiler
 #### CloudFormation Template
 ```yaml
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'BIT RAGE LABOUR Distributed Command Center'
+Description: 'DIGITAL LABOUR Distributed Command Center'
 
 Resources:
   # VPC and Networking
@@ -246,7 +246,7 @@ Resources:
           #!/bin/bash
           yum update -y
           yum install -y python3 pip git
-          # Install BIT RAGE LABOUR dependencies
+          # Install DIGITAL LABOUR dependencies
 
   # S3 Storage
   StorageBucket:
@@ -325,7 +325,7 @@ resource "aws_s3_bucket_versioning" "storage" {
 
 #### Multi-Platform Build Workflow
 ```yaml
-name: BIT RAGE LABOUR CI/CD
+name: DIGITAL LABOUR CI/CD
 
 on:
   push:
@@ -497,9 +497,9 @@ class GalactiaDoctrine:
 
 #### Project Structure
 ```
-BIT RAGE LABOURCommand/
-├── BIT RAGE LABOURCommand.xcodeproj
-├── BIT RAGE LABOURCommand/
+DIGITAL LABOURCommand/
+├── DIGITAL LABOURCommand.xcodeproj
+├── DIGITAL LABOURCommand/
 │   ├── AppDelegate.swift
 │   ├── SceneDelegate.swift
 │   ├── ViewController.swift
@@ -515,8 +515,8 @@ BIT RAGE LABOURCommand/
 │   └── Resources/
 │       ├── Assets.xcassets
 │       └── LaunchScreen.storyboard
-├── BIT RAGE LABOURCommandTests/
-└── BIT RAGE LABOURCommandUITests/
+├── DIGITAL LABOURCommandTests/
+└── DIGITAL LABOURCommandUITests/
 ```
 
 #### Core Implementation
@@ -552,7 +552,7 @@ struct StatusView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("BIT RAGE LABOUR Command Center")
+                Text("DIGITAL LABOUR Command Center")
                     .font(.largeTitle)
                     .padding()
 
@@ -690,4 +690,4 @@ cp .github/workflows/Digital-Labour-ci.yml .github/workflows/
 
 **Let's build the most advanced distributed command center in the galaxy!** 🚀✨
 
-*This setup provides a solid foundation for the BIT RAGE LABOUR distributed command center with macOS live operations, Windows build infrastructure, and AWS cloud scaling.*
+*This setup provides a solid foundation for the DIGITAL LABOUR distributed command center with macOS live operations, Windows build infrastructure, and AWS cloud scaling.*

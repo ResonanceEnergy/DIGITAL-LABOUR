@@ -318,7 +318,7 @@ class BaseCouncilAgent(ABC):
         # Get recent insights
         insights = self._get_recent_insights()
 
-        # Send insights to BIT RAGE LABOUR
+        # Send insights to DIGITAL LABOUR
         self.send_message(
             recipient="bit_rage_labour",
             message_type="insights_sync",
@@ -371,7 +371,7 @@ class BaseCouncilAgent(ABC):
                 # Store results
                 self._store_analysis_results(analysis_results)
 
-                # Send to BIT RAGE LABOUR
+                # Send to DIGITAL LABOUR
                 self._report_to_bit_rage_labour(analysis_results)
 
                 logger.info(
@@ -400,7 +400,7 @@ class BaseCouncilAgent(ABC):
             json.dump(results, f, indent=2, default=str)
 
     def _report_to_bit_rage_labour(self, results: List[Dict[str, Any]]):
-        """Report analysis results to BIT RAGE LABOUR"""
+        """Report analysis results to DIGITAL LABOUR"""
         self.send_message(
             recipient="bit_rage_labour",
             message_type="analysis_complete",

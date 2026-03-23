@@ -1,17 +1,17 @@
 #!/bin/bash
 ###############################################################################
 # Digital-Labour Service Watchdog — 24/7/365 Failsafe Health Monitor
-# Runs every 15 minutes via com.BIT RAGE LABOUR.watchdog launchd plist
+# Runs every 15 minutes via com.DIGITAL LABOUR.watchdog launchd plist
 #
 # Monitors:
 #   1. OpenClaw Gateway    — http://127.0.0.1:18789  (ai.openclaw.gateway)
-#   2. Matrix Monitor V3   — http://127.0.0.1:3000   (com.BIT RAGE LABOUR.matrixmonitor)
+#   2. Matrix Monitor V3   — http://127.0.0.1:3000   (com.DIGITAL LABOUR.matrixmonitor)
 #
 # Actions:
 #   - Check HTTP health of each service
 #   - If down → restart via launchctl
 #   - If still down after restart → escalate via Telegram bot alert
-#   - Logs everything to /tmp/BIT RAGE LABOUR_watchdog.log
+#   - Logs everything to /tmp/DIGITAL LABOUR_watchdog.log
 ###############################################################################
 
 # ─── Configuration ───────────────────────────────────────────────────────────
@@ -19,12 +19,12 @@ OPENCLAW_URL="http://127.0.0.1:18789"
 OPENCLAW_LABEL="ai.openclaw.gateway"
 
 MATRIX_URL="http://127.0.0.1:3000"
-MATRIX_LABEL="com.BIT RAGE LABOUR.matrixmonitor"
+MATRIX_LABEL="com.DIGITAL LABOUR.matrixmonitor"
 
-DASHBOARDS_LABEL="com.BIT RAGE LABOUR.dashboards"
+DASHBOARDS_LABEL="com.DIGITAL LABOUR.dashboards"
 
-LOG_FILE="/tmp/BIT RAGE LABOUR_watchdog.log"
-STATE_FILE="/tmp/BIT RAGE LABOUR_watchdog_state.json"
+LOG_FILE="/tmp/DIGITAL LABOUR_watchdog.log"
+STATE_FILE="/tmp/DIGITAL LABOUR_watchdog_state.json"
 MAX_LOG_LINES=5000
 
 TELEGRAM_BOT_TOKEN="8766824944:AAGsZtV_AlqzX6LokmffiNwYlkcz77bq7jE"
@@ -180,7 +180,7 @@ hard_reboot_service() {
             pkill -9 -f 'openclaw' 2>/dev/null
             pkill -9 -f 'openclaw-gateway' 2>/dev/null
             ;;
-        com.BIT RAGE LABOUR.matrixmonitor)
+        com.DIGITAL LABOUR.matrixmonitor)
             pkill -9 -f 'matrix_maximizer_v3' 2>/dev/null
             # Also kill anything on port 3000
             lsof -ti :3000 2>/dev/null | xargs kill -9 2>/dev/null
@@ -295,7 +295,7 @@ check_telegram_channel() {
 ensure_dashboards_plist() {
     if ! $LAUNCHCTL list "$DASHBOARDS_LABEL" >/dev/null 2>&1; then
         log "WARN: Dashboards plist not loaded — loading..."
-        $LAUNCHCTL load ~/Library/LaunchAgents/com.BIT RAGE LABOUR.dashboards.plist 2>/dev/null
+        $LAUNCHCTL load ~/Library/LaunchAgents/com.DIGITAL LABOUR.dashboards.plist 2>/dev/null
     fi
 }
 
