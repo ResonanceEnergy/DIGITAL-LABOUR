@@ -1,4 +1,4 @@
-# Requirements for BIT RAGE SYSTEMS (BIT RAGE SYSTEMS + Super Agency unified)
+# Requirements for DIGITAL LABOUR LABOUR agents
 
 # LLM Providers
 openai>=1.12.0
@@ -9,33 +9,10 @@ httpx>=0.27.0
 pydantic>=2.6.0
 python-dotenv>=1.0.0
 requests>=2.31.0
-pyyaml>=6.0
-psutil>=5.9.0
 
-# API — FastAPI (primary) + Quart/Flask (Super Agency legacy)
+# API
 fastapi>=0.110.0
 uvicorn>=0.27.0
-flask>=3.0.0
-quart>=0.19.0
-hypercorn>=0.14.0
-flask-cors>=4.0.0
-
-# Async
-aiohttp>=3.9.0
-websockets>=12.0
-
-# AI/ML
-numpy>=1.24.0
-scikit-learn>=1.3.0
-
-# Agent framework (Super Agency)
-autogen-agentchat>=0.4.0
-
-# YouTube ingestion (Super Agency tools)
-youtube-transcript-api>=0.6.0
-
-# UI (Super Agency dashboards)
-streamlit>=1.30.0
 
 # Billing
 stripe>=6.0.0

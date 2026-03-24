@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-17T06:55:40.332357-06:00",
+  "timestamp": "2026-03-11T03:02:03.923879-06:00",
   "mandate_gaps": [],
   "research_gaps": [
     {
@@ -35,18 +35,18 @@
       "action": "run_research"
     },
     {
-      "id": "research_bit_rage_systems_platform_no_output",
+      "id": "research_bit_rage_labour_platform_no_output",
       "category": "research",
       "severity": "MEDIUM",
-      "title": "No research output: Bit Rage Systems Platform",
-      "detail": "Project 'Bit Rage Systems Platform' with 10 repos has no research reports",
+      "title": "No research output: DIGITAL LABOUR Platform",
+      "detail": "Project 'DIGITAL LABOUR Platform' with 10 repos has no research reports",
       "action": "run_research"
     },
     {
-      "id": "research_bit_rage_systems_platform_milestones",
+      "id": "research_bit_rage_labour_platform_milestones",
       "category": "research",
       "severity": "MEDIUM",
-      "title": "Most milestones incomplete: Bit Rage Systems Platform",
+      "title": "Most milestones incomplete: DIGITAL LABOUR Platform",
       "detail": "6/6 milestones incomplete",
       "action": "run_research"
     },

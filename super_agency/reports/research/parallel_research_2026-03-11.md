@@ -13,7 +13,7 @@
 | 🟠 Alternative Energy Systems | high | 50% (2/4) | 531 | 19.38 MB | 8 |
 | 🟡 Alternative History & Research | medium | 0% (0/2) | 8 | 0.0 MB | 0 |
 | 🟡 Media & Marketing Operations | medium | 0% (0/3) | 16 | 0.0 MB | 0 |
-| 🔴 Bit Rage Systems Platform | critical | 50% (3/6) | 5128 | 84.67 MB | 8 |
+| 🔴 DIGITAL LABOUR Platform | critical | 50% (3/6) | 5128 | 84.67 MB | 8 |
 | 🟡 Digital Products & Business | medium | 0% (0/3) | 4991 | 1619.28 MB | 8 |
 
 ---
@@ -124,7 +124,7 @@
 | MAGNUM-MARKETING | 2/4 | 1 | 8 | 0.0 MB |
 
 ---
-## Bit Rage Systems Platform
+## DIGITAL LABOUR Platform
 *Core platform infrastructure — the agency itself, command centers, doctrine*
 
 **Status:** active | **Priority:** critical | **Repos:** 10/10
@@ -136,7 +136,7 @@
 | Repo | Health | Commits | Files | Size |
 |------|--------|---------|-------|------|
 | NCL | 2/4 | 3 | 20 | 0.01 MB |
-| Super-Agency | 4/4 | 10 | 1262 | 8.4 MB |
+| Digital-Labour | 4/4 | 10 | 1262 | 8.4 MB |
 | NCC | 2/4 | 1 | 19 | 0.01 MB |
 | NATEBJONES | 2/4 | 1 | 19 | 0.01 MB |
 | resonance-uy-py | 2/4 | 6 | 42 | 0.04 MB |
@@ -148,7 +148,7 @@
 
 **Next Actions:**
 - [NCL] Increase test coverage for modified code.
-- [Super-Agency] Increase test coverage for modified code.
+- [Digital-Labour] Increase test coverage for modified code.
 - [NCC] Increase test coverage for modified code.
 - [NATEBJONES] Increase test coverage for modified code.
 - [resonance-uy-py] Increase test coverage for modified code.

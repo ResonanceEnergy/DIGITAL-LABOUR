@@ -1,4 +1,4 @@
-﻿"""Client intake form — interactive CLI for onboarding new retainer clients.
+"""Client intake form — interactive CLI for onboarding new retainer clients.
 
 Usage:
     python -m billing.intake_form
@@ -21,7 +21,7 @@ OUTPUT_DIR = PROJECT_ROOT / "clients"
 def run_intake() -> dict:
     """Interactive intake questionnaire. Returns client profile dict."""
     print("\n" + "=" * 60)
-    print("  BIT RAGE SYSTEMS — New Client Intake")
+    print("  Digital Labour — New Client Intake")
     print("=" * 60 + "\n")
 
     # Basic info

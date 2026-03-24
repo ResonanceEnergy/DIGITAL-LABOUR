@@ -1,4 +1,4 @@
-﻿"""Income Tracker — Monitors revenue across all 19 income sources.
+"""Income Tracker — Monitors revenue across all 19 income sources.
 
 Persistent tracking of:
     - Platform registration status (not_started → registered → active → earning)
@@ -153,7 +153,7 @@ def print_status():
 
     print(f"""
 {'='*70}
-  BIT RAGE SYSTEMS — INCOME TRACKER
+  DIGITAL LABOUR — INCOME TRACKER
 {'='*70}
   Total Revenue:   ${total:,.2f}
   Sources Earning: {earning_count}/19

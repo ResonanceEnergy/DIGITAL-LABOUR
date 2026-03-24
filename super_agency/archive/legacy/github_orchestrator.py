@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Super Agency GitHub Integration Orchestrator
+DIGITAL LABOUR GitHub Integration Orchestrator
 Automatically manages GitHub operations for the Resonance Energy portfolio
 """
 
@@ -36,7 +36,7 @@ def run_autonomous_sync():
     """Run the autonomous GitHub integration sync"""
     logger = setup_logging()
 
-    logger.info("Super Agency GitHub Orchestrator Starting")
+    logger.info("DIGITAL LABOUR GitHub Orchestrator Starting")
     logger.info("=" * 50)
 
     try:

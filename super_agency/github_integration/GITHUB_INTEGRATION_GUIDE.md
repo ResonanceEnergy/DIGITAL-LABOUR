@@ -1,4 +1,4 @@
-# Bit Rage Systems GitHub Integration Guide
+# DIGITAL LABOUR GitHub Integration Guide
 ## Complete GitHub Operations Framework
 
 **Date:** February 20, 2026
@@ -9,7 +9,7 @@
 
 ## 🎯 Overview
 
-The Bit Rage Systems GitHub Integration Framework provides comprehensive automation for repository management, CI/CD, security, and compliance across the Resonance Energy portfolio. This system ensures consistent governance, security, and operational excellence across all projects.
+The DIGITAL LABOUR GitHub Integration Framework provides comprehensive automation for repository management, CI/CD, security, and compliance across the Resonance Energy portfolio. This system ensures consistent governance, security, and operational excellence across all projects.
 
 ## 🏗️ Architecture
 
@@ -22,7 +22,7 @@ The Bit Rage Systems GitHub Integration Framework provides comprehensive automat
 
 ### Integration Points
 ```
-Bit Rage Systems Council → GitHub Integration → Portfolio Repositories
+DIGITAL LABOUR Council → GitHub Integration → Portfolio Repositories
        ↓                        ↓               ↓
    Decision Matrix → PR Creation → CI/CD → Security → Deployment
 ```
@@ -65,7 +65,7 @@ system = GitHubIntegrationSystem()
 # Create repository with full configuration
 success = system.create_repository(
     name="my-project",
-    description="Bit Rage Systems project",
+    description="DIGITAL LABOUR project",
     private=True,
     template="python-template"
 )
@@ -263,7 +263,7 @@ gh auth status
 - Check token permissions
 - Verify repository settings
 
-## 🔄 Integration with Bit Rage Systems
+## 🔄 Integration with DIGITAL LABOUR
 
 ### Council Integration
 - Decision matrix integration for high-autonomy actions
@@ -302,9 +302,9 @@ gh auth status
 For issues or questions:
 1. Check the troubleshooting section
 2. Review GitHub CLI documentation
-3. Contact the Bit Rage Systems Council
+3. Contact the DIGITAL LABOUR Council
 4. File an issue in the integration repository
 
 ---
 
-*This document is maintained by the Bit Rage Systems GitHub Integration Framework v1.0*
+*This document is maintained by the DIGITAL LABOUR GitHub Integration Framework v1.0*

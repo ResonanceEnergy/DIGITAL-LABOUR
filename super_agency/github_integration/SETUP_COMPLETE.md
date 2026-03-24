@@ -1,4 +1,4 @@
-# Bit Rage Systems GitHub Integration - SETUP COMPLETE
+# DIGITAL LABOUR GitHub Integration - SETUP COMPLETE
 ## Setup Date: February 20, 2026
 
 ### ✅ Components Set Up:
@@ -50,4 +50,4 @@
 - Council Integration: High-autonomy decision routing
 
 ---
-*Bit Rage Systems GitHub Integration v1.0 - Setup Complete*
+*DIGITAL LABOUR GitHub Integration v1.0 - Setup Complete*

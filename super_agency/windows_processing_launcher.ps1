@@ -1,4 +1,4 @@
-# 🚀 Bit Rage Systems Windows Processing Node Launcher
+# 🚀 Digital Labour Windows Processing Node Launcher
 # Heavy computation and AI processing for distributed architecture
 # February 21, 2026
 
@@ -268,7 +268,7 @@ function Optimize-WindowsProcessing {
 
 # Main execution
 try {
-    Write-Log "🎯 Bit Rage Systems Windows Processing Node Launcher"
+    Write-Log "🎯 Digital Labour Windows Processing Node Launcher"
 
     if ($Status) {
         Get-ProcessingStatus

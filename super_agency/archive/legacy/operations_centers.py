@@ -15,7 +15,7 @@ from enum import Enum
 
 class OperationsCenterType(Enum):
     """Types of operations centers"""
-    CORE_AGENCY = "core_agency"           # Super-Agency repository
+    CORE_AGENCY = "core_agency"           # Digital-Labour repository
     ENTERPRISE_SYSTEMS = "enterprise"      # ResonanceEnergy_Enterprise
     NEURAL_CONTROL = "neural_control"      # NCL system
 
@@ -70,13 +70,13 @@ class OperationsCentersManager:
     def _initialize_centers(self):
         """Initialize the three core operations centers"""
 
-        # 1. Core Agency Operations Center (Super-Agency)
+        # 1. Core Agency Operations Center (Digital-Labour)
         core_agency = OperationsCenter(
             center_id="oc_core_agency",
             name="Core Agency Operations Center",
-            repository="Super-Agency",
+            repository="Digital-Labour",
             center_type=OperationsCenterType.CORE_AGENCY,
-            description="Central nervous system of the Super Agency - coordinates all operations, intelligence synthesis, and autonomous decision-making",
+            description="Central nervous system of the DIGITAL LABOUR - coordinates all operations, intelligence synthesis, and autonomous decision-making",
             priority=1
         )
 

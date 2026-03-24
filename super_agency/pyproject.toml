@@ -3,14 +3,14 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "bit-rage-systems"
+name = "bit-rage-labour"
 version = "2.0.0"
-description = "Bit Rage Systems - Digital Labour Autonomous AI Orchestration Platform"
+description = "DIGITAL LABOUR - DIGITAL LABOUR Autonomous AI Orchestration Platform"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.9"
 authors = [
-    {name = "Bit Rage Systems", email = "dev@resonanceenergy.com"}
+    {name = "DIGITAL LABOUR", email = "dev@resonanceenergy.com"}
 ]
 keywords = ["ai", "agents", "automation", "orchestration"]
 classifiers = [
@@ -58,18 +58,18 @@ ai = [
     "langchain>=0.1.0",
 ]
 full = [
-    "bit-rage-systems[dev]",
-    "bit-rage-systems[ai]",
+    "bit-rage-labour[dev]",
+    "bit-rage-labour[ai]",
 ]
 
 [project.urls]
-Homepage = "https://github.com/ResonanceEnergy/Super-Agency"
-Documentation = "https://github.com/ResonanceEnergy/Super-Agency/docs"
-Repository = "https://github.com/ResonanceEnergy/Super-Agency"
-Issues = "https://github.com/ResonanceEnergy/Super-Agency/issues"
+Homepage = "https://github.com/ResonanceEnergy/Digital-Labour"
+Documentation = "https://github.com/ResonanceEnergy/Digital-Labour/docs"
+Repository = "https://github.com/ResonanceEnergy/Digital-Labour"
+Issues = "https://github.com/ResonanceEnergy/Digital-Labour/issues"
 
 [project.scripts]
-bit-rage-systems = "run_super_agency:main"
+bit-rage-labour = "run_bit_rage_labour:main"
 
 [tool.setuptools.packages.find]
 where = ["."]

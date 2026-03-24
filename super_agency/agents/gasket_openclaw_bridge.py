@@ -154,12 +154,12 @@ print(json.dumps({
             }
         }),
         "instructions": """\
-GASKET Memory Doctrine manages the Bit Rage Systems knowledge base.
+GASKET Memory Doctrine manages the DIGITAL LABOUR knowledge base.
 
 Memory locations:
 - {baseDir}/../memory/ — Daily logs (memory/YYYY-MM-DD.md)
 - {baseDir}/../MEMORY.md — Curated long-term memory
-- Super-Agency repo doctrine/ directory — System doctrines
+- Digital-Labour repo doctrine/ directory — System doctrines
 
 When asked to remember something, update memory, or check doctrine:
 1. Use memory_search to find relevant existing memories
@@ -167,7 +167,7 @@ When asked to remember something, update memory, or check doctrine:
 3. Write new memories to memory/YYYY-MM-DD.md (today's date)
 4. For durable facts & decisions, also update MEMORY.md
 
-For doctrine files, check ~/repos/Super-Agency/doctrine/ for:
+For doctrine files, check ~/repos/Digital-Labour/doctrine/ for:
 - OPENCLAW_DOCTRINE.md — OpenClaw knowledge base
 - Other doctrine files as they are created
 
@@ -244,7 +244,7 @@ Capabilities:
 
 When asked for Matrix Maximizer data or performance analytics:
 1. Run system metrics collection
-2. Check repo build status (~/repos/Super-Agency/repo_depot_status.json)
+2. Check repo build status (~/repos/Digital-Labour/repo_depot_status.json)
 3. Aggregate and analyze project intelligence
 4. Provide actionable recommendations
 
@@ -256,7 +256,7 @@ cpu = psutil.cpu_percent(interval=1)
 mem = psutil.virtual_memory()
 disk = psutil.disk_usage('/')
 # Check repo status
-status_file = Path.home() / 'repos' / 'Super-Agency' / 'repo_depot_status.json'
+status_file = Path.home() / 'repos' / 'Digital-Labour' / 'repo_depot_status.json'
 repo_status = {}
 if status_file.exists():
     repo_status = json.loads(status_file.read_text())
@@ -286,18 +286,18 @@ print(json.dumps({
             }
         }),
         "instructions": """\
-Generate a comprehensive morning briefing for the Bit Rage Systems operator.
+Generate a comprehensive morning briefing for the DIGITAL LABOUR operator.
 
 Structure:
 1. **System Health**: CPU, memory, disk across QUSAR (macOS) + QFORGE status
-2. **Git Status**: Check ~/repos/Super-Agency for uncommitted changes, recent commits
+2. **Git Status**: Check ~/repos/Digital-Labour for uncommitted changes, recent commits
 3. **Agent Status**: GASKET operational loops, OPTIMUS link, OpenClaw gateway health
 4. **Task Board**: Outstanding items from memory/YYYY-MM-DD.md
 5. **Recommendations**: AI-recommended tasks GASKET can complete autonomously
 
 Steps:
 1. Run system health check via gasket-status skill
-2. Run: cd ~/repos/Super-Agency && git --no-pager log --oneline -5 && git status --short
+2. Run: cd ~/repos/Digital-Labour && git --no-pager log --oneline -5 && git status --short
 3. Check OpenClaw gateway: curl -s http://127.0.0.1:18789/health || echo "Gateway DOWN"
 4. Search memory for recent tasks and decisions
 5. Compile into a structured brief and deliver
@@ -315,7 +315,7 @@ Format the brief cleanly with sections, emojis, and actionable items.
             }
         }),
         "instructions": """\
-Zero-friction capture for the Bit Rage Systems second brain.
+Zero-friction capture for the DIGITAL LABOUR second brain.
 
 When the user texts anything that should be remembered — ideas, links, books,
 reminders, decisions, observations — capture it immediately:
@@ -345,7 +345,7 @@ The power is in ZERO FRICTION. Capture as easy as texting.
             }
         }),
         "instructions": """\
-Self-healing infrastructure agent for the Bit Rage Systems platform.
+Self-healing infrastructure agent for the DIGITAL LABOUR platform.
 
 Automated checks (run via cron):
 1. **OpenClaw Gateway Health**: curl http://127.0.0.1:18789/health
@@ -353,8 +353,8 @@ Automated checks (run via cron):
 2. **Disk Usage**: Alert if > 90%
 3. **Memory Pressure**: Alert if > 85%, suggest cleanup
 4. **High CPU Processes**: Detect runaway processes
-5. **Git Repo Health**: Check ~/repos/Super-Agency git status
-6. **LaunchAgent Status**: Verify com.superagency.* plists are loaded
+5. **Git Repo Health**: Check ~/repos/Digital-Labour git status
+6. **LaunchAgent Status**: Verify com.digitallabour.* plists are loaded
 7. **Network**: Check QFORGE connectivity (192.168.1.200:8888)
 
 Auto-remediation:
@@ -528,7 +528,7 @@ CRITICAL RULE: NEVER store API keys in agent environment or skill files.
 GASKET_SOUL = """\
 ## SOUL.md — AGENT GASKET
 
-You are AGENT GASKET v2.0, the QUSAR Integration Agent for Bit Rage Systems.
+You are AGENT GASKET v2.0, the QUSAR Integration Agent for DIGITAL LABOUR.
 
 **Personality**: Precise, infrastructure-focused, always-on. You speak in clear
 status reports and actionable recommendations. You are the system backbone.
@@ -540,7 +540,7 @@ status reports and actionable recommendations. You are the system backbone.
 - Memory doctrine: System memory management, doctrine maintenance
 - Matrix Maximizer: Performance visualization, project intelligence
 
-**Your Role in Bit Rage Systems**:
+**Your Role in DIGITAL LABOUR**:
 You are one half of a dual-agent system:
 - **You (GASKET)**: macOS QUSAR environment — intervention, intelligence, optimization
 - **OPTIMUS**: Windows QFORGE environment — real-time telemetry, monitoring
@@ -588,7 +588,7 @@ Every 15 minutes:
 
 Every hour:
 - Full infrastructure audit
-- Git repo status check (~/repos/Super-Agency)
+- Git repo status check (~/repos/Digital-Labour)
 - Network connectivity verification (QFORGE link)
 
 Every 6 hours:
@@ -861,7 +861,7 @@ metadata: {skill_data['metadata']}
         results["skills"] = skill_result
 
         # 8. Copy doctrine files to workspace for memory search indexing
-        doctrine_src = Path.home() / "repos" / "Super-Agency" / "doctrine"
+        doctrine_src = Path.home() / "repos" / "Digital-Labour" / "doctrine"
         if doctrine_src.exists():
             doctrine_dst = GASKET_WORKSPACE / "doctrine"
             doctrine_dst.mkdir(parents=True, exist_ok=True)
@@ -1007,7 +1007,7 @@ metadata: {skill_data['metadata']}
     def _get_repo_depot_summary(self) -> Dict[str, Any]:
         """Get REPO DEPOT summary for full status report."""
         try:
-            status_file = Path.home() / "repos" / "Super-Agency" / "repo_depot_status.json"
+            status_file = Path.home() / "repos" / "Digital-Labour" / "repo_depot_status.json"
             if status_file.exists():
                 with open(status_file, 'r') as f:
                     data = json.load(f)
@@ -1060,7 +1060,7 @@ metadata: {skill_data['metadata']}
             result = subprocess.run(
                 ["git", "--no-pager", "log", "--oneline", "-5"],
                 capture_output=True, text=True, timeout=10, check=False,
-                cwd=str(Path.home() / "repos" / "Super-Agency"),
+                cwd=str(Path.home() / "repos" / "Digital-Labour"),
             )
             git_status = result.stdout.strip() if result.returncode == 0 else "Error"
         except Exception:
@@ -1078,7 +1078,7 @@ metadata: {skill_data['metadata']}
         # REPO DEPOT status
         depot_section = ""
         try:
-            depot_file = Path.home() / "repos" / "Super-Agency" / "repo_depot_status.json"
+            depot_file = Path.home() / "repos" / "Digital-Labour" / "repo_depot_status.json"
             if depot_file.exists():
                 with open(depot_file, 'r') as f:
                     depot_data = json.load(f)
@@ -1213,7 +1213,7 @@ metadata: {skill_data['metadata']}
 
         # 5. REPO DEPOT staleness check
         try:
-            status_file = Path.home() / "repos" / "Super-Agency" / "repo_depot_status.json"
+            status_file = Path.home() / "repos" / "Digital-Labour" / "repo_depot_status.json"
             if status_file.exists():
                 import os
                 age = time.time() - os.path.getmtime(str(status_file))

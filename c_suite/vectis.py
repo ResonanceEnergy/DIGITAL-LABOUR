@@ -1,4 +1,4 @@
-﻿"""VECTIS — Chief Operating Officer Agent.
+"""VECTIS — Chief Operating Officer Agent.
 
 Codename: VECTIS (Velocity Engine for Continuous Task Intelligence & Scaling)
 Role: COO — Operations, pipeline management, agent performance, quality enforcement.
@@ -153,7 +153,7 @@ def _bottleneck_scan() -> dict:
 
 # ── VECTIS System Prompt ────────────────────────────────────────────────────
 
-VECTIS_SYSTEM = """You are VECTIS — the autonomous COO of BIT RAGE SYSTEMS, an AI labor company.
+VECTIS_SYSTEM = """You are VECTIS — the autonomous COO of DIGITAL LABOUR, an AI labor company.
 
 Your mandate from AXIOM (CEO) and NCC:
 - Keep all 4 worker agents running at peak performance
@@ -252,7 +252,7 @@ class VectisCOO:
         ops_data = self._ops_report()
 
         user_msg = (
-            "OPERATIONAL REPORT — BIT RAGE SYSTEMS\n"
+            "OPERATIONAL REPORT — DIGITAL LABOUR\n"
             f"Date: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}\n\n"
             f"{json.dumps(ops_data, indent=2, default=str)}\n\n"
             "Analyze operations. Grade every agent and provider. "

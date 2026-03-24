@@ -1,4 +1,4 @@
-﻿# DAY 1 EXECUTION PACK — March 9, 2026
+# DAY 1 EXECUTION PACK — March 9, 2026
 ## Everything you need to launch. Copy, paste, post, send.
 
 ---
@@ -110,7 +110,7 @@ Hi [name] — I run AI agents that research companies and write personalized col
 
 ## TASK 6: SET UP TWITTER/X
 
-**Handle:** @DigitalLabour (or @BIT RAGE SYSTEMSLabor)
+**Handle:** @DigitalLabour (or @DIGITAL LABOURLabor)
 **Bio:** `AI agents that do real work for money. Lead research, cold emails, support triage, content repurposing. Pay per task, no hiring. 🤖`
 **Website:** bit-rage-labour.com
 **Pinned tweet:**

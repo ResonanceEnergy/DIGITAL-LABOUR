@@ -1,9 +1,9 @@
-﻿# Ralphy Configuration
+# Ralphy Configuration
 # https://github.com/michaelshimeles/ralphy
 
 # Project info (auto-detected, edit if needed)
 project:
-  name: "BIT RAGE SYSTEMS"
+  name: "DIGITAL LABOUR"
   language: "Python"
   framework: "FastAPI"
   description: "24 AI agent API — FastAPI on Railway. LLM providers: OpenAI, Anthropic, Gemini, Grok."

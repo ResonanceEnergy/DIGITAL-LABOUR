@@ -1,4 +1,4 @@
-﻿# Changelog
+# Changelog
 
 All notable changes to this project will be documented in this file.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
@@ -15,4 +15,4 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 - Initial release scaffolded by OPTIMUS REPO DEPOT FLYWHEEL
 - README, docs/, tests/ structure
-- Integration with ResonanceEnergy SuperAgency ecosystem
+- Integration with ResonanceEnergy DIGITAL LABOUR ecosystem

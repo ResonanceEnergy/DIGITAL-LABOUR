@@ -606,7 +606,7 @@
     "follow_up_1_due": "2026-03-18T14:18:59.424228+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T14:18:59.424228+00:00",
-    "follow_up_2_sent": true,
+    "follow_up_2_sent": false,
     "source_file": "meta_Airtable_74a745.json"
   },
   {
@@ -616,7 +616,7 @@
     "follow_up_1_due": "2026-03-18T14:19:02.738091+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T14:19:02.738091+00:00",
-    "follow_up_2_sent": true,
+    "follow_up_2_sent": false,
     "source_file": "meta_Retool_6ea07c.json"
   },
   {
@@ -626,7 +626,7 @@
     "follow_up_1_due": "2026-03-18T14:19:06.218049+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T14:19:06.218049+00:00",
-    "follow_up_2_sent": true,
+    "follow_up_2_sent": false,
     "source_file": "meta_ShipHero_01ad8a.json"
   },
   {
@@ -636,7 +636,7 @@
     "follow_up_1_due": "2026-03-18T15:19:33.133336+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T15:19:33.133336+00:00",
-    "follow_up_2_sent": true,
+    "follow_up_2_sent": false,
     "source_file": "meta_Helium_10_91b896.json"
   },
   {
@@ -646,7 +646,7 @@
     "follow_up_1_due": "2026-03-18T16:20:45.425896+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T16:20:45.425896+00:00",
-    "follow_up_2_sent": true,
+    "follow_up_2_sent": false,
     "source_file": "meta_Bain_&_Company_e05ba5.json"
   },
   {
@@ -656,7 +656,7 @@
     "follow_up_1_due": "2026-03-18T16:20:49.961953+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T16:20:49.961953+00:00",
-    "follow_up_2_sent": true,
+    "follow_up_2_sent": false,
     "source_file": "meta_McKinsey_Implementation_b8fa9e.json"
   },
   {
@@ -666,7 +666,7 @@
     "follow_up_1_due": "2026-03-18T16:20:53.790482+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T16:20:53.790482+00:00",
-    "follow_up_2_sent": true,
+    "follow_up_2_sent": false,
     "source_file": "meta_Oliver_Wyman_8a6f95.json"
   },
   {
@@ -676,7 +676,7 @@
     "follow_up_1_due": "2026-03-18T16:20:57.491567+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T16:20:57.491567+00:00",
-    "follow_up_2_sent": true,
+    "follow_up_2_sent": false,
     "source_file": "meta_Wieden+Kennedy_b20e42.json"
   },
   {
@@ -686,7 +686,7 @@
     "follow_up_1_due": "2026-03-18T17:22:54.018138+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T17:22:54.018138+00:00",
-    "follow_up_2_sent": true,
+    "follow_up_2_sent": false,
     "source_file": "meta_72andSunny_db5381.json"
   },
   {
@@ -696,7 +696,7 @@
     "follow_up_1_due": "2026-03-18T17:22:55.516638+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T17:22:55.516638+00:00",
-    "follow_up_2_sent": true,
+    "follow_up_2_sent": false,
     "source_file": "meta_Easyship_582921.json"
   },
   {
@@ -706,7 +706,7 @@
     "follow_up_1_due": "2026-03-18T17:22:59.003111+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T17:22:59.003111+00:00",
-    "follow_up_2_sent": true,
+    "follow_up_2_sent": false,
     "source_file": "meta_Kearney_9f3784.json"
   },
   {
@@ -716,7 +716,7 @@
     "follow_up_1_due": "2026-03-18T17:23:03.837091+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T17:23:03.837091+00:00",
-    "follow_up_2_sent": true,
+    "follow_up_2_sent": false,
     "source_file": "meta_Sellics_969b88.json"
   },
   {
@@ -726,7 +726,7 @@
     "follow_up_1_due": "2026-03-18T18:23:56.346739+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T18:23:56.346739+00:00",
-    "follow_up_2_sent": true,
+    "follow_up_2_sent": false,
     "source_file": "meta_Havas_414c91.json"
   },
   {
@@ -736,7 +736,7 @@
     "follow_up_1_due": "2026-03-18T18:23:59.601663+00:00",
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T18:23:59.601663+00:00",
-    "follow_up_2_sent": true,
+    "follow_up_2_sent": false,
     "source_file": "meta_L.E.K._Consulting_595147.json"
   },
   {
@@ -744,7 +744,7 @@
     "role": "Director of Customer Success",
     "contact_email": "yamini.rangan@hubspot.com",
     "follow_up_1_due": "2026-03-20T10:36:24.676928+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T10:36:24.676928+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_HubSpot_b8b66d.json"
@@ -754,7 +754,7 @@
     "role": "Head of Customer Support",
     "contact_email": "sarah.johnson@pendoio.com",
     "follow_up_1_due": "2026-03-20T10:36:40.213521+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T10:36:40.213521+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Pendo_io_4939af.json"
@@ -764,7 +764,7 @@
     "role": "VP of New Business",
     "contact_email": "sean.lyons@rga.com",
     "follow_up_1_due": "2026-03-20T10:36:49.192523+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T10:36:49.192523+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_R_GA_18ab12.json"
@@ -774,7 +774,7 @@
     "role": "VP of New Business",
     "contact_email": "sean.lyons@rga.com",
     "follow_up_1_due": "2026-03-20T10:36:57.398764+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T10:36:57.398764+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_R_GA_701d08.json"
@@ -784,7 +784,7 @@
     "role": "VP of Sales",
     "contact_email": "vpsales@sendoso.com",
     "follow_up_1_due": "2026-03-20T10:36:58.362157+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T10:36:58.362157+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Sendoso_8a29d8.json"
@@ -794,7 +794,7 @@
     "role": "Head of Customer Success",
     "contact_email": "melissa@clickup.com",
     "follow_up_1_due": "2026-03-20T11:09:20.148799+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T11:09:20.148799+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_ClickUp_e5ff78.json"
@@ -804,7 +804,7 @@
     "role": "Director of Sales",
     "contact_email": "jeff.kolovson@faire.com",
     "follow_up_1_due": "2026-03-20T11:09:56.397939+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T11:09:56.397939+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Faire_1d82b3.json"
@@ -814,7 +814,7 @@
     "role": "Director of Sales",
     "contact_email": "scott.opitz@mondaycom.com",
     "follow_up_1_due": "2026-03-20T11:10:07.999214+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T11:10:07.999214+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Monday_com_189744.json"
@@ -824,7 +824,7 @@
     "role": "Head of Customer Success",
     "contact_email": "kaitlin@carta.com",
     "follow_up_1_due": "2026-03-20T12:01:28.288213+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T12:01:28.288213+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Carta_5d8f1c.json"
@@ -834,7 +834,7 @@
     "role": "Director of Operations",
     "contact_email": "lane@coda.com",
     "follow_up_1_due": "2026-03-20T12:01:34.912660+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T12:01:34.912660+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Coda_5afbf2.json"
@@ -844,7 +844,7 @@
     "role": "Head of Recruitment",
     "contact_email": "chintan@greenhouse.com",
     "follow_up_1_due": "2026-03-20T12:01:41.891558+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T12:01:41.891558+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Greenhouse_9838ae.json"
@@ -854,7 +854,7 @@
     "role": "VP of Customer Support",
     "contact_email": "sarah.johnson@notarize.com",
     "follow_up_1_due": "2026-03-20T12:01:49.078273+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T12:01:49.078273+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Notarize_a91e43.json"
@@ -864,7 +864,7 @@
     "role": "VP of Operations",
     "contact_email": "dylan@figma.com",
     "follow_up_1_due": "2026-03-20T16:22:32.698531+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T16:22:32.698531+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Figma_9c7bb3.json"
@@ -874,7 +874,7 @@
     "role": "VP of Operations",
     "contact_email": "yuhki@figma.com",
     "follow_up_1_due": "2026-03-20T16:22:41.487326+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T16:22:41.487326+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Figma_a23041.json"
@@ -884,7 +884,7 @@
     "role": "VP of Sales",
     "contact_email": "udi@gongio.com",
     "follow_up_1_due": "2026-03-20T16:22:49.343712+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T16:22:49.343712+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Gong_io_104772.json"
@@ -894,7 +894,7 @@
     "role": "VP of Sales",
     "contact_email": "udi@gongio.com",
     "follow_up_1_due": "2026-03-20T16:22:57.073410+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T16:22:57.073410+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Gong_io_a7ac4b.json"
@@ -904,7 +904,7 @@
     "role": "Head of Recruitment",
     "contact_email": "recruitment@handshake.com",
     "follow_up_1_due": "2026-03-20T16:22:58.164258+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T16:22:58.164258+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Handshake_a06867.json"
@@ -914,7 +914,7 @@
     "role": "Director of Sales",
     "contact_email": "matt@loopio.com",
     "follow_up_1_due": "2026-03-20T16:23:06.192058+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T16:23:06.192058+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Loopio_05850e.json"
@@ -924,7 +924,7 @@
     "role": "VP of Customer Support",
     "contact_email": "jennifer.klabunde@appfolio.com",
     "follow_up_1_due": "2026-03-20T17:29:15.120151+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T17:29:15.120151+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Appfolio_d9860e.json"
@@ -934,7 +934,7 @@
     "role": "Head of Operations",
     "contact_email": "operations@bamboohr.com",
     "follow_up_1_due": "2026-03-20T17:29:16.311006+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T17:29:16.311006+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_BambooHR_94c374.json"
@@ -944,7 +944,7 @@
     "role": "VP of Sales",
     "contact_email": "rick@guru.com",
     "follow_up_1_due": "2026-03-20T17:29:25.515096+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T17:29:25.515096+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Guru_42a786.json"
@@ -954,7 +954,7 @@
     "role": "CEO",
     "contact_email": "jonathan@turing.com",
     "follow_up_1_due": "2026-03-20T17:29:27.351534+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T17:29:27.351534+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Turing_143413.json"
@@ -964,7 +964,7 @@
     "role": "VP of Operations",
     "contact_email": "sarah.aspler@wealthsimple.com",
     "follow_up_1_due": "2026-03-20T17:29:35.195846+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T17:29:35.195846+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Wealthsimple_37e382.json"
@@ -974,7 +974,7 @@
     "role": "VP of Enterprise Sales",
     "contact_email": "russell.klein@bigcommerce.com",
     "follow_up_1_due": "2026-03-20T18:36:14.009210+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T18:36:14.009210+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_BigCommerce_f042e5.json"
@@ -984,7 +984,7 @@
     "role": "VP of Agent Services",
     "contact_email": "greg.hart@compass.com",
     "follow_up_1_due": "2026-03-20T18:36:22.278880+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T18:36:22.278880+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Compass_79d56d.json"
@@ -994,7 +994,7 @@
     "role": "Director of Sales Operations",
     "contact_email": "sarah.chen@opendoor.com",
     "follow_up_1_due": "2026-03-20T18:36:30.175701+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T18:36:30.175701+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Opendoor_5f027d.json"
@@ -1004,7 +1004,7 @@
     "role": "Director of Partner Sales",
     "contact_email": "brandon.chu@shopifyplus.com",
     "follow_up_1_due": "2026-03-20T18:36:38.062260+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T18:36:38.062260+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Shopify_Plus_659ff4.json"
@@ -1014,7 +1014,7 @@
     "role": "VP of Sales",
     "contact_email": "tyler@zapier.com",
     "follow_up_1_due": "2026-03-20T18:36:46.690591+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T18:36:46.690591+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Zapier_7088c1.json"
@@ -1024,7 +1024,7 @@
     "role": "Head of Merchant Sales",
     "contact_email": "max.levchin@affirm.com",
     "follow_up_1_due": "2026-03-20T19:43:15.036750+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T19:43:15.036750+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Affirm_7a53c5.json"
@@ -1034,7 +1034,7 @@
     "role": "Head of Enterprise Sales",
     "contact_email": "dave.rennie@canva.com",
     "follow_up_1_due": "2026-03-20T19:43:23.275900+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T19:43:23.275900+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Canva_3f1f6a.json"
@@ -1044,7 +1044,7 @@
     "role": "Director of Customer Support",
     "contact_email": "sarah.chen@chime.com",
     "follow_up_1_due": "2026-03-20T19:43:30.985971+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T19:43:30.985971+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Chime_a3d238.json"
@@ -1054,7 +1054,7 @@
     "role": "VP of Customer Operations",
     "contact_email": "christine.brown@robinhood.com",
     "follow_up_1_due": "2026-03-20T19:43:38.229136+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T19:43:38.229136+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Robinhood_64c5fa.json"
@@ -1064,7 +1064,7 @@
     "role": "Director of Sales Development",
     "contact_email": "sarah.johnson@stripe.com",
     "follow_up_1_due": "2026-03-20T19:43:46.390738+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T19:43:46.390738+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Stripe_19e1e3.json"
@@ -1074,7 +1074,7 @@
     "role": "VP of Sales",
     "contact_email": "andrey@miro.com",
     "follow_up_1_due": "2026-03-20T20:17:58.733146+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T20:17:58.733146+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Miro_1d26c0.json"
@@ -1084,7 +1084,7 @@
     "role": "Head of Sales Operations",
     "contact_email": "kyle@webflow.com",
     "follow_up_1_due": "2026-03-20T20:18:21.238009+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T20:18:21.238009+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Webflow_fc4bcd.json"
@@ -1094,7 +1094,7 @@
     "role": "Head of Customer Support",
     "contact_email": "sarah.chen@benchling.com",
     "follow_up_1_due": "2026-03-20T20:55:09.870625+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T20:55:09.870625+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Benchling_0a6ab5.json"
@@ -1104,7 +1104,7 @@
     "role": "VP of Customer Support",
     "contact_email": "loren.padelford@docusign.com",
     "follow_up_1_due": "2026-03-20T20:55:17.918337+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T20:55:17.918337+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Docusign_ca4f7b.json"
@@ -1114,7 +1114,7 @@
     "role": "VP of Sales",
     "contact_email": "mike@fetchrewards.com",
     "follow_up_1_due": "2026-03-20T20:55:24.908218+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T20:55:24.908218+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Fetch_Rewards_b4e346.json"
@@ -1124,7 +1124,7 @@
     "role": "Director of Sales",
     "contact_email": "alex.sheehan@klaviyo.com",
     "follow_up_1_due": "2026-03-20T20:55:32.386649+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T20:55:32.386649+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Klaviyo_2c778a.json"
@@ -1134,7 +1134,7 @@
     "role": "Head of Customer Success",
     "contact_email": "first.last@airtame.com",
     "follow_up_1_due": "2026-03-23T08:44:40.897868+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:44:40.897868+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Airtame_2a880f.json"
@@ -1144,7 +1144,7 @@
     "role": "Head of Customer Success",
     "contact_email": "sarah.nielsen@airtame.com",
     "follow_up_1_due": "2026-03-23T08:44:42.720276+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:44:42.720276+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Airtame_397e80.json"
@@ -1154,7 +1154,7 @@
     "role": "VP of Growth",
     "contact_email": "alex.frew@akqa.com",
     "follow_up_1_due": "2026-03-23T08:45:08.721454+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:45:08.721454+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_AKQA_2d9010.json"
@@ -1164,7 +1164,7 @@
     "role": "Head of Sales",
     "contact_email": "headsales@divvyhomes.com",
     "follow_up_1_due": "2026-03-23T08:45:10.144722+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:45:10.144722+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Divvy_Homes_23d4aa.json"
@@ -1174,7 +1174,7 @@
     "role": "Head of Sales",
     "contact_email": "spencer@divvyhomes.com",
     "follow_up_1_due": "2026-03-23T08:45:11.424910+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:45:11.424910+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Divvy_Homes_8428ab.json"
@@ -1184,7 +1184,7 @@
     "role": "Director of Business Development",
     "contact_email": "lbaumgartner@huge.com",
     "follow_up_1_due": "2026-03-23T08:45:27.999053+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:45:27.999053+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Huge_91748e.json"
@@ -1194,7 +1194,7 @@
     "role": "Director of Operations",
     "contact_email": "info@latticeengines.com",
     "follow_up_1_due": "2026-03-23T08:45:53.690780+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:45:53.690780+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Lattice_Engines_270c03.json"
@@ -1204,7 +1204,7 @@
     "role": "Director of Operations",
     "contact_email": "ajohnson@lattice-engines.com",
     "follow_up_1_due": "2026-03-23T08:45:54.919024+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:45:54.919024+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Lattice_Engines_8a481a.json"
@@ -1214,7 +1214,7 @@
     "role": "VP of Business Development",
     "contact_email": "jpate@plaid.com",
     "follow_up_1_due": "2026-03-23T08:46:11.197699+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:46:11.197699+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Plaid_679417.json"
@@ -1224,7 +1224,7 @@
     "role": "Head of Sales Operations",
     "contact_email": "firstname.lastname@razorfish.com (standard corporate format)",
     "follow_up_1_due": "2026-03-23T08:46:12.507088+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:46:12.507088+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Razorfish_1ab7f5.json"
@@ -1234,7 +1234,7 @@
     "role": "Head of Customer Success",
     "contact_email": "gkozel@renttherunway.com",
     "follow_up_1_due": "2026-03-23T08:46:37.749485+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:46:37.749485+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Rent_the_Runway_19432f.json"
@@ -1244,7 +1244,7 @@
     "role": "Head of Customer Success",
     "contact_email": "asalinas@renttherunway.com",
     "follow_up_1_due": "2026-03-23T08:47:04.440479+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:47:04.440479+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Rent_the_Runway_3ff03d.json"
@@ -1254,7 +1254,7 @@
     "role": "VP of Growth",
     "contact_email": "oleksandr@rentberry.com",
     "follow_up_1_due": "2026-03-23T08:47:20.458935+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:47:20.458935+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Rentberry_8b27dd.json"
@@ -1264,7 +1264,7 @@
     "role": "Director of Sales",
     "contact_email": "{first}.{last}@vanta.com",
     "follow_up_1_due": "2026-03-23T08:47:21.803317+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:47:21.803317+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Vanta_831637.json"
@@ -1274,7 +1274,7 @@
     "role": "VP of Client Services",
     "contact_email": "jessica.romaniw@wundermanthompson.com",
     "follow_up_1_due": "2026-03-23T08:47:46.952184+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:47:46.952184+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Wunderman_Thompson_bc32fb.json"
@@ -1284,7 +1284,7 @@
     "role": "VP of Revenue",
     "contact_email": "first.last@chilipiper.com",
     "follow_up_1_due": "2026-03-23T09:52:33.629698+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T09:52:33.629698+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Chili_Piper_27b143.json"
@@ -1294,7 +1294,7 @@
     "role": "CEO",
     "contact_email": "johnathan@klientboost.com",
     "follow_up_1_due": "2026-03-23T09:52:35.175041+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T09:52:35.175041+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_KlientBoost_e60401.json"
@@ -1304,7 +1304,7 @@
     "role": "VP of Marketing",
     "contact_email": "{first}@mutinyhq.com",
     "follow_up_1_due": "2026-03-23T09:52:36.488669+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T09:52:36.488669+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Mutiny_7afdd5.json"
@@ -1314,7 +1314,7 @@
     "role": "Chief Revenue Officer",
     "contact_email": "cro@smartbugmedia.com",
     "follow_up_1_due": "2026-03-23T09:52:37.738115+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T09:52:37.738115+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_SmartBug_Media_5265ab.json"
@@ -1324,7 +1324,7 @@
     "role": "VP of Sales",
     "contact_email": "christian@usergems.com",
     "follow_up_1_due": "2026-03-23T09:53:04.367812+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T09:53:04.367812+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_UserGems_d0b79f.json"
@@ -1334,7 +1334,7 @@
     "role": "VP of Marketing",
     "contact_email": "mark@metadata.io",
     "follow_up_1_due": "2026-03-23T10:57:17.867627+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T10:57:17.867627+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Metadata_io_af4618.json"
@@ -1344,7 +1344,7 @@
     "role": "VP of Sales",
     "contact_email": "{first_initial}{last_name}@nexhealth.com",
     "follow_up_1_due": "2026-03-23T10:57:19.022567+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T10:57:19.022567+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_NexHealth_5c8dff.json"
@@ -1354,7 +1354,7 @@
     "role": "Head of Growth",
     "contact_email": "info@osmind.com",
     "follow_up_1_due": "2026-03-23T10:57:35.448009+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T10:57:35.448009+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Osmind_52c5fb.json"
@@ -1364,7 +1364,7 @@
     "role": "VP of Sales",
     "contact_email": "hello@pilot.com",
     "follow_up_1_due": "2026-03-23T10:58:08.676192+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T10:58:08.676192+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Pilot_1c8dff.json"
@@ -1374,7 +1374,7 @@
     "role": "VP of Sales",
     "contact_email": "{first}@qualified.com",
     "follow_up_1_due": "2026-03-23T10:58:10.058199+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T10:58:10.058199+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Qualified_d15f7d.json"
@@ -1384,7 +1384,7 @@
     "role": "VP of Revenue",
     "contact_email": "craig.ryomoto@benchaccounting.com",
     "follow_up_1_due": "2026-03-23T12:04:30.317206+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T12:04:30.317206+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Bench_Accounting_451e03.json"
@@ -1394,7 +1394,7 @@
     "role": "Head of Business Development",
     "contact_email": "matt.giammanco@connor.com",
     "follow_up_1_due": "2026-03-23T12:04:42.239826+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T12:04:42.239826+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Connor_Group_49f8af.json"
@@ -1404,7 +1404,7 @@
     "role": "Head of Growth",
     "contact_email": "julien@madkudu.com",
     "follow_up_1_due": "2026-03-23T12:05:02.713442+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T12:05:02.713442+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_MadKudu_bb4210.json"
@@ -1414,7 +1414,7 @@
     "role": "Chief Revenue Officer",
     "contact_email": "alex.olley@reachdesk.com",
     "follow_up_1_due": "2026-03-23T12:05:04.265541+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T12:05:04.265541+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Reachdesk_8c6965.json"
@@ -1424,7 +1424,7 @@
     "role": "VP of Business Development",
     "contact_email": "{first}.{last}@walkersands.com",
     "follow_up_1_due": "2026-03-23T12:05:05.443661+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T12:05:05.443661+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Walker_Sands_618778.json"
@@ -1434,7 +1434,7 @@
     "role": "VP of Sales",
     "contact_email": "michael@lawmatics.com",
     "follow_up_1_due": "2026-03-23T13:10:00.809556+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T13:10:00.809556+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Lawmatics_bf988a.json"
@@ -1444,7 +1444,7 @@
     "role": "VP of Sales",
     "contact_email": "nick@leadiq.com",
     "follow_up_1_due": "2026-03-23T13:10:14.246995+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T13:10:14.246995+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_LeadIQ_ef6c37.json"
@@ -1454,7 +1454,7 @@
     "role": "VP of Marketing",
     "contact_email": "jessica@lexion.com",
     "follow_up_1_due": "2026-03-23T13:10:26.421212+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T13:10:26.421212+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Lexion_10f2a6.json"
@@ -1464,7 +1464,7 @@
     "role": "Head of Customer Success",
     "contact_email": "hello@podia.com",
     "follow_up_1_due": "2026-03-23T13:10:53.570916+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T13:10:53.570916+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Podia_b839e5.json"
@@ -1474,7 +1474,7 @@
     "role": "Director of Sales",
     "contact_email": "jacob@practicepanther.com",
     "follow_up_1_due": "2026-03-23T13:11:07.133306+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T13:11:07.133306+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_PracticePanther_497c55.json"
@@ -1484,7 +1484,7 @@
     "role": "VP of Sales",
     "contact_email": "first.last@360learning.com",
     "follow_up_1_due": "2026-03-23T14:15:18.829273+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T14:15:18.829273+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_360Learning_daeb1b.json"
@@ -1494,7 +1494,7 @@
     "role": "VP of Customer Success",
     "contact_email": "hello@gem.com",
     "follow_up_1_due": "2026-03-23T14:15:57.488169+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T14:15:57.488169+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Gem_72da16.json"
@@ -1504,7 +1504,7 @@
     "role": "Director of Customer Support",
     "contact_email": "sam.cates@loopreturns.com",
     "follow_up_1_due": "2026-03-23T14:16:17.132106+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T14:16:17.132106+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Loop_Returns_a67585.json"
@@ -1514,7 +1514,7 @@
     "role": "VP of Growth",
     "contact_email": "first.last@mavenclinic.com",
     "follow_up_1_due": "2026-03-23T14:16:18.295926+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T14:16:18.295926+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Maven_63e6eb.json"
@@ -1524,7 +1524,7 @@
     "role": "VP of Sales",
     "contact_email": "chris.lull@secureframe.com",
     "follow_up_1_due": "2026-03-23T14:16:31.766796+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T14:16:31.766796+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Secureframe_df8d0c.json"
@@ -1534,7 +1534,7 @@
     "role": "Head of Sales",
     "contact_email": "colin@postscript.io",
     "follow_up_1_due": "2026-03-23T15:17:39.247819+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T15:17:39.247819+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Postscript_a19740.json"
@@ -1544,7 +1544,7 @@
     "role": "Director of Sales",
     "contact_email": "info@clearview.com",
     "follow_up_1_due": "2026-03-23T16:21:51.343013+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T16:21:51.343013+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Clearview_Group_cfd3b9.json"
@@ -1554,7 +1554,7 @@
     "role": "Head of Customer Success",
     "contact_email": "tori@gethealthie.com",
     "follow_up_1_due": "2026-03-23T16:21:52.591957+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T16:21:52.591957+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Healthie_77c236.json"
@@ -1564,7 +1564,7 @@
     "role": "Head of Client Services",
     "contact_email": "scott@kruzeconsulting.com",
     "follow_up_1_due": "2026-03-23T16:22:12.179093+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T16:22:12.179093+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Kruze_Consulting_a9f976.json"
@@ -1574,7 +1574,7 @@
     "role": "Managing Partner",
     "contact_email": "ablanchon@vivaldigroup.com",
     "follow_up_1_due": "2026-03-23T16:22:13.707928+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T16:22:13.707928+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Vivaldi_Partners_bc0938.json"
@@ -1584,7 +1584,7 @@
     "role": "CEO",
     "contact_email": "chris@webmechanix.com",
     "follow_up_1_due": "2026-03-23T16:22:15.053817+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T16:22:15.053817+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_WebMechanix_31310b.json"
@@ -1594,7 +1594,7 @@
     "role": "VP of Sales",
     "contact_email": "chris@capchase.com",
     "follow_up_1_due": "2026-03-23T19:48:29.697411+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T19:48:29.697411+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Capchase_0b90ad.json"
@@ -1604,7 +1604,7 @@
     "role": "VP of Operations",
     "contact_email": "first.last@everlaw.com",
     "follow_up_1_due": "2026-03-23T19:48:31.977832+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T19:48:31.977832+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Everlaw_cf2e68.json"
@@ -1614,7 +1614,7 @@
     "role": "VP of Customer Success",
     "contact_email": "info@linksquares.com",
     "follow_up_1_due": "2026-03-23T19:49:04.530237+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T19:49:04.530237+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_LinkSquares_5183e5.json"
@@ -1624,7 +1624,7 @@
     "role": "VP of Operations",
     "contact_email": "first.last@moderntreasury.com",
     "follow_up_1_due": "2026-03-23T19:49:05.912692+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T19:49:05.912692+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Modern_Treasury_d8ee43.json"
@@ -1634,7 +1634,7 @@
     "role": "Head of Sales",
     "contact_email": "first.last@spotdraft.com",
     "follow_up_1_due": "2026-03-23T19:49:07.469454+00:00",
-    "follow_up_1_sent": true,
+    "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T19:49:07.469454+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_SpotDraft_af2bbb.json"
@@ -1818,655 +1818,5 @@
     "follow_up_2_due": "2026-03-29T17:24:07.738603+00:00",
     "follow_up_2_sent": false,
     "source_file": "meta_Springboard_18635f.json"
-  },
-  {
-    "company": "Accenture Interactive",
-    "role": "VP of Client Services",
-    "contact_email": "sarah.johnson@accentureinteractive.com",
-    "follow_up_1_due": "2026-03-27T08:45:04.827217+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:04.827217+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Accenture_Interactive_0261f1.json"
-  },
-  {
-    "company": "Alloy",
-    "role": "VP of Customer Success",
-    "contact_email": "sarah.chen@alloy.com",
-    "follow_up_1_due": "2026-03-27T08:45:13.174248+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:13.174248+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Alloy_fe91c0.json"
-  },
-  {
-    "company": "BCG Digital Ventures",
-    "role": "Principal",
-    "contact_email": "sarah.chen@bcgdigitalventures.com",
-    "follow_up_1_due": "2026-03-27T08:45:14.513093+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:14.513093+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_BCG_Digital_Ventures_92fe0c.json"
-  },
-  {
-    "company": "Booz Allen Hamilton",
-    "role": "VP of Sales",
-    "contact_email": "michael.smith@boozallenhamilton.com",
-    "follow_up_1_due": "2026-03-27T08:45:15.881929+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:15.881929+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Booz_Allen_Hamilton_2f1ceb.json"
-  },
-  {
-    "company": "Brooklinen",
-    "role": "Director of Customer Support",
-    "contact_email": "jack.lorentzen@brooklinen.com",
-    "follow_up_1_due": "2026-03-27T08:45:17.614350+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:17.614350+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Brooklinen_660183.json"
-  },
-  {
-    "company": "Clio",
-    "role": "VP of Sales",
-    "contact_email": "jack@clio.com",
-    "follow_up_1_due": "2026-03-27T08:45:19.643875+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:19.643875+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Clio_ed01a6.json"
-  },
-  {
-    "company": "Coinbase",
-    "role": "VP of Customer Support",
-    "contact_email": "casper@coinbase.com",
-    "follow_up_1_due": "2026-03-27T08:45:20.953738+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:20.953738+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Coinbase_f5f712.json"
-  },
-  {
-    "company": "Contractbook",
-    "role": "Head of Operations",
-    "contact_email": "hello@contractbook.com",
-    "follow_up_1_due": "2026-03-27T08:45:22.316967+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:22.316967+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Contractbook_0dd883.json"
-  },
-  {
-    "company": "Contractbook",
-    "role": "Head of Operations",
-    "contact_email": "operations@contractbook.com",
-    "follow_up_1_due": "2026-03-27T08:45:23.612360+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:23.612360+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Contractbook_dfcce2.json"
-  },
-  {
-    "company": "Convoy",
-    "role": "Head of Sales",
-    "contact_email": "headsales@convoy.com",
-    "follow_up_1_due": "2026-03-27T08:45:25.037290+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:25.037290+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Convoy_ceb1ca.json"
-  },
-  {
-    "company": "Cotopaxi",
-    "role": "VP of E-commerce",
-    "contact_email": "sarah.johnson@cotopaxi.com",
-    "follow_up_1_due": "2026-03-27T08:45:26.348940+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:26.348940+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Cotopaxi_fb5848.json"
-  },
-  {
-    "company": "Coursera",
-    "role": "VP of B2B Sales",
-    "contact_email": "betty.vandenbosch@coursera.com",
-    "follow_up_1_due": "2026-03-27T08:45:27.734069+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:27.734069+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Coursera_f073ff.json"
-  },
-  {
-    "company": "Deloitte Digital",
-    "role": "Managing Director",
-    "contact_email": "mike.brinker@deloittedigital.com",
-    "follow_up_1_due": "2026-03-27T08:45:29.673777+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:29.673777+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Deloitte_Digital_e31ba1.json"
-  },
-  {
-    "company": "Disco",
-    "role": "VP of Sales",
-    "contact_email": "ryan@disco.com",
-    "follow_up_1_due": "2026-03-27T08:45:31.248225+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:31.248225+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Disco_f79a21.json"
-  },
-  {
-    "company": "Flatiron Health",
-    "role": "VP of Business Development",
-    "contact_email": "sarah.tilton@flatironhealth.com",
-    "follow_up_1_due": "2026-03-27T08:45:32.669638+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:32.669638+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Flatiron_Health_091565.json"
-  },
-  {
-    "company": "Flexe",
-    "role": "Director of Business Development",
-    "contact_email": "firstname.lastname@flexe.com",
-    "follow_up_1_due": "2026-03-27T08:45:34.048160+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:34.048160+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Flexe_f4dbc0.json"
-  },
-  {
-    "company": "Harvey",
-    "role": "VP of Sales",
-    "contact_email": "gabriel@harvey.com",
-    "follow_up_1_due": "2026-03-27T08:45:35.432890+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:35.432890+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Harvey_a3ed24.json"
-  },
-  {
-    "company": "HawkSEM",
-    "role": "Head of Growth",
-    "contact_email": "growth@hawksem.com",
-    "follow_up_1_due": "2026-03-27T08:45:37.420774+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:37.420774+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_HawkSEM_0fc32e.json"
-  },
-  {
-    "company": "HawkSEM",
-    "role": "Head of Growth",
-    "contact_email": "sam@hawksem.com",
-    "follow_up_1_due": "2026-03-27T08:45:46.324344+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:46.324344+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_HawkSEM_3df9f9.json"
-  },
-  {
-    "company": "IDEO",
-    "role": "Director of Business Development",
-    "contact_email": "jennifer.dunnam@ideo.com",
-    "follow_up_1_due": "2026-03-27T08:45:47.795114+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:47.795114+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_IDEO_af810b.json"
-  },
-  {
-    "company": "Ironclad",
-    "role": "VP of Sales Operations",
-    "contact_email": "sarah.chen@ironclad.com",
-    "follow_up_1_due": "2026-03-27T08:45:49.127717+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:49.127717+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Ironclad_01b58f.json"
-  },
-  {
-    "company": "JazzHR",
-    "role": "Head of Sales",
-    "contact_email": "steve@jazzhr.com",
-    "follow_up_1_due": "2026-03-27T08:45:50.619898+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:50.619898+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_JazzHR_1f7397.json"
-  },
-  {
-    "company": "Jellyfish",
-    "role": "Director of Sales",
-    "contact_email": "sarah.thompson@jellyfish.com",
-    "follow_up_1_due": "2026-03-27T08:45:52.040438+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:52.040438+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Jellyfish_a4f11f.json"
-  },
-  {
-    "company": "Justworks",
-    "role": "Chief Revenue Officer",
-    "contact_email": "cro@justworks.com",
-    "follow_up_1_due": "2026-03-27T08:45:53.458499+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:53.458499+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Justworks_efc31f.json"
-  },
-  {
-    "company": "LawGeex",
-    "role": "Head of Business Development",
-    "contact_email": "bd@lawgeex.com",
-    "follow_up_1_due": "2026-03-27T08:45:54.856644+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:54.856644+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_LawGeex_572f6c.json"
-  },
-  {
-    "company": "LeanData",
-    "role": "VP of Revenue",
-    "contact_email": "{first_initial}{last_name}@leandata.com",
-    "follow_up_1_due": "2026-03-27T08:45:56.445076+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:56.445076+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_LeanData_753127.json"
-  },
-  {
-    "company": "Lever",
-    "role": "VP of Customer Success",
-    "contact_email": "sarah@lever.com",
-    "follow_up_1_due": "2026-03-27T08:45:58.485538+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:58.485538+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Lever_9bf5f7.json"
-  },
-  {
-    "company": "Lex Machina",
-    "role": "Chief Revenue Officer",
-    "contact_email": "cro@lexmachina.com",
-    "follow_up_1_due": "2026-03-27T08:45:59.852982+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:45:59.852982+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Lex_Machina_a65317.json"
-  },
-  {
-    "company": "Magento Commerce",
-    "role": "VP of Sales",
-    "contact_email": "sarah.johnson@magentocommerce.com",
-    "follow_up_1_due": "2026-03-27T08:46:01.675765+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:01.675765+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Magento_Commerce_9ee699.json"
-  },
-  {
-    "company": "Magento Commerce",
-    "role": "VP of Sales",
-    "contact_email": "jason.woosley@magentocommerce.com",
-    "follow_up_1_due": "2026-03-27T08:46:10.239660+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:10.239660+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Magento_Commerce_f3302d.json"
-  },
-  {
-    "company": "Mailchimp",
-    "role": "VP of SMB Sales",
-    "contact_email": "sarah.johnson@mailchimp.com",
-    "follow_up_1_due": "2026-03-27T08:46:12.204859+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:12.204859+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Mailchimp_363877.json"
-  },
-  {
-    "company": "Malomo",
-    "role": "VP of Marketing",
-    "contact_email": "{first}@gomalomo.com",
-    "follow_up_1_due": "2026-03-27T08:46:13.446876+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:13.446876+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Malomo_50fb5d.json"
-  },
-  {
-    "company": "Malomo",
-    "role": "VP of Marketing",
-    "contact_email": "marketing@gomalomo.com",
-    "follow_up_1_due": "2026-03-27T08:46:14.729633+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:14.729633+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Malomo_8776a5.json"
-  },
-  {
-    "company": "McKinsey Digital",
-    "role": "Partner",
-    "contact_email": "info@mckinseydigital.com",
-    "follow_up_1_due": "2026-03-27T08:46:15.926385+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:15.926385+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_McKinsey_Digital_e9c2e2.json"
-  },
-  {
-    "company": "Memora Health",
-    "role": "VP of Client Success",
-    "contact_email": "{first}.{last}@memorahealth.com",
-    "follow_up_1_due": "2026-03-27T08:46:17.184761+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:17.184761+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Memora_Health_cd0dfe.json"
-  },
-  {
-    "company": "Mercury",
-    "role": "Head of Growth",
-    "contact_email": "immad@mercury.com",
-    "follow_up_1_due": "2026-03-27T08:46:18.488405+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:18.488405+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Mercury_d5d091.json"
-  },
-  {
-    "company": "MeUndies",
-    "role": "Head of Customer Experience",
-    "contact_email": "sarah@meundies.com",
-    "follow_up_1_due": "2026-03-27T08:46:20.190560+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:20.190560+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_MeUndies_f477a5.json"
-  },
-  {
-    "company": "Mixpanel",
-    "role": "Director of Sales Operations",
-    "contact_email": "sarah.johnson@mixpanel.com",
-    "follow_up_1_due": "2026-03-27T08:46:21.408555+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:21.408555+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Mixpanel_af007b.json"
-  },
-  {
-    "company": "Morning Brew",
-    "role": "VP of Growth",
-    "contact_email": "growth@morningbrew.com",
-    "follow_up_1_due": "2026-03-27T08:46:22.684240+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:22.684240+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Morning_Brew_25ca03.json"
-  },
-  {
-    "company": "MyCase",
-    "role": "VP of Customer Success",
-    "contact_email": "sarah.johnson@mycase.com",
-    "follow_up_1_due": "2026-03-27T08:46:23.895571+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:23.895571+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_MyCase_da1b80.json"
-  },
-  {
-    "company": "Ogilvy",
-    "role": "VP of Digital Strategy",
-    "contact_email": "michael.frohlich@ogilvy.com",
-    "follow_up_1_due": "2026-03-27T08:46:25.101272+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:25.101272+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Ogilvy_a55d40.json"
-  },
-  {
-    "company": "Oscar Health",
-    "role": "VP of Member Experience",
-    "contact_email": "meghan.joyce@oscarhealth.com",
-    "follow_up_1_due": "2026-03-27T08:46:26.330064+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:26.330064+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Oscar_Health_938e83.json"
-  },
-  {
-    "company": "PostHog",
-    "role": "Head of Operations",
-    "contact_email": "charles@posthog.com",
-    "follow_up_1_due": "2026-03-27T08:46:27.801375+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:27.801375+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_PostHog_101a25.json"
-  },
-  {
-    "company": "Reforge",
-    "role": "VP of Marketing",
-    "contact_email": "casey@reforge.com",
-    "follow_up_1_due": "2026-03-27T08:46:29.974184+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:29.974184+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Reforge_df1f2d.json"
-  },
-  {
-    "company": "Relativity",
-    "role": "VP of Sales",
-    "contact_email": "mike.gamson@relativity.com",
-    "follow_up_1_due": "2026-03-27T08:46:31.878044+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:31.878044+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Relativity_d7972a.json"
-  },
-  {
-    "company": "Rentals.com",
-    "role": "VP of Marketing",
-    "contact_email": "marketing@rentals.com",
-    "follow_up_1_due": "2026-03-27T08:46:33.625992+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:33.625992+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Rentals_com_583077.json"
-  },
-  {
-    "company": "Riviera Partners",
-    "role": "Director of Operations",
-    "contact_email": "sarah.johnson@rivierapartners.com",
-    "follow_up_1_due": "2026-03-27T08:46:36.126252+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:36.126252+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Riviera_Partners_ec0d9c.json"
-  },
-  {
-    "company": "Ro",
-    "role": "VP of Customer Success",
-    "contact_email": "sarah@ro.com",
-    "follow_up_1_due": "2026-03-27T08:46:38.353941+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:38.353941+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Ro_7f6335.json"
-  },
-  {
-    "company": "Salesforce Pardot",
-    "role": "Director of Marketing",
-    "contact_email": "sarah.kennedy@salesforcepardot.com",
-    "follow_up_1_due": "2026-03-27T08:46:40.540057+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:40.540057+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Salesforce_Pardot_2c979e.json"
-  },
-  {
-    "company": "Shippo",
-    "role": "VP of Sales",
-    "contact_email": "jason@shippo.com",
-    "follow_up_1_due": "2026-03-27T08:46:42.503509+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:42.503509+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Shippo_152427.json"
-  },
-  {
-    "company": "SmartRecruiters",
-    "role": "VP of Operations",
-    "contact_email": "jerome.ternynck@smartrecruiters.com",
-    "follow_up_1_due": "2026-03-27T08:46:43.897367+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:43.897367+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_SmartRecruiters_af41ed.json"
-  },
-  {
-    "company": "Square",
-    "role": "Director of Merchant Services",
-    "contact_email": "alyssa@square.com",
-    "follow_up_1_due": "2026-03-27T08:46:45.214282+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:45.214282+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Square_90691f.json"
-  },
-  {
-    "company": "Substack",
-    "role": "VP of Business Development",
-    "contact_email": "lulu@substack.com",
-    "follow_up_1_due": "2026-03-27T08:46:46.481515+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:46.481515+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Substack_37fa0a.json"
-  },
-  {
-    "company": "Teachable",
-    "role": "VP of Marketing",
-    "contact_email": "ankur@teachable.com",
-    "follow_up_1_due": "2026-03-27T08:46:47.815849+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:47.815849+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Teachable_8acbc4.json"
-  },
-  {
-    "company": "Tempus",
-    "role": "Chief Commercial Officer",
-    "contact_email": "ryan.fukushima@tempus.com",
-    "follow_up_1_due": "2026-03-27T08:46:49.046438+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:49.046438+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Tempus_764f4e.json"
-  },
-  {
-    "company": "Terminus",
-    "role": "VP of Revenue Operations",
-    "contact_email": "{first}.{last}@terminus.com",
-    "follow_up_1_due": "2026-03-27T08:46:50.297886+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:50.297886+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Terminus_af053b.json"
-  },
-  {
-    "company": "Terminus",
-    "role": "VP of Revenue Operations",
-    "contact_email": "gabe.rogol@terminus.com",
-    "follow_up_1_due": "2026-03-27T08:46:58.561293+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:58.561293+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Terminus_fc419e.json"
-  },
-  {
-    "company": "The Athletic",
-    "role": "VP of Subscriptions",
-    "contact_email": "sarah.thompson@theathletic.com",
-    "follow_up_1_due": "2026-03-27T08:46:59.811315+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:46:59.811315+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_The_Athletic_55ec98.json"
-  },
-  {
-    "company": "Thinkific",
-    "role": "VP of Customer Success",
-    "contact_email": "melissa.rosenthal@thinkific.com",
-    "follow_up_1_due": "2026-03-27T08:47:01.019281+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:47:01.019281+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Thinkific_d95761.json"
-  },
-  {
-    "company": "Udemy Business",
-    "role": "Director of Sales Operations",
-    "contact_email": "sarah.chen@udemybusiness.com",
-    "follow_up_1_due": "2026-03-27T08:47:02.254967+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:47:02.254967+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Udemy_Business_df0f8c.json"
-  },
-  {
-    "company": "Veracyte",
-    "role": "VP of Sales",
-    "contact_email": "keith.kennedy@veracyte.com",
-    "follow_up_1_due": "2026-03-27T08:47:03.581167+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:47:03.581167+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Veracyte_0dd0a5.json"
-  },
-  {
-    "company": "Vouch",
-    "role": "VP of Revenue",
-    "contact_email": "travis@vouch.us",
-    "follow_up_1_due": "2026-03-27T08:47:04.862818+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:47:04.862818+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Vouch_4893f6.json"
-  },
-  {
-    "company": "WooCommerce",
-    "role": "Director of Business Development",
-    "contact_email": "todd.wilkens@woocommerce.com",
-    "follow_up_1_due": "2026-03-27T08:47:06.152957+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:47:06.152957+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_WooCommerce_29ec45.json"
-  },
-  {
-    "company": "Wpromote",
-    "role": "VP of New Business",
-    "contact_email": "michael.mothner@wpromote.com",
-    "follow_up_1_due": "2026-03-27T08:47:07.478031+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:47:07.478031+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Wpromote_44a0ac.json"
-  },
-  {
-    "company": "Zillow Instant Offers",
-    "role": "VP of Business Development",
-    "contact_email": "sarah.johnson@zillowinstantoffers.com",
-    "follow_up_1_due": "2026-03-27T08:47:08.934832+00:00",
-    "follow_up_1_sent": false,
-    "follow_up_2_due": "2026-03-31T08:47:08.934832+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Zillow_Instant_Offers_20182f.json"
   }
 ]

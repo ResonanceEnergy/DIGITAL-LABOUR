@@ -1,0 +1,49 @@
+{
+  "ts": "2026-03-17T05:24:18.840547",
+  "check_run": 1,
+  "aligned": false,
+  "constitution_rules": 7,
+  "checks_passed": 4,
+  "checks_failed": 1,
+  "checks": [
+    {
+      "check": "log_integrity",
+      "ok": false,
+      "issues": [
+        "Empty log: agent_z_az_prime.log",
+        "Empty log: super_agency.log"
+      ]
+    },
+    {
+      "check": "mandate_coverage",
+      "ok": true,
+      "total_mandates": 12,
+      "uncovered": []
+    },
+    {
+      "check": "config_consistency",
+      "ok": true,
+      "issues": []
+    },
+    {
+      "check": "authority_boundaries",
+      "ok": true,
+      "issues": []
+    },
+    {
+      "check": "resource_usage",
+      "ok": true,
+      "issues": []
+    }
+  ],
+  "violations": [
+    {
+      "check": "log_integrity",
+      "ok": false,
+      "issues": [
+        "Empty log: agent_z_az_prime.log",
+        "Empty log: super_agency.log"
+      ]
+    }
+  ]
+}

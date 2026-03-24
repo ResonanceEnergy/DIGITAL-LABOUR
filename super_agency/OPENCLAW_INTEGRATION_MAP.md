@@ -1,4 +1,4 @@
-# OPENCLAW INTEGRATION MAP — Bit Rage Systems
+# OPENCLAW INTEGRATION MAP — DIGITAL LABOUR
 ## Comprehensive Cross-System Integration Plan v1.0 | 2026-02-27
 
 ---
@@ -6,7 +6,7 @@
 ## OVERVIEW
 
 This document maps ALL 30 OpenClaw use cases from the awesome-openclaw-usecases collection
-across every agent, department, division, and subsystem in the Bit Rage Systems. OpenClaw is
+across every agent, department, division, and subsystem in the DIGITAL LABOUR. OpenClaw is
 no longer just a GASKET integration — it is a **system-wide AI gateway** serving all 5
 departments, 47+ Inner Council agents, 6 Portfolio agents, the NCC/NCL stack, REPO DEPOT,
 Matrix Monitor, and all 27 managed repos.

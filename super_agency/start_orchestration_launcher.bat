@@ -1,8 +1,8 @@
 @echo off
-REM Bit Rage Systems Orchestration Frequency Launcher
+REM Digital Labour Orchestration Frequency Launcher
 REM Choose your preferred monitoring frequency
 
-echo 🚀 Bit Rage Systems Orchestration Frequency Launcher
+echo 🚀 Digital Labour Orchestration Frequency Launcher
 echo.
 echo Choose your monitoring frequency:
 echo [1] HIGH FREQUENCY   - 5 minutes  (⚡ Fast monitoring, high resource usage)

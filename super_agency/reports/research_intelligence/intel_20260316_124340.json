@@ -1,0 +1,119 @@
+{
+  "cycle": 4,
+  "ts": "2026-03-16T12:43:40.198614",
+  "knowledge_scan": {
+    "files": 4,
+    "indexed": 2,
+    "top_topics": [
+      [
+        "entries",
+        1
+      ],
+      [
+        "keywords",
+        1
+      ],
+      [
+        "total_entries",
+        1
+      ],
+      [
+        "total_keywords",
+        1
+      ],
+      [
+        "built_at",
+        1
+      ],
+      [
+        "abstract_120w",
+        1
+      ],
+      [
+        "key_insights",
+        1
+      ],
+      [
+        "claims",
+        1
+      ],
+      [
+        "entities",
+        1
+      ],
+      [
+        "action_items",
+        1
+      ],
+      [
+        "confidence",
+        1
+      ],
+      [
+        "doctrine_map",
+        1
+      ],
+      [
+        "provenance",
+        1
+      ],
+      [
+        "video_id",
+        1
+      ],
+      [
+        "source_url",
+        1
+      ]
+    ]
+  },
+  "velocity": {
+    "current": 4,
+    "anomaly_score": 0.0,
+    "trend_direction": "up",
+    "forecast_5": [
+      3.9673,
+      4.0736,
+      4.1799,
+      4.2862,
+      4.3925
+    ],
+    "is_anomaly": false
+  },
+  "strategy_executed": {
+    "strategy": "cross_pollinate",
+    "status": "ok",
+    "action": "Cross-referenced topic connections",
+    "connections": 3,
+    "duration_s": 0.003
+  },
+  "top_keywords": [
+    [
+      "enrich",
+      1.5878
+    ]
+  ],
+  "bandit_stats": {
+    "deep_analysis": {
+      "count": 1,
+      "avg_reward": 1.0
+    },
+    "trend_scan": {
+      "count": 1,
+      "avg_reward": 1.0
+    },
+    "gap_fill": {
+      "count": 1,
+      "avg_reward": 1.0
+    },
+    "cross_pollinate": {
+      "count": 1,
+      "avg_reward": 1.0
+    },
+    "quality_audit": {
+      "count": 0,
+      "avg_reward": 0.0
+    }
+  },
+  "duration_s": 0.074
+}

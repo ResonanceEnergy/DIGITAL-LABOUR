@@ -1,11 +1,11 @@
-# Super Agency Performance Monitoring Launcher
+# Digital Labour Performance Monitoring Launcher
 # Runs 24-hour performance monitoring in background
 
-Write-Host "🚀 Starting Super Agency Performance Monitoring (24 hours)" -ForegroundColor Green
+Write-Host "🚀 Starting Digital Labour Performance Monitoring (24 hours)" -ForegroundColor Green
 Write-Host "📊 This will run in the background and collect metrics every 15 minutes" -ForegroundColor Cyan
 Write-Host "📁 Results will be saved to performance_monitoring\ directory" -ForegroundColor Cyan
 
-Set-Location "C:\Dev\SuperAgency-Shared"
+Set-Location "C:\Dev\DIGITAL LABOUR-Shared"
 
 # Start monitoring in background (24 hours = 1440 minutes)
 $job = Start-Job -ScriptBlock {

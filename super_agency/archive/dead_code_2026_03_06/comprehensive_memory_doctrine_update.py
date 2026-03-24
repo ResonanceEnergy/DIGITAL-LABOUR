@@ -14,7 +14,7 @@ import requests
 
 class ComprehensiveUpdateSync:
     def __init__(self):
-        self.workspace_root = r"C:\Dev\SuperAgency-Shared"
+        self.workspace_root = r"C:\Dev\DIGITAL-LABOUR"
         self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         self.backup_dir = os.path.join(self.workspace_root, "memory_backups")
         os.makedirs(self.backup_dir, exist_ok=True)
@@ -49,8 +49,8 @@ class ComprehensiveUpdateSync:
         # Save doctrine state
         print("   Backing up doctrine files...")
         doctrine_files = [
-            "SUPER_AGENCY_DOCTRINE_MEMORY.md",
-            "SUPER_AGENCY_MEMORY_DOCTRINE.md",
+            "DL_DOCTRINE_MEMORY.md",
+            "DL_MEMORY_DOCTRINE.md",
             "BACKLOG_UPDATE_MEMORY_DOCTRINE.md",
             "DOCTRINE_COUNCIL_52.md"
         ]
@@ -73,8 +73,8 @@ class ComprehensiveUpdateSync:
 
         # Update memory doctrine
         print("   Updating memory doctrine...")
-        memory_doctrine_path = os.path.join(self.workspace_root, "SUPER_AGENCY_MEMORY_DOCTRINE.md")
-        doctrine_content = f"""# Super Agency Memory Doctrine - {self.timestamp}
+        memory_doctrine_path = os.path.join(self.workspace_root, "DL_MEMORY_DOCTRINE.md")
+        doctrine_content = f"""# DIGITAL LABOUR Memory Doctrine - {self.timestamp}
 
 ## Current Memory State
 - Timestamp: {self.timestamp}
@@ -96,7 +96,7 @@ class ComprehensiveUpdateSync:
 - Cross-platform synchronization: IMPLEMENTED
 
 ## Doctrine Preservation
-This doctrine serves as the foundational memory framework for Super Agency operations.
+This doctrine serves as the foundational memory framework for DIGITAL LABOUR operations.
 All critical decisions and system states are preserved through this doctrine.
 
 ---

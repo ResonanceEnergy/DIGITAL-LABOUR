@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Super Agency CI/CD Setup Generator
+DIGITAL LABOUR CI/CD Setup Generator
 Generate workflow files for manual deployment to repositories
 """
 
@@ -97,7 +97,7 @@ pause
         guide_path = self.output_dir / 'DEPLOYMENT_GUIDE.md'
 
         with open(guide_path, 'w') as f:
-            f.write('''# Super Agency CI/CD Deployment Guide
+            f.write('''# DIGITAL LABOUR CI/CD Deployment Guide
 
 ## Overview
 This directory contains CI/CD workflow templates for all portfolio repositories.

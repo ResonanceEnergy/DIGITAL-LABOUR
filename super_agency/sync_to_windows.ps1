@@ -1,6 +1,6 @@
 # Windows Sync Script for MacBook Operations
 # Heavy lifting on Windows, operations on Mac
-# Implements Bit Rage Systems Share Protocol (SASP)
+# Implements Digital Labour Share Protocol (SASP)
 
 param(
     [string]$MacIP = "auto-detect",
@@ -14,7 +14,7 @@ $SASP_CONFIG = @{
     Version = "1.0"
     Protocol = "SASP"
     WindowsId = "windows-node-$(Get-Random)"
-    SharedSecret = "super-agency-shared-key-2026"  # Should be configured securely
+    SharedSecret = "Digital-Labour-shared-key-2026"  # Should be configured securely
     HeartbeatInterval = 30
     MaxRetries = 5
     RetryDelay = 1
@@ -331,7 +331,7 @@ function Stop-WindowsServices {
 
 # Show status
 function Show-Status {
-    Write-Info "Bit Rage Systems Distributed Status"
+    Write-Info "Digital Labour Distributed Status"
     Write-Host "=================================" -ForegroundColor Cyan
 
     # Check Windows services
@@ -389,7 +389,7 @@ $macIP = if ($MacIP -eq "auto-detect") { Get-MacIP } else { $MacIP }
 # Save Mac IP for future use
 $macIP | Out-File -FilePath ".mac_ip.txt"
 
-Write-Host "🔄 Bit Rage Systems Distributed Setup (SASP v$($SASP_CONFIG.Version))" -ForegroundColor Cyan
+Write-Host "🔄 Digital Labour Distributed Setup (SASP v$($SASP_CONFIG.Version))" -ForegroundColor Cyan
 Write-Host "=================================" -ForegroundColor Cyan
 Write-Host "Mac IP: $macIP" -ForegroundColor White
 Write-Host "Windows: Heavy computation" -ForegroundColor White
@@ -420,4 +420,4 @@ Write-Host "  .\sync_to_windows.ps1 -StartServices       # Start Windows service
 Write-Host "  .\sync_to_windows.ps1 -StopServices        # Stop Windows services + SASP" -ForegroundColor White
 
 Write-Success "Distributed setup complete with SASP protocol!"</content>
-<parameter name="filePath">C:/Dev/SuperAgency-Shared/sync_to_windows.ps1
+<parameter name="filePath">C:/Dev/DIGITAL LABOUR-Shared/sync_to_windows.ps1

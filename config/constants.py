@@ -1,4 +1,4 @@
-﻿"""Canonical constants for BIT RAGE SYSTEMS.
+"""Canonical constants for DIGITAL LABOUR.
 
 All modules should import doctrine version and other shared constants from here.
 """

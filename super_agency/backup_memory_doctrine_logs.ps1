@@ -1,4 +1,4 @@
-# Bit Rage Systems Memory Doctrine Logs Backup System
+# Digital Labour Memory Doctrine Logs Backup System
 # Saves current state, doctrine updates, and log backups
 
 param(
@@ -113,7 +113,7 @@ function Save-Doctrine {
     $DoctrineFiles = @(
         "DOCTRINE_NCL_SECOND_BRAIN.md",
         "DOCTRINE_COUNCIL_52.md",
-        "SUPER_AGENCY_DOCTRINE_MEMORY.md",
+        "DL_DOCTRINE_MEMORY.md",
         "NORTH_STAR.md",
         "ROADMAP.md"
     )
@@ -242,10 +242,10 @@ function Save-State {
         }
     }
 
-    # Running processes related to Bit Rage Systems
-    Get-Process | Where-Object { $_.ProcessName -match "(super.agency|operations|matrix.monitor|ncl|doctrine)" } |
+    # Running processes related to Digital Labour
+    Get-Process | Where-Object { $_.ProcessName -match "(digital.labour|operations|matrix.monitor|ncl|doctrine)" } |
         Select-Object ProcessName, Id, CPU, WorkingSet |
-        Out-File "$BackupDir\state\super_agency_processes_$Timestamp.txt"
+        Out-File "$BackupDir\state\digital_labour_processes_$Timestamp.txt"
 
     # System information
     Get-WmiObject -Class Win32_LogicalDisk | Select-Object DeviceID, Size, FreeSpace |
@@ -261,7 +261,7 @@ function New-Manifest {
     $Manifest = "$BackupDir\BACKUP_MANIFEST_$Timestamp.txt"
 
     @"
-Bit Rage Systems Memory Doctrine Logs Backup
+Digital Labour Memory Doctrine Logs Backup
 Timestamp: $Timestamp
 Date: $(Get-Date)
 ==========================================
@@ -287,7 +287,7 @@ Total size: $((Get-ChildItem -Path $BackupDir -Recurse | Measure-Object -Propert
 function Compress-Backup {
     Write-Info "Compressing backup..."
 
-    $ArchiveName = "super_agency_backup_$Timestamp.zip"
+    $ArchiveName = "digital_labour_backup_$Timestamp.zip"
 
     try {
         Compress-Archive -Path $BackupDir -DestinationPath $ArchiveName -Force
@@ -306,7 +306,7 @@ function Compress-Backup {
 
 # Main execution
 function Invoke-Main {
-    Write-Host "🧠 Bit Rage Systems Memory Doctrine Logs Backup" -ForegroundColor Cyan
+    Write-Host "🧠 Digital Labour Memory Doctrine Logs Backup" -ForegroundColor Cyan
     Write-Host "==========================================" -ForegroundColor Cyan
     Write-Host "Timestamp: $Timestamp"
     Write-Host ""

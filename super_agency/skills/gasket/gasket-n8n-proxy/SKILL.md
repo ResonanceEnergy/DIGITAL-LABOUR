@@ -86,7 +86,7 @@ result = await self.call_n8n_workflow('send-email', {
 - Error handling with retry logic
 - Workflow versioning
 
-## Super-Agency Specific
+## Digital-Labour Specific
 
 - n8n runs alongside OpenClaw gateway
 - All client-facing API interactions proxied through n8n

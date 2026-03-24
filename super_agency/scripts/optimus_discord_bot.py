@@ -2,7 +2,7 @@
 """
 OPTIMUS Discord Bot — Task Optimization Engine
 ===============================================
-Agent O · NCC Super-Agency
+Agent O · NCC Digital-Labour
 Role     : Task Optimization Engine
 Mandate  : Maximize task completion rate (target: 95% completion within SLA)
 Channel  : #optimus  (🤖 CORE AGENTS category)
@@ -16,7 +16,7 @@ Env vars (create .env.optimus or export in shell):
   DAILY_BRIEFS_CHANNEL_NAME  — secondary channel   (default: daily-briefs)
   NCL_HOME                   — Path to NCL data root (default: ~/NCL)
   NCL_RELAY_PORT             — Relay server port     (default: 8787)
-  SUPER_AGENCY_REPO          — Path to Super-Agency repo (default: ~/repos/Super-Agency)
+  DL_REPO          — Path to Digital-Labour repo (default: ~/repos/Digital-Labour)
 
 Commands (prefix !optimus <cmd> OR !o <cmd>):
   status   — task queue + efficiency score
@@ -65,8 +65,8 @@ if _raw_guild and _raw_guild.strip().isdigit():
 OPTIMUS_CH: str = os.environ.get("OPTIMUS_CHANNEL_NAME", "optimus")
 BRIEFS_CH: str = os.environ.get("DAILY_BRIEFS_CHANNEL_NAME", "daily-briefs")
 
-REPO_ROOT = Path(os.environ.get("SUPER_AGENCY_REPO",
-                 Path.home() / "repos" / "Super-Agency"))
+REPO_ROOT = Path(os.environ.get("DL_REPO",
+                 Path.home() / "repos" / "Digital-Labour"))
 RUNTIME = REPO_ROOT / "runtime"
 
 # ── Colours ────────────────────────────────────────────────────────────────────

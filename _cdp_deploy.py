@@ -1,4 +1,4 @@
-"""Deploy Fiverr gigs via CDP -- uses your REAL Edge browser to bypass PerimeterX.
+"""Deploy Fiverr gigs via CDP — uses your REAL Edge browser to bypass PerimeterX.
 
 This script:
   1. Launches Edge with remote debugging enabled (separate profile)
@@ -24,9 +24,8 @@ from pathlib import Path
 import pyautogui
 import pygetwindow as gw
 
-# pyautogui safety: we add our own screen-bounds checking in _page_to_screen.
-# FAILSAFE=True crashes when mouse hits corner (0,0) from bad coord math.
-pyautogui.FAILSAFE = False
+# pyautogui safety: disable the fail-safe corner (we handle our own safety)
+pyautogui.FAILSAFE = True
 pyautogui.PAUSE = 0.03  # Small default pause between pyautogui calls
 
 sys.path.insert(0, ".")
@@ -42,9 +41,7 @@ SS_DIR.mkdir(parents=True, exist_ok=True)
 
 CDP_PORT = 9222
 EDGE_PATH = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
-# PERSISTENT profile -- accumulates cookies, history, extensions over time.
-# Temp dirs are instant bot flags for PerimeterX (zero browsing history).
-USER_DATA_DIR = PROJECT_ROOT / "data" / "fiverr_browser" / "edge_cdp_profile"
+USER_DATA_DIR = Path(tempfile.gettempdir()) / "edge_cdp_fiverr"
 
 DEFAULT_GIGS = [3, 7, 8, 16, 1]
 
@@ -67,7 +64,7 @@ def _save_state(state):
 # ═══════════════════════════════════════════════════════════════
 
 STEALTH_JS = """
-// Override navigator.webdriver -- THE #1 detection vector
+// Override navigator.webdriver — THE #1 detection vector
 Object.defineProperty(navigator, 'webdriver', {
     get: () => false,
     configurable: true,
@@ -164,52 +161,6 @@ if (typeof WebGL2RenderingContext !== 'undefined') {
         return getParam2.call(this, parameter);
     };
 }
-
-// ── CDP LEAK PATCHES ──────────────────────────────────────────────────────
-// Playwright/CDP injects objects with 'cdc_' prefix that PerimeterX checks.
-// Also patches other CDP-specific fingerprint leaks.
-
-// Remove all cdc_ prefixed properties from document
-for (const key of Object.keys(document)) {
-    if (key.startsWith('cdc_') || key.startsWith('$cdc_')) {
-        try { delete document[key]; } catch(e) {
-            Object.defineProperty(document, key, { get: () => undefined, configurable: true });
-        }
-    }
-}
-// Remove from window too
-for (const key of Object.keys(window)) {
-    if (key.startsWith('cdc_') || key.startsWith('$cdc_')) {
-        try { delete window[key]; } catch(e) {
-            Object.defineProperty(window, key, { get: () => undefined, configurable: true });
-        }
-    }
-}
-
-// Patch Runtime.enable detection -- CDP adds __proto__ modifications
-// that PX fingerprints via Error.stack traces
-const origError = Error;
-window.Error = function(...args) {
-    const err = new origError(...args);
-    if (err.stack) {
-        err.stack = err.stack.replace(/\n.*?(cdc_|Runtime\.evaluate|__playwright).*?$/gm, '');
-    }
-    return err;
-};
-window.Error.prototype = origError.prototype;
-window.Error.captureStackTrace = origError.captureStackTrace;
-
-// Hide the CDP WebSocket debugging endpoint
-if (window.performance && window.performance.getEntriesByType) {
-    const origGetEntries = window.performance.getEntriesByType;
-    window.performance.getEntriesByType = function(type) {
-        const entries = origGetEntries.call(this, type);
-        if (type === 'resource') {
-            return entries.filter(e => !e.name.includes('/devtools/') && !e.name.includes('ws://'));
-        }
-        return entries;
-    };
-}
 """
 
 
@@ -242,20 +193,21 @@ def _apply_stealth(context, page):
     except Exception as e:
         print(f"  playwright-stealth not applied ({e}), using manual evasions only.", flush=True)
 
-    # 4. Check PerimeterX cookies -- do NOT clear them.
-    # Clearing PX cookies is COUNTERPRODUCTIVE: PX flags fresh visitors with no
-    # tracking history. A returning visitor with existing _pxvid/_pxhd is LESS
-    # suspicious than a brand-new session.
+    # 4. Clear PerimeterX tracking cookies to force fresh evaluation
     try:
         cookies = context.cookies()
         px_cookie_names = {"_px3", "_pxhd", "_pxvid", "_pxde", "_pxff_cc", "_pxff_cfp", "_pxff_fp"}
         px_cookies = [c for c in cookies if c["name"] in px_cookie_names]
         if px_cookies:
-            print(f"  PX cookies present (good -- returning visitor): {[c['name'] for c in px_cookies]}", flush=True)
+            non_px_cookies = [c for c in cookies if c["name"] not in px_cookie_names]
+            context.clear_cookies()
+            if non_px_cookies:
+                context.add_cookies(non_px_cookies)
+            print(f"  Cleared {len(px_cookies)} PX tracking cookies: {[c['name'] for c in px_cookies]}", flush=True)
         else:
-            print("  No PX cookies yet -- first visit on this profile.", flush=True)
+            print("  No PX cookies found to clear.", flush=True)
     except Exception as e:
-        print(f"  Cookie check failed: {e}", flush=True)
+        print(f"  Cookie clearing failed: {e}", flush=True)
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -282,7 +234,7 @@ def _get_edge_window():
 def _get_browser_content_offset(page):
     """Get the offset from window top-left to the browser content area.
     
-    Returns (offset_x, offset_y) - the pixel offset from Edge window origin
+    Returns (offset_x, offset_y) — the pixel offset from Edge window origin
     to where the web page content begins (below address bar, tabs, etc).
     """
     try:
@@ -309,27 +261,8 @@ def _get_browser_content_offset(page):
         return 0, 0
 
 
-def _clamp_screen_coords(x, y):
-    """Clamp coordinates to stay within safe screen bounds (avoids corners)."""
-    import ctypes
-    try:
-        sw = ctypes.windll.user32.GetSystemMetrics(0)
-        sh = ctypes.windll.user32.GetSystemMetrics(1)
-    except Exception:
-        sw, sh = 1920, 1080
-    # Keep at least 50px from any edge to avoid fail-safe zones
-    x = max(50, min(x, sw - 50))
-    y = max(50, min(y, sh - 50))
-    return x, y
-
-
 def _page_to_screen(page, page_x, page_y):
-    """Convert viewport-relative coordinates to screen-absolute coordinates.
-    
-    NOTE: Playwright bounding_box() and getBoundingClientRect() both return
-    viewport-relative coords (already scroll-adjusted). We do NOT subtract
-    scroll here.
-    """
+    """Convert page-relative coordinates to screen-absolute coordinates."""
     try:
         result = page.evaluate("""() => ({
             screenX: window.screenX,
@@ -337,19 +270,21 @@ def _page_to_screen(page, page_x, page_y):
             outerW: window.outerWidth,
             outerH: window.outerHeight,
             innerW: window.innerWidth,
-            innerH: window.innerHeight
+            innerH: window.innerHeight,
+            scrollX: window.scrollX,
+            scrollY: window.scrollY
         })""")
         chrome_x = (result["outerW"] - result["innerW"]) // 2
         chrome_y = result["outerH"] - result["innerH"] - chrome_x
-        screen_x = result["screenX"] + chrome_x + page_x
-        screen_y = result["screenY"] + chrome_y + page_y
-        return _clamp_screen_coords(int(screen_x), int(screen_y))
+        screen_x = result["screenX"] + chrome_x + page_x - result["scrollX"]
+        screen_y = result["screenY"] + chrome_y + page_y - result["scrollY"]
+        return int(screen_x), int(screen_y)
     except Exception:
         # Fallback
         win = _get_edge_window()
         if win:
-            return _clamp_screen_coords(int(win.left + 8 + page_x), int(win.top + 100 + page_y))
-        return _clamp_screen_coords(int(page_x), int(page_y))
+            return int(win.left + 8 + page_x), int(win.top + 100 + page_y)
+        return int(page_x), int(page_y)
 
 
 def _human_delay(min_s=0.3, max_s=1.5):
@@ -552,13 +487,11 @@ def launch_edge():
         f"--user-data-dir={USER_DATA_DIR}",
         "--no-first-run",
         "--no-default-browser-check",
-        # Stealth flags per patchright research:
-        # - AutomationControlled is the key flag to disable
-        # - DON'T pass --enable-automation (Playwright's default adds it)
-        # - DON'T pass --disable-extensions (PX expects real users to have extensions)
-        # - DON'T pass --disable-component-update (flags as stealth driver)
+        # Stealth flags to reduce automation fingerprint
         "--disable-blink-features=AutomationControlled",
+        "--disable-features=AutomationControlled",
         "--disable-infobars",
+        "--disable-automation",
         "--disable-dev-shm-usage",
         f"--window-size={random.randint(1280, 1440)},{random.randint(800, 900)}",
         f"{FIVERR_BASE}/login",
@@ -568,15 +501,7 @@ def launch_edge():
 
 def connect_cdp():
     """Connect to Edge via CDP. Applies stealth evasions. Returns (playwright, browser, context, page) or None."""
-    # Use patchright instead of playwright -- patches Runtime.enable leak,
-    # Console.enable leak, and command flag leaks at the PROTOCOL level.
-    # These are the #1 detection vectors that PerimeterX checks.
-    try:
-        from patchright.sync_api import sync_playwright
-        print("  Using patchright (patched Playwright) for CDP connection.", flush=True)
-    except ImportError:
-        from playwright.sync_api import sync_playwright
-        print("  WARNING: patchright not installed, falling back to standard playwright.", flush=True)
+    from playwright.sync_api import sync_playwright
     pw = sync_playwright().start()
     browser = None
     for attempt in range(15):
@@ -629,7 +554,7 @@ def wait_for_login(context, page, timeout=600):
 
 def wait_for_captcha_clear(page, timeout=300):
     """If PerimeterX CAPTCHA appears (title or iframe overlay), wait for user to clear it.
-    Returns (True/False, page) -- page may be a different object if original page was destroyed."""
+    Returns (True/False, page) — page may be a different object if original page was destroyed."""
     context = page.context
 
     def _has_captcha(p):
@@ -651,14 +576,14 @@ def wait_for_captcha_clear(page, timeout=300):
         return False
 
     def _get_live_page():
-        """Get a live page from context -- the original might be dead after CAPTCHA."""
+        """Get a live page from context — the original might be dead after CAPTCHA."""
         try:
             # Try original page first
             page.title()
             return page
         except Exception:
             pass
-        # Original page is dead -- find a live one from context
+        # Original page is dead — find a live one from context
         try:
             for p in context.pages:
                 try:
@@ -686,7 +611,7 @@ def wait_for_captcha_clear(page, timeout=300):
                             pass
                         return True, page
                 except Exception:
-                    # Original page might be dead -- check for a new live page
+                    # Original page might be dead — check for a new live page
                     live = _get_live_page()
                     if live and live != page:
                         if not _has_captcha(live):
@@ -698,7 +623,7 @@ def wait_for_captcha_clear(page, timeout=300):
                                 pass
                             return True, live
                 time.sleep(2)
-            # Timeout -- try to recover a live page anyway
+            # Timeout — try to recover a live page anyway
             live = _get_live_page()
             print("CAPTCHA timeout -- continuing anyway...", flush=True)
             return False, live or page
@@ -712,7 +637,7 @@ def probe_general_tab(page):
     """Probe the General tab for form selectors. Returns dict of selector info."""
     print("\n=== PROBING GENERAL TAB ===", flush=True)
     url = f"{FIVERR_BASE}/users/{FIVERR_USERNAME}/manage_gigs/new?wizard=0&tab=general"
-    _navigate_via_addressbar(url, page)
+    page.goto(url, wait_until="domcontentloaded", timeout=30000)
     _human_delay(2, 4)
     _simulate_reading(page)
     _, page = wait_for_captcha_clear(page)
@@ -766,7 +691,7 @@ def probe_description_tab(page):
     """Probe the Description tab."""
     print("\n=== PROBING DESCRIPTION TAB ===", flush=True)
     url = f"{FIVERR_BASE}/users/{FIVERR_USERNAME}/manage_gigs/new?wizard=0&tab=description"
-    _navigate_via_addressbar(url, page)
+    page.goto(url, wait_until="domcontentloaded", timeout=30000)
     _human_delay(2, 4)
     _simulate_reading(page)
     _, page = wait_for_captcha_clear(page)
@@ -806,7 +731,7 @@ def probe_gallery_tab(page):
     """Probe the Gallery tab."""
     print("\n=== PROBING GALLERY TAB ===", flush=True)
     url = f"{FIVERR_BASE}/users/{FIVERR_USERNAME}/manage_gigs/new?wizard=0&tab=gallery"
-    _navigate_via_addressbar(url, page)
+    page.goto(url, wait_until="domcontentloaded", timeout=30000)
     _human_delay(2, 4)
     _simulate_reading(page)
     _, page = wait_for_captcha_clear(page)
@@ -840,7 +765,7 @@ def probe_pricing_tab(page):
     """Probe the Pricing tab."""
     print("\n=== PROBING PRICING TAB ===", flush=True)
     url = f"{FIVERR_BASE}/users/{FIVERR_USERNAME}/manage_gigs/new?wizard=0&tab=pricing"
-    _navigate_via_addressbar(url, page)
+    page.goto(url, wait_until="domcontentloaded", timeout=30000)
     _human_delay(2, 4)
     _simulate_reading(page)
     _, page = wait_for_captcha_clear(page)
@@ -886,6 +811,7 @@ def _fill_react_select(page, input_selector, search_text, label=""):
     CDP is used ONLY to locate the element and read DOM state.
     All mouse/keyboard input goes through pyautogui.
     """
+    import pyperclip
     # Step 1: Locate the React-Select input element via CDP
     el = page.query_selector(input_selector)
     if not el:
@@ -921,16 +847,9 @@ def _fill_react_select(page, input_selector, search_text, label=""):
     print(f"    {label} container: clicked at ({screen_x}, {screen_y})", flush=True)
     _human_delay(0.5, 1.2)
     
-    # Step 3: Type search text CHARACTER-BY-CHARACTER via pyautogui
-    # CRITICAL: React-Select only fires onInputChange on real keystrokes,
-    # NOT on clipboard paste (Ctrl+V). Must type each char individually.
-    search_short = search_text[:30]
-    for ch in search_short:
-        try:
-            pyautogui.press(ch) if ch.isalnum() or ch == ' ' else pyautogui.write(ch, interval=0)
-        except Exception:
-            pass
-        time.sleep(random.uniform(0.03, 0.08))
+    # Step 3: Type the search text via pyautogui (OS-level keyboard)
+    pyperclip.copy(search_text[:30])
+    _os_hotkey('ctrl', 'v')
     _human_delay(1.5, 3.0)  # Wait for dropdown options to render
     
     # Step 4: Check if any options appeared
@@ -945,38 +864,8 @@ def _fill_react_select(page, input_selector, search_text, label=""):
     }""")
     print(f"    {label} options visible: {options_found}", flush=True)
     
-    # If no options found, try clearing and re-typing shorter prefix
-    if options_found == 0 and len(search_short) > 4:
-        # Select all and delete
-        pyautogui.hotkey('ctrl', 'a')
-        _human_delay(0.1, 0.2)
-        pyautogui.press('backspace')
-        _human_delay(0.5, 1.0)
-        # Re-type just the first 3 words (more likely to match)
-        short = " ".join(search_text.split()[:2])[:20]
-        for ch in short:
-            try:
-                pyautogui.press(ch) if ch.isalnum() or ch == ' ' else pyautogui.write(ch, interval=0)
-            except Exception:
-                pass
-            time.sleep(random.uniform(0.03, 0.08))
-        _human_delay(2.0, 3.5)
-        options_found = page.evaluate("""() => {
-            const menus = document.querySelectorAll('[class*="menu"]');
-            let count = 0;
-            menus.forEach(m => {
-                const opts = m.querySelectorAll('[class*="option"]');
-                count += opts.length;
-            });
-            return count;
-        }""")
-        print(f"    {label} options (retry shorter): {options_found}", flush=True)
-    
-    # Step 5: Press Enter to select (or ArrowDown+Enter if options visible)
+    # Step 5: Press Enter to select via pyautogui
     _human_delay(0.2, 0.5)
-    if options_found > 0:
-        _os_press('down')  # Highlight first option
-        _human_delay(0.1, 0.3)
     _os_press('enter')
     _human_delay(0.8, 1.5)
     
@@ -1005,7 +894,7 @@ def _fill_react_select(page, input_selector, search_text, label=""):
 def deploy_gig_cdp(page, gig_index, gig, general_selectors=None):
     """Deploy a single gig using CDP-connected real browser.
     
-    Wizard is SEQUENTIAL -- must navigate via Save & Continue, not direct URLs.
+    Wizard is SEQUENTIAL — must navigate via Save & Continue, not direct URLs.
     Discovered selectors from probe:
       - Title: textarea.gig-title-textarea (placeholder "do something I'm really good at")
       - Category: #react-select-2-input (React-Select)
@@ -1033,13 +922,15 @@ def deploy_gig_cdp(page, gig_index, gig, general_selectors=None):
     # ── STEP 1: GENERAL TAB (title, category, tags) ──
     print("  Step 1: General tab...", flush=True)
     url = f"{FIVERR_BASE}/users/{FIVERR_USERNAME}/manage_gigs/new?wizard=0&tab=general"
-    # Use address-bar navigation to look user-initiated (page.goto is CDP-detectable)
-    _navigate_via_addressbar(url, page)
+    try:
+        page.goto(url, wait_until="domcontentloaded", timeout=30000)
+    except Exception as _nav_err:
+        print(f"  Navigation error: {_nav_err}", flush=True)
     _human_delay(2, 4)
     _simulate_reading(page)
     # Verify we landed on Fiverr (old address-bar method was landing on Bing)
     if "fiverr.com" not in page.url:
-        print(f"  ERROR: Not on Fiverr -- got {page.url[:80]}", flush=True)
+        print(f"  ERROR: Not on Fiverr — got {page.url[:80]}", flush=True)
         result["status"] = "nav_failed"
         return result
     captcha_ok, page = wait_for_captcha_clear(page)
@@ -1047,7 +938,7 @@ def deploy_gig_cdp(page, gig_index, gig, general_selectors=None):
         result["status"] = "captcha_blocked"
         return result
     
-    # TITLE -- via pyautogui (OS-level input)
+    # TITLE — via pyautogui (OS-level input)
     title_filled = _type_into_element(page, 'textarea.gig-title-textarea', title_text[:80], "Title")
     if title_filled:
         print(f"    Title filled: {title_text[:60]}...", flush=True)
@@ -1083,7 +974,7 @@ def deploy_gig_cdp(page, gig_index, gig, general_selectors=None):
         result["status"] = "captcha_blocked"
         return result
     
-    # CATEGORY -- React-Select needs clicking the visible container, not the hidden input
+    # CATEGORY — React-Select needs clicking the visible container, not the hidden input
     cat_filled = False
     if category:
         # Parse "Programming & Tech > AI Services > AI Agents" → top level
@@ -1096,12 +987,12 @@ def deploy_gig_cdp(page, gig_index, gig, general_selectors=None):
             cat_filled = _fill_react_select(page, '#react-select-2-input', cat_top, "Category")
             _human_delay(1.5, 3.0)
             
-            # SUBCATEGORY -- #react-select-3-input (appears after category selected)
+            # SUBCATEGORY — #react-select-3-input (appears after category selected)
             if subcat_text and cat_filled:
                 sub_filled = _fill_react_select(page, '#react-select-3-input', subcat_text, "Subcategory")
                 _human_delay(1.5, 3.0)
                 
-                # SERVICE TYPE -- a 3rd React-Select may appear dynamically
+                # SERVICE TYPE — a 3rd React-Select may appear dynamically
                 if service_text and sub_filled:
                     # Check for any new React-Select inputs beyond 2 and 3
                     extra_selects = page.evaluate("""() => {
@@ -1121,7 +1012,7 @@ def deploy_gig_cdp(page, gig_index, gig, general_selectors=None):
     _human_mouse_move(page)
     captcha_ok, page = wait_for_captcha_clear(page, timeout=60)
     
-    # TAGS -- via pyautogui (OS-level input)
+    # TAGS — via pyautogui (OS-level input)
     tag_filled = 0
     try:
         import pyperclip
@@ -1163,7 +1054,7 @@ def deploy_gig_cdp(page, gig_index, gig, general_selectors=None):
     _click_continue_cdp(page)
     _human_delay(4, 7)  # Wait for wizard transition
     
-    # ── STEP 2: After Save & Continue -- probe what's on screen now ──
+    # ── STEP 2: After Save & Continue — probe what's on screen now ──
     print(f"  Step 2: After Save & Continue, URL: {page.url}", flush=True)
     # Re-inject stealth after page transition
     try:
@@ -1271,7 +1162,7 @@ def deploy_gig_cdp(page, gig_index, gig, general_selectors=None):
     _simulate_reading(page)
     _safe_screenshot(page, SS_DIR / f"cdp_gig{gig_index:02d}_step4.png")
     
-    # Gallery -- try to upload image
+    # Gallery — try to upload image
     img_path = _find_gig_image(gig_index)
     img_uploaded = False
     if img_path:
@@ -1376,42 +1267,27 @@ def main():
 
     _human_delay(2, 4)
 
-    # Extended warm-up: Browse Fiverr naturally before gig creation.
-    # PX risk-scores sessions -- a visitor that goes straight to /manage_gigs
-    # with no prior browsing is suspicious. Simulate natural seller behavior.
-    print("  Warm-up: browsing Fiverr naturally to build PX trust...", flush=True)
-    warmup_urls = [
-        f"{FIVERR_BASE}/users/{FIVERR_USERNAME}/seller_dashboard",
-        f"{FIVERR_BASE}/users/{FIVERR_USERNAME}",
-        f"{FIVERR_BASE}/users/{FIVERR_USERNAME}/manage_gigs",
-    ]
-    for wu_url in warmup_urls:
-        try:
-            # Use address-bar navigation (looks user-initiated, not CDP)
-            _navigate_via_addressbar(wu_url, page)
-            _human_delay(2, 5)
-            _simulate_reading(page)
-            # Re-inject stealth on each new page
-            try:
-                page.evaluate(STEALTH_JS)
-            except Exception:
-                pass
-            captcha_ok, page = wait_for_captcha_clear(page, timeout=120)
-            if not captcha_ok:
-                print("  CAPTCHA during warm-up -- clear it manually.", flush=True)
-        except Exception as e:
-            print(f"  Warm-up page error: {e}", flush=True)
-
-    # Verify stealth
+    # Warm-up: Navigate to seller dashboard first to establish clean PX fingerprint
+    print("  Warming up with seller dashboard...", flush=True)
     try:
+        page.goto(f"{FIVERR_BASE}/users/{FIVERR_USERNAME}/seller_dashboard", wait_until="domcontentloaded", timeout=30000)
+        _human_delay(2, 4)
+        _simulate_reading(page)
+
+        # Verify stealth is working
         webdriver_val = page.evaluate("() => navigator.webdriver")
         print(f"  navigator.webdriver = {webdriver_val}", flush=True)
         if webdriver_val:
-            print("  WARNING: navigator.webdriver still true!", flush=True)
+            print("  WARNING: navigator.webdriver still true! Stealth may not be effective.", flush=True)
         else:
             print("  Stealth evasions confirmed working.", flush=True)
-    except Exception:
-        pass
+
+        # Check for CAPTCHA on dashboard
+        captcha_ok, page = wait_for_captcha_clear(page, timeout=120)
+        if not captcha_ok:
+            print("  CAPTCHA on dashboard -- you need to clear it manually.", flush=True)
+    except Exception as e:
+        print(f"  Warm-up error: {e}", flush=True)
 
     if args.probe:
         # Just probe all tabs
@@ -1427,7 +1303,7 @@ def main():
             print("  [RESET] Clearing deploy state...", flush=True)
             state["gigs"] = {}
             _save_state(state)
-            print("  [RESET] State cleared -- all gigs will be re-deployed.", flush=True)
+            print("  [RESET] State cleared — all gigs will be re-deployed.", flush=True)
         results = []
 
         for i, idx in enumerate(gig_indices):

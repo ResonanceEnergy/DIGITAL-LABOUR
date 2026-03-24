@@ -4,7 +4,7 @@ description: Generate GASKET morning briefing — system health, tasks, git stat
 metadata: {"openclaw":{"emoji":"☀️","os":["darwin"]}}
 ---
 
-Generate a comprehensive morning briefing for the Bit Rage Systems operator.
+Generate a comprehensive morning briefing for the DIGITAL LABOUR operator.
 
 ## Briefing Structure
 
@@ -14,7 +14,7 @@ Generate a comprehensive morning briefing for the Bit Rage Systems operator.
 
 ### 2. Git Status
 ```bash
-cd ~/repos/Super-Agency && git --no-pager log --oneline -5 && echo "---" && git status --short
+cd ~/repos/Digital-Labour && git --no-pager log --oneline -5 && echo "---" && git status --short
 ```
 
 ### 3. Agent Status

@@ -1,4 +1,4 @@
-# Bit Rage Systems Operational Architecture Diagrams
+# DIGITAL LABOUR Operational Architecture Diagrams
 
 ## 🏗️ Organizational Hierarchy Chart
 
@@ -240,4 +240,4 @@ graph TD
     K[Human Oversight<br/>Council Intervention] --> E
     L[Emergency Protocols<br/>Human Escalation] --> E
 ```</content>
-<parameter name="filePath">C:\Dev\SuperAgency-Shared\OPERATIONAL_ARCHITECTURE_DIAGRAMS.md
+<parameter name="filePath">C:\Dev\DIGITAL-LABOUR\OPERATIONAL_ARCHITECTURE_DIAGRAMS.md

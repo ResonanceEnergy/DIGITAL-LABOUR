@@ -1,13 +1,13 @@
-# Bit Rage Systems Cross-Platform Refresh Task Creator
+# Digital Labour Cross-Platform Refresh Task Creator
 # Run this script as Administrator to create the scheduled task
 
 param(
-    [string]$TaskName = "SuperAgency CrossPlatform Refresh",
+    [string]$TaskName = "DIGITAL LABOUR CrossPlatform Refresh",
     [string]$ScriptPath = "$PSScriptRoot\cross_platform_refresh_windows.ps1",
     [int]$IntervalMinutes = 5
 )
 
-Write-Host "Bit Rage Systems Cross-Platform Refresh Task Creator" -ForegroundColor Cyan
+Write-Host "Digital Labour Cross-Platform Refresh Task Creator" -ForegroundColor Cyan
 Write-Host "=" * 60 -ForegroundColor Cyan
 
 # Check if running as administrator
@@ -97,4 +97,4 @@ Write-Host "   Delete task: schtasks /delete /tn `"$TaskName`"" -ForegroundColor
 
 Write-Host ""
 Write-Host "Setup Complete! The cross-platform refresh will run every $IntervalMinutes minutes." -ForegroundColor Green
-Write-Host "Bit Rage Systems automation is now active!" -ForegroundColor Green
+Write-Host "Digital Labour automation is now active!" -ForegroundColor Green

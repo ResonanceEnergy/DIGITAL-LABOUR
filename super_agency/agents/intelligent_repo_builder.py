@@ -19,7 +19,7 @@ from .repo_sentry import analyze_file_content, generate_file_updates
 class IntelligentRepoBuilder:
     """
     Core Repo Builder - Analyzes files and autonomously updates repositories
-    This is the "bread and butter" of SuperAgency repo operations
+    This is the "bread and butter" of DIGITAL LABOUR repo operations
     """
 
     def __init__(self):

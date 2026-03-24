@@ -3,7 +3,7 @@
 ## Status: ACTIVE - Working on REPODEPOT Projects
 
 **Timestamp:** 2026-02-23
-**Location:** SuperAgency REPODEPOT
+**Location:** DIGITAL LABOUR repoDEPOT
 **Projects:** agents, core, flywheel
 
 ### Current Activities
@@ -17,7 +17,7 @@
   - Implement performance monitoring systems
   - Create agent collaboration protocols
 
-#### 2. CORE PROJECT - SuperAgency Infrastructure
+#### 2. CORE PROJECT - DIGITAL LABOUR Infrastructure
 - **Status:** Architecture Review Complete
 - **Progress:** 10%
 - **Current Task:** Analyzing system architecture and service dependencies
@@ -64,8 +64,8 @@
 
 ### Communication Channel
 - **Status Updates:** This file (updated every 4 hours)
-- **Issue Reports:** Direct to SuperAgency command center
+- **Issue Reports:** Direct to DIGITAL LABOUR command center
 - **Progress Reports:** Weekly summaries with detailed metrics
 
 ---
-*AGENT G (GASKET) ⚡ - Elite autonomous AI operative for SuperAgency*
+*AGENT G (GASKET) ⚡ - Elite autonomous AI operative for DIGITAL LABOUR*

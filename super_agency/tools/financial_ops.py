@@ -3,7 +3,7 @@
 Financial Operations — AAC integration, ROI calculation per repo,
 and budget alerting when API costs exceed thresholds.
 
-Bridges the Bit Rage Systems cost tracker with the AAC (CentralAccounting)
+Bridges the DIGITAL LABOUR cost tracker with the AAC (CentralAccounting)
 financial system when available, and provides standalone financial
 intelligence regardless.
 
@@ -346,7 +346,7 @@ def check_budget() -> dict[str, Any]:
 # ── AAC Financial System Integration ─────────────────────────────────────
 
 def sync_to_aac() -> dict[str, Any]:
-    """Sync Bit Rage Systems costs to the AAC CentralAccounting database.
+    """Sync DIGITAL LABOUR costs to the AAC CentralAccounting database.
 
     Creates an 'operations' account in AAC and records daily cost
     entries as transactions.
@@ -391,7 +391,7 @@ def sync_to_aac() -> dict[str, Any]:
     # Write a cost summary that AAC can ingest
     sync_file = FINANCIAL_DIR / "aac_sync.json"
     sync_data = {
-        "source": "SuperAgency",
+        "source": "DIGITAL LABOUR",
         "account_type": "operations",
         "currency": "USD",
         "synced_at": now_iso(),

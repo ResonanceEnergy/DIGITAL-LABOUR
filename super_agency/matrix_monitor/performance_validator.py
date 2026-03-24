@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bit Rage Systems Performance Monitoring Script
+DIGITAL LABOUR Performance Monitoring Script
 24-48 Hour Validation of System Optimizations
 Monitors QUASMEM, agent health, and system performance
 """
@@ -350,7 +350,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description='Bit Rage Systems Performance Monitor')
+        description='DIGITAL LABOUR Performance Monitor')
     parser.add_argument('--hours', type=int, default=24,
                         help='Monitoring duration in hours')
     parser.add_argument('--interval', type=int, default=15,

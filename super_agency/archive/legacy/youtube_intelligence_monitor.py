@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Inner Council Intelligence Monitor - Super Agency
+Inner Council Intelligence Monitor - DIGITAL LABOUR
 Monitors the Inner Council of YouTube channels for daily policy adjustments,
 steering, planning, and execution intelligence gathering.
 """
@@ -640,7 +640,7 @@ def main():
     """Main execution function"""
     council = InnerCouncilIntelligence()
 
-    print("🎯 Inner Council Intelligence System - Super Agency")
+    print("🎯 Inner Council Intelligence System - DIGITAL LABOUR")
     print("=" * 60)
     print("Daily Policy Adjustments, Steering, Planning & Execution")
     print("Council 52 - Supreme Intelligence Council")

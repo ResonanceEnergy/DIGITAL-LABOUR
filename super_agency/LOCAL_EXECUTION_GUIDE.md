@@ -1,4 +1,4 @@
-# Bit Rage Systems Local Execution Guide
+# DIGITAL LABOUR Local Execution Guide
 ## Step-by-Step Instructions for Running Locally & Tracking Progress
 
 **Version 2.0 - Maximum CPU Utilization Era**
@@ -27,7 +27,7 @@ run_locally.bat full
 python run_locally.py full
 ```
 
-**Result**: Complete Bit Rage Systems deployment in under 3 minutes!
+**Result**: Complete DIGITAL LABOUR deployment in under 3 minutes!
 
 ---
 
@@ -285,13 +285,13 @@ run_locally.bat reports
 #### View Progress Logs
 ```bash
 # View progress tracking
-cat .super_agency_progress
+cat .dl_progress
 
 # View recent activity
-tail -20 .super_agency_progress
+tail -20 .dl_progress
 
 # Windows
-type .super_agency_progress
+type .dl_progress
 ```
 
 **Progress Tracking Output:**
@@ -345,10 +345,10 @@ run_locally.bat
 #### 1. Command Line Monitoring
 ```bash
 # Watch progress in real-time
-watch -n 5 'tail -5 .super_agency_progress'
+watch -n 5 'tail -5 .dl_progress'
 
 # Windows PowerShell
-while ($true) { Get-Content .super_agency_progress -Tail 5; Start-Sleep 5; Clear-Host }
+while ($true) { Get-Content .dl_progress -Tail 5; Start-Sleep 5; Clear-Host }
 ```
 
 #### 2. Performance Metrics
@@ -436,7 +436,7 @@ chmod +x max_cpu.sh
 chmod +x bin/*.sh
 
 # Check directory permissions
-ls -la .super_agency_progress
+ls -la .dl_progress
 ls -la monitoring/
 ls -la reports/
 ```
@@ -474,7 +474,7 @@ python -m logging.basicConfig(level=logging.DEBUG)
 
 # Check detailed logs
 tail -f monitoring/system_metrics.log
-tail -f .super_agency_progress
+tail -f .dl_progress
 ```
 
 ---
@@ -502,7 +502,7 @@ rm -rf monitoring/*.log
 rm -rf monitoring/*.pid
 
 # Clear progress logs
-> .super_agency_progress
+> .dl_progress
 
 # Clear reports (optional)
 rm -rf reports/*.md
@@ -614,8 +614,8 @@ result = subprocess.run(['pgrep', '-f', 'python.*super'], capture_output=True, t
 proc_count = len(result.stdout.strip().split('\n')) if result.stdout.strip() else 0
 print(f'✅ Active Processes: {proc_count}')
 
-print('🎯 Bit Rage Systems Status: OPERATIONAL' if all([
-    'OK' in open('.super_agency_progress').read().split()[-1:],
+print('🎯 DIGITAL LABOUR Status: OPERATIONAL' if all([
+    'OK' in open('.dl_progress').read().split()[-1:],
     os.path.exists('monitoring/system_metrics.log'),
     os.path.exists('repos/AAC/aac_accounting.db')
 ]) else 'PARTIAL')
@@ -628,7 +628,7 @@ print('🎯 Bit Rage Systems Status: OPERATIONAL' if all([
 
 ### Documentation
 - **Main README**: Comprehensive system overview
-- **Doctrine**: `SUPER_AGENCY_DOCTRINE_MEMORY.md`
+- **Doctrine**: `DL_DOCTRINE_MEMORY.md`
 - **CPU Guide**: `CPU_MAXIMIZER_README.md`
 - **Session Memory**: `SESSION_MEMORY_CAPTURE.md`
 
@@ -651,9 +651,9 @@ print('🎯 Bit Rage Systems Status: OPERATIONAL' if all([
 ```
 
 ### Log Locations
-- **Progress**: `.super_agency_progress`
+- **Progress**: `.dl_progress`
 - **Monitoring**: `monitoring/system_metrics.log`
-- **Reports**: `reports/super_agency_report_*.md`
+- **Reports**: `reports/DL_REPOrt_*.md`
 - **AAC Logs**: `repos/AAC/*.log`
 
 ---

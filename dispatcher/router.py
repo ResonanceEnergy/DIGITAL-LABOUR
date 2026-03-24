@@ -1,4 +1,4 @@
-﻿"""Dispatcher — Routes tasks to the correct agent, enforces budgets, logs results.
+"""Dispatcher — Routes tasks to the correct agent, enforces budgets, logs results.
 
 Usage:
     python router.py                          # Interactive mode
@@ -593,7 +593,7 @@ def route_task(event: dict) -> dict:
             result = proposal_pipeline(
                 brief=inputs.get("brief", ""),
                 proposal_type=inputs.get("proposal_type", "project_proposal"),
-                company_name=inputs.get("company_name", "BIT RAGE SYSTEMS"),
+                company_name=inputs.get("company_name", "Digital Labour"),
                 budget_range=inputs.get("budget_range", ""),
                 deadline=inputs.get("deadline", ""),
                 provider=provider,
@@ -1088,7 +1088,7 @@ def process_queue(queue_dir: Path):
 
 def interactive():
     """Simple interactive dispatcher for testing."""
-    print("=== BIT RAGE SYSTEMS DISPATCHER ===")
+    print("=== Digital Labour DISPATCHER ===")
     print(f"Daily limits: {tracker.status()}\n")
 
     task_type = input(f"Task type ({' / '.join(DAILY_LIMITS.keys())}): ").strip()
@@ -1117,7 +1117,7 @@ def interactive():
 # ── CLI ─────────────────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="BIT RAGE SYSTEMS Dispatcher")
+    parser = argparse.ArgumentParser(description="Digital Labour Dispatcher")
     parser.add_argument("--task", help="Process a single task JSON file")
     parser.add_argument("--queue", help="Process all tasks in a queue directory")
     args = parser.parse_args()

@@ -1,5 +1,5 @@
-"""Bit Rage Systems Portfolio Company: NCL"""
+"""DIGITAL LABOUR Portfolio Company: NCL"""
 
 __version__ = "1.0.0"
-__author__ = "Bit Rage Systems"
+__author__ = "DIGITAL LABOUR"
 __description__ = "NCL portfolio company"

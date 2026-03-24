@@ -1,4 +1,4 @@
-# Cross-Platform Sync Protocol for Bit Rage Systems
+# Cross-Platform Sync Protocol for Digital Labour
 # Handles synchronization between Quantum Quasar (macOS) and QUANTUM FORGE (Windows)
 
 param(

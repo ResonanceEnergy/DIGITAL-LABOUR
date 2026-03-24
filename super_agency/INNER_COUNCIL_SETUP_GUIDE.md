@@ -205,7 +205,7 @@ Each council member has a priority level (1-5):
 - Verify channel IDs in `inner_council_config.json`
 - Some channels may have changed IDs or been terminated
 
-## 🎯 **Integration with Bit Rage Systems**
+## 🎯 **Integration with DIGITAL LABOUR**
 
 ### **Daily Operations**
 - Inner Council intelligence feeds into autonomous agents
@@ -238,5 +238,5 @@ Your Inner Council of 28 YouTube thought leaders is configured and ready to prov
 python youtube_intelligence_monitor.py
 ```
 
-*Watch as your Inner Council analyzes the latest content from J Bravo, Tom Bilyeu, Lex Fridman, Joe Rogan, and 24 other thought leaders to guide your Bit Rage Systems operations!* 🚀🧠⚡</content>
-<parameter name="filePath">C:\Dev\SuperAgency-Shared\INNER_COUNCIL_SETUP_GUIDE.md
+*Watch as your Inner Council analyzes the latest content from J Bravo, Tom Bilyeu, Lex Fridman, Joe Rogan, and 24 other thought leaders to guide your DIGITAL LABOUR operations!* 🚀🧠⚡</content>
+<parameter name="filePath">C:\Dev\DIGITAL-LABOUR\INNER_COUNCIL_SETUP_GUIDE.md

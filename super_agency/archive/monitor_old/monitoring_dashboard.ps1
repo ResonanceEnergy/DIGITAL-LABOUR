@@ -1,4 +1,4 @@
-# Super Agency Performance Monitoring Dashboard
+# Digital Labour Performance Monitoring Dashboard
 # Real-time monitoring endpoints for system performance
 
 param(
@@ -85,7 +85,7 @@ function Update-Dashboard {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Super Agency Performance Dashboard</title>
+    <title>Digital Labour Performance Dashboard</title>
     <meta http-equiv="refresh" content="$RefreshInterval">
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
@@ -99,7 +99,7 @@ function Update-Dashboard {
     </style>
 </head>
 <body>
-    <h1>🧠 Super Agency Performance Dashboard</h1>
+    <h1>🧠 Digital Labour Performance Dashboard</h1>
     <p>Last updated: $($metrics.timestamp)</p>
 
     <div class="grid">

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Super Agency Mobile Command Center (16GB Optimized)
+DIGITAL LABOUR Mobile Command Center (16GB Optimized)
 Flask web server for mobile remote access - lightweight version
-Implements Super Agency Share Protocol (SASP)
+Implements DIGITAL LABOUR Share Protocol (SASP)
 """
 
 from flask import Flask, render_template, jsonify, request
@@ -34,7 +34,7 @@ SASP_CONFIG = {
     'version': '1.0',
     'protocol': 'SASP',
     'mac_id': f'mac-hub-{os.getpid()}',
-    'shared_secret': 'super-agency-shared-key-2026',  # Should be configured securely
+    'shared_secret': 'Digital-Labour-shared-key-2026',  # Should be configured securely
     'windows_nodes': {},  # Track connected Windows nodes
     'message_history': [],  # Keep recent messages for debugging
     'max_history': 100
@@ -504,7 +504,7 @@ def trigger_memory_optimization():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    print("🚀 Starting Super Agency Mobile Command Center...")
+    print("🚀 Starting DIGITAL LABOUR Mobile Command Center...")
     print("� Optimized for macOS Sequoia 15.7.3 - Apple M1 8GB")
     print("🧠 Memory limits: 256MB (mobile), 512MB (services)")
     print("�📱 Access from your phone at: http://YOUR_LOCAL_IP:8080")

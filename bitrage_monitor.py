@@ -1,4 +1,4 @@
-﻿"""BIT RAGE SYSTEMS MATRIX MONITOR — Live Console Dashboard & C2 Interface.
+"""DIGITAL LABOUR MATRIX MONITOR — Live Console Dashboard & C2 Interface.
 
 Consolidates: api/matrix_monitor.py (C2), c_suite/exec_dashboard.py,
               dashboard/health.py, and all monitoring/display capabilities
@@ -62,7 +62,7 @@ MONITOR_BANNER = f"""{CYAN}
 ║   ██║ ╚═╝ ██║██║  ██║   ██║   ██║  ██║██║██╔╝ ██╗                     ║
 ║   ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝                  ║
 ║                                                                       ║
-║   {WHITE}BIT RAGE SYSTEMS MATRIX MONITOR{CYAN} — Live C2 v{VERSION:<15}{CYAN}    ║
+║   {WHITE}DIGITAL LABOUR MATRIX MONITOR{CYAN} — Live C2 v{VERSION:<15}{CYAN}    ║
 ║   {DIM}36 C2 Commands • NERVE • C-Suite • Revenue • Fleet • Resonance{CYAN}      ║
 ╚═══════════════════════════════════════════════════════════════════════╝{RESET}
 """
@@ -353,7 +353,7 @@ def render_dashboard(data: dict):
 
     # ── Header
     print(f"\n{BOLD}{CYAN}═══════════════════════════════════════════════════════════════════{RESET}")
-    print(f"  {BOLD}{WHITE}BIT RAGE SYSTEMS MATRIX MONITOR{RESET}   {DIM}v{VERSION}{RESET}   {DIM}{ts} UTC{RESET}")
+    print(f"  {BOLD}{WHITE}DIGITAL LABOUR MATRIX MONITOR{RESET}   {DIM}v{VERSION}{RESET}   {DIM}{ts} UTC{RESET}")
     print(f"{CYAN}═══════════════════════════════════════════════════════════════════{RESET}")
 
     # ── Daemons
@@ -927,7 +927,7 @@ def interactive_monitor():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="BIT RAGE SYSTEMS MATRIX MONITOR — Live C2 Dashboard",
+        description="DIGITAL LABOUR MATRIX MONITOR — Live C2 Dashboard",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument("--once", action="store_true", help="Print dashboard once and exit")
@@ -942,7 +942,7 @@ def main():
     args = parser.parse_args()
 
     if args.commands:
-        print(f"\n  {BOLD}BIT RAGE SYSTEMS MATRIX — C2 Commands ({len(C2_COMMANDS)}){RESET}\n")
+        print(f"\n  {BOLD}DIGITAL LABOUR MATRIX — C2 Commands ({len(C2_COMMANDS)}){RESET}\n")
         for cmd, desc in sorted(C2_COMMANDS.items()):
             print(f"  {CYAN}{cmd:25s}{RESET} {desc}")
         print()

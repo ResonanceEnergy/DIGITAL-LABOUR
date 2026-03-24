@@ -1,5 +1,5 @@
 /* MATRIX MAXIMIZER JavaScript */
-/* Advanced UI/XI for Super Agency - Real-time Monitoring & Intervention Platform */
+/* Advanced UI/XI for DIGITAL LABOUR - Real-time Monitoring & Intervention Platform */
 /* Optimized for Quantum Quasar (Mac), Pocket Pulsar (iPhone), Tablet Titan (iPad) */
 
 class MatrixMaximizer {

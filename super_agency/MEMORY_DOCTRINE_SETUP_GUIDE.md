@@ -1,4 +1,4 @@
-# 🚀 Bit Rage Systems Memory Doctrine Setup Guide
+# 🚀 DIGITAL LABOUR Memory Doctrine Setup Guide
 ## Complete Setup Instructions - February 20, 2026
 
 ---
@@ -34,8 +34,8 @@
 ### **Step 1: Environment Preparation**
 
 ```bash
-# Navigate to your Bit Rage Systems directory
-cd "C:\Dev\SuperAgency-Shared"
+# Navigate to your DIGITAL LABOUR directory
+cd "C:\Dev\DIGITAL-LABOUR"
 
 # Ensure Python environment is ready
 python --version  # Should be 3.8+
@@ -80,7 +80,7 @@ test_doctrine = {
 }
 is_valid, errors = doctrine_system.validate_doctrine(test_doctrine)
 if is_valid:
-    doctrine_system.store_doctrine(test_doctrine, 'Initial Bit Rage Systems doctrine')
+    doctrine_system.store_doctrine(test_doctrine, 'Initial DIGITAL LABOUR doctrine')
     print('✅ Doctrine system initialized successfully')
 else:
     print('❌ Doctrine validation failed:', errors)
@@ -142,7 +142,7 @@ Create a service launcher script:
 cat > memory_doctrine_service.py << 'EOF'
 #!/usr/bin/env python3
 """
-Bit Rage Systems Memory Doctrine Service
+DIGITAL LABOUR Memory Doctrine Service
 Production-ready service launcher
 """
 
@@ -172,7 +172,7 @@ class MemoryDoctrineService:
         signal.signal(signal.SIGTERM, self.shutdown)
 
     def initialize_doctrine(self):
-        """Initialize core Bit Rage Systems doctrine"""
+        """Initialize core DIGITAL LABOUR doctrine"""
         core_doctrine = {
             "version": "1.0.0",
             "memory_principles": [
@@ -197,7 +197,7 @@ class MemoryDoctrineService:
             }
         }
 
-        self.doctrine_system.store_doctrine(core_doctrine, "Core Bit Rage Systems doctrine v1.0.0")
+        self.doctrine_system.store_doctrine(core_doctrine, "Core DIGITAL LABOUR doctrine v1.0.0")
         print("✅ Core doctrine initialized")
 
     def create_initial_backlog(self):
@@ -321,7 +321,7 @@ In a new terminal, test the running system:
 # Test memory persistence
 python -c "
 from memory_doctrine_system import remember, recall, memory_stats
-remember('test_context', 'Bit Rage Systems operational context', 'persistent')
+remember('test_context', 'DIGITAL LABOUR operational context', 'persistent')
 retrieved = recall('test_context')
 print('✅ Memory system:', 'working' if retrieved else 'failed')
 stats = memory_stats()
@@ -449,7 +449,7 @@ cp backlog/backlog.db backups/backlog_$(date +%Y%m%d).db
 
 ## 🚀 **READY FOR PRODUCTION**
 
-Your Bit Rage Systems Memory Doctrine system is now fully operational. The AI will maintain context across sessions, all actions will be doctrine-compliant, and tasks will be intelligently prioritized.
+Your DIGITAL LABOUR Memory Doctrine system is now fully operational. The AI will maintain context across sessions, all actions will be doctrine-compliant, and tasks will be intelligently prioritized.
 
 **Next Steps:**
 1. **Week 2**: Add vector search and SASP cross-device sync
@@ -457,4 +457,4 @@ Your Bit Rage Systems Memory Doctrine system is now fully operational. The AI wi
 3. **Week 4**: Full deployment and scaling
 
 The foundation is solid - your AI memory problems are solved! 🎉</content>
-<parameter name="filePath">C:\Dev\SuperAgency-Shared\MEMORY_DOCTRINE_SETUP_GUIDE.md
+<parameter name="filePath">C:\Dev\DIGITAL-LABOUR\MEMORY_DOCTRINE_SETUP_GUIDE.md

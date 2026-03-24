@@ -1,10 +1,10 @@
-# Bit Rage Systems Autonomous GitHub Integration
+# Digital Labour Autonomous GitHub Integration
 # This script runs the full GitHub sync automatically
 
-Write-Host "🤖 Bit Rage Systems Autonomous GitHub Sync" -ForegroundColor Cyan
+Write-Host "🤖 Digital Labour Autonomous GitHub Sync" -ForegroundColor Cyan
 Write-Host "=====================================" -ForegroundColor Yellow
 
-$integrationPath = "C:\Dev\SuperAgency-Shared\github_integration"
+$integrationPath = "C:\Dev\DIGITAL LABOUR-Shared\github_integration"
 
 # Navigate to integration directory
 Set-Location $integrationPath

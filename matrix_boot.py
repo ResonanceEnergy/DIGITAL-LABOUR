@@ -1,4 +1,4 @@
-﻿"""DEPRECATED — Use bitrage.py or 'BIT RAGE SYSTEMS.exe' instead.
+"""DEPRECATED — Use bitrage.py or 'DIGITAL LABOUR.exe' instead.
 
 This file is kept for backwards compatibility. All functionality has been
 consolidated into bitrage.py (the master launcher).
@@ -8,14 +8,14 @@ Replacement commands:
     bitrage.py stop        # replaces: python matrix_boot.py --stop
 
 Original description:
-    BIT RAGE SYSTEMS MATRIX — Auto-launch script.
+    DIGITAL LABOUR MATRIX — Auto-launch script.
     Starts the FastAPI server + all daemons on system boot.
     Install via Windows Task Scheduler or run manually.
 
 Task Scheduler setup:
     Trigger: At startup
-    Action:  pythonw.exe "C:\\dev\\BIT RAGE SYSTEMS\\BIT RAGE SYSTEMS\\matrix_boot.py"
-    Start in: C:\\dev\\BIT RAGE SYSTEMS\\BIT RAGE SYSTEMS
+    Action:  pythonw.exe "C:\\dev\\DIGITAL LABOUR\\DIGITAL LABOUR\\matrix_boot.py"
+    Start in: C:\\dev\\DIGITAL LABOUR\\DIGITAL LABOUR
 """
 
 import subprocess
@@ -69,7 +69,7 @@ def main():
         return
 
     print("[MATRIX] ═══════════════════════════════")
-    print("[MATRIX]  BIT RAGE SYSTEMS MATRIX — AUTO BOOT")
+    print("[MATRIX]  DIGITAL LABOUR MATRIX — AUTO BOOT")
     print("[MATRIX] ═══════════════════════════════")
     print(f"[MATRIX] Python: {PYTHON}")
     print(f"[MATRIX] Root:   {ROOT}")

@@ -1,4 +1,4 @@
-﻿"""Freelance Platform Listings — Ready-to-post gig descriptions for Fiverr + Freelancer.
+"""Freelance Platform Listings — Ready-to-post gig descriptions for Fiverr + Freelancer.
 
 Generates professional listing copy for each of the 4 agent capabilities.
 Covers title, description, tags, pricing tiers, and FAQ for each platform.
@@ -745,7 +745,7 @@ API references, user guides, README files, SDK docs, and developer onboarding ma
 # ── Freelancer.com Listing Definitions ──────────────────────────
 
 FREELANCER_PROFILE = {
-    "agency_name": "BIT RAGE SYSTEMS — AI Agent Agency",
+    "agency_name": "DIGITAL LABOUR — AI Agent Agency",
     "tagline": "Production AI agents for sales, support, content & document automation",
     "hourly_rate": "$75-200/hr",
     "about": """We build and deploy production AI agent pipelines — not ChatGPT wrappers.
@@ -768,7 +768,7 @@ Based in Canada. Built by Resonance Energy.""",
     "bid_templates": {
         "ai_agent_build": """Hi,
 
-I run BIT RAGE SYSTEMS — we build production AI agent pipelines (not ChatGPT wrappers).
+I run DIGITAL LABOUR — we build production AI agent pipelines (not ChatGPT wrappers).
 
 Your project is exactly what our team does daily. We have 4 specialized agents already in production:
 - Sales outreach (real-time research + personalized emails)
@@ -782,7 +782,7 @@ I can start immediately and deliver a working prototype within 48 hours.
 
 Let's discuss your specific requirements.
 
-— BIT RAGE SYSTEMS (Resonance Energy, Canada)""",
+— DIGITAL LABOUR (Resonance Energy, Canada)""",
         "chatbot_build": """Hi,
 
 We specialize in building AI-powered chatbots and agent systems — not simple rule-based bots, but multi-agent pipelines with real AI reasoning.
@@ -796,7 +796,7 @@ Tech: Python, FastAPI, OpenAI/Claude/Gemini APIs, webhook delivery, API-first ar
 
 I can deliver a working MVP within 3-5 days with full documentation.
 
-— BIT RAGE SYSTEMS""",
+— DIGITAL LABOUR""",
         "data_extraction": """Hi,
 
 We have a production document extraction agent that handles invoices, contracts, resumes, and custom document types.
@@ -812,7 +812,7 @@ Currently processing documents in under 10 seconds with 85%+ accuracy.
 
 Happy to adapt it to your specific format requirements.
 
-— BIT RAGE SYSTEMS""",
+— DIGITAL LABOUR""",
     },
 }
 
@@ -844,7 +844,7 @@ My agents are live in production right now, processing thousands of tasks daily 
 Python, FastAPI, OpenAI API, Anthropic Claude, Google Gemini, LangChain, Docker, REST APIs, Webhooks, Stripe, PostgreSQL
 
 **Why Clients Choose Me:**
-✓ Production-tested — my AI agency (BIT RAGE SYSTEMS) runs 20 specialized agents serving real clients
+✓ Production-tested — my AI agency (DIGITAL LABOUR) runs 20 specialized agents serving real clients
 ✓ Multi-LLM failover — if one provider goes down, another takes over instantly
 ✓ Every output passes automated QA before delivery — no garbage results
 ✓ API-first — your agents ship with REST endpoints, webhooks, and monitoring
@@ -1120,7 +1120,7 @@ Python, FastAPI, OpenAI API, Anthropic Claude, Google Gemini, LangChain, Docker,
 # ── PeoplePerHour Profile ──────────────────────────────────────
 
 PEOPLEPERHOUR_PROFILE = {
-    "agency_name": "BIT RAGE SYSTEMS",
+    "agency_name": "DIGITAL LABOUR",
     "tagline": "AI Agent Agency -- 20 Specialized Agents for Business Automation",
     "hourly_rate": "GBP60-150/hr",
     "about": """We deploy production AI agent pipelines for sales, content, data, and business operations.
@@ -1267,7 +1267,7 @@ Multi-LLM architecture (GPT-4o, Claude, Gemini, Grok) with QA verification on ev
 # ── Guru Profile ────────────────────────────────────────────────
 
 GURU_PROFILE = {
-    "agency_name": "BIT RAGE SYSTEMS -- AI Agent Agency",
+    "agency_name": "DIGITAL LABOUR -- AI Agent Agency",
     "tagline": "20 AI Agents for Sales, Content, Data & Business Automation",
     "hourly_rate": "$75-175/hr",
     "about": """Production AI agent agency with 20 specialized agents covering every major business automation category.
@@ -1432,7 +1432,7 @@ Location: Canada | Agency: Resonance Energy""",
 # ── Toptal Profile ──────────────────────────────────────────────
 
 TOPTAL_PROFILE = {
-    "agency_name": "BIT RAGE SYSTEMS (Resonance Energy)",
+    "agency_name": "DIGITAL LABOUR (Resonance Energy)",
     "vertical": "AI & Machine Learning",
     "hourly_rate": "$100-250/hr",
     "engagement_types": ["Hourly", "Part-time", "Full-time"],

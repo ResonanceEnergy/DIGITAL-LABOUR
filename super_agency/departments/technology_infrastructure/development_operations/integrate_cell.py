@@ -4,7 +4,7 @@ from pathlib import Path
 from datetime import datetime
 
 # allow overriding root for testing or alternative layout
-ROOT = Path(os.environ.get('SUPER_AGENCY_ROOT',
+ROOT = Path(os.environ.get('DL_ROOT',
             Path(__file__).resolve().parents[1]))
 CONFIG = json.loads(
     (ROOT/'config'/'settings.json').read_text(encoding='utf-8'))

@@ -1,8 +1,8 @@
 @echo off
-REM Bit Rage Systems Autonomous GitHub Sync
+REM Digital Labour Autonomous GitHub Sync
 REM Called by the main orchestration system
 
-echo 🤖 Bit Rage Systems Autonomous GitHub Sync
+echo 🤖 Digital Labour Autonomous GitHub Sync
 echo =====================================
 
 cd /d "%~dp0"

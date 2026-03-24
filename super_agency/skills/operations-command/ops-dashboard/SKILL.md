@@ -2,7 +2,7 @@
 ## Dynamic Operations Dashboard
 
 Real-time dashboard that spawns sub-agents to collect metrics from every
-subsystem, then renders a unified view of Super-Agency operational status.
+subsystem, then renders a unified view of Digital-Labour operational status.
 
 ### Triggers
 - Cron: Every 10 minutes (auto-refresh)
@@ -54,7 +54,7 @@ All collectors run in parallel → results merged → dashboard rendered
 ### Output Format
 ```
 ╔══════════════════════════════════════════════════════╗
-║            SUPER-AGENCY OPERATIONS DASHBOARD         ║
+║            Digital-Labour OPERATIONS DASHBOARD         ║
 ║                  [timestamp] — Auto-refresh: 10min   ║
 ╠══════════════════════════════════════════════════════╣
 

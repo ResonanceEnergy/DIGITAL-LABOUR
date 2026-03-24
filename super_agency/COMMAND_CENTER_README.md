@@ -1,10 +1,10 @@
-# 🚀 Bit Rage Systems Distributed Command Center
+# 🚀 DIGITAL LABOUR Distributed Command Center
 
 A comprehensive, AI-powered command and control system for distributed operations across macOS, Windows, and AWS cloud infrastructure.
 
 ## 🌟 Overview
 
-The Bit Rage Systems Command Center provides real-time operational intelligence, conversational interfaces, and automated deployment capabilities across multiple platforms. It integrates Matrix Monitor for visualization, Galactia Doctrine for AI insights, and a distributed architecture for maximum scalability.
+The DIGITAL LABOUR Command Center provides real-time operational intelligence, conversational interfaces, and automated deployment capabilities across multiple platforms. It integrates Matrix Monitor for visualization, Galactia Doctrine for AI insights, and a distributed architecture for maximum scalability.
 
 ## 🏗️ Architecture
 
@@ -130,7 +130,7 @@ After launching, access the command center through:
 ## 📁 Project Structure
 
 ```
-Super-Agency/
+Digital-Labour/
 ├── launch_command_center.sh      # macOS/Linux launcher
 ├── launch_command_center.ps1     # Windows launcher
 ├── setup/
@@ -246,7 +246,7 @@ The system auto-scales based on:
 
 ## 📄 License
 
-This project is proprietary to Bit Rage Systems operations.
+This project is proprietary to DIGITAL LABOUR operations.
 
 ## 🆘 Support
 
@@ -258,4 +258,4 @@ For issues or questions:
 
 ---
 
-**Built with ❤️ by Bit Rage Systems Operations Team**
+**Built with ❤️ by DIGITAL LABOUR Operations Team**

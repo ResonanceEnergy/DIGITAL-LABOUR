@@ -1,4 +1,4 @@
-# Bit Rage Systems Cross-Platform Refresh - Windows PowerShell Script
+# Digital Labour Cross-Platform Refresh - Windows PowerShell Script
 # Consolidated refresh: sync, backup, backlog (replaces separate refresh_5min.ps1)
 # Runs on schedule to sync with Quantum Quasar
 

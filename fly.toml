@@ -1,4 +1,4 @@
-# fly.toml — Fly.io deployment for BIT RAGE SYSTEMS API
+# fly.toml — Fly.io deployment for DIGITAL LABOUR Labour API
 app = "bit-rage-labour-api"
 primary_region = "yyz"  # Toronto
 

@@ -134,7 +134,7 @@ AI synthesis requires model execution
 - **Actions:**
   - Increase test coverage for modified code.
 
-### Super-Agency
+### Digital-Labour
 - **Changes:** code: 0, tests: 0, docs: 0, ncl: 0
 - **Actions:**
   - Increase test coverage for modified code.

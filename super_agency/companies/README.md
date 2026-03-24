@@ -1,4 +1,4 @@
-# Bit Rage Systems Companies Index
+# DIGITAL LABOUR Companies Index
 
 **Master Index of All Portfolio Companies**
 
@@ -38,7 +38,7 @@ Total Companies: 36
 | Resonance-Energy-Systems | private | M | L1 | HIGH |
 | resonance-uy-py | private | M | L1 | CRITICAL |
 | ResonanceEnergy_Enterprise | public | M | L1 | CRITICAL |
-| Super-Agency | private | L | L1 | CRITICAL |
+| Digital-Labour | private | L | L1 | CRITICAL |
 | SUPERSTONK-TRADER | public | L | L2 | MEDIUM |
 | TARTARIA | private | M | L1 | HIGH |
 | TESLA-TECH | public | M | L1 | HIGH |
@@ -58,10 +58,10 @@ Repos: GEET-PLASMA-PROJECT, ELECTRIC-UNIVERSE, perpetual-flow-cube, TESLA-TECH, 
 
 Repos: HUMAN-HEALTH
 
-### Bit Rage Systems Platform [ACTIVE]
+### DIGITAL LABOUR Platform [ACTIVE]
 *Core platform infrastructure — the agency itself, command centers, doctrine*
 
-Repos: Super-Agency, NCC, NCC-Doctrine, NCL, NATEBJONES, ResonanceEnergy_Enterprise, resonance-uy-py, DIGITAL-LABOUR, QUSAR, ENTERPRISE-EXCELERATION
+Repos: Digital-Labour, NCC, NCC-Doctrine, NCL, NATEBJONES, ResonanceEnergy_Enterprise, resonance-uy-py, DIGITAL-LABOUR, QUSAR, ENTERPRISE-EXCELERATION
 
 ### Digital Products & Business [PLANNED]
 *Consumer-facing digital products — games, apps, trading tools*

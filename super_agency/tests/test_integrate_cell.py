@@ -54,7 +54,7 @@ def setup_cell_repo(work_root, name, mandate=None, agents=None, readme=None):
 
 def test_integrate_basic(tmp_path, monkeypatch):
     # configure a temporary workspace
-    monkeypatch.setenv('SUPER_AGENCY_ROOT', str(tmp_path))
+    monkeypatch.setenv('DL_ROOT', str(tmp_path))
     os.chdir(tmp_path)
     write_cfg(tmp_path, repos_base=str(tmp_path/'repos'),
               reports_dir=str(tmp_path/'reports'))
@@ -86,7 +86,7 @@ def test_integrate_basic(tmp_path, monkeypatch):
 
 
 def test_integrate_ncl_updates_manifest(tmp_path, monkeypatch):
-    monkeypatch.setenv('SUPER_AGENCY_ROOT', str(tmp_path))
+    monkeypatch.setenv('DL_ROOT', str(tmp_path))
     os.chdir(tmp_path)
     write_cfg(tmp_path, repos_base=str(tmp_path/'repos'),
               reports_dir=str(tmp_path/'reports'))
@@ -112,7 +112,7 @@ def test_wrapper_script(tmp_path, monkeypatch):
         # wrapper script is bash-only; ensure CI runner has bash or stub implementation
         # pytest.skip("wrapper script is bash-only; skipping on Windows")
         pass
-    monkeypatch.setenv('SUPER_AGENCY_ROOT', str(tmp_path))
+    monkeypatch.setenv('DL_ROOT', str(tmp_path))
     os.chdir(tmp_path)
     write_cfg(tmp_path, repos_base=str(tmp_path/'repos'),
               reports_dir=str(tmp_path/'reports'))

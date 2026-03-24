@@ -1,8 +1,8 @@
-# Bit Rage Systems Share Protocol (SASP)
+# DIGITAL LABOUR Share Protocol (SASP)
 # Formal communication protocol between Mac and Windows
 
 ## Overview
-SASP defines the communication protocol for distributed Bit Rage Systems operations between Mac (operations hub) and Windows (heavy computation) machines.
+SASP defines the communication protocol for distributed DIGITAL LABOUR operations between Mac (operations hub) and Windows (heavy computation) machines.
 
 ## Protocol Version
 **Version:** 1.0
@@ -287,4 +287,4 @@ curl -X POST http://mac-ip:8080/sasp/status \
 - TLS 1.3 encryption
 - Certificate-based authentication
 - Zero-trust architecture</content>
-<parameter name="filePath">C:/Dev/SuperAgency-Shared/SASP_PROTOCOL.md
+<parameter name="filePath">C:/Dev/DIGITAL-LABOUR/SASP_PROTOCOL.md

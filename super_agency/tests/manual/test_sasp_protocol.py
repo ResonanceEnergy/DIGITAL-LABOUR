@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 SASP Protocol Test Script
-Tests the Bit Rage Systems Share Protocol implementation
+Tests the DIGITAL LABOUR Share Protocol implementation
 """
 
 import requests
@@ -15,7 +15,7 @@ from datetime import datetime
 TEST_CONFIG = {
     'mac_ip': '127.0.0.1',  # Local testing
     'mac_port': 8080,
-    'shared_secret': 'super-agency-shared-key-2026',
+    'shared_secret': 'Digital-Labour-shared-key-2026',
     'protocol': 'SASP',
     'version': '1.0'
 }

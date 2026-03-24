@@ -1,4 +1,4 @@
-﻿"""Followup Scheduler — Automated multi-touch follow-up engine.
+"""Followup Scheduler — Automated multi-touch follow-up engine.
 
 Manages timed follow-up sequences for cold outreach:
   - Day 3: Soft nudge (value-add)
@@ -45,7 +45,7 @@ SMTP_HOST = os.getenv("SMTP_HOST", "smtp.zohocloud.ca")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
 SMTP_USER = os.getenv("SMTP_USER", "")
 SMTP_PASS = os.getenv("SMTP_PASS", "")
-FROM_NAME = os.getenv("FROM_NAME", "BIT RAGE SYSTEMS")
+FROM_NAME = os.getenv("FROM_NAME", "DIGITAL LABOUR")
 FROM_EMAIL = os.getenv("SMTP_USER", "sales@bit-rage-labour.com")
 
 # ── Timing ─────────────────────────────────────────────────────
@@ -84,7 +84,7 @@ TEMPLATES = {
             "Happy to show you a quick demo tailored to {company} — "
             "no commitment, just 10 minutes.\n\n"
             "Worth a look?\n\n"
-            "— BIT RAGE SYSTEMS\n"
+            "— DIGITAL LABOUR\n"
             "sales@digital-labour.com"
         ),
     },
@@ -100,7 +100,7 @@ TEMPLATES = {
             "  - Data entry + extraction ($0.80/task)\n\n"
             "All with QA checks and human-in-the-loop oversight.\n\n"
             "If any of those sound useful, I'd love to run a free sample for {company}.\n\n"
-            "— BIT RAGE SYSTEMS"
+            "— DIGITAL LABOUR"
         ),
     },
     "follow_up_3": {
@@ -115,7 +115,7 @@ TEMPLATES = {
             "→ 90%+ QA pass rate\n\n"
             "The door's always open.\n\n"
             "Best,\n"
-            "BIT RAGE SYSTEMS\n"
+            "DIGITAL LABOUR\n"
             "sales@digital-labour.com"
         ),
     },

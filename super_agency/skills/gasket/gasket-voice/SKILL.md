@@ -8,7 +8,7 @@
 
 ## Description
 
-Turns any phone into a gateway to GASKET and Super-Agency. Two modes: (1) inbound personal assistant via ClawdTalk — call your agent for calendar, tasks, web search; (2) outbound AI calls via SuperCall — automated guest confirmation, appointment reminders, follow-ups.
+Turns any phone into a gateway to GASKET and Digital-Labour. Two modes: (1) inbound personal assistant via ClawdTalk — call your agent for calendar, tasks, web search; (2) outbound AI calls via SuperCall — automated guest confirmation, appointment reminders, follow-ups.
 
 ## Inbound: ClawdTalk (Personal Assistant)
 
@@ -80,7 +80,7 @@ async def schedule_outbound_call(self, contact: dict, script: str):
 - ngrok for local webhook tunnel
 - macOS or Linux (always-on recommended)
 
-## Super-Agency Specific
+## Digital-Labour Specific
 
 - Inbound: CEO can call GASKET for status updates while mobile
 - Outbound: automated client follow-ups, event coordination

@@ -1,4 +1,4 @@
-﻿"""Smoke Test — Upwork Platform: 100 Job Posts vs Scoring + Matching Pipeline.
+"""Smoke Test — Upwork Platform: 100 Job Posts vs Scoring + Matching Pipeline.
 
 Loads real scraped Upwork jobs + synthetic jobs covering all 20 agent
 services, then tests:
@@ -77,7 +77,7 @@ def generate_proposal(title: str, description: str) -> str:
         pitch_blocks.append("Multi-LLM integration — GPT-4o, Claude, Gemini with failover.")
     if not pitch_blocks:
         pitch_blocks.append("Production AI systems with Python, FastAPI, and multi-LLM integration.")
-    return f"Hi,\n\n{chr(10).join(pitch_blocks[:3])}\n\n— BIT RAGE SYSTEMS"
+    return f"Hi,\n\n{chr(10).join(pitch_blocks[:3])}\n\n— DIGITAL LABOUR"
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

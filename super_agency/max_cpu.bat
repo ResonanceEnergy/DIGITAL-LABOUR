@@ -1,8 +1,8 @@
 @echo off
-REM Bit Rage Systems CPU Maximizer Quick Start (Windows)
+REM Digital Labour CPU Maximizer Quick Start (Windows)
 REM Maximum CPU utilization for all repositories
 
-echo 🔥 Bit Rage Systems CPU Maximizer Quick Start
+echo 🔥 Digital Labour CPU Maximizer Quick Start
 echo ==========================================
 cd /d "%~dp0.."
 set "ROOT_DIR=%CD%"

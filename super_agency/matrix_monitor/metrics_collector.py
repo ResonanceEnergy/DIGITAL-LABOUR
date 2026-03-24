@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bit Rage Systems Advanced Monitoring Dashboard
+DIGITAL LABOUR Advanced Monitoring Dashboard
 Modern monitoring solution with Prometheus-style metrics and Grafana visualization
 """
 
@@ -189,7 +189,7 @@ class AdvancedMonitoringDashboard:
         """Display the monitoring dashboard"""
         report = self.generate_monitoring_report()
 
-        print("🚀 Bit Rage Systems Advanced Monitoring Dashboard")
+        print("🚀 DIGITAL LABOUR Advanced Monitoring Dashboard")
         print("=" * 60)
 
         # System Metrics

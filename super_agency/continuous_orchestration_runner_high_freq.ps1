@@ -1,4 +1,4 @@
-# Bit Rage Systems High-Frequency Orchestration Runner
+# Digital Labour High-Frequency Orchestration Runner
 # Runs orchestration cycles every 5 minutes for rapid monitoring
 
 param(
@@ -10,7 +10,7 @@ param(
 $IntervalSeconds = $IntervalMinutes * 60
 $CycleCount = 0
 
-Write-Host "⚡ Bit Rage Systems HIGH-FREQUENCY Orchestration Runner" -ForegroundColor Yellow
+Write-Host "⚡ Digital Labour HIGH-FREQUENCY Orchestration Runner" -ForegroundColor Yellow
 Write-Host "Interval: $IntervalMinutes minutes ($IntervalSeconds seconds)" -ForegroundColor Cyan
 Write-Host "⚠️  HIGH FREQUENCY MODE - Monitor resource usage closely!" -ForegroundColor Red
 Write-Host "Press Ctrl+C to stop"

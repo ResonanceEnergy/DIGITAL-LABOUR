@@ -1,4 +1,4 @@
-﻿"""Task scheduler — runs recurring tasks for retainer clients.
+"""Task scheduler — runs recurring tasks for retainer clients.
 
 Reads client profiles from /clients/*.json and dispatches tasks on schedule.
 For sales_outreach, pulls real prospect data from automation/prospects.csv.
@@ -292,7 +292,7 @@ def daemon_loop(interval_minutes: int = 5):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="BIT RAGE SYSTEMS Task Scheduler")
+    parser = argparse.ArgumentParser(description="DIGITAL LABOUR Task Scheduler")
     parser.add_argument("--daemon", action="store_true", help="Run continuously")
     parser.add_argument("--check", action="store_true", help="Dry run — show due tasks")
     parser.add_argument("--interval", type=int, default=5, help="Check interval in minutes (daemon mode)")

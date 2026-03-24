@@ -1,4 +1,4 @@
-﻿"""Generate copy-paste-ready platform upload files for all 6 freelance platforms.
+"""Generate copy-paste-ready platform upload files for all 6 freelance platforms.
 
 Outputs one text file per platform in output/platform_copy/ with formatted
 listings ready to paste into each platform's UI.
@@ -26,7 +26,7 @@ def gen_fiverr():
     from income.freelance_listings import FIVERR_GIGS
     lines = []
     lines.append("=" * 80)
-    lines.append("FIVERR GIG LISTINGS — BIT RAGE SYSTEMS")
+    lines.append("FIVERR GIG LISTINGS — DIGITAL LABOUR")
     lines.append(f"Total Gigs: {len(FIVERR_GIGS)}")
     lines.append("=" * 80)
 
@@ -67,10 +67,10 @@ def gen_upwork():
     from income.freelance_listings import UPWORK_PROFILE
     lines = []
     lines.append("=" * 80)
-    lines.append("UPWORK PROFILE & SERVICE CATALOG — BIT RAGE SYSTEMS")
+    lines.append("UPWORK PROFILE & SERVICE CATALOG — DIGITAL LABOUR")
     lines.append("=" * 80)
 
-    lines.append(f"\nAgency: {UPWORK_PROFILE.get('agency_name', 'BIT RAGE SYSTEMS')}")
+    lines.append(f"\nAgency: {UPWORK_PROFILE.get('agency_name', 'DIGITAL LABOUR')}")
     lines.append(f"Tagline: {UPWORK_PROFILE.get('tagline', '')}")
     lines.append(f"Overview:\n{UPWORK_PROFILE.get('overview', '')}")
 
@@ -115,7 +115,7 @@ def gen_pph():
     from income.freelance_listings import PEOPLEPERHOUR_PROFILE
     lines = []
     lines.append("=" * 80)
-    lines.append("PEOPLEPERHOUR HOURLIES — BIT RAGE SYSTEMS")
+    lines.append("PEOPLEPERHOUR HOURLIES — DIGITAL LABOUR")
     lines.append(f"Total Hourlies: {len(PEOPLEPERHOUR_PROFILE['hourlies'])}")
     lines.append("=" * 80)
 
@@ -138,7 +138,7 @@ def gen_guru():
     from income.freelance_listings import GURU_PROFILE
     lines = []
     lines.append("=" * 80)
-    lines.append("GURU SERVICE LISTINGS — BIT RAGE SYSTEMS")
+    lines.append("GURU SERVICE LISTINGS — DIGITAL LABOUR")
     lines.append(f"Total Listings: {len(GURU_PROFILE['service_listings'])}")
     lines.append("=" * 80)
 
@@ -161,7 +161,7 @@ def gen_toptal():
     from income.freelance_listings import TOPTAL_PROFILE
     lines = []
     lines.append("=" * 80)
-    lines.append("TOPTAL PROJECT TYPES — BIT RAGE SYSTEMS")
+    lines.append("TOPTAL PROJECT TYPES — DIGITAL LABOUR")
     lines.append(f"Total Projects: {len(TOPTAL_PROFILE['project_types'])}")
     lines.append("=" * 80)
 
@@ -183,7 +183,7 @@ def gen_freelancer():
     from campaign.freelancer_deploy import FREELANCER_GIGS, BID_TEMPLATES
     lines = []
     lines.append("=" * 80)
-    lines.append("FREELANCER GIGS & BID TEMPLATES — BIT RAGE SYSTEMS")
+    lines.append("FREELANCER GIGS & BID TEMPLATES — DIGITAL LABOUR")
     lines.append(f"Total Gigs: {len(FREELANCER_GIGS)}")
     lines.append("=" * 80)
 

@@ -1,7 +1,7 @@
 # AGENTS PROJECT
 
 ## Overview
-The Agents Project is the core AI agent development and management system for SuperAgency operations. This project focuses on creating intelligent, autonomous agents that can handle complex tasks, learn from experience, and collaborate effectively.
+The Agents Project is the core AI agent development and management system for DIGITAL LABOUR Operations. This project focuses on creating intelligent, autonomous agents that can handle complex tasks, learn from experience, and collaborate effectively.
 
 ## Key Components
 

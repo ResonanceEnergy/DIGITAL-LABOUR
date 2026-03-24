@@ -1,8 +1,8 @@
-# Bit Rage Systems Cross-Platform Refresh Setup - Windows (QUANTUM FORGE)
+# Digital Labour Cross-Platform Refresh Setup - Windows (QUANTUM FORGE)
 # Installs and configures the 5-minute refresh system using Task Scheduler
 
 param(
-    [string]$TaskName = "SuperAgency CrossPlatform Refresh",
+    [string]$TaskName = "DIGITAL LABOUR CrossPlatform Refresh",
     [string]$ScriptDir = $PSScriptRoot,
     [string]$LogFile = "$ScriptDir\logs\setup_refresh_windows.log"
 )
@@ -126,4 +126,4 @@ if ($createTask) {
 }
 
 Write-Log "Setup completed at $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" "SUCCESS"</content>
-<parameter name="filePath">$HOME/repos/SuperAgency-Shared/setup_refresh_windows.ps1
+<parameter name="filePath">$HOME/repos/DIGITAL LABOUR-Shared/setup_refresh_windows.ps1

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Super Agency API & Account Setup Orchestrator
+DIGITAL LABOUR API & Account Setup Orchestrator
 Coordinates YouTube API setup and Microsoft account creation
 """
 
@@ -70,7 +70,7 @@ def setup_microsoft_accounts():
     print("   • admin@{}".format(domain))
 
     # Run PowerShell script
-    script_path = "create_super_agency_accounts.ps1"
+    script_path = "create_bit_rage_labour_accounts.ps1"
     if os.path.exists(script_path):
         command = f'powershell -ExecutionPolicy Bypass -File "{script_path}" -Domain "{domain}" -AdminUsername "admin@{domain}"'
         return run_command(command, "Creating Microsoft accounts")
@@ -97,7 +97,7 @@ def test_full_system():
 
 def main():
     """Main setup orchestrator"""
-    print("🏛️ SUPER AGENCY COUNCIL 52 SETUP ORCHESTRATOR")
+    print("🏛️ DIGITAL LABOUR COUNCIL 52 SETUP ORCHESTRATOR")
     print("=" * 60)
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 

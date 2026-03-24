@@ -1,4 +1,4 @@
-﻿"""Retainer Pitcher — Convert marketplace buyers into monthly retainer clients.
+"""Retainer Pitcher — Convert marketplace buyers into monthly retainer clients.
 
 Identifies high-value marketplace clients (repeat buyers, high spend) and
 generates personalized retainer pitches with tiered pricing.
@@ -45,7 +45,7 @@ SMTP_HOST = os.getenv("SMTP_HOST", "smtp.zohocloud.ca")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
 SMTP_USER = os.getenv("SMTP_USER", "")
 SMTP_PASS = os.getenv("SMTP_PASS", "")
-FROM_NAME = os.getenv("FROM_NAME", "BIT RAGE SYSTEMS")
+FROM_NAME = os.getenv("FROM_NAME", "DIGITAL LABOUR")
 FROM_EMAIL = os.getenv("SMTP_USER", "sales@bit-rage-labour.com")
 
 # ── Retainer Tiers ─────────────────────────────────────────────
@@ -270,7 +270,7 @@ def generate_pitch(client: dict) -> dict:
     body += (
         f"\nNo long-term commitment — cancel anytime.\n\n"
         f"Want to set it up? Just reply and I'll get you started.\n\n"
-        f"— BIT RAGE SYSTEMS\n"
+        f"— DIGITAL LABOUR\n"
         f"sales@digital-labour.com"
     )
 

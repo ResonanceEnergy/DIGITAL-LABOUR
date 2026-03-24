@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Unified Memory Doctrine System
-Bit Rage Systems Memory Management and Doctrine Preservation
+DIGITAL LABOUR Memory Management and Doctrine Preservation
 MacBook M1 8GB Optimized
 """
 

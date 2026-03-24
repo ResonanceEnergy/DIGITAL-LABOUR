@@ -73,7 +73,7 @@ def main():
         ncl_integration.store_daily_report(daily_report)
 
         # Process for orchestrator
-        logger.info("🎯 Processing intelligence for Bit Rage Systems operations...")
+        logger.info("🎯 Processing intelligence for DIGITAL LABOUR operations...")
         processing_result = orchestrator_integration.process_council_intelligence(
             daily_report)
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Super Agency Comprehensive Monitoring Dashboard
-Integrated monitoring system for all Super Agency components
+DIGITAL LABOUR Comprehensive Monitoring Dashboard
+Integrated monitoring system for all DIGITAL LABOUR components
 """
 
 import asyncio
@@ -28,7 +28,7 @@ except ImportError:
 
 # QUASMEM Memory Pool Integration
 try:
-    sys.path.append(str(Path(__file__).parent / "Super-Agency"))
+    sys.path.append(str(Path(__file__).parent / "Digital-Labour"))
     from quasmem_optimization import get_memory_status, quantum_memory_pool
     QUASMEM_ACTIVE = True
     print("QUASMEM memory optimization loaded in Comprehensive Monitoring")
@@ -41,7 +41,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 class ComprehensiveMonitoringDashboard:
-    """Comprehensive monitoring dashboard for all Super Agency systems"""
+    """Comprehensive monitoring dashboard for all DIGITAL LABOUR systems"""
 
     def __init__(self):
         self.metrics_store = {}
@@ -113,7 +113,7 @@ class ComprehensiveMonitoringDashboard:
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Super Agency Monitoring Dashboard</title>
+            <title>DIGITAL LABOUR Monitoring Dashboard</title>
             <style>
                 body { font-family: Arial, sans-serif; margin: 20px; }
                 .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
@@ -123,7 +123,7 @@ class ComprehensiveMonitoringDashboard:
             </style>
         </head>
         <body>
-            <h1>Super Agency Comprehensive Monitoring Dashboard</h1>
+            <h1>DIGITAL LABOUR Comprehensive Monitoring Dashboard</h1>
             <div id="status">Loading...</div>
             <script>
                 async function updateStatus() {
@@ -159,8 +159,8 @@ class ComprehensiveMonitoringDashboard:
             return []
 
     async def start_comprehensive_monitoring(self) -> Dict[str, Any]:
-        """Start comprehensive monitoring of all Super Agency systems"""
-        logger.info("🚀 Starting Comprehensive Super Agency Monitoring")
+        """Start comprehensive monitoring of all DIGITAL LABOUR systems"""
+        logger.info("🚀 Starting Comprehensive DIGITAL LABOUR Monitoring")
 
         try:
             # Start monitoring thread
@@ -437,7 +437,7 @@ class ComprehensiveMonitoringDashboard:
         try:
             # Check for scheduled tasks (Windows Task Scheduler)
             import subprocess
-            result = subprocess.run(["schtasks", "/query", "/tn", "SuperAgency-DailyOperations"],
+            result = subprocess.run(["schtasks", "/query", "/tn", "BitRageLabour-DailyOperations"],
                                   capture_output=True, text=True)
 
             if result.returncode == 0:
@@ -912,7 +912,7 @@ class ComprehensiveMonitoringDashboard:
             # Check critical system files
             critical_files = [
                 "portfolio.json",
-                "unified_super_agency_orchestrator.py",
+                "unified_bit_rage_labour_orchestrator.py",
                 "comprehensive_monitoring_dashboard.py",
                 "quasmem_optimization.py"
             ]
@@ -1250,7 +1250,7 @@ class ComprehensiveMonitoringDashboard:
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Super Agency Comprehensive Monitoring</title>
+    <title>DIGITAL LABOUR Comprehensive Monitoring</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
@@ -1285,7 +1285,7 @@ class ComprehensiveMonitoringDashboard:
 <body>
     <div class="container">
         <div class="header">
-            <h1>🚀 Super Agency Comprehensive Monitoring</h1>
+            <h1>🚀 DIGITAL LABOUR Comprehensive Monitoring</h1>
             <p>Real-time system health, performance tracking, and intelligent oversight</p>
             <div id="overall-status" class="status-badge">Loading...</div>
         </div>

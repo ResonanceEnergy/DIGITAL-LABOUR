@@ -1,5 +1,5 @@
-﻿#!/usr/bin/env python3
-"""BIT RAGE SYSTEMS API client — stdlib only, zero pip installs.
+#!/usr/bin/env python3
+"""DIGITAL LABOUR API client — stdlib only, zero pip installs.
 
 Usage:
     python3 dl-api.py health

@@ -1,4 +1,4 @@
-# Bit Rage Systems Repository Setup and Build Script
+# Digital Labour Repository Setup and Build Script
 # Clones and builds all portfolio repositories
 
 param(
@@ -145,7 +145,7 @@ function Build-Repository {
 }
 
 # Main execution
-Write-Log "=== Bit Rage Systems Repository Setup Started ==="
+Write-Log "=== Digital Labour Repository Setup Started ==="
 Write-Log "Organization: $Org"
 Write-Log "Base Directory: $BaseDir"
 Write-Log "Force Re-clone: $Force"
@@ -205,4 +205,4 @@ Write-Host ""
 Write-Host "Next steps:"
 Write-Host "  1. Review the log file for any errors"
 Write-Host "  2. Check individual repository directories in $BaseDir"
-Write-Host "  3. Run the Bit Rage Systems orchestration to monitor repositories"
+Write-Host "  3. Run the Digital Labour orchestration to monitor repositories"

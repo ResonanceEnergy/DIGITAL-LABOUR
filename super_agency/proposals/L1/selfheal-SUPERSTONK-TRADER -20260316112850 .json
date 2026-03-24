@@ -1,0 +1,18 @@
+{
+  "id": "selfheal-SUPERSTONK-TRADER -20260316112850 ",
+  "type": "remediation",
+  "proposed_by": "portfolio_selfheal",
+  "title": "Fix issues in SUPERSTONK-TRADER",
+  "repo_name": "SUPERSTONK-TRADER",
+  "issues": [
+    "MISSING: no CI/CD config detected",
+    "MISSING: no LICENSE file"
+  ],
+  "risk": "LOW",
+  "autonomy_required": "L1",
+  "suggested_actions": [
+    "Add GitHub Actions CI workflow",
+    "Add MIT LICENSE file"
+  ],
+  "created_at": "2026-03-16T11:28:50"
+}

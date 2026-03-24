@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SUPER AGENCY COMPREHENSIVE MONITORING DASHBOARD
+DIGITAL LABOUR COMPREHENSIVE MONITORING DASHBOARD
 Real-time monitoring of all components and fail-safe systems
 """
 
@@ -27,7 +27,7 @@ except ImportError:
     WatchdogService = None
 
 class ComprehensiveMonitor:
-    """Comprehensive monitoring dashboard for the entire Super Agency"""
+    """Comprehensive monitoring dashboard for the entire DIGITAL LABOUR"""
 
     def __init__(self):
         self.app = Flask(__name__)
@@ -81,7 +81,7 @@ class ComprehensiveMonitor:
 
         # Check component processes
         component_processes = {
-            'super_agency': ['super_agency'],
+            'bit_rage_labour': ['bit_rage_labour'],
             'quantum_qforge': ['qforge', 'qforge_main'],
             'quantum_qusar': ['qusar', 'qusar_main'],
             'matrix_monitor': ['flask_matrix_monitor'],
@@ -216,7 +216,7 @@ class ComprehensiveMonitor:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="30">
-    <title>🚀 SUPER AGENCY COMPREHENSIVE MONITOR</title>
+    <title>🚀 DIGITAL LABOUR COMPREHENSIVE MONITOR</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -354,7 +354,7 @@ class ComprehensiveMonitor:
 <body>
     <div class="container">
         <div class="header">
-            <h1>🚀 SUPER AGENCY COMPREHENSIVE MONITOR</h1>
+            <h1>🚀 DIGITAL LABOUR COMPREHENSIVE MONITOR</h1>
             <p>24/7/365 Fail-Safe System Status</p>
         </div>
 

@@ -23,7 +23,7 @@ commit hooks. Powers autonomous project management across 27 repos.
 
 ### STATE.yaml Schema
 ```yaml
-project: Super-Agency
+project: Digital-Labour
 version: 1.0.0
 last_updated: 2026-02-27T06:00:00Z
 updated_by: agent/GASKET
@@ -63,7 +63,7 @@ active_work:
 ### Cross-Repo Aggregation
 ```
 27 Repos → STATE.yaml per repo → Aggregated Project Dashboard
-  Super-Agency ......... 65% ████████░░░░
+  Digital-Labour ......... 65% ████████░░░░
   QUSAR ................ 80% ██████████░░
   NCL .................. 45% ██████░░░░░░
   TESLACALLS2026 ....... 90% ███████████░

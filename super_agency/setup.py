@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="super-agency",
+    name="Digital-Labour",
     version="0.1.0",
     description="Part of the ResonanceEnergy enterprise portfolio",
     author="Resonance Energy",

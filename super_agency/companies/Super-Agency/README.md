@@ -1,10 +1,10 @@
-# Super-Agency
+# Digital-Labour
 
-**Company Repository** - Bit Rage Systems Portfolio Company
+**Company Repository** - DIGITAL LABOUR Portfolio Company
 
 ## Overview
 
-Super-Agency is a portfolio company within the Bit Rage Systems ecosystem.
+Digital-Labour is a portfolio company within the DIGITAL LABOUR ecosystem.
 
 ## Repository Information
 
@@ -13,4 +13,4 @@ Super-Agency is a portfolio company within the Bit Rage Systems ecosystem.
 - **Autonomy Level**: L1
 - **Language**: Python
 - **Risk Tier**: CRITICAL
-- **Parent Organization**: Bit Rage Systems
+- **Parent Organization**: DIGITAL LABOUR

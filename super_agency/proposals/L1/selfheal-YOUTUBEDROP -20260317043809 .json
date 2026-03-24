@@ -1,0 +1,18 @@
+{
+  "id": "selfheal-YOUTUBEDROP -20260317043809 ",
+  "type": "remediation",
+  "proposed_by": "portfolio_selfheal",
+  "title": "Fix issues in YOUTUBEDROP",
+  "repo_name": "YOUTUBEDROP",
+  "issues": [
+    "MISSING: no CI/CD config detected",
+    "MISSING: no LICENSE file"
+  ],
+  "risk": "LOW",
+  "autonomy_required": "L1",
+  "suggested_actions": [
+    "Add GitHub Actions CI workflow",
+    "Add MIT LICENSE file"
+  ],
+  "created_at": "2026-03-17T04:38:09"
+}

@@ -1,7 +1,7 @@
-# 🚀 Bit Rage Systems - Cross-Platform Development Setup
+# 🚀 DIGITAL LABOUR - Cross-Platform Development Setup
 
 ## 📁 Shared Repository Location
-**Path:** `C:\Dev\SuperAgency-Shared\`
+**Path:** `C:\Dev\DIGITAL-LABOUR\`
 
 This repository is optimized for **cross-platform development** between:
 - **macOS (Quantum Quasar)** - Primary development system
@@ -10,11 +10,11 @@ This repository is optimized for **cross-platform development** between:
 ## 🔄 Git Sync Setup
 
 ### On macOS (Quantum Quasar):
-- Files are in: `$HOME/repos/SuperAgency-Shared/`
+- Files are in: `$HOME/repos/DIGITAL-LABOUR/`
 - Git automatically syncs changes to the remote
 
 ### On Windows (QUANTUM FORGE):
-- Files will appear in: `C:\Dev\SuperAgency-Shared\`
+- Files will appear in: `C:\Dev\DIGITAL-LABOUR\`
 - Git automatically syncs changes from the remote
 
 ## 🛠️ Initial Setup
@@ -22,10 +22,10 @@ This repository is optimized for **cross-platform development** between:
 ### 1. Clone/Open Repository
 ```bash
 # On macOS:
-cd "$HOME/repos/SuperAgency-Shared"
+cd "$HOME/repos/DIGITAL-LABOUR"
 
 # On Windows:
-cd "C:\Dev\SuperAgency-Shared"
+cd "C:\Dev\DIGITAL-LABOUR"
 ```
 
 ### 2. Install Recommended VS Code Extensions
@@ -120,7 +120,7 @@ python mobile_command_center_simple.py
 
 ## 📞 Support
 
-- **GitHub Repository:** https://github.com/ResonanceEnergy/Super-Agency
+- **GitHub Repository:** https://github.com/ResonanceEnergy/Digital-Labour
 - **Git Sync Issues:** Check `git status` and `git remote -v`
 - **VS Code Issues:** Verify extensions are installed and settings are applied
 

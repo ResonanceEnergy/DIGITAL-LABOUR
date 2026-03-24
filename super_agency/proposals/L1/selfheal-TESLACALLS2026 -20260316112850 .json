@@ -1,0 +1,20 @@
+{
+  "id": "selfheal-TESLACALLS2026 -20260316112850 ",
+  "type": "remediation",
+  "proposed_by": "portfolio_selfheal",
+  "title": "Fix issues in TESLACALLS2026",
+  "repo_name": "TESLACALLS2026",
+  "issues": [
+    "MISSING: no CI/CD config detected",
+    "MISSING: no dependency manifest found",
+    "MISSING: no LICENSE file"
+  ],
+  "risk": "LOW",
+  "autonomy_required": "L1",
+  "suggested_actions": [
+    "Add GitHub Actions CI workflow",
+    "Create requirements.txt or package.json",
+    "Add MIT LICENSE file"
+  ],
+  "created_at": "2026-03-16T11:28:50"
+}

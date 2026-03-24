@@ -1,6 +1,6 @@
-# OpenClaw Integration for SuperAgency
+# OpenClaw Integration for DIGITAL LABOUR
 
-This document describes the integration of OpenClaw autonomous AI agent framework into the SuperAgency platform.
+This document describes the integration of OpenClaw autonomous AI agent framework into the DIGITAL LABOUR platform.
 
 ## Overview
 
@@ -13,7 +13,7 @@ OpenClaw is a powerful autonomous AI agent framework that provides:
 
 ## Integration Architecture
 
-The SuperAgency OpenClaw integration consists of:
+the DIGITAL LABOUR OpenClaw integration consists of:
 
 ### Core Components
 - `agents/openclaw_integration.py`: Main integration agent class
@@ -23,7 +23,7 @@ The SuperAgency OpenClaw integration consists of:
 ### Key Features
 - **Installation Management**: Automated and manual installation options
 - **Platform Configuration**: Easy setup for messaging platforms
-- **Skill Creation**: Build custom SuperAgency-specific skills
+- **Skill Creation**: Build custom DIGITAL LABOUR-specific skills
 - **Message Handling**: Send/receive messages through various platforms
 - **Autonomous Operations**: Enable AI-driven task execution
 
@@ -31,7 +31,7 @@ The SuperAgency OpenClaw integration consists of:
 
 ### Prerequisites
 - Node.js (for OpenClaw)
-- Python 3.9+ (for SuperAgency)
+- Python 3.9+ (for DIGITAL LABOUR)
 - System access for CLI tools
 
 ### OpenClaw Installation
@@ -41,7 +41,7 @@ The SuperAgency OpenClaw integration consists of:
 curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 
-**Option 2: Through SuperAgency Integration**
+**Option 2: Through DIGITAL LABOUR Integration**
 ```python
 from agents.openclaw_integration import OpenClawIntegrationAgent
 agent = OpenClawIntegrationAgent()
@@ -88,12 +88,12 @@ from agents.openclaw_integration import OpenClawIntegrationAgent
 agent = OpenClawIntegrationAgent()
 
 # Send a message
-agent.send_message_to_openclaw('telegram', 'Hello from SuperAgency!')
+agent.send_message_to_openclaw('telegram', 'Hello from DIGITAL LABOUR!')
 
 # Create a custom skill
-agent.create_superagency_skill(
+agent.create_DIGITAL LABOUR_skill(
     name='system_monitor',
-    description='Monitor SuperAgency system status',
+    description='Monitor DIGITAL LABOUR system status',
     capabilities=['health_checks', 'performance_monitoring']
 )
 ```
@@ -110,34 +110,34 @@ This will:
 1. Check OpenClaw installation
 2. Attempt installation if needed
 3. Configure messaging platforms
-4. Create sample SuperAgency skills
+4. Create sample DIGITAL LABOUR skills
 5. Test message sending
 
-## SuperAgency Skills
+## DIGITAL LABOUR Skills
 
-Create skills tailored for SuperAgency operations:
+Create skills tailored for DIGITAL LABOUR Operations:
 
 ### System Monitoring Skill
 ```python
-agent.create_superagency_skill(
-    'superagency_monitor',
-    'Monitor SuperAgency operations and report status',
+agent.create_DIGITAL LABOUR_skill(
+    'DIGITAL LABOUR_monitor',
+    'Monitor DIGITAL LABOUR Operations and report status',
     ['system_monitoring', 'status_reporting', 'alert_generation']
 )
 ```
 
 ### Task Execution Skill
 ```python
-agent.create_superagency_skill(
-    'superagency_executor',
-    'Execute SuperAgency tasks autonomously',
+agent.create_DIGITAL LABOUR_skill(
+    'DIGITAL LABOUR_executor',
+    'Execute DIGITAL LABOUR tasks autonomously',
     ['task_execution', 'workflow_automation', 'decision_making']
 )
 ```
 
 ### Intelligence Analysis Skill
 ```python
-agent.create_superagency_skill(
+agent.create_DIGITAL LABOUR_skill(
     'intelligence_analyzer',
     'Analyze data and provide insights',
     ['data_analysis', 'pattern_recognition', 'report_generation']
@@ -274,16 +274,16 @@ workflow = {
     'name': 'health_check_workflow',
     'triggers': ['schedule:daily', 'event:system_alert'],
     'steps': [
-        {'skill': 'superagency_monitor', 'action': 'check_system_health'},
+        {'skill': 'DIGITAL LABOUR_monitor', 'action': 'check_system_health'},
         {'skill': 'intelligence_analyzer', 'action': 'analyze_results'},
-        {'skill': 'superagency_executor', 'action': 'generate_report'}
+        {'skill': 'DIGITAL LABOUR_executor', 'action': 'generate_report'}
     ]
 }
 ```
 
-### Integration with Existing SuperAgency Components
+### Integration with Existing DIGITAL LABOUR Components
 
-The OpenClaw integration works alongside existing SuperAgency agents:
+The OpenClaw integration works alongside existing DIGITAL LABOUR Agents:
 
 - **Council Agent**: Decision making and approval workflows
 - **Orchestrator Agent**: Task coordination and execution
@@ -293,7 +293,7 @@ The OpenClaw integration works alongside existing SuperAgency agents:
 ## Support and Resources
 
 - **OpenClaw Documentation**: https://openclaw.ai/docs
-- **SuperAgency Integration**: This README and source code
+- **DIGITAL LABOUR Integration**: This README and source code
 - **Community Support**: OpenClaw Discord/Telegram communities
 
 ## Future Enhancements
@@ -307,4 +307,4 @@ Planned improvements:
 
 ---
 
-*This integration brings autonomous AI capabilities to SuperAgency, enabling more efficient and intelligent operations through local AI processing and comprehensive messaging integration.*
+*This integration brings autonomous AI capabilities to DIGITAL LABOUR, enabling more efficient and intelligent operations through local AI processing and comprehensive messaging integration.*

@@ -1,0 +1,20 @@
+{
+  "id": "selfheal-resonance-uy-py -20260317051651 ",
+  "type": "remediation",
+  "proposed_by": "portfolio_selfheal",
+  "title": "Fix issues in resonance-uy-py",
+  "repo_name": "resonance-uy-py",
+  "issues": [
+    "MISSING: no CI/CD config detected",
+    "MISSING: no dependency manifest found",
+    "MISSING: no LICENSE file"
+  ],
+  "risk": "LOW",
+  "autonomy_required": "L1",
+  "suggested_actions": [
+    "Add GitHub Actions CI workflow",
+    "Create requirements.txt or package.json",
+    "Add MIT LICENSE file"
+  ],
+  "created_at": "2026-03-17T05:16:51"
+}

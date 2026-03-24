@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Super Agency Advanced Integration Framework
+DIGITAL LABOUR Advanced Integration Framework
 Implements enhanced cross-system integration, advanced AI decision-making,
 scalability testing, autonomous expansion, predictive analytics,
 multi-cloud deployment, full autonomy, global intelligence network,
@@ -32,7 +32,7 @@ logger = logging.getLogger(__name__)
 
 class AdvancedIntegrationFramework:
     """
-    Advanced Integration Framework for Super Agency
+    Advanced Integration Framework for DIGITAL LABOUR
     Implements all future development roadmap items
     """
 
@@ -363,7 +363,7 @@ class CrossSystemIntegration:
         self.communication_protocols = {}
 
     async def integrate_all_systems(self) -> Dict[str, Any]:
-        """Integrate all Super Agency systems"""
+        """Integrate all DIGITAL LABOUR systems"""
         # Implement system integration logic
         return {'status': 'integrated', 'systems_connected': 9}
 

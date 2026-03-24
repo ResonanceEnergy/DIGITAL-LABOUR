@@ -1,7 +1,7 @@
-﻿"""Board Dispatcher — Converts C-Suite board directives into executable tasks.
+"""Board Dispatcher — Converts C-Suite board directives into executable tasks.
 
 Reads board meeting output from boardroom.py, parses the execution_queue,
-and dispatches each directive to the appropriate BIT RAGE SYSTEMS subsystem:
+and dispatches each directive to the appropriate Digital Labour subsystem:
 NERVE phases, automation modules, dispatcher queue, or alert channels.
 
 Usage:

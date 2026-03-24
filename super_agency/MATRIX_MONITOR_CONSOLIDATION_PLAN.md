@@ -24,10 +24,10 @@ This document outlines the consolidation of 25+ Matrix Monitor implementations i
 ### TIER 3: DUPLICATES (DELETE)
 | File | Identical To | Action |
 |------|--------------|--------|
-| `Super-Agency/matrix_monitor.py` | `matrix_monitor.py` | DELETE |
-| `repos/Super-Agency/matrix_monitor.py` | `matrix_monitor.py` (with syntax errors) | DELETE |
-| `repos/Super-Agency/test_matrix_monitor.py` | `test_matrix_monitor.py` | DELETE |
-| `Super-Agency/test_matrix_monitor.py` | `test_matrix_monitor.py` | DELETE |
+| `Digital-Labour/matrix_monitor.py` | `matrix_monitor.py` | DELETE |
+| `repos/Digital-Labour/matrix_monitor.py` | `matrix_monitor.py` (with syntax errors) | DELETE |
+| `repos/Digital-Labour/test_matrix_monitor.py` | `test_matrix_monitor.py` | DELETE |
+| `Digital-Labour/test_matrix_monitor.py` | `test_matrix_monitor.py` | DELETE |
 
 ### TIER 4: SUPPORT FILES (ARCHIVE)
 | File | Purpose | Action |
@@ -88,10 +88,10 @@ Matrix Monitor Architecture
 ## Execution Steps
 
 ### Phase 1: Delete Duplicates
-1. Remove `Super-Agency/matrix_monitor.py`
-2. Remove `Super-Agency/test_matrix_monitor.py`
-3. Remove `repos/Super-Agency/matrix_monitor.py`
-4. Remove `repos/Super-Agency/test_matrix_monitor.py`
+1. Remove `Digital-Labour/matrix_monitor.py`
+2. Remove `Digital-Labour/test_matrix_monitor.py`
+3. Remove `repos/Digital-Labour/matrix_monitor.py`
+4. Remove `repos/Digital-Labour/test_matrix_monitor.py`
 
 ### Phase 2: Archive Demo/Obsolete Files
 1. Create `archive/matrix_monitor_legacy/` directory

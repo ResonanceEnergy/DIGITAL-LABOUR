@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Super Agency Doctrine Evolution Framework
+DIGITAL LABOUR Doctrine Evolution Framework
 Structured doctrine updates with impact assessment and governance
 """
 

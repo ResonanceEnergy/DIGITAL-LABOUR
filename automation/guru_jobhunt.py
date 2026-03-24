@@ -1,4 +1,4 @@
-﻿"""Guru.com Job Hunt — automated project search, scoring, and proposal submission.
+"""Guru.com Job Hunt — automated project search, scoring, and proposal submission.
 
 Opens Edge browser, searches Guru for matching projects, scores them
 against our 20 agent capabilities, generates tailored proposals, and submits bids.
@@ -189,7 +189,7 @@ The proposal should:
 - End with a clear call to action
 - Sound human, warm, and confident — not generic
 
-Sign off as "BIT RAGE SYSTEMS — AI-Powered Business Services"
+Sign off as "DIGITAL LABOUR — AI-Powered Business Services"
 """
     api_key = os.getenv("OPENAI_API_KEY")
     if api_key:
@@ -210,12 +210,12 @@ Sign off as "BIT RAGE SYSTEMS — AI-Powered Business Services"
 
 I came across your project "{title}" and I'm confident I can help.
 
-I run BIT RAGE SYSTEMS, an AI-powered business services agency. We specialise in exactly this type of work and use advanced automation tools to deliver fast, accurate results.
+I run DIGITAL LABOUR, an AI-powered business services agency. We specialise in exactly this type of work and use advanced automation tools to deliver fast, accurate results.
 
 I'd love to discuss your requirements in more detail and get started quickly.
 
 Best regards,
-BIT RAGE SYSTEMS — AI-Powered Business Services"""
+DIGITAL LABOUR — AI-Powered Business Services"""
 
 
 # ── Search Projects ─────────────────────────────────────────────────────────

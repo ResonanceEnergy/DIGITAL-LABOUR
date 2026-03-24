@@ -1,30 +1,30 @@
 # 📝 Microsoft Support Ticket Template
-## Account Merge Request - Bit Rage Systems Operations
+## Account Merge Request - DIGITAL LABOUR Operations
 
-**Subject:** Urgent Account Merge Request - Bit Rage Systems Business Consolidation
+**Subject:** Urgent Account Merge Request - DIGITAL LABOUR Business Consolidation
 
 ---
 
 **Dear Microsoft Support Team,**
 
-I am requesting assistance to merge three Microsoft accounts as part of consolidating my Bit Rage Systems operations. This is critical for maintaining unified access to Azure, VS Code, cloud storage, and other Microsoft services.
+I am requesting assistance to merge three Microsoft accounts as part of consolidating my DIGITAL LABOUR operations. This is critical for maintaining unified access to Azure, VS Code, cloud storage, and other Microsoft services.
 
 **Primary Account (Keep This One):**
 - Email: nate@gripandripp.onmicrosoft.com
 - Type: Business/Organization Account
-- Purpose: Bit Rage Systems primary operations
+- Purpose: DIGITAL LABOUR primary operations
 
 **Secondary Accounts (Merge Into Primary):**
 1. Email: gripandripphdd@outlook.com
    - Type: Personal Outlook Account
    - Services: VS Code extensions, personal cloud storage files
 
-2. Email: acceleratedarbitrage@outlook.com
+2. Email: acceleratedarDIGITAL LABOUR@outlook.com
    - Type: Personal Outlook Account
    - Services: Financial data, trading applications
 
 **Reason for Merge:**
-I am consolidating multiple Microsoft accounts to streamline my Bit Rage Systems operations. The business account (nate@gripandripp.onmicrosoft.com) should serve as the primary account for all Azure, VS Code, cloud storage, and related services.
+I am consolidating multiple Microsoft accounts to streamline my DIGITAL LABOUR operations. The business account (nate@gripandripp.onmicrosoft.com) should serve as the primary account for all Azure, VS Code, cloud storage, and related services.
 
 **Services Impacted:**
 - Azure subscriptions and resources
@@ -35,7 +35,7 @@ I am consolidating multiple Microsoft accounts to streamline my Bit Rage Systems
 - GitHub integrations
 
 **Urgency:**
-High - This affects ongoing Bit Rage Systems development and operations. Multiple accounts are causing fragmentation of critical business data and development environments.
+High - This affects ongoing DIGITAL LABOUR development and operations. Multiple accounts are causing fragmentation of critical business data and development environments.
 
 **Preferred Solution:**
 Merge all data and services from the secondary accounts into the primary business account (nate@gripandripp.onmicrosoft.com). If full merge is not possible, please provide guidance on adding aliases or alternative consolidation methods.
@@ -54,11 +54,11 @@ Thank you for your assistance with this important account consolidation.
 
 **Best regards,**  
 [Your Full Name]  
-Bit Rage Systems Operations  
+DIGITAL LABOUR Operations  
 nate@gripandripp.onmicrosoft.com
 
 ---
 
 **Copy and paste this template into the Microsoft support ticket system at:**
 https://support.microsoft.com/en-us/account-billing/contact-microsoft-account-support-4c4e1f1d</content>
-<parameter name="filePath">C:\Dev\SuperAgency-Shared\MICROSOFT_SUPPORT_TICKET_TEMPLATE.md
+<parameter name="filePath">C:\Dev\DIGITAL-LABOUR\MICROSOFT_SUPPORT_TICKET_TEMPLATE.md

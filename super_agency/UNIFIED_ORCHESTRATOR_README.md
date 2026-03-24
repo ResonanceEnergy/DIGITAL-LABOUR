@@ -1,8 +1,8 @@
-# Unified Bit Rage Systems Orchestration & Monitoring System
+# Unified DIGITAL LABOUR Orchestration & Monitoring System
 
 ## Overview
 
-The **Unified Bit Rage Systems Orchestrator** is a comprehensive integration system that combines all SuperAgency components into a single, intelligent orchestration platform. This system provides:
+The **Unified DIGITAL LABOUR Orchestrator** is a comprehensive integration system that combines all DIGITAL LABOUR components into a single, intelligent orchestration platform. This system provides:
 
 - **Real-time Health Monitoring** - Matrix Monitor integration with component status tracking
 - **Intelligent Automation** - Smart task scheduling with 5-minute intervals and adaptive timing
@@ -42,7 +42,7 @@ The **Unified Bit Rage Systems Orchestrator** is a comprehensive integration sys
 ### Installation
 
 1. **Clone or ensure all files are in place:**
-   - `unified_super_agency_orchestrator.py`
+   - `unified_bit_rage_labour_orchestrator.py`
    - `unified_orchestrator_config.json`
    - `launch_unified_orchestrator.ps1`
    - `templates/unified_dashboard.html`
@@ -139,7 +139,7 @@ Research and discovery capabilities:
 
 ### Environment Variables
 
-- `SUPER_AGENCY_CONFIG` - Path to config file
+- `DL_CONFIG` - Path to config file
 - `PYTHONPATH` - Python module search path
 - `LOG_LEVEL` - Logging verbosity (DEBUG, INFO, WARNING, ERROR)
 
@@ -281,4 +281,4 @@ For issues and questions:
 
 ## License
 
-SuperAgency Internal Use Only - All Rights Reserved
+DIGITAL LABOUR Internal Use Only - All Rights Reserved

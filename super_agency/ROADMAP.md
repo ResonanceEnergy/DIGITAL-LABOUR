@@ -1,4 +1,4 @@
-# Bit Rage Systems - ROADMAP TO SUCCESS
+# DIGITAL LABOUR - ROADMAP TO SUCCESS
 ## Resonance Energy | Updated March 6, 2026
 
 ---
@@ -109,7 +109,7 @@ Step 9. Dockerize                                          [1 day]
 ### 2.4 Memory Doctrine Live
 - [x] Run memory backup system 24/7 alongside main process (ContinuousMemoryBackup as daemon thread)
 - [x] Implement blank detection and auto-consolidation (memory_blank_detector.py)
-- [x] Wire memory system into agent startup (memory backup thread in run_super_agency.py)
+- [x] Wire memory system into agent startup (memory backup thread in run_bit_rage_labour.py)
 - [x] Add memory health metrics to Matrix Maximizer dashboard (/api/memory + Prometheus gauges)
 
 **Exit Criteria:** Council meets and makes structured decisions. Agents communicate via message bus. Intelligence flows in from YouTube. Memory persists and is queryable.
@@ -152,7 +152,7 @@ Step 9. Dockerize                                          [1 day]
 *Goal: Run anywhere, not just this Windows machine*
 
 ### 4.1 Docker
-- [x] Create `Dockerfile` for the Bit Rage Systems runtime (multi-stage build, non-root user)
+- [x] Create `Dockerfile` for the DIGITAL LABOUR runtime (multi-stage build, non-root user)
 - [x] Create `docker-compose.yml` with resource limits (2GB memory, 2 CPU)
 - [x] Mount `repos/`, `memory/`, `memory_backups/`, `logs/`, `reports/`, `knowledge/`, `council_meetings/` as volumes
 - [x] Environment variable injection via `.env` file
@@ -170,7 +170,7 @@ Step 9. Dockerize                                          [1 day]
 
 ### 4.4 Observability
 - [x] Structured logging (JSON format via LOG_FORMAT=json env var)
-- [x] Centralized log file with rotation (RotatingFileHandler, 5MB x 5 backups, logs/super_agency.log)
+- [x] Centralized log file with rotation (RotatingFileHandler, 5MB x 5 backups, logs/bit_rage_labour.log)
 - [x] Metrics endpoint on Matrix Maximizer (Prometheus-compatible `/metrics` with CPU, memory, disk, agent, circuit breaker gauges)
 - [x] Dashboard for operational visibility (Grafana or built-in)
 

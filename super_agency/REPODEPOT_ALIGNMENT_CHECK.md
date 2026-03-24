@@ -130,7 +130,7 @@ Priority order:
 
 ### Step 4: First Real Task
 ```bash
-# Pick ONE repo (Super-Agency)
+# Pick ONE repo (Digital-Labour)
 # Execute ONE task (generate README)
 # Verify with git log
 # If commit exists, it's working

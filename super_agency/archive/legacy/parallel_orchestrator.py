@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Parallel Orchestrator
-High-performance version of the Super Agency orchestrator with maximum CPU utilization
+High-performance version of the DIGITAL LABOUR orchestrator with maximum CPU utilization
 """
 
 import concurrent.futures
@@ -16,7 +16,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 class ParallelOrchestrator:
-    """Orchestrates multiple Super Agency agents in parallel for maximum throughput"""
+    """Orchestrates multiple DIGITAL LABOUR agents in parallel for maximum throughput"""
 
     def __init__(self):
         self.root = Path(__file__).resolve().parent
@@ -151,7 +151,7 @@ class ParallelOrchestrator:
 
 def main():
     """Main parallel orchestration function"""
-    print("⚡ Super Agency Parallel Orchestrator")
+    print("⚡ DIGITAL LABOUR Parallel Orchestrator")
     print("=" * 50)
 
     orchestrator = ParallelOrchestrator()

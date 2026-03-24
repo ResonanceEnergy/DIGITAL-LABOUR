@@ -1,4 +1,4 @@
-﻿"""Freelancer.com Job Hunt — automated project search, scoring, and bid submission.
+"""Freelancer.com Job Hunt — automated project search, scoring, and bid submission.
 
 Opens Edge browser, searches Freelancer.com for matching projects, scores them,
 generates tailored proposals via the freelancer_work agent, and submits bids.
@@ -28,7 +28,7 @@ from playwright.sync_api import sync_playwright
 from playwright_stealth import Stealth
 
 # ── Paths ───────────────────────────────────────────────────────────────────
-EDGE_PROFILE_DIR = PROJECT / "data" / "platform_browser" / "freelancer_edge_profile"
+EDGE_PROFILE_DIR = PROJECT / "data" / "platform_browser" / "edge_profile"
 EDGE_PROFILE_DIR.mkdir(parents=True, exist_ok=True)
 
 COOKIE_FILE = PROJECT / "data" / "platform_browser" / "cookies" / "freelancer_cookies.json"
@@ -253,7 +253,7 @@ I reviewed your project requirements and this matches my production capabilities
 
 {chr(10).join(relevant)}
 
-I run BIT RAGE SYSTEMS — an AI agent agency with 20 specialized agents. Every deliverable passes automated QA verification before delivery.
+I run DIGITAL LABOUR — an AI agent agency with 20 specialized agents. Every deliverable passes automated QA verification before delivery.
 
 **How I'd handle this:**
 1. Quick scope confirmation (async or call)
@@ -262,7 +262,7 @@ I run BIT RAGE SYSTEMS — an AI agent agency with 20 specialized agents. Every 
 
 Happy to start with a small sample to demonstrate quality.
 
-— BIT RAGE SYSTEMS (Canada)"""
+— DIGITAL LABOUR (Canada)"""
 
 
 def search_projects(page, query: str, max_results: int = 10) -> list[dict]:

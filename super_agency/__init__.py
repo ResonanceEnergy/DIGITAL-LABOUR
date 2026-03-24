@@ -1,9 +1,9 @@
 """
-BIT RAGE SYSTEMS — Super Agency Module
+DIGITAL LABOUR — DIGITAL LABOUR Module
 =======================================
 Autonomous agent governance, intelligence operations, and portfolio management.
 
-Integrated from Super-Agency (ResonanceEnergy/Super-Agency) into BIT RAGE SYSTEMS.
+Integrated from Digital-Labour (ResonanceEnergy/Digital-Labour) into DIGITAL LABOUR.
 This module provides the AGENCY pillar: orchestration, executive council,
 memory doctrine, and portfolio intelligence.
 
@@ -19,4 +19,4 @@ Subpackages:
 """
 
 __version__ = "2.0.0"
-__codename__ = "BIT RAGE SYSTEMS"
+__codename__ = "DIGITAL LABOUR"

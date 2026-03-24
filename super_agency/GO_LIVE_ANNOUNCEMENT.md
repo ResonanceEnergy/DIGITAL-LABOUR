@@ -1,4 +1,4 @@
-# 🎉 Bit Rage Systems GO-LIVE ANNOUNCEMENT
+# 🎉 DIGITAL LABOUR GO-LIVE ANNOUNCEMENT
 
 **Date**: February 20, 2026  
 **Status**: 🟢 **LIVE AND OPERATIONAL**  
@@ -8,7 +8,7 @@
 
 ## 🚀 MISSION ACCOMPLISHED
 
-**Bit Rage Systems is now LIVE!** The autonomous intelligence company-of-companies framework has successfully transitioned from development to operational status.
+**DIGITAL LABOUR is now LIVE!** The autonomous intelligence company-of-companies framework has successfully transitioned from development to operational status.
 
 ### What This Means
 - **Autonomous Operations**: Daily orchestration cycle running
@@ -44,7 +44,7 @@
 
 ```bash
 # Quick manual run
-cd "C:\Dev\SuperAgency-Shared"
+cd "C:\Dev\DIGITAL-LABOUR"
 .\DAILY_OPS.bat
 ```
 
@@ -124,7 +124,7 @@ cd "C:\Dev\SuperAgency-Shared"
 
 ## 🎊 CELEBRATION
 
-**This is the beginning of something extraordinary.** Bit Rage Systems represents the convergence of ethical AI, autonomous business operations, and human-aligned governance.
+**This is the beginning of something extraordinary.** DIGITAL LABOUR represents the convergence of ethical AI, autonomous business operations, and human-aligned governance.
 
 - **Phase 1 Complete**: Foundation successfully built
 - **Local-First Success**: Proven operational model
@@ -151,4 +151,4 @@ python agents\orchestrator.py
 type GO_LIVE_STATUS.md
 ```
 
-**Bit Rage Systems is LIVE. The autonomous future begins now.** 🚀
+**DIGITAL LABOUR is LIVE. The autonomous future begins now.** 🚀

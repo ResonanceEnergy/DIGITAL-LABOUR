@@ -1,4 +1,4 @@
-# Bit Rage Systems AGENT ARCHITECTURE SPECIFICATION
+# DIGITAL LABOUR AGENT ARCHITECTURE SPECIFICATION
 ## Dual-Agent System: Passive & Working Agents
 
 **Version:** 1.0
@@ -9,7 +9,7 @@
 
 ## EXECUTIVE SUMMARY
 
-The Bit Rage Systems implements a dual-agent architecture consisting of **Passive Agents** (continuous background operations) and **Working Agents** (active execution agents). This architecture ensures comprehensive coverage across all operational domains while maintaining efficient resource utilization.
+The DIGITAL LABOUR implements a dual-agent architecture consisting of **Passive Agents** (continuous background operations) and **Working Agents** (active execution agents). This architecture ensures comprehensive coverage across all operational domains while maintaining efficient resource utilization.
 
 ---
 
@@ -235,7 +235,7 @@ The Bit Rage Systems implements a dual-agent architecture consisting of **Passiv
 
 ## CONCLUSION
 
-The dual-agent architecture provides comprehensive coverage across all operational domains while maintaining efficiency and scalability. Passive agents ensure continuous intelligence accumulation and system health, while working agents deliver focused execution and immediate results. This framework enables the Bit Rage Systems to operate as a truly autonomous intelligence network capable of complex multi-domain operations.
+The dual-agent architecture provides comprehensive coverage across all operational domains while maintaining efficiency and scalability. Passive agents ensure continuous intelligence accumulation and system health, while working agents deliver focused execution and immediate results. This framework enables the DIGITAL LABOUR to operate as a truly autonomous intelligence network capable of complex multi-domain operations.
 
 **Next Phase:** Deploy executive agents and expand intelligence synthesis capabilities.</content>
-<parameter name="filePath">C:\Dev\SuperAgency-Shared\AGENT_ARCHITECTURE_SPECIFICATION.md
+<parameter name="filePath">C:\Dev\DIGITAL-LABOUR\AGENT_ARCHITECTURE_SPECIFICATION.md

@@ -516,7 +516,7 @@ def main():
 
     workspace = Path(args.workspace).resolve()
     if not (workspace / "portfolio.json").exists():
-        alt = Path("$HOME/repos/SuperAgency-Shared")
+        alt = Path("$HOME/repos/DIGITAL-LABOUR")
         if (alt / "portfolio.json").exists():
             workspace = alt
 

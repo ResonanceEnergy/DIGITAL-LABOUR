@@ -10,9 +10,9 @@ from pathlib import Path
 from datetime import datetime
 
 # Configuration
-ROOT = Path(__file__).parent / "ResonanceEnergy_SuperAgency"
+ROOT = Path(__file__).parent / "ResonanceEnergy_BitRageLabour"
 CONFIG = json.loads((ROOT/'config'/'settings.json').read_text(encoding='utf-8'))
-REPOS_BASE = Path("../../repos").resolve()  # Relative to ResonanceEnergy_SuperAgency
+REPOS_BASE = Path("../../repos").resolve()  # Relative to ResonanceEnergy_BitRageLabour
 REPORTS_DIR = ROOT / "reports"
 REPORTS_DIR.mkdir(parents=True, exist_ok=True)
 

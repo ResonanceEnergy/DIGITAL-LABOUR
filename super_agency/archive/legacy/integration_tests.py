@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Super Agency Memory Doctrine Integration Tests
+DIGITAL LABOUR Memory Doctrine Integration Tests
 Comprehensive validation of memory and doctrine systems
 """
 
@@ -606,7 +606,7 @@ class IntegrationTestSuite:
 
             # Test memory storage
             memory_id = semantic_memory.store_memory(
-                "The Super Agency uses advanced memory systems for optimal performance.",
+                "The DIGITAL LABOUR uses advanced memory systems for optimal performance.",
                 content_type="documentation",
                 importance=0.9,
                 tags=["memory", "performance", "agency"]

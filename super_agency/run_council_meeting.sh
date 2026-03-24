@@ -1,8 +1,8 @@
 #!/bin/bash
-# Bit Rage Systems Agent Council Meeting Runner
+# DIGITAL LABOUR Agent Council Meeting Runner
 # Triggered every 15 minutes by launchd
 
-cd "$HOME/repos/SuperAgency-Shared"
+cd "$HOME/repos/DIGITAL LABOUR-Shared"
 
 # Run the council meeting
 python3 agent_council_meeting.py >> council_meetings/scheduler.log 2>&1

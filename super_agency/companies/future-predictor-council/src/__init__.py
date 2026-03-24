@@ -1,5 +1,5 @@
-"""Bit Rage Systems Portfolio Company: future-predictor-council"""
+"""DIGITAL LABOUR Portfolio Company: future-predictor-council"""
 
 __version__ = "1.0.0"
-__author__ = "Bit Rage Systems"
+__author__ = "DIGITAL LABOUR"
 __description__ = "future-predictor-council portfolio company"

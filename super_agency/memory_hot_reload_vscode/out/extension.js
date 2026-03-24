@@ -28,7 +28,7 @@ const vscode = __importStar(require("vscode"));
 const path = __importStar(require("path"));
 const fs = __importStar(require("fs"));
 function activate(context) {
-    console.log('🧠 Super Agency Memory Hot Reload extension activated');
+    console.log('🧠 DIGITAL LABOUR Memory Hot Reload extension activated');
     // Track file watchers
     const fileWatchers = new Map();
     const memoryFiles = [
@@ -41,13 +41,13 @@ function activate(context) {
     let isHotReloadActive = false;
     // Status bar item
     const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
-    statusBarItem.command = 'superAgencyMemory.showMemoryStatus';
-    statusBarItem.tooltip = 'Super Agency Memory System Status';
+    statusBarItem.command = 'digitalLabourMemory.showMemoryStatus';
+    statusBarItem.tooltip = 'DIGITAL LABOUR Memory System Status';
     updateStatusBar('$(database) Memory: $(check)');
     // Register commands
-    context.subscriptions.push(vscode.commands.registerCommand('superAgencyMemory.startHotReload', startHotReload), vscode.commands.registerCommand('superAgencyMemory.stopHotReload', stopHotReload), vscode.commands.registerCommand('superAgencyMemory.showMemoryStatus', showMemoryStatus), vscode.commands.registerCommand('superAgencyMemory.forceReload', forceReload));
+    context.subscriptions.push(vscode.commands.registerCommand('digitalLabourMemory.startHotReload', startHotReload), vscode.commands.registerCommand('digitalLabourMemory.stopHotReload', stopHotReload), vscode.commands.registerCommand('digitalLabourMemory.showMemoryStatus', showMemoryStatus), vscode.commands.registerCommand('digitalLabourMemory.forceReload', forceReload));
     // Auto-start if configured
-    const config = vscode.workspace.getConfiguration('superAgencyMemory');
+    const config = vscode.workspace.getConfiguration('digitalLabourMemory');
     if (config.get('autoStart', true)) {
         setTimeout(() => startHotReload(), 2000);
     }
@@ -229,7 +229,7 @@ try:
     integration = get_memory_integration_status()
     backup = get_backup_status()
     
-    print('🏢 SUPER AGENCY MEMORY STATUS')
+    print('🏢 DIGITAL LABOUR MEMORY STATUS')
     print('=' * 40)
     print(f'🔗 Integration Active: {all(integration.values())}')
     print(f'🛡️ Backup Running: {backup.get(\"running\", False)}')
@@ -246,7 +246,7 @@ except Exception as e:
         terminal.sendText(statusCommand);
     }
     function showNotification(title, message) {
-        const config = vscode.workspace.getConfiguration('superAgencyMemory');
+        const config = vscode.workspace.getConfiguration('digitalLabourMemory');
         if (config.get('showNotifications', true)) {
             vscode.window.showInformationMessage(`${title}: ${message}`);
         }
@@ -261,7 +261,7 @@ except Exception as e:
 }
 exports.activate = activate;
 function deactivate() {
-    console.log('🧠 Super Agency Memory Hot Reload extension deactivated');
+    console.log('🧠 DIGITAL LABOUR Memory Hot Reload extension deactivated');
 }
 exports.deactivate = deactivate;
 //# sourceMappingURL=extension.js.map

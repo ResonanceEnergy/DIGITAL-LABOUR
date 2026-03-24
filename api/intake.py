@@ -1,4 +1,4 @@
-﻿"""FastAPI intake webhook for BIT RAGE SYSTEMS.
+"""FastAPI intake webhook for DIGITAL LABOUR.
 
 Receives task requests via HTTP, validates them, queues them, and returns task IDs.
 Optionally processes immediately (sync mode) or returns for async pickup.
@@ -45,7 +45,7 @@ except Exception:
     pass
 
 app = FastAPI(
-    title="BIT RAGE SYSTEMS Intake API",
+    title="DIGITAL LABOUR Intake API",
     version="1.0.0",
     description="Submit tasks to the AI workforce. Returns structured outputs.",
 )
@@ -96,7 +96,7 @@ app.include_router(monitor_router)
 # Payment & signup endpoints
 app.include_router(payment_router)
 
-# BIT RAGE SYSTEMS MATRIX MONITOR — Mobile C2
+# DIGITAL LABOUR MATRIX MONITOR — Mobile C2
 app.include_router(matrix_router)
 
 # OpenClaw Automation Engine
@@ -115,16 +115,16 @@ def ops_dashboard():
 
 @app.get("/matrix", response_class=HTMLResponse)
 def matrix_dashboard():
-    """Serve the BIT RAGE SYSTEMS MATRIX MONITOR — mobile C2 dashboard."""
+    """Serve the DIGITAL LABOUR MATRIX MONITOR — mobile C2 dashboard."""
     html_path = Path(__file__).parent / "matrix_dashboard.html"
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
 
 @app.get("/matrix/manifest.json")
 def matrix_manifest():
-    """PWA manifest for BIT RAGE SYSTEMS MATRIX — Add to Home Screen support."""
+    """PWA manifest for DIGITAL LABOUR MATRIX — Add to Home Screen support."""
     return JSONResponse({
-        "name": "BIT RAGE SYSTEMS MATRIX",
+        "name": "DIGITAL LABOUR MATRIX",
         "short_name": "MATRIX",
         "start_url": "/matrix",
         "display": "standalone",

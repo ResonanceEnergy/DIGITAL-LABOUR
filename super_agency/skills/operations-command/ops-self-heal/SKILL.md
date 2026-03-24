@@ -1,7 +1,7 @@
 # SKILL: ops-self-heal
 ## Self-Healing Server Pattern
 
-Continuous watchdog that monitors all Super-Agency services, detects failures,
+Continuous watchdog that monitors all Digital-Labour services, detects failures,
 and auto-remediates without human intervention. Covers OpenClaw gateway,
 REPO DEPOT agents, Memory Doctrine, Matrix Monitor, and all department services.
 

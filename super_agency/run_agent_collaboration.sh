@@ -1,8 +1,8 @@
 #!/bin/bash
-# Bit Rage Systems OPTIMUS + GASKET Agent Collaboration Runner
+# DIGITAL LABOUR OPTIMUS + GASKET Agent Collaboration Runner
 # Runs production agent collaboration every 15 minutes
 
-cd "$HOME/repos/SuperAgency-Shared"
+cd "$HOME/repos/DIGITAL LABOUR-Shared"
 
 # Run production cycle for 14 minutes (leaves buffer before next run)
 PRODUCTION_HOURS=0.23 python3 production_agent_collaboration.py >> gasket_logs/production.log 2>&1

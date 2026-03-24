@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Automation Manager Agent — Bit Rage Systems
+Automation Manager Agent — DIGITAL LABOUR
 =============================================
 T2 Management agent responsible for pipeline
 orchestration, scheduled task management, cron

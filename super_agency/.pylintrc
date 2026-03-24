@@ -1,7 +1,7 @@
 [master]
-# SuperAgency workspace pylint configuration
+# Digital Labour workspace pylint configuration
 # Suppresses non-critical style warnings to focus on real bugs
-ignore-paths=repos,Super-Agency,openclaw,openclaw-workspace,nextjs-openai-integration
+ignore-paths=repos,Digital-Labour,openclaw,openclaw-workspace,nextjs-openai-integration
 
 [MESSAGES CONTROL]
 # Disable noisy stylistic warnings that don't indicate bugs:

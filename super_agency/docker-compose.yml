@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-  bit-rage-systems:
+  bit-rage-labour:
     build: .
-    container_name: bit-rage-systems
+    container_name: bit-rage-labour
     restart: unless-stopped
     ports:
       - "8080:8080"   # Matrix Maximizer dashboard

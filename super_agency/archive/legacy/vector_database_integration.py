@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Super Agency Vector Database Integration
+DIGITAL LABOUR Vector Database Integration
 Enhanced semantic search and memory retrieval
 """
 
@@ -685,7 +685,7 @@ if __name__ == "__main__":
 
         # Test storing memory
         memory_id = memory.store_memory(
-            "The Super Agency doctrine emphasizes memory optimization and context preservation across all operations.",
+            "The DIGITAL LABOUR doctrine emphasizes memory optimization and context preservation across all operations.",
             content_type="doctrine",
             importance=0.9,
             tags=["doctrine", "memory", "optimization"]

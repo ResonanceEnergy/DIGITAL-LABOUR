@@ -36,7 +36,7 @@ if ($problematicProcesses) {
 # Check for file locks in the workspace
 Write-Host "`n🔍 Checking for file lock issues..." -ForegroundColor Blue
 
-$workspacePath = "C:\Dev\SuperAgency-Shared"
+$workspacePath = "C:\Dev\DIGITAL LABOUR-Shared"
 
 # Clear any stuck prompts
 Write-Host "`n🧹 Clearing terminal state..." -ForegroundColor Blue

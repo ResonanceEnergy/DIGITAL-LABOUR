@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🚀 SUPER AGENCY - 24/7 PRODUCTION AGENT COLLABORATION SYSTEM
+🚀 DIGITAL LABOUR - 24/7 PRODUCTION AGENT COLLABORATION SYSTEM
 ============================================================
 Orchestrates OPTIMUS + GASKET agents for continuous forward progress
 on all ResonanceEnergy repositories with cross-platform sync.
@@ -484,7 +484,7 @@ def get_collaboration_instructions() -> str:
     """Get collaboration instructions for OPTIMUS and GASKET"""
     return """
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║       🚀 SUPER AGENCY - AGENT COLLABORATION PROTOCOL 🚀                       ║
+║       🚀 DIGITAL LABOUR - AGENT COLLABORATION PROTOCOL 🚀                       ║
 ╠══════════════════════════════════════════════════════════════════════════════╣
 ║                                                                               ║
 ║  SYSTEM ARCHITECTURE:                                                         ║
@@ -525,7 +525,7 @@ def get_collaboration_instructions() -> str:
 ║  6. Both agents sync via git every 5 minutes                            ║
 ║                                                                               ║
 ║  REPO PRIORITY ORDER:                                                         ║
-║  1. CRITICAL: NCL, NCC-Doctrine, Super-Agency                                ║
+║  1. CRITICAL: NCL, NCC-Doctrine, Digital-Labour                                ║
 ║  2. HIGH: Resonance-Energy-Systems, ResonanceEnergy_Enterprise               ║
 ║  3. MEDIUM: TESLA-TECH, future-predictor-council, TESLACALLS2026             ║
 ║  4. STANDARD: All other repos in portfolio                                   ║

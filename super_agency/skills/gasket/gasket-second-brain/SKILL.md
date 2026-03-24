@@ -4,7 +4,7 @@ description: Second brain capture — save ideas, links, notes instantly via tex
 metadata: {"openclaw":{"always":true,"emoji":"💡"}}
 ---
 
-Zero-friction capture for the Bit Rage Systems second brain.
+Zero-friction capture for the DIGITAL LABOUR second brain.
 
 ## When the User Texts Anything to Remember
 

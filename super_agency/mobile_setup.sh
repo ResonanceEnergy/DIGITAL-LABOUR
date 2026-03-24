@@ -1,5 +1,5 @@
 #!/bin/bash
-# Bit Rage Systems Mobile Remote Access Setup
+# DIGITAL LABOUR Mobile Remote Access Setup
 # Run locally and access from anywhere with phone/iPad
 
 set -e
@@ -112,8 +112,8 @@ setup_local_server() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Bit Rage Systems">
-    <title>Bit Rage Systems Command Center</title>
+    <meta name="apple-mobile-web-app-title" content="DIGITAL LABOUR">
+    <title>DIGITAL LABOUR Command Center</title>
     <link rel="stylesheet" href="/static/css/mobile.css">
     <link rel="apple-touch-icon" href="/static/icons/icon-192.png">
     <link rel="manifest" href="/static/manifest.json">
@@ -121,7 +121,7 @@ setup_local_server() {
 <body>
     <div class="mobile-container">
         <header class="mobile-header">
-            <h1>🚀 Bit Rage Systems</h1>
+            <h1>🚀 DIGITAL LABOUR</h1>
             <div class="status-indicator" id="connection-status">🔄 Connecting...</div>
         </header>
 
@@ -206,7 +206,7 @@ EOF
 
     # Create mobile CSS
     cat > static/css/mobile.css << 'EOF'
-/* Mobile-first responsive design for Bit Rage Systems */
+/* Mobile-first responsive design for DIGITAL LABOUR */
 * {
     margin: 0;
     padding: 0;
@@ -417,7 +417,7 @@ EOF
 
     # Create mobile JavaScript
     cat > static/js/mobile.js << 'EOF'
-// Mobile Bit Rage Systems Command Center JavaScript
+// Mobile DIGITAL LABOUR Command Center JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize app
@@ -628,9 +628,9 @@ EOF
     # Create web app manifest
     cat > static/manifest.json << 'EOF'
 {
-    "name": "Bit Rage Systems Command Center",
-    "short_name": "Bit Rage Systems",
-    "description": "Mobile command center for Bit Rage Systems operations",
+    "name": "DIGITAL LABOUR Command Center",
+    "short_name": "DIGITAL LABOUR",
+    "description": "Mobile command center for DIGITAL LABOUR operations",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#1a1a2e",
@@ -653,7 +653,7 @@ EOF
     # Create basic service worker
     cat > static/sw.js << 'EOF'
 // Basic service worker for offline support
-const CACHE_NAME = 'super-agency-v1';
+const CACHE_NAME = 'Digital-Labour-v1';
 
 self.addEventListener('install', event => {
     event.waitUntil(
@@ -681,7 +681,7 @@ EOF
     cat > mobile_command_center.py << 'EOF'
 #!/usr/bin/env python3
 """
-Bit Rage Systems Mobile Command Center Web Server
+DIGITAL LABOUR Mobile Command Center Web Server
 Provides mobile-optimized web interface for remote access
 """
 
@@ -784,7 +784,7 @@ def create_backup():
         return "Backup process started"
 
 if __name__ == '__main__':
-    print("🚀 Bit Rage Systems Mobile Command Center")
+    print("🚀 DIGITAL LABOUR Mobile Command Center")
     print("🌐 Access from your phone/iPad at:")
     print(f"   Local: http://localhost:8080")
     print(f"   Network: http://{os.environ.get('LOCAL_IP', 'your-ip')}:8080")
@@ -837,7 +837,7 @@ tunnels:
   command-center:
     addr: 8080
     proto: http
-    hostname: superagency.ngrok.io
+    hostname: DIGITAL LABOUR.ngrok.io
 EOF
 
     log_warning "Please set your ngrok auth token:"
@@ -875,10 +875,10 @@ setup_cloudflare() {
     # Create Cloudflare config
     mkdir -p ~/.cloudflared
     cat > ~/.cloudflared/config.yaml << EOF
-tunnel: super-agency-mobile
+tunnel: Digital-Labour-mobile
 credentials-file: ~/.cloudflared/tunnel.json
 ingress:
-  - hostname: mobile.superagency.local
+  - hostname: mobile.DIGITAL LABOUR.local
     service: http://localhost:8080
   - service: http_status:404
 EOF
@@ -891,7 +891,7 @@ generate_instructions() {
     log_mobile "Generating mobile access instructions..."
 
     cat > MOBILE_ACCESS_README.md << EOF
-# 📱 Bit Rage Systems Mobile Remote Access
+# 📱 DIGITAL LABOUR Mobile Remote Access
 
 Your command center is now configured for mobile access from anywhere!
 
@@ -908,7 +908,7 @@ Your command center is now configured for mobile access from anywhere!
    ngrok http 8080
 
    # Option 2: Cloudflare (more secure)
-   cloudflared tunnel run super-agency-mobile
+   cloudflared tunnel run Digital-Labour-mobile
    \`\`\`
 
 ## 📱 Mobile Access URLs
@@ -918,8 +918,8 @@ Your command center is now configured for mobile access from anywhere!
 - **Best for**: Home/office network access
 
 ### Remote Access (from anywhere)
-- **ngrok**: https://superagency.ngrok.io
-- **Cloudflare**: https://mobile.superagency.local
+- **ngrok**: https://DIGITAL LABOUR.ngrok.io
+- **Cloudflare**: https://mobile.DIGITAL LABOUR.local
 
 ## 📱 Mobile Setup Instructions
 
@@ -928,14 +928,14 @@ Your command center is now configured for mobile access from anywhere!
 2. Navigate to your access URL
 3. Tap the share button (📤)
 4. Select "Add to Home Screen"
-5. Name it "Bit Rage Systems Command"
+5. Name it "DIGITAL LABOUR Command"
 6. Tap "Add" - now you have an app!
 
 ### Android Setup
 1. Open Chrome on your device
 2. Navigate to your access URL
 3. Tap the menu (⋮) → "Add to Home screen"
-4. Name it "Bit Rage Systems Command"
+4. Name it "DIGITAL LABOUR Command"
 5. Tap "Add" - now you have an app!
 
 ## 🎮 Mobile Features
@@ -1027,7 +1027,7 @@ start_services() {
 
 # Main setup
 main() {
-    echo "📱 Bit Rage Systems Mobile Remote Access Setup"
+    echo "📱 DIGITAL LABOUR Mobile Remote Access Setup"
     echo "=========================================="
     echo ""
     echo "This will configure your command center to run locally"
@@ -1105,7 +1105,7 @@ EOF
 
 # Main execution
 main() {
-    echo "📱 Bit Rage Systems Mobile Remote Access Setup"
+    echo "📱 DIGITAL LABOUR Mobile Remote Access Setup"
     echo "=========================================="
     echo ""
     echo "Setting up local command center with mobile access..."

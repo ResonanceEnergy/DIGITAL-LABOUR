@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Automation helper for launching the Super Agency from Python.
+Automation helper for launching the DIGITAL LABOUR from Python.
 Performs dependency installation, optional AAC UI sanity check, sample
 training of the decision optimizer, registration of test intelligence nodes
 and then starts the full runtime.
@@ -55,11 +55,11 @@ def register_sample_nodes():
 
 def launch():
     """main handler."""
-    print("[launch] Starting Super Agency runtime")
-    # call main from run_super_agency to keep in-process
+    print("[launch] Starting DIGITAL LABOUR runtime")
+    # call main from run_bit_rage_labour to keep in-process
     try:
-        import run_super_agency
-        run_super_agency.main()
+        import run_bit_rage_labour
+        run_bit_rage_labour.main()
     except Exception as e:
         print(f"[launch] runtime error: {e}")
 

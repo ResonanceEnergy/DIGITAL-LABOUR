@@ -20,7 +20,7 @@ from pathlib import Path
 cpu = psutil.cpu_percent(interval=1)
 mem = psutil.virtual_memory()
 disk = psutil.disk_usage('/')
-status_file = Path.home() / 'repos' / 'Super-Agency' / 'repo_depot_status.json'
+status_file = Path.home() / 'repos' / 'Digital-Labour' / 'repo_depot_status.json'
 repo_status = {}
 if status_file.exists():
     repo_status = json.loads(status_file.read_text())
@@ -43,7 +43,7 @@ print(json.dumps({
 
 ## When Asked for Performance Analytics
 1. Run system metrics collection (above)
-2. Check repo build status (`~/repos/Super-Agency/repo_depot_status.json`)
+2. Check repo build status (`~/repos/Digital-Labour/repo_depot_status.json`)
 3. Aggregate and analyze project intelligence
 4. Provide actionable recommendations
 5. Visualize with Streamlit if requested: `streamlit run streamlit_matrix_maximizer.py`

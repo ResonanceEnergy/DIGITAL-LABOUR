@@ -1,8 +1,8 @@
-# Super-Agency Dependency Analysis
+# Digital-Labour Dependency Analysis
 
 ## Dependency Overview
 
-The repository "Super-Agency" primarily utilizes Python dependencies. As of the latest analysis, there are no dependencies associated with Node.js or any other systems. The primary focus is on maintaining the health and security of the Python environment.
+The repository "Digital-Labour" primarily utilizes Python dependencies. As of the latest analysis, there are no dependencies associated with Node.js or any other systems. The primary focus is on maintaining the health and security of the Python environment.
 
 ## Direct Dependencies
 
@@ -87,4 +87,4 @@ Consider whether all listed libraries are necessary for the project's scope. Lib
 2. **Automation:** Utilize tools such as Dependabot to automate update reviews.
 3. **Security Assessment:** Incorporate regular security assessments into the workflow using tools such as Snyk.
 
-By following this roadmap, the "Super-Agency" repository can ensure it maintains a healthy, secure, and up-to-date dependency environment.
+By following this roadmap, the "Digital-Labour" repository can ensure it maintains a healthy, secure, and up-to-date dependency environment.

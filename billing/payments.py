@@ -1,6 +1,6 @@
-﻿"""Stripe Payment Gateway — Handles checkout, subscriptions, and webhooks.
+"""Stripe Payment Gateway — Handles checkout, subscriptions, and webhooks.
 
-Connects BIT RAGE SYSTEMS billing to Stripe for real payment collection.
+Connects DIGITAL LABOUR billing to Stripe for real payment collection.
 
 Setup:
     1. Create Stripe account at https://stripe.com
@@ -50,7 +50,7 @@ PRODUCTS_CACHE = PROJECT_ROOT / "data" / "stripe_products.json"
 
 
 class PaymentGateway:
-    """Stripe payment integration for BIT RAGE SYSTEMS."""
+    """Stripe payment integration for DIGITAL LABOUR."""
 
     def __init__(self):
         self.api_key = os.getenv("STRIPE_API_KEY", "")
@@ -164,7 +164,7 @@ class PaymentGateway:
         # Per-task products
         for task_type, pricing in PRICING.items():
             product = stripe.Product.create(
-                name=f"BIT RAGE SYSTEMS — {task_type.replace('_', ' ').title()}",
+                name=f"DIGITAL LABOUR — {task_type.replace('_', ' ').title()}",
                 description=f"AI-powered {task_type.replace('_', ' ')} task",
             )
             price = stripe.Price.create(
@@ -177,7 +177,7 @@ class PaymentGateway:
         # Retainer subscription products
         for tier_name, tier in RETAINER_TIERS.items():
             product = stripe.Product.create(
-                name=f"BIT RAGE SYSTEMS — {tier_name.replace('_', ' ').title()} Retainer",
+                name=f"DIGITAL LABOUR — {tier_name.replace('_', ' ').title()} Retainer",
                 description=f"{tier['tasks']} {tier['type'].replace('_', ' ')} tasks/month",
             )
             price = stripe.Price.create(
@@ -254,7 +254,7 @@ class PaymentGateway:
                 "price_data": {
                     "currency": "usd",
                     "unit_amount": amount_cents,
-                    "product_data": {"name": description or f"BIT RAGE SYSTEMS Invoice — {client}"},
+                    "product_data": {"name": description or f"DIGITAL LABOUR Invoice — {client}"},
                 },
                 "quantity": 1,
             }],

@@ -1,6 +1,6 @@
 """
 MATRIX MAXIMIZER V3.0 - Complete Rewrite
-Super Agency Project Management & Intelligence Platform
+DIGITAL LABOUR Project Management & Intelligence Platform
 REPO DEPOT Integration System
 
 A clean, robust, and reliable project management system with:

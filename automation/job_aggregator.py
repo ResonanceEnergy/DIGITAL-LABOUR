@@ -1,4 +1,4 @@
-﻿"""Job Aggregator — unified cross-platform job feed with deduplication and scoring.
+"""Job Aggregator — unified cross-platform job feed with deduplication and scoring.
 
 Reads scraped job data from all 5 platforms (Freelancer, Upwork, PPH, Guru, Fiverr buyer requests),
 normalizes into a common schema, deduplicates cross-posted jobs, scores against our 20 agents,
@@ -219,7 +219,7 @@ def aggregate(max_age_hours: int = 48, platform_filter: str = "", agent_filter: 
 def show_feed(entries: list[dict], top_n: int = 30):
     """Pretty-print the ranked feed."""
     print(f"\n{'='*80}")
-    print(f"  BIT RAGE SYSTEMS — UNIFIED JOB FEED")
+    print(f"  DIGITAL LABOUR — UNIFIED JOB FEED")
     print(f"  {len(entries)} opportunities across {len(set(e['platform'] for e in entries))} platforms")
     print(f"{'='*80}")
 
@@ -257,7 +257,7 @@ def export_feed(entries: list[dict], filepath: str):
 # ── Main ────────────────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="BIT RAGE SYSTEMS — Job Aggregator")
+    parser = argparse.ArgumentParser(description="DIGITAL LABOUR — Job Aggregator")
     parser.add_argument("--top", type=int, default=30, help="Show top N opportunities")
     parser.add_argument("--platform", type=str, default="", help="Filter by platform")
     parser.add_argument("--agent", type=str, default="", help="Filter by best-match agent")

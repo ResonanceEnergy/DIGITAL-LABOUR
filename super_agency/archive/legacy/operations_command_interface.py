@@ -18,7 +18,7 @@ from agents.repo_sentry import check_repo_status
 class OperationsCommandInterface:
     """
     OCI - Operations Command Interface
-    Provides conversational access to all Super Agency operations
+    Provides conversational access to all DIGITAL LABOUR operations
     """
 
     def __init__(self):
@@ -282,7 +282,7 @@ class OperationsCommandInterface:
         }
 
     async def _get_core_department_update(self, department: str, intent: str) -> Dict[str, Any]:
-        """Get operational update for core Super Agency department"""
+        """Get operational update for core DIGITAL LABOUR department"""
 
         dept_info = self.departments[department]
 

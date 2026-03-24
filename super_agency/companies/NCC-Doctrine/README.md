@@ -9,9 +9,9 @@
 
 ## EXECUTIVE SUMMARY
 
-The NCC Executive Doctrine establishes the supreme command authority structure for the Bit Rage Systems, integrating C-suite executive leadership with the Neural Command Center (NCC) and Council 52 intelligence framework. This doctrine defines executive roles, decision hierarchies, strategic oversight mechanisms, and integration protocols for optimal command and control.
+The NCC Executive Doctrine establishes the supreme command authority structure for the DIGITAL LABOUR, integrating C-suite executive leadership with the Neural Command Center (NCC) and Council 52 intelligence framework. This doctrine defines executive roles, decision hierarchies, strategic oversight mechanisms, and integration protocols for optimal command and control.
 
-**Core Principle:** Executive leadership operates as the neural cortex of the Bit Rage Systems - processing strategic intelligence, making high-level decisions, and ensuring alignment with mission objectives while maintaining operational autonomy.
+**Core Principle:** Executive leadership operates as the neural cortex of the DIGITAL LABOUR - processing strategic intelligence, making high-level decisions, and ensuring alignment with mission objectives while maintaining operational autonomy.
 
 ---
 

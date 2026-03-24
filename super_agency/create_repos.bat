@@ -13,11 +13,11 @@ for %%r in (%repos%) do (
         git init >nul 2>&1
         echo # %%r> README.md
         echo.>> README.md
-        echo ## Bit Rage Systems Repository>> README.md
+        echo ## Digital Labour Repository>> README.md
         echo.>> README.md
         echo **Status**: Initialization Phase>> README.md
         git add . >nul 2>&1
-        git commit -m "Initial commit - Bit Rage Systems repo initialization" >nul 2>&1
+        git commit -m "Initial commit - Digital Labour repo initialization" >nul 2>&1
         cd ..
         echo ✓ Created %%r
     ) else (

@@ -1,4 +1,4 @@
-﻿# BIT RAGE SYSTEMS Union — Website
+# DIGITAL LABOUR Union — Website
 
 Production website for [digitallabourunion.com](https://digitallabourunion.com).
 

@@ -1,4 +1,4 @@
-﻿"""OpenClaw Engine — Central automation orchestrator for BIT RAGE SYSTEMS.
+"""OpenClaw Engine — Central automation orchestrator for DIGITAL LABOUR.
 
 Connects all platform automation (job hunt, bidding, delivery, revenue tracking)
 into a single dispatch layer that NERVE runs autonomously.
@@ -72,7 +72,7 @@ AGENT_DISPATCH = {
 
 
 class OpenClawEngine:
-    """Central orchestration engine for all BIT RAGE SYSTEMS automation."""
+    """Central orchestration engine for all DIGITAL LABOUR automation."""
 
     def __init__(self):
         self.state = self._load_state()
@@ -542,7 +542,7 @@ class OpenClawEngine:
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="OpenClaw Engine — BIT RAGE SYSTEMS Automation")
+    parser = argparse.ArgumentParser(description="OpenClaw Engine — DIGITAL LABOUR Automation")
     parser.add_argument("command", choices=["status", "cycle", "pipeline", "revenue", "dispatch", "setup"],
                         help="Command to run")
     parser.add_argument("--pipeline", type=str, help="Pipeline name for 'pipeline' command")

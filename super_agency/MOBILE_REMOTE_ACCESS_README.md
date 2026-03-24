@@ -1,6 +1,6 @@
-# 📱 Bit Rage Systems Mobile Remote Access
+# 📱 DIGITAL LABOUR Mobile Remote Access
 
-Run your Bit Rage Systems command center locally at home/office and access it securely from anywhere using your phone or iPad.
+Run your DIGITAL LABOUR command center locally at home/office and access it securely from anywhere using your phone or iPad.
 
 ## 🚀 Quick Start (3 Steps)
 
@@ -55,14 +55,14 @@ Run your Bit Rage Systems command center locally at home/office and access it se
 2. Go to your command center URL
 3. Tap the **share button** (📤)
 4. Select **"Add to Home Screen"**
-5. Name it **"Bit Rage Systems Command"**
+5. Name it **"DIGITAL LABOUR Command"**
 6. Tap **"Add"** → Now you have a native app!
 
 ### Android Setup
 1. Open **Chrome** on your device
 2. Go to your command center URL
 3. Tap the **menu** (⋮) → **"Add to Home screen"**
-4. Name it **"Bit Rage Systems Command"**
+4. Name it **"DIGITAL LABOUR Command"**
 5. Tap **"Add"** → Now you have a native app!
 
 ## 🎮 Using Your Mobile Command Center
@@ -136,7 +136,7 @@ Run your Bit Rage Systems command center locally at home/office and access it se
 #### Cloudflare Setup (Advanced)
 1. Install cloudflared: `choco install cloudflared` (Windows) or `brew install cloudflare/cloudflare/cloudflared` (macOS)
 2. Login: `cloudflared tunnel login`
-3. Create tunnel: `cloudflared tunnel create super-agency-mobile`
+3. Create tunnel: `cloudflared tunnel create Digital-Labour-mobile`
 4. Configure DNS in Cloudflare dashboard
 5. Launch: `./mobile_launcher.sh --start`
 
@@ -266,13 +266,13 @@ Run your Bit Rage Systems command center locally at home/office and access it se
 1. Check this README
 2. Run diagnostic commands
 3. Check GitHub issues
-4. Contact Bit Rage Systems support
+4. Contact DIGITAL LABOUR support
 
 ---
 
 ## 🎉 Success Stories
 
-*"Running Bit Rage Systems on my home server, controlling everything from my iPad while traveling. Game changer!"* - Remote Executive
+*"Running DIGITAL LABOUR on my home server, controlling everything from my iPad while traveling. Game changer!"* - Remote Executive
 
 *"Set up in my office, now my whole team can access the command center from their phones. Brilliant!"* - Team Lead
 

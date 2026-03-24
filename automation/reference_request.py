@@ -1,4 +1,4 @@
-﻿"""Reference Request — Send emails to past employers/clients requesting testimonials.
+"""Reference Request — Send emails to past employers/clients requesting testimonials.
 
 Sends a professional reference request email via Zoho SMTP asking past employers
 or clients to write a short testimonial for freelance platform profiles
@@ -100,7 +100,7 @@ No pressure at all — I completely understand if you're too busy.{platform_note
 Thank you for considering it. I really appreciate the time we spent working together.
 
 Best regards,
-BIT RAGE SYSTEMS SYSTEMS
+DIGITAL LABOUR SYSTEMS
 sales@bit-rage-labour.com
 https://bit-rage-labour.com
 """
@@ -136,7 +136,7 @@ experience working with me. Even 2–3 sentences would be incredibly helpful.</p
 <p>Thank you for considering it. I really appreciate the time we spent working together.</p>
 
 <p>Best regards,<br>
-<strong>BIT RAGE SYSTEMS SYSTEMS</strong><br>
+<strong>DIGITAL LABOUR SYSTEMS</strong><br>
 <a href="mailto:sales@bit-rage-labour.com">sales@bit-rage-labour.com</a><br>
 <a href="https://bit-rage-labour.com">bit-rage-labour.com</a></p>
 
@@ -191,7 +191,7 @@ def send_reference_request(
         return {"status": "saved_to_file", "path": str(filepath)}
 
     msg = MIMEMultipart("alternative")
-    msg["From"] = f"BIT RAGE SYSTEMS <{smtp_from}>"
+    msg["From"] = f"DIGITAL LABOUR <{smtp_from}>"
     msg["To"] = to_email
     msg["Subject"] = subject
     msg["Reply-To"] = smtp_from

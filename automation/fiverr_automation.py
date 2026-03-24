@@ -1,4 +1,4 @@
-﻿"""Fiverr Automation — Full gig deployment with browser automation + image generation.
+"""Fiverr Automation — Full gig deployment with browser automation + image generation.
 
 Fiverr has NO public seller API. This script automates gig creation by:
   1. Generating professional cover images (Pillow, 1280x769px)
@@ -207,7 +207,7 @@ def generate_gig_image(gig_index: int, gig: dict, output_dir: Optional[Path] = N
 
     # --- Brand name ---
     font_brand = _get_font("bold", 22)
-    draw.text((120, 45), "BIT RAGE SYSTEMS SYSTEMS", font=font_brand, fill=COLORS["accent"])
+    draw.text((120, 45), "DIGITAL LABOUR SYSTEMS", font=font_brand, fill=COLORS["accent"])
 
     # --- Gig number badge ---
     badge_x = IMG_W - 120

@@ -1,4 +1,4 @@
-# Bit Rage Systems Mobile Remote Access Setup
+# Digital Labour Mobile Remote Access Setup
 # Run locally and access from anywhere with phone/iPad
 
 param(
@@ -71,8 +71,8 @@ function New-MobileWebServer {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Bit Rage Systems">
-    <title>Bit Rage Systems Command Center</title>
+    <meta name="apple-mobile-web-app-title" content="Digital Labour">
+    <title>Digital Labour Command Center</title>
     <link rel="stylesheet" href="/static/css/mobile.css">
     <link rel="apple-touch-icon" href="/static/icons/icon-192.png">
     <link rel="manifest" href="/static/manifest.json">
@@ -80,7 +80,7 @@ function New-MobileWebServer {
 <body>
     <div class="mobile-container">
         <header class="mobile-header">
-            <h1>🚀 Bit Rage Systems</h1>
+            <h1>🚀 Digital Labour</h1>
             <div class="status-indicator" id="connection-status">🔄 Connecting...</div>
         </header>
 
@@ -167,7 +167,7 @@ function New-MobileWebServer {
 
     # Create mobile CSS (simplified version)
     $mobileCss = @"
-/* Mobile-first responsive design for Bit Rage Systems */
+/* Mobile-first responsive design for Digital Labour */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -267,7 +267,7 @@ body {
 
     # Create mobile JavaScript
     $mobileJs = @"
-// Mobile Bit Rage Systems Command Center JavaScript
+// Mobile Digital Labour Command Center JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
     setInterval(refreshStatus, 30000);
@@ -439,7 +439,7 @@ def create_backup():
         return "Backup process started"
 
 if __name__ == '__main__':
-    print("🚀 Bit Rage Systems Mobile Command Center")
+    print("🚀 Digital Labour Mobile Command Center")
     print("🌐 Access from your phone/iPad at:")
     print(f"   Local: http://localhost:8080")
     print(f"   Network: http://$LOCAL_IP:8080")
@@ -478,7 +478,7 @@ tunnels:
   command-center:
     addr: 8080
     proto: http
-    hostname: superagency.ngrok.io
+    hostname: DIGITAL LABOUR.ngrok.io
 "@
 
     $config | Out-File -FilePath "$ngrokDir\ngrok.yml" -Encoding UTF8
@@ -492,7 +492,7 @@ function New-MobileInstructions {
     Write-Mobile "Generating mobile access instructions..."
 
     $instructions = @"
-# 📱 Bit Rage Systems Mobile Remote Access
+# 📱 Digital Labour Mobile Remote Access
 
 Your command center is now configured for mobile access from anywhere!
 
@@ -519,8 +519,8 @@ Your command center is now configured for mobile access from anywhere!
 - **Best for**: Home/office network access
 
 ### Remote Access (from anywhere)
-- **ngrok**: https://superagency.ngrok.io
-- **Cloudflare**: https://mobile.superagency.local
+- **ngrok**: https://DIGITAL LABOUR.ngrok.io
+- **Cloudflare**: https://mobile.DIGITAL LABOUR.local
 
 ## 📱 Mobile Setup Instructions
 
@@ -529,14 +529,14 @@ Your command center is now configured for mobile access from anywhere!
 2. Navigate to your access URL
 3. Tap the share button (📤)
 4. Select "Add to Home Screen"
-5. Name it "Bit Rage Systems Command"
+5. Name it "Digital Labour Command"
 6. Tap "Add" - now you have an app!
 
 ### Android Setup
 1. Open Chrome on your device
 2. Navigate to the URL
 3. Tap the menu (⋮) → "Add to Home screen"
-4. Name it "Bit Rage Systems Command"
+4. Name it "Digital Labour Command"
 5. Tap "Add" - now you have an app!
 
 ## 🎮 Mobile Features
@@ -665,7 +665,7 @@ function Show-MobileStatus {
 
 # Main execution
 function Invoke-Main {
-    Write-Host "📱 Bit Rage Systems Mobile Remote Access Setup" -ForegroundColor Magenta
+    Write-Host "📱 Digital Labour Mobile Remote Access Setup" -ForegroundColor Magenta
     Write-Host "==========================================" -ForegroundColor Magenta
     Write-Host ""
 

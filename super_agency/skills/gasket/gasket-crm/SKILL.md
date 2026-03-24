@@ -84,9 +84,9 @@ async def daily_crm_scan(self):
 - `gog` CLI — Gmail + Google Calendar access
 - `imessage` — optional, for iMessage contact tracking on macOS
 
-## Super-Agency Specific
+## Digital-Labour Specific
 
-- Tracks contacts across all Super-Agency business interactions
+- Tracks contacts across all Digital-Labour business interactions
 - Meeting prep integrates with morning brief
 - Follow-up reminders posted to Telegram
 - Contact relationship graph for networking insights

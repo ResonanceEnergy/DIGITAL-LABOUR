@@ -63,7 +63,7 @@ def test_templates():
 
 def main():
     """Run all tests"""
-    print("🧪 Bit Rage Systems GitHub Integration - System Test")
+    print("🧪 DIGITAL LABOUR GitHub Integration - System Test")
     print("=" * 50)
 
     tests = [

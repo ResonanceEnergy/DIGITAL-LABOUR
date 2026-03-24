@@ -14,7 +14,7 @@ Replaces traditional Kanban boards with event-driven project tracking. Talk natu
 
 | Event | Fields | Example |
 |-------|--------|---------|
-| `progress` | project, task, status, notes | "Finished auth flow for Super-Agency dashboard" |
+| `progress` | project, task, status, notes | "Finished auth flow for Digital-Labour dashboard" |
 | `blocker` | project, description, severity | "Git sync blocking operations" |
 | `decision` | project, what, why, alternatives | "Decided to migrate to local SSD for git" |
 | `pivot` | project, from, to, reason | "Pivoting from Windows-only to cross-platform" |
@@ -22,7 +22,7 @@ Replaces traditional Kanban boards with event-driven project tracking. Talk natu
 ## State Storage
 
 ```
-~/repos/Super-Agency/project_state/
+~/repos/Digital-Labour/project_state/
 ├── events.db          # SQLite: full event history
 ├── STATE.yaml         # Current state (single source of truth)
 ├── standup/           # Daily auto-generated standups
@@ -61,8 +61,8 @@ async def log_project_event(self, event_type: str, project: str, details: dict):
     await self._update_state_yaml(project)
 ```
 
-## Super-Agency Specific
+## Digital-Labour Specific
 
-- Projects: Super-Agency, VORTEX-HUNTER, AAC, GASKET, OpenClaw Integration
+- Projects: Digital-Labour, VORTEX-HUNTER, AAC, GASKET, OpenClaw Integration
 - Git repos auto-linked: commits → projects → events
 - Cross-machine tracking (QUANTUM FORGE + Quantum Quasar)

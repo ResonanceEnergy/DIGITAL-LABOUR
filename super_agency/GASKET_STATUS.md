@@ -1,4 +1,4 @@
-﻿# AGENT G (GASKET) - Status Report
+# AGENT G (GASKET) - Status Report
 **Updated by:** OPTIMUS (Agent Y) — QForge
 **Timestamp:** 2026-02-27 06:22 MST
 **Source:** QUANTUM FORGE sync
@@ -26,7 +26,7 @@
 - Matrix Monitor flywheel_feed.py — live
 
 ### For GASKET on Quasar
-- Pull latest from SuperAgency-Shared
+- Pull latest from DIGITAL-LABOUR
 - Check state/matrix_flywheel_status.json for live status
 - Run: python MATRIX_MONITOR/flywheel_feed.py to update display
 - Cooldown is now 6h — coordinate cycles to avoid conflicts

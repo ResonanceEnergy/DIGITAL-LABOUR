@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Autonomous System Expansion for Super Agency
+Autonomous System Expansion for DIGITAL LABOUR
 Implements self-scaling mechanisms, expansion governance,
 and autonomous decision loops.
 

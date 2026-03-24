@@ -1,4 +1,4 @@
-﻿"""Payment & Client Signup API routes.
+"""Payment & Client Signup API routes.
 
 Endpoints:
     POST /payments/checkout          — Create Stripe checkout for invoice
@@ -288,8 +288,8 @@ def client_signup(req: SignupRequest):
         from delivery.sender import send_email
         send_email(
             to=req.email,
-            subject="Welcome to BIT RAGE SYSTEMS — Your API Key",
-            body_html=f"""<h2>Welcome to BIT RAGE SYSTEMS, {req.contact_name}!</h2>
+            subject="Welcome to DIGITAL LABOUR — Your API Key",
+            body_html=f"""<h2>Welcome to DIGITAL LABOUR, {req.contact_name}!</h2>
 <p>Your account is active. Here are your credentials:</p>
 <table style="border-collapse:collapse">
 <tr><td style="padding:4px 12px"><strong>Client ID</strong></td><td style="padding:4px 12px"><code>{req.client_id}</code></td></tr>
@@ -315,7 +315,7 @@ def client_signup(req: SignupRequest):
         "api_key": api_key,
         "services": profile["services"],
         "pricing_model": req.pricing_model,
-        "message": "Welcome to BIT RAGE SYSTEMS. Use your API key to submit tasks.",
+        "message": "Welcome to DIGITAL LABOUR. Use your API key to submit tasks.",
     }
 
 
@@ -326,5 +326,5 @@ def signup_page():
     if html_path.exists():
         return HTMLResponse(html_path.read_text(encoding="utf-8"))
     # Fallback minimal form
-    return HTMLResponse("""<!DOCTYPE html><html><head><title>BIT RAGE SYSTEMS — Sign Up</title></head>
+    return HTMLResponse("""<!DOCTYPE html><html><head><title>DIGITAL LABOUR — Sign Up</title></head>
 <body><h1>Sign Up</h1><p>POST to /signup with JSON body. See API docs at /docs</p></body></html>""")

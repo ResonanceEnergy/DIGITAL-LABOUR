@@ -1,3 +1,3 @@
-<# Bit Rage Systems - Windows Quick Start #>
+<# Digital Labour - Windows Quick Start #>
 Set-Location $PSScriptRoot
 python start.py

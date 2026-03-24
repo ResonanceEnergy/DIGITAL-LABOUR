@@ -1,7 +1,7 @@
 # iOS Matrix Monitor for Pocket Pulsar
 
 ## Overview
-The iOS Matrix Monitor is a real-time system visualization interface optimized for Pocket Pulsar (iPhone) in the Super Agency three-device architecture. It provides a grid-based view of all system components, agents, and devices with multiple visualization modes.
+The iOS Matrix Monitor is a real-time system visualization interface optimized for Pocket Pulsar (iPhone) in the DIGITAL LABOUR three-device architecture. It provides a grid-based view of all system components, agents, and devices with multiple visualization modes.
 
 ## Features
 

@@ -1,4 +1,4 @@
-﻿# BRS 2.0 — BIT RAGE SYSTEMS MASTER FRAMEWORK
+# BRS 2.0 — DIGITAL LABOUR MASTER FRAMEWORK
 ## 250 Macrohard Insights — Atlantis Reconstruction Model
 **Classification**: ALOPS Doctrine  
 **Status**: ACTIVE — FRAMEWORK LOCKED  

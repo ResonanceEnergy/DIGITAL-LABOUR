@@ -1,8 +1,8 @@
-# 🚀 Bit Rage Systems - GO LIVE STATUS
+# 🚀 DIGITAL LABOUR - GO LIVE STATUS
 
 **Date**: February 20, 2026  
 **Status**: ✅ **LIVE** - Local Operations Active  
-**Location**: `C:\Dev\SuperAgency-Shared`
+**Location**: `C:\Dev\DIGITAL-LABOUR`
 
 ---
 
@@ -28,7 +28,7 @@
 ### Daily Cycle (Automated)
 ```bash
 # Run every morning at 6:00 AM
-cd "C:\Dev\SuperAgency-Shared"
+cd "C:\Dev\DIGITAL-LABOUR"
 python agents\orchestrator.py
 ```
 
@@ -137,7 +137,7 @@ python agents\orchestrator.py
 
 ```powershell
 # Daily operations
-cd "C:\Dev\SuperAgency-Shared"
+cd "C:\Dev\DIGITAL-LABOUR"
 python agents\orchestrator.py
 
 # Check status
@@ -166,7 +166,7 @@ python -c "from agents.daily_brief import main; main()"
 
 ## 🎉 CELEBRATION
 
-**Bit Rage Systems is now LIVE!** 🎊
+**DIGITAL LABOUR is now LIVE!** 🎊
 
 - **Phase 1 Complete**: Foundation operational
 - **Local-First Success**: No cloud dependencies

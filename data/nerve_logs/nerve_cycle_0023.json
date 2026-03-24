@@ -47,7 +47,7 @@
       "error": "Bearer token cannot post tweets (read-only). Need OAuth 1.0a user tokens.",
       "status_code": 403,
       "queued": true,
-      "queue_file": "C:\\dev\\BIT RAGE SYSTEMS\\BIT RAGE SYSTEMS\\data\\x_queue\\tweet_20260317_103716_a26f1bbe.json"
+      "queue_file": "C:\\dev\\DIGITAL LABOUR\\DIGITAL LABOUR\\data\\x_queue\\tweet_20260317_103716_a26f1bbe.json"
     },
     "email_tracking": {
       "total_emails_sent": 79,

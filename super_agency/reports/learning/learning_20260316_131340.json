@@ -1,0 +1,21 @@
+{
+  "cycle": 3,
+  "ts": "2026-03-16T13:13:40.162390",
+  "errors_observed": {
+    "errors": 0,
+    "patterns": {}
+  },
+  "performance": {
+    "available": false
+  },
+  "report_quality": {
+    "reports": 196,
+    "stale_48h": 21,
+    "empty": 0
+  },
+  "new_lessons": 0,
+  "total_lessons": 5,
+  "lessons_this_cycle": [],
+  "failure_pattern_totals": {},
+  "duration_s": 0.03
+}

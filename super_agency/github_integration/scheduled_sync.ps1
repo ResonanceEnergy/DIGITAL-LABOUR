@@ -1,4 +1,4 @@
-# Bit Rage Systems Scheduled GitHub Sync
+# Digital Labour Scheduled GitHub Sync
 # Run this with Task Scheduler for daily automated updates
 
 param(
@@ -7,13 +7,13 @@ param(
     [switch]$Force
 )
 
-$integrationPath = "C:\Dev\SuperAgency-Shared\github_integration"
+$integrationPath = "C:\Dev\DIGITAL LABOUR-Shared\github_integration"
 $logFile = "$integrationPath\scheduled_sync_$(Get-Date -Format 'yyyyMMdd_HHmmss').log"
 
 # Start logging
 Start-Transcript -Path $logFile -Append
 
-Write-Host "🤖 Bit Rage Systems Scheduled GitHub Sync" -ForegroundColor Cyan
+Write-Host "🤖 Digital Labour Scheduled GitHub Sync" -ForegroundColor Cyan
 Write-Host "=====================================" -ForegroundColor Yellow
 Write-Host "Timestamp: $(Get-Date)" -ForegroundColor Gray
 

@@ -1,9 +1,8 @@
-"""BIT RAGE SYSTEMS — Master Launcher & Control Panel.
+"""DIGITAL LABOUR — Master Launcher & Control Panel.
 
 Consolidates: launch.py, matrix_boot.py, setup_keys.py, watchdog,
               dashboard/health.py, and all daemon management.
 Integrates:   NCC (governance), NCL (brain), AAC (bank) via resonance bridges.
-              Super Agency (orchestration, C-Suite, departments, tools).
 
 This is the ONE command to rule them all.
 
@@ -66,8 +65,8 @@ BANNER = f"""
 ║   ██████╔╝██║   ██║       ██║  ██║██║  ██║╚██████╔╝███████╗   ║
 ║   ╚═════╝ ╚═╝   ╚═╝       ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ║
 ║                                                               ║
-║   BIT RAGE SYSTEMS — Master Control v{VERSION:<22}          ║
-║   24 AI Agents • NERVE • C-Suite • Super Agency • NCC/NCL/AAC║
+║   DIGITAL LABOUR — Master Control v{VERSION:<25}          ║
+║   24 AI Agents • NERVE • C-Suite • NCC/NCL/AAC               ║
 ╚═══════════════════════════════════════════════════════════════╝
 """
 
@@ -239,11 +238,6 @@ DAEMONS = [
         "cmd": ["-m", "resonance.sync", "--daemon"],
         "desc": "NCC/NCL/AAC cross-pillar sync (30min cadence)",
     },
-    {
-        "name": "Super Agency Ops API",
-        "cmd": ["-m", "super_agency.operations_api"],
-        "desc": "Super Agency operations API (port 5001)",
-    },
 ]
 
 
@@ -258,7 +252,7 @@ def start_daemons():
     pids = _load_pids()
 
     print(f"\n{'='*65}")
-    print(f"  BIT RAGE SYSTEMS — DAEMON LAUNCH")
+    print(f"  DIGITAL LABOUR — DAEMON LAUNCH")
     print(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print(f"{'='*65}\n")
 
@@ -304,7 +298,7 @@ def stop_all():
         return
 
     print(f"\n{'='*65}")
-    print(f"  BIT RAGE SYSTEMS — STOPPING ALL PROCESSES")
+    print(f"  DIGITAL LABOUR — STOPPING ALL PROCESSES")
     print(f"{'='*65}\n")
 
     for name, info in list(pids.items()):
@@ -423,33 +417,6 @@ def show_status():
     except Exception as e:
         print(f"  [ERROR] {e}")
 
-    # Super Agency
-    print(f"\n── Super Agency ──")
-    try:
-        from super_agency import __version__ as sa_ver, __codename__ as sa_code
-        print(f"  Version:    {sa_ver} ({sa_code})")
-    except Exception:
-        print(f"  Version:    UNAVAILABLE")
-    sa_agents_dir = PROJECT_ROOT / "super_agency" / "agents"
-    if sa_agents_dir.exists():
-        sa_agent_count = sum(1 for d in sa_agents_dir.iterdir() if d.is_dir() and not d.name.startswith("_"))
-        print(f"  SA Agents:  {sa_agent_count} modules")
-    else:
-        print(f"  SA Agents:  NOT FOUND")
-    sa_deps_dir = PROJECT_ROOT / "super_agency" / "departments"
-    if sa_deps_dir.exists():
-        dept_count = sum(1 for d in sa_deps_dir.iterdir() if d.is_dir() and not d.name.startswith("_"))
-        print(f"  Departments: {dept_count}")
-    sa_tools_dir = PROJECT_ROOT / "super_agency" / "tools"
-    if sa_tools_dir.exists():
-        tool_count = sum(1 for f in sa_tools_dir.glob("*.py") if not f.name.startswith("_"))
-        print(f"  SA Tools:   {tool_count}")
-    try:
-        from super_agency.agents.dl_bridge import DLBridge
-        print(f"  DL Bridge:  AVAILABLE")
-    except Exception:
-        print(f"  DL Bridge:  UNAVAILABLE")
-
     # Resonance Integration (NCC/NCL/AAC)
     print(f"\n── Resonance Integration ──")
     try:
@@ -508,7 +475,7 @@ def show_health():
 def run_checks():
     """Run one-shot checks: follow-ups, revenue, outreach, NERVE."""
     print(f"\n{'='*65}")
-    print(f"  BIT RAGE SYSTEMS — SYSTEM CHECKS")
+    print(f"  DIGITAL LABOUR — SYSTEM CHECKS")
     print(f"{'='*65}")
 
     print(f"\n── Follow-Up Check ──")
@@ -575,7 +542,7 @@ def run_setup():
                 existing[k.strip()] = v.strip()
 
     print(f"\n{'='*65}")
-    print(f"  BIT RAGE SYSTEMS — API Key Setup")
+    print(f"  DIGITAL LABOUR — API Key Setup")
     print(f"  Press Enter to keep existing value, or type new value.")
     print(f"{'='*65}\n")
 
@@ -619,7 +586,7 @@ def cmd_start():
 def run_sync():
     """Run NCC/NCL/AAC Resonance sync now."""
     print(f"\n{'='*65}")
-    print(f"  BIT RAGE SYSTEMS — RESONANCE SYNC")
+    print(f"  DIGITAL LABOUR — RESONANCE SYNC")
     print(f"{'='*65}")
     try:
         from resonance.sync import run_all, show_status as sync_status
@@ -722,29 +689,6 @@ def run_preflight():
     content_file = PROJECT_ROOT / "campaign" / "SOCIAL_CONTENT.md"
     checks.append(("Social content", "PASS" if content_file.exists() else "WARN",
                     "SOCIAL_CONTENT.md found" if content_file.exists() else "missing"))
-
-    # 10. Super Agency integration
-    sa_init = PROJECT_ROOT / "super_agency" / "__init__.py"
-    if sa_init.exists():
-        try:
-            from super_agency import __version__ as sa_ver
-            checks.append(("Super Agency", "PASS", f"v{sa_ver} integrated"))
-        except Exception as e:
-            checks.append(("Super Agency", "WARN", f"init exists but import failed: {str(e)[:50]}"))
-    else:
-        checks.append(("Super Agency", "FAIL", "super_agency/ not found"))
-
-    sa_agents_init = PROJECT_ROOT / "super_agency" / "agents" / "__init__.py"
-    sa_agents_count = 0
-    sa_agents_dir = PROJECT_ROOT / "super_agency" / "agents"
-    if sa_agents_dir.exists():
-        sa_agents_count = sum(1 for d in sa_agents_dir.iterdir() if d.is_dir() and not d.name.startswith("_"))
-    checks.append(("SA Agent modules", "PASS" if sa_agents_count > 10 else "WARN",
-                    f"{sa_agents_count} agent directories"))
-
-    sa_bridge = PROJECT_ROOT / "super_agency" / "agents" / "dl_bridge.py"
-    checks.append(("SA-DL Bridge", "PASS" if sa_bridge.exists() else "WARN",
-                    "dl_bridge.py found" if sa_bridge.exists() else "bridge not found"))
 
     # Print results
     print()
@@ -850,7 +794,7 @@ def interactive_menu():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="BIT RAGE SYSTEMS — Master Control",
+        description="DIGITAL LABOUR — Master Control",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="Run without arguments for interactive menu.",
     )

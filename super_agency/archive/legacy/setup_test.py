@@ -146,7 +146,7 @@ def test_backlog_system():
 
 def main():
     """Run all setup tests"""
-    print("🚀 Super Agency Memory Doctrine System Setup Test")
+    print("🚀 DIGITAL LABOUR Memory Doctrine System Setup Test")
     print("=" * 60)
 
     results = []

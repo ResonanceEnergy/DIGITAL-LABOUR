@@ -13,4 +13,4 @@ __all__ = [
 ]
 
 __version__ = '2.0.0'
-__author__ = 'Bit Rage Systems'
+__author__ = 'DIGITAL LABOUR'

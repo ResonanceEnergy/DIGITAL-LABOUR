@@ -820,7 +820,7 @@
     },
     {
       "project_id": "platform-infra",
-      "project_name": "Super Agency Platform",
+      "project_name": "DIGITAL LABOUR Platform",
       "status": "active",
       "priority": "critical",
       "description": "Core platform infrastructure \u2014 the agency itself, command centers, doctrine",
@@ -855,7 +855,7 @@
       ],
       "next_actions": [
         "[NCL] Increase test coverage for modified code.",
-        "[Super-Agency] Increase test coverage for modified code.",
+        "[Digital-Labour] Increase test coverage for modified code.",
         "[NCC] Increase test coverage for modified code.",
         "[NATEBJONES] Increase test coverage for modified code.",
         "[resonance-uy-py] Increase test coverage for modified code.",
@@ -905,7 +905,7 @@
           "status": "ok"
         },
         {
-          "repo": "Super-Agency",
+          "repo": "Digital-Labour",
           "exists": true,
           "health": {
             "score": 4,

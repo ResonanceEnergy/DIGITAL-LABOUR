@@ -14,7 +14,7 @@
 | 🟡 Media & Marketing Operations | medium | 0% (0/3) | 16 | 0.0 MB | 0 |
 | 🟡 Alternative History & Research | medium | 0% (0/2) | 8 | 0.0 MB | 0 |
 | 🟡 Digital Products & Business | medium | 0% (0/3) | 4991 | 1619.28 MB | 8 |
-| 🔴 Bit Rage Systems Platform | critical | 50% (3/6) | 5128 | 84.67 MB | 8 |
+| 🔴 DIGITAL LABOUR Platform | critical | 50% (3/6) | 5128 | 84.67 MB | 8 |
 
 ---
 ## Human Health & Longevity
@@ -156,7 +156,7 @@
 - [Crimson-Compass] Increase test coverage for modified code.
 
 ---
-## Bit Rage Systems Platform
+## DIGITAL LABOUR Platform
 *Core platform infrastructure — the agency itself, command centers, doctrine*
 
 **Status:** active | **Priority:** critical | **Repos:** 10/10
@@ -175,7 +175,7 @@
 | ResonanceEnergy_Enterprise | 4/4 | 10 | 402 | 3.66 MB |
 | QUSAR | 3/4 | 10 | 42 | 0.22 MB |
 | ENTERPRISE-EXCELERATION | 2/4 | 1 | 8 | 0.0 MB |
-| Super-Agency | 4/4 | 10 | 1262 | 8.4 MB |
+| Digital-Labour | 4/4 | 10 | 1262 | 8.4 MB |
 | NCC-Doctrine | 4/4 | 10 | 3306 | 72.32 MB |
 
 **Next Actions:**
@@ -185,6 +185,6 @@
 - [resonance-uy-py] Increase test coverage for modified code.
 - [ResonanceEnergy_Enterprise] Increase test coverage for modified code.
 - [QUSAR] Increase test coverage for modified code.
-- [Super-Agency] Increase test coverage for modified code.
+- [Digital-Labour] Increase test coverage for modified code.
 - [NCC-Doctrine] Increase test coverage for modified code.
 

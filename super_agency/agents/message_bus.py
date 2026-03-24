@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Bit Rage Systems Message Bus — lightweight in-process event bus.
+DIGITAL LABOUR Message Bus — lightweight in-process event bus.
 
-Provides pub/sub messaging between agents running inside run_super_agency.py.
+Provides pub/sub messaging between agents running inside run_bit_rage_labour.py.
 Messages are also persisted to disk for cross-process / post-mortem inspection.
 
 Usage:

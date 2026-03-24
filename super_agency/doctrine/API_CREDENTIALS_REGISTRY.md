@@ -1,9 +1,9 @@
 # API CREDENTIALS REGISTRY
-## Super-Agency Master Credential Reference
+## Digital-Labour Master Credential Reference
 ### Version 1.0 — 2026-02-28
 
 > **SECURITY NOTE**: This document catalogs available API providers and their purposes.
-> Actual keys are stored ONLY at `~/.superagency/credentials.json` (chmod 600, NOT git-tracked).
+> Actual keys are stored ONLY at `~/\.digitallabour/credentials.json` (chmod 600, NOT git-tracked).
 > OpenClaw runtime keys are in `~/.openclaw/openclaw.json` env section (chmod 600).
 
 ---
@@ -18,21 +18,21 @@
 | OpenAI | `OPENAI_API_KEY` | GPT, DALL-E, Whisper models | **ACTIVE** | `~/.openclaw/openclaw.json` env section |
 | Google Gemini | `GEMINI_API_KEY` | Gemini AI models | **ACTIVE** | `~/.openclaw/openclaw.json` env section |
 | xAI | `XAI_API_KEY` | Grok AI models (primary) | **ACTIVE** | `~/.openclaw/openclaw.json` env section |
-| xAI (backup) | `XAI_API_KEY_2` | Grok AI models (secondary) | **STORED** | `~/.superagency/credentials.json` only |
+| xAI (backup) | `XAI_API_KEY_2` | Grok AI models (secondary) | **STORED** | `~/\.digitallabour/credentials.json` only |
 
 ### Messaging Platform Tokens
 
 | Provider | Env Variable | Purpose | Status | Config Location |
 |----------|-------------|---------|--------|----------------|
 | Telegram | `TELEGRAM_BOT_TOKEN` | @agentgasketbot — GASKET agent | **ACTIVE** | `~/.openclaw/openclaw.json` channels.telegram |
-| Discord | `DISCORD_BOT_TOKEN` | Super-Agency Discord bot | **STORED** | `~/.superagency/credentials.json` only |
+| Discord | `DISCORD_BOT_TOKEN` | Digital-Labour Discord bot | **STORED** | `~/\.digitallabour/credentials.json` only |
 
 ### Data/API Services
 
 | Provider | Env Variable | Purpose | Status | Config Location |
 |----------|-------------|---------|--------|----------------|
-| YouTube API (primary) | `YOUTUBE_API_KEY` | SecondBrain ingest pipeline | **STORED** | `~/.superagency/credentials.json` |
-| YouTube API (backup) | `YOUTUBE_API_KEY_2` | Backup YouTube API key | **STORED** | `~/.superagency/credentials.json` |
+| YouTube API (primary) | `YOUTUBE_API_KEY` | SecondBrain ingest pipeline | **STORED** | `~/\.digitallabour/credentials.json` |
+| YouTube API (backup) | `YOUTUBE_API_KEY_2` | Backup YouTube API key | **STORED** | `~/\.digitallabour/credentials.json` |
 
 ---
 
@@ -40,7 +40,7 @@
 
 | File | Purpose | Permissions | Git-Tracked |
 |------|---------|-------------|-------------|
-| `~/.superagency/credentials.json` | Master credentials vault (ALL keys) | 600 | **NO** |
+| `~/\.digitallabour/credentials.json` | Master credentials vault (ALL keys) | 600 | **NO** |
 | `~/.openclaw/openclaw.json` | OpenClaw gateway config (AI + Telegram keys) | 600 | **NO** |
 | `~/.openclaw/agents/gasket/agent/auth-profiles.json` | GASKET agent auth profiles | 600 | **NO** |
 | `~/.openclaw/agents/main/agent/auth-profiles.json` | Main agent auth profiles | 600 | **NO** |
@@ -61,9 +61,9 @@
 ├──────────────────────────────────────────────────────┤
 │  GASKET Agent (bound to Telegram channel)             │
 │  ├─ Default model: anthropic/claude-opus-4-6         │
-│  └─ Workspace: ~/repos/Super-Agency                  │
+│  └─ Workspace: ~/repos/Digital-Labour                  │
 ├──────────────────────────────────────────────────────┤
-│  Watchdog (launchd: com.superagency.watchdog)        │
+│  Watchdog (launchd: com.digitallabour.watchdog)        │
 │  └─ Uses TELEGRAM_BOT_TOKEN for alert delivery       │
 └──────────────────────────────────────────────────────┘
 ```
@@ -84,7 +84,7 @@
 ## Key Rotation Protocol
 
 1. Generate new key at provider dashboard
-2. Update `~/.superagency/credentials.json` with new value
+2. Update `~/\.digitallabour/credentials.json` with new value
 3. If AI provider: update `~/.openclaw/openclaw.json` env section
 4. Restart gateway: `openclaw gateway stop && openclaw gateway start`
 5. Verify: `openclaw models status --agent gasket`

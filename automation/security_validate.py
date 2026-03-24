@@ -1,4 +1,4 @@
-﻿"""Security & SSL/TLS Certificate Validator for BIT RAGE SYSTEMS.
+"""Security & SSL/TLS Certificate Validator for DIGITAL LABOUR.
 
 Checks:
   1. SSL/TLS certificate validity, expiry, cipher strength

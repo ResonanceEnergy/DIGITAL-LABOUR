@@ -1,4 +1,4 @@
-﻿# BIT RAGE SYSTEMS MATRIX MONITOR — Audit, Roadmap & Task List
+# DIGITAL LABOUR MATRIX MONITOR — Audit, Roadmap & Task List
 
 > Generated 2026-03-16 | Commit baseline: `f687d92` (watchdog + startup)
 

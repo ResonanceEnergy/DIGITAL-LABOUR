@@ -1,4 +1,4 @@
-﻿"""Fiverr Work Agent — Order Management, Buyer Requests, Delivery Pipeline.
+"""Fiverr Work Agent — Order Management, Buyer Requests, Delivery Pipeline.
 
 Handles Fiverr-specific workflows:
   1. Process incoming orders — read requirements, match to internal agent
@@ -127,10 +127,10 @@ Include:
 - Description of what was delivered
 - Any notes or recommendations for the buyer
 
-Sign off as BIT RAGE SYSTEMS."""
+Sign off as DIGITAL LABOUR."""
 
     response = llm_call(
-        system="You are a delivery specialist for BIT RAGE SYSTEMS, an AI-powered services agency on Fiverr.",
+        system="You are a delivery specialist for DIGITAL LABOUR, an AI-powered services agency on Fiverr.",
         user=prompt,
         provider=provider,
     )
@@ -157,7 +157,7 @@ The response should:
 - Suggest a competitive price
 - Propose a realistic delivery time
 
-Sign off as BIT RAGE SYSTEMS."""
+Sign off as DIGITAL LABOUR."""
 
     response = llm_call(
         system="You are a sales specialist responding to buyer requests on Fiverr.",

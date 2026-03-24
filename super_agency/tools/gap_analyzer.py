@@ -216,7 +216,7 @@ class GapAnalyzer:
 
         # Reliability mandate: log file exists?
         if "reliability" in mandates:
-            log_f = ROOT / "logs" / "super_agency.log"
+            log_f = ROOT / "logs" / "bit_rage_labour.log"
             if not log_f.exists():
                 gaps.append({
                     "id": "mandate_reliability_no_logs",
@@ -614,7 +614,7 @@ class GapAnalyzer:
                     "No integration sync reports"
                 ),
                 "detail": (
-                    "NCC/NCL/AAC/Digital Labour sync "
+                    "NCC/NCL/AAC/DIGITAL LABOUR sync "
                     "has never produced output"
                 ),
                 "action": "run_integrations",

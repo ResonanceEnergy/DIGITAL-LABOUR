@@ -1,4 +1,4 @@
-﻿"""RapidAPI Integration — Expose BIT RAGE SYSTEMS agents as public API products.
+"""RapidAPI Integration — Expose DIGITAL LABOUR agents as public API products.
 
 Wraps existing agent endpoints into a format suitable for listing on RapidAPI Hub.
 Provides standalone FastAPI app with API key auth, rate limiting, and usage tracking.
@@ -7,7 +7,7 @@ Steps to list on RapidAPI:
     1. Create account: https://rapidapi.com/auth/sign-up
     2. Go to: https://rapidapi.com/provider/dashboard
     3. Click "My APIs" → "Add New API"
-    4. Name: "BIT RAGE SYSTEMS — AI Agents"
+    4. Name: "DIGITAL LABOUR — AI Agents"
     5. Category: Artificial Intelligence
     6. Upload OpenAPI spec: python -m api.rapidapi --spec > openapi.json
     7. Set base URL to your deployed server
@@ -47,7 +47,7 @@ from typing import Optional
 _on_railway = bool(os.environ.get("RAILWAY_ENVIRONMENT"))
 
 rapid_app = FastAPI(
-    title="BIT RAGE SYSTEMS — AI Agents API",
+    title="DIGITAL LABOUR — AI Agents API",
     version="2.0.0",
     description=(
         "24 AI agents for sales outreach, lead generation, content creation, "
@@ -171,7 +171,7 @@ rapid_app.mount("/intake", intake_app)
 from api.monitor import router as monitor_router
 rapid_app.include_router(monitor_router)
 
-# ── BIT RAGE SYSTEMS MATRIX MONITOR (mobile C2 dashboard) ────────────────
+# ── DIGITAL LABOUR MATRIX MONITOR (mobile C2 dashboard) ────────────────
 from api.matrix_monitor import router as matrix_router
 rapid_app.include_router(matrix_router)
 
@@ -182,7 +182,7 @@ rapid_app.include_router(openclaw_router)
 
 @rapid_app.get("/matrix", response_class=HTMLResponse)
 def matrix_dashboard():
-    """Serve the BIT RAGE SYSTEMS MATRIX MONITOR — mobile C2 dashboard."""
+    """Serve the DIGITAL LABOUR MATRIX MONITOR — mobile C2 dashboard."""
     html_path = Path(__file__).parent / "matrix_dashboard.html"
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
@@ -191,7 +191,7 @@ def matrix_dashboard():
 def matrix_manifest():
     """PWA manifest for Add to Home Screen."""
     return JSONResponse({
-        "name": "BIT RAGE SYSTEMS MATRIX",
+        "name": "DIGITAL LABOUR MATRIX",
         "short_name": "MATRIX",
         "start_url": "/matrix",
         "display": "standalone",
@@ -392,7 +392,7 @@ def list_agents():
 def api_root():
     """API root — returns service info, version, and available endpoints."""
     return {
-        "name": "BIT RAGE SYSTEMS — AI Agents API",
+        "name": "DIGITAL LABOUR — AI Agents API",
         "version": "2.0.0",
         "agents": ALL_AGENTS,
         "endpoints": {
@@ -549,7 +549,7 @@ def export_openapi_spec() -> dict:
     # Add RapidAPI-specific extensions
     spec["info"]["x-rapidapi-host"] = "bit-rage-labour.p.rapidapi.com"
     spec["info"]["contact"] = {
-        "name": "BIT RAGE SYSTEMS",
+        "name": "DIGITAL LABOUR",
         "email": "api@bit-rage-labour.com",
         "url": "https://bit-rage-labour.com",
     }

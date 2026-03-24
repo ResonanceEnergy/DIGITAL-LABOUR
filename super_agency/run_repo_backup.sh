@@ -1,8 +1,8 @@
 #!/bin/bash
-# Bit Rage Systems Auto Repo Backup Runner
+# DIGITAL LABOUR Auto Repo Backup Runner
 # Triggered every 15 minutes by launchd
 
-cd "$HOME/repos/SuperAgency-Shared"
+cd "$HOME/repos/DIGITAL LABOUR-Shared"
 
 # Run the backup
 python3 auto_repo_backup.py >> backup_logs/scheduler.log 2>&1

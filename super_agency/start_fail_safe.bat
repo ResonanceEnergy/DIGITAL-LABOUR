@@ -1,11 +1,11 @@
 @echo off
-REM Bit Rage Systems ULTIMATE FAIL-SAFE STARTUP SCRIPT
+REM Digital Labour ULTIMATE FAIL-SAFE STARTUP SCRIPT
 REM Launches the watchdog service for 24/7/365 operation
 REM This script ensures the entire agency remains online forever
 
 echo.
 echo ===============================================
-echo   Bit Rage Systems ULTIMATE FAIL-SAFE STARTUP
+echo   Digital Labour ULTIMATE FAIL-SAFE STARTUP
 echo ===============================================
 echo.
 
@@ -36,7 +36,7 @@ echo This will launch the fail-safe orchestrator and ensure 24/7 operation
 echo.
 
 REM Start the watchdog service in a new window
-start "Bit Rage Systems WATCHDOG" cmd /c "python watchdog_service.py"
+start "Digital Labour WATCHDOG" cmd /c "python watchdog_service.py"
 
 REM Wait a moment for startup
 timeout /t 3 /nobreak >nul

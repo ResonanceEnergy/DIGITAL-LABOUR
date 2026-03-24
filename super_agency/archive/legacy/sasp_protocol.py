@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Super Agency Secure Authentication Secure Protocol (SASP)
+DIGITAL LABOUR Secure Authentication Secure Protocol (SASP)
 Secure cross-device communication framework
 """
 

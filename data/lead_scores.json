@@ -11,7 +11,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -26,7 +26,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -41,7 +41,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -56,7 +56,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -70,7 +70,7 @@
       "decision-maker role: director of operations",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -84,7 +84,7 @@
       "decision-maker role: head of sales",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -98,7 +98,7 @@
       "decision-maker role: head of growth",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -112,7 +112,7 @@
       "decision-maker role: director of operations",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -126,7 +126,7 @@
       "decision-maker role: director of sales",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -140,7 +140,7 @@
       "decision-maker role: director of sales",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -154,7 +154,7 @@
       "decision-maker role: director of sales",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -168,7 +168,7 @@
       "decision-maker role: head of growth",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -182,7 +182,7 @@
       "decision-maker role: head of sales",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -196,21 +196,7 @@
       "decision-maker role: head of sales",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "Skaled",
-    "role": "CEO",
-    "email": null,
-    "score": 95,
-    "grade": "A",
-    "reasons": [
-      "high-value vertical: consulting",
-      "decision-maker role: ceo",
-      "marked high priority"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -224,7 +210,7 @@
       "decision-maker role: head of growth",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -238,7 +224,7 @@
       "decision-maker role: head of sales",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -252,7 +238,7 @@
       "decision-maker role: head of growth",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -266,7 +252,7 @@
       "decision-maker role: ceo",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -280,7 +266,7 @@
       "decision-maker role: head of growth",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -294,7 +280,7 @@
       "decision-maker role: ceo",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -308,7 +294,7 @@
       "decision-maker role: head of growth",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -322,7 +308,7 @@
       "decision-maker role: head of growth",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -336,7 +322,7 @@
       "decision-maker role: head of growth",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -350,7 +336,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -364,7 +350,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -378,7 +364,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -392,7 +378,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -406,7 +392,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -420,7 +406,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -433,7 +419,7 @@
       "high-value vertical: logistics",
       "decision-maker role: head of sales"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -446,7 +432,7 @@
       "high-value vertical: consulting",
       "decision-maker role: ceo"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -459,7 +445,7 @@
       "high-value vertical: e-commerce",
       "decision-maker role: director of sales"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -472,7 +458,7 @@
       "high-value vertical: fintech",
       "decision-maker role: director of sales"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -485,7 +471,7 @@
       "high-value vertical: consulting",
       "decision-maker role: director of sales"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -499,7 +485,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -513,7 +499,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -527,7 +513,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -541,7 +527,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -554,7 +540,7 @@
       "high-value vertical: saas",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -567,7 +553,7 @@
       "high-value vertical: e-commerce",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -580,7 +566,7 @@
       "high-value vertical: e-commerce",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -593,7 +579,7 @@
       "high-value vertical: saas",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -606,7 +592,7 @@
       "high-value vertical: logistics",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -619,7 +605,7 @@
       "high-value vertical: saas",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -632,7 +618,7 @@
       "high-value vertical: logistics",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -645,7 +631,7 @@
       "high-value vertical: e-commerce",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -658,7 +644,7 @@
       "high-value vertical: saas",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -671,7 +657,7 @@
       "high-value vertical: saas",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -684,7 +670,7 @@
       "high-value vertical: saas",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -697,7 +683,7 @@
       "high-value vertical: e-commerce",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -710,7 +696,7 @@
       "high-value vertical: saas",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -723,7 +709,7 @@
       "high-value vertical: fintech",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -736,7 +722,7 @@
       "high-value vertical: consulting",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -749,7 +735,7 @@
       "high-value vertical: saas",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -762,7 +748,7 @@
       "high-value vertical: e-commerce",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -775,7 +761,7 @@
       "high-value vertical: e-commerce",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -788,7 +774,7 @@
       "high-value vertical: fintech",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -801,7 +787,7 @@
       "high-value vertical: fintech",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -814,7 +800,7 @@
       "high-value vertical: fintech",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -827,7 +813,7 @@
       "high-value vertical: saas",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -840,7 +826,7 @@
       "high-value vertical: consulting",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -853,7 +839,7 @@
       "high-value vertical: saas",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -866,7 +852,7 @@
       "high-value vertical: edtech",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -879,7 +865,7 @@
       "high-value vertical: edtech",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -892,7 +878,7 @@
       "high-value vertical: edtech",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -905,7 +891,7 @@
       "high-value vertical: e-commerce",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -918,7 +904,7 @@
       "high-value vertical: fintech",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -931,85 +917,7 @@
       "high-value vertical: fintech",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "Italic",
-    "role": "VP of Customer Experience",
-    "email": null,
-    "score": 80,
-    "grade": "A",
-    "reasons": [
-      "high-value vertical: e-commerce",
-      "marked high priority"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "JumpCrew",
-    "role": "VP of Sales",
-    "email": null,
-    "score": 80,
-    "grade": "A",
-    "reasons": [
-      "high-value vertical: consulting",
-      "marked high priority"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "Winning by Design",
-    "role": "Managing Director",
-    "email": null,
-    "score": 80,
-    "grade": "A",
-    "reasons": [
-      "high-value vertical: consulting",
-      "marked high priority"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "Springboard",
-    "role": "Director of Admissions",
-    "email": null,
-    "score": 80,
-    "grade": "A",
-    "reasons": [
-      "high-value vertical: edtech",
-      "marked high priority"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "Flowspace",
-    "role": "VP of Sales",
-    "email": null,
-    "score": 80,
-    "grade": "A",
-    "reasons": [
-      "high-value vertical: logistics",
-      "marked high priority"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "Sendle",
-    "role": "Head of Customer Support",
-    "email": null,
-    "score": 80,
-    "grade": "A",
-    "reasons": [
-      "high-value vertical: logistics",
-      "marked high priority"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1022,7 +930,7 @@
       "high-value vertical: saas",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1035,7 +943,7 @@
       "high-value vertical: saas",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1048,7 +956,7 @@
       "high-value vertical: saas",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1061,7 +969,7 @@
       "high-value vertical: saas",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1074,7 +982,7 @@
       "high-value vertical: saas",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1087,7 +995,7 @@
       "high-value vertical: saas",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1100,7 +1008,7 @@
       "high-value vertical: saas",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1113,7 +1021,7 @@
       "high-value vertical: saas",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1126,7 +1034,7 @@
       "high-value vertical: saas",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1139,7 +1047,7 @@
       "high-value vertical: saas",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1152,7 +1060,7 @@
       "high-value vertical: saas",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1167,7 +1075,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1182,7 +1090,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1195,7 +1103,7 @@
       "decision-maker role: director of sales",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1208,7 +1116,7 @@
       "decision-maker role: director of sales",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1221,7 +1129,7 @@
       "decision-maker role: ceo",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1234,7 +1142,7 @@
       "decision-maker role: chief revenue officer",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1247,7 +1155,7 @@
       "decision-maker role: head of growth",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1260,7 +1168,7 @@
       "decision-maker role: chief revenue officer",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1273,7 +1181,7 @@
       "decision-maker role: director of sales",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1286,20 +1194,7 @@
       "decision-maker role: head of sales",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "CloserIQ",
-    "role": "Head of Sales",
-    "email": null,
-    "score": 75,
-    "grade": "B",
-    "reasons": [
-      "decision-maker role: head of sales",
-      "marked high priority"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1312,7 +1207,7 @@
       "decision-maker role: founder",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1325,7 +1220,7 @@
       "decision-maker role: ceo",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1338,7 +1233,7 @@
       "decision-maker role: ceo",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1351,7 +1246,7 @@
       "decision-maker role: founder",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1363,7 +1258,7 @@
     "reasons": [
       "high-value vertical: consulting"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1375,7 +1270,7 @@
     "reasons": [
       "high-value vertical: consulting"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1387,7 +1282,7 @@
     "reasons": [
       "high-value vertical: consulting"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1399,7 +1294,7 @@
     "reasons": [
       "high-value vertical: consulting"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1411,7 +1306,7 @@
     "reasons": [
       "high-value vertical: e-commerce"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1423,7 +1318,7 @@
     "reasons": [
       "high-value vertical: consulting"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1435,7 +1330,7 @@
     "reasons": [
       "high-value vertical: consulting"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1447,7 +1342,7 @@
     "reasons": [
       "high-value vertical: fintech"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1459,7 +1354,7 @@
     "reasons": [
       "high-value vertical: saas"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1471,7 +1366,7 @@
     "reasons": [
       "high-value vertical: e-commerce"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1483,7 +1378,7 @@
     "reasons": [
       "high-value vertical: e-commerce"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1495,7 +1390,7 @@
     "reasons": [
       "high-value vertical: fintech"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1509,7 +1404,7 @@
       "SMB signal: startup",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1521,7 +1416,7 @@
     "reasons": [
       "high-value vertical: consulting"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1533,7 +1428,7 @@
     "reasons": [
       "high-value vertical: consulting"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1545,7 +1440,7 @@
     "reasons": [
       "high-value vertical: edtech"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1557,8 +1452,8 @@
     "reasons": [
       "high-value vertical: e-commerce"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
+    "already_contacted": false
   },
   {
     "company": "Alloy",
@@ -1569,8 +1464,8 @@
     "reasons": [
       "high-value vertical: fintech"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
+    "already_contacted": false
   },
   {
     "company": "Vouch",
@@ -1581,80 +1476,8 @@
     "reasons": [
       "high-value vertical: fintech"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "Brooklinen",
-    "role": "Director of Customer Support",
-    "email": null,
-    "score": 70,
-    "grade": "B",
-    "reasons": [
-      "high-value vertical: e-commerce"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "MeUndies",
-    "role": "Head of Customer Experience",
-    "email": null,
-    "score": 70,
-    "grade": "B",
-    "reasons": [
-      "high-value vertical: e-commerce"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "Cotopaxi",
-    "role": "VP of E-commerce",
-    "email": null,
-    "score": 70,
-    "grade": "B",
-    "reasons": [
-      "high-value vertical: e-commerce"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "Reforge",
-    "role": "VP of Marketing",
-    "email": null,
-    "score": 70,
-    "grade": "B",
-    "reasons": [
-      "high-value vertical: edtech"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "Thinkific",
-    "role": "VP of Customer Success",
-    "email": null,
-    "score": 70,
-    "grade": "B",
-    "reasons": [
-      "high-value vertical: edtech"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "Shippo",
-    "role": "VP of Sales",
-    "email": null,
-    "score": 70,
-    "grade": "B",
-    "reasons": [
-      "high-value vertical: logistics"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
+    "already_contacted": false
   },
   {
     "company": "Siege Media",
@@ -1666,7 +1489,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.952097+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1680,7 +1503,7 @@
       "SMB signal: startup",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1694,7 +1517,7 @@
       "SMB signal: startup",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1708,7 +1531,7 @@
       "SMB signal: startup",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1722,7 +1545,7 @@
       "SMB signal: startup",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1734,7 +1557,7 @@
     "reasons": [
       "decision-maker role: head of operations"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1746,7 +1569,7 @@
     "reasons": [
       "decision-maker role: director of operations"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1758,7 +1581,7 @@
     "reasons": [
       "decision-maker role: head of sales"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1770,7 +1593,7 @@
     "reasons": [
       "decision-maker role: head of sales"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1782,7 +1605,7 @@
     "reasons": [
       "decision-maker role: ceo"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1794,8 +1617,8 @@
     "reasons": [
       "decision-maker role: head of operations"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
+    "already_contacted": false
   },
   {
     "company": "Spruce Health",
@@ -1806,7 +1629,7 @@
     "reasons": [
       "decision-maker role: director of operations"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1818,20 +1641,8 @@
     "reasons": [
       "decision-maker role: head of growth"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "Riviera Partners",
-    "role": "Director of Operations",
-    "email": null,
-    "score": 65,
-    "grade": "B",
-    "reasons": [
-      "decision-maker role: director of operations"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
+    "already_contacted": false
   },
   {
     "company": "Ramp",
@@ -1844,7 +1655,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1858,7 +1669,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1872,7 +1683,7 @@
       "corporate email domain",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1884,7 +1695,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -1896,7 +1707,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1908,7 +1719,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1920,7 +1731,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1932,7 +1743,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1944,7 +1755,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1956,7 +1767,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1968,7 +1779,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1980,7 +1791,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -1992,7 +1803,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2004,7 +1815,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2016,7 +1827,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2028,7 +1839,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2040,7 +1851,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2052,7 +1863,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2064,7 +1875,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2076,7 +1887,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2089,8 +1900,8 @@
       "decision-maker role: head of operations",
       "SMB signal: startup"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
+    "already_contacted": false
   },
   {
     "company": "LinkSquares",
@@ -2101,7 +1912,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2113,7 +1924,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2125,7 +1936,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2137,7 +1948,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2149,31 +1960,7 @@
     "reasons": [
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "Betts Recruiting",
-    "role": "VP of Operations",
-    "email": null,
-    "score": 60,
-    "grade": "C",
-    "reasons": [
-      "marked high priority"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
-  },
-  {
-    "company": "Hunt Club",
-    "role": "Head of Talent",
-    "email": null,
-    "score": 60,
-    "grade": "C",
-    "reasons": [
-      "marked high priority"
-    ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2185,7 +1972,7 @@
     "reasons": [
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -2198,7 +1985,7 @@
       "SMB signal: startup",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2211,7 +1998,7 @@
       "SMB signal: startup",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2224,7 +2011,7 @@
       "SMB signal: startup",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2237,7 +2024,7 @@
       "SMB signal: startup",
       "marked high priority"
     ],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2250,7 +2037,7 @@
       "SMB signal: startup",
       "corporate email domain"
     ],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -2260,7 +2047,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -2270,7 +2057,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.697256+00:00",
     "already_contacted": true
   },
   {
@@ -2280,7 +2067,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2290,7 +2077,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2300,7 +2087,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2310,7 +2097,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2320,7 +2107,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2330,7 +2117,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.953098+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2340,7 +2127,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2350,7 +2137,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2360,7 +2147,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2370,7 +2157,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2380,7 +2167,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2390,7 +2177,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
   },
   {
@@ -2400,8 +2187,8 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
+    "already_contacted": false
   },
   {
     "company": "LeanData",
@@ -2410,8 +2197,8 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
+    "already_contacted": false
   },
   {
     "company": "Memora Health",
@@ -2420,7 +2207,7 @@
     "score": 50,
     "grade": "C",
     "reasons": [],
-    "scored_at": "2026-03-24T08:47:27.954097+00:00",
-    "already_contacted": true
+    "scored_at": "2026-03-22T15:14:17.698270+00:00",
+    "already_contacted": false
   }
 ]

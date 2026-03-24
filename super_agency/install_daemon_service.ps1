@@ -1,4 +1,4 @@
-# Bit Rage Systems Service Installer
+# Digital Labour Service Installer
 # Uses NSSM (Non-Sucking Service Manager) for reliable Windows service management
 #
 # Features:
@@ -17,12 +17,12 @@ param(
     [switch]$Status
 )
 
-$ServiceName = "SuperAgencyDaemon"
-$DisplayName = "Bit Rage Systems Background Daemon"
-$Description = "Manages Bit Rage Systems operations, health monitoring, and auto-recovery"
+$ServiceName = "DIGITAL LABOURDaemon"
+$DisplayName = "Digital Labour Background Daemon"
+$Description = "Manages Digital Labour operations, health monitoring, and auto-recovery"
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $PythonPath = Join-Path $ScriptDir "venv\Scripts\python.exe"
-$DaemonScript = Join-Path $ScriptDir "super_agency_daemon.py"
+$DaemonScript = Join-Path $ScriptDir "digital_labour_daemon.py"
 $LogDir = Join-Path $ScriptDir "logs"
 
 # Ensure log directory exists
@@ -63,7 +63,7 @@ function Install-NSSM {
 }
 
 function Get-ServiceStatus {
-    Write-Host "`n=== Bit Rage Systems SERVICE STATUS ===" -ForegroundColor Cyan
+    Write-Host "`n=== Digital Labour SERVICE STATUS ===" -ForegroundColor Cyan
 
     $service = Get-Service -Name $ServiceName -ErrorAction SilentlyContinue
     if ($service) {
@@ -139,7 +139,7 @@ function Uninstall-Service {
 }
 
 function Install-Service {
-    Write-Host "`n=== INSTALLING Bit Rage Systems DAEMON SERVICE ===" -ForegroundColor Green
+    Write-Host "`n=== INSTALLING Digital Labour DAEMON SERVICE ===" -ForegroundColor Green
 
     # Check NSSM
     if (!(Test-Path $NssmPath)) {
@@ -219,12 +219,12 @@ else {
 
 Write-Host "`n=== SCHEDULED TASK CLEANUP RECOMMENDATIONS ===" -ForegroundColor Cyan
 Write-Host "The daemon replaces these scheduled tasks:" -ForegroundColor Yellow
-Write-Host "  - SuperAgency CrossPlatform Refresh  (now: daemon refresh cycle)" -ForegroundColor White
-Write-Host "  - SuperAgency_5Min_Refresh           (now: daemon refresh cycle)" -ForegroundColor White
-Write-Host "  - SuperAgency-MemoryDoctrine         (now: daemon doctrine task)" -ForegroundColor White
+Write-Host "  - DIGITAL LABOUR CrossPlatform Refresh  (now: daemon refresh cycle)" -ForegroundColor White
+Write-Host "  - DIGITAL LABOUR_5Min_Refresh           (now: daemon refresh cycle)" -ForegroundColor White
+Write-Host "  - DIGITAL LABOUR-MemoryDoctrine         (now: daemon doctrine task)" -ForegroundColor White
 Write-Host ""
 Write-Host "Run these commands to disable duplicate tasks:" -ForegroundColor Yellow
-Write-Host '  schtasks /Change /TN "SuperAgency CrossPlatform Refresh" /Disable' -ForegroundColor Gray
-Write-Host '  schtasks /Change /TN "SuperAgency_5Min_Refresh" /Disable' -ForegroundColor Gray
-Write-Host '  schtasks /Change /TN "SuperAgency-MemoryDoctrine" /Disable' -ForegroundColor Gray
+Write-Host '  schtasks /Change /TN "DIGITAL LABOUR CrossPlatform Refresh" /Disable' -ForegroundColor Gray
+Write-Host '  schtasks /Change /TN "DIGITAL LABOUR_5Min_Refresh" /Disable' -ForegroundColor Gray
+Write-Host '  schtasks /Change /TN "DIGITAL LABOUR-MemoryDoctrine" /Disable' -ForegroundColor Gray
 Write-Host ""

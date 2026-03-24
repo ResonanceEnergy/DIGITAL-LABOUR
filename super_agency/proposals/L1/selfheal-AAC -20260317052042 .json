@@ -1,0 +1,16 @@
+{
+  "id": "selfheal-AAC -20260317052042 ",
+  "type": "remediation",
+  "proposed_by": "portfolio_selfheal",
+  "title": "Fix issues in AAC",
+  "repo_name": "AAC",
+  "issues": [
+    "MISSING: no LICENSE file"
+  ],
+  "risk": "LOW",
+  "autonomy_required": "L1",
+  "suggested_actions": [
+    "Add MIT LICENSE file"
+  ],
+  "created_at": "2026-03-17T05:20:42"
+}

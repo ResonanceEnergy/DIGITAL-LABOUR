@@ -1,4 +1,4 @@
-﻿"""Invoice-to-PDF generator using only the Python standard library.
+"""Invoice-to-PDF generator using only the Python standard library.
 
 Produces a clean, professional invoice PDF from billing tracker invoices.
 No external dependencies required — uses a minimal PDF writer.
@@ -152,7 +152,7 @@ def _draw_invoice(invoice: dict) -> bytes:
         y -= gap
 
     # Header
-    add(50, "BIT RAGE SYSTEMS", 22)
+    add(50, "DIGITAL LABOUR", 22)
     nl(18)
     add(50, "AI Workforce — Invoice", 10)
     nl(30)
@@ -225,7 +225,7 @@ def _draw_invoice(invoice: dict) -> bytes:
     nl()
     add(50, "Terms: Due upon receipt. Net 14 days.", 9)
     nl(30)
-    add(50, "Thank you for choosing BIT RAGE SYSTEMS.", 10)
+    add(50, "Thank you for choosing DIGITAL LABOUR.", 10)
 
     pdf.add_page(lines)
     return pdf.build()

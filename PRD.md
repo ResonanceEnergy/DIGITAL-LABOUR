@@ -1,4 +1,4 @@
-﻿# BIT RAGE SYSTEMS Labour PRD
+# DIGITAL LABOUR Labour PRD
 
 ## Tasks
 

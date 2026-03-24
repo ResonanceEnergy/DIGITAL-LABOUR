@@ -1,4 +1,4 @@
-# Bit Rage Systems Windows Build Environment Setup
+# Digital Labour Windows Build Environment Setup
 # Run this script as Administrator in PowerShell
 
 param(
@@ -7,7 +7,7 @@ param(
     [switch]$SkipGitHubCLI
 )
 
-Write-Host "🚀 Bit Rage Systems Windows Build Environment Setup" -ForegroundColor Blue
+Write-Host "🚀 Digital Labour Windows Build Environment Setup" -ForegroundColor Blue
 Write-Host "================================================" -ForegroundColor Blue
 
 # Check if running as administrator
@@ -95,25 +95,25 @@ function Install-DevTools {
     Write-Success "Build tools installed"
 }
 
-# Set up Bit Rage Systems project
-function Setup-SuperAgency {
-    Write-Info "Setting up Bit Rage Systems project..."
+# Set up Digital Labour project
+function Setup-DIGITAL LABOUR {
+    Write-Info "Setting up Digital Labour project..."
 
-    # Create Bit Rage Systems directory
-    $superAgencyDir = "$env:USERPROFILE\Super-Agency"
-    if (-not (Test-Path $superAgencyDir)) {
-        New-Item -ItemType Directory -Path $superAgencyDir -Force
-        Write-Success "Bit Rage Systems directory created"
+    # Create Digital Labour directory
+    $DIGITAL LABOURDir = "$env:USERPROFILE\Digital-Labour"
+    if (-not (Test-Path $DIGITAL LABOURDir)) {
+        New-Item -ItemType Directory -Path $DIGITAL LABOURDir -Force
+        Write-Success "Digital Labour directory created"
     } else {
-        Write-Warning "Bit Rage Systems directory already exists"
+        Write-Warning "Digital Labour directory already exists"
     }
 
-    Set-Location $superAgencyDir
+    Set-Location $DIGITAL LABOURDir
 
     # Clone or update repository
     if (-not (Test-Path ".git")) {
-        Write-Info "Cloning Bit Rage Systems repository..."
-        gh repo clone ResonanceEnergy/Super-Agency .
+        Write-Info "Cloning Digital Labour repository..."
+        gh repo clone ResonanceEnergy/Digital-Labour .
         Write-Success "Repository cloned"
     } else {
         Write-Info "Updating existing repository..."
@@ -268,7 +268,7 @@ function Setup-CICD {
 
     # Create CI/CD workflow
     $workflow = @"
-name: Bit Rage Systems Windows CI/CD
+name: Digital Labour Windows CI/CD
 
 on:
   push:
@@ -331,7 +331,7 @@ jobs:
     - name: Build executable
       run: |
         # PyInstaller build
-        pyinstaller --onefile --name super-agency-windows-${{ matrix.architecture }} operations_launcher.py
+        pyinstaller --onefile --name Digital-Labour-windows-${{ matrix.architecture }} operations_launcher.py
 
         # cx_Freeze build
         cxfreeze operations_launcher.py --target-dir dist/cx_freeze
@@ -339,7 +339,7 @@ jobs:
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: super-agency-windows-${{ matrix.python-version }}-${{ matrix.architecture }}
+        name: Digital-Labour-windows-${{ matrix.python-version }}-${{ matrix.architecture }}
         path: |
           dist/
           build/
@@ -361,7 +361,7 @@ jobs:
       with:
         draft: false
         prerelease: false
-        release_name: Bit Rage Systems v${{ github.run_number }}
+        release_name: Digital Labour v${{ github.run_number }}
         tag_name: v${{ github.run_number }}
       env:
         GITHUB_TOKEN: ${{ github.token }}
@@ -372,8 +372,8 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./artifacts/super-agency-windows-3.11-x64/super-agency-windows-3.11-x64.exe
-        asset_name: super-agency-windows-x64.exe
+        asset_path: ./artifacts/Digital-Labour-windows-3.11-x64/Digital-Labour-windows-3.11-x64.exe
+        asset_name: Digital-Labour-windows-x64.exe
         asset_content_type: application/octet-stream
 "@
 
@@ -388,8 +388,8 @@ function Create-LaunchScripts {
 
     # Create main launch script
     $launchScript = @"
-# Bit Rage Systems Windows Command Center Launcher
-Write-Host "🚀 Bit Rage Systems Windows Command Center" -ForegroundColor Blue
+# Digital Labour Windows Command Center Launcher
+Write-Host "🚀 Digital Labour Windows Command Center" -ForegroundColor Blue
 Write-Host "=========================================" -ForegroundColor Blue
 
 # Check if virtual environment exists
@@ -423,7 +423,7 @@ try {
     }
 } finally {
     Write-Host "🛑 Shutting down Command Center..." -ForegroundColor Yellow
-    Get-Process -Name "python" | Where-Object { $_.MainWindowTitle -like "*Bit Rage Systems*" } | Stop-Process -Force
+    Get-Process -Name "python" | Where-Object { $_.MainWindowTitle -like "*Digital Labour*" } | Stop-Process -Force
 }
 "@
 
@@ -431,7 +431,7 @@ try {
 
     # Create build script
     $buildScript = @"
-# Bit Rage Systems Windows Build Script
+# Digital Labour Windows Build Script
 param(
     [string]$Tool = "pyinstaller",
     [string]$Target = "operations_launcher.py",
@@ -439,7 +439,7 @@ param(
     [switch]$Test
 )
 
-Write-Host "🔨 Bit Rage Systems Windows Build" -ForegroundColor Blue
+Write-Host "🔨 Digital Labour Windows Build" -ForegroundColor Blue
 Write-Host "==============================" -ForegroundColor Blue
 
 if ($Clean) {
@@ -466,7 +466,7 @@ Write-Host "🔨 Building with $Tool..." -ForegroundColor Green
 
 switch ($Tool) {
     "pyinstaller" {
-        pyinstaller --onefile --name super-agency-windows --clean $Target
+        pyinstaller --onefile --name Digital-Labour-windows --clean $Target
     }
     "cx_Freeze" {
         cxfreeze $Target --target-dir dist/cx_freeze
@@ -497,19 +497,19 @@ if ($LASTEXITCODE -eq 0) {
 # Main setup function
 function Main {
     Write-Host ""
-    Write-Info "Starting Bit Rage Systems Windows Build Environment Setup..."
+    Write-Info "Starting Digital Labour Windows Build Environment Setup..."
     Write-Host ""
 
     Install-Chocolatey
     Install-DevTools
-    Setup-SuperAgency
+    Setup-DIGITAL LABOUR
     Setup-VSCode
     Setup-BuildEnvironment
     Setup-CICD
     Create-LaunchScripts
 
     Write-Host ""
-    Write-Success "🎉 Bit Rage Systems Windows Build Environment Setup Complete!"
+    Write-Success "🎉 Digital Labour Windows Build Environment Setup Complete!"
     Write-Host ""
     Write-Host "Next steps:" -ForegroundColor Cyan
     Write-Host "1. Run: .\launch_command_center.ps1" -ForegroundColor White

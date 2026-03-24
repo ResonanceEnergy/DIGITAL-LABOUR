@@ -81,7 +81,7 @@ class OverrideSafeguard:
 
 class EmergencyOverrideMechanisms:
     """
-    Emergency Override Mechanisms for Bit Rage Systems
+    Emergency Override Mechanisms for DIGITAL LABOUR
     Provides controlled emergency override capabilities with safeguards
     """
 

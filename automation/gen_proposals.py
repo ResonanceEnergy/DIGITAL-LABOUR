@@ -1,4 +1,4 @@
-﻿"""Generate ready-to-submit Upwork proposals from scraped job data.
+"""Generate ready-to-submit Upwork proposals from scraped job data.
 
 Usage:
     python -m automation.gen_proposals          # Generate from top matches
@@ -91,7 +91,7 @@ Happy to do a small sample task free so you can judge the quality firsthand befo
 
 Looking forward to your reply,
 Nathan
-BIT RAGE SYSTEMS AI
+DIGITAL LABOUR AI
 
 Rate: {hourly} or {fixed} fixed per deliverable"""
 

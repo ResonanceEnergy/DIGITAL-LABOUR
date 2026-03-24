@@ -2,11 +2,11 @@
   "repo": "NCC-Doctrine",
   "generated": "2026-02-20T22:03:23.465253",
   "paths": {
-    "repo_dir": "C:\\Dev\\SuperAgency-Shared\\repos\\NCC-Doctrine",
-    "mandate_yaml": "C:\\Dev\\SuperAgency-Shared\\repos\\NCC-Doctrine\\.ncl\\mandate.yaml",
-    "mandate_json": "C:\\Dev\\SuperAgency-Shared\\repos\\NCC-Doctrine\\.ncl\\mandate.json",
-    "agents_json": "C:\\Dev\\SuperAgency-Shared\\repos\\NCC-Doctrine\\.ncl\\agents.json",
-    "readme": "C:\\Dev\\SuperAgency-Shared\\repos\\NCC-Doctrine\\README.md"
+    "repo_dir": "C:\\Dev\\DIGITAL-LABOUR\\repos\\NCC-Doctrine",
+    "mandate_yaml": "C:\\Dev\\DIGITAL-LABOUR\\repos\\NCC-Doctrine\\.ncl\\mandate.yaml",
+    "mandate_json": "C:\\Dev\\DIGITAL-LABOUR\\repos\\NCC-Doctrine\\.ncl\\mandate.json",
+    "agents_json": "C:\\Dev\\DIGITAL-LABOUR\\repos\\NCC-Doctrine\\.ncl\\agents.json",
+    "readme": "C:\\Dev\\DIGITAL-LABOUR\\repos\\NCC-Doctrine\\README.md"
   },
   "mandate": {},
   "agents": {},

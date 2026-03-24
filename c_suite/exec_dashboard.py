@@ -1,4 +1,4 @@
-﻿"""DEPRECATED as CLI — Use bitrage_monitor.py --exec or 'BIT RAGE SYSTEMS MATRIX MONITOR.exe' instead.
+"""DEPRECATED as CLI — Use bitrage_monitor.py --exec or 'DIGITAL LABOUR MATRIX MONITOR.exe' instead.
 
 This module is still imported as a library by bitrage_monitor.py.
 Do NOT delete it. The CLI entry point (__main__ block) is superseded.
@@ -8,7 +8,7 @@ Replacement commands:
     bitrage_monitor.py --json      # replaces: python c_suite/exec_dashboard.py --json
 
 Original description:
-    Executive Dashboard — C-Suite command view of BIT RAGE SYSTEMS.
+    Executive Dashboard — C-Suite command view of DIGITAL LABOUR.
     Unified console output showing all three executives' status,
     the execution queue, and system vitals at a glance.
 """
@@ -70,7 +70,7 @@ def print_exec_dashboard():
 
     print()
     print("╔══════════════════════════════════════════════════════════════════════╗")
-    print("║           NCC — BIT RAGE SYSTEMS EXECUTIVE COMMAND CENTER              ║")
+    print("║           NCC — DIGITAL LABOUR EXECUTIVE COMMAND CENTER              ║")
     print("╠══════════════════════════════════════════════════════════════════════╣")
     print(f"║  Timestamp: {data['timestamp']:<56} ║")
     print("╠══════════════════════════════════════════════════════════════════════╣")

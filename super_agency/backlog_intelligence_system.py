@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bit Rage Systems Backlog Intelligence System
+DIGITAL LABOUR Backlog Intelligence System
 AI-powered priority suggestions and dependency optimization
 """
 

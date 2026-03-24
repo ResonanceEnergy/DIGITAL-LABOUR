@@ -13,7 +13,7 @@ Write-Host "  CRITICAL INFRASTRUCTURE" -ForegroundColor Red
 Write-Host "============================================" -ForegroundColor Red
 Write-Host ""
 
-$WorkspacePath = "C:\Dev\SuperAgency-Shared"
+$WorkspacePath = "C:\Dev\DIGITAL LABOUR-Shared"
 $PythonExe = "$WorkspacePath\.venv\Scripts\python.exe"
 $RepoDepotScript = "$WorkspacePath\optimus_repo_depot_launcher.py"
 $HealthScript = "$WorkspacePath\ensure_repo_depot_running.ps1"

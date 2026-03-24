@@ -44,10 +44,10 @@ def test_matrix_maximizer():
         if str(current_dir) not in sys.path:
             sys.path.insert(0, str(current_dir))
 
-        # Add Super-Agency to path for QUASMEM import
-        super_agency_dir = current_dir / "Super-Agency"
-        if str(super_agency_dir) not in sys.path:
-            sys.path.insert(0, str(super_agency_dir))
+        # Add Digital-Labour to path for QUASMEM import
+        bit_rage_labour_dir = current_dir / "Digital-Labour"
+        if str(bit_rage_labour_dir) not in sys.path:
+            sys.path.insert(0, str(bit_rage_labour_dir))
 
         # Try to import Matrix Maximizer
         from matrix_maximizer import EnhancedMatrixMaximizer
@@ -75,11 +75,11 @@ def test_quasmem_integration():
     print("🔍 Testing QUASMEM integration...")
 
     try:
-        # Add Super-Agency to path
+        # Add Digital-Labour to path
         current_dir = Path(__file__).parent
-        super_agency_dir = current_dir / "Super-Agency"
-        if str(super_agency_dir) not in sys.path:
-            sys.path.insert(0, str(super_agency_dir))
+        bit_rage_labour_dir = current_dir / "Digital-Labour"
+        if str(bit_rage_labour_dir) not in sys.path:
+            sys.path.insert(0, str(bit_rage_labour_dir))
 
         # Try to import QUASMEM components
         from quasmem_optimization import quantum_memory_pool, get_memory_status, optimize_memory_usage
@@ -132,7 +132,7 @@ def main():
     else:
         print("⚠️ SOME TESTS FAILED - Check import paths and dependencies")
         print("\nCommon fixes:")
-        print("- Ensure Super-Agency directory is accessible")
+        print("- Ensure Digital-Labour directory is accessible")
         print("- Check Python path configuration")
         print("- Verify all dependencies are installed")
 

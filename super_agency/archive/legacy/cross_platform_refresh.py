@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Super Agency Cross-Platform Refresh System
+DIGITAL LABOUR Cross-Platform Refresh System
 5-minute automated sync between Quantum Quasar (macOS) and QUANTUM FORGE (Windows)
 
 Features:

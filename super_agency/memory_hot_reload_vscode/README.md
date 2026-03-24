@@ -1,6 +1,6 @@
-# Bit Rage Systems Memory Hot Reload
+# DIGITAL LABOUR Memory Hot Reload
 
-A VS Code extension that provides hot code reloading for Bit Rage Systems memory systems, enabling real-time blank prevention and system updates.
+A VS Code extension that provides hot code reloading for DIGITAL LABOUR memory systems, enabling real-time blank prevention and system updates.
 
 ## 🚀 Features
 
@@ -15,7 +15,7 @@ A VS Code extension that provides hot code reloading for Bit Rage Systems memory
 ### Option 1: From VS Code Marketplace
 1. Open VS Code
 2. Go to Extensions (Ctrl+Shift+X)
-3. Search for "Bit Rage Systems Memory Hot Reload"
+3. Search for "DIGITAL LABOUR Memory Hot Reload"
 4. Click Install
 
 ### Option 2: Manual Installation
@@ -28,7 +28,7 @@ A VS Code extension that provides hot code reloading for Bit Rage Systems memory
 cd memory_hot_reload_vscode
 npm install
 npm run compile
-code --install-extension out/super-agency-memory-hot-reload-1.0.0.vsix
+code --install-extension out/Digital-Labour-memory-hot-reload-1.0.0.vsix
 ```
 
 ## 🛠️ Usage
@@ -37,9 +37,9 @@ code --install-extension out/super-agency-memory-hot-reload-1.0.0.vsix
 The extension automatically starts when you open a workspace containing `unified_memory_doctrine_system.py`.
 
 ### Manual Control
-- **Start Hot Reload**: `Ctrl+Shift+P` → "Bit Rage Systems: Start Memory Hot Reload"
-- **Stop Hot Reload**: `Ctrl+Shift+P` → "Bit Rage Systems: Stop Memory Hot Reload"
-- **Show Status**: `Ctrl+Shift+P` → "Bit Rage Systems: Show Memory Status"
+- **Start Hot Reload**: `Ctrl+Shift+P` → "DIGITAL LABOUR: Start Memory Hot Reload"
+- **Stop Hot Reload**: `Ctrl+Shift+P` → "DIGITAL LABOUR: Stop Memory Hot Reload"
+- **Show Status**: `Ctrl+Shift+P` → "DIGITAL LABOUR: Show Memory Status"
 - **Force Reload**: `Ctrl+Shift+M` (or `Cmd+Shift+M` on Mac)
 
 ### Status Bar
@@ -50,7 +50,7 @@ The extension automatically starts when you open a workspace containing `unified
 
 ## ⚙️ Configuration
 
-Access settings via `Ctrl+,` → "Bit Rage Systems Memory Hot Reload":
+Access settings via `Ctrl+,` → "DIGITAL LABOUR Memory Hot Reload":
 
 - `autoStart`: Automatically start hot reload on workspace open (default: true)
 - `reloadInterval`: Check interval for changes in milliseconds (default: 2000)
@@ -69,7 +69,7 @@ When any of these files change, the corresponding memory system is automatically
 ## 🐛 Troubleshooting
 
 ### Extension Not Activating
-- Ensure you're in a Bit Rage Systems workspace
+- Ensure you're in a DIGITAL LABOUR workspace
 - Check that `unified_memory_doctrine_system.py` exists
 - Reload VS Code window: `Ctrl+Shift+P` → "Developer: Reload Window"
 
@@ -113,7 +113,7 @@ vsce package
 
 - VS Code 1.74.0+
 - Python 3.8+
-- Bit Rage Systems memory system files in workspace
+- DIGITAL LABOUR memory system files in workspace
 
 ## 🤝 Contributing
 
@@ -129,4 +129,4 @@ MIT License - see LICENSE file for details.
 
 ---
 
-**Built for the Bit Rage Systems - Memory blanks prevented, hot reloading enabled!** 🚀
+**Built for the DIGITAL LABOUR - Memory blanks prevented, hot reloading enabled!** 🚀

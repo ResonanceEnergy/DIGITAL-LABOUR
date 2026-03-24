@@ -7,7 +7,7 @@
 
 $ErrorActionPreference = "SilentlyContinue"
 
-$WorkspacePath = "C:\Dev\SuperAgency-Shared"
+$WorkspacePath = "C:\Dev\DIGITAL LABOUR-Shared"
 $PythonExe = "$WorkspacePath\.venv\Scripts\python.exe"
 $RepoDepotScript = "$WorkspacePath\optimus_repo_depot_launcher.py"
 $WatchdogScript = "$WorkspacePath\repo_depot_watchdog.py"

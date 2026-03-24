@@ -1,4 +1,4 @@
-﻿# BIT RAGE SYSTEMS — Month 1 Revenue Review
+# DIGITAL LABOUR — Month 1 Revenue Review
 
 ## Period: [Month/Year]
 ## Prepared: [Date]

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Matrix Monitor UI for Super Agency
+Matrix Monitor UI for DIGITAL LABOUR
 Version: 1.1
 Adapted from AAC repository; provides a live dashboard of agent state, swarms,
 global network and quantum integration status.
@@ -89,7 +89,7 @@ class MatrixMonitor:
     def _render(self, status: Dict[str, Any]):
         # clear screen
         print("\n\x1b[2J\x1b[H", end="")
-        print("=== SUPER AGENCY MATRIX MONITOR ===")
+        print("=== DIGITAL LABOUR MATRIX MONITOR ===")
         print(json.dumps(status, indent=2, default=str))
         print("Nodes in Global Intelligence Network:", global_network.list_nodes())
         print("Available optimizer models:", list(DecisionOptimizer().models.keys()))

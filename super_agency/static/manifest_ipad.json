@@ -1,5 +1,5 @@
 {
-  "name": "Tablet Titan - Bit Rage Systems iPad Pro",
+  "name": "Tablet Titan - DIGITAL LABOUR iPad Pro",
   "short_name": "Tablet Titan",
   "description": "iPad Pro MU202VC/A iOS 18.5 optimized command center with Modern Firmware 7.03.01",
   "start_url": "/ipad",
@@ -21,7 +21,7 @@
   "handle_links": "preferred",
   "protocol_handlers": [
     {
-      "protocol": "web+superagency",
+      "protocol": "web+digitallabour",
       "url": "/ipad?action=%s"
     }
   ],

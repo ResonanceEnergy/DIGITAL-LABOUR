@@ -1,9 +1,9 @@
 #!/bin/bash
-# SuperAgency PowerShell Installation Script
+# DIGITAL LABOUR PowerShell Installation Script
 # Installs PowerShell on macOS using Homebrew
 # Run with: bash powershell_install.sh
 
-echo "🔧 SuperAgency PowerShell Installation Script"
+echo "🔧 DIGITAL LABOUR PowerShell Installation Script"
 echo "=============================================="
 echo ""
 
@@ -55,10 +55,10 @@ if command -v pwsh &> /dev/null; then
 
     echo ""
     echo "🚀 Testing PowerShell..."
-    pwsh -Command "Write-Host 'Hello from PowerShell in SuperAgency!' -ForegroundColor Green; \$PSVersionTable.PSVersion"
+    pwsh -Command "Write-Host 'Hello from PowerShell in DIGITAL LABOUR!' -ForegroundColor Green; \$PSVersionTable.PSVersion"
 
     echo ""
-    echo "📚 PowerShell is ready for SuperAgency operations!"
+    echo "📚 PowerShell is ready for DIGITAL LABOUR operations!"
     echo ""
     echo "💡 Useful commands:"
     echo "   pwsh                    - Start PowerShell interactive session"
@@ -66,9 +66,9 @@ if command -v pwsh &> /dev/null; then
     echo "   brew upgrade powershell - Update PowerShell when new versions are available"
     echo ""
     echo "🎯 Next steps:"
-    echo "   - Configure PowerShell profile for SuperAgency"
+    echo "   - Configure PowerShell profile for DIGITAL LABOUR"
     echo "   - Set up PowerShell modules for automation"
-    echo "   - Integrate with existing SuperAgency scripts"
+    echo "   - Integrate with existing DIGITAL LABOUR scripts"
 
 else
     echo "❌ PowerShell installation failed."
@@ -82,4 +82,4 @@ else
 fi
 
 echo ""
-echo "🎉 Installation complete! Welcome to PowerShell on SuperAgency."
+echo "🎉 Installation complete! Welcome to PowerShell on DIGITAL LABOUR."

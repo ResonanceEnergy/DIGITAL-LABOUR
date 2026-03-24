@@ -1,4 +1,4 @@
-# Bit Rage Systems Unified Mobile Launcher
+# Digital Labour Unified Mobile Launcher
 # Run locally and access from anywhere with phone/iPad
 
 param(
@@ -75,7 +75,7 @@ function Test-MobileSetup {
 
 # Start local services
 function Start-LocalServices {
-    Write-Launch "Starting local Bit Rage Systems services..."
+    Write-Launch "Starting local Digital Labour services..."
 
     # Start Matrix Monitor
     if ((Test-Path "matrix_monitor.py") -or (Test-Path "matrix_monitor" -PathType Container)) {
@@ -143,7 +143,7 @@ function Start-RemoteTunnel {
     # Try cloudflared
     if (Get-Command cloudflared -ErrorAction SilentlyContinue) {
         Write-Info "Starting Cloudflare tunnel..."
-        $process = Start-Process cloudflared -ArgumentList "tunnel run super-agency-mobile" -NoNewWindow -PassThru
+        $process = Start-Process cloudflared -ArgumentList "tunnel run Digital-Labour-mobile" -NoNewWindow -PassThru
         $process.Id | Out-File -FilePath ".cloudflare.pid"
         Start-Sleep 3
         Write-Success "Cloudflare tunnel started (PID: $($process.Id))"
@@ -157,7 +157,7 @@ function Start-RemoteTunnel {
 # Show access information
 function Show-AccessInfo {
     Write-Host ""
-    Write-Success "🎉 Bit Rage Systems Mobile Command Center is RUNNING!"
+    Write-Success "🎉 Digital Labour Mobile Command Center is RUNNING!"
     Write-Host ""
 
     Write-Host "📱 ACCESS YOUR COMMAND CENTER FROM ANYWHERE:" -ForegroundColor Cyan
@@ -178,12 +178,12 @@ function Show-AccessInfo {
                 Write-Host "   $publicUrl" -ForegroundColor Cyan
             }
         } catch {
-            Write-Host "   https://superagency.ngrok.io (check ngrok dashboard)" -ForegroundColor Cyan
+            Write-Host "   https://DIGITAL LABOUR.ngrok.io (check ngrok dashboard)" -ForegroundColor Cyan
         }
         Write-Host ""
     } elseif ((Test-Path ".cloudflare.pid") -and (Get-Process -Id (Get-Content ".cloudflare.pid") -ErrorAction SilentlyContinue)) {
         Write-Host "🌐 REMOTE ACCESS (from anywhere):" -ForegroundColor White
-        Write-Host "   https://mobile.superagency.local" -ForegroundColor Cyan
+        Write-Host "   https://mobile.DIGITAL LABOUR.local" -ForegroundColor Cyan
         Write-Host ""
     }
 
@@ -191,7 +191,7 @@ function Show-AccessInfo {
     Write-Host "1. Open Safari/Chrome on your phone/iPad" -ForegroundColor White
     Write-Host "2. Navigate to one of the URLs above" -ForegroundColor White
     Write-Host "3. Tap share button → Add to Home Screen" -ForegroundColor White
-    Write-Host "4. Name it 'Bit Rage Systems Command'" -ForegroundColor White
+    Write-Host "4. Name it 'Digital Labour Command'" -ForegroundColor White
     Write-Host ""
 
     Write-Host "🎮 MOBILE FEATURES:" -ForegroundColor Green
@@ -208,7 +208,7 @@ function Show-AccessInfo {
 
 # Stop all services
 function Stop-Services {
-    Write-Info "Stopping all Bit Rage Systems services..."
+    Write-Info "Stopping all Digital Labour services..."
 
     # Get all PID files
     $pidFiles = Get-ChildItem ".*.pid" -File
@@ -234,7 +234,7 @@ function Stop-Services {
 # Show status
 function Show-Status {
     Write-Host ""
-    Write-Mobile "Bit Rage Systems Mobile Command Center Status"
+    Write-Mobile "Digital Labour Mobile Command Center Status"
     Write-Host "==========================================" -ForegroundColor Magenta
     Write-Host ""
 
@@ -259,7 +259,7 @@ function Show-Status {
     if ((Test-Path ".ngrok.pid") -and (Get-Process -Id (Get-Content ".ngrok.pid") -ErrorAction SilentlyContinue)) {
         Write-Host "  🌐 Remote: Check ngrok dashboard (localhost:4040)" -ForegroundColor Cyan
     } elseif ((Test-Path ".cloudflare.pid") -and (Get-Process -Id (Get-Content ".cloudflare.pid") -ErrorAction SilentlyContinue)) {
-        Write-Host "  🌐 Remote: https://mobile.superagency.local" -ForegroundColor Cyan
+        Write-Host "  🌐 Remote: https://mobile.DIGITAL LABOUR.local" -ForegroundColor Cyan
     } else {
         Write-Host "  ❌ Remote: No tunnel active" -ForegroundColor Red
     }
@@ -280,7 +280,7 @@ function Show-Status {
 
 # Main execution
 function Invoke-Main {
-    Write-Host "🚀📱 Bit Rage Systems Unified Mobile Launcher" -ForegroundColor Cyan
+    Write-Host "🚀📱 Digital Labour Unified Mobile Launcher" -ForegroundColor Cyan
     Write-Host "========================================" -ForegroundColor Cyan
     Write-Host ""
     Write-Host "Run your command center locally and access from anywhere!" -ForegroundColor White
@@ -359,7 +359,7 @@ function Invoke-Main {
 }
 
 function Show-Help {
-    Write-Host "Bit Rage Systems Mobile Launcher Help" -ForegroundColor Cyan
+    Write-Host "Digital Labour Mobile Launcher Help" -ForegroundColor Cyan
     Write-Host "=================================" -ForegroundColor Cyan
     Write-Host ""
     Write-Host "Usage: .\mobile_launcher.ps1 [option]" -ForegroundColor White

@@ -1,4 +1,4 @@
-﻿"""End-to-end pipeline test — validates the full task lifecycle.
+"""End-to-end pipeline test — validates the full task lifecycle.
 
 Exercises: create_event → route_task → QA → delivery → KPI logging → billing
 Tests all 4 agent types with a single task each.
@@ -56,7 +56,7 @@ TEST_INPUTS = {
             "INVOICE #INV-2025-0042\n"
             "Date: January 15, 2025\n"
             "Due: February 14, 2025\n\n"
-            "From: BIT RAGE SYSTEMS LLC\n"
+            "From: DIGITAL LABOUR LLC\n"
             "123 Innovation Drive, Austin TX 78701\n\n"
             "To: Acme Widgets Inc.\n"
             "456 Commerce Blvd, Denver CO 80202\n\n"
@@ -162,7 +162,7 @@ def run_test(task_type: str, provider: str | None = None) -> dict:
 # ── Main ────────────────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="BIT RAGE SYSTEMS Pipeline Test")
+    parser = argparse.ArgumentParser(description="DIGITAL LABOUR Pipeline Test")
     parser.add_argument("--agent", choices=list(TEST_INPUTS.keys()), help="Test a specific agent only")
     parser.add_argument("--provider", help="Force a specific LLM provider")
     parser.add_argument("--live", action="store_true",
@@ -180,7 +180,7 @@ def main():
     agents = [args.agent] if args.agent else list(TEST_INPUTS.keys())
 
     print("\n" + "=" * 60)
-    print("  BIT RAGE SYSTEMS — END-TO-END PIPELINE TEST")
+    print("  DIGITAL LABOUR — END-TO-END PIPELINE TEST")
     print(f"  Agents: {', '.join(agents)}")
     print("=" * 60)
 

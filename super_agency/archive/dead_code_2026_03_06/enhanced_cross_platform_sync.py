@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Enhanced Cross-Platform Synchronization System
-Real-time synchronization between Windows and macOS Super Agency instances
+Real-time synchronization between Windows and macOS DIGITAL LABOUR instances
 """
 
 import asyncio

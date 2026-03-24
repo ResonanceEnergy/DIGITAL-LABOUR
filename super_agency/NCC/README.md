@@ -1,14 +1,14 @@
 # NCC - Neural Command Center Doctrine
-## Bit Rage Systems Command & Control Framework
+## DIGITAL LABOUR Command & Control Framework
 
 **Date:** February 20, 2026
 **Version:** 1.0
-**Integration:** Bit Rage Systems Top Structure
+**Integration:** DIGITAL LABOUR Top Structure
 **Authority:** Agent AZ Approved
 
 ## 🎯 **NCC Mission Statement**
 
-The Neural Command Center (NCC) serves as the supreme command and control nexus of the Bit Rage Systems, integrating neural cognitive processing (NCL) with strategic command execution. NCC coordinates all agency operations, intelligence processing, and decision implementation across the Council 52 framework.
+The Neural Command Center (NCC) serves as the supreme command and control nexus of the DIGITAL LABOUR, integrating neural cognitive processing (NCL) with strategic command execution. NCC coordinates all agency operations, intelligence processing, and decision implementation across the Council 52 framework.
 
 ## 🏛️ **NCC Core Functions**
 
@@ -21,7 +21,7 @@ The Neural Command Center (NCC) serves as the supreme command and control nexus 
 ### **Control Functions**
 - **Neural Integration:** Bridge NCL second brain with command systems
 - **API Governance:** Control and monitor all external API interactions
-- **Account Management:** Oversee Bit Rage Systems account structures
+- **Account Management:** Oversee DIGITAL LABOUR account structures
 - **Audit Compliance:** Ensure all operations meet doctrine requirements
 
 ### **Intelligence Functions**
@@ -55,7 +55,7 @@ The Neural Command Center (NCC) serves as the supreme command and control nexus 
 - **NCL Second Brain:** Neural processing and cognitive functions
 - **Council 52:** Intelligence gathering and policy formulation with CIO oversight
 - **Oversight Framework:** Monitoring and compliance systems with executive ethics
-- **Bit Rage Systems Operations:** Execution and resource management
+- **DIGITAL LABOUR Operations:** Execution and resource management
 - **Executive Command Interface:** CEO command authority and strategic oversight
 - **Ethical AI Governance:** CIO-led ethical compliance and decision auditing
 
@@ -71,7 +71,7 @@ The Neural Command Center (NCC) serves as the supreme command and control nexus 
 - **ncl_adapter:** Interface with NCL second brain system
 - **council_adapter:** Council 52 intelligence integration
 - **api_adapter:** External API management and control
-- **account_adapter:** Bit Rage Systems account coordination
+- **account_adapter:** DIGITAL LABOUR account coordination
 
 ### **Data Contracts**
 - **command.schema.json:** Command structure definitions
@@ -109,11 +109,11 @@ The Neural Command Center (NCC) serves as the supreme command and control nexus 
 - **Decision Quality:** >90% positive outcomes
 - **Innovation Rate:** Monthly capability enhancements
 
-## 🚀 **Integration with Bit Rage Systems**
+## 🚀 **Integration with DIGITAL LABOUR**
 
 ### **Top-Level Structure Integration**
 ```
-Bit Rage Systems
+DIGITAL LABOUR
 ├── NCC (Neural Command Center) - Command & Control
 ├── NCL (Neural Cognitive Layer) - Intelligence Processing
 ├── Council 52 - Strategic Intelligence
@@ -159,4 +159,4 @@ Bit Rage Systems
 **Integration Status:** Active  
 **Operational Readiness:** Ready for deployment  
 
-*This doctrine establishes NCC as the command nexus of the Bit Rage Systems, integrating all systems under unified control and oversight.* 🏛️⚡🧠
+*This doctrine establishes NCC as the command nexus of the DIGITAL LABOUR, integrating all systems under unified control and oversight.* 🏛️⚡🧠

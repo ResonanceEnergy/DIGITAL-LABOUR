@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Operations API Server
-REST API for programmatic access to Bit Rage Systems operations.
+REST API for programmatic access to DIGITAL LABOUR operations.
 Includes: operations, research, second brain, runtime status, & system metrics.
 """
 
@@ -91,12 +91,12 @@ def requires_api_key(f):
         # Rate limit check (applies regardless of auth mode)
         if not _check_rate_limit():
             return jsonify({"error": "Rate limit exceeded"}), 429
-        api_key = os.getenv("SUPER_AGENCY_API_KEY")
+        api_key = os.getenv("DL_API_KEY")
         if not api_key:
             if not _AUTH_WARNING_EMITTED:
                 _api_logger.warning(
-                    "SUPER_AGENCY_API_KEY not set — API auth DISABLED (dev mode). "
-                    "Set SUPER_AGENCY_API_KEY in .env for production.")
+                    "DL_API_KEY not set — API auth DISABLED (dev mode). "
+                    "Set DL_API_KEY in .env for production.")
                 _AUTH_WARNING_EMITTED = True
             return await f(*args, **kwargs)
         token = request.headers.get(
@@ -197,7 +197,7 @@ async def health_check():
     """GET /api/v1/health - API health check"""
     return jsonify({
         "status": "healthy",
-        "service": "Bit Rage Systems Operations API",
+        "service": "DIGITAL LABOUR Operations API",
         "version": "v1",
         "timestamp": datetime.now().isoformat()
     })
@@ -357,7 +357,7 @@ async def secondbrain_recent():
 async def runtime_status():
     """GET /api/v1/runtime/status — Full runtime state from watchdog."""
     try:
-        from run_super_agency import get_runtime_state
+        from run_bit_rage_labour import get_runtime_state
         state = get_runtime_state()
         return jsonify({**state, "timestamp": datetime.now().isoformat()})
     except Exception as e:
@@ -528,7 +528,7 @@ def internal_error(error):
     }), 500
 
 if __name__ == '__main__':
-    print("[LAUNCH] Starting Bit Rage Systems Operations API Server...")
+    print("[LAUNCH] Starting DIGITAL LABOUR Operations API Server...")
     print("[API] Available endpoints:")
     print("   POST /api/v1/operations/query     - Process operational queries")
     print("   GET  /api/v1/operations/departments - List all departments")

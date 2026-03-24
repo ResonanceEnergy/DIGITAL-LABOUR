@@ -1,5 +1,5 @@
 @echo off
-echo 🔐 Testing GitHub Authentication for Bit Rage Systems
+echo 🔐 Testing GitHub Authentication for Digital Labour
 echo ==================================================
 cd /d "%~dp0"
 

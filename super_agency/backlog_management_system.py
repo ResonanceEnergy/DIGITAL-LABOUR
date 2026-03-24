@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bit Rage Systems Backlog Management System
+DIGITAL LABOUR Backlog Management System
 Comprehensive task tracking and AI-powered prioritization
 """
 
