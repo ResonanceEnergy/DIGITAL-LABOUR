@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 NCC Command Processor
-Core command execution engine for DIGITAL LABOUR operations
+Core command execution engine for Bit Rage Systems operations
 """
 
 import json

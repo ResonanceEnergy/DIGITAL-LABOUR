@@ -1198,7 +1198,7 @@
     },
     {
       "project_id": "platform-infra",
-      "project_name": "DIGITAL LABOUR Platform",
+      "project_name": "Super Agency Platform",
       "status": "active",
       "priority": "critical",
       "description": "Core platform infrastructure \u2014 the agency itself, command centers, doctrine",
@@ -1238,7 +1238,7 @@
         "[resonance-uy-py] Increase test coverage for modified code.",
         "[ResonanceEnergy_Enterprise] Increase test coverage for modified code.",
         "[QUSAR] Increase test coverage for modified code.",
-        "[Digital-Labour] Increase test coverage for modified code.",
+        "[Super-Agency] Increase test coverage for modified code.",
         "[NCC-Doctrine] Increase test coverage for modified code."
       ],
       "goals": [
@@ -1511,7 +1511,7 @@
           "status": "ok"
         },
         {
-          "repo": "Digital-Labour",
+          "repo": "Super-Agency",
           "exists": true,
           "health": {
             "score": 4,

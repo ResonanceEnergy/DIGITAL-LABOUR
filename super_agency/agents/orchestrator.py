@@ -45,7 +45,7 @@ INTEGRATIONS = (
     ROOT / "tools" / "system_integrations.py"
 )
 
-# DIGITAL LABOUR sync bridge
+# Digital Labour sync bridge
 DL_BRIDGE = ROOT / "agents" / "dl_bridge.py"
 
 # Autonomous brain modules
@@ -69,7 +69,7 @@ SECONDBRAIN_QUEUE = (
 )
 
 # Message bus (best-effort import; works inside
-# run_bit_rage_labour, no-op standalone)
+# run_super_agency, no-op standalone)
 _bus: Any = None
 try:
     from agents.message_bus import bus
@@ -271,8 +271,8 @@ def _run_stage_with_args(
 def main():
     """Run the full orchestration pipeline."""
     log(
-        "Running DIGITAL LABOUR Orchestrator — "
-        "DIGITAL LABOUR Primary\u2026"
+        "Running BRS Orchestrator — "
+        "Digital Labour Primary\u2026"
     )
     log(
         "Pipeline: DL-Sync \u2192 PortfolioSync "
@@ -381,8 +381,8 @@ def main():
     )
 
     log(
-        "DIGITAL LABOUR orchestration complete — "
-        "DIGITAL LABOUR primary."
+        "BRS orchestration complete — "
+        "Digital Labour primary."
     )
     _emit("orchestrator.run.done", {})
 

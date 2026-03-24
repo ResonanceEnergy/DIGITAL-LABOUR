@@ -1,8 +1,8 @@
 #!/bin/bash
-# DIGITAL LABOUR Auto Audit Runner
+# Bit Rage Systems Auto Audit Runner
 # Triggered every 15 minutes by launchd
 
-cd "$HOME/repos/DIGITAL LABOUR-Shared"
+cd "$HOME/repos/SuperAgency-Shared"
 
 # Run the audit
 python3 auto_system_audit.py >> audit_logs/scheduler.log 2>&1

@@ -1,11 +1,11 @@
 #!/usr/bin/env pwsh
 <#
 .SYNOPSIS
-    Digital Labour CPU Maximizer - PowerShell Edition
+    Bit Rage Systems CPU Maximizer - PowerShell Edition
     Launches multiple processes for maximum CPU utilization
 
 .DESCRIPTION
-    This script launches multiple Digital Labour processes in parallel
+    This script launches multiple Bit Rage Systems processes in parallel
     to maximize CPU usage and processing throughput.
 
 .PARAMETER Processes
@@ -59,7 +59,7 @@ $Config = switch ($Mode) {
     }
 }
 
-Write-Host "🔥 Digital Labour CPU Maximizer - PowerShell Edition" -ForegroundColor Red
+Write-Host "🔥 Bit Rage Systems CPU Maximizer - PowerShell Edition" -ForegroundColor Red
 Write-Host "=" * 60 -ForegroundColor Yellow
 Write-Host "Processes: $Processes" -ForegroundColor Cyan
 Write-Host "Duration: $Duration minutes" -ForegroundColor Cyan
@@ -88,8 +88,8 @@ $ProcessConfigs = @(
     @{
         Name = "Portfolio Intel"
         Command = "python"
-        Arguments = "$RootDir\ResonanceEnergy_DIGITAL LABOUR\agents\parallel_portfolio_intel.py"
-        WorkingDirectory = "$RootDir\ResonanceEnergy_DIGITAL LABOUR"
+        Arguments = "$RootDir\ResonanceEnergy_SuperAgency\agents\parallel_portfolio_intel.py"
+        WorkingDirectory = "$RootDir\ResonanceEnergy_SuperAgency"
     },
     @{
         Name = "AAC Engine"

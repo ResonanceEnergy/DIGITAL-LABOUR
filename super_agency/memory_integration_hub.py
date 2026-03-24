@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Memory Integration Hub
+Bit Rage Systems Memory Integration Hub
 Connects unified memory system with NCC and NCL components
 """
 

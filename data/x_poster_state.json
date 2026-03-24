@@ -27,10 +27,17 @@
       "success": false,
       "tweet_id": null,
       "char_count": 279
+    },
+    {
+      "index": 4,
+      "posted_at": "2026-03-24T08:47:27.948097+00:00",
+      "success": false,
+      "tweet_id": null,
+      "char_count": 197
     }
   ],
-  "next_index": 4,
-  "total_posted": 4,
-  "last_posted_at": "2026-03-22T15:14:17.678386+00:00",
+  "next_index": 0,
+  "total_posted": 5,
+  "last_posted_at": "2026-03-24T08:47:27.948097+00:00",
   "errors": []
 }

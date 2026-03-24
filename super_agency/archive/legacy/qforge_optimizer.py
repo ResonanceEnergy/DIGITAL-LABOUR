@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 QFORGE Optimizer - Windows Performance Enhancement System
-Optimizes DIGITAL LABOUR operations for maximum efficiency on QFORGE platform
+Optimizes Super Agency operations for maximum efficiency on QFORGE platform
 """
 
 import os

@@ -1,4 +1,4 @@
-"""Upwork Auto-Apply — Automated job application engine for Upwork.
+﻿"""Upwork Auto-Apply — Automated job application engine for Upwork.
 
 Reads scraped job listings from data/upwork_jobs/job_log.jsonl,
 matches them against our service capabilities, generates proposals
@@ -219,7 +219,7 @@ def generate_proposal(job: dict, match: dict) -> dict:
         f"Hi,\n\n"
         f"I noticed your posting for \"{job_title}\" and it's exactly what our "
         f"team specializes in.\n\n"
-        f"We're DIGITAL LABOUR — a 24-agent AI automation system built for "
+        f"We're BIT RAGE SYSTEMS — a 24-agent AI automation system built for "
         f"exactly this type of work. Our {service.get('title', 'AI automation')} "
         f"service handles this end-to-end with:\n\n"
         f"• AI-powered processing for speed and accuracy\n"
@@ -230,7 +230,7 @@ def generate_proposal(job: dict, match: dict) -> dict:
         f"while maintaining quality. Happy to share samples or do a quick "
         f"test task to prove our capability.\n\n"
         f"Let me know if you'd like to discuss!\n\n"
-        f"Best,\nDIGITAL LABOUR"
+        f"Best,\nBIT RAGE SYSTEMS"
     )
 
     return {

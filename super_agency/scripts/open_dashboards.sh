@@ -1,7 +1,7 @@
 #!/bin/bash
-# Digital-Labour Dashboard Opener
+# Super-Agency Dashboard Opener
 # Opens OpenClaw Control UI and Matrix Monitor in browser on login
-# Called by com.DIGITAL LABOUR.dashboards.plist
+# Called by com.superagency.dashboards.plist
 
 OPENCLAW_URL="http://127.0.0.1:18789"
 MATRIX_MONITOR_URL="http://127.0.0.1:3000"
@@ -29,7 +29,7 @@ wait_for_service() {
     return 1
 }
 
-log "=== Digital-Labour Dashboard Opener ==="
+log "=== Super-Agency Dashboard Opener ==="
 
 # Wait for both services to come online
 wait_for_service "$OPENCLAW_URL" "OpenClaw Gateway"

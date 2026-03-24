@@ -133,7 +133,7 @@ class ProjectSelectionInterface:
 
         # Show current assignments
         print("Current center assignments:")
-        current_centers = ["Digital-Labour", "ResonanceEnergy_Enterprise", "NCL"]
+        current_centers = ["Super-Agency", "ResonanceEnergy_Enterprise", "NCL"]
         for i, repo in enumerate(current_centers):
             center_names = ["Core Agency", "Enterprise Systems", "Neural Control"]
             print(f"  {center_names[i]}: {repo}")

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR CI/CD Deployment System
+Super Agency CI/CD Deployment System
 Activate workflow templates across all portfolio repositories
 """
 

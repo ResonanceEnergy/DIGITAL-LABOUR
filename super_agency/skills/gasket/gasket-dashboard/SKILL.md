@@ -50,7 +50,7 @@ async def spawn_dashboard_agents(self):
 
 Morning brief includes dashboard summary. On-demand `dashboard` command returns full metrics with sparkline trends.
 
-## Digital-Labour Specific
+## Super-Agency Specific
 
 - Monitors both QUANTUM FORGE (192.168.1.200) and Quantum Quasar (192.168.1.100)
 - Tracks all 5 GASKET async loops

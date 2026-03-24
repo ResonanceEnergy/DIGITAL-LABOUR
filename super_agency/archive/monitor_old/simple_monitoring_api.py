@@ -62,7 +62,7 @@ def get_comprehensive_status():
 @app.route('/')
 def index():
     return """
-    <h1>DIGITAL LABOUR Monitoring API</h1>
+    <h1>Super Agency Monitoring API</h1>
     <p>API Endpoints:</p>
     <ul>
         <li><a href="/api/comprehensive-monitoring">/api/comprehensive-monitoring</a></li>

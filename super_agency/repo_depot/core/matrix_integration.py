@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 # Workspace path
 WORKSPACE = Path(
     os.environ.get(
-        "DL_WORKSPACE",
+        "SUPER_AGENCY_WORKSPACE",
         str(Path(__file__).parent.parent.parent),
     )
 )

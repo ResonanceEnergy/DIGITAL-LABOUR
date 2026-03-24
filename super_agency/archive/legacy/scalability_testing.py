@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Scalability Testing and Tuning for DIGITAL LABOUR
+Scalability Testing and Tuning for Super Agency
 Implements performance benchmarking, resource allocation optimization,
 and auto-scaling algorithms.
 

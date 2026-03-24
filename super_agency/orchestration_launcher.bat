@@ -1,6 +1,6 @@
 @echo off
 echo ============================================
-echo  Digital Labour ORCHESTRATION FREQUENCY LAUNCHER
+echo  Bit Rage Systems ORCHESTRATION FREQUENCY LAUNCHER
 echo ============================================
 echo.
 echo Current Status: System Health EXCELLENT

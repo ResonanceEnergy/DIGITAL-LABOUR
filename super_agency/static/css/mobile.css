@@ -1,4 +1,4 @@
-/* DIGITAL LABOUR Mobile CSS */
+/* Super Agency Mobile CSS */
 /* Touch-optimized, responsive design for phones and tablets */
 
 :root {
@@ -366,4 +366,4 @@ body {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }</content>
-<parameter name="filePath">C:/Dev/DIGITAL-LABOUR/static/css/mobile.css
+<parameter name="filePath">C:/Dev/SuperAgency-Shared/static/css/mobile.css

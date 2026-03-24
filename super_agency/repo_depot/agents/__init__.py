@@ -3,7 +3,7 @@ AGENTS PROJECT - REPO DEPOT
 AI Agent Development and Management System
 
 This project focuses on building, training, and orchestrating AI agents
-for DIGITAL LABOUR Operations. AGENT G (GASKET) will manage agent lifecycle,
+for SuperAgency operations. AGENT G (GASKET) will manage agent lifecycle,
 performance monitoring, and continuous improvement.
 
 Project Structure:

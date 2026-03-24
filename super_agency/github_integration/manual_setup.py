@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Manual DIGITAL LABOUR GitHub Integration Setup
+Manual Bit Rage Systems GitHub Integration Setup
 Bypasses terminal issues for direct setup
 """
 
@@ -68,7 +68,7 @@ def test_system():
 
 def create_setup_complete():
     """Create setup completion marker"""
-    setup_info = f"""# DIGITAL LABOUR GitHub Integration - MANUAL SETUP COMPLETE
+    setup_info = f"""# Bit Rage Systems GitHub Integration - MANUAL SETUP COMPLETE
 ## Setup Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 ### ✅ Components Set Up:
@@ -103,7 +103,7 @@ def create_setup_complete():
 - Integration System: Operational
 
 ---
-*DIGITAL LABOUR GitHub Integration - Manual Setup v1.0*
+*Bit Rage Systems GitHub Integration - Manual Setup v1.0*
 """
 
     with open("MANUAL_SETUP_COMPLETE.md", 'w') as f:
@@ -113,7 +113,7 @@ def create_setup_complete():
 
 def main():
     """Main manual setup function"""
-    print("🚀 DIGITAL LABOUR GitHub Integration - MANUAL SETUP")
+    print("🚀 Bit Rage Systems GitHub Integration - MANUAL SETUP")
     print("=" * 60)
 
     success = True

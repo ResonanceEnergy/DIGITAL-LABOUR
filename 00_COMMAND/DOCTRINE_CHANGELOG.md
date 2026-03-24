@@ -1,6 +1,6 @@
-# DOCTRINE CHANGELOG
+﻿# DOCTRINE CHANGELOG
 
-All breaking and significant changes to the DIGITAL LABOUR (BRS) doctrine are logged here.  
+All breaking and significant changes to the BIT RAGE SYSTEMS (BRS) doctrine are logged here.  
 Format: `[VERSION] YYYY-MM-DD — Summary`
 
 ---

@@ -1,4 +1,4 @@
-"""Platform Registration Checklist — Step-by-step onboarding for all income sources.
+﻿"""Platform Registration Checklist — Step-by-step onboarding for all income sources.
 
 Interactive checklist that walks through registration for each platform.
 Tracks progress and provides direct URLs and instructions.
@@ -47,7 +47,7 @@ REGISTRATIONS = {
         "steps": [
             "1. Go to https://www.freelancer.com/signup",
             "2. Sign up as 'Freelancer' (not employer)",
-            "3. Go to Profile → Edit → Set up as agency: 'DIGITAL LABOUR'",
+            "3. Go to Profile → Edit → Set up as agency: 'BIT RAGE SYSTEMS'",
             "4. Add tagline: 'Production AI agents for sales, support, content & doc automation'",
             "5. Add skills: AI, Python, FastAPI, NLP, Chatbot, Automation, API Dev",
             "6. Set hourly rate: $75-200/hr",
@@ -105,7 +105,7 @@ REGISTRATIONS = {
             "2. Create provider account",
             "3. Go to https://rapidapi.com/provider/dashboard",
             "4. Click 'My APIs' → 'Add New API'",
-            "5. Name: 'DIGITAL LABOUR — AI Agents'",
+            "5. Name: 'BIT RAGE SYSTEMS — AI Agents'",
             "6. Category: 'Artificial Intelligence'",
             "7. Generate OpenAPI spec: python -m api.rapidapi --spec > openapi.json",
             "8. Upload openapi.json to RapidAPI",
@@ -159,7 +159,7 @@ REGISTRATIONS = {
             "2. Connect wallet (MetaMask on Base chain)",
             "3. Get VIRTUAL tokens (needed for agent registration)",
             "4. Go to Agent Builder → Create Agent",
-            "5. Register 'DIGITAL LABOUR Sales Agent' with ACP capabilities",
+            "5. Register 'BIT RAGE SYSTEMS Sales Agent' with ACP capabilities",
             "6. Define service endpoints (point to your FastAPI server)",
             "7. Set pricing in USDC per task",
             "8. Deploy agent to Virtuals marketplace",

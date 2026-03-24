@@ -1,4 +1,4 @@
-# DIGITAL LABOUR — GO-TO-MARKET WAR PLAN
+﻿# BIT RAGE SYSTEMS — GO-TO-MARKET WAR PLAN
 ## Revenue Generation Playbook — March 2026
 
 ---

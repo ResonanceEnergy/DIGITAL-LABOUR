@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Quantum Computing Integration for DIGITAL LABOUR
+Quantum Computing Integration for Super Agency
 Implements quantum algorithms, quantum-classical hybrid computing,
 and quantum-enhanced decision making.
 

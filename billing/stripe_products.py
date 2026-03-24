@@ -1,4 +1,4 @@
-"""Create Stripe subscription products and per-task prices for all retainer tiers.
+﻿"""Create Stripe subscription products and per-task prices for all retainer tiers.
 
 Non-interactive — reads STRIPE_API_KEY from .env, creates products, saves IDs.
 
@@ -25,7 +25,7 @@ OUTPUT_PATH  = PROJECT_ROOT / "data" / "stripe_products.json"
 RETAINER_PRODUCTS = [
     {
         "key":         "sales_starter",
-        "name":        "Digital Labour — Sales Starter",
+        "name":        "BIT RAGE SYSTEMS — Sales Starter",
         "description": "AI sales automation: 50 tasks/mo (outreach, lead gen, CRM ops)",
         "price_cents": 75000,      # $750/mo
         "tasks":       50,
@@ -33,7 +33,7 @@ RETAINER_PRODUCTS = [
     },
     {
         "key":         "sales_growth",
-        "name":        "Digital Labour — Sales Growth",
+        "name":        "BIT RAGE SYSTEMS — Sales Growth",
         "description": "AI sales automation: 100 tasks/mo (outreach, lead gen, CRM ops)",
         "price_cents": 140000,     # $1 400/mo
         "tasks":       100,
@@ -41,7 +41,7 @@ RETAINER_PRODUCTS = [
     },
     {
         "key":         "sales_scale",
-        "name":        "Digital Labour — Sales Scale",
+        "name":        "BIT RAGE SYSTEMS — Sales Scale",
         "description": "AI sales automation: 200 tasks/mo (outreach, lead gen, CRM ops)",
         "price_cents": 250000,     # $2 500/mo
         "tasks":       200,
@@ -49,7 +49,7 @@ RETAINER_PRODUCTS = [
     },
     {
         "key":         "support_starter",
-        "name":        "Digital Labour — Support Starter",
+        "name":        "BIT RAGE SYSTEMS — Support Starter",
         "description": "AI support automation: 200 tickets/mo (triage, resolve, escalate)",
         "price_cents": 40000,      # $400/mo
         "tasks":       200,
@@ -57,7 +57,7 @@ RETAINER_PRODUCTS = [
     },
     {
         "key":         "support_growth",
-        "name":        "Digital Labour — Support Growth",
+        "name":        "BIT RAGE SYSTEMS — Support Growth",
         "description": "AI support automation: 500 tickets/mo (triage, resolve, escalate)",
         "price_cents": 80000,      # $800/mo
         "tasks":       500,
@@ -65,7 +65,7 @@ RETAINER_PRODUCTS = [
     },
     {
         "key":         "support_scale",
-        "name":        "Digital Labour — Support Scale",
+        "name":        "BIT RAGE SYSTEMS — Support Scale",
         "description": "AI support automation: 1 000 tickets/mo (triage, resolve, escalate)",
         "price_cents": 140000,     # $1 400/mo
         "tasks":       1000,
@@ -75,11 +75,11 @@ RETAINER_PRODUCTS = [
 
 # Per-task pay-as-you-go products for top 5 agents
 PER_TASK_PRODUCTS = [
-    {"key": "payg_sales_outreach",   "name": "Digital Labour — Sales Outreach (per task)",     "price_cents": 240},
-    {"key": "payg_support_ticket",   "name": "Digital Labour — Support Ticket (per task)",     "price_cents": 100},
-    {"key": "payg_lead_gen",         "name": "Digital Labour — Lead Generation (per task)",    "price_cents": 300},
-    {"key": "payg_market_research",  "name": "Digital Labour — Market Research (per task)",    "price_cents": 500},
-    {"key": "payg_business_plan",    "name": "Digital Labour — Business Plan (per task)",      "price_cents": 800},
+    {"key": "payg_sales_outreach",   "name": "BIT RAGE SYSTEMS — Sales Outreach (per task)",     "price_cents": 240},
+    {"key": "payg_support_ticket",   "name": "BIT RAGE SYSTEMS — Support Ticket (per task)",     "price_cents": 100},
+    {"key": "payg_lead_gen",         "name": "BIT RAGE SYSTEMS — Lead Generation (per task)",    "price_cents": 300},
+    {"key": "payg_market_research",  "name": "BIT RAGE SYSTEMS — Market Research (per task)",    "price_cents": 500},
+    {"key": "payg_business_plan",    "name": "BIT RAGE SYSTEMS — Business Plan (per task)",      "price_cents": 800},
 ]
 
 
@@ -267,7 +267,7 @@ def check_products() -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Digital Labour — Stripe product setup")
+    parser = argparse.ArgumentParser(description="BIT RAGE SYSTEMS — Stripe product setup")
     group  = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--create",   action="store_true", help="Create all Stripe products (idempotent)")
     group.add_argument("--list",     action="store_true", help="List locally tracked products")

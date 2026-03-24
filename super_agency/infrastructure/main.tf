@@ -1,4 +1,4 @@
-# Digital Labour AWS Infrastructure
+# Super Agency AWS Infrastructure
 # Terraform configuration for distributed command center
 
 terraform {
@@ -10,11 +10,11 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "digital-labour-terraform-state"
+    bucket         = "super-agency-terraform-state"
     key            = "distributed-command-center/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
-    dynamodb_table = "digital-labour-terraform-locks"
+    dynamodb_table = "super-agency-terraform-locks"
   }
 }
 
@@ -23,7 +23,7 @@ provider "aws" {
 
   default_tags {
     tags = {
-      Project     = "Digital Labour"
+      Project     = "Super Agency"
       Environment = var.environment
       ManagedBy   = "Terraform"
     }
@@ -34,7 +34,7 @@ provider "aws" {
 module "vpc" {
   source = "./modules/vpc"
 
-  name = "digital-labour-${var.environment}"
+  name = "super-agency-${var.environment}"
   cidr = var.vpc_cidr
 
   azs             = ["${var.aws_region}a", "${var.aws_region}b", "${var.aws_region}c"]
@@ -47,14 +47,14 @@ module "vpc" {
   enable_dns_support   = true
 
   tags = {
-    Name = "digital-labour-vpc"
+    Name = "super-agency-vpc"
   }
 }
 
 # Security Groups
 resource "aws_security_group" "command_center" {
-  name_prefix = "digital-labour-command-center-"
-  description = "Security group for Digital Labour Command Center"
+  name_prefix = "super-agency-command-center-"
+  description = "Security group for Super Agency Command Center"
   vpc_id      = module.vpc.vpc_id
 
   ingress {
@@ -105,7 +105,7 @@ resource "aws_security_group" "command_center" {
   }
 
   tags = {
-    Name = "digital-labour-command-center-sg"
+    Name = "super-agency-command-center-sg"
   }
 }
 
@@ -115,11 +115,11 @@ module "compute_instances" {
 
   for_each = var.compute_instances
 
-  name = "digital-labour-compute-${each.key}"
+  name = "super-agency-compute-${each.key}"
 
   ami                         = data.aws_ami.amazon_linux_2.id
   instance_type               = each.value.instance_type
-  key_name                    = aws_key_pair.digital_labour.key_name
+  key_name                    = aws_key_pair.super_agency.key_name
   vpc_security_group_ids      = [aws_security_group.command_center.id]
   subnet_id                   = module.vpc.private_subnets[0]
   associate_public_ip_address = false
@@ -138,7 +138,7 @@ module "compute_instances" {
   ]
 
   tags = {
-    Name        = "digital-labour-compute-${each.key}"
+    Name        = "super-agency-compute-${each.key}"
     Role        = "compute"
     InstanceType = each.value.instance_type
   }
@@ -146,10 +146,10 @@ module "compute_instances" {
 
 # Auto Scaling Group for Dynamic Compute
 resource "aws_launch_template" "compute" {
-  name_prefix   = "digital-labour-compute-"
+  name_prefix   = "super-agency-compute-"
   image_id      = data.aws_ami.amazon_linux_2.id
   instance_type = "t3.medium"
-  key_name      = aws_key_pair.digital_labour.key_name
+  key_name      = aws_key_pair.super_agency.key_name
 
   vpc_security_group_ids = [aws_security_group.command_center.id]
 
@@ -170,7 +170,7 @@ resource "aws_launch_template" "compute" {
   tag_specifications {
     resource_type = "instance"
     tags = {
-      Name        = "digital-labour-compute-asg"
+      Name        = "super-agency-compute-asg"
       Role        = "compute"
       Environment = var.environment
     }
@@ -178,7 +178,7 @@ resource "aws_launch_template" "compute" {
 }
 
 resource "aws_autoscaling_group" "compute" {
-  name_prefix         = "digital-labour-compute-"
+  name_prefix         = "super-agency-compute-"
   desired_capacity    = var.asg_desired_capacity
   max_size           = var.asg_max_size
   min_size           = var.asg_min_size
@@ -191,7 +191,7 @@ resource "aws_autoscaling_group" "compute" {
 
   tag {
     key                 = "Name"
-    value               = "digital-labour-compute-asg"
+    value               = "super-agency-compute-asg"
     propagate_at_launch = true
   }
 
@@ -204,10 +204,10 @@ resource "aws_autoscaling_group" "compute" {
 
 # S3 Storage
 resource "aws_s3_bucket" "storage" {
-  bucket = "digital-labour-${var.environment}-storage"
+  bucket = "super-agency-${var.environment}-storage"
 
   tags = {
-    Name = "digital-labour-storage"
+    Name = "super-agency-storage"
   }
 }
 
@@ -243,7 +243,7 @@ resource "aws_cloudfront_distribution" "command_center" {
 
   origin {
     domain_name = aws_s3_bucket.storage.bucket_regional_domain_name
-    origin_id   = "digital-labour-storage"
+    origin_id   = "super-agency-storage"
 
     s3_origin_config {
       origin_access_identity = aws_cloudfront_origin_access_identity.command_center[0].cloudfront_access_identity_path
@@ -257,7 +257,7 @@ resource "aws_cloudfront_distribution" "command_center" {
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
     cached_methods   = ["GET", "HEAD"]
-    target_origin_id = "digital-labour-storage"
+    target_origin_id = "super-agency-storage"
 
     forwarded_values {
       query_string = false
@@ -283,21 +283,21 @@ resource "aws_cloudfront_distribution" "command_center" {
   }
 
   tags = {
-    Name = "digital-labour-command-center"
+    Name = "super-agency-command-center"
   }
 }
 
 resource "aws_cloudfront_origin_access_identity" "command_center" {
   count = var.enable_cloudfront ? 1 : 0
 
-  comment = "Digital Labour Command Center OAI"
+  comment = "Super Agency Command Center OAI"
 }
 
 # RDS Database (optional)
 resource "aws_db_instance" "command_center" {
   count = var.enable_database ? 1 : 0
 
-  identifier           = "digital-labour-${var.environment}"
+  identifier           = "super-agency-${var.environment}"
   engine              = "postgres"
   engine_version      = "15.3"
   instance_class      = var.db_instance_class
@@ -305,7 +305,7 @@ resource "aws_db_instance" "command_center" {
   storage_type        = "gp3"
   storage_encrypted   = true
 
-  db_name  = "digitallabour"
+  db_name  = "superagency"
   username = var.db_username
   password = var.db_password
   port     = 5432
@@ -321,7 +321,7 @@ resource "aws_db_instance" "command_center" {
   skip_final_snapshot    = var.environment != "prod"
 
   tags = {
-    Name = "digital-labour-database"
+    Name = "super-agency-database"
   }
 }
 
@@ -329,7 +329,7 @@ resource "aws_db_instance" "command_center" {
 resource "aws_elasticache_cluster" "command_center" {
   count = var.enable_redis ? 1 : 0
 
-  cluster_id           = "digital-labour-${var.environment}"
+  cluster_id           = "super-agency-${var.environment}"
   engine              = "redis"
   node_type           = var.redis_node_type
   num_cache_nodes     = 1
@@ -340,14 +340,14 @@ resource "aws_elasticache_cluster" "command_center" {
   security_group_ids = [aws_security_group.cache[0].id]
 
   tags = {
-    Name = "digital-labour-redis"
+    Name = "super-agency-redis"
   }
 }
 
 # API Gateway
 resource "aws_api_gateway_rest_api" "command_center" {
-  name        = "digital-labour-command-center"
-  description = "Digital Labour Command Center API"
+  name        = "super-agency-command-center"
+  description = "Super Agency Command Center API"
 
   endpoint_configuration {
     types = ["REGIONAL"]
@@ -371,7 +371,7 @@ resource "aws_api_gateway_method" "operations_get" {
 # Lambda Functions
 resource "aws_lambda_function" "operations_api" {
   filename         = "lambda_functions.zip"
-  function_name    = "digital-labour-operations-api"
+  function_name    = "super-agency-operations-api"
   role            = aws_iam_role.lambda_execution.arn
   handler         = "operations_api.lambda_handler"
   runtime         = "python3.11"
@@ -386,13 +386,13 @@ resource "aws_lambda_function" "operations_api" {
   }
 
   tags = {
-    Name = "digital-labour-operations-api"
+    Name = "super-agency-operations-api"
   }
 }
 
 # CloudWatch Monitoring
 resource "aws_cloudwatch_dashboard" "command_center" {
-  dashboard_name = "digital-labour-command-center"
+  dashboard_name = "super-agency-command-center"
 
   dashboard_body = jsonencode({
     widgets = [

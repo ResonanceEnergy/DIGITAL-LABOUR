@@ -1,4 +1,4 @@
-"""Task alert system — polls for new completed tasks and sends notifications.
+﻿"""Task alert system — polls for new completed tasks and sends notifications.
 
 Supports: Desktop toast (Windows), Telegram bot, Discord webhook.
 Configure in .env:
@@ -93,7 +93,7 @@ def send_desktop(title: str, message: str) -> bool:
         $xml = New-Object Windows.Data.Xml.Dom.XmlDocument
         $xml.LoadXml($template)
         $toast = [Windows.UI.Notifications.ToastNotification]::new($xml)
-        [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("DIGITAL LABOUR").Show($toast)
+        [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("BIT RAGE SYSTEMS").Show($toast)
         """
         subprocess.run(["powershell", "-Command", ps_script], capture_output=True, timeout=10)
         return True
@@ -255,7 +255,7 @@ def run_once():
         if count > 5:
             summaries += f"\n  ... and {count - 5} more"
         channels = send_alert(
-            f"DIGITAL LABOUR: {count} new output(s)",
+            f"BIT RAGE SYSTEMS: {count} new output(s)",
             summaries
         )
         print(f"[ALERT] {count} new outputs → sent via {', '.join(channels)}")
@@ -274,14 +274,14 @@ def watch(interval: int = 60):
 
 def test_alert():
     channels = send_alert(
-        "DIGITAL LABOUR — Test Alert",
+        "BIT RAGE SYSTEMS — Test Alert",
         "Alert system is working. Channels configured and active."
     )
     print(f"[TEST] Alert sent via: {', '.join(channels)}")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="DIGITAL LABOUR Alert System")
+    parser = argparse.ArgumentParser(description="BIT RAGE SYSTEMS Alert System")
     parser.add_argument("--watch", action="store_true", help="Continuously poll for new outputs")
     parser.add_argument("--interval", type=int, default=60, help="Poll interval in seconds (default: 60)")
     parser.add_argument("--test", action="store_true", help="Send a test alert")

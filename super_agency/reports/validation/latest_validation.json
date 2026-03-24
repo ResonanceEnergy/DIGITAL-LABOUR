@@ -1,11 +1,18 @@
 {
-  "timestamp": "2026-03-11T03:03:48.726197-06:00",
+  "timestamp": "2026-03-17T06:55:40.318423-06:00",
   "config_valid": true,
   "pipeline_valid": true,
-  "health_valid": true,
+  "health_valid": false,
   "data_valid": true,
   "runtime_valid": true,
-  "integrity_score": 100,
-  "issues": [],
-  "issue_count": 0
+  "integrity_score": 75,
+  "issues": [
+    {
+      "category": "health",
+      "severity": "CRITICAL",
+      "file": "logs/alerts.ndjson",
+      "issue": "37 CRITICAL alerts in last 24 h"
+    }
+  ],
+  "issue_count": 1
 }

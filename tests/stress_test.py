@@ -1,4 +1,4 @@
-"""4-agent stress test — 40 mixed tasks across all providers.
+﻿"""4-agent stress test — 40 mixed tasks across all providers.
 
 Validates system stability, provider fallback, QA rates, and throughput
 under sustained load.
@@ -83,7 +83,7 @@ def generate_task(task_type: str, provider: str | None = None) -> dict:
 # ── Stress Test Runner ──────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="DIGITAL LABOUR Stress Test")
+    parser = argparse.ArgumentParser(description="BIT RAGE SYSTEMS Stress Test")
     parser.add_argument("--count", type=int, default=40, help="Total tasks to run (default: 40)")
     parser.add_argument("--provider", help="Force a specific provider for all tasks")
     args = parser.parse_args()
@@ -103,7 +103,7 @@ def main():
     random.shuffle(schedule)
 
     print("\n" + "=" * 70)
-    print("  DIGITAL LABOUR — 4-AGENT STRESS TEST")
+    print("  BIT RAGE SYSTEMS — 4-AGENT STRESS TEST")
     print(f"  Tasks: {len(schedule)} | Providers: {args.provider or 'rotating'}")
     print("=" * 70)
 

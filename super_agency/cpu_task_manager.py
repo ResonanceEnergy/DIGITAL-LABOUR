@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR CPU Regulator & Task Manager
+Bit Rage Systems CPU Regulator & Task Manager
 Intelligent CPU management and task scheduling system for optimal performance
 """
 
@@ -599,7 +599,7 @@ class CPUAndTaskManager:
         """Display the CPU and Task Manager dashboard"""
         status = self.get_status()
 
-        print("\n🚀 DIGITAL LABOUR CPU & Task Manager Dashboard")
+        print("\n🚀 Bit Rage Systems CPU & Task Manager Dashboard")
         print("=" * 60)
 
         # CPU Regulator Status
@@ -652,7 +652,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="DIGITAL LABOUR CPU Regulator & Task Manager")
+        description="Bit Rage Systems CPU Regulator & Task Manager")
     parser.add_argument(
         "command", choices=["start", "stop", "status", "dashboard"],
         help="Command to execute")

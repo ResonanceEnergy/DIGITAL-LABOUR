@@ -1,9 +1,14 @@
 {
   "ncl_available": true,
-  "trinity_health_score": null,
-  "drift_count": null,
-  "pillar_dirty": null,
-  "agency_drift": null,
-  "has_daily_brief": false,
-  "event_log_files": 0
+  "trinity_health_score": 75,
+  "drift_count": 3,
+  "pillar_dirty": {
+    "HUB": 71,
+    "BRAIN": 31,
+    "AGENCY": 15,
+    "BANK": 24
+  },
+  "agency_drift": 15,
+  "has_daily_brief": true,
+  "event_log_files": 13
 }

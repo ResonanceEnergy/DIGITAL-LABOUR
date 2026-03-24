@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Operations Chat
+Super Agency Operations Chat
 Conversational interface for real-time operational updates
 """
 
@@ -10,7 +10,7 @@ from datetime import datetime
 from operations_command_interface import handle_operations_query
 
 class OperationsChat:
-    """Conversational interface for DIGITAL LABOUR operations"""
+    """Conversational interface for Super Agency operations"""
 
     def __init__(self):
         """Initialize."""
@@ -25,10 +25,10 @@ class OperationsChat:
     def display_welcome(self):
         """Display welcome message and available commands"""
         print("""
-🤖 DIGITAL LABOUR Operations Command Interface (OCI)
+🤖 Super Agency Operations Command Interface (OCI)
 ═════════════════════════════════════════════════════
 
-Welcome to the DIGITAL LABOUR Operations Chat!
+Welcome to the Super Agency Operations Chat!
 
 You can now talk to any department head and get real-time operational updates.
 

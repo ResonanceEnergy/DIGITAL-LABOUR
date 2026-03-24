@@ -167,7 +167,7 @@ python3 repo_depot/core/qa_dashboard.py --action qa
 - `repo_depot/core/matrix_integration.py` (~280 lines)
 
 #### Updated Files:
-- `Digital-Labour/matrix_maximizer.py` - Added REPODEPOT routes and visualization node
+- `Super-Agency/matrix_maximizer.py` - Added REPODEPOT routes and visualization node
 
 #### New API Endpoints:
 | Endpoint | Method | Description |

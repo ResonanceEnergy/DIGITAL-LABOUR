@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR FAIL-SAFE ORCHESTRATOR
+SUPER AGENCY FAIL-SAFE ORCHESTRATOR
 24/7/365 High Availability System for All Agency Components
 
 Ensures all critical components remain online and functioning:
-- DIGITAL LABOUR (main orchestration)
+- SUPER AGENCY (main orchestration)
 - QUANTUM QFORGE (repository building)
 - QUANTUM QUSAR (goal orchestration)
 - MATRIX MONITOR (web dashboard)
@@ -35,7 +35,7 @@ sys.path.insert(0, str(parent_dir))
 sys.path.insert(0, str(parent_dir / "agents"))
 
 class FailSafeOrchestrator:
-    """24/7/365 High Availability Orchestrator for DIGITAL LABOUR"""
+    """24/7/365 High Availability Orchestrator for Super Agency"""
 
     def __init__(self):
         self.name = "FAIL-SAFE ORCHESTRATOR"
@@ -55,10 +55,10 @@ class FailSafeOrchestrator:
 
         # Component definitions with their critical parameters
         self.components = {
-            'bit_rage_labour': {
-                'name': 'DIGITAL LABOUR',
-                'process_name': 'bit_rage_labour',
-                'command': ['python', 'bit_rage_labour_main.py'],
+            'super_agency': {
+                'name': 'SUPER AGENCY',
+                'process_name': 'super_agency',
+                'command': ['python', 'super_agency_main.py'],
                 'working_dir': str(parent_dir),
                 'health_check_url': None,
                 'restart_delay': 5,
@@ -180,7 +180,7 @@ class FailSafeOrchestrator:
 
     async def start_fail_safe_system(self):
         """Start the complete fail-safe orchestration system"""
-        self.logger.info("🚀 Starting DIGITAL LABOUR FAIL-SAFE ORCHESTRATOR v1.0")
+        self.logger.info("🚀 Starting SUPER AGENCY FAIL-SAFE ORCHESTRATOR v1.0")
         self.logger.info("🎯 Ensuring 24/7/365 availability for all agency components")
 
         try:

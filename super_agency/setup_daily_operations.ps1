@@ -1,5 +1,5 @@
 #!/usr/bin/env pwsh
-# Digital Labour - Daily Operations Scheduler
+# Bit Rage Systems - Daily Operations Scheduler
 # Creates Windows Task Scheduler jobs for automated system operations.
 # Run as Administrator: powershell -ExecutionPolicy Bypass -File setup_daily_operations.ps1
 
@@ -17,19 +17,19 @@ if (-not (Test-Path $LogDir)) { New-Item -ItemType Directory -Path $LogDir -Forc
 # --- Task definitions ---
 $Tasks = @(
     @{
-        Name        = "DIGITAL LABOUR-Orchestrator"
+        Name        = "SuperAgency-Orchestrator"
         Description = "Run repo sentry, daily brief, research, council, audit, autotier"
         Script      = "agents\orchestrator.py"
         Interval    = 240  # every 4 hours
     },
     @{
-        Name        = "DIGITAL LABOUR-DailyBrief"
+        Name        = "SuperAgency-DailyBrief"
         Description = "Generate daily operations brief at 06:00"
         Script      = "departments\operations_command\system_monitoring\daily_brief.py"
         TriggerTime = "06:00"
     },
     @{
-        Name        = "DIGITAL LABOUR-SystemAudit"
+        Name        = "SuperAgency-SystemAudit"
         Description = "Run auto system audit every 15 minutes"
         Script      = "auto_system_audit.py"
         Interval    = 15
@@ -53,11 +53,11 @@ if ($Uninstall) {
         Unregister-ScheduledTask -TaskName $t.Name -Confirm:$false -ErrorAction SilentlyContinue
         Write-Host "[OK] Removed $($t.Name)" -ForegroundColor Yellow
     }
-    Write-Host "All DIGITAL LABOUR tasks removed." -ForegroundColor Cyan
+    Write-Host "All SuperAgency tasks removed." -ForegroundColor Cyan
     exit 0
 }
 
-Write-Host "=== Digital Labour Scheduled Task Setup ===" -ForegroundColor Cyan
+Write-Host "=== Bit Rage Systems Scheduled Task Setup ===" -ForegroundColor Cyan
 Write-Host "Python: $Python" -ForegroundColor Gray
 Write-Host ""
 
@@ -94,7 +94,7 @@ foreach ($t in $Tasks) {
 
 Write-Host ""
 Write-Host "All tasks registered. Verify with:" -ForegroundColor Cyan
-Write-Host "  schtasks /query /fo TABLE | findstr DIGITAL LABOUR" -ForegroundColor Gray
+Write-Host "  schtasks /query /fo TABLE | findstr SuperAgency" -ForegroundColor Gray
 Write-Host ""
 Write-Host "To remove all tasks:" -ForegroundColor Cyan
 Write-Host "  .\setup_daily_operations.ps1 -Uninstall" -ForegroundColor Gray

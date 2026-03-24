@@ -213,7 +213,7 @@ Current portfolio has 27 repos. Focus on:
 
 | Priority | Repos | Reason |
 |----------|-------|--------|
-| 1 (L tier) | Digital-Labour, NCC-Doctrine, AAC, NCL | Core infrastructure |
+| 1 (L tier) | Super-Agency, NCC-Doctrine, AAC, NCL | Core infrastructure |
 | 2 (L tier) | Resonance-Energy-Systems, ResonanceEnergy_Enterprise | Enterprise |
 | 3 (M tier) | YOUTUBEDROP, TESLA-TECH, NATEBJONES | Active projects |
 | 4 (S tier) | Others | Lower priority |
@@ -223,7 +223,7 @@ Each repo needs appropriate tasks:
 
 ```yaml
 # task_templates.yaml
-Digital-Labour:
+Super-Agency:
   tasks:
     - type: documentation
       files: [README.md, ARCHITECTURE.md]
@@ -503,12 +503,12 @@ repo_depot/
 
 ### This Week
 1. Implement `ArchitectureReviewHandler` for ONE repo
-2. Test with Digital-Labour repo
+2. Test with Super-Agency repo
 3. Verify git commit appears on GitHub
 
 ### Command to Reset
 ```bash
-cd "$HOME/repos/DIGITAL-LABOUR"
+cd "$HOME/repos/SuperAgency-Shared"
 
 # Reset fake metrics
 echo '{

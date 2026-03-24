@@ -1,5 +1,5 @@
-"""DIGITAL LABOUR Portfolio Company: GEET-PLASMA-PROJECT"""
+"""Bit Rage Systems Portfolio Company: GEET-PLASMA-PROJECT"""
 
 __version__ = "1.0.0"
-__author__ = "DIGITAL LABOUR"
+__author__ = "Bit Rage Systems"
 __description__ = "GEET-PLASMA-PROJECT portfolio company"

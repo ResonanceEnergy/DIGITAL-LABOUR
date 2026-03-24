@@ -19,7 +19,7 @@
       "centers": {
         "core_agency": {
           "name": "Core Agency Operations Center",
-          "repository": "Digital-Labour",
+          "repository": "Super-Agency",
           "type": "core_agency",
           "priority": 1,
           "agents": {

@@ -1,5 +1,5 @@
 # QFORGE PowerShell Optimizer
-# Windows-specific performance enhancements for Digital Labour operations
+# Windows-specific performance enhancements for Bit Rage Systems operations
 
 param(
     [switch]$Optimize,
@@ -15,7 +15,7 @@ $ProgressPreference = "SilentlyContinue"
 $QFORGE_CONFIG = @{
     ProcessPriority = "High"
     CpuAffinity     = "0-7"  # Use first 8 cores
-    MemoryLimit     = 4096MB  # 4GB limit for Digital Labour processes
+    MemoryLimit     = 4096MB  # 4GB limit for Bit Rage Systems processes
     WorkingSetMin   = 128MB
     WorkingSetMax   = 1024MB  # Reduced from 2048MB to fit Int32
 }
@@ -56,7 +56,7 @@ function Get-SystemInfo {
 function Optimize-ProcessPriority {
     Write-QFORGE "Optimizing process priorities"
 
-    # Find Python processes related to Digital Labour
+    # Find Python processes related to Bit Rage Systems
     $pythonProcesses = Get-Process | Where-Object {
         $_.ProcessName -like "*python*"
     }
@@ -193,14 +193,14 @@ function Get-QFORGEStatus {
     Write-Host "Memory: $($systemInfo.Memory.UsagePercent)% used ($($systemInfo.Memory.AvailableGB)GB available)"
     Write-Host ""
 
-    # Check Digital Labour processes
+    # Check Bit Rage Systems processes
     $saProcesses = Get-Process | Where-Object {
         $_.ProcessName -like "*python*"
     }
 
-    Write-Host "Digital Labour Processes:"
+    Write-Host "Bit Rage Systems Processes:"
     if ($saProcesses.Count -eq 0) {
-        Write-Host "  No active Digital Labour processes" -ForegroundColor Yellow
+        Write-Host "  No active Bit Rage Systems processes" -ForegroundColor Yellow
     }
     else {
         foreach ($proc in $saProcesses) {
@@ -210,7 +210,7 @@ function Get-QFORGEStatus {
 
     return @{
         SystemInfo           = $systemInfo
-        DIGITAL LABOURProcesses = $saProcesses.Count
+        SuperAgencyProcesses = $saProcesses.Count
     }
 }
 

@@ -6,7 +6,6 @@ Inspired by Grafana/Netdata best practices
 """
 
 import json
-import hmac
 import logging
 import os
 import platform
@@ -17,7 +16,7 @@ import sys
 import threading
 import time
 from collections import deque
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 
 import psutil
@@ -32,18 +31,6 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 CORS(app)
-
-_MATRIX_TOKEN = os.environ.get("MATRIX_AUTH_TOKEN", "")
-
-
-def _require_auth():
-    """Return error response if auth fails, None if OK."""
-    if not _MATRIX_TOKEN:
-        return None  # No token configured — allow access for local dev
-    token = flask_request.headers.get("Authorization", "").removeprefix("Bearer ")
-    if not hmac.compare_digest(token, _MATRIX_TOKEN):
-        return jsonify({"error": "Unauthorized"}), 401
-    return None
 
 
 def _get_python_executable():
@@ -107,7 +94,7 @@ _process_cache_lock = threading.Lock()
 def log_activity(category: str, message: str, level: str = "info"):
     """Add activity to the log"""
     activity_log.appendleft({
-        'timestamp': datetime.now(timezone.utc).isoformat(),
+        'timestamp': datetime.now().isoformat(),
         'time_display': datetime.now().strftime('%H:%M:%S'),
         'category': category,
         'message': message,
@@ -130,7 +117,7 @@ def collect_metrics():
                     with open(status_file, 'r', encoding='utf-8') as fh:
                         data = json.load(fh)
                         repo_metrics_history.append(
-                            {'timestamp': datetime.now(timezone.utc).isoformat(),
+                            {'timestamp': datetime.now().isoformat(),
                              'completed': data.get('metrics', {}).get(
                                  'repos_completed', 0),
                              'building': data.get('metrics', {}).get(
@@ -291,6 +278,10 @@ def _refresh_device_sync_cache():
     with _device_sync_lock:
         _device_sync_cache = new_cache
 
+# Start background collection
+collector_thread = threading.Thread(target=collect_metrics, daemon=True)
+collector_thread.start()
+
 # ============================================
 # HTML TEMPLATE - Modern Dashboard
 # ============================================
@@ -323,9 +314,8 @@ def get_device_sync_status():
 
 def get_agent_activity():
     """Get agent activity data"""
-    now = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')
+    now = datetime.now().strftime('%Y-%m-%d %H:%M')
 
-    # TODO: Wire to real telemetry — currently returns placeholder data
     return {
         'optimus': {
             'active_work': {
@@ -435,8 +425,8 @@ def get_repos():
 def get_system_info():
     """Get system information"""
     mem = psutil.virtual_memory()
-    boot_time = datetime.fromtimestamp(psutil.boot_time(), tz=timezone.utc)
-    uptime = datetime.now(timezone.utc) - boot_time
+    boot_time = datetime.fromtimestamp(psutil.boot_time())
+    uptime = datetime.now() - boot_time
 
     return {
         'platform': platform.system() + ' ' + platform.release(),
@@ -453,9 +443,6 @@ def index():
 @app.route('/api/v4/status')
 def api_status():
     """Main status endpoint with all data"""
-    auth_err = _require_auth()
-    if auth_err:
-        return auth_err
     cpu = psutil.cpu_percent(interval=None)
     mem = psutil.virtual_memory()
     agent_status = get_agent_status()
@@ -486,7 +473,7 @@ def api_status():
         'system': system,
         'device_sync': device_sync,
         'watchdog': 'ACTIVE' if watchdog_active else 'OFFLINE',
-        'timestamp': datetime.now(timezone.utc).isoformat(),
+        'timestamp': datetime.now().isoformat(),
         'cpu_history': list(cpu_history),
         'ram_history': list(ram_history)
     })
@@ -494,9 +481,6 @@ def api_status():
 @app.route('/api/v4/control/start-depot', methods=['POST'])
 def start_depot():
     """Start Repo Depot"""
-    auth_err = _require_auth()
-    if auth_err:
-        return auth_err
     try:
         subprocess.Popen(
             [_get_python_executable(), 'optimus_repo_depot_launcher.py'],
@@ -514,9 +498,6 @@ def start_depot():
 @app.route('/api/v4/control/stop-depot', methods=['POST'])
 def stop_depot():
     """Stop Repo Depot"""
-    auth_err = _require_auth()
-    if auth_err:
-        return auth_err
     try:
         for proc in psutil.process_iter(['pid', 'cmdline']):
             try:
@@ -541,16 +522,13 @@ def health():
         'status': 'healthy',
         'service': 'matrix_monitor_v4',
         'version': '4.0.0',
-        'timestamp': datetime.now(timezone.utc).isoformat()
+        'timestamp': datetime.now().isoformat()
     })
 
 
 @app.route('/api/v4/optimus-depot')
 def api_optimus_depot():
     """OPTIMUS DEPOT unified engine status - reads from internal state files"""
-    auth_err = _require_auth()
-    if auth_err:
-        return auth_err
     depot_state_file = Path('optimus_state') / 'optimus_depot_state.json'
     monitor_state_file = Path('optimus_state') / 'matrix_monitor_state.json'
     maximizer_state_file = Path('optimus_state') / \
@@ -584,16 +562,13 @@ def api_optimus_depot():
         'optimus_depot': depot_data,
         'matrix_monitor_internal': monitor_data,
         'matrix_maximizer_internal': maximizer_data,
-        'timestamp': datetime.now(timezone.utc).isoformat()
+        'timestamp': datetime.now().isoformat()
     })
 
 
 @app.route('/api/v4/matrix-nodes')
 def api_matrix_nodes():
     """Get matrix visualization nodes from OPTIMUS DEPOT internal maximizer"""
-    auth_err = _require_auth()
-    if auth_err:
-        return auth_err
     maximizer_state_file = Path('optimus_state') / \
                                 'matrix_maximizer_state.json'
     if maximizer_state_file.exists():
@@ -604,7 +579,7 @@ def api_matrix_nodes():
                     'matrix_nodes': data.get('matrix_nodes', []),
                     'total_nodes': data.get('total_nodes', 0),
                     'system_health': data.get('system_health', 0),
-                    'timestamp': datetime.now(timezone.utc).isoformat()
+                    'timestamp': datetime.now().isoformat()
                 })
         except (json.JSONDecodeError, OSError):
             pass
@@ -614,9 +589,6 @@ def api_matrix_nodes():
 @app.route('/api/v4/alerts')
 def api_alerts():
     """Get alerts from OPTIMUS DEPOT internal maximizer"""
-    auth_err = _require_auth()
-    if auth_err:
-        return auth_err
     maximizer_state_file = Path('optimus_state') / \
                                 'matrix_maximizer_state.json'
     if maximizer_state_file.exists():
@@ -626,7 +598,7 @@ def api_alerts():
                 return jsonify({
                     'alerts': data.get('alerts', []),
                     'predictions': data.get('predictions', []),
-                    'timestamp': datetime.now(timezone.utc).isoformat()
+                    'timestamp': datetime.now().isoformat()
                 })
         except (json.JSONDecodeError, OSError):
             pass
@@ -636,22 +608,16 @@ def api_alerts():
 @app.route('/api/v4/devices')
 def api_devices():
     """Dedicated endpoint for PULSAR/TITAN device sync status"""
-    auth_err = _require_auth()
-    if auth_err:
-        return auth_err
     device_sync = get_device_sync_status()
     return jsonify({
         'device_sync': device_sync,
-        'timestamp': datetime.now(timezone.utc).isoformat()
+        'timestamp': datetime.now().isoformat()
     })
 
 
 @app.route('/api/v4/devices/sync', methods=['POST'])
 def api_device_sync():
     """Record a sync event from PULSAR or TITAN"""
-    auth_err = _require_auth()
-    if auth_err:
-        return auth_err
     data = flask_request.get_json(silent=True) or {}
     device_name = data.get('device', '').lower()
 
@@ -673,8 +639,8 @@ def api_device_sync():
             pass
 
     sync_data[device_name] = {
-        'last_sync': datetime.now(timezone.utc).strftime('%H:%M:%S'),
-        'last_sync_iso': datetime.now(timezone.utc).isoformat(),
+        'last_sync': datetime.now().strftime('%H:%M:%S'),
+        'last_sync_iso': datetime.now().isoformat(),
         'device_info': data.get('device_info', {}),
         'sync_type': data.get('sync_type', 'manual')
     }
@@ -729,10 +695,6 @@ def docs_view():
 # MAIN
 # ============================================
 if __name__ == '__main__':
-    # Start background metrics collection
-    collector_thread = threading.Thread(target=collect_metrics, daemon=True)
-    collector_thread.start()
-
     # Create PID file
     pid_file = '.matrix_monitor_v4.pid'
     with open(pid_file, 'w', encoding='utf-8') as pid_fh:

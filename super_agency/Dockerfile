@@ -8,7 +8,7 @@ RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 FROM python:3.12-slim
 
 LABEL maintainer="Resonance Energy <dev@resonanceenergy.com>"
-LABEL description="Digital Labour runtime — agents, orchestrator, dashboards"
+LABEL description="Bit Rage Systems runtime — Digital Labour agents, orchestrator, dashboards"
 
 WORKDIR /app
 

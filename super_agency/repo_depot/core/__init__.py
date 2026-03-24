@@ -1,8 +1,8 @@
 """
 CORE PROJECT - REPO DEPOT
-DIGITAL LABOUR Core Systems and Infrastructure
+SuperAgency Core Systems and Infrastructure
 
-This project contains the fundamental building blocks of DIGITAL LABOUR Operations,
+This project contains the fundamental building blocks of SuperAgency operations,
 including system architecture, core utilities, and foundational services.
 AGENT G (GASKET) will maintain system stability and drive core improvements.
 
@@ -15,4 +15,4 @@ Project Structure:
 
 __version__ = "1.0.0"
 __author__ = "AGENT G (GASKET)"
-__description__ = "DIGITAL LABOUR Core Systems and Infrastructure"
+__description__ = "SuperAgency Core Systems and Infrastructure"

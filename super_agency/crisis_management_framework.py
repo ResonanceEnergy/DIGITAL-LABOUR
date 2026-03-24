@@ -78,7 +78,7 @@ class ExecutiveBriefing:
 
 class CrisisManagementFramework:
     """
-    Crisis Management Framework for DIGITAL LABOUR
+    Crisis Management Framework for Bit Rage Systems
     Handles crisis detection, response, and executive briefings
     """
 

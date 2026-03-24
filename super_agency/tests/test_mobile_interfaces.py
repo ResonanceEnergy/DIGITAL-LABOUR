@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Mobile Interface Tests for DIGITAL LABOUR
+Mobile Interface Tests for Bit Rage Systems
 Tests Matrix Maximizer mobile routes and iPhone dashboard integration
 """
 
@@ -103,7 +103,7 @@ def test_services_running():
 
 def main():
     """Run all mobile interface tests"""
-    print("=== DIGITAL LABOUR Mobile Interface Tests ===\n")
+    print("=== Bit Rage Systems Mobile Interface Tests ===\n")
 
     # Check if services are running first
     test_services_running()
@@ -116,7 +116,7 @@ def main():
 
     print("\n=== Test Complete ===")
     print("Note: If services are not running, start them with:")
-    print("python run_bit_rage_labour.py")
+    print("python run_super_agency.py")
 
 if __name__ == "__main__":
     main()

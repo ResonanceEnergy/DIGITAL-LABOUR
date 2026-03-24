@@ -1,4 +1,4 @@
-# DIGITAL LABOUR Local Development & Deployment Plan
+# Bit Rage Systems Local Development & Deployment Plan
 
 ## Current Status (Feb 2026)
 ✅ **Phase 1 Complete**: MVP operational with core agent orchestration
@@ -10,14 +10,14 @@
 ## 1. Local Repository Development Workflow
 
 ### Current Setup
-- **Workspace**: `C:\Dev\DIGITAL-LABOUR`
+- **Workspace**: `C:\Dev\SuperAgency-Shared`
 - **Active Repos**: `demo/`, `TESLACALLS2026/`
 - **Portfolio**: 23 repos tracked (most not cloned locally yet)
 
 ### Development Workflow
 ```bash
 # Daily operations (already working)
-cd "C:\Dev\DIGITAL-LABOUR"
+cd "C:\Dev\SuperAgency-Shared"
 python agents\orchestrator.py
 
 # Clone missing repos for development
@@ -28,7 +28,7 @@ python -m pytest tests/
 ```
 
 ### VS Code Integration
-- **Workspace**: Open Digital-Labour folder
+- **Workspace**: Open Super-Agency folder
 - **Extensions Needed**:
   - Python
   - GitLens
@@ -45,7 +45,7 @@ python -m pytest tests/
 ### Enhancement Plan
 ```json
 {
-  "panel": "DIGITAL LABOUR Matrix Monitor",
+  "panel": "Bit Rage Systems Matrix Monitor",
   "metrics": {
     "portfolio_health": "23 repos monitored",
     "agent_status": "All agents operational",

@@ -5,12 +5,12 @@
 set -euo pipefail
 
 PYTHON="/Users/gripandripphdd/botenv/bin/python"
-BOT="$HOME/repos/DIGITAL LABOUR-Shared/scripts/optimus_discord_bot.py"
-LOG_DIR="/tmp/DIGITAL LABOUR"
+BOT="$HOME/repos/SuperAgency-Shared/scripts/optimus_discord_bot.py"
+LOG_DIR="/tmp/superagency"
 LOG="$LOG_DIR/optimus_bot.log"
 
 # Load env file if it exists
-ENV_FILE="$HOME/repos/DIGITAL LABOUR-Shared/.env.optimus"
+ENV_FILE="$HOME/repos/SuperAgency-Shared/.env.optimus"
 if [[ -f "$ENV_FILE" ]]; then
     set -a
     source "$ENV_FILE"
@@ -29,7 +29,7 @@ fi
 echo "$(date): Starting OPTIMUS Discord bot..." | tee -a "$LOG"
 OPTIMUS_DISCORD_BOT_TOKEN="${OPTIMUS_DISCORD_BOT_TOKEN}" \
 DISCORD_GUILD_ID="${DISCORD_GUILD_ID:-}" \
-DL_REPO="/Users/gripandripphdd/repos/Digital-Labour" \
+SUPER_AGENCY_REPO="/Users/gripandripphdd/repos/Super-Agency" \
 nohup "$PYTHON" "$BOT" >> "$LOG" 2>&1 &
 
 echo "$(date): OPTIMUS launched (PID $!). Log: $LOG"

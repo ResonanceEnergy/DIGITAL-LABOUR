@@ -1,5 +1,5 @@
 @echo off
-REM Digital Labour GitHub Integration Runner (Windows)
+REM Bit Rage Systems GitHub Integration Runner (Windows)
 REM Usage: run_github_integration.bat [command] [options]
 
 setlocal enabledelayedexpansion
@@ -97,7 +97,7 @@ if "%COMMAND%"=="sync" (
     python -c "
 from github_integration_system import GitHubIntegrationSystem
 system = GitHubIntegrationSystem()
-system.create_repository('!REPO_NAME!', '!REPO_NAME! - Digital Labour Project', True)
+system.create_repository('!REPO_NAME!', '!REPO_NAME! - Bit Rage Systems Project', True)
 "
 ) else if "%COMMAND%"=="setup" (
     set REPO_NAME=%1
@@ -131,7 +131,7 @@ system = GitHubIntegrationSystem()
 system.create_pull_request('!REPO_NAME!', '!TITLE!', '!BODY!', 'feature-branch')
 "
 ) else (
-    echo Digital Labour GitHub Integration Runner
+    echo Bit Rage Systems GitHub Integration Runner
     echo Usage: run_github_integration.bat [command] [options]
     echo.
     echo Commands:

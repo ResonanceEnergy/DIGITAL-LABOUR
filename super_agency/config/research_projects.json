@@ -75,12 +75,12 @@
     },
     {
       "id": "platform-infra",
-      "name": "DIGITAL LABOUR Platform",
+      "name": "Bit Rage Systems Platform",
       "status": "active",
       "priority": "critical",
       "description": "Core platform infrastructure — the agency itself, command centers, doctrine",
       "repos": [
-        "Digital-Labour",
+        "Super-Agency",
         "NCC",
         "NCC-Doctrine",
         "NCL",

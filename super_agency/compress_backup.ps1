@@ -1,9 +1,9 @@
-# Compress Digital Labour Backup
-Write-Host "🗜️ Compressing Digital Labour Backup..." -ForegroundColor Cyan
+# Compress Bit Rage Systems Backup
+Write-Host "🗜️ Compressing Bit Rage Systems Backup..." -ForegroundColor Cyan
 
 $timestamp = "20260220_180000"
 $backupDir = "backups\memory_doctrine_logs_$timestamp"
-$archiveName = "digital_labour_backup_$timestamp.zip"
+$archiveName = "super_agency_backup_$timestamp.zip"
 
 if (Test-Path $backupDir) {
     Compress-Archive -Path $backupDir -DestinationPath $archiveName -Force

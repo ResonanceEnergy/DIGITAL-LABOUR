@@ -1,4 +1,4 @@
-"""DEPRECATED — Use bitrage.py checks or bitrage_monitor.py --command instead.
+﻿"""DEPRECATED — Use bitrage.py checks or bitrage_monitor.py --command instead.
 
 Original: Portfolio Sample Generator — run each of our 20 agents with demo data
 to produce portfolio samples that prove capabilities to potential clients.
@@ -44,7 +44,7 @@ AGENT_DEMOS = {
         "import": "agents.seo_content.runner",
         "kwargs": {
             "topic": "How AI Virtual Assistants Are Replacing Traditional Admin Work in 2026",
-            "business": "DIGITAL LABOUR — AI-powered business services",
+            "business": "BIT RAGE SYSTEMS — AI-powered business services",
             "content_type": "blog",
             "tone": "professional",
         },
@@ -141,7 +141,7 @@ AGENT_DEMOS = {
     "press_release": {
         "import": "agents.press_release.runner",
         "kwargs": {
-            "brief": "DIGITAL LABOUR launches industry-first 24-agent AI workforce. The platform offers 20 specialized AI agents covering everything from SEO content to bookkeeping, available 24/7 at a fraction of traditional costs. Based in the UK.",
+            "brief": "BIT RAGE SYSTEMS launches industry-first 24-agent AI workforce. The platform offers 20 specialized AI agents covering everything from SEO content to bookkeeping, available 24/7 at a fraction of traditional costs. Based in the UK.",
         },
     },
     "tech_docs": {
@@ -215,7 +215,7 @@ def generate_sample(agent_name: str, provider: str = "openai") -> dict:
 def generate_all(provider: str = "openai") -> list[dict]:
     """Generate portfolio samples for all 20 agents."""
     print(f"\n{'='*70}")
-    print(f"  DIGITAL LABOUR — Portfolio Generator")
+    print(f"  BIT RAGE SYSTEMS — Portfolio Generator")
     print(f"  Generating samples across {len(AGENT_DEMOS)} agents")
     print(f"  Provider: {provider}")
     print(f"  Output: {PORTFOLIO_DIR}")
@@ -261,7 +261,7 @@ def list_agents():
 
 
 def main():
-    parser = argparse.ArgumentParser(description="DIGITAL LABOUR — Portfolio Sample Generator")
+    parser = argparse.ArgumentParser(description="BIT RAGE SYSTEMS — Portfolio Sample Generator")
     parser.add_argument("--agent", type=str, default="", help="Generate for a single agent")
     parser.add_argument("--provider", type=str, default="openai",
                         choices=["openai", "anthropic", "gemini", "grok"],

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Context Compression System
+Bit Rage Systems Context Compression System
 Advanced memory optimization with semantic compression and vector search
 """
 
@@ -658,7 +658,7 @@ if __name__ == "__main__":
 
     # Test basic compression
     test_content = """
-    Hello, I am working on the DIGITAL LABOUR project. The DIGITAL LABOUR is a comprehensive system
+    Hello, I am working on the Bit Rage Systems project. The Bit Rage Systems is a comprehensive system
     that manages various aspects of AI operations. I think the memory system is really important.
     The memory system helps maintain context across conversations. I believe this will solve
     many of the issues we've been facing with AI memory loss. The doctrine system ensures that

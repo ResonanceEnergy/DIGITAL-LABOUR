@@ -6,7 +6,7 @@ from typing import Dict, List, Any, Optional
 from autogen_agentchat.agents import AssistantAgent
 
 # allow overriding root for testing or alternative layout
-ROOT = Path(os.environ.get('DL_ROOT',
+ROOT = Path(os.environ.get('SUPER_AGENCY_ROOT',
             Path(__file__).resolve().parents[1]))
 CONFIG = json.loads(
     (ROOT/'config'/'settings.json').read_text(encoding='utf-8'))
@@ -209,7 +209,7 @@ class IntegrateCellAgent:
                 system_message="""You are an expert system integration specialist with deep knowledge of
                 distributed systems, microservices architecture, and autonomous cell management.
 
-                Your role is to integrate new cells (repositories) into the DIGITAL LABOUR ecosystem,
+                Your role is to integrate new cells (repositories) into the Bit Rage Systems ecosystem,
                 validate system coherence, manage inter-cell dependencies, and ensure operational integrity.
 
                 Key responsibilities:
@@ -286,7 +286,7 @@ class IntegrateCellAgent:
                 7. Security and Compliance Considerations
                 8. Performance Optimization Opportunities
 
-                Consider the cell's mandate, agents, and role within the broader DIGITAL LABOUR ecosystem.
+                Consider the cell's mandate, agents, and role within the broader Bit Rage Systems ecosystem.
                 """
 
                 # Note: In full implementation, we would run the agent here

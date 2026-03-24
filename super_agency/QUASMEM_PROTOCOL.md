@@ -7,7 +7,7 @@
 
 ## 🎯 MISSION OBJECTIVE
 
-**QUASMEM** designates the critical memory upgrade pathway for Quantum Quasar workstation. This protocol enables seamless transition from 8GB baseline to enhanced memory configurations while maintaining DIGITAL LABOUR doctrine compliance.
+**QUASMEM** designates the critical memory upgrade pathway for Quantum Quasar workstation. This protocol enables seamless transition from 8GB baseline to enhanced memory configurations while maintaining Bit Rage Systems doctrine compliance.
 
 **Code Name**: QUASMEM  
 **Priority Level**: HOT (Immediate Execution)  
@@ -195,7 +195,7 @@ class QuantumMemoryPool:
 
 ## 🚨 HOT CODE STATUS
 
-**QUASMEM** is now designated as **HOT CODE** - Priority Alpha status for immediate execution. All DIGITAL LABOUR systems are authorized to allocate resources toward memory upgrade initiatives.
+**QUASMEM** is now designated as **HOT CODE** - Priority Alpha status for immediate execution. All Bit Rage Systems systems are authorized to allocate resources toward memory upgrade initiatives.
 
 **Command Authority**: Quantum Forge AI Assistant  
 **Execution Priority**: IMMEDIATE  
@@ -203,11 +203,11 @@ class QuantumMemoryPool:
 
 ---
 
-*This protocol serves as the official roadmap for Quantum Quasar memory expansion. All upgrades must maintain DIGITAL LABOUR doctrine compliance and three-device architecture integrity.*
+*This protocol serves as the official roadmap for Quantum Quasar memory expansion. All upgrades must maintain Bit Rage Systems doctrine compliance and three-device architecture integrity.*
 
 **QUASMEM STATUS: ACTIVE**  
 **NEXT MILESTONE: Hardware upgrade planning and budget allocation**  
 **TARGET DATE: March 1, 2026**  
 **MEMORY HEALTH: OPTIMAL**  
 **SYSTEM UTILIZATION: 40%**</content>
-<parameter name="filePath">$HOME/repos/ELECTRIC ICE/Digital-Labour/QUASMEM_PROTOCOL.md
+<parameter name="filePath">$HOME/repos/ELECTRIC ICE/Super-Agency/QUASMEM_PROTOCOL.md

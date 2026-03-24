@@ -1,42 +1,5 @@
 {
   "agents": {
-    "repo_sentry": {
-      "description": "Repository health monitoring",
-      "capabilities": [
-        "scan",
-        "delta_plan",
-        "health_check",
-        "branch_audit"
-      ],
-      "registered_at": "2026-03-07T05:47:12.394622"
-    },
-    "daily_brief": {
-      "description": "Daily operational briefings",
-      "capabilities": [
-        "brief_generation",
-        "intelligence_digest",
-        "error_summary"
-      ],
-      "registered_at": "2026-03-07T05:47:12.405089"
-    },
-    "council": {
-      "description": "Executive council decisions",
-      "capabilities": [
-        "proposal_vote",
-        "risk_assessment",
-        "graduation_decision"
-      ],
-      "registered_at": "2026-03-07T05:47:12.416170"
-    },
-    "portfolio_autotier": {
-      "description": "Portfolio classification",
-      "capabilities": [
-        "tier_assignment",
-        "risk_scoring",
-        "autonomy_graduation"
-      ],
-      "registered_at": "2026-03-07T05:47:12.429529"
-    },
     "portfolio_selfheal": {
       "description": "Self-healing portfolio maintenance",
       "capabilities": [
@@ -45,7 +8,7 @@
         "license_audit",
         "fix_proposal"
       ],
-      "registered_at": "2026-03-07T05:47:12.441272"
+      "registered_at": "2026-03-17T05:55:18.018668"
     },
     "gasket": {
       "description": "QUSAR and OpenClaw bridge",
@@ -54,7 +17,7 @@
         "memory_doctrine",
         "cpu_optimization"
       ],
-      "registered_at": "2026-03-07T05:47:12.452098"
+      "registered_at": "2026-03-17T05:55:18.028314"
     },
     "intelligence_scheduler": {
       "description": "YouTube watchlist scheduler",
@@ -63,7 +26,7 @@
         "watchlist_scan",
         "queue_management"
       ],
-      "registered_at": "2026-03-07T05:47:12.463211"
+      "registered_at": "2026-03-17T05:55:18.038828"
     },
     "memory_backup": {
       "description": "Memory backup and health monitoring",
@@ -72,200 +35,45 @@
         "blank_detection",
         "consolidation"
       ],
-      "registered_at": "2026-03-07T05:47:12.475918"
+      "registered_at": "2026-03-17T05:55:18.051225"
     },
-    "research_intelligence": {
-      "description": "Autonomous research intelligence with ML",
+    "repo_sentry": {
+      "description": "Repository health monitoring",
       "capabilities": [
-        "knowledge_scan",
-        "anomaly_detection",
-        "trend_analysis",
-        "strategy_selection",
-        "cross_pollinate",
-        "intelligence_report"
+        "scan",
+        "delta_plan",
+        "health_check",
+        "branch_audit"
       ],
-      "registered_at": "2026-03-11T00:00:00"
+      "registered_at": "2026-03-17T05:55:17.973433"
     },
-    "alignment_monitor": {
-      "description": "AGI alignment and safety monitoring",
+    "daily_brief": {
+      "description": "Daily operational briefings",
       "capabilities": [
-        "alignment_check",
-        "mandate_coverage",
-        "authority_boundary",
-        "config_consistency",
-        "resource_audit",
-        "constitutional_rules"
+        "brief_generation",
+        "intelligence_digest",
+        "error_summary"
       ],
-      "registered_at": "2026-03-11T00:00:00"
+      "registered_at": "2026-03-17T05:55:17.984758"
     },
-    "learning_agent": {
-      "description": "Meta-learning and adaptation engine",
+    "council": {
+      "description": "Executive council decisions",
       "capabilities": [
-        "error_analysis",
-        "performance_analysis",
-        "lesson_extraction",
-        "recommendation",
-        "pattern_recognition",
-        "adaptive_tuning"
+        "proposal_vote",
+        "risk_assessment",
+        "graduation_decision"
       ],
-      "registered_at": "2026-03-11T00:00:00"
+      "registered_at": "2026-03-17T05:55:17.993557"
     },
-    "hierarchy": {
-      "description": "Agent hierarchy and task routing",
+    "portfolio_autotier": {
+      "description": "Portfolio classification",
       "capabilities": [
-        "agent_registry",
-        "task_routing",
-        "escalation",
-        "capability_discovery",
-        "load_balancing"
+        "tier_assignment",
+        "risk_scoring",
+        "autonomy_graduation"
       ],
-      "registered_at": "2026-03-11T00:00:00"
-    },
-    "cognitive_architecture": {
-      "description": "ReAct reasoning and cognitive loops",
-      "capabilities": [
-        "react_loop",
-        "reflexion",
-        "goal_decomposition",
-        "episodic_memory",
-        "uncertainty_tracking"
-      ],
-      "registered_at": "2026-03-11T00:00:00"
-    },
-    "agent_protocols": {
-      "description": "Multi-agent communication protocols",
-      "capabilities": [
-        "debate",
-        "consensus",
-        "delegation",
-        "escalation_protocol",
-        "a2a_messaging"
-      ],
-      "registered_at": "2026-03-11T00:00:00"
-    },
-    "ml_intelligence": {
-      "description": "Machine learning intelligence framework",
-      "capabilities": [
-        "anomaly_detection",
-        "trend_forecasting",
-        "text_intelligence",
-        "action_scoring",
-        "clustering",
-        "performance_profiling"
-      ],
-      "registered_at": "2026-03-11T00:00:00"
-    },
-    "agent_metrics": {
-      "description": "Agent KPI tracking and scoring",
-      "capabilities": [
-        "metrics_collection",
-        "scorecard",
-        "dashboard",
-        "tier_scoring"
-      ],
-      "registered_at": "2026-03-11T00:00:00"
-    },
-    "context_manager_agent": {
-      "description": "Context freshness and cross-agent propagation",
-      "capabilities": [
-        "context_management",
-        "freshness_monitoring",
-        "memory_doctrine_check",
-        "context_compression",
-        "cross_agent_propagation"
-      ],
-      "registered_at": "2026-03-15T00:00:00"
-    },
-    "qa_manager": {
-      "description": "Quality assurance and output validation",
-      "capabilities": [
-        "report_quality",
-        "test_health",
-        "config_integrity",
-        "log_analysis",
-        "quality_scoring"
-      ],
-      "registered_at": "2026-03-15T00:00:00"
-    },
-    "production_manager": {
-      "description": "Production health and deployment gates",
-      "capabilities": [
-        "port_monitoring",
-        "disk_monitoring",
-        "watchdog_analysis",
-        "deployment_gates",
-        "incident_tracking"
-      ],
-      "registered_at": "2026-03-15T00:00:00"
-    },
-    "automation_manager": {
-      "description": "Pipeline orchestration and workflow automation",
-      "capabilities": [
-        "daemon_management",
-        "pipeline_monitoring",
-        "workflow_scheduling",
-        "cron_coordination"
-      ],
-      "registered_at": "2026-03-15T00:00:00"
-    },
-    "dl_bridge": {
-      "description": "DIGITAL LABOUR integration bridge — primary mission connector",
-      "capabilities": [
-        "dl_sync",
-        "dl_fleet_status",
-        "dl_queue_status",
-        "dl_kpi_summary",
-        "dl_revenue_snapshot",
-        "dl_event_publish",
-        "dl_cache_management"
-      ],
-      "registered_at": "2026-03-15T00:00:00"
-    },
-    "axiom_ceo": {
-      "description": "AXIOM — DL CEO, strategic growth and mandate execution",
-      "capabilities": [
-        "growth_strategy",
-        "resource_allocation",
-        "roi_analysis",
-        "mandate_execution",
-        "strategic_directives"
-      ],
-      "registered_at": "2026-03-15T00:00:00"
-    },
-    "vectis_coo": {
-      "description": "VECTIS — DL COO, operations and quality enforcement",
-      "capabilities": [
-        "agent_performance",
-        "qa_enforcement",
-        "queue_management",
-        "provider_routing",
-        "bottleneck_analysis"
-      ],
-      "registered_at": "2026-03-15T00:00:00"
-    },
-    "ledgr_cfo": {
-      "description": "LEDGR — DL CFO, revenue tracking and margin optimization",
-      "capabilities": [
-        "revenue_tracking",
-        "margin_optimization",
-        "pricing_strategy",
-        "cost_analysis",
-        "financial_projections"
-      ],
-      "registered_at": "2026-03-15T00:00:00"
-    },
-    "dl_dispatcher": {
-      "description": "DL task dispatcher — routing with budget enforcement",
-      "capabilities": [
-        "task_routing",
-        "budget_enforcement",
-        "daily_limits",
-        "token_budgets",
-        "provider_selection"
-      ],
-      "registered_at": "2026-03-15T00:00:00"
+      "registered_at": "2026-03-17T05:55:18.001546"
     }
   },
-  "primary_mission": "DIGITAL_LABOUR",
-  "updated_at": "2026-03-15T00:00:00"
+  "updated_at": "2026-03-17T05:55:18.051471"
 }

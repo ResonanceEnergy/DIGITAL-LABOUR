@@ -1,4 +1,4 @@
-"""DEPRECATED as CLI — Use bitrage.py health or bitrage_monitor.py --once instead.
+﻿"""DEPRECATED as CLI — Use bitrage.py health or bitrage_monitor.py --once instead.
 
 This module is still imported as a library by bitrage.py and bitrage_monitor.py.
 Do NOT delete it. The CLI entry point (__main__ block) is superseded.
@@ -119,7 +119,7 @@ def print_dashboard():
     rev = data["revenue_30d"]
 
     print("\n" + "=" * 60)
-    print("  Digital Labour — System Dashboard")
+    print("  BIT RAGE SYSTEMS — System Dashboard")
     print("=" * 60)
     print(f"  Timestamp: {data['timestamp']}")
 
@@ -164,7 +164,7 @@ def print_dashboard():
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Digital Labour Health Dashboard")
+    parser = argparse.ArgumentParser(description="BIT RAGE SYSTEMS Health Dashboard")
     parser.add_argument("--json", action="store_true", help="Output as JSON")
     args = parser.parse_args()
 

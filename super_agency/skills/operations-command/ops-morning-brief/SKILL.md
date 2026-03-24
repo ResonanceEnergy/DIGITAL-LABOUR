@@ -44,7 +44,7 @@ Operations Command Morning Brief Collector
 
 ### Output Format
 ```
-GOOD MORNING — [date] — Digital-Labour DAILY BRIEF
+GOOD MORNING — [date] — SUPER-AGENCY DAILY BRIEF
 
 🔴 CRITICAL (0)
    No critical issues overnight.

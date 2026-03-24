@@ -1,4 +1,4 @@
-"""Proposal Writer Agent — Generate professional proposals from project briefs.
+﻿"""Proposal Writer Agent — Generate professional proposals from project briefs.
 
 2-step pipeline:
     1. Writer Agent — produces full proposal from brief/RFP
@@ -149,7 +149,7 @@ def _load_prompt(name: str) -> str:
 def writer_agent(
     brief: str,
     proposal_type: str = "project_proposal",
-    company_name: str = "DIGITAL LABOUR",
+    company_name: str = "BIT RAGE SYSTEMS",
     company_description: str = "AI-powered automation agency",
     budget_range: str = "",
     deadline: str = "",
@@ -187,7 +187,7 @@ def qa_agent(proposal: WriterOutput, provider: str = "openai") -> QAResult:
 def run_pipeline(
     brief: str,
     proposal_type: str = "project_proposal",
-    company_name: str = "DIGITAL LABOUR",
+    company_name: str = "BIT RAGE SYSTEMS",
     budget_range: str = "",
     deadline: str = "",
     provider: str = "openai",
@@ -327,7 +327,7 @@ if __name__ == "__main__":
                                  "service_agreement", "pitch_deck_script",
                                  "case_study"],
                         dest="proposal_type")
-    parser.add_argument("--company", default="DIGITAL LABOUR")
+    parser.add_argument("--company", default="BIT RAGE SYSTEMS")
     parser.add_argument("--budget", default="", help="Budget range")
     parser.add_argument("--deadline", default="", help="Project deadline")
     parser.add_argument("--provider", default="openai", help="LLM provider")

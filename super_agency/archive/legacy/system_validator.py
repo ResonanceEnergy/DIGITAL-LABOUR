@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 SYSTEM VALIDATION AND REPAIR SCRIPT
-Comprehensive fix for DIGITAL LABOUR system components
+Comprehensive fix for Super Agency system components
 """
 
 import sys
@@ -87,7 +87,7 @@ class SystemValidator:
         required_dirs = [
             'qforge',
             'repos/QUSAR',
-            'Digital-Labour',
+            'Super-Agency',
             'musk_innovations',
             'dimon_finance',
             'buffett_investments',

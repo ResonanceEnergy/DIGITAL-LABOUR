@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Production Deployment System
+Super Agency Production Deployment System
 Complete integration and production deployment
 """
 
@@ -636,12 +636,12 @@ def get_production_status() -> Dict[str, Any]:
 def main():
     """Main production deployment entry point"""
 
-    print("🚀 DIGITAL LABOUR Production Deployment")
+    print("🚀 Super Agency Production Deployment")
     print("=" * 50)
 
     # Parse command line arguments
     import argparse
-    parser = argparse.ArgumentParser(description="DIGITAL LABOUR Production Deployment")
+    parser = argparse.ArgumentParser(description="Super Agency Production Deployment")
     parser.add_argument("action", choices=["start", "stop", "status", "restart"],
                        help="Action to perform")
     parser.add_argument("--config", type=str,

@@ -1,5 +1,5 @@
-"""DIGITAL LABOUR Portfolio Company: TESLA-TECH"""
+"""Bit Rage Systems Portfolio Company: TESLA-TECH"""
 
 __version__ = "1.0.0"
-__author__ = "DIGITAL LABOUR"
+__author__ = "Bit Rage Systems"
 __description__ = "TESLA-TECH portfolio company"

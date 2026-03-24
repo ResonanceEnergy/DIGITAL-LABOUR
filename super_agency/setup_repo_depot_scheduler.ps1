@@ -11,7 +11,7 @@
 
 $ErrorActionPreference = "Stop"
 
-$WorkspacePath = "C:\Dev\DIGITAL LABOUR-Shared"
+$WorkspacePath = "C:\Dev\SuperAgency-Shared"
 $PythonExe = "$WorkspacePath\.venv\Scripts\python.exe"
 $WatchdogScript = "$WorkspacePath\repo_depot_watchdog.py"
 $RepoDepotScript = "$WorkspacePath\optimus_repo_depot_launcher.py"

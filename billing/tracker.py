@@ -1,4 +1,4 @@
-"""Billing tracker — tracks client usage and generates invoices.
+﻿"""Billing tracker — tracks client usage and generates invoices.
 
 Usage:
     from billing.tracker import BillingTracker
@@ -367,7 +367,7 @@ class BillingTracker:
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Digital Labour Billing")
+    parser = argparse.ArgumentParser(description="BIT RAGE SYSTEMS Billing")
     parser.add_argument("--invoice", type=str, help="Generate invoice for client")
     parser.add_argument("--invoice-all", action="store_true", help="Auto-generate all invoices")
     parser.add_argument("--report", action="store_true", help="Revenue report")

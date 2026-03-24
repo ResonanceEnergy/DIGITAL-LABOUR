@@ -1,4 +1,4 @@
-# Digital Labour Remote Access Setup
+# Bit Rage Systems Remote Access Setup
 # Enable secure remote access to local command center from anywhere
 
 param(
@@ -67,7 +67,7 @@ function New-RemoteConfig {
         remote_access = @{
             enabled = $true
             method = "cloudflare"
-            domain = "command.DIGITAL LABOUR.local"
+            domain = "command.superagency.local"
             services = @{
                 matrix_monitor = @{
                     local_port = 3000
@@ -125,19 +125,19 @@ function Install-CloudflareTunnel {
     # Create tunnel configuration
     $configPath = Join-Path $CloudflareConfigDir "config.yaml"
     $config = @"
-tunnel: Digital-Labour-command-center
+tunnel: super-agency-command-center
 credentials-file: $CloudflareConfigDir\tunnel.json
 
 ingress:
-  - hostname: command.DIGITAL LABOUR.local
+  - hostname: command.superagency.local
     service: http://localhost:3000
     originRequest:
       noTLSVerify: true
-  - hostname: api.DIGITAL LABOUR.local
+  - hostname: api.superagency.local
     service: http://localhost:5000
     originRequest:
       noTLSVerify: true
-  - hostname: ops.DIGITAL LABOUR.local
+  - hostname: ops.superagency.local
     service: http://localhost:8080
     originRequest:
       noTLSVerify: true
@@ -169,17 +169,17 @@ tunnels:
   matrix-monitor:
     addr: 3000
     proto: http
-    hostname: matrix.DIGITAL LABOUR.ngrok.io
+    hostname: matrix.superagency.ngrok.io
     auth: "admin:password"
   operations-api:
     addr: 5000
     proto: http
-    hostname: api.DIGITAL LABOUR.ngrok.io
+    hostname: api.superagency.ngrok.io
     auth: "admin:password"
   command-center:
     addr: 8080
     proto: http
-    hostname: command.DIGITAL LABOUR.ngrok.io
+    hostname: command.superagency.ngrok.io
     auth: "admin:password"
 "@
 
@@ -269,7 +269,7 @@ function Install-MobileOptimization {
 
     # Create mobile JS
     $mobileJs = @"
-// Mobile enhancements for Digital Labour Command Center
+// Mobile enhancements for Bit Rage Systems Command Center
 
 document.addEventListener('DOMContentLoaded', function() {
     // Add mobile class to body
@@ -349,7 +349,7 @@ function Set-FirewallRules {
     # Add firewall rules for required ports
     $ports = @(3000, 5000, 8080, 80, 443)
     foreach ($port in $ports) {
-        $ruleName = "Digital Labour Port $port"
+        $ruleName = "Bit Rage Systems Port $port"
         $existingRule = Get-NetFirewallRule -DisplayName $ruleName -ErrorAction SilentlyContinue
 
         if (!$existingRule) {
@@ -368,21 +368,21 @@ function New-AccessInstructions {
     Write-Info "Generating access instructions..."
 
     $instructions = @"
-# 🌐 Digital Labour Remote Access Instructions
+# 🌐 Bit Rage Systems Remote Access Instructions
 
 ## Current Setup
 Your command center is configured for remote access with the following methods:
 
 ### 1. Cloudflare Tunnel (Recommended)
-- **URL**: https://command.DIGITAL LABOUR.local
-- **Matrix Monitor**: https://command.DIGITAL LABOUR.local/monitor
-- **Operations API**: https://api.DIGITAL LABOUR.local
-- **Command Center**: https://ops.DIGITAL LABOUR.local
+- **URL**: https://command.superagency.local
+- **Matrix Monitor**: https://command.superagency.local/monitor
+- **Operations API**: https://api.superagency.local
+- **Command Center**: https://ops.superagency.local
 
 ### 2. ngrok Tunnel (Alternative)
-- **Matrix Monitor**: https://matrix.DIGITAL LABOUR.ngrok.io
-- **Operations API**: https://api.DIGITAL LABOUR.ngrok.io
-- **Command Center**: https://command.DIGITAL LABOUR.ngrok.io
+- **Matrix Monitor**: https://matrix.superagency.ngrok.io
+- **Operations API**: https://api.superagency.ngrok.io
+- **Command Center**: https://command.superagency.ngrok.io
 
 ### 3. Local Network Access
 - **Matrix Monitor**: http://YOUR_LOCAL_IP:3000
@@ -397,7 +397,7 @@ Your command center is configured for remote access with the following methods:
 3. Add to home screen for app-like experience:
    - Tap share button
    - Select "Add to Home Screen"
-   - Name it "Digital Labour Command"
+   - Name it "Bit Rage Systems Command"
 
 ### Android Setup
 1. Open Chrome on your device
@@ -405,7 +405,7 @@ Your command center is configured for remote access with the following methods:
 3. Add to home screen:
    - Tap menu (3 dots)
    - Select "Add to Home screen"
-   - Name it "Digital Labour Command"
+   - Name it "Bit Rage Systems Command"
 
 ## Security Features
 - Basic authentication enabled
@@ -467,7 +467,7 @@ function Start-RemoteAccess {
         "cloudflare" {
             if (Get-Command cloudflared -ErrorAction SilentlyContinue) {
                 Write-Info "Starting Cloudflare tunnel..."
-                $process = Start-Process cloudflared -ArgumentList "tunnel run Digital-Labour-command-center" -NoNewWindow -PassThru
+                $process = Start-Process cloudflared -ArgumentList "tunnel run super-agency-command-center" -NoNewWindow -PassThru
                 $process.Id | Out-File -FilePath ".cloudflare.pid"
             } else {
                 Write-Error "cloudflared not installed"
@@ -518,7 +518,7 @@ function Stop-RemoteAccess {
 # Show menu
 function Show-Menu {
     Write-Host ""
-    Write-Host "Digital Labour Remote Access Setup Menu"
+    Write-Host "Bit Rage Systems Remote Access Setup Menu"
     Write-Host "====================================="
     Write-Host "1. Setup Cloudflare Tunnel (Recommended)"
     Write-Host "2. Setup ngrok Tunnel (Alternative)"
@@ -645,7 +645,7 @@ function Invoke-Main {
 }
 
 # Run main function
-Write-Host "🌐 Digital Labour Remote Access Setup"
+Write-Host "🌐 Bit Rage Systems Remote Access Setup"
 Write-Host "==================================="
 Write-Host ""
 

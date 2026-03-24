@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-QA Manager Agent — DIGITAL LABOUR
+QA Manager Agent — Bit Rage Systems
 =====================================
 T2 Management agent responsible for quality assurance
 across the entire agent fleet. Validates outputs,

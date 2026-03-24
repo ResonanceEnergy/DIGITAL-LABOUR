@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-STREAMLIT MATRIX MAXIMIZER - DIGITAL LABOUR Project Management & Intelligence Platform
-Advanced project tracking, forecasting, and intervention system for the DIGITAL LABOUR
+STREAMLIT MATRIX MAXIMIZER - Bit Rage Systems Project Management & Intelligence Platform
+Advanced project tracking, forecasting, and intervention system for the Bit Rage Systems
 
 Features:
 - Real-time project monitoring and completion cycle tracking
@@ -39,18 +39,18 @@ except ImportError:
 
 # Configure page with modern settings
 st.set_page_config(
-    page_title="Matrix Maximizer - DIGITAL LABOUR Intelligence",
+    page_title="Matrix Maximizer - Bit Rage Systems Intelligence",
     page_icon="🚀",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
-        "Get Help": "https://github.com/ResonanceEnergy/MatrixMaximizer",
-        "Report a bug": "https://github.com/ResonanceEnergy/MatrixMaximizer/issues",
+        "Get Help": "https://github.com/SuperAgency/MatrixMaximizer",
+        "Report a bug": "https://github.com/SuperAgency/MatrixMaximizer/issues",
         "About": """
         ## Matrix Maximizer 2.0
-        **DIGITAL LABOUR Project Management & Intelligence Platform**
+        **Bit Rage Systems Project Management & Intelligence Platform**
 
-        Built with ❤️ by the DIGITAL LABOUR AI Team
+        Built with ❤️ by the Bit Rage Systems AI Team
         """,
     },
 )
@@ -578,7 +578,7 @@ class MatrixMaximizer:
         return projects_data
 
     def get_running_python_processes(self):
-        """Get all running Python processes in DIGITAL LABOUR"""
+        """Get all running Python processes in Bit Rage Systems"""
         processes = []
         for proc in psutil.process_iter(
             ["pid", "name", "cmdline", "cpu_percent",
@@ -853,11 +853,11 @@ def main():
     if STREAMLIT_EXTRAS_AVAILABLE:
         colored_header(
             label="🚀 MATRIX MAXIMIZER 2.0",
-            description="DIGITAL LABOUR Project Management & Intelligence Platform",
+            description="Bit Rage Systems Project Management & Intelligence Platform",
             color_name="blue-70",)
     else:
         st.title("🚀 MATRIX MAXIMIZER 2.0")
-        st.markdown("*DIGITAL LABOUR Project Management & Intelligence Platform*")
+        st.markdown("*Bit Rage Systems Project Management & Intelligence Platform*")
 
     # Initialize Matrix Maximizer with loading animation
     with st.spinner("🔄 Initializing Matrix Maximizer..."):
@@ -1012,7 +1012,7 @@ def main():
 
     with tab2:
         # OPERATIONS TAB - Running processes, MD statuses, repo status
-        st.header("🔧 DIGITAL LABOUR Operations")
+        st.header("🔧 Bit Rage Systems Operations")
 
         # Current Cycle Status
         cycle = mm.get_current_cycle()
@@ -1568,7 +1568,7 @@ def main():
     st.markdown(
         """
     <div style='text-align: center; color: #a0aec0; font-size: 0.9em;'>
-        <strong>Matrix Maximizer 2.0</strong> - Powered by DIGITAL LABOUR AI<br>
+        <strong>Matrix Maximizer 2.0</strong> - Powered by Bit Rage Systems AI<br>
         <span style='font-size: 0.8em;'>Real-time Intelligence | Neural Networks | Advanced Analytics</span>
     </div>
     """,

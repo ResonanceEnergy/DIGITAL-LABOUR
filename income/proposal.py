@@ -1,4 +1,4 @@
-"""Consulting Proposal Generator — Auto-generates enterprise proposals.
+﻿"""Consulting Proposal Generator — Auto-generates enterprise proposals.
 
 Creates custom proposals for B2B consulting engagements using AI.
 Templates cover setup fees, monthly retainers, scope of work, and timelines.
@@ -202,7 +202,7 @@ def _to_markdown(p: dict) -> str:
 
     lines.extend([
         f"",
-        f"## Why DIGITAL LABOUR?",
+        f"## Why BIT RAGE SYSTEMS?",
         f"",
     ])
     for reason in p["why_bit_rage_labour"]:
@@ -228,7 +228,7 @@ def _to_markdown(p: dict) -> str:
         f"",
         f"---",
         f"",
-        f"*DIGITAL LABOUR — AI agents that work while you sleep.*",
+        f"*BIT RAGE SYSTEMS — AI agents that work while you sleep.*",
         f"*sales@bit-rage-labour.com | bit-rage-labour.com*",
     ])
 

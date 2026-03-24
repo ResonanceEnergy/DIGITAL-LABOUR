@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SYSTEM LAUNCHER - Controlled startup of DIGITAL LABOUR components
+SYSTEM LAUNCHER - Controlled startup of Super Agency components
 """
 
 import sys
@@ -39,7 +39,7 @@ def main():
     """Main launcher function"""
     workspace = Path(__file__).parent
 
-    print("🚀 DIGITAL LABOUR SYSTEM LAUNCHER")
+    print("🚀 SUPER AGENCY SYSTEM LAUNCHER")
     print("="*50)
 
     # Change to workspace directory

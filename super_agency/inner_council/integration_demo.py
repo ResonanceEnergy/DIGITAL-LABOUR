@@ -183,7 +183,7 @@ def demonstrate_autonomous_operation():
         print(f"❌ Monitoring cycle failed: {e}")
 
 def demonstrate_cpu_offloading():
-    """Demonstrate how the system offloads CPU from DIGITAL LABOUR"""
+    """Demonstrate how the system offloads CPU from Bit Rage Systems"""
     print("\n⚡ Demonstrating CPU Offloading Benefits")
     print("=" * 50)
 
@@ -317,7 +317,7 @@ def main():
         print("🎉 Inner Council Integration Demo Complete!")
         print("✅ All 28 council member agents are operational")
         print("✅ Distributed intelligence gathering system active")
-        print("✅ CPU offloading from DIGITAL LABOUR achieved")
+        print("✅ CPU offloading from Bit Rage Systems achieved")
         print("✅ Autonomous coordination and analysis functional")
         print("=" * 70)
 

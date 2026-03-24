@@ -1,5 +1,5 @@
-"""DIGITAL LABOUR Portfolio Company: MircoHydro"""
+"""Bit Rage Systems Portfolio Company: MircoHydro"""
 
 __version__ = "1.0.0"
-__author__ = "DIGITAL LABOUR"
+__author__ = "Bit Rage Systems"
 __description__ = "MircoHydro portfolio company"

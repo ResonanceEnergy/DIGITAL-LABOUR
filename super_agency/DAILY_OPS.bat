@@ -1,9 +1,9 @@
 @echo off
-REM Digital Labour Daily Operations Script
+REM Bit Rage Systems Daily Operations Script
 REM Run this daily to execute the full orchestration cycle
 
 echo ========================================
-echo  🚀 Digital Labour - DAILY OPERATIONS
+echo  🚀 Bit Rage Systems - DAILY OPERATIONS
 echo ========================================
 echo Date: %DATE% %TIME%
 echo Location: %~dp0

@@ -19,7 +19,7 @@ try:
         # Check for key dynamic elements (these should be in the HTML template)
         html_content = response.text
         dynamic_checks = [
-            ('DIGITAL LABOUR Comprehensive Monitoring', 'Title'),
+            ('Super Agency Comprehensive Monitoring', 'Title'),
             ('chart.js', 'Chart library'),
             ('core-components', 'Core components section'),
             ('qstack-components', 'Q-Stack section'),
@@ -131,7 +131,7 @@ try:
     print('')
     print('🌐 Access your dashboard at: http://localhost:8080')
     print('')
-    print('📈 The DIGITAL LABOUR monitoring infrastructure is now')
+    print('📈 The Super Agency monitoring infrastructure is now')
     print('    fully operational with comprehensive system oversight!')
 
 except Exception as e:

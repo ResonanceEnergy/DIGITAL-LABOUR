@@ -180,7 +180,7 @@ async def demo_project_selection():
     print("✅ Operations centers updated with new assignments")
     print("✅ Matrix Monitor integration data generated")
     print("✅ Selection report exported")
-    print("\n🚀 The DIGITAL LABOUR can now dynamically select projects")
+    print("\n🚀 The Super Agency can now dynamically select projects")
     print("   from Matrix Monitor data for optimal operations center assignment!")
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Company Repository Creator
+Super Agency Company Repository Creator
 Creates separate repositories for all companies in the NCC Doctrine portfolio
 """
 
@@ -44,11 +44,11 @@ def create_company_repositories():
         # Create README.md
         readme_content = f'''# {company_name}
 
-**Company Repository** - DIGITAL LABOUR Portfolio Company
+**Company Repository** - Super Agency Portfolio Company
 
 ## Overview
 
-{company_name} is a portfolio company within the DIGITAL LABOUR ecosystem.
+{company_name} is a portfolio company within the Super Agency ecosystem.
 
 ## Repository Information
 
@@ -57,7 +57,7 @@ def create_company_repositories():
 - **Autonomy Level**: {autonomy_level}
 - **Risk Tier**: {risk_tier}
 - **Created**: February 20, 2026
-- **Parent Organization**: DIGITAL LABOUR
+- **Parent Organization**: Super Agency
 
 ## Directory Structure
 
@@ -72,11 +72,11 @@ def create_company_repositories():
 
 ## Integration Status
 
-This repository is part of the DIGITAL LABOUR NCC-Doctrine integration framework.
+This repository is part of the Super Agency NCC-Doctrine integration framework.
 
 ## Contact
 
-For questions about this company repository, contact the DIGITAL LABOUR executive team.
+For questions about this company repository, contact the Super Agency executive team.
 '''
 
         with open(company_dir / 'README.md', 'w', encoding='utf-8') as f:
@@ -169,10 +169,10 @@ logs/
 
         # Create basic __init__.py if it's a Python project
         with open(company_dir / 'src' / '__init__.py', 'w', encoding='utf-8') as f:
-            f.write(f'''"""DIGITAL LABOUR Portfolio Company: {company_name}"""
+            f.write(f'''"""Super Agency Portfolio Company: {company_name}"""
 
 __version__ = "1.0.0"
-__author__ = "DIGITAL LABOUR"
+__author__ = "Super Agency"
 __description__ = "{company_name} portfolio company"
 ''')
 
@@ -191,7 +191,7 @@ __description__ = "{company_name} portfolio company"
 def create_companies_index(companies):
     """Create a master index of all company repositories"""
 
-    index_content = '''# DIGITAL LABOUR Companies Index
+    index_content = '''# Super Agency Companies Index
 
 **Master Index of All Portfolio Companies**
 
@@ -222,7 +222,7 @@ companies/
 
 ## Integration Status
 
-All company repositories are part of the DIGITAL LABOUR NCC-Doctrine integration framework and are ready for development.
+All company repositories are part of the Super Agency NCC-Doctrine integration framework and are ready for development.
 
 ## Next Steps
 
@@ -233,7 +233,7 @@ All company repositories are part of the DIGITAL LABOUR NCC-Doctrine integration
 
 ## Contact
 
-DIGITAL LABOUR Executive Team
+Super Agency Executive Team
 '''
 
     rows = []

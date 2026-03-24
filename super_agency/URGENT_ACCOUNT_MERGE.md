@@ -1,8 +1,8 @@
 # 🚨 URGENT: Microsoft Account Merge Required
-## DIGITAL LABOUR Account Consolidation
+## Bit Rage Systems Account Consolidation
 
 **Status:** ACTION REQUIRED - Multiple Microsoft accounts need consolidation
-**Impact:** Affects VS Code, cloud storage, Azure, and DIGITAL LABOUR operations
+**Impact:** Affects VS Code, cloud storage, Azure, and Bit Rage Systems operations
 **Deadline:** Complete within 7 days to avoid service disruptions
 
 ## 📋 **Your Accounts to Merge:**
@@ -10,12 +10,12 @@
 ### **Primary Recommendation:**
 🎯 **nate@gripandripp.onmicrosoft.com** (Keep as primary)
 - Business/organization account
-- Best for DIGITAL LABOUR operations
+- Best for Bit Rage Systems operations
 - Professional domain authority
 
 ### **Secondary Accounts to Merge:**
 1. **gripandripphdd@outlook.com** (Personal Outlook)
-2. **acceleratedarDIGITAL LABOUR@outlook.com** (Trading/Finance)
+2. **acceleratedarbitrage@outlook.com** (Trading/Finance)
 
 ## ⚡ **IMMEDIATE ACTION STEPS:**
 
@@ -25,7 +25,7 @@
 3. **Select:** "Account" → "Merging accounts"
 4. **Provide details:**
    - All three email addresses
-   - Explain: "Consolidating personal and business accounts for DIGITAL LABOUR operations"
+   - Explain: "Consolidating personal and business accounts for Bit Rage Systems operations"
    - Request merge into: `nate@gripandripp.onmicrosoft.com`
 
 ### **Step 2: Prepare Documentation**
@@ -52,7 +52,7 @@
 3. Go to "Your info" → "Manage how you sign in to Microsoft"
 4. Add aliases:
    - `gripandripphdd@outlook.com`
-   - `acceleratedarDIGITAL LABOUR@outlook.com`
+   - `acceleratedarbitrage@outlook.com`
 5. This allows access without full account merge
 
 ## 📞 **Microsoft Support Contacts:**
@@ -66,7 +66,7 @@
 - **Web:** https://support.microsoft.com/en-us/business
 - **Admin Portal:** admin.microsoft.com → Support
 
-## ⚠️ **Why This Matters for DIGITAL LABOUR:**
+## ⚠️ **Why This Matters for Bit Rage Systems:**
 
 ### **Current Issues:**
 - VS Code extensions split across accounts
@@ -76,7 +76,7 @@
 - Council 52 intelligence scattered
 
 ### **Post-Merge Benefits:**
-- Unified DIGITAL LABOUR workspace
+- Unified Bit Rage Systems workspace
 - Consolidated cloud storage
 - Single Azure subscription management
 - Streamlined VS Code environment
@@ -97,12 +97,12 @@
 **Day 4-7:**
 - Complete merge process
 - Update all service associations
-- Test DIGITAL LABOUR systems
+- Test Bit Rage Systems systems
 
 ## 💡 **Pro Tips:**
 
 1. **Start with support ticket** (better tracking than phone)
-2. **Be specific** about DIGITAL LABOUR use case
+2. **Be specific** about Bit Rage Systems use case
 3. **Keep all accounts active** until merge confirmed
 4. **Test access** to all services after changes
 5. **Update recovery options** on primary account
@@ -115,7 +115,7 @@
 
 ---
 
-**Remember:** Account merges can take 24-72 hours. Be patient but persistent with Microsoft support for your DIGITAL LABOUR consolidation needs.
+**Remember:** Account merges can take 24-72 hours. Be patient but persistent with Microsoft support for your Bit Rage Systems consolidation needs.
 
 **Need immediate help?** Reply with "MERGE NOW" and I'll provide the exact support ticket template to use.</content>
-<parameter name="filePath">C:\Dev\DIGITAL-LABOUR\URGENT_ACCOUNT_MERGE.md
+<parameter name="filePath">C:\Dev\SuperAgency-Shared\URGENT_ACCOUNT_MERGE.md

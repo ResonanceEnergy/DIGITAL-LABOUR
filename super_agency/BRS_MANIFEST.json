@@ -1,0 +1,163 @@
+{
+  "manifest": "Bit Rage Systems Integration Manifest",
+  "version": "2.0.0",
+  "created": "2026-03-15",
+  "rebrand_from": "Super Agency",
+  "rebrand_to": "Bit Rage Systems",
+  "concept": "Digital Labour Autonomous AI Orchestration Platform",
+  "status": "COMPLETE",
+
+  "rebrand_summary": {
+    "python_files_rebranded": 85,
+    "markdown_files_rebranded": 117,
+    "config_files_rebranded": 12,
+    "cicd_files_rebranded": 1,
+    "docker_files_rebranded": 2,
+    "total_files_touched": 217,
+    "excluded_directories": [
+      ".venv/",
+      "archive/",
+      "repo_backups/",
+      "repo_depot/",
+      "repos/"
+    ],
+    "exclusion_reason": "Zero data loss — historical records and cloned repos preserved as-is"
+  },
+
+  "string_replacements": {
+    "display_name": {
+      "old": "Super Agency",
+      "new": "Bit Rage Systems"
+    },
+    "slug": {
+      "old": "super-agency",
+      "new": "bit-rage-systems"
+    },
+    "cicd_artifacts": {
+      "old": "super-agency-{platform}",
+      "new": "bit-rage-systems-{platform}"
+    },
+    "docker_service": {
+      "old": "super-agency",
+      "new": "bit-rage-systems"
+    },
+    "email_domain": {
+      "old": "superagency.ai",
+      "new": "bitragesystems"
+    }
+  },
+
+  "functional_identifiers_preserved": {
+    "reason": "Zero degradation — these reference real files/env vars",
+    "env_vars": [
+      "SUPER_AGENCY_API_KEY",
+      "SUPER_AGENCY_ROOT",
+      "SUPER_AGENCY_REPO"
+    ],
+    "filenames": [
+      "run_super_agency.py",
+      "logs/super_agency.log",
+      ".super_agency_progress",
+      "SUPER_AGENCY_DOCTRINE_MEMORY.md",
+      "SUPER_AGENCY_LAUNCH_GUIDE.md",
+      "SUPER_AGENCY_MEMORY_DOCTRINE.md",
+      "SUPER_AGENCY_OPERATIONAL_ARCHITECTURE.md",
+      "unified_super_agency_orchestrator.py"
+    ],
+    "python_identifiers": [
+      "super_agency (package coverage path in CI)",
+      "_report_to_super_agency (inner_council method)",
+      "super_agency_dir (test path variable)"
+    ],
+    "migration_phase": "Phase 2 — file renames with import aliasing"
+  },
+
+  "new_agents_added": {
+    "context_manager_agent": {
+      "file": "agents/context_manager_agent.py",
+      "tier": "T2 Management",
+      "cycle": "15 minutes",
+      "reports_to": "CTO"
+    },
+    "qa_manager": {
+      "file": "agents/qa_manager.py",
+      "tier": "T2 Management",
+      "cycle": "30 minutes",
+      "reports_to": "CTO"
+    },
+    "production_manager": {
+      "file": "agents/production_manager.py",
+      "tier": "T2 Management",
+      "cycle": "15 minutes",
+      "reports_to": "CTO"
+    },
+    "automation_manager": {
+      "file": "agents/automation_manager.py",
+      "tier": "T2 Management",
+      "cycle": "30 minutes",
+      "reports_to": "CIO"
+    }
+  },
+
+  "integration_surfaces": {
+    "bus_subscribers": "4 new handlers + 4 topic subscriptions",
+    "hierarchy": "4 new T2 DEFAULT_ASSIGNMENTS",
+    "skill_registry": "4 new agent entries with capabilities",
+    "agent_mandates": "4 new mandates (v2.0.0)",
+    "boot_script": "4 new daemon loops in run_super_agency.py"
+  },
+
+  "core_files_modified": [
+    "pyproject.toml",
+    "README.md",
+    "start.py",
+    "run_super_agency.py",
+    "organization_structure.json",
+    "agent_mandates.json",
+    "config/skill_registry.json",
+    "config/research_projects.json",
+    "Dockerfile",
+    "docker-compose.yml",
+    ".vscode/extensions.json",
+    ".github/workflows/distributed-ci-cd.yml",
+    "inner_council/config/settings.json",
+    "static/manifest.json",
+    "static/manifest_iphone.json",
+    "static/manifest_ipad.json",
+    "memory_hot_reload_vscode/package.json",
+    "agents/bus_subscribers.py",
+    "agents/hierarchy.py"
+  ],
+
+  "phase_2_roadmap": {
+    "description": "File rename migration (post-stabilization)",
+    "tasks": [
+      "Rename run_super_agency.py → run_brs.py + create import alias",
+      "Rename SUPER_AGENCY_*.md doctrine files → BRS_*.md",
+      "Migrate env vars: SUPER_AGENCY_API_KEY → BRS_API_KEY (with fallback)",
+      "Rename super_agency.log → brs.log in logging config",
+      "Update repos/Super-Agency cloned repo references",
+      "Rename .super_agency_progress → .brs_progress"
+    ]
+  },
+
+  "digital_labour_integration": {
+    "status": "MERGED",
+    "concept": "All agent operations now branded as Digital Labour under BRS",
+    "subsystems_integrated": [
+      "NCC (Neural Command Center)",
+      "NCL (Neural Curation Layer)",
+      "AAC (Autonomous Accounting Core)",
+      "Digital Labour (workforce management)",
+      "QUSAR (Quantum-Unified Strategic Agent Router)",
+      "QForge (Quantum Forge Optimizer)"
+    ]
+  },
+
+  "orphan_status": {
+    "old_identity": "Super Agency",
+    "status": "ORPHANED",
+    "remaining_references": "Only in archive/ and repos/ (preserved for historical record)",
+    "new_identity": "Bit Rage Systems — Digital Labour Platform"
+  }
+}

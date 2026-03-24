@@ -74,7 +74,7 @@ jobs:
 
             // Existing categories (from doctrine). Fallback to 'Uncategorized'.
             const categories = {
-              "Core / Command / Brain": ["Digital-Labour","AAC","NCC-Doctrine","NCL","ResonanceEnergy_Enterprise"],
+              "Core / Command / Brain": ["Super-Agency","AAC","NCC-Doctrine","NCL","ResonanceEnergy_Enterprise"],
               "Capital & Research Programs": ["TESLACALLS2026","future-predictor-council"],
               "Media / Capture / Distribution": ["YOUTUBEDROP"],
               "Products / Experiences / IP Worlds": ["ADVENTUREHEROAUTO","Crimson-Compass"]

@@ -1,30 +1,37 @@
-# DIGITAL LABOUR LABOUR
+# BIT RAGE SYSTEMS
 ## AI Labor Operations — Autonomous Agents That Earn
 
 This is not a chatbot. This is not a SaaS product.  
 This is **digital labor** — autonomous agents that complete real tasks for real companies and get paid.
 
+**BIT RAGE SYSTEMS** unifies BIT RAGE SYSTEMS (execution) + Super Agency (orchestration) under one command.
+
 ## Structure
 
 ```
+bitrage.py           — Master launcher & control panel (THE ONE COMMAND)
 00_COMMAND/          — NCC doctrine, war plan, governance
-agents/              — Individual agent modules
-  sales_ops/         — Lead enrichment + cold outreach
-  support/           — Ticket triage + resolution
-  ops_brief/         — Daily executive briefings
-  doc_extract/       — Document → structured data
-  qa/                — Verifier / QA agent (shared)
-api/                 — Intake webhook (FastAPI)
-billing/             — Invoice + payment tracking
+agents/              — 25 individual agent modules (sales, support, content, etc.)
+super_agency/        — Super Agency (orchestration, C-Suite, departments, tools)
+  agents/            — 40+ SA agents (CEO, CFO, CIO, CMO, CTO, specialists)
+  departments/       — Organizational structure (executive, intel, ops, finance, tech)
+  tools/             — Utility functions and engines
+  NCC/               — Neural Command Center (governance layer)
+  NCL/               — Neural Cognitive Layer (second brain)
+api/                 — Intake webhook (FastAPI) + Matrix Monitor C2
+automation/          — NERVE daemon, outreach, orchestrator, job aggregators
+billing/             — Stripe integration, invoicing, payment tracking
+c_suite/             — Executive agents (AXIOM CEO, LEDGR CFO, VECTIS COO)
+campaign/            — Go-to-market, freelance deployment, social content
 config/              — LLM config, banned phrases, env
 delivery/            — Output delivery (email, file export)
-demos/               — Demo output packs (sales proof)
 dispatcher/          — Task routing + queue + budget enforcement
+income/              — Revenue tracking, freelance listings, proposals
 kpi/                 — Metrics logging + weekly reports
-listings/            — Marketplace listing copy + DM templates
-offers/              — Retainer offers + onboarding docs
-schemas/             — JSON schemas for all agent I/O
-utils/               — Shared utilities (export, validation)
+openclaw/            — OpenClaw dispatch engine
+resonance/           — NCC/NCL/AAC cross-pillar sync bridges
+scheduler/           — Retainer task runner
+utils/               — Shared utilities (alerts, export, validation)
 ```
 
 ## Quick Start

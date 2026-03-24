@@ -121,7 +121,7 @@ def test_backlog_basic():
 
 def main():
     """Run setup validation"""
-    print("🚀 DIGITAL LABOUR Memory Doctrine Setup Validation")
+    print("🚀 Super Agency Memory Doctrine Setup Validation")
     print("=" * 60)
 
     tests = [
@@ -156,7 +156,7 @@ def main():
 
     if passed == total:
         print("\n🎉 ALL SYSTEMS VALIDATED AND READY!")
-        print("🚀 Your DIGITAL LABOUR Memory Doctrine system is operational!")
+        print("🚀 Your Super Agency Memory Doctrine system is operational!")
         print("\nNext steps:")
         print("1. Run: python memory_doctrine_service.py (for continuous operation)")
         print("2. Your AI will now have persistent memory across sessions")

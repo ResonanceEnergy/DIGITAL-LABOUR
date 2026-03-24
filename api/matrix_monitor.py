@@ -1,4 +1,4 @@
-"""DIGITAL LABOUR MATRIX MONITOR — Command & Control API.
+﻿"""BIT RAGE SYSTEMS MATRIX MONITOR — Command & Control API.
 
 Mobile-first C2 endpoints for real-time monitoring and decision-making.
 Mounted as /matrix on the main FastAPI app.
@@ -258,7 +258,7 @@ def set_alert_config(config: AlertConfig, _auth=Depends(verify_matrix_auth)):
 @router.post("/alerts/test")
 def test_alert(_auth=Depends(verify_matrix_auth)):
     """Send a test alert to verify Telegram notifications work. Requires authentication."""
-    result = _send_telegram_alert("🧪 DIGITAL LABOUR MATRIX TEST — Notifications are working!")
+    result = _send_telegram_alert("🧪 BIT RAGE SYSTEMS MATRIX TEST — Notifications are working!")
     return result
 
 
@@ -1057,5 +1057,5 @@ def _fiverr_deploy_top4(cmd: C2Command) -> dict:
 def send_alert(message: str, severity: str = "INFO"):
     """Public function — other modules can import this to send alerts."""
     prefix = {"CRITICAL": "🔴", "HIGH": "🟠", "MEDIUM": "🟡", "INFO": "🔵"}.get(severity, "⚪")
-    full_msg = f"{prefix} <b>DIGITAL LABOUR MATRIX</b>\n\n{message}\n\n<i>{datetime.now(timezone.utc).strftime('%H:%M UTC')}</i>"
+    full_msg = f"{prefix} <b>BIT RAGE SYSTEMS MATRIX</b>\n\n{message}\n\n<i>{datetime.now(timezone.utc).strftime('%H:%M UTC')}</i>"
     return _send_telegram_alert(full_msg)

@@ -1,5 +1,5 @@
 # GitHub Authentication Setup Guide
-## DIGITAL LABOUR ResonanceEnergy Organization Access
+## Bit Rage Systems ResonanceEnergy Organization Access
 
 **Date:** February 20, 2026
 **Status:** Ready for Token Configuration
@@ -32,7 +32,7 @@ The GitHub integration system is configured and ready. You just need to add your
 
 1. **Go to:** https://github.com/settings/tokens
 2. **Click:** "Generate new token (classic)"
-3. **Name:** "DIGITAL LABOUR Integration"
+3. **Name:** "Bit Rage Systems Integration"
 4. **Expiration:** Select appropriate timeframe (recommend 90 days)
 5. **Select scopes:**
    - ✅ `repo` - Full control of private repositories
@@ -46,7 +46,7 @@ The GitHub integration system is configured and ready. You just need to add your
 
 6. **Generate token** and **copy it immediately** (you won't see it again!)
 
-### Step 2: Configure Token in DIGITAL LABOUR
+### Step 2: Configure Token in Bit Rage Systems
 
 **Option A: Update .env file (Recommended)**
 ```bash
@@ -75,7 +75,7 @@ python3 setup_auth.py
 
 **Expected Output:**
 ```
-🔐 DIGITAL LABOUR GitHub Authentication Setup
+🔐 Bit Rage Systems GitHub Authentication Setup
 ==================================================
 ✅ Loaded environment from .env file
 ✅ GITHUB_TOKEN found: ghp_1234****************************abcd
@@ -155,7 +155,7 @@ If issues persist:
 1. Run `python3 setup_auth.py` for detailed diagnostics
 2. Check `AUTH_SETUP_SUMMARY.md` for status
 3. Review GitHub token settings and scopes
-4. Contact DIGITAL LABOUR Council for access issues
+4. Contact Bit Rage Systems Council for access issues
 
 ---
 
@@ -167,7 +167,7 @@ Once authentication is working, the system will:
 2. **Apply Security** - Set up CodeQL, Dependabot, branch protection
 3. **Deploy CI/CD** - Install workflow templates and automation
 4. **Monitor Health** - Track repository status and compliance
-5. **Enable Governance** - Automate DIGITAL LABOUR operational standards
+5. **Enable Governance** - Automate Bit Rage Systems operational standards
 
 ---
 
@@ -175,8 +175,8 @@ Once authentication is working, the system will:
 
 **Setup Issues:** Run `python3 setup_auth.py` for diagnostics
 **Integration Help:** Check `GITHUB_INTEGRATION_GUIDE.md`
-**Security Concerns:** Contact DIGITAL LABOUR Council immediately
+**Security Concerns:** Contact Bit Rage Systems Council immediately
 
 ---
 
-*DIGITAL LABOUR GitHub Authentication Setup Guide v1.0*
+*Bit Rage Systems GitHub Authentication Setup Guide v1.0*

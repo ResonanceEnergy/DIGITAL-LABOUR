@@ -1,4 +1,4 @@
-"""Upwork Work Agent — Search, Match, Bid, Deliver Pipeline.
+﻿"""Upwork Work Agent — Search, Match, Bid, Deliver Pipeline.
 
 End-to-end automation for Upwork:
   1. Search/poll for jobs matching our agent capabilities
@@ -96,7 +96,7 @@ Budget: ${job.get('budget_min', 0)}-${job.get('budget_max', 0)}
 """
 
     response = llm_call(
-        system="You are a proposal writer for DIGITAL LABOUR, an AI-powered business services agency.",
+        system="You are a proposal writer for BIT RAGE SYSTEMS, an AI-powered business services agency.",
         user=user_prompt,
         provider=provider,
     )

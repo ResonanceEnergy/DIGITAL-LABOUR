@@ -1,7 +1,7 @@
-# SUPER AGENCY → DIGITAL LABOUR — Full Integration Roadmap
+﻿# SUPER AGENCY → BIT RAGE SYSTEMS — Full Integration Roadmap
 
 **Date:** 2026-03-15
-**Objective:** Complete and absolute merger of DIGITAL-LABOUR into DIGITAL LABOUR.
+**Objective:** Complete and absolute merger of DIGITAL-LABOUR into BIT RAGE SYSTEMS.
 **Policy:** Zero data loss. Zero degradation. Full integration. Orphan source repo.
 
 ---
@@ -11,12 +11,12 @@
 | Metric | Value |
 |--------|-------|
 | DIGITAL-LABOUR total files | 12,183 |
-| DIGITAL LABOUR Core files (excl repos/venv/git) | 1,678 |
+| BIT RAGE SYSTEMS Core files (excl repos/venv/git) | 1,678 |
 | DL super_agency/ current files | 826 |
 | Missing from DL | ~853 files |
-| "DIGITAL LABOUR" refs in SA | ~1,018 |
-| "DIGITAL LABOUR/DIGITAL LABOUR" refs in DL root | ~200+ |
-| Rename target | DIGITAL LABOUR → DIGITAL LABOUR |
+| "BIT RAGE SYSTEMS" refs in SA | ~1,018 |
+| "BIT RAGE SYSTEMS/BIT RAGE SYSTEMS" refs in DL root | ~200+ |
+| Rename target | BIT RAGE SYSTEMS → BIT RAGE SYSTEMS |
 
 ---
 
@@ -61,26 +61,26 @@
 
 ---
 
-## PHASE 2: RENAME — DIGITAL LABOUR → DIGITAL LABOUR
-**Goal:** All display names, codenames, docstrings reference "DIGITAL LABOUR"
+## PHASE 2: RENAME — BIT RAGE SYSTEMS → BIT RAGE SYSTEMS
+**Goal:** All display names, codenames, docstrings reference "BIT RAGE SYSTEMS"
 
 ### In super_agency/:
-- `__init__.py`: `__codename__` → "DIGITAL LABOUR"
+- `__init__.py`: `__codename__` → "BIT RAGE SYSTEMS"
 - All Python docstrings & comments
 - All Markdown docs
 - All JSON/YAML config files
 - dl_manifest.json → DL_MANIFEST.json
 
 ### In DL root files:
-- `matrix_boot.py`: "DIGITAL LABOUR MATRIX" → "DIGITAL LABOUR MATRIX"
-- `api/matrix_monitor.py`: "DIGITAL LABOUR MATRIX" → "DIGITAL LABOUR MATRIX"
-- `api/matrix_dashboard.html`: "DIGITAL LABOUR MATRIX" → "DIGITAL LABOUR MATRIX"
+- `matrix_boot.py`: "BIT RAGE SYSTEMS MATRIX" → "BIT RAGE SYSTEMS MATRIX"
+- `api/matrix_monitor.py`: "BIT RAGE SYSTEMS MATRIX" → "BIT RAGE SYSTEMS MATRIX"
+- `api/matrix_dashboard.html`: "BIT RAGE SYSTEMS MATRIX" → "BIT RAGE SYSTEMS MATRIX"
 
 ### PRESERVE (do NOT rename):
-- `site/` — "DIGITAL LABOUR" is the customer-facing BRAND name
-- `campaign/` — marketing copy references DIGITAL LABOUR brand
+- `site/` — "BIT RAGE SYSTEMS" is the customer-facing BRAND name
+- `campaign/` — marketing copy references BIT RAGE SYSTEMS brand
 - `income/freelance_listings.py` — platform profile content
-- `automation/` — outreach templates (DIGITAL LABOUR brand)
+- `automation/` — outreach templates (BIT RAGE SYSTEMS brand)
 - Domain URLs: bit-rage-labour.com (real domain)
 - Email addresses: sales@bit-rage-labour.com (real email)
 - Railway URL: bit-rage-labour-api-production (real deployment)
@@ -90,7 +90,7 @@
 ---
 
 ## PHASE 3: UPDATE IMPORTS & PATHS
-**Goal:** All hardcoded DIGITAL LABOUR paths point to DL's super_agency/
+**Goal:** All hardcoded BIT RAGE SYSTEMS paths point to DL's super_agency/
 
 - `~/repos/Digital-Labour` → relative paths within DL
 - `DL_ROOT` env var → documented as deprecated (backward compat)
@@ -126,7 +126,7 @@
 
 ## PHASE 7: ORPHAN SUPER AGENCY REPO
 - Add ARCHIVED.md to DIGITAL-LABOUR root
-- Update README.md: "ARCHIVED — Merged into DIGITAL LABOUR"
+- Update README.md: "ARCHIVED — Merged into BIT RAGE SYSTEMS"
 - Final commit + push to DIGITAL-LABOUR
 - Remove from active development
 

@@ -1,4 +1,4 @@
-# 🚀 DIGITAL LABOUR Remote Architecture Setup
+# 🚀 Bit Rage Systems Remote Architecture Setup
 # Windows (Home Base) + macOS (Mobile Hub)
 # February 21, 2026
 
@@ -27,7 +27,7 @@ Enable-PSRemoting -Force
 Set-NetFirewallRule -Name "WINRM-HTTP-In-TCP" -RemoteAddress Any
 
 # Allow inbound connections on ports 5985 (WinRM) and 8081 (AAC)
-New-NetFirewallRule -DisplayName "DIGITAL LABOUR Remote" -Direction Inbound -Protocol TCP -LocalPort 5985,8081 -Action Allow
+New-NetFirewallRule -DisplayName "Bit Rage Systems Remote" -Direction Inbound -Protocol TCP -LocalPort 5985,8081 -Action Allow
 ```
 
 #### 1.2 Get Windows Public IP
@@ -39,7 +39,7 @@ curl -s https://api.ipify.org
 
 #### 1.3 Start Windows Processing Node
 ```powershell
-# On Windows (in DIGITAL LABOUR directory)
+# On Windows (in Bit Rage Systems directory)
 .\windows_processing_launcher.ps1 -StartServices -PublicIP your-public-ip
 ```
 
@@ -73,7 +73,7 @@ iPad/iPhone → macOS Mobile Hub → Internet → Windows Processing Node
    (Local)        (Local Port)     (Internet)      (Remote Port)
 ```
 
-### SASP Protocol (DIGITAL LABOUR Share Protocol)
+### SASP Protocol (Bit Rage Systems Share Protocol)
 - **Encryption**: TLS 1.3 with shared secrets
 - **Heartbeat**: 30-second status checks
 - **Failover**: Automatic fallback to local services

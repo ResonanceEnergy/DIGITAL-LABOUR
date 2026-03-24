@@ -10,7 +10,7 @@ intelligence cycle on configurable intervals:
   - DEEP cycle (every 24 hours): full intel report, trend analysis
   - WEEKLY cycle: cross-pollination deep-dive, watchlist refresh
 
-The scheduler runs as a daemon thread inside run_bit_rage_labour.py
+The scheduler runs as a daemon thread inside run_super_agency.py
 or standalone for testing.
 
 Usage::
@@ -317,7 +317,7 @@ def start_daemon_thread(
 ) -> threading.Thread:
     """Start daemon loop in a background thread.
 
-    Called by run_bit_rage_labour.py to integrate the scheduler
+    Called by run_super_agency.py to integrate the scheduler
     into the main runtime.
     """
     t = threading.Thread(

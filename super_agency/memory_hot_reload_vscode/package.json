@@ -1,9 +1,9 @@
 {
-  "name": "dl-memory-hot-reload",
-  "displayName": "DIGITAL LABOUR Memory Hot Reload",
-  "description": "Hot code reloading for DIGITAL LABOUR memory systems with real-time blank prevention",
+  "name": "brs-memory-hot-reload",
+  "displayName": "BRS Memory Hot Reload",
+  "description": "Hot code reloading for Bit Rage Systems memory systems with real-time blank prevention",
   "version": "2.0.0",
-  "publisher": "bit-rage-labour",
+  "publisher": "bit-rage-systems",
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -11,57 +11,57 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:digitalLabourMemory.startHotReload",
+    "onCommand:superAgencyMemory.startHotReload",
     "workspaceContains:unified_memory_doctrine_system.py"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "digitalLabourMemory.startHotReload",
+        "command": "superAgencyMemory.startHotReload",
         "title": "Start Memory Hot Reload",
-        "category": "DIGITAL LABOUR"
+        "category": "BRS"
       },
       {
-        "command": "digitalLabourMemory.stopHotReload",
+        "command": "superAgencyMemory.stopHotReload",
         "title": "Stop Memory Hot Reload",
-        "category": "DIGITAL LABOUR"
+        "category": "BRS"
       },
       {
-        "command": "digitalLabourMemory.showMemoryStatus",
+        "command": "superAgencyMemory.showMemoryStatus",
         "title": "Show Memory Status",
-        "category": "DIGITAL LABOUR"
+        "category": "BRS"
       },
       {
-        "command": "digitalLabourMemory.forceReload",
+        "command": "superAgencyMemory.forceReload",
         "title": "Force Memory Reload",
-        "category": "DIGITAL LABOUR"
+        "category": "BRS"
       }
     ],
     "keybindings": [
       {
-        "command": "digitalLabourMemory.forceReload",
+        "command": "superAgencyMemory.forceReload",
         "key": "ctrl+shift+m",
         "mac": "cmd+shift+m",
         "when": "workspaceContains:unified_memory_doctrine_system.py"
       }
     ],
     "configuration": {
-      "title": "DIGITAL LABOUR Memory Hot Reload",
+      "title": "BRS Memory Hot Reload",
       "properties": {
-        "digitalLabourMemory.autoStart": {
+        "superAgencyMemory.autoStart": {
           "type": "boolean",
           "default": true,
           "description": "Automatically start memory hot reload when workspace opens"
         },
-        "digitalLabourMemory.reloadInterval": {
+        "superAgencyMemory.reloadInterval": {
           "type": "number",
           "default": 2000,
           "minimum": 500,
           "maximum": 10000,
           "description": "Interval in milliseconds to check for code changes"
         },
-        "digitalLabourMemory.showNotifications": {
+        "superAgencyMemory.showNotifications": {
           "type": "boolean",
           "default": true,
           "description": "Show notifications for memory reload events"
@@ -72,8 +72,8 @@
       {
         "id": "memory-status",
         "text": "$(database) Memory: $(check)",
-        "tooltip": "DIGITAL LABOUR Memory System Status",
-        "command": "digitalLabourMemory.showMemoryStatus",
+        "tooltip": "BRS Memory System Status",
+        "command": "superAgencyMemory.showMemoryStatus",
         "alignment": "right",
         "priority": 100
       }

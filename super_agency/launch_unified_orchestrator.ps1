@@ -1,4 +1,4 @@
-# Unified Digital Labour Orchestrator Launcher
+# Unified Bit Rage Systems Orchestrator Launcher
 # Bypasses QUSAR interception and launches the integrated monitoring system
 
 param(
@@ -11,7 +11,7 @@ param(
 )
 
 $ScriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path
-$OrchestratorScript = Join-Path $ScriptPath "unified_digital_labour_orchestrator.py"
+$OrchestratorScript = Join-Path $ScriptPath "unified_super_agency_orchestrator.py"
 $ConfigPath = Join-Path $ScriptPath $ConfigFile
 $LogFile = Join-Path $ScriptPath "logs\unified_orchestrator_$(Get-Date -Format 'yyyyMMdd_HHmmss').log"
 $PidFile = Join-Path $ScriptPath "unified_orchestrator.pid"
@@ -84,7 +84,7 @@ function Get-RunningProcess {
 }
 
 function Start-Orchestrator {
-    Write-Log "Starting Unified Digital Labour Orchestrator..."
+    Write-Log "Starting Unified Bit Rage Systems Orchestrator..."
 
     # Check prerequisites
     if (!(Test-PythonEnvironment)) {
@@ -150,7 +150,7 @@ function Start-Orchestrator {
 }
 
 function Stop-Orchestrator {
-    Write-Log "Stopping Unified Digital Labour Orchestrator..."
+    Write-Log "Stopping Unified Bit Rage Systems Orchestrator..."
 
     $process = Get-RunningProcess
     if ($process) {
@@ -187,7 +187,7 @@ function Stop-Orchestrator {
 }
 
 function Get-OrchestratorStatus {
-    Write-Log "Checking Unified Digital Labour Orchestrator status..."
+    Write-Log "Checking Unified Bit Rage Systems Orchestrator status..."
 
     $process = Get-RunningProcess
     $webStatus = "Unknown"
@@ -230,7 +230,7 @@ function Get-OrchestratorStatus {
 }
 
 function Restart-Orchestrator {
-    Write-Log "Restarting Unified Digital Labour Orchestrator..."
+    Write-Log "Restarting Unified Bit Rage Systems Orchestrator..."
     Stop-Orchestrator
     Start-Sleep -Seconds 2
     Start-Orchestrator
@@ -251,7 +251,7 @@ switch {
         Restart-Orchestrator
     }
     default {
-        Write-Host "Unified Digital Labour Orchestrator Launcher"
+        Write-Host "Unified Bit Rage Systems Orchestrator Launcher"
         Write-Host "Usage:"
         Write-Host "  .\launch_unified_orchestrator.ps1 -Start    # Start the orchestrator"
         Write-Host "  .\launch_unified_orchestrator.ps1 -Stop     # Stop the orchestrator"

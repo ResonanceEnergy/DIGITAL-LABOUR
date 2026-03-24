@@ -4,7 +4,7 @@ description: Self-healing infrastructure — detect, diagnose, fix issues autono
 metadata: {"openclaw":{"emoji":"🔧","os":["darwin"],"requires":{"bins":["python3"]}}}
 ---
 
-Self-healing infrastructure agent for the DIGITAL LABOUR platform.
+Self-healing infrastructure agent for the Bit Rage Systems platform.
 
 ## Automated Checks
 
@@ -42,12 +42,12 @@ print(json.dumps(checks, indent=2))
 
 ### 3. Git Repo Health
 ```bash
-cd ~/repos/Digital-Labour && git status --porcelain | head -20
+cd ~/repos/Super-Agency && git status --porcelain | head -20
 ```
 
 ### 4. LaunchAgent Status
 ```bash
-launchctl list | grep DIGITAL LABOUR
+launchctl list | grep superagency
 ```
 
 ### 5. Network — QFORGE Connectivity
@@ -57,8 +57,8 @@ nc -z -w 3 192.168.1.200 8888 && echo "QFORGE: UP" || echo "QFORGE: DOWN"
 
 ## Auto-Remediation
 - **Gateway down**: restart with `openclaw gateway restart`
-- **Disk > 90%**: clean old logs (`find ~/repos/Digital-Labour -name '*.log' -mtime +30 -delete`)
+- **Disk > 90%**: clean old logs (`find ~/repos/Super-Agency -name '*.log' -mtime +30 -delete`)
 - **Runaway process**: report PID and CPU%, offer to `kill -15 <PID>` (with confirmation)
-- **Unloaded launchd plist**: `launchctl load ~/Library/LaunchAgents/com.digitallabour.*.plist`
+- **Unloaded launchd plist**: `launchctl load ~/Library/LaunchAgents/com.superagency.*.plist`
 
 If any check fails, attempt auto-fix and report results to memory.

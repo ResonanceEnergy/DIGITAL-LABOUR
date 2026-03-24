@@ -1273,7 +1273,7 @@ class RepoManager:
                     "-m",
                     message,
                     "--author",
-                    f"{author} <{author.lower()}@bit-rage-labour.com>",
+                    f"{author} <{author.lower()}@superagency.ai>",
                 ],
                 cwd=repo_path,
                 check=True,
@@ -1406,7 +1406,7 @@ def test_executor():
     print("=" * 60)
 
     workspace = Path(
-        "$HOME/repos/DIGITAL-LABOUR"
+        "$HOME/repos/SuperAgency-Shared"
     )
 
     # Check AI availability
@@ -1419,7 +1419,7 @@ def test_executor():
     executor = TaskExecutor(workspace)
     executor.repo_manager = LocalRepoManager(workspace / "repos")
 
-    test_repo = "Digital-Labour"
+    test_repo = "Super-Agency"
     results = []
 
     # Test 1: Architecture Review

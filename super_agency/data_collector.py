@@ -21,8 +21,8 @@ import psutil
 logger = logging.getLogger(__name__)
 
 # Workspace root — auto-detect from this file's location
-_THIS_DIR = Path(__file__).resolve().parent  # repos/Digital-Labour/
-WORKSPACE = _THIS_DIR.parent.parent  # DIGITAL-LABOUR/
+_THIS_DIR = Path(__file__).resolve().parent  # repos/Super-Agency/
+WORKSPACE = _THIS_DIR.parent.parent  # SuperAgency-Shared/
 
 
 def _read_json(path: Path) -> Optional[dict]:
@@ -565,10 +565,10 @@ def collect_git() -> Dict[str, Any]:
 
 
 # ─────────────────────────────────────────────────────────────
-# 13. PROCESS COLLECTOR — running DIGITAL LABOUR processes
+# 13. PROCESS COLLECTOR — running Bit Rage Systems processes
 # ─────────────────────────────────────────────────────────────
 def collect_processes() -> Dict[str, Any]:
-    """Check which DIGITAL LABOUR processes are currently running."""
+    """Check which Bit Rage Systems processes are currently running."""
     result = {"services": [], "python_processes": 0}
 
     known_services = {

@@ -1,5 +1,5 @@
-"""DIGITAL LABOUR Portfolio Company: ADVENTUREHEROAUTO"""
+"""Bit Rage Systems Portfolio Company: ADVENTUREHEROAUTO"""
 
 __version__ = "1.0.0"
-__author__ = "DIGITAL LABOUR"
+__author__ = "Bit Rage Systems"
 __description__ = "ADVENTUREHEROAUTO portfolio company"

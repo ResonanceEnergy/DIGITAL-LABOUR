@@ -2,7 +2,7 @@
 """
 Bus Subscribers — wires handlers to message bus topics.
 
-Called once at boot from run_bit_rage_labour.py to connect the pub/sub plumbing.
+Called once at boot from run_super_agency.py to connect the pub/sub plumbing.
 """
 
 import json
@@ -479,40 +479,40 @@ def register_all():
 
     # ── DIGITAL LABOUR events (primary mission) ──
     bus.subscribe(
-        "bit_rage_labour.task.completed",
+        "digital_labour.task.completed",
         _on_dl_task_completed,
     )
     bus.subscribe(
-        "bit_rage_labour.task.failed",
+        "digital_labour.task.failed",
         _on_dl_task_failed,
     )
     bus.subscribe(
-        "bit_rage_labour.revenue.*",
+        "digital_labour.revenue.*",
         _on_dl_revenue,
     )
     bus.subscribe(
-        "bit_rage_labour.fleet.status",
+        "digital_labour.fleet.status",
         _on_dl_fleet_status,
     )
     bus.subscribe(
-        "bit_rage_labour.nerve.*",
+        "digital_labour.nerve.*",
         _on_dl_nerve_cycle,
     )
     bus.subscribe(
-        "bit_rage_labour.csuite.report",
+        "digital_labour.csuite.report",
         _on_dl_csuite_report,
     )
     bus.subscribe(
-        "bit_rage_labour.qa.alert",
+        "digital_labour.qa.alert",
         _on_dl_qa_alert,
     )
     bus.subscribe(
-        "bit_rage_labour.client.*",
+        "digital_labour.client.*",
         _on_dl_client_event,
     )
     # Legacy catch-all for any DL sync events
     bus.subscribe(
-        "bit_rage_labour.sync.*",
+        "digital_labour.sync.*",
         _on_integration_sync,
     )
     bus.subscribe(

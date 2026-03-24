@@ -46,7 +46,7 @@ def send_message_to_gasket(message: str) -> dict:
     message_file = workspace_dir / "gasket_instructions.json"
 
     instruction = {
-        "from": "DIGITAL LABOUR",
+        "from": "SuperAgency",
         "to": "AGENT GASKET",
         "timestamp": datetime.now().isoformat(),
         "message": message,

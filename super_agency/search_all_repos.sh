@@ -1,5 +1,5 @@
 #!/bin/bash
-# DIGITAL LABOUR Repository Search Tool
+# Bit Rage Systems Repository Search Tool
 # Searches across all repositories in the ResonanceEnergy portfolio
 
 set -e
@@ -39,14 +39,14 @@ REPOS=(
     "demo"
     "Resonance-Energy-Systems"
     "ResonanceEnergy_Enterprise"
-    "Digital-Labour"
+    "Super-Agency"
 )
 
 ORG="ResonanceEnergy"
 
 # Function to display usage
 usage() {
-    echo -e "${BLUE}DIGITAL LABOUR Repository Search Tool${NC}"
+    echo -e "${BLUE}Bit Rage Systems Repository Search Tool${NC}"
     echo "=========================================="
     echo ""
     echo "Usage: $0 [OPTIONS] SEARCH_TERM"
@@ -172,7 +172,7 @@ perform_search() {
     local specific_repo="$3"
     local file_type="$4"
 
-    echo -e "${BLUE}🔍 DIGITAL LABOUR Repository Search${NC}"
+    echo -e "${BLUE}🔍 Bit Rage Systems Repository Search${NC}"
     echo "=================================="
     echo "Search term: '$search_term'"
     echo "Search type: $search_type"

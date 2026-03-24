@@ -1,4 +1,4 @@
-"""Unit economics calculator — revenue, cost, margin, break-even for all 24 agents.
+﻿"""Unit economics calculator — revenue, cost, margin, break-even for all 24 agents.
 
 Pulls actual realized data from data/kpi.db (if available) and supplements with
 pricing estimates from billing.tracker + utils.cost_tracker.
@@ -224,7 +224,7 @@ def print_report(report: dict) -> None:
 
     print()
     print("=" * 80)
-    print("  DIGITAL LABOUR — UNIT ECONOMICS REPORT")
+    print("  BIT RAGE SYSTEMS — UNIT ECONOMICS REPORT")
     print(f"  Provider: {meta['default_provider'].upper()}  |  "
           f"Agents: {meta['total_agents']}  |  "
           f"Realized: {meta['agents_with_realized_data']}")
@@ -267,7 +267,7 @@ def print_report(report: dict) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="DIGITAL LABOUR unit economics calculator")
+    parser = argparse.ArgumentParser(description="BIT RAGE SYSTEMS unit economics calculator")
     parser.add_argument("--json",     action="store_true", help="Output JSON to stdout")
     parser.add_argument("--save",     action="store_true", help="Save JSON to data/unit_economics.json")
     parser.add_argument("--provider", default="openai", choices=list(PROVIDER_PRICING.keys()),

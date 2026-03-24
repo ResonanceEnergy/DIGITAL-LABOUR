@@ -4,12 +4,12 @@ description: Manage GASKET memory doctrine — read, search, update system memor
 metadata: {"openclaw":{"emoji":"🧠","os":["darwin"]}}
 ---
 
-GASKET Memory Doctrine manages the DIGITAL LABOUR knowledge base.
+GASKET Memory Doctrine manages the Bit Rage Systems knowledge base.
 
 ## Memory Locations
 - `{baseDir}/../memory/` — Daily logs (`memory/YYYY-MM-DD.md`)
 - `{baseDir}/../MEMORY.md` — Curated long-term memory
-- `~/repos/Digital-Labour/doctrine/` — System doctrines (OPENCLAW_DOCTRINE.md, etc.)
+- `~/repos/Super-Agency/doctrine/` — System doctrines (OPENCLAW_DOCTRINE.md, etc.)
 
 ## When Asked to Remember Something
 
@@ -20,7 +20,7 @@ GASKET Memory Doctrine manages the DIGITAL LABOUR knowledge base.
 
 ## Doctrine Files
 
-Check `~/repos/Digital-Labour/doctrine/` for:
+Check `~/repos/Super-Agency/doctrine/` for:
 - **OPENCLAW_DOCTRINE.md** — OpenClaw knowledge base (v4.0 GASKET Integration Edition)
 - Other doctrine files as they are created
 

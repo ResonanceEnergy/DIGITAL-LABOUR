@@ -1,6 +1,6 @@
 # Test GitHub Authentication Manually
 
-Write-Host "🔐 Testing GitHub Authentication for Digital Labour" -ForegroundColor Cyan
+Write-Host "🔐 Testing GitHub Authentication for Bit Rage Systems" -ForegroundColor Cyan
 Write-Host "==================================================" -ForegroundColor Yellow
 
 # Change to the github_integration directory

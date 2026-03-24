@@ -1,5 +1,5 @@
-# SOCIAL CONTENT — Ready-to-Post
-## DIGITAL LABOUR — 30 Days of Posts
+﻿# SOCIAL CONTENT — Ready-to-Post
+## BIT RAGE SYSTEMS — 30 Days of Posts
 
 ---
 

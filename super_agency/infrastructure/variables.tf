@@ -1,4 +1,4 @@
-# Digital Labour AWS Infrastructure Variables
+# Super Agency AWS Infrastructure Variables
 
 variable "aws_region" {
   description = "AWS region for resources"
@@ -121,7 +121,7 @@ variable "db_allocated_storage" {
 variable "db_username" {
   description = "RDS database username"
   type        = string
-  default     = "digitallabour"
+  default     = "superagency"
   sensitive   = true
 }
 

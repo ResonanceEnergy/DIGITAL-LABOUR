@@ -1,8 +1,8 @@
 #!/bin/bash
-# Remote Configuration Setup for DIGITAL LABOUR Mobile Command Center
+# Remote Configuration Setup for Bit Rage Systems Mobile Command Center
 # This script sets environment variables for remote Windows connectivity
 
-echo "🔧 DIGITAL LABOUR Remote Configuration Setup"
+echo "🔧 Bit Rage Systems Remote Configuration Setup"
 echo "=========================================="
 
 # Default configuration (local)

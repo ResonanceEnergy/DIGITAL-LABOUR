@@ -276,15 +276,15 @@ Using lightweight Chart.js (no Plotly bloat):
 ## FILES TO CREATE / MODIFY
 
 ### New Files:
-1. `repos/Digital-Labour/data_collector.py` — All real data collectors
-2. `repos/Digital-Labour/static/js/matrix.js` — Clean JS separated from HTML
-3. `repos/Digital-Labour/static/css/matrix.css` — Clean CSS separated from HTML
-4. `repos/Digital-Labour/static/manifest.json` — PWA manifest
-5. `repos/Digital-Labour/static/sw.js` — Service worker for offline
+1. `repos/Super-Agency/data_collector.py` — All real data collectors
+2. `repos/Super-Agency/static/js/matrix.js` — Clean JS separated from HTML
+3. `repos/Super-Agency/static/css/matrix.css` — Clean CSS separated from HTML
+4. `repos/Super-Agency/static/manifest.json` — PWA manifest
+5. `repos/Super-Agency/static/sw.js` — Service worker for offline
 
 ### Modified Files:
-1. `repos/Digital-Labour/matrix_maximizer.py` — Replace all hardcoded collectors with `data_collector.py` imports
-2. `repos/Digital-Labour/templates/matrix_maximizer.html` — Complete rewrite with real data binding
+1. `repos/Super-Agency/matrix_maximizer.py` — Replace all hardcoded collectors with `data_collector.py` imports
+2. `repos/Super-Agency/templates/matrix_maximizer.html` — Complete rewrite with real data binding
 3. `matrix_monitor.sh` (~/matrix_monitor.sh) — Already created for 24/7 uptime
 
 ### Files to Read (data sources):

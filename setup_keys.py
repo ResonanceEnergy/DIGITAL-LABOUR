@@ -1,4 +1,4 @@
-"""DEPRECATED — Use bitrage.py setup or 'DIGITAL LABOUR.exe' instead.
+﻿"""DEPRECATED — Use bitrage.py setup or 'BIT RAGE SYSTEMS.exe' instead.
 
 This file is kept for backwards compatibility. All functionality has been
 consolidated into bitrage.py (the master launcher).
@@ -72,7 +72,7 @@ DEFAULT_PROVIDER=openai
 
 def main():
     print("=" * 50)
-    print("  DIGITAL LABOUR — API Key Setup")
+    print("  BIT RAGE SYSTEMS — API Key Setup")
     print("=" * 50)
     print()
     print("Paste each API key when prompted.")

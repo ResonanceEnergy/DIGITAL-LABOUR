@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    OPTIMUS MASTER STARTUP — Single entry point for all DIGITAL LABOUR services.
+    OPTIMUS MASTER STARTUP — Single entry point for all SuperAgency services.
     Replaces all fragmented schedulers and startup scripts.
 
 .DESCRIPTION
@@ -12,8 +12,8 @@
     Scheduled tasks left as independent timers (they run at fixed intervals):
       - NCC-Doctrine Daily/Weekly Backup
       - NCC_Backup_Operations / NCC_Daily_Maintenance / NCC_System_Monitoring
-      - DIGITAL LABOUR-DailyOperations  (daily @ 06:00)
-      - DIGITAL LABOUR-MemoryDoctrine   (daily @ 02:00)
+      - SuperAgency-DailyOperations  (daily @ 06:00)
+      - SuperAgency-MemoryDoctrine   (daily @ 02:00)
       - Resonance Repo Auto - Daily  (daily @ 06:00)
 
 .NOTES
@@ -34,7 +34,7 @@ param(
 # ──────────────────────────────────────────────
 $ErrorActionPreference = 'Continue'
 
-$WORKSPACE   = "C:\Dev\DIGITAL LABOUR-Shared"
+$WORKSPACE   = "C:\Dev\SuperAgency-Shared"
 $PYTHON      = "C:\Python314\python.exe"
 $GATEWAY_CMD = "$env:USERPROFILE\.openclaw\gateway.cmd"
 $ENGINE_SCRIPT = Join-Path $WORKSPACE "optimus_openclaw_depot.py"
@@ -94,7 +94,7 @@ try {
 Write-Host ""
 Write-Host "╔═══════════════════════════════════════════════════════╗" -ForegroundColor Cyan
 Write-Host "║     OPTIMUS MASTER STARTUP — RESONANCE ENERGY        ║" -ForegroundColor Cyan
-Write-Host "║     DIGITAL LABOUR • OpenClaw • RepoDepot • Matrix      ║" -ForegroundColor Cyan
+Write-Host "║     SuperAgency • OpenClaw • RepoDepot • Matrix      ║" -ForegroundColor Cyan
 Write-Host "╚═══════════════════════════════════════════════════════╝" -ForegroundColor Cyan
 Write-Host ""
 Write-Log "OPTIMUS MASTER STARTUP initiated" 'PHASE'

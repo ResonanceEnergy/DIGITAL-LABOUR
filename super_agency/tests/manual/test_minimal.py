@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Minimal DIGITAL LABOUR Test
+Minimal Bit Rage Systems Test
 Test basic Flask functionality
 """
 
@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "DIGITAL LABOUR Test - Working!"
+    return "Bit Rage Systems Test - Working!"
 
 @app.route('/api/status')
 def status():
@@ -23,6 +23,6 @@ def status():
     })
 
 if __name__ == '__main__':
-    print("🚀 Starting minimal DIGITAL LABOUR test...")
+    print("🚀 Starting minimal Bit Rage Systems test...")
     print("📍 Access at: http://localhost:8080")
     app.run(host='0.0.0.0', port=8080, debug=False)

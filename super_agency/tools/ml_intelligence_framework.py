@@ -2,7 +2,7 @@
 """
 Machine Learning & Intelligence Framework
 ==========================================
-Lightweight ML/intelligence layer for the DIGITAL LABOUR.
+Lightweight ML/intelligence layer for the Bit Rage Systems.
 
 Provides pattern recognition, anomaly detection, trend forecasting,
 and adaptive learning **without** heavy external dependencies.

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# DIGITAL LABOUR Local Runner
+# Bit Rage Systems Local Runner
 # Comprehensive step-by-step execution and monitoring
 
 set -e
@@ -40,7 +40,7 @@ log_header() {
 }
 
 # Progress tracking
-PROGRESS_FILE="$ROOT_DIR/.dl_progress"
+PROGRESS_FILE="$ROOT_DIR/.super_agency_progress"
 MONITORING_DIR="$ROOT_DIR/monitoring"
 REPORTS_DIR="$ROOT_DIR/reports"
 
@@ -232,10 +232,10 @@ generate_reports() {
     update_progress "report_generation" "STARTED" "Creating comprehensive reports"
 
     local timestamp=$(date '+%Y%m%d_%H%M%S')
-    local report_file="$REPORTS_DIR/DL_REPOrt_$timestamp.md"
+    local report_file="$REPORTS_DIR/super_agency_report_$timestamp.md"
 
     cat > "$report_file" << EOF
-# DIGITAL LABOUR System Report
+# Bit Rage Systems System Report
 **Generated:** $(date)
 **Duration:** Session run
 **Status:** Active
@@ -290,7 +290,7 @@ cleanup_processes() {
         fi
     done
 
-    # Kill any remaining DIGITAL LABOUR processes
+    # Kill any remaining Bit Rage Systems processes
     pkill -f "cpu_maximizer\|aac_\|inner_council" 2>/dev/null || true
 
     log_success "Cleanup completed"
@@ -298,7 +298,7 @@ cleanup_processes() {
 
 show_menu() {
     echo
-    log_header "DIGITAL LABOUR LOCAL RUNNER"
+    log_header "Bit Rage Systems LOCAL RUNNER"
     echo "1) Run Full System (Recommended)"
     echo "2) Start Inner Council Only"
     echo "3) Start AAC System Only"
@@ -312,7 +312,7 @@ show_menu() {
 }
 
 run_full_system() {
-    log_header "RUNNING FULL DIGITAL LABOUR SYSTEM"
+    log_header "RUNNING FULL Bit Rage Systems SYSTEM"
 
     update_progress "full_system" "STARTED" "Complete system deployment"
 
@@ -351,7 +351,7 @@ run_full_system() {
     generate_reports
 
     update_progress "full_system" "COMPLETED" "Full system run completed"
-    log_success "Full DIGITAL LABOUR system run completed!"
+    log_success "Full Bit Rage Systems system run completed!"
 }
 
 # Main execution

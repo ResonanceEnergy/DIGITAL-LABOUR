@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-"""DIGITAL LABOUR Pipeline Runner — execute multi-agent workflows.
+﻿#!/usr/bin/env python3
+"""BIT RAGE SYSTEMS Pipeline Runner — execute multi-agent workflows.
 
 Usage:
     python3 dl-pipeline.py lead_to_close --industry fintech --region "North America" --role CTO

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Codebase Cleanup Script
+Super Agency Codebase Cleanup Script
 Implements all recommendations from the audit report
 """
 
@@ -173,7 +173,7 @@ def generate_summary():
 
 
 def main():
-    print("🚀 DIGITAL LABOUR CODEBASE CLEANUP")
+    print("🚀 SUPER AGENCY CODEBASE CLEANUP")
     print("Implementing all audit recommendations...")
 
     # Step 1: Delete duplicates

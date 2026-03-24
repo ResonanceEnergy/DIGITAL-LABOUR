@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Inner Council Orchestrator Integration
-Connect council intelligence with daily DIGITAL LABOUR operations
+Connect council intelligence with daily Bit Rage Systems operations
 """
 
 import json
@@ -13,7 +13,7 @@ from pathlib import Path
 logger = logging.getLogger(__name__)
 
 class OrchestratorIntegration:
-    """Integration between Inner Council and DIGITAL LABOUR orchestrator"""
+    """Integration between Inner Council and Bit Rage Systems orchestrator"""
 
     def __init__(self, decisions_dir: str="decisions",
                  reports_dir: str="reports/daily"):

@@ -9,7 +9,7 @@ Core Philosophy:
 - Flywheel effect through continuous build cycles
 - Quality gates and automated optimization
 
-Author: DIGITAL LABOUR AI
+Author: Super Agency AI
 Updated: February 22, 2026
 """
 
@@ -98,7 +98,7 @@ class RepoSpec:
     template: str = "standard"
     priority: int = 1
     deadline: Optional[datetime] = None
-    owner: str = "bit_rage_labour"
+    owner: str = "super_agency"
 
 
 @dataclass

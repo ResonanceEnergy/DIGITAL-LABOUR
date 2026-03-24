@@ -1,4 +1,4 @@
-"""PPH Work Agent — Search, Match, Propose, Deliver Pipeline.
+﻿"""PPH Work Agent — Search, Match, Propose, Deliver Pipeline.
 
 PeoplePerHour-specific workflows:
   1. Search for jobs/hourlies matching our capabilities
@@ -78,14 +78,14 @@ Budget: {job.get('budget', '')}
 
 Include:
 - Professional cover message (150-200 words)
-- Why DIGITAL LABOUR is the best fit
+- Why BIT RAGE SYSTEMS is the best fit
 - Mention AI-powered tools for speed and accuracy
 - Suggest competitive pricing
 
-Sign off as DIGITAL LABOUR — AI-Powered Business Services."""
+Sign off as BIT RAGE SYSTEMS — AI-Powered Business Services."""
 
     response = llm_call(
-        system="You are a proposal writer for DIGITAL LABOUR on PeoplePerHour.",
+        system="You are a proposal writer for BIT RAGE SYSTEMS on PeoplePerHour.",
         user=prompt,
         provider=provider,
     )

@@ -1,10 +1,10 @@
 # resonance-uy-py
 
-**Company Repository** - DIGITAL LABOUR Portfolio Company
+**Company Repository** - Bit Rage Systems Portfolio Company
 
 ## Overview
 
-resonance-uy-py is a portfolio company within the DIGITAL LABOUR ecosystem.
+resonance-uy-py is a portfolio company within the Bit Rage Systems ecosystem.
 
 ## Repository Information
 
@@ -14,7 +14,7 @@ resonance-uy-py is a portfolio company within the DIGITAL LABOUR ecosystem.
 - **Language**: PowerShell
 - **Risk Tier**: CRITICAL
 - **Created**: February 20, 2026
-- **Parent Organization**: DIGITAL LABOUR
+- **Parent Organization**: Bit Rage Systems
 
 ## Directory Structure
 
@@ -29,8 +29,8 @@ resonance-uy-py/
 
 ## Integration Status
 
-This repository is part of the DIGITAL LABOUR NCC-Doctrine integration framework.
+This repository is part of the Bit Rage Systems NCC-Doctrine integration framework.
 
 ## Contact
 
-For questions about this company repository, contact the DIGITAL LABOUR executive team.
+For questions about this company repository, contact the Bit Rage Systems executive team.

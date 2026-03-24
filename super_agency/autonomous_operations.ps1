@@ -1,7 +1,7 @@
-# Digital Labour Autonomous Operations
+# Bit Rage Systems Autonomous Operations
 # Automated GitHub integration and portfolio management
 
-Write-Host "🤖 Digital Labour Autonomous Operations" -ForegroundColor Cyan
+Write-Host "🤖 Bit Rage Systems Autonomous Operations" -ForegroundColor Cyan
 Write-Host "=====================================" -ForegroundColor Yellow
 
 $rootDir = Split-Path -Parent $PSScriptRoot

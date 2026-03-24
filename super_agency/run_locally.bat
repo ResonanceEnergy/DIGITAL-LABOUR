@@ -1,12 +1,12 @@
 @echo off
-REM Digital Labour Local Runner (Windows)
+REM Bit Rage Systems Local Runner (Windows)
 REM Comprehensive step-by-step execution and monitoring
 
 setlocal enabledelayedexpansion
 
 set "SCRIPT_DIR=%~dp0"
 set "ROOT_DIR=%SCRIPT_DIR%.."
-set "PROGRESS_FILE=%ROOT_DIR%\.dl_progress"
+set "PROGRESS_FILE=%ROOT_DIR%\.super_agency_progress"
 set "MONITORING_DIR=%ROOT_DIR%\monitoring"
 set "REPORTS_DIR=%ROOT_DIR%\reports"
 
@@ -236,9 +236,9 @@ call :update_progress "report_generation" "STARTED" "Creating comprehensive repo
 
 set "timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%_%time:~0,2%%time:~3,2%%time:~6,2%"
 set "timestamp=%timestamp: =0%"
-set "report_file=%REPORTS_DIR%\DL_REPOrt_%timestamp%.md"
+set "report_file=%REPORTS_DIR%\super_agency_report_%timestamp%.md"
 
-echo # Digital Labour System Report > "%report_file%"
+echo # Bit Rage Systems System Report > "%report_file%"
 echo **Generated:** %date% %time% >> "%report_file%"
 echo **Duration:** Session run >> "%report_file%"
 echo **Status:** Active >> "%report_file%"
@@ -295,7 +295,7 @@ goto :eof
 
 :show_menu
 echo.
-call :log_header "Digital Labour LOCAL RUNNER (WINDOWS)"
+call :log_header "Bit Rage Systems LOCAL RUNNER (WINDOWS)"
 echo 1^) Run Full System ^(Recommended^)
 echo 2^) Start Inner Council Only
 echo 3^) Start AAC System Only
@@ -310,7 +310,7 @@ echo.
 goto :eof
 
 :run_full_system
-call :log_header "RUNNING FULL Digital Labour SYSTEM"
+call :log_header "RUNNING FULL Bit Rage Systems SYSTEM"
 
 call :update_progress "full_system" "STARTED" "Complete system deployment"
 
@@ -333,7 +333,7 @@ REM Step 6: Generate Reports
 call :generate_reports
 
 call :update_progress "full_system" "COMPLETED" "Full system run completed"
-call :log_success "Full Digital Labour system run completed!"
+call :log_success "Full Bit Rage Systems system run completed!"
 goto :eof
 
 REM Main execution

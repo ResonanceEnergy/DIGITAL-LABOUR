@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 MATRIX MAXIMIZER V3.0 - Complete Rewrite
-DIGITAL LABOUR Project Management & Intelligence Platform
+Super Agency Project Management & Intelligence Platform
 
 A clean, robust, and reliable project management system with:
 - Automatic port conflict resolution

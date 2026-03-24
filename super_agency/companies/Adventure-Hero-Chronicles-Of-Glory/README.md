@@ -1,10 +1,10 @@
 # Adventure-Hero-Chronicles-Of-Glory
 
-**Company Repository** - DIGITAL LABOUR Portfolio Company
+**Company Repository** - Bit Rage Systems Portfolio Company
 
 ## Overview
 
-Adventure-Hero-Chronicles-Of-Glory is a portfolio company within the DIGITAL LABOUR ecosystem.
+Adventure-Hero-Chronicles-Of-Glory is a portfolio company within the Bit Rage Systems ecosystem.
 
 ## Repository Information
 
@@ -14,7 +14,7 @@ Adventure-Hero-Chronicles-Of-Glory is a portfolio company within the DIGITAL LAB
 - **Language**: HTML
 - **Risk Tier**: MEDIUM
 - **Created**: February 20, 2026
-- **Parent Organization**: DIGITAL LABOUR
+- **Parent Organization**: Bit Rage Systems
 
 ## Directory Structure
 
@@ -29,8 +29,8 @@ Adventure-Hero-Chronicles-Of-Glory/
 
 ## Integration Status
 
-This repository is part of the DIGITAL LABOUR NCC-Doctrine integration framework.
+This repository is part of the Bit Rage Systems NCC-Doctrine integration framework.
 
 ## Contact
 
-For questions about this company repository, contact the DIGITAL LABOUR executive team.
+For questions about this company repository, contact the Bit Rage Systems executive team.

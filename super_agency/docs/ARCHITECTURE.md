@@ -1,8 +1,8 @@
-# Digital-Labour Architecture
+# Super-Agency Architecture
 
 ## Overview
 
-This document describes the architectural structure of the Digital-Labour repository.
+This document describes the architectural structure of the Super-Agency repository.
 
 **Generated:** 2026-02-25T22:21:43.817581
 **Total Python Files:** 82
@@ -19,7 +19,7 @@ This document describes the architectural structure of the Digital-Labour reposi
 - `bin/`
 - `config/`
 - `oversight_logs/`
-- `ResonanceEnergy_DigitalLabour/`
+- `ResonanceEnergy_SuperAgency/`
 - `github_integration/`
 - `cicd_workflows/`
 - `setup/`
@@ -81,7 +81,7 @@ This document describes the architectural structure of the Digital-Labour reposi
 ## Component Diagram
 
 ```
-Digital-Labour/
+Super-Agency/
 ├── Source Code
 │   └── Python modules (82 files)
 ├── Configuration

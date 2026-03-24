@@ -1,4 +1,4 @@
-# Security Policy for DIGITAL LABOUR
+# Security Policy for BIT RAGE SYSTEMS
 # https://securitytxt.org/
 
 Contact: mailto:security@bit-rage-labour.com

@@ -1,4 +1,4 @@
-# 🚀 DIGITAL LABOUR Distributed Command Center Setup
+# 🚀 Bit Rage Systems Distributed Command Center Setup
 ## Multi-Platform Architecture: macOS + Windows + AWS
 
 **Date**: February 20, 2026  
@@ -165,13 +165,13 @@ brew install --cask visual-studio-code
 brew install --cask xcode
 ```
 
-#### DIGITAL LABOUR Setup
+#### Bit Rage Systems Setup
 ```bash
-# Clone DIGITAL LABOUR repository
-gh repo clone ResonanceEnergy/Digital-Labour ~/Digital-Labour
+# Clone Bit Rage Systems repository
+gh repo clone ResonanceEnergy/Super-Agency ~/Super-Agency
 
 # Set up Python environment
-cd ~/Digital-Labour
+cd ~/Super-Agency
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -203,8 +203,8 @@ choco install vscode
 
 #### Build Environment Configuration
 ```powershell
-# Set up DIGITAL LABOUR build environment
-cd C:\Digital-Labour
+# Set up Bit Rage Systems build environment
+cd C:\Super-Agency
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
@@ -221,7 +221,7 @@ pip install nuitka       # Advanced Python compiler
 #### CloudFormation Template
 ```yaml
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'DIGITAL LABOUR Distributed Command Center'
+Description: 'Bit Rage Systems Distributed Command Center'
 
 Resources:
   # VPC and Networking
@@ -238,7 +238,7 @@ Resources:
     Properties:
       InstanceType: t3.medium
       ImageId: ami-0abcdef1234567890  # Amazon Linux 2
-      KeyName: Digital-Labour-key
+      KeyName: super-agency-key
       SecurityGroupIds:
         - !Ref SecurityGroup
       UserData:
@@ -246,13 +246,13 @@ Resources:
           #!/bin/bash
           yum update -y
           yum install -y python3 pip git
-          # Install DIGITAL LABOUR dependencies
+          # Install Bit Rage Systems dependencies
 
   # S3 Storage
   StorageBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: Digital-Labour-storage
+      BucketName: super-agency-storage
       VersioningConfiguration:
         Status: Enabled
       PublicAccessBlockConfiguration:
@@ -265,7 +265,7 @@ Resources:
   AutoScalingGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
-      AutoScalingGroupName: Digital-Labour-compute
+      AutoScalingGroupName: super-agency-compute
       MinSize: '1'
       MaxSize: '10'
       DesiredCapacity: '2'
@@ -304,13 +304,13 @@ resource "aws_instance" "compute" {
   count         = 2
 
   tags = {
-    Name = "Digital-Labour-Compute-${count.index}"
+    Name = "Super-Agency-Compute-${count.index}"
   }
 }
 
 # S3 Bucket
 resource "aws_s3_bucket" "storage" {
-  bucket = "Digital-Labour-storage"
+  bucket = "super-agency-storage"
 }
 
 resource "aws_s3_bucket_versioning" "storage" {
@@ -325,7 +325,7 @@ resource "aws_s3_bucket_versioning" "storage" {
 
 #### Multi-Platform Build Workflow
 ```yaml
-name: DIGITAL LABOUR CI/CD
+name: Bit Rage Systems CI/CD
 
 on:
   push:
@@ -386,15 +386,15 @@ jobs:
     - name: Build executable
       run: |
         if [ "$RUNNER_OS" == "Windows" ]; then
-          pyinstaller --onefile --name Digital-Labour-windows operations_launcher.py
+          pyinstaller --onefile --name super-agency-windows operations_launcher.py
         elif [ "$RUNNER_OS" == "macOS" ]; then
-          pyinstaller --onefile --name Digital-Labour-macos operations_launcher.py
+          pyinstaller --onefile --name super-agency-macos operations_launcher.py
         fi
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: Digital-Labour-${{ matrix.os }}
+        name: super-agency-${{ matrix.os }}
         path: dist/
 
   deploy:
@@ -413,11 +413,11 @@ jobs:
     - name: Deploy to AWS
       run: |
         # Deploy application to EC2 instances
-        aws ec2 describe-instances --filters "Name=tag:Name,Values=Digital-Labour-*" --query 'Reservations[*].Instances[*].InstanceId' --output text | xargs -I {} aws ec2 start-instances --instance-ids {}
+        aws ec2 describe-instances --filters "Name=tag:Name,Values=Super-Agency-*" --query 'Reservations[*].Instances[*].InstanceId' --output text | xargs -I {} aws ec2 start-instances --instance-ids {}
 
     - name: Update S3 storage
       run: |
-        aws s3 sync ./artifacts s3://Digital-Labour-storage/releases/ --delete
+        aws s3 sync ./artifacts s3://super-agency-storage/releases/ --delete
 ```
 
 ### Matrix Monitor Setup
@@ -497,9 +497,9 @@ class GalactiaDoctrine:
 
 #### Project Structure
 ```
-DIGITAL LABOURCommand/
-├── DIGITAL LABOURCommand.xcodeproj
-├── DIGITAL LABOURCommand/
+SuperAgencyCommand/
+├── SuperAgencyCommand.xcodeproj
+├── SuperAgencyCommand/
 │   ├── AppDelegate.swift
 │   ├── SceneDelegate.swift
 │   ├── ViewController.swift
@@ -515,8 +515,8 @@ DIGITAL LABOURCommand/
 │   └── Resources/
 │       ├── Assets.xcassets
 │       └── LaunchScreen.storyboard
-├── DIGITAL LABOURCommandTests/
-└── DIGITAL LABOURCommandUITests/
+├── SuperAgencyCommandTests/
+└── SuperAgencyCommandUITests/
 ```
 
 #### Core Implementation
@@ -552,7 +552,7 @@ struct StatusView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("DIGITAL LABOUR Command Center")
+                Text("Bit Rage Systems Command Center")
                     .font(.largeTitle)
                     .padding()
 
@@ -588,19 +588,19 @@ struct StatusView: View {
 ### macOS Setup
 ```bash
 # One-command setup
-curl -fsSL https://raw.githubusercontent.com/ResonanceEnergy/Digital-Labour/main/setup/macos-setup.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ResonanceEnergy/Super-Agency/main/setup/macos-setup.sh | bash
 ```
 
 ### Windows Setup
 ```powershell
 # One-command setup
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/ResonanceEnergy/Digital-Labour/main/setup/windows-setup.ps1" -OutFile "setup.ps1"; .\setup.ps1
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/ResonanceEnergy/Super-Agency/main/setup/windows-setup.ps1" -OutFile "setup.ps1"; .\setup.ps1
 ```
 
 ### AWS Deployment
 ```bash
 # Deploy infrastructure
-aws cloudformation deploy --template-file infrastructure.yaml --stack-name Digital-Labour
+aws cloudformation deploy --template-file infrastructure.yaml --stack-name super-agency
 
 # Or with Terraform
 terraform init
@@ -611,7 +611,7 @@ terraform apply
 ### GitHub Actions Setup
 ```bash
 # Copy workflow files
-cp .github/workflows/Digital-Labour-ci.yml .github/workflows/
+cp .github/workflows/super-agency-ci.yml .github/workflows/
 ```
 
 ---
@@ -690,4 +690,4 @@ cp .github/workflows/Digital-Labour-ci.yml .github/workflows/
 
 **Let's build the most advanced distributed command center in the galaxy!** 🚀✨
 
-*This setup provides a solid foundation for the DIGITAL LABOUR distributed command center with macOS live operations, Windows build infrastructure, and AWS cloud scaling.*
+*This setup provides a solid foundation for the Bit Rage Systems distributed command center with macOS live operations, Windows build infrastructure, and AWS cloud scaling.*

@@ -1,5 +1,5 @@
-"""DIGITAL LABOUR Portfolio Company: YOUTUBEDROP"""
+"""Bit Rage Systems Portfolio Company: YOUTUBEDROP"""
 
 __version__ = "1.0.0"
-__author__ = "DIGITAL LABOUR"
+__author__ = "Bit Rage Systems"
 __description__ = "YOUTUBEDROP portfolio company"

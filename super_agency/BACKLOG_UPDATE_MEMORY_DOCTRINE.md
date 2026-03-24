@@ -1,4 +1,4 @@
-# 📋 DIGITAL LABOUR BACKLOG UPDATE
+# 📋 Bit Rage Systems BACKLOG UPDATE
 ## Memory Optimization & Doctrine Preservation Status
 ## Updated: February 28, 2026
 
@@ -16,13 +16,13 @@
 ### Doctrine Preservation Achievements
 - [x] **Memory Doctrine Documentation**: Complete doctrine established and documented
 - [x] **Cross-Device Synchronization**: Doctrine maintained across all device boundaries
-- [x] **Operational Principles**: Core DIGITAL LABOUR principles preserved in optimizations
+- [x] **Operational Principles**: Core Bit Rage Systems principles preserved in optimizations
 - [x] **Resource Allocation Guidelines**: Doctrine-guided deployment strategies
 - [x] **Monitoring Framework**: Real-time doctrine compliance tracking
 - [x] **Device Code Names Established**: Quantum Quasar (Mac), Pocket Pulsar (iPhone), Tablet Titan (iPad)
 
 ### OpenClaw × GASKET Integration Achievements (Feb 26-28, 2026)
-- [x] **Git Migration**: Moved from cloud sync to local SSD (~/repos/Digital-Labour), 16 patches applied
+- [x] **Git Migration**: Moved from cloud sync to local SSD (~/repos/Super-Agency), 16 patches applied
 - [x] **GASKET × OpenClaw Bridge**: Created gasket_openclaw_bridge.py with 14 registered skills
 - [x] **30 Use Cases Integrated**: All awesome-openclaw use cases documented in doctrine
 - [x] **REPO DEPOT + Memory System**: Deep integration into GASKET v3.0 with 8 async loops
@@ -31,7 +31,7 @@
 - [x] **Persistent Startup Automation**: 4 launchd services (gateway, matrix monitor, dashboards, watchdog)
 - [x] **24/7/365 Service Watchdog**: Health monitoring w/ Telegram alerts every 15 minutes
 - [x] **API Auth Resolution**: Fixed gateway auth via env config — Anthropic, OpenAI, Gemini, xAI all operational
-- [x] **Credentials Vault**: 9 provider keys stored securely at ~/\.digitallabour/credentials.json
+- [x] **Credentials Vault**: 9 provider keys stored securely at ~/.superagency/credentials.json
 - [x] **API Credentials Registry**: doctrine/API_CREDENTIALS_REGISTRY.md created (no keys in git)
 
 ### Three-Device Integration Achievements
@@ -310,4 +310,4 @@ Focus: Doctrine enhancement and reliability testing
 **Last Updated**: February 28, 2026
 **Next Review**: March 7, 2026 (Weekly Review)
 **Doctrine Compliance**: 100% (All backlog items aligned with Memory Doctrine v2.0 + OpenClaw Doctrine v5.0)</content>
-<parameter name="filePath">c:/Dev/DIGITAL-LABOUR/BACKLOG_UPDATE_MEMORY_DOCTRINE.md
+<parameter name="filePath">c:/Dev/SuperAgency-Shared/BACKLOG_UPDATE_MEMORY_DOCTRINE.md

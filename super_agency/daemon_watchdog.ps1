@@ -1,4 +1,4 @@
-# Digital Labour Health Watchdog
+# Bit Rage Systems Health Watchdog
 # Quick check for daemon health - can be run from Task Scheduler as backup
 # Restarts daemon if unresponsive
 
@@ -8,7 +8,7 @@ param(
 )
 
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$ServiceName = "DIGITAL LABOURDaemon"
+$ServiceName = "SuperAgencyDaemon"
 $HeartbeatFile = Join-Path $ScriptDir "daemon_heartbeat.txt"
 $HealthFile = Join-Path $ScriptDir "daemon_health.json"
 $LogFile = Join-Path $ScriptDir "logs\watchdog.log"

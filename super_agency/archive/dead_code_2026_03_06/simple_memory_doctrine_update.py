@@ -10,7 +10,7 @@ import shutil
 from datetime import datetime
 
 def main():
-    workspace_root = r"C:\Dev\DIGITAL-LABOUR"
+    workspace_root = r"C:\Dev\SuperAgency-Shared"
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     backup_dir = os.path.join(workspace_root, "memory_backups")
     os.makedirs(backup_dir, exist_ok=True)
@@ -43,8 +43,8 @@ def main():
     # Backup doctrine files
     print("   Backing up doctrine files...")
     doctrine_files = [
-        "DL_DOCTRINE_MEMORY.md",
-        "DL_MEMORY_DOCTRINE.md",
+        "SUPER_AGENCY_DOCTRINE_MEMORY.md",
+        "SUPER_AGENCY_MEMORY_DOCTRINE.md",
         "BACKLOG_UPDATE_MEMORY_DOCTRINE.md",
         "DOCTRINE_COUNCIL_52.md"
     ]
@@ -66,8 +66,8 @@ def main():
 
     # Update memory doctrine
     print("   Updating memory doctrine...")
-    memory_doctrine_path = os.path.join(workspace_root, "DL_MEMORY_DOCTRINE.md")
-    doctrine_content = f"""# DIGITAL LABOUR Memory Doctrine - {timestamp}
+    memory_doctrine_path = os.path.join(workspace_root, "SUPER_AGENCY_MEMORY_DOCTRINE.md")
+    doctrine_content = f"""# Super Agency Memory Doctrine - {timestamp}
 
 ## Current Memory State
 - Timestamp: {timestamp}
@@ -89,7 +89,7 @@ def main():
 - Cross-platform synchronization: IMPLEMENTED
 
 ## Doctrine Preservation
-This doctrine serves as the foundational memory framework for DIGITAL LABOUR operations.
+This doctrine serves as the foundational memory framework for Super Agency operations.
 All critical decisions and system states are preserved through this doctrine.
 
 ---

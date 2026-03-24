@@ -1,4 +1,4 @@
-"""DEPRECATED — Use bitrage.py or 'DIGITAL LABOUR.exe' instead.
+﻿"""DEPRECATED — Use bitrage.py or 'BIT RAGE SYSTEMS.exe' instead.
 
 This file is kept for backwards compatibility. All functionality has been
 consolidated into bitrage.py (the master launcher).
@@ -11,7 +11,7 @@ Replacement commands:
     bitrage.py stop        # replaces: python launch.py --kill
 
 Original description:
-    Master Launch Script — Starts ALL DIGITAL LABOUR automation in one shot.
+    Master Launch Script — Starts ALL BIT RAGE SYSTEMS automation in one shot.
     Activates every daemon, checks follow-ups, fires revenue checks, opens platforms.
 """
 
@@ -169,7 +169,7 @@ def start_daemons():
     ]
 
     print(f"\n{'='*70}")
-    print(f"  DIGITAL LABOUR — DAEMON LAUNCH")
+    print(f"  BIT RAGE SYSTEMS — DAEMON LAUNCH")
     print(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print(f"{'='*70}\n")
 
@@ -240,7 +240,7 @@ def stop_daemons():
 def run_checks():
     """Run all one-shot checks: follow-ups, revenue, reprocess fails."""
     print(f"\n{'='*70}")
-    print(f"  DIGITAL LABOUR — SYSTEM CHECKS")
+    print(f"  BIT RAGE SYSTEMS — SYSTEM CHECKS")
     print(f"{'='*70}")
 
     # 1. Follow-up check
@@ -321,9 +321,9 @@ def open_platforms():
 # ── Status Display ─────────────────────────────────────────────
 
 def show_status():
-    """Show status of all DIGITAL LABOUR systems."""
+    """Show status of all BIT RAGE SYSTEMS systems."""
     print(f"\n{'='*70}")
-    print(f"  DIGITAL LABOUR — FULL STATUS")
+    print(f"  BIT RAGE SYSTEMS — FULL STATUS")
     print(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print(f"{'='*70}")
 
@@ -347,7 +347,7 @@ def show_status():
 # ── CLI ────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="DIGITAL LABOUR Master Launch")
+    parser = argparse.ArgumentParser(description="BIT RAGE SYSTEMS Master Launch")
     parser.add_argument("--daemons", action="store_true", help="Start all background daemons")
     parser.add_argument("--checks", action="store_true", help="Run one-shot system checks")
     parser.add_argument("--platforms", action="store_true", help="Open platform registration URLs")

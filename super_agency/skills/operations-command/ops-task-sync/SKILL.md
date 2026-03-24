@@ -1,7 +1,7 @@
 # SKILL: ops-task-sync
 ## Todoist Task Visibility & Sync
 
-Provides bidirectional sync between Digital-Labour backlog systems and Todoist,
+Provides bidirectional sync between Super-Agency backlog systems and Todoist,
 giving CEO full visibility into agent-generated tasks, manual tasks, and
 department work items from any device.
 
@@ -12,7 +12,7 @@ department work items from any device.
 - Manual: "sync tasks", "show my tasks", "what's on the list"
 
 ### What It Does
-1. Pulls tasks from all Digital-Labour backlog sources:
+1. Pulls tasks from all Super-Agency backlog sources:
    - `backlog_management_system.py` — Agent-generated backlog items
    - `backlog_intelligence_system.py` — Intelligence-flagged items
    - Department task queues — Per-department work items
@@ -52,7 +52,7 @@ department work items from any device.
 
 ### Bidirectional Flow
 ```
-Digital-Labour Backlog ←→ OpenClaw Skill ←→ Todoist API
+Super-Agency Backlog ←→ OpenClaw Skill ←→ Todoist API
         ↑                                      ↓
  Agent creates task              CEO marks complete on phone
         ↓                                      ↑

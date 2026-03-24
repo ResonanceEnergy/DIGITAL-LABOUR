@@ -12,7 +12,7 @@
 | CI/CD Pipelines | 4 broken workflows | FIXED (python-ci.yml) |
 | Git State | 1,288 dirty files, 106 tracked .pyc files | CRITICAL |
 | Security | API key exposed in tracked file | CRITICAL |
-| Architecture | 4 duplicate Digital-Labour copies | HIGH |
+| Architecture | 4 duplicate Super-Agency copies | HIGH |
 | Dependencies | requirements.txt vs pyproject.toml misaligned | HIGH |
 | Configuration | Deprecated VS Code settings, dual pytest config | FIXED |
 | File Organization | 152 .py files at root, 402,988 total files | HIGH |
@@ -70,13 +70,13 @@ git commit -m "chore: remove runtime .pid files from tracking"
 
 ### HIGH (This Week — Architecture & Dependencies)
 
-**Step 6: Consolidate 4 Duplicate Digital-Labour Directories**
+**Step 6: Consolidate 4 Duplicate Super-Agency Directories**
 | Path | Action |
 |---|---|
 | `./` (root) | Keep as canonical |
-| `Digital-Labour/` | DELETE — full copy with own .git |
-| `DIGITAL LABOUR/Digital-Labour/` | DELETE — another full copy |
-| `repos/Digital-Labour/` | DELETE or convert to git submodule |
+| `Super-Agency/` | DELETE — full copy with own .git |
+| `Bit Rage Systems/Super-Agency/` | DELETE — another full copy |
+| `repos/Super-Agency/` | DELETE or convert to git submodule |
 - Estimated savings: **~5+ GB** of duplicated files
 - Priority: **HIGH**
 
@@ -187,7 +187,7 @@ git commit -m "chore: remove runtime .pid files from tracking"
 | Tracked .pid files | 4 | Should be 0 |
 | Root-level .py files | 152 | Should be <20 |
 | Root-level .zip files | 6 | Should be 0 |
-| Duplicate Digital-Labour copies | 4 | Should be 1 |
+| Duplicate Super-Agency copies | 4 | Should be 1 |
 | Core module imports | 16/16 passing | GOOD |
 | CI/CD pipeline | BROKEN | First 2 fixed |
 

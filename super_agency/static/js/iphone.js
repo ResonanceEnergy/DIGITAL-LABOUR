@@ -887,4 +887,4 @@ function toggleMatrixView(viewType) {
 // Make PocketPulsarUI globally available
 window.PocketPulsarUI = PocketPulsarUI;
 window.pocketPulsar = new PocketPulsarUI();</content >
-    <parameter name="filePath">$HOME/repos/ELECTRIC ICE/Digital-Labour/static/js/iphone.js
+    <parameter name="filePath">$HOME/repos/ELECTRIC ICE/Super-Agency/static/js/iphone.js

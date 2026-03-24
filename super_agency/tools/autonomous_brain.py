@@ -668,7 +668,7 @@ def start_daemon_thread(
 ):
     """Start the brain as a daemon thread.
 
-    Called from ``run_bit_rage_labour.py`` during boot.
+    Called from ``run_super_agency.py`` during boot.
     """
     global THINK_INTERVAL_S
     THINK_INTERVAL_S = interval_s

@@ -1,4 +1,4 @@
-"""Delivery module — exports completed outputs to clients.
+﻿"""Delivery module — exports completed outputs to clients.
 
 Supports: file export (JSON/CSV/Markdown), email via SMTP, webhook POST.
 
@@ -246,7 +246,7 @@ def _deliver_email(
     timestamp: str, lineage_id: str = "", checksum: str = "",
 ) -> dict:
     """Send task outputs via SMTP email."""
-    subject = f"[Digital Labour] {task_type} complete — {task_id[:8]}"
+    subject = f"[BIT RAGE SYSTEMS] {task_type} complete — {task_id[:8]}"
     body_html = f"""<h2>Task Delivered</h2>
 <table>
 <tr><td><strong>Task ID</strong></td><td>{task_id}</td></tr>

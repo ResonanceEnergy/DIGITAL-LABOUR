@@ -1,4 +1,4 @@
-"""Freelancer.com Full Deployment Config — 20 gig listings + bid templates.
+﻿"""Freelancer.com Full Deployment Config — 20 gig listings + bid templates.
 
 Maps every agent to a Freelancer service listing with:
 - Gig title, description, skills, pricing packages, delivery times
@@ -28,7 +28,7 @@ OUTPUT_DIR = PROJECT_ROOT / "output" / "freelancer_deploy"
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 AGENCY_PROFILE = {
-    "name": "Digital Labour — AI Agent Agency",
+    "name": "BIT RAGE SYSTEMS — AI Agent Agency",
     "tagline": "20 production AI agents. Sales, content, research, docs — delivered in minutes, not days.",
     "hourly_rate_range": "$50-200/hr",
     "fixed_price_range": "$25-2,000",
@@ -657,7 +657,7 @@ BID_TEMPLATES = {
             "• QA verified output\n\n"
             "I can process {lead_count} leads and deliver within {timeline}.\n\n"
             "Happy to share a sample for one of your target companies.\n\n"
-            "— Digital Labour (Resonance Energy, Canada)"
+            "— BIT RAGE SYSTEMS (Resonance Energy, Canada)"
         ),
     },
     "support": {
@@ -674,7 +674,7 @@ BID_TEMPLATES = {
             "Currently handles {ticket_volume}+ tickets per run with 80%+ QA pass rate. "
             "Works with Zendesk, Freshdesk, Intercom exports, or plain text.\n\n"
             "I can start immediately.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "content_repurpose": {
@@ -691,7 +691,7 @@ BID_TEMPLATES = {
             "Each piece is optimized for its platform — character limits, tone, "
             "hashtag strategy. QA verified before delivery.\n\n"
             "I can process {post_count} pieces and deliver in {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "doc_extract": {
@@ -708,7 +708,7 @@ BID_TEMPLATES = {
             "• QA verification\n\n"
             "Currently processing documents in under 10 seconds with 85%+ accuracy. "
             "Happy to adapt to your specific format requirements.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "lead_gen": {
@@ -725,7 +725,7 @@ BID_TEMPLATES = {
             "• CRM-ready CSV + JSON\n\n"
             "Tell me your ideal customer profile and I'll deliver {lead_count} "
             "qualified leads within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "email_marketing": {
@@ -743,7 +743,7 @@ BID_TEMPLATES = {
             "• Spam trigger check + readability score\n\n"
             "Frameworks: AIDA, PAS, BAB — proven converters.\n\n"
             "I can deliver the full sequence within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "seo_content": {
@@ -761,7 +761,7 @@ BID_TEMPLATES = {
             "• Markdown + HTML export\n\n"
             "No fluff, no keyword stuffing. Natural content that ranks.\n\n"
             "I can deliver {article_count} articles within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "social_media": {
@@ -779,7 +779,7 @@ BID_TEMPLATES = {
             "Consistent brand voice across all platforms. "
             "I can deliver {post_count} posts for {platform_count} platforms "
             "within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "data_entry": {
@@ -795,7 +795,7 @@ BID_TEMPLATES = {
             "• CSV/JSON/Excel export\n"
             "• Validation report\n\n"
             "I can process {row_count} records within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "web_scraper": {
@@ -811,7 +811,7 @@ BID_TEMPLATES = {
             "• QA validation report\n\n"
             "Tell me what data you need from the page and I'll deliver "
             "structured output within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "crm_ops": {
@@ -828,7 +828,7 @@ BID_TEMPLATES = {
             "• Import-ready CSV/JSON\n\n"
             "Works with Salesforce, HubSpot, Zoho, Pipedrive exports, or spreadsheets.\n\n"
             "I can process {record_count} records within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "bookkeeping": {
@@ -846,7 +846,7 @@ BID_TEMPLATES = {
             "Note: This is data processing assistance — all output should be "
             "reviewed by your accountant.\n\n"
             "I can process {transaction_count} transactions within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "proposal_writer": {
@@ -864,7 +864,7 @@ BID_TEMPLATES = {
             "• Social proof section\n"
             "• Markdown export, ready to format\n\n"
             "I can deliver {proposal_count} proposals within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "product_desc": {
@@ -882,7 +882,7 @@ BID_TEMPLATES = {
             "• Keyword integration\n\n"
             "Character limits enforced. Platform policies checked. "
             "I can deliver {product_count} products within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "resume_writer": {
@@ -901,7 +901,7 @@ BID_TEMPLATES = {
             "Handles: Entry-level to Executive. "
             "Styles: Chronological, Functional, Combination, Modern.\n\n"
             "I can deliver within {timeline}. Happy to discuss your target role.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "ad_copy": {
@@ -919,7 +919,7 @@ BID_TEMPLATES = {
             "Platforms: Google Search/Display, Facebook, Instagram, LinkedIn, "
             "TikTok, Twitter, YouTube, Pinterest.\n\n"
             "I can deliver {campaign_count} campaigns within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "market_research": {
@@ -937,7 +937,7 @@ BID_TEMPLATES = {
             "• Methodology and limitations stated\n\n"
             "Based on publicly available data. "
             "I can deliver a {depth} report within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "business_plan": {
@@ -956,7 +956,7 @@ BID_TEMPLATES = {
             "• QA verified for financial consistency\n\n"
             "Types: Startup, expansion, investor pitch, loan application, lean canvas.\n\n"
             "I can deliver within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "press_release": {
@@ -976,7 +976,7 @@ BID_TEMPLATES = {
             "Types: Product launch, partnership, funding, expansion, hire, "
             "event, milestone, award.\n\n"
             "I can deliver {release_count} releases within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
     "tech_docs": {
@@ -995,7 +995,7 @@ BID_TEMPLATES = {
             "Types: API reference, user guide, README, how-to, tutorial, "
             "architecture, changelog, runbook, SDK guide.\n\n"
             "I can deliver within {timeline}.\n\n"
-            "— Digital Labour"
+            "— BIT RAGE SYSTEMS"
         ),
     },
 }

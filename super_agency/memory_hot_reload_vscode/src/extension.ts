@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 
 export function activate(context: vscode.ExtensionContext) {
-    console.log('🧠 Digital Labour Memory Hot Reload extension activated');
+    console.log('🧠 Super Agency Memory Hot Reload extension activated');
 
     // Track file watchers
     const fileWatchers: Map<string, vscode.FileSystemWatcher> = new Map();
@@ -19,20 +19,20 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Status bar item
     const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
-    statusBarItem.command = 'digitalLabourMemory.showMemoryStatus';
-    statusBarItem.tooltip = 'Digital Labour Memory System Status';
+    statusBarItem.command = 'superAgencyMemory.showMemoryStatus';
+    statusBarItem.tooltip = 'Super Agency Memory System Status';
     updateStatusBar('$(database) Memory: $(check)');
 
     // Register commands
     context.subscriptions.push(
-        vscode.commands.registerCommand('digitalLabourMemory.startHotReload', startHotReload),
-        vscode.commands.registerCommand('digitalLabourMemory.stopHotReload', stopHotReload),
-        vscode.commands.registerCommand('digitalLabourMemory.showMemoryStatus', showMemoryStatus),
-        vscode.commands.registerCommand('digitalLabourMemory.forceReload', forceReload)
+        vscode.commands.registerCommand('superAgencyMemory.startHotReload', startHotReload),
+        vscode.commands.registerCommand('superAgencyMemory.stopHotReload', stopHotReload),
+        vscode.commands.registerCommand('superAgencyMemory.showMemoryStatus', showMemoryStatus),
+        vscode.commands.registerCommand('superAgencyMemory.forceReload', forceReload)
     );
 
     // Auto-start if configured
-    const config = vscode.workspace.getConfiguration('digitalLabourMemory');
+    const config = vscode.workspace.getConfiguration('superAgencyMemory');
     if (config.get('autoStart', true)) {
         setTimeout(() => startHotReload(), 2000);
     }
@@ -247,7 +247,7 @@ try:
     integration = get_memory_integration_status()
     backup = get_backup_status()
     
-    print('🏢 DIGITAL LABOUR MEMORY STATUS')
+    print('🏢 SUPER AGENCY MEMORY STATUS')
     print('=' * 40)
     print(f'🔗 Integration Active: {all(integration.values())}')
     print(f'🛡️ Backup Running: {backup.get(\"running\", False)}')
@@ -266,7 +266,7 @@ except Exception as e:
     }
 
     function showNotification(title: string, message: string) {
-        const config = vscode.workspace.getConfiguration('digitalLabourMemory');
+        const config = vscode.workspace.getConfiguration('superAgencyMemory');
         if (config.get('showNotifications', true)) {
             vscode.window.showInformationMessage(`${title}: ${message}`);
         }
@@ -282,5 +282,5 @@ except Exception as e:
 }
 
 export function deactivate() {
-    console.log('🧠 Digital Labour Memory Hot Reload extension deactivated');
+    console.log('🧠 Super Agency Memory Hot Reload extension deactivated');
 }

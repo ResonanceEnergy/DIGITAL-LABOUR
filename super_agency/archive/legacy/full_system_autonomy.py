@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Full System Autonomy for DIGITAL LABOUR
+Full System Autonomy for Super Agency
 Implements autonomous decision-making, self-governance,
 and complete system independence.
 

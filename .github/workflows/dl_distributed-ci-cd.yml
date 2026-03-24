@@ -1,4 +1,4 @@
-name: DIGITAL LABOUR Distributed CI/CD
+﻿name: BIT RAGE SYSTEMS Distributed CI/CD
 
 on:
   push:
@@ -348,7 +348,7 @@ jobs:
           # Create deployment script
           cat > deploy.sh << EOF
         #!/bin/bash
-        # Deployment script for DIGITAL LABOUR
+        # Deployment script for BIT RAGE SYSTEMS
 
         # Download latest release
         aws s3 cp s3://bit-rage-labour-systems-${{ matrix.environment }}-releases/${{ github.run_number }}/bit-rage-labour-systems-macos /usr/local/bin/bit-rage-labour-systems
@@ -402,11 +402,11 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: v${{ github.run_number }}
-        release_name: DIGITAL LABOUR v${{ github.run_number }}
+        release_name: BIT RAGE SYSTEMS v${{ github.run_number }}
         draft: false
         prerelease: false
         body: |
-          ## DIGITAL LABOUR Release v${{ github.run_number }}
+          ## BIT RAGE SYSTEMS Release v${{ github.run_number }}
 
           ### Changes
           - Multi-platform builds (macOS, Windows)
@@ -495,7 +495,7 @@ jobs:
       with:
         status: ${{ job.status }}
         text: |
-          DIGITAL LABOUR CI/CD Pipeline ${{ job.status }}
+          BIT RAGE SYSTEMS CI/CD Pipeline ${{ job.status }}
 
           Branch: ${{ github.ref }}
           Commit: ${{ github.sha }}
@@ -513,9 +513,9 @@ jobs:
         server_port: 465
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
-        subject: DIGITAL LABOUR CI/CD Failed
+        subject: BIT RAGE SYSTEMS CI/CD Failed
         body: |
-          DIGITAL LABOUR CI/CD pipeline failed.
+          BIT RAGE SYSTEMS CI/CD pipeline failed.
 
           Branch: ${{ github.ref }}
           Commit: ${{ github.sha }}
@@ -523,4 +523,4 @@ jobs:
 
           Check the GitHub Actions logs for details.
         to: ${{ secrets.ALERT_EMAIL }}
-        from: DIGITAL LABOUR CI/CD <cicd@DIGITAL LABOURsystems.ai>
+        from: BIT RAGE SYSTEMS CI/CD <cicd@BIT RAGE SYSTEMSsystems.ai>

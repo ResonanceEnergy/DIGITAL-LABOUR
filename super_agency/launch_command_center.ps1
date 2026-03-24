@@ -1,4 +1,4 @@
-# Digital Labour Distributed Command Center Launcher
+# Bit Rage Systems Distributed Command Center Launcher
 # One-command setup and launch for the entire distributed system
 
 param(
@@ -180,9 +180,9 @@ function Start-Services {
     }
 
     # Launch iOS app (if on macOS)
-    if (($PLATFORM -eq "macos") -and (Test-Path "ios/DIGITAL LABOURCommand" -PathType Container)) {
+    if (($PLATFORM -eq "macos") -and (Test-Path "ios/SuperAgencyCommand" -PathType Container)) {
         Write-Info "Opening iOS project..."
-        & open ios/DIGITAL LABOURCommand/DIGITAL LABOURCommand.xcodeproj
+        & open ios/SuperAgencyCommand/SuperAgencyCommand.xcodeproj
     }
 
     Write-Success "Services launched successfully"
@@ -191,7 +191,7 @@ function Start-Services {
 # Show status
 function Show-Status {
     Write-Host ""
-    Write-Success "Digital Labour Command Center Status"
+    Write-Success "Bit Rage Systems Command Center Status"
     Write-Host "====================================="
 
     # Check local services
@@ -222,7 +222,7 @@ function Show-Status {
 
         # Check EC2 instances
         try {
-            $instanceCount = aws ec2 describe-instances --filters "Name=tag:Project,Values=Digital Labour" "Name=instance-state-name,Values=running" --query 'length(Reservations[*].Instances[*])' --output text 2>$null
+            $instanceCount = aws ec2 describe-instances --filters "Name=tag:Project,Values=Bit Rage Systems" "Name=instance-state-name,Values=running" --query 'length(Reservations[*].Instances[*])' --output text 2>$null
             if (!$instanceCount) { $instanceCount = "0" }
             Write-Host "  📊 EC2 Instances: $instanceCount running"
         } catch {
@@ -231,7 +231,7 @@ function Show-Status {
 
         # Check S3 bucket
         try {
-            aws s3 ls s3://Digital-Labour-storage 2>$null | Out-Null
+            aws s3 ls s3://super-agency-storage 2>$null | Out-Null
             Write-Host "  ✅ S3 Storage: Available"
         } catch {
             Write-Host "  ❌ S3 Storage: Not accessible"
@@ -271,7 +271,7 @@ function Stop-Services {
 # Show menu
 function Show-Menu {
     Write-Host ""
-    Write-Host "Digital Labour Command Center Menu"
+    Write-Host "Bit Rage Systems Command Center Menu"
     Write-Host "================================="
     Write-Host "1. Setup Everything (Local + Cloud)"
     Write-Host "2. Setup Local Only"
@@ -382,7 +382,7 @@ function Invoke-Main {
 }
 
 # Run main function
-Write-Host "🚀 Digital Labour Distributed Command Center"
+Write-Host "🚀 Bit Rage Systems Distributed Command Center"
 Write-Host "=========================================="
 Write-Host ""
 

@@ -1,5 +1,5 @@
-"""DIGITAL LABOUR Portfolio Company: CIVIL-FORGE-TECHNOLOGIES-"""
+"""Bit Rage Systems Portfolio Company: CIVIL-FORGE-TECHNOLOGIES-"""
 
 __version__ = "1.0.0"
-__author__ = "DIGITAL LABOUR"
+__author__ = "Bit Rage Systems"
 __description__ = "CIVIL-FORGE-TECHNOLOGIES- portfolio company"

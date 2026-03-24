@@ -2,7 +2,7 @@
 REPO DEPOT AGENTS - AI Agent Management System
 
 Overview:
-The Agents component manages the lifecycle and orchestration of AI agents within the DIGITAL LABOUR ecosystem.
+The Agents component manages the lifecycle and orchestration of AI agents within the SuperAgency ecosystem.
 This system provides agent specialization, performance monitoring, and collaborative intelligence capabilities.
 
 Core Components to Implement:

@@ -1,4 +1,4 @@
-# Digital Labour Mobile Test Script
+# Bit Rage Systems Mobile Test Script
 # Verify PWA functionality and mobile interface
 
 param(
@@ -106,7 +106,7 @@ function Test-PWAFeatures {
     $mainUrl = "$BaseUrl/"
     try {
         $response = Invoke-WebRequest -Uri $mainUrl -TimeoutSec 10
-        if ($response.Content -match "Digital Labour Command") {
+        if ($response.Content -match "Bit Rage Systems Command") {
             Write-Success "Mobile interface loaded"
         } else {
             Write-Warning "Mobile interface content unexpected"
@@ -192,14 +192,14 @@ function Show-MobileInstructions {
     Write-Host "2. Go to: http://$MacIP`:8080" -ForegroundColor White
     Write-Host "3. Tap the share button (📤)" -ForegroundColor White
     Write-Host "4. Select 'Add to Home Screen'" -ForegroundColor White
-    Write-Host "5. Name it 'Digital Labour Command'" -ForegroundColor White
+    Write-Host "5. Name it 'Bit Rage Systems Command'" -ForegroundColor White
     Write-Host "6. Tap 'Add' - now you have a native app!" -ForegroundColor White
     Write-Host ""
     Write-Host "Android Setup:" -ForegroundColor White
     Write-Host "1. Open Chrome on your device" -ForegroundColor White
     Write-Host "2. Go to: http://$MacIP`:8080" -ForegroundColor White
     Write-Host "3. Tap the menu (⋮) → 'Add to Home screen'" -ForegroundColor White
-    Write-Host "4. Name it 'Digital Labour Command'" -ForegroundColor White
+    Write-Host "4. Name it 'Bit Rage Systems Command'" -ForegroundColor White
     Write-Host "5. Tap 'Add' - now you have a native app!" -ForegroundColor White
     Write-Host ""
     Write-Host "Testing Features:" -ForegroundColor Yellow
@@ -210,7 +210,7 @@ function Show-MobileInstructions {
 }
 
 # Main test logic
-Write-Host "📱 Digital Labour MOBILE TEST" -ForegroundColor Cyan
+Write-Host "📱 Bit Rage Systems MOBILE TEST" -ForegroundColor Cyan
 Write-Host "===========================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -254,4 +254,4 @@ Write-Success "Mobile test complete!"
 Write-Info "Use -FullTest for comprehensive testing"
 Write-Info "Use -PWATest for PWA-specific tests"
 Write-Info "Use -PerformanceTest for speed tests"</content>
-<parameter name="filePath">C:/Dev/DIGITAL LABOUR-Shared/test_mobile.ps1
+<parameter name="filePath">C:/Dev/SuperAgency-Shared/test_mobile.ps1

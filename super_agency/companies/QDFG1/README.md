@@ -1,10 +1,10 @@
 # QDFG1
 
-**Company Repository** - DIGITAL LABOUR Portfolio Company
+**Company Repository** - Bit Rage Systems Portfolio Company
 
 ## Overview
 
-QDFG1 is a portfolio company within the DIGITAL LABOUR ecosystem.
+QDFG1 is a portfolio company within the Bit Rage Systems ecosystem.
 
 ## Repository Information
 
@@ -14,7 +14,7 @@ QDFG1 is a portfolio company within the DIGITAL LABOUR ecosystem.
 - **Language**: Swift
 - **Risk Tier**: MEDIUM
 - **Created**: February 20, 2026
-- **Parent Organization**: DIGITAL LABOUR
+- **Parent Organization**: Bit Rage Systems
 
 ## Directory Structure
 
@@ -29,8 +29,8 @@ QDFG1/
 
 ## Integration Status
 
-This repository is part of the DIGITAL LABOUR NCC-Doctrine integration framework.
+This repository is part of the Bit Rage Systems NCC-Doctrine integration framework.
 
 ## Contact
 
-For questions about this company repository, contact the DIGITAL LABOUR executive team.
+For questions about this company repository, contact the Bit Rage Systems executive team.

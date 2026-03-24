@@ -1,4 +1,4 @@
-# 🚀 DIGITAL LABOUR Optimized Architecture
+# 🚀 Bit Rage Systems Optimized Architecture
 # Windows Heavy Processing + macOS I/O Coordination
 # February 21, 2026
 
@@ -46,7 +46,7 @@ macOS → I/O Coordination (Lightweight)
 
 ## 🔄 Communication Protocol (SASP)
 
-### DIGITAL LABOUR Share Protocol
+### Bit Rage Systems Share Protocol
 - **Real-time sync** between Windows and macOS
 - **API proxying** from Mac to Windows services
 - **Heartbeat monitoring** (30-second intervals)

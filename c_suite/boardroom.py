@@ -1,4 +1,4 @@
-"""C-Suite Orchestrator — Convenes AXIOM, VECTIS, and LEDGR for coordinated execution.
+﻿"""C-Suite Orchestrator — Convenes AXIOM, VECTIS, and LEDGR for coordinated execution.
 
 The Board Room. All three executives run, their outputs are synthesized
 into a unified execution plan with no conflicting directives.
@@ -26,7 +26,7 @@ from c_suite.ledgr import LedgrCFO
 
 # ── Board Synthesis Prompt ──────────────────────────────────────────────────
 
-SYNTHESIS_SYSTEM = """You are the NCC Board Synthesizer for DIGITAL LABOUR.
+SYNTHESIS_SYSTEM = """You are the NCC Board Synthesizer for BIT RAGE SYSTEMS.
 
 You receive reports from three autonomous C-suite agents:
 - AXIOM (CEO): Strategic directives, growth plays, resource allocation

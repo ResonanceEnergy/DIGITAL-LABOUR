@@ -269,4 +269,4 @@ async function updateMetricsInBackground() {
         console.error('Background metrics update failed:', error);
     }
 }</content>
-<parameter name="filePath">$HOME/repos/ELECTRIC ICE/Digital-Labour/static/sw_iphone.js
+<parameter name="filePath">$HOME/repos/ELECTRIC ICE/Super-Agency/static/sw_iphone.js

@@ -1,0 +1,17 @@
+{
+  "date": "2026-03-23",
+  "generated_at": "2026-03-23T23:51:39.175544+00:00",
+  "total_cost_usd": 0,
+  "total_revenue_usd": 0,
+  "margin_pct": 0.0,
+  "cost_yesterday_usd": 0,
+  "status": "OK",
+  "alerts": [],
+  "per_agent": {},
+  "thresholds": {
+    "max_daily_burn_usd": 50.0,
+    "cost_explosion_multiplier": 2.0,
+    "per_agent_alert_ceiling_usd": 5.0,
+    "min_margin_pct": 85.0
+  }
+}

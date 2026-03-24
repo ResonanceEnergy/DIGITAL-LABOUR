@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Enhanced Emergency Override System
-Active monitoring and human intervention capabilities for DIGITAL LABOUR
+Active monitoring and human intervention capabilities for Super Agency
 """
 
 import asyncio

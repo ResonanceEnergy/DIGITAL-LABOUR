@@ -1,4 +1,4 @@
-"""Social Media Agent — Create platform-optimized posts, threads, and calendars.
+﻿"""Social Media Agent — Create platform-optimized posts, threads, and calendars.
 
 2-step pipeline:
     1. Strategist Agent — creates platform-native content with posting schedule
@@ -85,7 +85,7 @@ def _load_prompt(name: str) -> str:
 
 def strategist_agent(
     topic: str,
-    brand: str = "DIGITAL LABOUR — AI automation agency",
+    brand: str = "BIT RAGE SYSTEMS — AI automation agency",
     platforms: list[str] = None,
     tone: str = "professional",
     cta_goal: str = "engagement",
@@ -122,7 +122,7 @@ def qa_agent(plan: SocialMediaPlan, provider: str = "openai") -> QAResult:
 
 def run_pipeline(
     topic: str,
-    brand: str = "DIGITAL LABOUR — AI automation agency",
+    brand: str = "BIT RAGE SYSTEMS — AI automation agency",
     platforms: list[str] = None,
     tone: str = "professional",
     cta_goal: str = "engagement",

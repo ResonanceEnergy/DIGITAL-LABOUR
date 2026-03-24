@@ -1,4 +1,4 @@
-"""State Manager — Unified state persistence layer for DIGITAL LABOUR.
+﻿"""State Manager — Unified state persistence layer for BIT RAGE SYSTEMS.
 
 Provides a single interface for reading/writing all JSON state files
 across the system. Prevents state corruption with atomic writes and

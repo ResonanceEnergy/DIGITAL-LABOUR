@@ -1,4 +1,4 @@
-"""Cold Email Spray — Bulk outreach engine for targeted prospect campaigns.
+﻿"""Cold Email Spray — Bulk outreach engine for targeted prospect campaigns.
 
 Loads prospects from prospects.csv (optionally filtered by lead score),
 generates personalized cold emails using LLM + templates from
@@ -45,7 +45,7 @@ SMTP_HOST = os.getenv("SMTP_HOST", "smtp.zohocloud.ca")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
 SMTP_USER = os.getenv("SMTP_USER", "")
 SMTP_PASS = os.getenv("SMTP_PASS", "")
-FROM_NAME = os.getenv("FROM_NAME", "DIGITAL LABOUR")
+FROM_NAME = os.getenv("FROM_NAME", "BIT RAGE SYSTEMS")
 FROM_EMAIL = os.getenv("SMTP_USER", "sales@bit-rage-labour.com")
 
 # Safety limits
@@ -155,7 +155,7 @@ def _default_template() -> dict:
             "email outreach, content creation, and more. Clients save "
             "20-40 hours/week.\n\n"
             "Would a quick 10-min demo be worth your time this week?\n\n"
-            "— DIGITAL LABOUR\n"
+            "— BIT RAGE SYSTEMS\n"
             "sales@bit-rage-labour.com"
         ),
     }
@@ -379,7 +379,7 @@ def send_due_followups(dry_run: bool = False) -> dict:
             f"Our 24 AI agents handle everything from lead gen to data entry — "
             f"saving teams 20-40 hours/week.\n\n"
             f"Worth a quick chat?\n\n"
-            f"— DIGITAL LABOUR"
+            f"— BIT RAGE SYSTEMS"
         )
 
         if dry_run:

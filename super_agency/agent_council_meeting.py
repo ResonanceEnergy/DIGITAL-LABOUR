@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR Agent Council Meeting
+Bit Rage Systems Agent Council Meeting
 Automated 15-minute syncs between AZ, GASKET, and OPTIMUS
 Updates protocols, procedures, goals, and mandates
 """

@@ -64,7 +64,7 @@ DIGEST_PREFERENCES = {
 - Knowledge Base RAG indexes saved digest items for future retrieval
 - Preferences stored in GASKET memory doctrine files
 
-## Digital-Labour Specific
+## Super-Agency Specific
 
 - YouTube channels tracked: AI/ML, productivity, entrepreneurship
 - Reddit: r/MachineLearning, r/LocalLLaMA, r/SelfHosted, r/AutoGen

@@ -3,7 +3,7 @@
 Self-Check Validator -- System Integrity Monitor
 =================================================
 Validates the health and integrity of the entire
-DIGITAL LABOUR system.  Checks configurations, pipeline
+Bit Rage Systems system.  Checks configurations, pipeline
 outputs, runtime state, and data quality.
 
 Validation categories:
@@ -253,13 +253,13 @@ class SystemValidator:
     def validate_health(self) -> bool:
         """Check logs and circuit breakers."""
         all_ok = True
-        log_file = ROOT / "logs" / "bit_rage_labour.log"
+        log_file = ROOT / "logs" / "super_agency.log"
 
         if not log_file.exists():
             self.issues.append({
                 "category": "health",
                 "severity": "MEDIUM",
-                "file": "logs/bit_rage_labour.log",
+                "file": "logs/super_agency.log",
                 "issue": "No runtime log file",
             })
             all_ok = False
@@ -279,7 +279,7 @@ class SystemValidator:
                         "category": "health",
                         "severity": "HIGH",
                         "file": (
-                            "logs/bit_rage_labour.log"
+                            "logs/super_agency.log"
                         ),
                         "issue": (
                             f"{len(errors)} ERROR "

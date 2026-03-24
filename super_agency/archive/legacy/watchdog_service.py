@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR WATCHDOG SERVICE
+SUPER AGENCY WATCHDOG SERVICE
 Ultimate fail-safe for the fail-safe orchestrator itself
 Ensures 24/7/365 operation even if the main orchestrator crashes
 """
@@ -61,7 +61,7 @@ class WatchdogService:
 
     async def start_watchdog(self):
         """Start the watchdog service"""
-        self.logger.info("🐕 Starting DIGITAL LABOUR WATCHDOG SERVICE v1.0")
+        self.logger.info("🐕 Starting SUPER AGENCY WATCHDOG SERVICE v1.0")
         self.logger.info("🛡️ Protecting the fail-safe orchestrator with ultimate redundancy")
 
         try:

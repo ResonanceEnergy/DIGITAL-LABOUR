@@ -615,7 +615,7 @@ openclaw pairing approve <channel> <code>  # Approve pairing
 
 ---
 
-## OUR Digital-Labour INTEGRATION
+## OUR SUPER-AGENCY INTEGRATION
 
 ### Dual-Agent System
 ```
@@ -736,7 +736,7 @@ Four-layer pipeline: RSS (46 sources) + Twitter/X KOLs (44 accounts) + GitHub Re
 Any phone becomes AI gateway. Call a number → speak with your AI agent. Calendar queries, Jira updates, web search via voice. Skill: [ClawdTalk](https://github.com/team-telnyx/clawdtalk-client) + Telnyx. SMS support coming. Hands-free: driving, walking, busy hands.
 
 ### 26. Polymarket Autopilot (Paper Trading)
-Automated paper trading on prediction markets. Strategies: TAIL (trend-follow on volume spikes), BONDING (contrarian on overreactions), SPREAD (arDIGITAL LABOUR when YES+NO > 1.05). PostgreSQL for trade logs and portfolio. Starting capital simulation: $10,000. Cron every 15 min. Daily Discord summary: trades, P&L, win rate, strategy performance. Sub-agents for parallel market analysis. **Paper trading only**.
+Automated paper trading on prediction markets. Strategies: TAIL (trend-follow on volume spikes), BONDING (contrarian on overreactions), SPREAD (arbitrage when YES+NO > 1.05). PostgreSQL for trade logs and portfolio. Starting capital simulation: $10,000. Cron every 15 min. Daily Discord summary: trades, P&L, win rate, strategy performance. Sub-agents for parallel market analysis. **Paper trading only**.
 
 ### 27. Project State Management (Event-Driven)
 Replaces Kanban with event-driven system. Talk naturally: "Finished auth flow, starting dashboard" → logs event, updates state. Events: progress, blocker, decision, pivot — all with context. Daily standup auto-generated from events + git commits. Natural language queries: "Why did we pivot on X?" → searches decision history. Git commits auto-linked to projects by branch/message. PostgreSQL tracks full history.
@@ -797,7 +797,7 @@ WhatsApp, Telegram, Discord, Slack, Signal, iMessage, Claude, GPT, Spotify, Hue,
 ---
 
 *This doctrine was auto-generated from OpenClaw docs, website scraping, and awesome-openclaw-usecases.*
-*Saved to the DIGITAL LABOUR Memory doctrine system.*
+*Saved to the SuperAgency memory doctrine system.*
 *Doctrine Version: 5.0 | Last Updated: 2026-02-27 | System-Wide Integration Edition*
 
 ---

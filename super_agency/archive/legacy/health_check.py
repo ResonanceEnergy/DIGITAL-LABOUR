@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIGITAL LABOUR HEALTH CHECK SYSTEM
+SUPER AGENCY HEALTH CHECK SYSTEM
 Provides standardized health check endpoints for all agency components
 """
 
@@ -90,21 +90,21 @@ def create_health_app(health_check: HealthCheck, port: int = 8000) -> Flask:
         """Prometheus-style metrics endpoint"""
         status = health_check.get_health_status()
 
-        metrics = f"""# HELP bit_rage_labour_component_health Component health status
-# TYPE bit_rage_labour_component_health gauge
-bit_rage_labour_component_health{{component="{status['component']}"}} {1 if status['status'] == 'healthy' else 0}
+        metrics = f"""# HELP super_agency_component_health Component health status
+# TYPE super_agency_component_health gauge
+super_agency_component_health{{component="{status['component']}"}} {1 if status['status'] == 'healthy' else 0}
 
-# HELP bit_rage_labour_uptime_seconds Component uptime in seconds
-# TYPE bit_rage_labour_uptime_seconds counter
-bit_rage_labour_uptime_seconds{{component="{status['component']}"}} {status['uptime_seconds']}
+# HELP super_agency_uptime_seconds Component uptime in seconds
+# TYPE super_agency_uptime_seconds counter
+super_agency_uptime_seconds{{component="{status['component']}"}} {status['uptime_seconds']}
 
-# HELP bit_rage_labour_cpu_percent CPU usage percentage
-# TYPE bit_rage_labour_cpu_percent gauge
-bit_rage_labour_cpu_percent{{component="{status['component']}"}} {status['system']['cpu_percent']}
+# HELP super_agency_cpu_percent CPU usage percentage
+# TYPE super_agency_cpu_percent gauge
+super_agency_cpu_percent{{component="{status['component']}"}} {status['system']['cpu_percent']}
 
-# HELP bit_rage_labour_memory_percent Memory usage percentage
-# TYPE bit_rage_labour_memory_percent gauge
-bit_rage_labour_memory_percent{{component="{status['component']}"}} {status['system']['memory_percent']}
+# HELP super_agency_memory_percent Memory usage percentage
+# TYPE super_agency_memory_percent gauge
+super_agency_memory_percent{{component="{status['component']}"}} {status['system']['memory_percent']}
 """
 
         return metrics, 200, {'Content-Type': 'text/plain; charset=utf-8'}

@@ -1,45 +1,105 @@
 {
-  "cycle_count": 3,
-  "last_cycle": "2026-03-11T02:51:38.474328-06:00",
+  "cycle_count": 29,
+  "last_cycle": "2026-03-17T06:55:45.418742-06:00",
   "action_history": [
     {
       "action": "run_research",
       "success": true,
       "timestamp": "2026-03-11T02:25:14.412931-06:00"
+    },
+    {
+      "action": "run_research",
+      "success": true,
+      "timestamp": "2026-03-16T11:13:51.634982-06:00"
+    },
+    {
+      "action": "run_research",
+      "success": true,
+      "timestamp": "2026-03-16T11:43:54.674198-06:00"
+    },
+    {
+      "action": "run_research",
+      "success": true,
+      "timestamp": "2026-03-16T12:13:59.059048-06:00"
+    },
+    {
+      "action": "run_research",
+      "success": true,
+      "timestamp": "2026-03-16T12:44:03.872093-06:00"
+    },
+    {
+      "action": "run_research",
+      "success": true,
+      "timestamp": "2026-03-16T13:14:07.847347-06:00"
+    },
+    {
+      "action": "run_research",
+      "success": true,
+      "timestamp": "2026-03-16T13:44:11.915816-06:00"
+    },
+    {
+      "action": "run_research",
+      "success": true,
+      "timestamp": "2026-03-17T04:28:12.673532-06:00"
+    },
+    {
+      "action": "run_research",
+      "success": false,
+      "timestamp": "2026-03-17T05:07:24.344232-06:00"
+    },
+    {
+      "action": "run_validation",
+      "success": true,
+      "timestamp": "2026-03-17T05:07:24.344276-06:00"
+    },
+    {
+      "action": "run_research",
+      "success": true,
+      "timestamp": "2026-03-17T05:55:30.205067-06:00"
+    },
+    {
+      "action": "run_research",
+      "success": true,
+      "timestamp": "2026-03-17T06:25:40.156621-06:00"
+    },
+    {
+      "action": "run_research",
+      "success": true,
+      "timestamp": "2026-03-17T06:55:45.418963-06:00"
     }
   ],
   "gap_trends": {
     "research_alternative_energy_systems_no_output": {
       "first_seen": "2026-03-11T02:25:14.412391-06:00",
-      "times_seen": 2,
+      "times_seen": 28,
       "severity": "MEDIUM",
-      "last_seen": "2026-03-11T02:51:38.474386-06:00"
+      "last_seen": "2026-03-17T06:55:45.418792-06:00"
     },
     "research_alternative_energy_systems_milestones": {
       "first_seen": "2026-03-11T02:25:14.412431-06:00",
-      "times_seen": 2,
+      "times_seen": 28,
       "severity": "MEDIUM",
-      "last_seen": "2026-03-11T02:51:38.474411-06:00"
+      "last_seen": "2026-03-17T06:55:45.418807-06:00"
     },
     "research_human_health_&_longevity_no_output": {
       "first_seen": "2026-03-11T02:25:14.412468-06:00",
-      "times_seen": 2,
+      "times_seen": 28,
       "severity": "MEDIUM",
-      "last_seen": "2026-03-11T02:51:38.474428-06:00"
+      "last_seen": "2026-03-17T06:55:45.418819-06:00"
     },
     "research_human_health_&_longevity_milestones": {
       "first_seen": "2026-03-11T02:25:14.412500-06:00",
-      "times_seen": 2,
+      "times_seen": 28,
       "severity": "MEDIUM",
-      "last_seen": "2026-03-11T02:51:38.474452-06:00"
+      "last_seen": "2026-03-17T06:55:45.418831-06:00"
     },
-    "research_bit_rage_labour_platform_no_output": {
+    "research_super_agency_platform_no_output": {
       "first_seen": "2026-03-11T02:25:14.412533-06:00",
       "times_seen": 2,
       "severity": "MEDIUM",
       "last_seen": "2026-03-11T02:51:38.474470-06:00"
     },
-    "research_bit_rage_labour_platform_milestones": {
+    "research_super_agency_platform_milestones": {
       "first_seen": "2026-03-11T02:25:14.412564-06:00",
       "times_seen": 2,
       "severity": "MEDIUM",
@@ -47,57 +107,57 @@
     },
     "research_digital_products_&_business_no_output": {
       "first_seen": "2026-03-11T02:25:14.412595-06:00",
-      "times_seen": 2,
+      "times_seen": 28,
       "severity": "MEDIUM",
-      "last_seen": "2026-03-11T02:51:38.474499-06:00"
+      "last_seen": "2026-03-17T06:55:45.418865-06:00"
     },
     "research_digital_products_&_business_milestones": {
       "first_seen": "2026-03-11T02:25:14.412624-06:00",
-      "times_seen": 2,
+      "times_seen": 28,
       "severity": "MEDIUM",
-      "last_seen": "2026-03-11T02:51:38.474517-06:00"
+      "last_seen": "2026-03-17T06:55:45.418876-06:00"
     },
     "research_second_brain_&_knowledge_pipeline_no_output": {
       "first_seen": "2026-03-11T02:25:14.412655-06:00",
-      "times_seen": 2,
+      "times_seen": 28,
       "severity": "MEDIUM",
-      "last_seen": "2026-03-11T02:51:38.474535-06:00"
+      "last_seen": "2026-03-17T06:55:45.418887-06:00"
     },
     "research_second_brain_&_knowledge_pipeline_milestones": {
       "first_seen": "2026-03-11T02:25:14.412683-06:00",
-      "times_seen": 2,
+      "times_seen": 28,
       "severity": "MEDIUM",
-      "last_seen": "2026-03-11T02:51:38.474553-06:00"
+      "last_seen": "2026-03-17T06:55:45.418898-06:00"
     },
     "research_civil_forge_technologies_no_output": {
       "first_seen": "2026-03-11T02:25:14.412714-06:00",
-      "times_seen": 2,
+      "times_seen": 28,
       "severity": "MEDIUM",
-      "last_seen": "2026-03-11T02:51:38.474570-06:00"
+      "last_seen": "2026-03-17T06:55:45.418909-06:00"
     },
     "research_media_&_marketing_operations_no_output": {
       "first_seen": "2026-03-11T02:25:14.412745-06:00",
-      "times_seen": 2,
+      "times_seen": 28,
       "severity": "MEDIUM",
-      "last_seen": "2026-03-11T02:51:38.474585-06:00"
+      "last_seen": "2026-03-17T06:55:45.418919-06:00"
     },
     "research_media_&_marketing_operations_milestones": {
       "first_seen": "2026-03-11T02:25:14.412779-06:00",
-      "times_seen": 2,
+      "times_seen": 28,
       "severity": "MEDIUM",
-      "last_seen": "2026-03-11T02:51:38.474603-06:00"
+      "last_seen": "2026-03-17T06:55:45.418931-06:00"
     },
     "research_alternative_history_&_research_no_output": {
       "first_seen": "2026-03-11T02:25:14.412809-06:00",
-      "times_seen": 2,
+      "times_seen": 28,
       "severity": "MEDIUM",
-      "last_seen": "2026-03-11T02:51:38.474620-06:00"
+      "last_seen": "2026-03-17T06:55:45.418942-06:00"
     },
     "research_alternative_history_&_research_milestones": {
       "first_seen": "2026-03-11T02:25:14.412838-06:00",
-      "times_seen": 2,
+      "times_seen": 28,
       "severity": "MEDIUM",
-      "last_seen": "2026-03-11T02:51:38.474639-06:00"
+      "last_seen": "2026-03-17T06:55:45.418952-06:00"
     },
     "pipeline_scheduler_no_state": {
       "first_seen": "2026-03-11T02:25:14.412867-06:00",
@@ -110,10 +170,41 @@
       "times_seen": 2,
       "severity": "MEDIUM",
       "last_seen": "2026-03-11T02:51:38.474672-06:00"
+    },
+    "research_bit_rage_systems_platform_no_output": {
+      "first_seen": "2026-03-16T11:13:51.634814-06:00",
+      "times_seen": 26,
+      "severity": "MEDIUM",
+      "last_seen": "2026-03-17T06:55:45.418842-06:00"
+    },
+    "research_bit_rage_systems_platform_milestones": {
+      "first_seen": "2026-03-16T11:13:51.634833-06:00",
+      "times_seen": 26,
+      "severity": "MEDIUM",
+      "last_seen": "2026-03-17T06:55:45.418854-06:00"
+    },
+    "pipeline_fast_overdue": {
+      "first_seen": "2026-03-16T11:13:51.634942-06:00",
+      "times_seen": 2,
+      "severity": "HIGH",
+      "last_seen": "2026-03-17T04:28:12.673518-06:00"
+    },
+    "pipeline_standard_overdue": {
+      "first_seen": "2026-03-16T11:13:51.634959-06:00",
+      "times_seen": 2,
+      "severity": "HIGH",
+      "last_seen": "2026-03-17T04:28:12.673525-06:00"
+    },
+    "integration_sparse_skills": {
+      "first_seen": "2026-03-17T05:07:24.342968-06:00",
+      "times_seen": 1,
+      "severity": "MEDIUM",
+      "last_seen": "2026-03-17T05:07:24.343602-06:00"
     }
   },
   "last_actions": {
-    "run_research": 1773217514.4119923
+    "run_research": 1773752145.417855,
+    "run_validation": 1773745644.1136932
   },
   "learnings": []
 }

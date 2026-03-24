@@ -1,4 +1,4 @@
-# Digital Labour Moderate-Frequency Orchestration Runner
+# Bit Rage Systems Moderate-Frequency Orchestration Runner
 # Runs orchestration cycles every 10 minutes for balanced monitoring
 
 param(
@@ -9,7 +9,7 @@ param(
 $IntervalSeconds = $IntervalMinutes * 60
 $CycleCount = 0
 
-Write-Host "🔄 Digital Labour MODERATE-FREQUENCY Orchestration Runner" -ForegroundColor Cyan
+Write-Host "🔄 Bit Rage Systems MODERATE-FREQUENCY Orchestration Runner" -ForegroundColor Cyan
 Write-Host "Interval: $IntervalMinutes minutes ($IntervalSeconds seconds)" -ForegroundColor Green
 Write-Host "📊 Balanced monitoring - good for active development" -ForegroundColor Blue
 Write-Host "Press Ctrl+C to stop"

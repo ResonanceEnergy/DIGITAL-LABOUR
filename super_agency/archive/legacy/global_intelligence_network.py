@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Global Intelligence Network for DIGITAL LABOUR
+Global Intelligence Network for Super Agency
 Implements worldwide data integration, intelligence aggregation,
 and global monitoring capabilities.
 

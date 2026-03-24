@@ -1,5 +1,5 @@
-# COLD EMAIL SEQUENCES — By ICP
-## DIGITAL LABOUR — Ready to Send
+﻿# COLD EMAIL SEQUENCES — By ICP
+## BIT RAGE SYSTEMS — Ready to Send
 
 ---
 

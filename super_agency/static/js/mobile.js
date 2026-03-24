@@ -1,4 +1,4 @@
-// DIGITAL LABOUR Mobile JavaScript
+// Super Agency Mobile JavaScript
 // Touch interactions, PWA features, and real-time updates
 
 class MobileCommandCenter {
@@ -264,4 +264,4 @@ if ('serviceWorker' in navigator) {
         window.location.reload();
     });
 }</content>
-<parameter name="filePath">C:/Dev/DIGITAL-LABOUR/static/js/mobile.js
+<parameter name="filePath">C:/Dev/SuperAgency-Shared/static/js/mobile.js

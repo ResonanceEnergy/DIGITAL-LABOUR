@@ -54,7 +54,7 @@ Provide a JSON response with:
 - action_items: array of actionable items
 - confidence: low/medium/high
 - doctrine_map: { principles: [...], themes: [...]} 
-- provenance: { ingested_at: timestamp, initiator: 'DIGITAL LABOUR Pipeline'} 
+- provenance: { ingested_at: timestamp, initiator: 'Bit Rage Systems Pipeline'} 
 
 JSON only, no markdown:
 '''
@@ -97,7 +97,7 @@ JSON only, no markdown:
                     },
                     'provenance': {
                         'ingested_at': datetime.now().isoformat(),
-                        'initiator': 'DIGITAL LABOUR Pipeline'
+                        'initiator': 'Bit Rage Systems Pipeline'
                     }
                 }
         else:
@@ -120,7 +120,7 @@ JSON only, no markdown:
             },
             'provenance': {
                 'ingested_at': datetime.now().isoformat(),
-                'initiator': 'DIGITAL LABOUR Pipeline'
+                'initiator': 'Bit Rage Systems Pipeline'
             }
         }
 

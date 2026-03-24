@@ -1,7 +1,7 @@
-# REPO DEPOT - DIGITAL LABOUR AI Development Hub
+# REPO DEPOT - SuperAgency AI Development Hub
 
 ## Overview
-REPO DEPOT is DIGITAL LABOUR's AI-orchestrated software factory, managed by AGENT G (GASKET). This hub contains three core projects that form the foundation of our autonomous development ecosystem.
+REPO DEPOT is SuperAgency's AI-orchestrated software factory, managed by AGENT G (GASKET). This hub contains three core projects that form the foundation of our autonomous development ecosystem.
 
 ## AGENT G (GASKET) - Project Manager
 AGENT G (GASKET) is the dedicated AI agent responsible for:
@@ -21,7 +21,7 @@ AGENT G (GASKET) is the dedicated AI agent responsible for:
 
 ### 2. Core Project (`/core/`)
 **Focus**: System Infrastructure and Services
-- Fundamental DIGITAL LABOUR architecture
+- Fundamental SuperAgency architecture
 - Core utilities and shared services
 - Infrastructure automation and scaling
 - System reliability and fault tolerance
@@ -50,7 +50,7 @@ AGENT G (GASKET) is the dedicated AI agent responsible for:
 - **OpenClaw**: Advanced AI capabilities and agent management
 - **Matrix Maximizer**: Resource optimization and performance tuning
 - **Galactic ROM**: Long-term knowledge storage and retrieval
-- **DIGITAL LABOUR ecosystem**: Full integration with existing systems
+- **SuperAgency Ecosystem**: Full integration with existing systems
 
 ## Getting Started
 AGENT G (GASKET) manages all development activities. To contribute or request features:
@@ -60,4 +60,4 @@ AGENT G (GASKET) manages all development activities. To contribute or request fe
 4. Successful deployments feed back into the flywheel for continuous improvement
 
 ---
-*Managed by AGENT G (GASKET) - DIGITAL LABOUR's AI Development Coordinator*
+*Managed by AGENT G (GASKET) - SuperAgency's AI Development Coordinator*

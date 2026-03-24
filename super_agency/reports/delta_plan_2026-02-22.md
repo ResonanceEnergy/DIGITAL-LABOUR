@@ -1,4 +1,4 @@
-# Delta Plan — Digital-Labour
+# Delta Plan — Super-Agency
 
 **Time:** 2026-02-22T23:43:26.997086-07:00
 **HEAD:** 44e497b5bab359cfa3f54c80a5c52b6b6b343ca4

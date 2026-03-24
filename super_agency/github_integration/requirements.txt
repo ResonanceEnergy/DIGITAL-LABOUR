@@ -1,4 +1,4 @@
-# DIGITAL LABOUR GitHub Integration Requirements
+# Super Agency GitHub Integration Requirements
 
 ## Core Dependencies
 requests>=2.28.0

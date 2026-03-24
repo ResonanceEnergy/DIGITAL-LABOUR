@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-MATRIX MAXIMIZER - DIGITAL LABOUR UI/XI (User Interface/Experience Interface)
-Advanced monitoring, intervention, and orchestration platform for the DIGITAL LABOUR
+MATRIX MAXIMIZER - Bit Rage Systems UI/XI (User Interface/Experience Interface)
+Advanced monitoring, intervention, and orchestration platform for the Bit Rage Systems
 
 Version: 5.0.0
 Features:
@@ -16,7 +16,7 @@ Features:
 """
 
 __version__ = "5.0.0"
-__author__ = "DIGITAL LABOUR"
+__author__ = "Bit Rage Systems"
 __status__ = "Production"
 
 import json
@@ -193,7 +193,7 @@ class MatrixMaximizer:
         self.zdl.save_state(state, checkpoint=checkpoint)
 
     def _initialize_data_collection(self):
-        """Initialize data collection from all DIGITAL LABOUR components"""
+        """Initialize data collection from all Bit Rage Systems components"""
         self.metrics_store = {
             "timestamp": datetime.now().isoformat(),
             "system": self._collect_system_metrics(),
@@ -236,7 +236,7 @@ class MatrixMaximizer:
             return {}
 
     def _collect_agent_metrics(self) -> Dict[str, Any]:
-        """Collect metrics from all DIGITAL LABOUR agents"""
+        """Collect metrics from all Bit Rage Systems agents"""
         agents = {}
 
         # Core agents
@@ -533,38 +533,38 @@ class MatrixMaximizer:
 
             # System metrics (real via psutil)
             sys_m = self.metrics_store.get("system", {})
-            _gauge("digitallabour_cpu_percent", "CPU usage percent",
+            _gauge("superagency_cpu_percent", "CPU usage percent",
                    sys_m.get("cpu_percent", 0))
             mem = sys_m.get("memory", {})
-            _gauge("DIGITAL LABOUR_memory_used_bytes",
+            _gauge("superagency_memory_used_bytes",
                    "Memory used bytes", mem.get("used", 0))
-            _gauge("DIGITAL LABOUR_memory_percent",
+            _gauge("superagency_memory_percent",
                    "Memory usage percent", mem.get("percent", 0))
             disk = sys_m.get("disk", {})
-            _gauge("DIGITAL LABOUR_disk_used_bytes",
+            _gauge("superagency_disk_used_bytes",
                    "Disk used bytes", disk.get("used", 0))
-            _gauge("DIGITAL LABOUR_disk_percent",
+            _gauge("superagency_disk_percent",
                    "Disk usage percent", disk.get("percent", 0))
 
             # Agent counts
             agents = self.metrics_store.get("agents", {})
             active = sum(1 for a in agents.values()
                          if a.get("status") == "active")
-            _gauge("DIGITAL LABOUR_agents_total", "Total agents", len(agents))
-            _gauge("DIGITAL LABOUR_agents_active", "Active agents", active)
+            _gauge("superagency_agents_total", "Total agents", len(agents))
+            _gauge("superagency_agents_active", "Active agents", active)
 
             # Health score
-            _gauge("DIGITAL LABOUR_health_score", "Overall system health 0-100",
+            _gauge("superagency_health_score", "Overall system health 0-100",
                    self._calculate_system_health())
 
             # Memory health score
             try:
                 from memory_blank_detector import detect_blanks
                 mem_report = detect_blanks()
-                _gauge("DIGITAL LABOUR_memory_health_score",
+                _gauge("superagency_memory_health_score",
                        "Memory subsystem health 0-100", mem_report.get("score", 0))
                 _gauge(
-                    "DIGITAL LABOUR_memory_backup_count",
+                    "superagency_memory_backup_count",
                     "Number of memory backup snapshots", mem_report.get(
                         "backup_count", 0))
             except Exception:
@@ -576,10 +576,10 @@ class MatrixMaximizer:
                 for cb in all_breaker_stats():
                     state_val = {"CLOSED": 0, "HALF_OPEN": 1,
                         "OPEN": 2}.get(cb["state"], -1)
-                    _gauge("DIGITAL LABOUR_circuit_breaker_state",
+                    _gauge("superagency_circuit_breaker_state",
                            "Circuit breaker state (0=closed,1=half,2=open)",
                            state_val, labels={"name": cb["name"]})
-                    _gauge("DIGITAL LABOUR_circuit_breaker_failures",
+                    _gauge("superagency_circuit_breaker_failures",
                            "Total failures", cb["total_failures"],
                            labels={"name": cb["name"]})
             except Exception:
@@ -1275,7 +1275,7 @@ class MatrixMaximizer:
             f"Starting MATRIX MAXIMIZER v{__version__} on {host}:{port}")
         logger.info("Advanced monitoring and intervention platform active")
         logger.info(
-            "Real-time metrics aggregation from all DIGITAL LABOUR agents")
+            "Real-time metrics aggregation from all Bit Rage Systems agents")
         logger.info("Intervention capabilities enabled")
         logger.info("Zero Data Loss persistence active")
 

@@ -1,8 +1,8 @@
 @echo off
-REM Digital Labour CPU Regulator & Task Manager Launcher
+REM Bit Rage Systems CPU Regulator & Task Manager Launcher
 REM Launches the CPU regulator and task manager in the background
 
-echo 🚀 Starting Digital Labour CPU Regulator & Task Manager...
+echo 🚀 Starting Bit Rage Systems CPU Regulator & Task Manager...
 echo.
 
 REM Change to the script directory

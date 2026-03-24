@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-System Integrations — NCC, NCL, AAC, DIGITAL LABOUR.
+System Integrations — NCC, NCL, AAC, Digital Labour.
 
-Bridges the four core subsystems into the DIGITAL LABOUR
+Bridges the four core subsystems into the Bit Rage Systems
 orchestrator pipeline and message bus.
 
 Usage::
@@ -30,7 +30,7 @@ from agents.common import (  # noqa: E402
 )
 
 REPORTS_DIR = ROOT / "reports" / "integrations"
-LABOUR_DB = ROOT / "reports" / "bit_rage_labour"
+LABOUR_DB = ROOT / "reports" / "digital_labour"
 ensure_dir(REPORTS_DIR)
 ensure_dir(LABOUR_DB)
 
@@ -341,7 +341,7 @@ def aac_sync() -> dict[str, Any]:
     return result
 
 
-# ── DIGITAL LABOUR ───────────────────────────────────────────
+# ── Digital Labour ───────────────────────────────────────────
 
 def _load_mandates() -> dict[str, Any]:
     """Load agent mandates."""
@@ -369,10 +369,10 @@ def _load_protocols() -> dict[str, Any]:
     return {}
 
 
-def bit_rage_labour_status() -> dict[str, Any]:
-    """Track DIGITAL LABOUR force status."""
+def digital_labour_status() -> dict[str, Any]:
+    """Track digital labour force status."""
     result: dict[str, Any] = {
-        "system": "BitRageLabour",
+        "system": "DigitalLabour",
         "status": "unknown",
         "checked_at": now_iso(),
         "workforce": {},
@@ -451,9 +451,9 @@ def bit_rage_labour_status() -> dict[str, Any]:
     return result
 
 
-def bit_rage_labour_sync() -> dict[str, Any]:
-    """Sync DIGITAL LABOUR metrics and write report."""
-    status = bit_rage_labour_status()
+def digital_labour_sync() -> dict[str, Any]:
+    """Sync digital labour metrics and write report."""
+    status = digital_labour_status()
 
     report_file = LABOUR_DB / "labour_report_latest.json"
     report_file.write_text(
@@ -470,7 +470,7 @@ def bit_rage_labour_sync() -> dict[str, Any]:
             encoding="utf-8",
         )
 
-    _emit("bit_rage_labour.sync.done", {
+    _emit("digital_labour.sync.done", {
         "repos": status["workforce"].get(
             "managed_repos", 0,
         ),
@@ -480,7 +480,7 @@ def bit_rage_labour_sync() -> dict[str, Any]:
     })
 
     return {
-        "system": "BitRageLabour",
+        "system": "DigitalLabour",
         "action": "sync",
         "synced_at": now_iso(),
         "status": "synced",
@@ -496,7 +496,7 @@ def full_status() -> dict[str, Any]:
         "ncc": ncc_health_check(),
         "ncl": ncl_health_check(),
         "aac": aac_health_check(),
-        "bit_rage_labour": bit_rage_labour_status(),
+        "digital_labour": digital_labour_status(),
         "checked_at": now_iso(),
     }
 
@@ -510,7 +510,7 @@ def full_sync() -> dict[str, Any]:
         "ncc": ncc_sync(),
         "ncl": ncl_sync(),
         "aac": aac_sync(),
-        "bit_rage_labour": bit_rage_labour_sync(),
+        "digital_labour": digital_labour_sync(),
         "synced_at": now_iso(),
         "elapsed_seconds": 0.0,
     }

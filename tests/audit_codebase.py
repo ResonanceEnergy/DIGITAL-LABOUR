@@ -1,4 +1,4 @@
-"""Codebase audit — finds errors, warnings, gaps, and stubs."""
+﻿"""Codebase audit — finds errors, warnings, gaps, and stubs."""
 import os
 import ast
 import json
@@ -127,7 +127,7 @@ def main():
 
     # Report
     print("=" * 70)
-    print("  DIGITAL LABOUR — CODEBASE AUDIT")
+    print("  BIT RAGE SYSTEMS — CODEBASE AUDIT")
     print("=" * 70)
     print(f"\n  Files: {stats['files']} | Lines: {stats['lines']:,} | Functions: {stats['functions']} | Classes: {stats['classes']}")
     print(f"\n  ERRORS:   {len(errors)}")

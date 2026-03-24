@@ -1,4 +1,4 @@
-# Cross-Platform Digital Labour .gitignore
+# Cross-Platform Bit Rage Systems .gitignore
 # Optimized for macOS (Quantum Quasar) ↔ Windows (QUANTUM FORGE) development
 
 # Python
@@ -185,8 +185,8 @@ _venv_old_requirements.txt
 _venv_backup_requirements.txt
 
 # Embedded git repos (clones inside workspace)
-Digital-Labour/
-Digital Labour/
+Super-Agency/
+Super Agency/
 openclaw/
 openclaw-workspace/
 
@@ -222,3 +222,13 @@ youtube_intelligence_data/
 *_report_2026*.md
 integration_test_report.json
 .openclaw/
+
+# Auto-generated runtime artifacts
+proposals/
+reports/research_intelligence/
+reports/alignment/
+reports/learning/
+reports/intelligence/
+reports/ideas/
+reports/research/
+reports/daily/

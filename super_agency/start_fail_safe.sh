@@ -1,11 +1,11 @@
 #!/bin/bash
-# DIGITAL LABOUR ULTIMATE FAIL-SAFE STARTUP SCRIPT
+# Bit Rage Systems ULTIMATE FAIL-SAFE STARTUP SCRIPT
 # Launches the watchdog service for 24/7/365 operation
 # This script ensures the entire agency remains online forever
 
 echo
 echo "==============================================="
-echo " 🚀 DIGITAL LABOUR ULTIMATE FAIL-SAFE STARTUP"
+echo " 🚀 Bit Rage Systems ULTIMATE FAIL-SAFE STARTUP"
 echo "==============================================="
 echo
 

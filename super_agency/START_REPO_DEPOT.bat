@@ -6,7 +6,7 @@ REM CRITICAL INFRASTRUCTURE - 24/7/365 OPERATION
 REM Run this to ensure Repo Depot is always alive
 REM ============================================
 
-cd /d "C:\Dev\DIGITAL LABOUR-Shared"
+cd /d "C:\Dev\SuperAgency-Shared"
 
 echo ============================================
 echo   REPO DEPOT FAILSAFE STARTUP
