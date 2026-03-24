@@ -45,7 +45,9 @@ from automation.decision_log import log_decision, log_escalation, decision_summa
 from automation.self_check import run_full_check, find_gaps, heal_issues
 from utils.dl_agent import set_active_client, clear_active_client
 
-STATE_FILE = PROJECT_ROOT / "data" / "nerve_state.json"
+STATE_FILE  = PROJECT_ROOT / "data" / "nerve_state.json"
+PID_FILE    = PROJECT_ROOT / "data" / "nerve.pid"
+STOP_SIGNAL = PROJECT_ROOT / "data" / "nerve_stop.flag"
 LOG_DIR = PROJECT_ROOT / "data" / "nerve_logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -769,12 +771,18 @@ def daemon_loop():
     if hasattr(signal, "SIGBREAK"):  # Windows
         signal.signal(signal.SIGBREAK, _handle_shutdown)
 
+    # Write PID file so watchdog/scripts can find us reliably
+    PID_FILE.parent.mkdir(parents=True, exist_ok=True)
+    PID_FILE.write_text(str(os.getpid()), encoding="utf-8")
+    # Clear any stale stop signal from a previous run
+    STOP_SIGNAL.unlink(missing_ok=True)
+
     logger.info(f"\n{'#'*70}")
-    logger.info(f"  NERVE DAEMON ONLINE")
+    logger.info(f"  NERVE DAEMON ONLINE  (PID {os.getpid()})")
     logger.info(f"  Nexus Engine for Resilient Vigilant Execution")
     logger.info(f"  Cycle interval: {CYCLE_INTERVAL_MINUTES} minutes")
     logger.info(f"  Outreach batch: {OUTREACH_BATCH_SIZE} leads/cycle")
-    logger.info(f"  Graceful shutdown: SIGTERM/SIGINT/Ctrl+C")
+    logger.info(f"  Graceful shutdown: SIGTERM/SIGINT/Ctrl+C | stop flag: {STOP_SIGNAL.name}")
     logger.info(f"{'#'*70}")
 
     log_decision(
@@ -833,11 +841,16 @@ def daemon_loop():
         if _shutdown_requested:
             break
 
-        # Interruptible wait for next cycle
+        # Interruptible wait for next cycle — also watches for stop-flag file
         logger.info(f"\n[NERVE] Next cycle in {CYCLE_INTERVAL_MINUTES} minutes...")
         wait_seconds = CYCLE_INTERVAL_MINUTES * 60
         for _ in range(wait_seconds):
             if _shutdown_requested:
+                break
+            if STOP_SIGNAL.exists():
+                logger.info("[NERVE] Stop flag detected — shutting down.")
+                STOP_SIGNAL.unlink(missing_ok=True)
+                _shutdown_requested = True
                 break
             time.sleep(1)
 
@@ -850,6 +863,30 @@ def daemon_loop():
         outcome="Clean shutdown",
     )
     logger.info(f"[NERVE] Goodbye.")
+    PID_FILE.unlink(missing_ok=True)
+
+
+# ── Stop Helper ────────────────────────────────────────────────
+
+def stop_daemon():
+    """Write stop flag and optionally SIGTERM the running daemon."""
+    STOP_SIGNAL.parent.mkdir(parents=True, exist_ok=True)
+    STOP_SIGNAL.write_text(datetime.now(timezone.utc).isoformat(), encoding="utf-8")
+    pid = None
+    if PID_FILE.exists():
+        try:
+            pid = int(PID_FILE.read_text().strip())
+            os.kill(pid, 0)  # check alive
+        except (OSError, ValueError):
+            pid = None
+    if pid:
+        try:
+            os.kill(pid, signal.SIGTERM)
+            print(f"SIGTERM sent to NERVE PID {pid}. Will stop after the current phase.")
+        except OSError as e:
+            print(f"Could not signal PID {pid}: {e}")
+    else:
+        print("NERVE does not appear to be running — stop flag written anyway.")
 
 
 # ── Status Display ─────────────────────────────────────────────
@@ -896,13 +933,16 @@ def show_decisions(limit: int = 20):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="NERVE — Autonomous DIGITAL LABOUR daemon")
-    parser.add_argument("--daemon", action="store_true", help="Run 24/7 daemon mode")
-    parser.add_argument("--status", action="store_true", help="Show NERVE status")
+    parser.add_argument("--daemon",    action="store_true", help="Run 24/7 daemon mode")
+    parser.add_argument("--stop",      action="store_true", help="Gracefully stop running daemon")
+    parser.add_argument("--status",    action="store_true", help="Show NERVE status")
     parser.add_argument("--decisions", action="store_true", help="Show recent decisions")
-    parser.add_argument("--cycle", action="store_true", help="Run single cycle")
+    parser.add_argument("--cycle",     action="store_true", help="Run single cycle")
     args = parser.parse_args()
 
-    if args.status:
+    if args.stop:
+        stop_daemon()
+    elif args.status:
         show_status()
     elif args.decisions:
         show_decisions()
