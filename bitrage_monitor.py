@@ -593,24 +593,50 @@ def _c2_run_proposals(target=""):
 
 
 def _c2_watchdog_stop(target=""):
-    stop_flag = PROJECT_ROOT / "data" / "watchdog_stop.flag"
+    """Stop the NERVE daemon gracefully (writes stop flag + SIGTERM)."""
+    import signal as _sig
+    stop_flag = PROJECT_ROOT / "data" / "nerve_stop.flag"
     stop_flag.parent.mkdir(parents=True, exist_ok=True)
     stop_flag.write_text(datetime.now(timezone.utc).isoformat(), encoding="utf-8")
-    return {"status": "stop_signal_sent"}
+    pid_file = PROJECT_ROOT / "data" / "nerve.pid"
+    if pid_file.exists():
+        try:
+            pid = int(pid_file.read_text().strip())
+            os.kill(pid, _sig.SIGTERM)
+            return {"status": "stop_signal_sent", "nerve_pid": pid}
+        except (OSError, ValueError):
+            pass
+    return {"status": "stop_flag_written", "note": "no running NERVE PID found"}
 
 
 def _c2_watchdog_start(target=""):
-    stop_flag = PROJECT_ROOT / "data" / "watchdog_stop.flag"
+    """Start the NERVE daemon directly (no watchdog intermediary)."""
+    stop_flag = PROJECT_ROOT / "data" / "nerve_stop.flag"
     if stop_flag.exists():
         stop_flag.unlink()
+    # Check if already running
+    pid_file = PROJECT_ROOT / "data" / "nerve.pid"
+    if pid_file.exists():
+        try:
+            existing_pid = int(pid_file.read_text().strip())
+            os.kill(existing_pid, 0)
+            return {"status": "already_running", "nerve_pid": existing_pid}
+        except (OSError, ValueError):
+            pid_file.unlink(missing_ok=True)
+    _venv_python = PROJECT_ROOT / ".venv" / "Scripts" / "python.exe"
+    python_exe = str(_venv_python) if _venv_python.exists() else sys.executable
     import subprocess as sp
-    proc = sp.Popen(
-        [sys.executable, "-m", "automation.watchdog"],
-        cwd=str(PROJECT_ROOT),
-        creationflags=sp.CREATE_NEW_PROCESS_GROUP | sp.DETACHED_PROCESS if sys.platform == "win32" else 0,
-        stdout=sp.DEVNULL, stderr=sp.DEVNULL,
-    )
-    return {"status": "started", "pid": proc.pid}
+    nerve_log = PROJECT_ROOT / "data" / "nerve_logs" / "nerve_daemon.log"
+    nerve_log.parent.mkdir(parents=True, exist_ok=True)
+    flags = sp.CREATE_NEW_PROCESS_GROUP | sp.DETACHED_PROCESS if sys.platform == "win32" else 0
+    with open(nerve_log, "a", encoding="utf-8") as fh:
+        proc = sp.Popen(
+            [python_exe, "-m", "automation.nerve", "--daemon"],
+            cwd=str(PROJECT_ROOT),
+            creationflags=flags,
+            stdout=fh, stderr=fh,
+        )
+    return {"status": "started", "nerve_pid": proc.pid}
 
 
 def _c2_openclaw_cycle(target=""):
@@ -718,10 +744,30 @@ def _c2_unit_economics(target=""):
 
 
 def _c2_watchdog_status(target=""):
-    status_file = PROJECT_ROOT / "data" / "watchdog_status.json"
-    if status_file.exists():
-        return json.loads(status_file.read_text(encoding="utf-8"))
-    return {"status": "no watchdog data"}
+    """Return NERVE daemon status (PID file + nerve_state.json)."""
+    pid_file = PROJECT_ROOT / "data" / "nerve.pid"
+    state_file = PROJECT_ROOT / "data" / "nerve_state.json"
+    nerve_pid = None
+    nerve_alive = False
+    if pid_file.exists():
+        try:
+            nerve_pid = int(pid_file.read_text().strip())
+            os.kill(nerve_pid, 0)
+            nerve_alive = True
+        except (OSError, ValueError):
+            nerve_pid = None
+    state = {}
+    if state_file.exists():
+        try:
+            state = json.loads(state_file.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return {
+        "nerve_pid": nerve_pid,
+        "nerve_alive": nerve_alive,
+        "supervisor": "Windows Task Scheduler (direct)",
+        **state,
+    }
 
 
 def _c2_ncc_status(target=""):
