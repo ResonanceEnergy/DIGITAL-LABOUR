@@ -16,5 +16,8 @@ build/
 
 # Temp files
 _*.py
+!_cdp_deploy.py
+!_upwork_deploy.py
+!_freelancer_deploy.py
 _*.txt
 robocopy_sa_sync.log
