@@ -21,3 +21,9 @@ _*.py
 !_freelancer_deploy.py
 _*.txt
 robocopy_sa_sync.log
+
+# State/cache files (orphaned 2026-03-24)
+.ralphy/progress.txt
+data/platform_browser/
+super_agency/state/
+super_agency/knowledge/secondbrain/
