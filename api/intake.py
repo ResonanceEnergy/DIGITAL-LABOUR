@@ -36,6 +36,7 @@ from api.payments import router as payment_router
 from api.matrix_monitor import router as matrix_router
 from api.openclaw import router as openclaw_router
 from api.lead_magnet import router as lead_router
+from api.freelance import router as freelance_router
 
 # P6.3 — Credential TTL check on startup
 try:
@@ -124,6 +125,9 @@ app.include_router(openclaw_router)
 
 # Lead Magnet — Inbound lead capture + free demo
 app.include_router(lead_router)
+
+# Freelance Engine — Job hunt, bidding, delivery automation
+app.include_router(freelance_router)
 
 
 @app.get("/ops", response_class=HTMLResponse)

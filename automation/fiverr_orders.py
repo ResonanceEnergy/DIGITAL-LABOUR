@@ -438,6 +438,137 @@ def send_message(page, order_url: str, message: str) -> bool:
     return sent
 
 
+# ── Order → Agent Dispatch ──────────────────────────────────────────────────
+
+def dispatch_order(page, order: dict) -> dict:
+    """Full pipeline: read requirements → route to agent → generate delivery → deliver.
+
+    Args:
+        page: Playwright page object (already launched).
+        order: Order dict from check_orders() with title, url, agent, status.
+
+    Returns:
+        Dispatch result dict with agent output and delivery status.
+    """
+    result = {
+        "order": order,
+        "requirements": {},
+        "agent_output": {},
+        "delivered": False,
+        "dispatched_at": datetime.now(timezone.utc).isoformat(),
+    }
+
+    order_url = order.get("url", "")
+    if not order_url:
+        result["error"] = "No order URL"
+        return result
+
+    # Step 1: Read buyer requirements
+    print(f"\n[DISPATCH] Processing: {order.get('title', '')[:50]}")
+    reqs = read_order_requirements(page, order_url)
+    result["requirements"] = reqs
+
+    requirement_text = reqs.get("requirements_text", "")
+    gig_title = order.get("title", "")
+    agent_name = order.get("agent", _match_agent(gig_title))
+
+    # Step 2: Route to internal agent for content generation
+    print(f"  Agent: {agent_name} | Generating delivery...")
+    try:
+        from agents.fiverr_work.runner import run_pipeline, save_output
+        agent_result = run_pipeline(
+            action="deliver",
+            order_data={
+                "gig_title": gig_title,
+                "requirements": requirement_text,
+                "buyer": order.get("buyer", ""),
+                "due_date": order.get("due", ""),
+            },
+            provider="openai",
+        )
+        result["agent_output"] = agent_result.model_dump()
+        output_path = save_output(agent_result)
+        result["output_file"] = str(output_path)
+
+        qa_status = agent_result.qa.status if agent_result.qa else "UNKNOWN"
+        print(f"  QA: {qa_status} | Output: {output_path.name}")
+
+        # Step 3: Deliver if QA passed
+        if qa_status == "PASS":
+            delivery_msg = agent_result.delivery.message if agent_result.delivery else ""
+            if delivery_msg and order_url:
+                delivered = deliver_order(page, order_url, [], delivery_msg)
+                result["delivered"] = delivered
+                if delivered:
+                    print(f"  [SUCCESS] Order delivered via agent {agent_name}")
+                    _log_entry(DELIVERY_LOG, {
+                        "order_url": order_url,
+                        "agent": agent_name,
+                        "qa_status": qa_status,
+                        "dispatched_at": result["dispatched_at"],
+                        "auto_delivered": True,
+                    })
+        else:
+            print(f"  [HOLD] QA {qa_status} — holding for manual review")
+            result["hold_reason"] = f"QA status: {qa_status}"
+
+    except Exception as e:
+        result["error"] = str(e)
+        print(f"  [ERROR] Agent dispatch failed: {e}")
+
+    return result
+
+
+def process_all_orders(page) -> list[dict]:
+    """Check for new/active orders and auto-dispatch each through the agent pipeline."""
+    orders = check_orders(page)
+    results = []
+
+    actionable = [
+        o for o in orders
+        if o.get("status", "").lower() in ("new", "active", "in progress")
+        and o.get("url")
+    ]
+    print(f"\n[AUTO-DISPATCH] {len(actionable)} actionable orders out of {len(orders)} total")
+
+    for order in actionable:
+        result = dispatch_order(page, order)
+        results.append(result)
+
+    delivered = sum(1 for r in results if r.get("delivered"))
+    held = sum(1 for r in results if r.get("hold_reason"))
+    errors = sum(1 for r in results if r.get("error"))
+    print(f"\n[SUMMARY] Delivered: {delivered} | Held: {held} | Errors: {errors}")
+    return results
+
+
+def respond_to_buyer_requests(page, max_responses: int = 5) -> list[dict]:
+    """Scan buyer requests → generate LLM responses → submit."""
+    requests = scan_buyer_requests(page, max_responses=max_responses)
+    results = []
+
+    for req in requests[:max_responses]:
+        try:
+            from agents.fiverr_work.runner import run_pipeline
+            agent_result = run_pipeline(
+                action="buyer-request",
+                request_data=req,
+                provider="openai",
+            )
+            qa_status = agent_result.qa.status if agent_result.qa else "UNKNOWN"
+            results.append({
+                "request": req,
+                "response": agent_result.buyer_request.response_text if agent_result.buyer_request else "",
+                "qa": qa_status,
+                "submitted": False,  # Fiverr BR submission requires form interaction
+            })
+            print(f"  [RESPONSE] {req.get('title', '')[:40]} -> QA: {qa_status}")
+        except Exception as e:
+            results.append({"request": req, "error": str(e)})
+
+    return results
+
+
 # ── Status Dashboard ────────────────────────────────────────────────────────
 
 def show_status():
@@ -478,7 +609,8 @@ def show_status():
 def main():
     parser = argparse.ArgumentParser(description="Fiverr Order Manager")
     parser.add_argument("--action", required=True,
-                        choices=["check", "deliver", "buyer-requests", "inbox", "send", "status"],
+                        choices=["check", "deliver", "buyer-requests", "inbox", "send", "status",
+                                 "dispatch", "auto", "respond-br"],
                         help="Action to perform")
     parser.add_argument("--order-url", help="Fiverr order URL")
     parser.add_argument("--message", help="Message text")
@@ -518,6 +650,19 @@ def main():
                 print("[ERROR] --order-url and --message required")
                 return
             send_message(page, args.order_url, args.message)
+
+        elif args.action == "dispatch":
+            if not args.order_url:
+                print("[ERROR] --order-url required")
+                return
+            order = {"title": "Manual dispatch", "url": args.order_url, "status": "active"}
+            dispatch_order(page, order)
+
+        elif args.action == "auto":
+            process_all_orders(page)
+
+        elif args.action == "respond-br":
+            respond_to_buyer_requests(page)
 
         print("\n[DONE] Leaving browser open for manual inspection.")
         input("Press Enter to close browser...")
