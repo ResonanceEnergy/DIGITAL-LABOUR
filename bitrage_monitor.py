@@ -25,6 +25,14 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+# ── pythonw.exe guard — redirect None streams to devnull ───────
+if sys.stdout is None:
+    sys.stdout = open(os.devnull, "w")  # noqa: SIM115
+if sys.stderr is None:
+    sys.stderr = open(os.devnull, "w")  # noqa: SIM115
+if sys.stdin is None:
+    sys.stdin = open(os.devnull, "r")  # noqa: SIM115
+
 # ── UTF-8 stdout fix for Windows ───────────────────────────────
 import io
 if sys.stdout and hasattr(sys.stdout, 'encoding') and sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
@@ -958,7 +966,12 @@ def main():
     elif args.live:
         live_dashboard(args.interval)
     else:
-        interactive_monitor()
+        # If stdin is not a real TTY (e.g. launched via pythonw.exe hidden),
+        # fall back to non-interactive live dashboard instead of input() loop.
+        if not sys.stdin.isatty():
+            live_dashboard(args.interval)
+        else:
+            interactive_monitor()
 
 
 if __name__ == "__main__":
