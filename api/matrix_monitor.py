@@ -7,6 +7,7 @@ Mounted as /matrix on the main FastAPI app.
 import json
 import os
 import signal
+import sqlite3
 import subprocess
 import sys
 from datetime import datetime, timezone, timedelta
@@ -63,7 +64,7 @@ router = APIRouter(prefix="/matrix", tags=["matrix-monitor"])
 
 DATA_DIR = PROJECT_ROOT / "data"
 DAEMON_PIDS = DATA_DIR / "daemon_pids.json"
-DECISION_LOG = DATA_DIR / "matrix_decisions.json"
+DECISION_DB = DATA_DIR / "matrix_decisions.db"
 ALERT_CONFIG = DATA_DIR / "matrix_alerts.json"
 
 
@@ -485,13 +486,49 @@ def _csuite_status() -> dict:
     return result
 
 
+def _init_decisions_db():
+    """Ensure the matrix_decisions SQLite table exists."""
+    DECISION_DB.parent.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(str(DECISION_DB))
+    conn.execute(
+        "CREATE TABLE IF NOT EXISTS decisions ("
+        "  id INTEGER PRIMARY KEY AUTOINCREMENT,"
+        "  timestamp TEXT NOT NULL,"
+        "  action TEXT NOT NULL,"
+        "  target TEXT,"
+        "  reason TEXT,"
+        "  operator TEXT,"
+        "  result TEXT"
+        ")"
+    )
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_decisions_ts ON decisions(timestamp)")
+    conn.commit()
+    conn.close()
+
+
+_init_decisions_db()
+
+
 def _recent_decisions(limit: int = 10) -> list[dict]:
-    """Load recent C2 decisions."""
-    if not DECISION_LOG.exists():
-        return []
+    """Load recent C2 decisions from SQLite."""
     try:
-        entries = json.loads(DECISION_LOG.read_text(encoding="utf-8"))
-        return entries[-limit:]
+        conn = sqlite3.connect(str(DECISION_DB))
+        conn.row_factory = sqlite3.Row
+        rows = conn.execute(
+            "SELECT timestamp, action, target, reason, operator, result "
+            "FROM decisions ORDER BY id DESC LIMIT ?", (limit,)
+        ).fetchall()
+        conn.close()
+        result = []
+        for r in rows:
+            entry = dict(r)
+            try:
+                entry["result"] = json.loads(entry["result"]) if entry["result"] else {}
+            except (json.JSONDecodeError, TypeError):
+                pass
+            result.append(entry)
+        result.reverse()  # oldest first
+        return result
     except Exception:
         return []
 
@@ -520,27 +557,19 @@ def _pending_alerts() -> list[dict]:
 
 
 def _log_decision(cmd: C2Command, result: dict, timestamp: str):
-    """Persist a C2 decision."""
-    DECISION_LOG.parent.mkdir(parents=True, exist_ok=True)
-    entries = []
-    if DECISION_LOG.exists():
-        try:
-            entries = json.loads(DECISION_LOG.read_text(encoding="utf-8"))
-        except Exception:
-            entries = []
-
-    entries.append({
-        "timestamp": timestamp,
-        "action": cmd.action,
-        "target": cmd.target,
-        "reason": cmd.reason,
-        "operator": cmd.operator,
-        "result": result,
-    })
-
-    # Keep last 500
-    entries = entries[-500:]
-    DECISION_LOG.write_text(json.dumps(entries, indent=2), encoding="utf-8")
+    """Persist a C2 decision to SQLite."""
+    try:
+        conn = sqlite3.connect(str(DECISION_DB))
+        conn.execute(
+            "INSERT INTO decisions (timestamp, action, target, reason, operator, result) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
+            (timestamp, cmd.action, cmd.target, cmd.reason, cmd.operator,
+             json.dumps(result, default=str)),
+        )
+        conn.commit()
+        conn.close()
+    except Exception:
+        pass  # best-effort logging
 
 
 # ── C2 Action Handlers ─────────────────────────────────────────────────────

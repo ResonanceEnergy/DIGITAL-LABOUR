@@ -166,10 +166,25 @@ def run_cycle() -> dict:
             reasoning=f"Cycle #{cycle_num} self-check",
             outcome=f"System {status}, {issue_count} issues found",
         )
+        if status == "RED":
+            log_escalation(
+                source="NERVE",
+                issue=f"Cycle #{cycle_num} self-check returned RED — {issue_count} issues",
+                severity="HIGH",
+                recommended_action="Review self-check report and resolve issues",
+            )
+            cycle_report["escalations"] += 1
     except Exception as e:
         logger.error(f"  [ERROR] Self-check failed: {e}")
         check_report = {"checks": {}, "issues": [], "status": "UNKNOWN"}
         cycle_report["phases"]["self_check"] = {"status": "error", "error": str(e)}
+        log_escalation(
+            source="NERVE",
+            issue=f"Self-check crashed: {e}",
+            severity="HIGH",
+            recommended_action="Check self_check.py and dashboard.health imports",
+        )
+        cycle_report["escalations"] += 1
 
     # ── Phase 2: Gap Analysis & Auto-Heal ──────────────────────
     logger.info(f"\n[PHASE 2] Gap Analysis & Auto-Heal...")
@@ -265,6 +280,13 @@ def run_cycle() -> dict:
             logger.warning("  SMTP auth broken — skipping outreach generation (would waste LLM tokens).")
             logger.warning("  Fix: update SMTP_PASS in .env with a valid Zoho app password.")
             cycle_report["phases"]["outreach"] = {"status": "smtp_auth_broken", "skipped": True}
+            log_escalation(
+                source="NERVE",
+                issue=f"Cycle #{cycle_num} — SMTP auth broken, outreach pipeline halted",
+                severity="CRITICAL",
+                recommended_action="Update SMTP_PASS in .env with valid Zoho app password",
+            )
+            cycle_report["escalations"] += 1
         else:
             prospects = load_prospects()
             if prospects:
@@ -357,6 +379,14 @@ def run_cycle() -> dict:
             "providers_up": len(providers),
             "queue": queue,
         }
+        if not providers:
+            log_escalation(
+                source="NERVE",
+                issue=f"Cycle #{cycle_num} — ZERO LLM providers available",
+                severity="CRITICAL",
+                recommended_action="Check API keys for OpenAI/Anthropic/Gemini/Grok in .env",
+            )
+            cycle_report["escalations"] += 1
     except Exception as e:
         logger.error(f"  [ERROR] Health snapshot failed: {e}")
 
@@ -496,6 +526,13 @@ def run_cycle() -> dict:
         logger.warning("  IMAP auth broken — skipping inbox processing.")
         logger.warning("  Fix: update IMAP_PASS / SMTP_PASS in .env with a valid Zoho app password.")
         cycle_report["phases"]["inbox"] = {"skipped": "IMAP auth broken"}
+        log_escalation(
+            source="NERVE",
+            issue=f"Cycle #{cycle_num} — IMAP auth broken, inbox sales response halted",
+            severity="CRITICAL",
+            recommended_action="Update IMAP_PASS in .env with valid Zoho app password",
+        )
+        cycle_report["escalations"] += 1
     else:
         try:
             # First: pull fresh emails from IMAP

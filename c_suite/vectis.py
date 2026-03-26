@@ -270,6 +270,7 @@ class VectisCOO:
 
         report = json.loads(raw)
         self._save(report)
+        self._enforce_grades(report)
         return report
 
     def ops_check(self) -> dict:
@@ -303,6 +304,31 @@ class VectisCOO:
         path = out_dir / f"vectis_{suffix}_{ts}.json"
         path.write_text(json.dumps(data, indent=2), encoding="utf-8")
         print(f"[VECTIS] {suffix.upper()} saved → {path.name}")
+
+    def _enforce_grades(self, report: dict):
+        """Auto-pause agents graded F. Auto-resume agents graded C or better."""
+        grades = report.get("agent_grades", {})
+        if not grades:
+            return
+
+        pause_file = PROJECT_ROOT / "data" / "paused_agents.json"
+        paused = json.loads(pause_file.read_text("utf-8")) if pause_file.exists() else []
+
+        changed = False
+        for agent_name, grade_data in grades.items():
+            grade = (grade_data.get("grade") or "").upper()
+            if grade == "F" and agent_name not in paused:
+                paused.append(agent_name)
+                changed = True
+                print(f"[VECTIS] Grade F → auto-paused '{agent_name}'")
+            elif grade in ("A", "B", "C") and agent_name in paused:
+                paused.remove(agent_name)
+                changed = True
+                print(f"[VECTIS] Grade {grade} → auto-resumed '{agent_name}'")
+
+        if changed:
+            pause_file.parent.mkdir(parents=True, exist_ok=True)
+            pause_file.write_text(json.dumps(paused), "utf-8")
 
 
 # ── CLI ─────────────────────────────────────────────────────────────────────

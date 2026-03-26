@@ -194,6 +194,16 @@ def show_status():
 def daemon_loop(interval_min: int = 30):
     """Continuous sync daemon."""
     print(f"[SYNC DAEMON] Starting — interval {interval_min}min")
+
+    # Reset schedule state on startup so overdue jobs run immediately
+    state = _load_state()
+    stale_keys = [k for k in state if k.startswith("last_") and _hours_since(state.get(k)) > 24]
+    if stale_keys:
+        for k in stale_keys:
+            state[k] = None
+        _save_state(state)
+        print(f"[SYNC DAEMON] Reset stale schedule keys: {', '.join(stale_keys)}")
+
     while True:
         try:
             ran = run_due_jobs()

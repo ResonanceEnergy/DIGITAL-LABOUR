@@ -188,11 +188,45 @@ def get_metrics() -> dict:
 
 # ── Event Creation ──────────────────────────────────────────────────────────
 
+# ── Intake Clarity Scoring (BRS Doctrine §7) ───────────────────────────────
+
+_MIN_INPUT_CHARS = 20  # Below this, input is too vague to produce quality output
+
+
+def _score_input_clarity(inputs: dict) -> tuple[float, list[str]]:
+    """Score input clarity 0.0–1.0.  Returns (score, list_of_issues)."""
+    issues: list[str] = []
+    text = json.dumps(inputs, default=str)
+    length = len(text)
+
+    if length < _MIN_INPUT_CHARS:
+        issues.append(f"Input too short ({length} chars < {_MIN_INPUT_CHARS})")
+
+    # Check for empty required-looking fields
+    empty_fields = [k for k, v in inputs.items() if isinstance(v, str) and not v.strip()]
+    if empty_fields:
+        issues.append(f"Empty fields: {', '.join(empty_fields)}")
+
+    # Penalise placeholder-sounding values
+    placeholders = {"test", "todo", "tbd", "xxx", "asdf", "lorem"}
+    for v in inputs.values():
+        if isinstance(v, str) and v.strip().lower() in placeholders:
+            issues.append(f"Placeholder value detected: '{v}'")
+
+    # Score: 1.0 = perfect, deduct 0.3 per issue
+    score = max(0.0, 1.0 - 0.3 * len(issues))
+    return round(score, 2), issues
+
+
 def create_event(task_type: str, inputs: dict, client_id: str = "direct") -> dict:
     if task_type not in DAILY_LIMITS:
         raise ValueError(f"Unknown task_type: {task_type!r}")
     lineage_id = str(uuid4())
-    return {
+
+    # ── Ambiguity detection at intake ─────────────────────────
+    clarity_score, clarity_issues = _score_input_clarity(inputs)
+
+    event = {
         "event_id": str(uuid4()),
         "lineage_id": lineage_id,
         "schema_version": "2.0",
@@ -221,7 +255,16 @@ def create_event(task_type: str, inputs: dict, client_id: str = "direct") -> dic
             "status": "unbilled",
         },
         "metrics": {"latency_ms": 0, "cost_estimate": 0, "tokens_used": 0},
+        "intake": {"clarity_score": clarity_score, "clarity_issues": clarity_issues},
     }
+
+    if clarity_score < 0.4:
+        event["qa"]["status"] = "FAIL"
+        event["qa"]["issues"] = clarity_issues
+        event["qa"]["failure_reason"] = "AMBIGUOUS_INPUT"
+        logger.warning("[INTAKE] Rejected %s — clarity %.1f: %s", task_type, clarity_score, clarity_issues)
+
+    return event
 
 
 # ── Cost Estimation ─────────────────────────────────────────────────────────
@@ -401,6 +444,10 @@ def route_task(event: dict) -> dict:
     inputs = event["inputs"]
     start = time.time()
 
+    # ── Reject events already failed at intake (ambiguous input) ──
+    if event["qa"].get("status") == "FAIL":
+        return _finalize_event(event, start, task_type)
+
     # ── Agent disabled check ──────────────────────────────────────
     if _registry_get(task_type, "disabled", False):
         event["qa"]["status"] = "FAIL"
@@ -408,6 +455,20 @@ def route_task(event: dict) -> dict:
         event["qa"]["failure_reason"] = "AGENT_DISABLED"
         logger.warning("[BLOCKED] Agent %s is disabled in registry", task_type)
         return _finalize_event(event, start, task_type)
+
+    # ── Agent paused check (VECTIS grade enforcement) ─────────
+    _paused_file = PROJECT_ROOT / "data" / "paused_agents.json"
+    if _paused_file.exists():
+        try:
+            _paused = json.loads(_paused_file.read_text(encoding="utf-8"))
+            if task_type in _paused:
+                event["qa"]["status"] = "FAIL"
+                event["qa"]["issues"] = [f"Agent '{task_type}' is paused (grade F)"]
+                event["qa"]["failure_reason"] = "AGENT_PAUSED"
+                logger.warning("[BLOCKED] Agent %s is paused by VECTIS grade enforcement", task_type)
+                return _finalize_event(event, start, task_type)
+        except Exception:
+            pass
 
     if not tracker.can_accept(task_type):
         event["qa"]["status"] = "FAIL"
@@ -918,6 +979,19 @@ def _finalize_event(event: dict, start: float, task_type: str, elapsed_ms: int |
     """Log, notify, and bill every task — success or failure. Fail closed."""
     if elapsed_ms is None:
         elapsed_ms = int((time.time() - start) * 1000)
+
+    # ── Post-execution cost ceiling enforcement ───────────────
+    actual_cost = event.get("metrics", {}).get("cost_estimate", 0.0)
+    ceiling = event.get("constraints", {}).get("cost_ceiling_usd", 0.50)
+    if actual_cost > ceiling and event["qa"].get("status") != "FAIL":
+        logger.warning(
+            "[CEILING-POST] %s actual cost $%.4f > ceiling $%.4f — flagging",
+            task_type, actual_cost, ceiling,
+        )
+        event["qa"]["issues"] = event["qa"].get("issues", []) + [
+            f"POST_EXEC_CEILING_BREACH: actual ${actual_cost:.4f} > ceiling ${ceiling:.4f}"
+        ]
+        event.setdefault("flags", []).append("cost_ceiling_breach")
 
     provider = event.get("inputs", {}).get("provider", "")
     qa_status = event["qa"].get("status", "FAIL")

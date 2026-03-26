@@ -80,6 +80,35 @@ Output valid JSON:
 """
 
 
+# ── Directive-to-dispatch mapping ───────────────────────────────────────────
+
+_KEYWORD_MAP = {
+    "outreach": "outreach.push",
+    "followup": "outreach.followups",
+    "follow-up": "outreach.followups",
+    "sync": "resonance.sync",
+    "board": "csuite.run",
+    "meeting": "csuite.run",
+    "nerve": "nerve.restart",
+    "health": "system.check",
+    "diagnostic": "system.check",
+    "pause": "agent.pause",
+    "resume": "agent.resume",
+}
+
+
+def _map_directive_to_dispatch(action: str, owner: str) -> str | None:
+    """Best-effort mapping of a board directive action string to an NCC dispatch type."""
+    action_lower = action.lower()
+    for keyword, dtype in _KEYWORD_MAP.items():
+        if keyword in action_lower:
+            return dtype
+    # Owner-based fallback
+    if owner == "VECTIS":
+        return "system.check"
+    return None
+
+
 # ── Board Room ──────────────────────────────────────────────────────────────
 
 class BoardRoom:
@@ -186,7 +215,46 @@ class BoardRoom:
         except Exception:
             pass
 
+        # Auto-execute CRITICAL/HIGH directives via NCC Orchestrator
+        self._auto_execute(synthesis)
+
         return board_output
+
+    def _auto_execute(self, synthesis: dict):
+        """Feed CRITICAL/HIGH execution_queue items to NCC Orchestrator."""
+        queue = synthesis.get("execution_queue", [])
+        if not queue:
+            return
+        try:
+            from NCC.ncc_orchestrator import dispatch
+        except Exception:
+            return
+
+        executed = 0
+        for item in queue:
+            priority = (item.get("priority") or "").upper()
+            if priority not in ("CRITICAL", "HIGH"):
+                continue
+            action = item.get("action", "")
+            owner = (item.get("owner") or "").upper()
+            # Map board directives to NCC dispatch types
+            dtype = _map_directive_to_dispatch(action, owner)
+            if not dtype:
+                continue
+            directive = {
+                "type": dtype,
+                "source": f"board/{synthesis.get('session', 'unknown')}",
+                "target": item.get("id", ""),
+                "payload": item,
+            }
+            result = dispatch(directive)
+            if result.get("executed"):
+                executed += 1
+                print(f"  [AUTO-EXEC] #{item.get('rank')} {dtype} → OK")
+            else:
+                print(f"  [AUTO-EXEC] #{item.get('rank')} {dtype} → SKIP ({result.get('error', 'no handler')})")
+        if executed:
+            print(f"[BOARD] Auto-executed {executed} directive(s) via NCC Orchestrator")
 
     def run_single(self, executive: str) -> dict:
         """Run a single executive agent."""
