@@ -1,6 +1,6 @@
-﻿{
-    "agent_type":  "both",
-    "cycle_interval_seconds":  300,
-    "max_repos_per_cycle":  3,
-    "cooldown_hours":  6
+{
+    "agent_type": "both",
+    "cycle_interval_seconds": 300,
+    "max_repos_per_cycle": 3,
+    "cooldown_hours": 6
 }

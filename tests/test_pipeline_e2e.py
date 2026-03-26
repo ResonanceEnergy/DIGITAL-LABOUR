@@ -76,6 +76,14 @@ assert len(E2E_CASES) == 20, f"Expected 20 E2E cases, got {len(E2E_CASES)}"
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
+def _make_mock_qa_result() -> SimpleNamespace:
+    """Build a mock QA verify result that passes all confidence checks."""
+    return SimpleNamespace(
+        status="PASS", confidence=0.95, issues=[], applied_rules=["QA-001"],
+        failed_rule_id="", revision_notes="", score=95, duration_s=0.01,
+    )
+
+
 def _patch_all_pipelines(mock_map: dict[str, Any]):
     """Return a list of patch context managers for all agent runners."""
     return [
@@ -86,6 +94,7 @@ def _patch_all_pipelines(mock_map: dict[str, Any]):
         patch("agents.lead_gen.runner.run_pipeline",        return_value=_make_mock_result("lead_gen")),
         patch("agents.email_marketing.runner.run_pipeline", return_value=_make_mock_result("email_marketing")),
         patch("agents.seo_content.runner.run_pipeline",     return_value=_make_mock_result("seo_content")),
+        patch("agents.qa.runner.verify",                    return_value=_make_mock_qa_result()),
     ]
 
 
@@ -138,7 +147,7 @@ class TestPipelineE2E:
 
         with (
             patches[0], patches[1], patches[2], patches[3],
-            patches[4], patches[5], patches[6],
+            patches[4], patches[5], patches[6], patches[7],
         ):
             for task_type, inputs in E2E_CASES:
                 result = self._run_single_task(task_type, inputs)
@@ -152,7 +161,7 @@ class TestPipelineE2E:
 
         with (
             patches[0], patches[1], patches[2], patches[3],
-            patches[4], patches[5], patches[6],
+            patches[4], patches[5], patches[6], patches[7],
         ):
             for task_type, inputs in E2E_CASES:
                 event_before = None
@@ -171,7 +180,7 @@ class TestPipelineE2E:
 
         with (
             patches[0], patches[1], patches[2], patches[3],
-            patches[4], patches[5], patches[6],
+            patches[4], patches[5], patches[6], patches[7],
         ):
             for task_type, inputs in E2E_CASES:
                 result = self._run_single_task(task_type, inputs)
@@ -187,7 +196,7 @@ class TestPipelineE2E:
 
         with (
             patches[0], patches[1], patches[2], patches[3],
-            patches[4], patches[5], patches[6],
+            patches[4], patches[5], patches[6], patches[7],
         ):
             for task_type, inputs in E2E_CASES:
                 result = self._run_single_task(task_type, inputs)
@@ -209,7 +218,7 @@ class TestPipelineE2E:
         try:
             with (
                 patches[0], patches[1], patches[2], patches[3],
-                patches[4], patches[5], patches[6],
+                patches[4], patches[5], patches[6], patches[7],
             ):
                 for task_type, inputs in E2E_CASES:
                     self._run_single_task(task_type, inputs)
@@ -228,7 +237,7 @@ class TestPipelineE2E:
 
         with (
             patches[0], patches[1], patches[2], patches[3],
-            patches[4], patches[5], patches[6],
+            patches[4], patches[5], patches[6], patches[7],
         ):
             for task_type, inputs in E2E_CASES:
                 result = self._run_single_task(task_type, inputs)
@@ -258,7 +267,7 @@ class TestPipelineE2E:
 
         with (
             patches[0], patches[1], patches[2], patches[3],
-            patches[4], patches[5], patches[6],
+            patches[4], patches[5], patches[6], patches[7],
         ):
             for task_type, inputs in E2E_CASES:
                 from utils.cost_tracker import estimate_task_cost

@@ -322,7 +322,7 @@ class OpenClawIntegrationAgent:
                 "status": "error",
             }
 
-    def create_DIGITAL LABOUR_skill(
+    def create_digital_labour_skill(
         self, skill_name: str, description: str, code: str
     ) -> Dict[str, Any]:
         """Create a custom OpenClaw skill for DIGITAL LABOUR integration"""

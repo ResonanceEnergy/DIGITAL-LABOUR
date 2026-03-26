@@ -120,6 +120,12 @@ class BillingTracker:
             CREATE INDEX IF NOT EXISTS idx_usage_client ON usage(client);
             CREATE INDEX IF NOT EXISTS idx_usage_time ON usage(timestamp);
         """)
+        # Migrate existing DBs: add columns that may be missing
+        for col, dflt in [("task_id", "''"), ("doctrine_version", "'2.0'")]:
+            try:
+                conn.execute(f"ALTER TABLE usage ADD COLUMN {col} TEXT DEFAULT {dflt}")
+            except sqlite3.OperationalError:
+                pass  # column already exists
         conn.commit()
         conn.close()
 

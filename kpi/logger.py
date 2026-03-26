@@ -65,6 +65,12 @@ def _get_db() -> sqlite3.Connection:
         CREATE INDEX IF NOT EXISTS idx_events_client ON events(client);
         CREATE INDEX IF NOT EXISTS idx_events_type ON events(task_type);
     """)
+    # Migrate existing DBs: add columns that may be missing
+    for col, dflt in [("lineage_id", "''"), ("doctrine_version", "'2.0'")]:
+        try:
+            conn.execute(f"ALTER TABLE events ADD COLUMN {col} TEXT DEFAULT {dflt}")
+        except sqlite3.OperationalError:
+            pass  # column already exists
     conn.commit()
     return conn
 
@@ -233,6 +239,13 @@ def _ensure_qa_table():
         CREATE INDEX IF NOT EXISTS idx_qa_fail_agent ON qa_failures(task_type);
         CREATE INDEX IF NOT EXISTS idx_qa_fail_time ON qa_failures(timestamp);
     """)
+    # Migrate existing qa_failures table: add columns that may be missing
+    for col, dflt in [("lineage_id", "''"), ("confidence", "0.0"), ("issues", "'[]'"), ("applied_rules", "'[]'")]:
+        try:
+            typ = "REAL" if dflt == "0.0" else "TEXT"
+            conn.execute(f"ALTER TABLE qa_failures ADD COLUMN {col} {typ} DEFAULT {dflt}")
+        except sqlite3.OperationalError:
+            pass  # column already exists
     conn.commit()
     conn.close()
     _QA_FAILURES_DB_INIT = True

@@ -31,7 +31,7 @@ import requests
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-class UnifiedDIGITAL LABOUROrchestrator:
+class UnifiedDigitalLabourOrchestrator:
     """
     Unified orchestration system that combines:
     - Matrix Monitor (real-time health tracking)
@@ -520,7 +520,7 @@ class UnifiedDIGITAL LABOUROrchestrator:
 
 async def main():
     """Main entry point"""
-    orchestrator = UnifiedDIGITAL LABOUROrchestrator()
+    orchestrator = UnifiedDigitalLabourOrchestrator()
     await orchestrator.start_unified_system()
 
 if __name__ == "__main__":

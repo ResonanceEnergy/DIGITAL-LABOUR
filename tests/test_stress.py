@@ -85,6 +85,14 @@ def _make_mock_result(task_type: str) -> MagicMock:
     return r
 
 
+def _make_mock_qa_result():
+    """Build a mock QA verify result that passes all confidence checks."""
+    return SimpleNamespace(
+        status="PASS", confidence=0.95, issues=[], applied_rules=["QA-001"],
+        failed_rule_id="", revision_notes="", score=95, duration_s=0.01,
+    )
+
+
 def _all_pipeline_patches():
     return [
         patch("agents.sales_ops.runner.run_pipeline",        return_value=_make_mock_result("sales_outreach")),
@@ -94,6 +102,7 @@ def _all_pipeline_patches():
         patch("agents.lead_gen.runner.run_pipeline",         return_value=_make_mock_result("lead_gen")),
         patch("agents.email_marketing.runner.run_pipeline",  return_value=_make_mock_result("email_marketing")),
         patch("agents.seo_content.runner.run_pipeline",      return_value=_make_mock_result("seo_content")),
+        patch("agents.qa.runner.verify",                     return_value=_make_mock_qa_result()),
     ]
 
 
@@ -135,7 +144,7 @@ class TestStress40Tasks:
 
         with (
             patches[0], patches[1], patches[2], patches[3],
-            patches[4], patches[5], patches[6],
+            patches[4], patches[5], patches[6], patches[7],
         ):
             with ThreadPoolExecutor(max_workers=8) as executor:
                 futures = {
@@ -220,7 +229,7 @@ class TestStressLatencyDistribution:
 
         with (
             patches[0], patches[1], patches[2], patches[3],
-            patches[4], patches[5], patches[6],
+            patches[4], patches[5], patches[6], patches[7],
         ):
             for task_type, inputs in STRESS_TASKS:
                 result = _run_one(task_type, inputs)

@@ -56,7 +56,7 @@ CONFIG = {
 }
 
 
-class DIGITAL LABOURDaemon:
+class DigitalLabourDaemon:
     """Main daemon class with watchdog and health monitoring."""
 
     def __init__(self):
@@ -416,7 +416,7 @@ class DIGITAL LABOURDaemon:
 
 def main():
     """Entry point."""
-    daemon = DIGITAL LABOURDaemon()
+    daemon = DigitalLabourDaemon()
     daemon.run()
 
 
