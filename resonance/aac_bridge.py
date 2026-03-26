@@ -18,6 +18,7 @@ import asyncio
 import logging
 import os
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -25,6 +26,9 @@ AAC_ROOT = Path(os.getenv("AAC_ROOT", r"C:\dev\AAC_fresh"))
 sys.path.insert(0, str(AAC_ROOT))
 
 logger = logging.getLogger(__name__)
+
+# Cached snapshot older than this is considered stale
+AAC_STALE_THRESHOLD_HOURS = float(os.getenv("AAC_STALE_HOURS", "24"))
 
 # Try to import AAC engine — graceful fallback if AAC not available
 _engine = None
@@ -156,6 +160,31 @@ class AACBridge:
     def venue_health(self) -> dict:
         """CryptoIntelligence venue health for ops monitoring."""
         return _run(self._venue_health_async())
+
+    def data_freshness(self) -> dict:
+        """Check freshness of AAC connection and cached data."""
+        result = {"engine_available": _get_engine() is not None, "stale": False, "sources": {}}
+
+        # Check cached snapshot
+        cache_file = PROJECT_ROOT / "data" / "resonance_cache" / "aac_snapshot.json"
+        if cache_file.exists():
+            mtime = datetime.fromtimestamp(cache_file.stat().st_mtime, tz=timezone.utc)
+            age_hours = (datetime.now(timezone.utc) - mtime).total_seconds() / 3600
+            is_stale = age_hours > AAC_STALE_THRESHOLD_HOURS
+            result["sources"]["cached_snapshot"] = {
+                "exists": True, "age_hours": round(age_hours, 1), "stale": is_stale,
+            }
+            if is_stale:
+                result["stale"] = True
+        else:
+            result["sources"]["cached_snapshot"] = {"exists": False, "stale": True}
+            result["stale"] = True
+
+        if not result["engine_available"]:
+            result["stale"] = True
+            result["reason"] = f"AAC engine not available at {AAC_ROOT}"
+
+        return result
 
 
 # Module-level singleton

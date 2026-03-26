@@ -7,7 +7,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:37:36.681307+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Animalz_842466.json"
+    "source_file": "meta_Animalz_842466.json",
+    "follow_up_3_due": "2026-03-25T09:37:34.372055+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Apollo.io",
@@ -17,7 +19,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:02.373165+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Apollo.io_0e0223.json"
+    "source_file": "meta_Apollo.io_0e0223.json",
+    "follow_up_3_due": "2026-03-25T09:38:00.761017+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Brex",
@@ -27,7 +31,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:08.183260+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Brex_d13a07.json"
+    "source_file": "meta_Brex_d13a07.json",
+    "follow_up_3_due": "2026-03-25T09:38:06.729172+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Calendly",
@@ -37,7 +43,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:14.181905+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Calendly_3ace85.json"
+    "source_file": "meta_Calendly_3ace85.json",
+    "follow_up_3_due": "2026-03-25T09:38:12.426859+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Clearbit",
@@ -47,7 +55,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:19.254626+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Clearbit_32207b.json"
+    "source_file": "meta_Clearbit_32207b.json",
+    "follow_up_3_due": "2026-03-25T09:38:17.865674+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Close",
@@ -57,7 +67,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:23.222378+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Close_c92c1e.json"
+    "source_file": "meta_Close_c92c1e.json",
+    "follow_up_3_due": "2026-03-25T09:38:21.862218+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Convertkit",
@@ -67,7 +79,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:30.377604+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Convertkit_d6eb96.json"
+    "source_file": "meta_Convertkit_d6eb96.json",
+    "follow_up_3_due": "2026-03-25T09:38:28.879487+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Deel",
@@ -77,7 +91,11 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:34.290175+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Deel_5747e1.json"
+    "source_file": "meta_Deel_5747e1.json",
+    "follow_up_3_due": "2026-03-25T09:38:33.004442+00:00",
+    "follow_up_3_sent": true,
+    "bounced": true,
+    "bounce_at": "2026-03-25T02:16:02.449243+00:00"
   },
   {
     "company": "Directive",
@@ -87,7 +105,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:35.927405+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Directive_eea3c9.json"
+    "source_file": "meta_Directive_eea3c9.json",
+    "follow_up_3_due": "2026-03-25T09:38:34.291709+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Drift",
@@ -97,7 +117,11 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:39.971340+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Drift_9590bd.json"
+    "source_file": "meta_Drift_9590bd.json",
+    "follow_up_3_due": "2026-03-25T09:38:38.656037+00:00",
+    "follow_up_3_sent": true,
+    "bounced": true,
+    "bounce_at": "2026-03-25T02:16:02.469443+00:00"
   },
   {
     "company": "Foundation Marketing",
@@ -107,7 +131,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:41.365884+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Foundation_Marketing_153ccb.json"
+    "source_file": "meta_Foundation_Marketing_153ccb.json",
+    "follow_up_3_due": "2026-03-25T09:38:39.973752+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Freshdesk",
@@ -117,7 +143,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:46.881684+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Freshdesk_590512.json"
+    "source_file": "meta_Freshdesk_590512.json",
+    "follow_up_3_due": "2026-03-25T09:38:45.481707+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Front",
@@ -127,7 +155,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:50.823891+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Front_b730d0.json"
+    "source_file": "meta_Front_b730d0.json",
+    "follow_up_3_due": "2026-03-25T09:38:49.540520+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Gorgias",
@@ -137,7 +167,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:55.655950+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Gorgias_838caa.json"
+    "source_file": "meta_Gorgias_838caa.json",
+    "follow_up_3_due": "2026-03-25T09:38:54.283025+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Grow and Convert",
@@ -147,7 +179,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:38:56.912801+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Grow_and_Convert_687280.json"
+    "source_file": "meta_Grow_and_Convert_687280.json",
+    "follow_up_3_due": "2026-03-25T09:38:55.657729+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Gusto",
@@ -157,7 +191,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:01.528375+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Gusto_9913f2.json"
+    "source_file": "meta_Gusto_9913f2.json",
+    "follow_up_3_due": "2026-03-25T09:38:59.948272+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Help Scout",
@@ -167,7 +203,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:05.172682+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Help_Scout_4c345b.json"
+    "source_file": "meta_Help_Scout_4c345b.json",
+    "follow_up_3_due": "2026-03-25T09:39:03.809778+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Hunter.io",
@@ -177,7 +215,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:06.444267+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Hunter.io_d32c91.json"
+    "source_file": "meta_Hunter.io_d32c91.json",
+    "follow_up_3_due": "2026-03-25T09:39:05.174548+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Intercom",
@@ -187,7 +227,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:10.967288+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Intercom_52615f.json"
+    "source_file": "meta_Intercom_52615f.json",
+    "follow_up_3_due": "2026-03-25T09:39:09.616553+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Lattice",
@@ -197,7 +239,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:17.796757+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Lattice_9b26d7.json"
+    "source_file": "meta_Lattice_9b26d7.json",
+    "follow_up_3_due": "2026-03-25T09:39:16.438559+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Lemlist",
@@ -207,7 +251,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:21.514740+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Lemlist_c5def2.json"
+    "source_file": "meta_Lemlist_c5def2.json",
+    "follow_up_3_due": "2026-03-25T09:39:20.254008+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Linear",
@@ -217,7 +263,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:22.889522+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Linear_e97e2b.json"
+    "source_file": "meta_Linear_e97e2b.json",
+    "follow_up_3_due": "2026-03-25T09:39:21.517211+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Loom",
@@ -227,7 +275,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:27.241700+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Loom_61005e.json"
+    "source_file": "meta_Loom_61005e.json",
+    "follow_up_3_due": "2026-03-25T09:39:25.974131+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Lusha",
@@ -237,7 +287,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:31.397696+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Lusha_c28b12.json"
+    "source_file": "meta_Lusha_c28b12.json",
+    "follow_up_3_due": "2026-03-25T09:39:29.812837+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Mailshake",
@@ -247,7 +299,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:36.613568+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Mailshake_97271c.json"
+    "source_file": "meta_Mailshake_97271c.json",
+    "follow_up_3_due": "2026-03-25T09:39:35.385243+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Mixmax",
@@ -257,7 +311,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:41.664167+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Mixmax_a3b471.json"
+    "source_file": "meta_Mixmax_a3b471.json",
+    "follow_up_3_due": "2026-03-25T09:39:40.330929+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Notion",
@@ -267,7 +323,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:46.597797+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Notion_c80a23.json"
+    "source_file": "meta_Notion_c80a23.json",
+    "follow_up_3_due": "2026-03-25T09:39:45.334604+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Omniscient Digital",
@@ -277,7 +335,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:47.880536+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Omniscient_Digital_5b7e98.json"
+    "source_file": "meta_Omniscient_Digital_5b7e98.json",
+    "follow_up_3_due": "2026-03-25T09:39:46.600348+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Outreach",
@@ -287,7 +347,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:53.148407+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Outreach_2d9245.json"
+    "source_file": "meta_Outreach_2d9245.json",
+    "follow_up_3_due": "2026-03-25T09:39:51.541029+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Pipedrive",
@@ -297,7 +359,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:39:58.865558+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Pipedrive_6a00fa.json"
+    "source_file": "meta_Pipedrive_6a00fa.json",
+    "follow_up_3_due": "2026-03-25T09:39:57.478583+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Ramp",
@@ -307,7 +371,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:04.465788+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Ramp_67b2bc.json"
+    "source_file": "meta_Ramp_67b2bc.json",
+    "follow_up_3_due": "2026-03-25T09:40:03.115867+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Reply.io",
@@ -317,7 +383,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:05.885289+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Reply.io_3583a5.json"
+    "source_file": "meta_Reply.io_3583a5.json",
+    "follow_up_3_due": "2026-03-25T09:40:04.467806+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Rippling",
@@ -327,7 +395,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:09.516734+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Rippling_23906a.json"
+    "source_file": "meta_Rippling_23906a.json",
+    "follow_up_3_due": "2026-03-25T09:40:08.095185+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Salesloft",
@@ -337,7 +407,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:14.209863+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Salesloft_061d48.json"
+    "source_file": "meta_Salesloft_061d48.json",
+    "follow_up_3_due": "2026-03-25T09:40:12.810861+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Seamless.AI",
@@ -347,7 +419,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:18.603455+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Seamless.AI_edfb43.json"
+    "source_file": "meta_Seamless.AI_edfb43.json",
+    "follow_up_3_due": "2026-03-25T09:40:17.137983+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Siege Media",
@@ -357,7 +431,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:22.566826+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Siege_Media_417f5f.json"
+    "source_file": "meta_Siege_Media_417f5f.json",
+    "follow_up_3_due": "2026-03-25T09:40:21.186142+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Single Grain",
@@ -367,7 +443,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:24.019826+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Single_Grain_cdbec6.json"
+    "source_file": "meta_Single_Grain_cdbec6.json",
+    "follow_up_3_due": "2026-03-25T09:40:22.569435+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Snov.io",
@@ -377,7 +455,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:28.872556+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Snov.io_73b41e.json"
+    "source_file": "meta_Snov.io_73b41e.json",
+    "follow_up_3_due": "2026-03-25T09:40:27.515577+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Soapbox",
@@ -387,7 +467,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:34.012186+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Soapbox_2fa9e1.json"
+    "source_file": "meta_Soapbox_2fa9e1.json",
+    "follow_up_3_due": "2026-03-25T09:40:32.632475+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Supabase",
@@ -397,7 +479,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:38.043703+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Supabase_0c45f5.json"
+    "source_file": "meta_Supabase_0c45f5.json",
+    "follow_up_3_due": "2026-03-25T09:40:36.613303+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Typeform",
@@ -407,7 +491,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:41.618388+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Typeform_cbdc35.json"
+    "source_file": "meta_Typeform_cbdc35.json",
+    "follow_up_3_due": "2026-03-25T09:40:40.240535+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Unbounce",
@@ -417,7 +503,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:45.167192+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Unbounce_5f0571.json"
+    "source_file": "meta_Unbounce_5f0571.json",
+    "follow_up_3_due": "2026-03-25T09:40:43.816539+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Velocity Partners",
@@ -427,7 +515,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:49.728118+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Velocity_Partners_8b8584.json"
+    "source_file": "meta_Velocity_Partners_8b8584.json",
+    "follow_up_3_due": "2026-03-25T09:40:48.351363+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Vercel",
@@ -437,7 +527,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:54.679031+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Vercel_be7ef2.json"
+    "source_file": "meta_Vercel_be7ef2.json",
+    "follow_up_3_due": "2026-03-25T09:40:52.969762+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Vidyard",
@@ -447,7 +539,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:40:59.382802+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Vidyard_b82bce.json"
+    "source_file": "meta_Vidyard_b82bce.json",
+    "follow_up_3_due": "2026-03-25T09:40:57.986448+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "WebFX",
@@ -457,7 +551,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:41:05.670297+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_WebFX_a830e3.json"
+    "source_file": "meta_WebFX_a830e3.json",
+    "follow_up_3_due": "2026-03-25T09:41:04.354725+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Woodpecker",
@@ -467,7 +563,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:41:07.099705+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Woodpecker_0c9c44.json"
+    "source_file": "meta_Woodpecker_0c9c44.json",
+    "follow_up_3_due": "2026-03-25T09:41:05.673972+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Yesware",
@@ -477,7 +575,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:41:11.465022+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Yesware_cf280e.json"
+    "source_file": "meta_Yesware_cf280e.json",
+    "follow_up_3_due": "2026-03-25T09:41:10.012027+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Zendesk",
@@ -487,7 +587,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:41:15.110006+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Zendesk_2178ee.json"
+    "source_file": "meta_Zendesk_2178ee.json",
+    "follow_up_3_due": "2026-03-25T09:41:13.778007+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "ZoomInfo",
@@ -497,7 +599,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-18T09:41:18.714143+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_ZoomInfo_65aa62.json"
+    "source_file": "meta_ZoomInfo_65aa62.json",
+    "follow_up_3_due": "2026-03-25T09:41:17.130029+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Amplitude",
@@ -507,7 +611,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T20:06:06.903303+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Amplitude_800e61.json"
+    "source_file": "meta_Amplitude_800e61.json",
+    "follow_up_3_due": "2026-03-26T20:05:23.899346+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Flexport",
@@ -517,7 +623,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T20:06:13.636654+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Flexport_6977a5.json"
+    "source_file": "meta_Flexport_6977a5.json",
+    "follow_up_3_due": "2026-03-26T20:06:10.874080+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Shipbob",
@@ -527,7 +635,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T20:06:25.605527+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Shipbob_b9cbb7.json"
+    "source_file": "meta_Shipbob_b9cbb7.json",
+    "follow_up_3_due": "2026-03-26T20:06:22.936619+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Thrasio",
@@ -537,7 +647,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T20:06:32.951175+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Thrasio_4b56a9.json"
+    "source_file": "meta_Thrasio_4b56a9.json",
+    "follow_up_3_due": "2026-03-26T20:06:29.771357+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "VaynerMedia",
@@ -547,7 +659,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T20:06:40.487359+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_VaynerMedia_74411b.json"
+    "source_file": "meta_VaynerMedia_74411b.json",
+    "follow_up_3_due": "2026-03-26T20:06:37.645038+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Jungle Scout",
@@ -557,7 +671,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T22:34:09.697495+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Jungle_Scout_5b4833.json"
+    "source_file": "meta_Jungle_Scout_5b4833.json",
+    "follow_up_3_due": "2026-03-26T22:34:07.209141+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Pattern",
@@ -567,7 +683,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T22:34:17.663303+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Pattern_deb2e9.json"
+    "source_file": "meta_Pattern_deb2e9.json",
+    "follow_up_3_due": "2026-03-26T22:34:14.215049+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "PlanetScale",
@@ -577,7 +695,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T22:34:23.203631+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_PlanetScale_8c5230.json"
+    "source_file": "meta_PlanetScale_8c5230.json",
+    "follow_up_3_due": "2026-03-26T22:34:21.092182+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Segment",
@@ -587,7 +707,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T22:35:21.139077+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Segment_1b607e.json"
+    "source_file": "meta_Segment_1b607e.json",
+    "follow_up_3_due": "2026-03-26T22:34:25.269679+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Stord",
@@ -597,7 +719,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-19T22:35:28.090845+00:00",
     "follow_up_2_sent": true,
-    "source_file": "meta_Stord_dc6fee.json"
+    "source_file": "meta_Stord_dc6fee.json",
+    "follow_up_3_due": "2026-03-26T22:35:25.245131+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Airtable",
@@ -607,7 +731,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T14:18:59.424228+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Airtable_74a745.json"
+    "source_file": "meta_Airtable_74a745.json",
+    "follow_up_3_due": "2026-03-29T14:18:57.346668+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Retool",
@@ -617,7 +743,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T14:19:02.738091+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Retool_6ea07c.json"
+    "source_file": "meta_Retool_6ea07c.json",
+    "follow_up_3_due": "2026-03-29T14:19:01.371636+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "ShipHero",
@@ -627,7 +755,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T14:19:06.218049+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_ShipHero_01ad8a.json"
+    "source_file": "meta_ShipHero_01ad8a.json",
+    "follow_up_3_due": "2026-03-29T14:19:04.715092+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Helium 10",
@@ -637,7 +767,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T15:19:33.133336+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Helium_10_91b896.json"
+    "source_file": "meta_Helium_10_91b896.json",
+    "follow_up_3_due": "2026-03-29T15:19:31.068995+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Bain & Company",
@@ -647,7 +779,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T16:20:45.425896+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Bain_&_Company_e05ba5.json"
+    "source_file": "meta_Bain_&_Company_e05ba5.json",
+    "follow_up_3_due": "2026-03-29T16:20:43.264710+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "McKinsey Implementation",
@@ -657,7 +791,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T16:20:49.961953+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_McKinsey_Implementation_b8fa9e.json"
+    "source_file": "meta_McKinsey_Implementation_b8fa9e.json",
+    "follow_up_3_due": "2026-03-29T16:20:48.127162+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Oliver Wyman",
@@ -667,7 +803,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T16:20:53.790482+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Oliver_Wyman_8a6f95.json"
+    "source_file": "meta_Oliver_Wyman_8a6f95.json",
+    "follow_up_3_due": "2026-03-29T16:20:52.374801+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Wieden+Kennedy",
@@ -677,7 +815,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T16:20:57.491567+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Wieden+Kennedy_b20e42.json"
+    "source_file": "meta_Wieden+Kennedy_b20e42.json",
+    "follow_up_3_due": "2026-03-29T16:20:56.199066+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "72andSunny",
@@ -687,7 +827,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T17:22:54.018138+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_72andSunny_db5381.json"
+    "source_file": "meta_72andSunny_db5381.json",
+    "follow_up_3_due": "2026-03-29T17:22:51.856884+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Easyship",
@@ -697,7 +839,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T17:22:55.516638+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Easyship_582921.json"
+    "source_file": "meta_Easyship_582921.json",
+    "follow_up_3_due": "2026-03-29T17:22:54.041600+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Kearney",
@@ -707,7 +851,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T17:22:59.003111+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Kearney_9f3784.json"
+    "source_file": "meta_Kearney_9f3784.json",
+    "follow_up_3_due": "2026-03-29T17:22:57.389677+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Sellics",
@@ -717,7 +863,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T17:23:03.837091+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Sellics_969b88.json"
+    "source_file": "meta_Sellics_969b88.json",
+    "follow_up_3_due": "2026-03-29T17:23:02.321113+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Havas",
@@ -727,7 +875,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T18:23:56.346739+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Havas_414c91.json"
+    "source_file": "meta_Havas_414c91.json",
+    "follow_up_3_due": "2026-03-29T18:23:54.072857+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "L.E.K. Consulting",
@@ -737,7 +887,9 @@
     "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-22T18:23:59.601663+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_L.E.K._Consulting_595147.json"
+    "source_file": "meta_L.E.K._Consulting_595147.json",
+    "follow_up_3_due": "2026-03-29T18:23:58.303203+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "HubSpot",
@@ -747,7 +899,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T10:36:24.676928+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_HubSpot_b8b66d.json"
+    "source_file": "meta_HubSpot_b8b66d.json",
+    "follow_up_3_due": "2026-03-31T10:36:23.462946+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Pendo.io",
@@ -757,7 +911,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T10:36:40.213521+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Pendo_io_4939af.json"
+    "source_file": "meta_Pendo_io_4939af.json",
+    "follow_up_3_due": "2026-03-31T10:36:36.393393+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "R/GA",
@@ -767,7 +923,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T10:36:49.192523+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_R_GA_18ab12.json"
+    "source_file": "meta_R_GA_18ab12.json",
+    "follow_up_3_due": "2026-03-31T10:36:56.333379+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "R/GA",
@@ -777,7 +935,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T10:36:57.398764+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_R_GA_701d08.json"
+    "source_file": "meta_R_GA_701d08.json",
+    "follow_up_3_due": "2026-03-31T10:36:56.333379+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Sendoso",
@@ -787,7 +947,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T10:36:58.362157+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Sendoso_8a29d8.json"
+    "source_file": "meta_Sendoso_8a29d8.json",
+    "follow_up_3_due": "2026-03-31T10:36:57.413483+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "ClickUp",
@@ -797,17 +959,23 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T11:09:20.148799+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_ClickUp_e5ff78.json"
+    "source_file": "meta_ClickUp_e5ff78.json",
+    "follow_up_3_due": "2026-03-31T11:09:11.202511+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Faire",
     "role": "Director of Sales",
     "contact_email": "jeff.kolovson@faire.com",
     "follow_up_1_due": "2026-03-20T11:09:56.397939+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-24T11:09:56.397939+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Faire_1d82b3.json"
+    "follow_up_2_sent": true,
+    "source_file": "meta_Faire_1d82b3.json",
+    "follow_up_3_due": "2026-03-31T11:09:55.209824+00:00",
+    "follow_up_3_sent": true,
+    "bounced": true,
+    "bounce_at": "2026-03-25T02:16:02.489347+00:00"
   },
   {
     "company": "Monday.com",
@@ -817,17 +985,23 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T11:10:07.999214+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Monday_com_189744.json"
+    "source_file": "meta_Monday_com_189744.json",
+    "follow_up_3_due": "2026-03-31T11:10:07.041038+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Carta",
     "role": "Head of Customer Success",
     "contact_email": "kaitlin@carta.com",
     "follow_up_1_due": "2026-03-20T12:01:28.288213+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-24T12:01:28.288213+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Carta_5d8f1c.json"
+    "follow_up_2_sent": true,
+    "source_file": "meta_Carta_5d8f1c.json",
+    "follow_up_3_due": "2026-03-31T12:01:26.767809+00:00",
+    "follow_up_3_sent": true,
+    "bounced": true,
+    "bounce_at": "2026-03-25T02:16:02.440376+00:00"
   },
   {
     "company": "Coda",
@@ -837,7 +1011,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T12:01:34.912660+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Coda_5afbf2.json"
+    "source_file": "meta_Coda_5afbf2.json",
+    "follow_up_3_due": "2026-03-31T12:01:34.053551+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Greenhouse",
@@ -847,7 +1023,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T12:01:41.891558+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Greenhouse_9838ae.json"
+    "source_file": "meta_Greenhouse_9838ae.json",
+    "follow_up_3_due": "2026-03-31T12:01:40.957272+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Notarize",
@@ -857,7 +1035,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T12:01:49.078273+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Notarize_a91e43.json"
+    "source_file": "meta_Notarize_a91e43.json",
+    "follow_up_3_due": "2026-03-31T12:01:48.125232+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Figma",
@@ -867,7 +1047,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T16:22:32.698531+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Figma_9c7bb3.json"
+    "source_file": "meta_Figma_9c7bb3.json",
+    "follow_up_3_due": "2026-03-31T16:22:39.978931+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Figma",
@@ -877,7 +1059,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T16:22:41.487326+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Figma_a23041.json"
+    "source_file": "meta_Figma_a23041.json",
+    "follow_up_3_due": "2026-03-31T16:22:39.978931+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Gong.io",
@@ -887,7 +1071,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T16:22:49.343712+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Gong_io_104772.json"
+    "source_file": "meta_Gong_io_104772.json",
+    "follow_up_3_due": "2026-03-31T16:22:55.851582+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Gong.io",
@@ -897,7 +1083,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T16:22:57.073410+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Gong_io_a7ac4b.json"
+    "source_file": "meta_Gong_io_a7ac4b.json",
+    "follow_up_3_due": "2026-03-31T16:22:55.851582+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Handshake",
@@ -907,7 +1095,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T16:22:58.164258+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Handshake_a06867.json"
+    "source_file": "meta_Handshake_a06867.json",
+    "follow_up_3_due": "2026-03-31T16:22:57.076263+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Loopio",
@@ -917,27 +1107,37 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T16:23:06.192058+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Loopio_05850e.json"
+    "source_file": "meta_Loopio_05850e.json",
+    "follow_up_3_due": "2026-03-31T16:23:05.066311+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Appfolio",
     "role": "VP of Customer Support",
     "contact_email": "jennifer.klabunde@appfolio.com",
     "follow_up_1_due": "2026-03-20T17:29:15.120151+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-24T17:29:15.120151+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Appfolio_d9860e.json"
+    "follow_up_2_sent": true,
+    "source_file": "meta_Appfolio_d9860e.json",
+    "follow_up_3_due": "2026-03-31T17:29:13.391482+00:00",
+    "follow_up_3_sent": true,
+    "bounced": true,
+    "bounce_at": "2026-03-25T02:16:02.395789+00:00"
   },
   {
     "company": "BambooHR",
     "role": "Head of Operations",
     "contact_email": "operations@bamboohr.com",
     "follow_up_1_due": "2026-03-20T17:29:16.311006+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-24T17:29:16.311006+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_BambooHR_94c374.json"
+    "follow_up_2_sent": true,
+    "source_file": "meta_BambooHR_94c374.json",
+    "follow_up_3_due": "2026-03-31T17:29:15.147864+00:00",
+    "follow_up_3_sent": true,
+    "bounced": true,
+    "bounce_at": "2026-03-25T02:16:02.410242+00:00"
   },
   {
     "company": "Guru",
@@ -947,7 +1147,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T17:29:25.515096+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Guru_42a786.json"
+    "source_file": "meta_Guru_42a786.json",
+    "follow_up_3_due": "2026-03-31T17:29:24.250853+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Turing",
@@ -957,7 +1159,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T17:29:27.351534+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Turing_143413.json"
+    "source_file": "meta_Turing_143413.json",
+    "follow_up_3_due": "2026-03-31T17:29:26.337446+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Wealthsimple",
@@ -967,7 +1171,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T17:29:35.195846+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Wealthsimple_37e382.json"
+    "source_file": "meta_Wealthsimple_37e382.json",
+    "follow_up_3_due": "2026-03-31T17:29:33.952231+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "BigCommerce",
@@ -977,7 +1183,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T18:36:14.009210+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_BigCommerce_f042e5.json"
+    "source_file": "meta_BigCommerce_f042e5.json",
+    "follow_up_3_due": "2026-03-31T18:36:12.927260+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Compass",
@@ -987,7 +1195,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T18:36:22.278880+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Compass_79d56d.json"
+    "source_file": "meta_Compass_79d56d.json",
+    "follow_up_3_due": "2026-03-31T18:36:21.153888+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Opendoor",
@@ -997,7 +1207,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T18:36:30.175701+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Opendoor_5f027d.json"
+    "source_file": "meta_Opendoor_5f027d.json",
+    "follow_up_3_due": "2026-03-31T18:36:29.114944+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Shopify Plus",
@@ -1007,7 +1219,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T18:36:38.062260+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Shopify_Plus_659ff4.json"
+    "source_file": "meta_Shopify_Plus_659ff4.json",
+    "follow_up_3_due": "2026-03-31T18:36:37.034714+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Zapier",
@@ -1017,7 +1231,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T18:36:46.690591+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Zapier_7088c1.json"
+    "source_file": "meta_Zapier_7088c1.json",
+    "follow_up_3_due": "2026-03-31T18:36:44.749515+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Affirm",
@@ -1027,17 +1243,23 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T19:43:15.036750+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Affirm_7a53c5.json"
+    "source_file": "meta_Affirm_7a53c5.json",
+    "follow_up_3_due": "2026-03-31T19:43:13.744769+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Canva",
     "role": "Head of Enterprise Sales",
     "contact_email": "dave.rennie@canva.com",
     "follow_up_1_due": "2026-03-20T19:43:23.275900+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-24T19:43:23.275900+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Canva_3f1f6a.json"
+    "follow_up_2_sent": true,
+    "source_file": "meta_Canva_3f1f6a.json",
+    "follow_up_3_due": "2026-03-31T19:43:21.527421+00:00",
+    "follow_up_3_sent": true,
+    "bounced": true,
+    "bounce_at": "2026-03-25T02:16:02.429677+00:00"
   },
   {
     "company": "Chime",
@@ -1047,7 +1269,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T19:43:30.985971+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Chime_a3d238.json"
+    "source_file": "meta_Chime_a3d238.json",
+    "follow_up_3_due": "2026-03-31T19:43:29.621614+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Robinhood",
@@ -1057,7 +1281,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T19:43:38.229136+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Robinhood_64c5fa.json"
+    "source_file": "meta_Robinhood_64c5fa.json",
+    "follow_up_3_due": "2026-03-31T19:43:37.294521+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Stripe",
@@ -1067,7 +1293,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T19:43:46.390738+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Stripe_19e1e3.json"
+    "source_file": "meta_Stripe_19e1e3.json",
+    "follow_up_3_due": "2026-03-31T19:43:45.182389+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Miro",
@@ -1077,7 +1305,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T20:17:58.733146+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Miro_1d26c0.json"
+    "source_file": "meta_Miro_1d26c0.json",
+    "follow_up_3_due": "2026-03-31T20:17:56.417444+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Webflow",
@@ -1087,17 +1317,23 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T20:18:21.238009+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Webflow_fc4bcd.json"
+    "source_file": "meta_Webflow_fc4bcd.json",
+    "follow_up_3_due": "2026-03-31T20:18:20.256077+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Benchling",
     "role": "Head of Customer Support",
     "contact_email": "sarah.chen@benchling.com",
     "follow_up_1_due": "2026-03-20T20:55:09.870625+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-24T20:55:09.870625+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Benchling_0a6ab5.json"
+    "follow_up_2_sent": true,
+    "source_file": "meta_Benchling_0a6ab5.json",
+    "follow_up_3_due": "2026-03-31T20:55:08.524016+00:00",
+    "follow_up_3_sent": true,
+    "bounced": true,
+    "bounce_at": "2026-03-25T02:16:02.419425+00:00"
   },
   {
     "company": "Docusign",
@@ -1107,17 +1343,23 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T20:55:17.918337+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Docusign_ca4f7b.json"
+    "source_file": "meta_Docusign_ca4f7b.json",
+    "follow_up_3_due": "2026-03-31T20:55:16.944456+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Fetch Rewards",
     "role": "VP of Sales",
     "contact_email": "mike@fetchrewards.com",
     "follow_up_1_due": "2026-03-20T20:55:24.908218+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-24T20:55:24.908218+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Fetch_Rewards_b4e346.json"
+    "follow_up_2_sent": true,
+    "source_file": "meta_Fetch_Rewards_b4e346.json",
+    "follow_up_3_due": "2026-03-31T20:55:24.043545+00:00",
+    "follow_up_3_sent": true,
+    "bounced": true,
+    "bounce_at": "2026-03-25T02:16:02.479361+00:00"
   },
   {
     "company": "Klaviyo",
@@ -1127,7 +1369,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-24T20:55:32.386649+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Klaviyo_2c778a.json"
+    "source_file": "meta_Klaviyo_2c778a.json",
+    "follow_up_3_due": "2026-03-31T20:55:31.545514+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Airtame",
@@ -1137,7 +1381,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:44:40.897868+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Airtame_2a880f.json"
+    "source_file": "meta_Airtame_2a880f.json",
+    "follow_up_3_due": "2026-04-03T08:44:40.919720+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Airtame",
@@ -1147,7 +1393,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:44:42.720276+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Airtame_397e80.json"
+    "source_file": "meta_Airtame_397e80.json",
+    "follow_up_3_due": "2026-04-03T08:44:40.919720+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "AKQA",
@@ -1157,7 +1405,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:45:08.721454+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_AKQA_2d9010.json"
+    "source_file": "meta_AKQA_2d9010.json",
+    "follow_up_3_due": "2026-04-03T08:45:06.591503+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Divvy Homes",
@@ -1167,17 +1417,23 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:45:10.144722+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Divvy_Homes_23d4aa.json"
+    "source_file": "meta_Divvy_Homes_23d4aa.json",
+    "follow_up_3_due": "2026-04-03T08:45:10.150654+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Divvy Homes",
     "role": "Head of Sales",
     "contact_email": "spencer@divvyhomes.com",
     "follow_up_1_due": "2026-03-23T08:45:11.424910+00:00",
-    "follow_up_1_sent": false,
+    "follow_up_1_sent": true,
     "follow_up_2_due": "2026-03-27T08:45:11.424910+00:00",
-    "follow_up_2_sent": false,
-    "source_file": "meta_Divvy_Homes_8428ab.json"
+    "follow_up_2_sent": true,
+    "source_file": "meta_Divvy_Homes_8428ab.json",
+    "follow_up_3_due": "2026-04-03T08:45:10.150654+00:00",
+    "follow_up_3_sent": true,
+    "bounced": true,
+    "bounce_at": "2026-03-25T02:16:02.459394+00:00"
   },
   {
     "company": "Huge",
@@ -1187,7 +1443,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:45:27.999053+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Huge_91748e.json"
+    "source_file": "meta_Huge_91748e.json",
+    "follow_up_3_due": "2026-04-03T08:45:26.680165+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Lattice Engines",
@@ -1197,7 +1455,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:45:53.690780+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Lattice_Engines_270c03.json"
+    "source_file": "meta_Lattice_Engines_270c03.json",
+    "follow_up_3_due": "2026-04-03T08:45:53.694529+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Lattice Engines",
@@ -1207,7 +1467,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:45:54.919024+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Lattice_Engines_8a481a.json"
+    "source_file": "meta_Lattice_Engines_8a481a.json",
+    "follow_up_3_due": "2026-04-03T08:45:53.694529+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Plaid",
@@ -1217,7 +1479,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:46:11.197699+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Plaid_679417.json"
+    "source_file": "meta_Plaid_679417.json",
+    "follow_up_3_due": "2026-04-03T08:46:09.598620+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Razorfish",
@@ -1227,7 +1491,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:46:12.507088+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Razorfish_1ab7f5.json"
+    "source_file": "meta_Razorfish_1ab7f5.json",
+    "follow_up_3_due": "2026-04-03T08:46:11.250992+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Rent the Runway",
@@ -1237,7 +1503,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:46:37.749485+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Rent_the_Runway_19432f.json"
+    "source_file": "meta_Rent_the_Runway_19432f.json",
+    "follow_up_3_due": "2026-04-03T08:47:02.918974+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Rent the Runway",
@@ -1247,7 +1515,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:47:04.440479+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Rent_the_Runway_3ff03d.json"
+    "source_file": "meta_Rent_the_Runway_3ff03d.json",
+    "follow_up_3_due": "2026-04-03T08:47:02.918974+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Rentberry",
@@ -1257,7 +1527,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:47:20.458935+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Rentberry_8b27dd.json"
+    "source_file": "meta_Rentberry_8b27dd.json",
+    "follow_up_3_due": "2026-04-03T08:47:18.920389+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Vanta",
@@ -1267,7 +1539,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:47:21.803317+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Vanta_831637.json"
+    "source_file": "meta_Vanta_831637.json",
+    "follow_up_3_due": "2026-04-03T08:47:20.581008+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Wunderman Thompson",
@@ -1277,7 +1551,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T08:47:46.952184+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Wunderman_Thompson_bc32fb.json"
+    "source_file": "meta_Wunderman_Thompson_bc32fb.json",
+    "follow_up_3_due": "2026-04-03T08:47:45.490549+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Chili Piper",
@@ -1287,7 +1563,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T09:52:33.629698+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Chili_Piper_27b143.json"
+    "source_file": "meta_Chili_Piper_27b143.json",
+    "follow_up_3_due": "2026-04-03T09:52:31.846210+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "KlientBoost",
@@ -1297,7 +1575,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T09:52:35.175041+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_KlientBoost_e60401.json"
+    "source_file": "meta_KlientBoost_e60401.json",
+    "follow_up_3_due": "2026-04-03T09:52:33.654760+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Mutiny",
@@ -1307,7 +1587,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T09:52:36.488669+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Mutiny_7afdd5.json"
+    "source_file": "meta_Mutiny_7afdd5.json",
+    "follow_up_3_due": "2026-04-03T09:52:35.202640+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "SmartBug Media",
@@ -1317,7 +1599,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T09:52:37.738115+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_SmartBug_Media_5265ab.json"
+    "source_file": "meta_SmartBug_Media_5265ab.json",
+    "follow_up_3_due": "2026-04-03T09:52:36.507028+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "UserGems",
@@ -1327,7 +1611,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T09:53:04.367812+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_UserGems_d0b79f.json"
+    "source_file": "meta_UserGems_d0b79f.json",
+    "follow_up_3_due": "2026-04-03T09:53:03.205623+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Metadata.io",
@@ -1337,7 +1623,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T10:57:17.867627+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Metadata_io_af4618.json"
+    "source_file": "meta_Metadata_io_af4618.json",
+    "follow_up_3_due": "2026-04-03T10:57:15.884839+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "NexHealth",
@@ -1347,7 +1635,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T10:57:19.022567+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_NexHealth_5c8dff.json"
+    "source_file": "meta_NexHealth_5c8dff.json",
+    "follow_up_3_due": "2026-04-03T10:57:17.889089+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Osmind",
@@ -1357,7 +1647,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T10:57:35.448009+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Osmind_52c5fb.json"
+    "source_file": "meta_Osmind_52c5fb.json",
+    "follow_up_3_due": "2026-04-03T10:57:34.004331+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Pilot",
@@ -1367,7 +1659,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T10:58:08.676192+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Pilot_1c8dff.json"
+    "source_file": "meta_Pilot_1c8dff.json",
+    "follow_up_3_due": "2026-04-03T10:58:07.342401+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Qualified",
@@ -1377,7 +1671,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T10:58:10.058199+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Qualified_d15f7d.json"
+    "source_file": "meta_Qualified_d15f7d.json",
+    "follow_up_3_due": "2026-04-03T10:58:08.697743+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Bench Accounting",
@@ -1387,7 +1683,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T12:04:30.317206+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Bench_Accounting_451e03.json"
+    "source_file": "meta_Bench_Accounting_451e03.json",
+    "follow_up_3_due": "2026-04-03T12:04:28.024795+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Connor Group",
@@ -1397,7 +1695,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T12:04:42.239826+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Connor_Group_49f8af.json"
+    "source_file": "meta_Connor_Group_49f8af.json",
+    "follow_up_3_due": "2026-04-03T12:04:40.716385+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "MadKudu",
@@ -1407,7 +1707,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T12:05:02.713442+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_MadKudu_bb4210.json"
+    "source_file": "meta_MadKudu_bb4210.json",
+    "follow_up_3_due": "2026-04-03T12:05:01.462244+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Reachdesk",
@@ -1417,7 +1719,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T12:05:04.265541+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Reachdesk_8c6965.json"
+    "source_file": "meta_Reachdesk_8c6965.json",
+    "follow_up_3_due": "2026-04-03T12:05:02.725751+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Walker Sands",
@@ -1427,7 +1731,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T12:05:05.443661+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Walker_Sands_618778.json"
+    "source_file": "meta_Walker_Sands_618778.json",
+    "follow_up_3_due": "2026-04-03T12:05:04.285757+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Lawmatics",
@@ -1437,7 +1743,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T13:10:00.809556+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Lawmatics_bf988a.json"
+    "source_file": "meta_Lawmatics_bf988a.json",
+    "follow_up_3_due": "2026-04-03T13:09:58.251924+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "LeadIQ",
@@ -1447,7 +1755,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T13:10:14.246995+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_LeadIQ_ef6c37.json"
+    "source_file": "meta_LeadIQ_ef6c37.json",
+    "follow_up_3_due": "2026-04-03T13:10:13.054122+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Lexion",
@@ -1457,7 +1767,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T13:10:26.421212+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Lexion_10f2a6.json"
+    "source_file": "meta_Lexion_10f2a6.json",
+    "follow_up_3_due": "2026-04-03T13:10:25.221600+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Podia",
@@ -1467,7 +1779,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T13:10:53.570916+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Podia_b839e5.json"
+    "source_file": "meta_Podia_b839e5.json",
+    "follow_up_3_due": "2026-04-03T13:10:51.967095+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "PracticePanther",
@@ -1477,7 +1791,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T13:11:07.133306+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_PracticePanther_497c55.json"
+    "source_file": "meta_PracticePanther_497c55.json",
+    "follow_up_3_due": "2026-04-03T13:11:05.916382+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "360Learning",
@@ -1487,7 +1803,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T14:15:18.829273+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_360Learning_daeb1b.json"
+    "source_file": "meta_360Learning_daeb1b.json",
+    "follow_up_3_due": "2026-04-03T14:15:16.874508+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Gem",
@@ -1497,7 +1815,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T14:15:57.488169+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Gem_72da16.json"
+    "source_file": "meta_Gem_72da16.json",
+    "follow_up_3_due": "2026-04-03T14:15:55.920620+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Loop Returns",
@@ -1507,7 +1827,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T14:16:17.132106+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Loop_Returns_a67585.json"
+    "source_file": "meta_Loop_Returns_a67585.json",
+    "follow_up_3_due": "2026-04-03T14:16:15.821274+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Maven",
@@ -1517,7 +1839,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T14:16:18.295926+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Maven_63e6eb.json"
+    "source_file": "meta_Maven_63e6eb.json",
+    "follow_up_3_due": "2026-04-03T14:16:17.151968+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Secureframe",
@@ -1527,7 +1851,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T14:16:31.766796+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Secureframe_df8d0c.json"
+    "source_file": "meta_Secureframe_df8d0c.json",
+    "follow_up_3_due": "2026-04-03T14:16:30.359617+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Postscript",
@@ -1537,7 +1863,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T15:17:39.247819+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Postscript_a19740.json"
+    "source_file": "meta_Postscript_a19740.json",
+    "follow_up_3_due": "2026-04-03T15:17:36.994706+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Clearview Group",
@@ -1547,7 +1875,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T16:21:51.343013+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Clearview_Group_cfd3b9.json"
+    "source_file": "meta_Clearview_Group_cfd3b9.json",
+    "follow_up_3_due": "2026-04-03T16:21:49.230354+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Healthie",
@@ -1557,7 +1887,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T16:21:52.591957+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Healthie_77c236.json"
+    "source_file": "meta_Healthie_77c236.json",
+    "follow_up_3_due": "2026-04-03T16:21:51.388129+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Kruze Consulting",
@@ -1567,7 +1899,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T16:22:12.179093+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Kruze_Consulting_a9f976.json"
+    "source_file": "meta_Kruze_Consulting_a9f976.json",
+    "follow_up_3_due": "2026-04-03T16:22:10.123817+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Vivaldi Partners",
@@ -1577,7 +1911,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T16:22:13.707928+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Vivaldi_Partners_bc0938.json"
+    "source_file": "meta_Vivaldi_Partners_bc0938.json",
+    "follow_up_3_due": "2026-04-03T16:22:12.231843+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "WebMechanix",
@@ -1587,7 +1923,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T16:22:15.053817+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_WebMechanix_31310b.json"
+    "source_file": "meta_WebMechanix_31310b.json",
+    "follow_up_3_due": "2026-04-03T16:22:13.710928+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Capchase",
@@ -1597,7 +1935,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T19:48:29.697411+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Capchase_0b90ad.json"
+    "source_file": "meta_Capchase_0b90ad.json",
+    "follow_up_3_due": "2026-04-03T19:48:27.083968+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Everlaw",
@@ -1607,7 +1947,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T19:48:31.977832+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Everlaw_cf2e68.json"
+    "source_file": "meta_Everlaw_cf2e68.json",
+    "follow_up_3_due": "2026-04-03T19:48:29.733186+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "LinkSquares",
@@ -1617,7 +1959,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T19:49:04.530237+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_LinkSquares_5183e5.json"
+    "source_file": "meta_LinkSquares_5183e5.json",
+    "follow_up_3_due": "2026-04-03T19:49:02.842066+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Modern Treasury",
@@ -1627,7 +1971,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T19:49:05.912692+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Modern_Treasury_d8ee43.json"
+    "source_file": "meta_Modern_Treasury_d8ee43.json",
+    "follow_up_3_due": "2026-04-03T19:49:04.558000+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "SpotDraft",
@@ -1637,7 +1983,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-27T19:49:07.469454+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_SpotDraft_af2bbb.json"
+    "source_file": "meta_SpotDraft_af2bbb.json",
+    "follow_up_3_due": "2026-04-03T19:49:05.968821+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Orum",
@@ -1647,7 +1995,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-28T19:12:00.285520+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Orum_e9d9d9.json"
+    "source_file": "meta_Orum_e9d9d9.json",
+    "follow_up_3_due": "2026-04-04T19:11:58.498248+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Paro",
@@ -1657,7 +2007,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-28T19:12:01.782830+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Paro_7d9f7a.json"
+    "source_file": "meta_Paro_7d9f7a.json",
+    "follow_up_3_due": "2026-04-04T19:12:00.286749+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Ribbon Health",
@@ -1667,7 +2019,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-28T19:12:30.812299+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Ribbon_Health_dcb511.json"
+    "source_file": "meta_Ribbon_Health_dcb511.json",
+    "follow_up_3_due": "2026-04-04T19:12:29.176418+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Tegus",
@@ -1677,7 +2031,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-28T19:12:35.668580+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Tegus_1420a1.json"
+    "source_file": "meta_Tegus_1420a1.json",
+    "follow_up_3_due": "2026-04-04T19:12:33.757511+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "HealthJoy",
@@ -1687,7 +2043,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-29T15:13:43.167011+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_HealthJoy_57cd75.json"
+    "source_file": "meta_HealthJoy_57cd75.json",
+    "follow_up_3_due": "2026-04-05T15:13:41.634125+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Mend",
@@ -1697,7 +2055,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-29T15:13:55.722128+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Mend_840977.json"
+    "source_file": "meta_Mend_840977.json",
+    "follow_up_3_due": "2026-04-05T15:13:55.712071+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Spruce Health",
@@ -1707,7 +2067,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-29T15:13:58.063892+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Spruce_Health_6f1c9d.json"
+    "source_file": "meta_Spruce_Health_6f1c9d.json",
+    "follow_up_3_due": "2026-04-05T15:13:56.124813+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "TeachFX",
@@ -1717,7 +2079,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-29T15:14:15.866621+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_TeachFX_c0a93f.json"
+    "source_file": "meta_TeachFX_c0a93f.json",
+    "follow_up_3_due": "2026-04-05T15:14:15.805751+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Betts Recruiting",
@@ -1727,7 +2091,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-29T16:19:07.289705+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Betts_Recruiting_94b9b3.json"
+    "source_file": "meta_Betts_Recruiting_94b9b3.json",
+    "follow_up_3_due": "2026-04-05T16:19:05.898050+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Italic",
@@ -1737,7 +2103,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-29T16:19:08.483534+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Italic_9d7373.json"
+    "source_file": "meta_Italic_9d7373.json",
+    "follow_up_3_due": "2026-04-05T16:19:07.299232+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "JumpCrew",
@@ -1747,7 +2115,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-29T16:19:10.103671+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_JumpCrew_4c2f81.json"
+    "source_file": "meta_JumpCrew_4c2f81.json",
+    "follow_up_3_due": "2026-04-05T16:19:08.484538+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Skaled",
@@ -1757,7 +2127,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-29T16:19:11.745878+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Skaled_f003a1.json"
+    "source_file": "meta_Skaled_f003a1.json",
+    "follow_up_3_due": "2026-04-05T16:19:10.116833+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Winning by Design",
@@ -1767,7 +2139,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-29T16:19:13.587900+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Winning_by_Design_715bf8.json"
+    "source_file": "meta_Winning_by_Design_715bf8.json",
+    "follow_up_3_due": "2026-04-05T16:19:11.751775+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "CloserIQ",
@@ -1777,7 +2151,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-29T17:23:26.035556+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_CloserIQ_2bdf41.json"
+    "source_file": "meta_CloserIQ_2bdf41.json",
+    "follow_up_3_due": "2026-04-05T17:23:24.398910+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Flowspace",
@@ -1787,7 +2163,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-29T17:23:37.002743+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Flowspace_ae7458.json"
+    "source_file": "meta_Flowspace_ae7458.json",
+    "follow_up_3_due": "2026-04-05T17:23:36.992765+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Hunt Club",
@@ -1797,7 +2175,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-29T17:23:53.330113+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Hunt_Club_f7833b.json"
+    "source_file": "meta_Hunt_Club_f7833b.json",
+    "follow_up_3_due": "2026-04-05T17:23:53.316909+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Sendle",
@@ -1807,7 +2187,9 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-29T17:24:06.117389+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Sendle_be9daf.json"
+    "source_file": "meta_Sendle_be9daf.json",
+    "follow_up_3_due": "2026-04-05T17:24:06.116360+00:00",
+    "follow_up_3_sent": false
   },
   {
     "company": "Springboard",
@@ -1817,6 +2199,8 @@
     "follow_up_1_sent": false,
     "follow_up_2_due": "2026-03-29T17:24:07.738603+00:00",
     "follow_up_2_sent": false,
-    "source_file": "meta_Springboard_18635f.json"
+    "source_file": "meta_Springboard_18635f.json",
+    "follow_up_3_due": "2026-04-05T17:24:06.119398+00:00",
+    "follow_up_3_sent": false
   }
 ]

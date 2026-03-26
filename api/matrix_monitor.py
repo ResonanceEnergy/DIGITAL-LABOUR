@@ -39,11 +39,8 @@ async def verify_matrix_auth(
 ):
     """Require authentication for Matrix C2 endpoints."""
     if not MATRIX_AUTH_TOKEN:
-        # No token configured — block access entirely in production
-        if os.environ.get("RAILWAY_ENVIRONMENT"):
-            raise HTTPException(status_code=503, detail="MATRIX_AUTH_TOKEN not configured")
-        # Local dev — allow unauthenticated
-        return True
+        # No token configured — block access in ALL environments
+        raise HTTPException(status_code=503, detail="MATRIX_AUTH_TOKEN not configured — set in .env")
 
     # Check Authorization: Bearer <token>
     if authorization and authorization.startswith("Bearer "):
@@ -1059,3 +1056,187 @@ def send_alert(message: str, severity: str = "INFO"):
     prefix = {"CRITICAL": "🔴", "HIGH": "🟠", "MEDIUM": "🟡", "INFO": "🔵"}.get(severity, "⚪")
     full_msg = f"{prefix} <b>DIGITAL LABOUR MATRIX</b>\n\n{message}\n\n<i>{datetime.now(timezone.utc).strftime('%H:%M UTC')}</i>"
     return _send_telegram_alert(full_msg)
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# NCC MASTER — Unified Command & Control across all pillars
+# ═══════════════════════════════════════════════════════════════════════════
+
+
+class NCCDirective(BaseModel):
+    """NCC governance directive routed through the orchestrator."""
+    type: str  # e.g. agent.pause, csuite.run, nerve.restart, resonance.sync
+    target: str = ""
+    data: dict = Field(default_factory=dict)
+    reason: str = ""
+    operator: str = "ncc_master"
+
+
+@router.get("/ncc/master")
+def ncc_master_sitrep(_auth=Depends(verify_matrix_auth)):
+    """NCC MASTER — Unified situational report across ALL pillars.
+
+    Single call returns: NCC health, NCL intelligence + freshness,
+    AAC financials + freshness, BRS fleet status, C-Suite verdicts,
+    resonance sync state, NERVE status, and active alerts.
+    """
+    timestamp = datetime.now(timezone.utc).isoformat()
+
+    # NCC Orchestrator health
+    try:
+        from NCC.ncc_orchestrator import health as ncc_health, pending_decisions
+        ncc = {"status": "online", **ncc_health(), "recent_decisions": pending_decisions(5)}
+    except Exception as e:
+        ncc = {"status": "error", "error": str(e)}
+
+    # NCL Intelligence + freshness
+    try:
+        from resonance.ncl_bridge import ncl
+        ncl_data = {
+            "status": "available" if ncl.available else "not_found",
+            "digest": ncl.intelligence_digest() if ncl.available else None,
+            "freshness": ncl.data_freshness(),
+        }
+    except Exception as e:
+        ncl_data = {"status": "error", "error": str(e)}
+
+    # AAC Financials + freshness
+    try:
+        from resonance.aac_bridge import aac
+        aac_data = {
+            "freshness": aac.data_freshness(),
+        }
+        # Only pull live snapshot if engine available
+        if aac.data_freshness().get("engine_available"):
+            aac_data["status"] = "connected"
+        else:
+            aac_data["status"] = "offline"
+    except Exception as e:
+        aac_data = {"status": "error", "error": str(e)}
+
+    # NCC Relay health + outbox
+    try:
+        from resonance.ncc_bridge import ncc as ncc_bridge
+        relay_health = ncc_bridge.relay_health()
+        outbox_dir = PROJECT_ROOT / "data" / "ncc_outbox"
+        outbox_depth = 0
+        if outbox_dir.exists():
+            outbox_depth = sum(
+                1 for f in outbox_dir.glob("*.ndjson")
+                for line in f.read_text(encoding="utf-8").strip().splitlines() if line
+            )
+        relay = {"status": "online" if relay_health else "offline",
+                 "health": relay_health, "outbox_depth": outbox_depth}
+    except Exception as e:
+        relay = {"status": "error", "error": str(e)}
+
+    # Resonance sync state
+    try:
+        sync_file = PROJECT_ROOT / "data" / "resonance_sync_state.json"
+        sync_state = json.loads(sync_file.read_text("utf-8")) if sync_file.exists() else {}
+    except Exception:
+        sync_state = {}
+
+    # C-Suite verdicts
+    csuite = _csuite_status()
+
+    # NERVE status
+    nerve = _watchdog_live_status()
+
+    # Fleet
+    fleet = _fleet_status()
+
+    # BRS queue
+    from dashboard.health import queue_status, kpi_summary, revenue_summary
+    queue = queue_status()
+    kpi = kpi_summary()
+    rev = revenue_summary()
+
+    # Active alerts
+    alerts = _pending_alerts()
+
+    # Staleness alerts
+    if ncl_data.get("freshness", {}).get("stale"):
+        alerts.append({"severity": "HIGH", "message": "NCL intelligence data is STALE",
+                        "action": "resonance_sync"})
+    if aac_data.get("freshness", {}).get("stale"):
+        alerts.append({"severity": "MEDIUM", "message": "AAC financial data is STALE",
+                        "action": "aac_snapshot"})
+    if relay.get("status") == "offline":
+        alerts.append({"severity": "HIGH", "message": "NCC Relay is OFFLINE",
+                        "action": "ncc_status"})
+    if relay.get("outbox_depth", 0) > 50:
+        alerts.append({"severity": "MEDIUM",
+                        "message": f"NCC outbox has {relay['outbox_depth']} queued events",
+                        "action": "resonance_sync"})
+
+    # Overall status
+    critical_count = sum(1 for a in alerts if a["severity"] in ("HIGH", "CRITICAL"))
+    overall = "RED" if critical_count >= 2 else "AMBER" if critical_count >= 1 else "GREEN"
+
+    return {
+        "timestamp": timestamp,
+        "overall_status": overall,
+        "pillars": {
+            "ncc": ncc,
+            "ncl": ncl_data,
+            "aac": aac_data,
+            "relay": relay,
+        },
+        "resonance_sync": sync_state,
+        "csuite": csuite,
+        "nerve": nerve,
+        "fleet": fleet,
+        "brs": {"queue": queue, "kpi_7d": kpi, "revenue": rev},
+        "alerts": alerts,
+    }
+
+
+@router.post("/ncc/dispatch")
+def ncc_dispatch(directive: NCCDirective, _auth=Depends(verify_matrix_auth)):
+    """NCC MASTER — Route a governance directive through the NCC Orchestrator.
+
+    This is the unified command entry point. All commands flow through
+    NCC governance before reaching BRS execution.
+    """
+    timestamp = datetime.now(timezone.utc).isoformat()
+
+    try:
+        from NCC.ncc_orchestrator import dispatch
+        result = dispatch(directive.model_dump())
+    except Exception as e:
+        result = {"executed": False, "error": str(e)}
+
+    # Also log in matrix decisions
+    _log_decision(
+        C2Command(action=f"ncc.{directive.type}", target=directive.target,
+                  reason=directive.reason, operator=directive.operator),
+        result, timestamp,
+    )
+
+    return {
+        "timestamp": timestamp,
+        "directive": directive.model_dump(),
+        "result": result,
+    }
+
+
+@router.get("/ncc/decisions")
+def ncc_decisions(limit: int = 20, _auth=Depends(verify_matrix_auth)):
+    """NCC MASTER — Recent governance decisions from the NCC orchestrator."""
+    try:
+        from NCC.ncc_orchestrator import pending_decisions
+        return {"decisions": pending_decisions(limit)}
+    except Exception as e:
+        return {"status": "error", "error": str(e)}
+
+
+@router.get("/ncc/routes")
+def ncc_routes(_auth=Depends(verify_matrix_auth)):
+    """NCC MASTER — List all available directive types for dispatch."""
+    try:
+        from NCC.ncc_orchestrator import health
+        h = health()
+        return {"routes": h.get("routes", []), "adapters": h.get("adapter_names", [])}
+    except Exception as e:
+        return {"status": "error", "error": str(e)}

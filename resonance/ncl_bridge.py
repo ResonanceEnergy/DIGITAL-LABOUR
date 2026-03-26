@@ -25,6 +25,9 @@ logger = logging.getLogger(__name__)
 
 NCL_DATA = Path(os.getenv("NCL_DATA_PATH", str(Path.home() / "NCL" / "data")))
 
+# Data older than this (hours) is considered stale
+NCL_STALE_THRESHOLD_HOURS = float(os.getenv("NCL_STALE_HOURS", "48"))
+
 
 class NCLBridge:
     """Read-only connector to NCL BRAIN pillar data."""
@@ -137,11 +140,43 @@ class NCLBridge:
 
     # ── Summary for C-Suite ─────────────────────────────────────
 
+    def data_freshness(self) -> dict:
+        """Check freshness of NCL data sources. Returns staleness info."""
+        result = {"available": self.available, "stale": False, "sources": {}}
+        if not self.available:
+            result["stale"] = True
+            result["reason"] = "NCL data directory not found"
+            return result
+
+        now = datetime.now(timezone.utc)
+        checks = {
+            "daily_brief": self.daily_dir / "latest_daily_brief.md",
+            "trinity_ledger": self.trinity_dir / "feedback_ledger.ndjson",
+        }
+        for name, path in checks.items():
+            if path.exists():
+                mtime = datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc)
+                age_hours = (now - mtime).total_seconds() / 3600
+                is_stale = age_hours > NCL_STALE_THRESHOLD_HOURS
+                result["sources"][name] = {
+                    "exists": True, "age_hours": round(age_hours, 1), "stale": is_stale,
+                }
+                if is_stale:
+                    result["stale"] = True
+            else:
+                result["sources"][name] = {"exists": False, "stale": True}
+                result["stale"] = True
+
+        return result
+
     def intelligence_digest(self) -> dict:
         """Compiled digest for AXIOM (CEO) morning standup."""
         health = self.trinity_health()
+        freshness = self.data_freshness()
         return {
             "ncl_available": self.available,
+            "data_stale": freshness.get("stale", True),
+            "freshness": freshness.get("sources", {}),
             "trinity_health_score": health.get("health_score") if health else None,
             "drift_count": health.get("drift_count") if health else None,
             "pillar_dirty": health.get("pillar_dirty") if health else None,

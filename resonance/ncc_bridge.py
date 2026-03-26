@@ -38,6 +38,7 @@ class NCCBridge:
 
     def __init__(self, relay_url: str = RELAY_URL):
         self.relay_url = relay_url.rstrip("/")
+        self._last_flush_attempt = None
 
     # ── Event Construction ──────────────────────────────────────
 
@@ -73,12 +74,25 @@ class NCCBridge:
             f.write(json.dumps(event) + "\n")
 
     def publish(self, event_type: str, data: dict) -> bool:
-        """Build and publish a sync event. Queues locally on failure."""
+        """Build and publish a sync event. Queues locally on failure.
+        Auto-flushes stale outbox every 10 minutes on successful publish."""
         event = self._make_sync_event(event_type, data)
         if self._post(event):
+            # Opportunistic auto-flush: if outbox has queued events, try flushing
+            self._auto_flush()
             return True
         self._queue(event)
         return False
+
+    def _auto_flush(self):
+        """Flush outbox if enough time has passed since last attempt."""
+        now = datetime.now(timezone.utc)
+        if self._last_flush_attempt and (now - self._last_flush_attempt) < timedelta(minutes=10):
+            return
+        self._last_flush_attempt = now
+        # Only flush if there are queued files
+        if any(OUTBOX_DIR.glob("*.ndjson")):
+            self.flush()
 
     def flush(self) -> dict:
         """Flush all queued outbox events to relay. Returns counts."""

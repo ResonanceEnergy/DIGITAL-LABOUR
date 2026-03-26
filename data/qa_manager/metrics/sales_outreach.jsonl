@@ -11,3 +11,12 @@
 {"ts":"2026-03-17T04:56:37.496666+00:00","task_type":"sales_outreach","client_id":"test_client","verdict":"REJECTED","quality_score":0,"issues":["Subject line is not compelling or relevant.","Body lacks content, personalization, and a clear message.","No call to action or professional closing."]}
 {"ts":"2026-03-17T04:56:52.562821+00:00","task_type":"sales_outreach","client_id":"test_client","verdict":"REJECTED","quality_score":0,"issues":["Subject line is not compelling or relevant.","Body lacks content, personalization, and a clear message.","No call to action or professional closing."]}
 {"ts":"2026-03-17T04:57:09.822355+00:00","task_type":"sales_outreach","client_id":"test_client","verdict":"REJECTED","quality_score":0,"issues":["Subject line is not compelling or relevant.","Body lacks content, personalization, and a clear message.","No call to action or professional closing."]}
+{"ts":"2026-03-26T03:42:14.190688+00:00","task_type":"sales_outreach","client_id":"test_client","verdict":"REJECTED","quality_score":0,"issues":[]}
+{"ts":"2026-03-26T03:42:28.864368+00:00","task_type":"sales_outreach","client_id":"test_client","verdict":"REJECTED","quality_score":0,"issues":[]}
+{"ts":"2026-03-26T03:42:34.226064+00:00","task_type":"sales_outreach","client_id":"test_client","verdict":"REJECTED","quality_score":0,"issues":[]}
+{"ts":"2026-03-26T03:42:58.888134+00:00","task_type":"sales_outreach","client_id":"test_client","verdict":"REJECTED","quality_score":0,"issues":[]}
+{"ts":"2026-03-26T03:43:06.607696+00:00","task_type":"sales_outreach","client_id":"test_client","verdict":"REJECTED","quality_score":0,"issues":[]}
+{"ts":"2026-03-26T03:43:07.281673+00:00","task_type":"sales_outreach","client_id":"test_client","verdict":"REJECTED","quality_score":0,"issues":[]}
+{"ts":"2026-03-26T03:44:46.506889+00:00","task_type":"sales_outreach","client_id":"test_client","verdict":"REJECTED","quality_score":0,"issues":[]}
+{"ts":"2026-03-26T03:45:56.914652+00:00","task_type":"sales_outreach","client_id":"test_client","verdict":"REJECTED","quality_score":0,"issues":[]}
+{"ts":"2026-03-26T03:46:58.176177+00:00","task_type":"sales_outreach","client_id":"test_client","verdict":"REJECTED","quality_score":0,"issues":[]}
