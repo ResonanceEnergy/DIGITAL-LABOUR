@@ -324,6 +324,18 @@ def send_followups() -> list[dict]:
                     fu["follow_up_2_sent"] = True
                     results.append({"company": fu["company"], "type": "follow_up_2"})
 
+        # Check follow-up 3 (break-up email, day 14)
+        if not fu.get("follow_up_3_sent", False):
+            fu3_due = fu.get("follow_up_3_due")
+            if fu3_due:
+                due = datetime.fromisoformat(fu3_due)
+                if now >= due:
+                    fu3 = emails.get("follow_up_3", {})
+                    if fu3:
+                        _queue_followup(fu, fu3, "follow_up_3")
+                        fu["follow_up_3_sent"] = True
+                        results.append({"company": fu["company"], "type": "follow_up_3"})
+
     _save_followups(followups)
     if results:
         print(f"[FOLLOWUP] Sent {len(results)} follow-ups")
@@ -348,7 +360,7 @@ def _queue_followup(fu: dict, email_data: dict, fu_type: str):
     outfile = send_dir / f"{fu_type}_{company}.json"
     outfile.write_text(json.dumps({
         "to": fu.get("contact_email") or f"[FIND EMAIL for {fu['role']} at {fu['company']}]",
-        "from": "sales@bit-rage-labour.com",
+        "from": "sales@digital-labour.com",
         "subject": email_data.get("subject", f"Following up — {fu['company']}"),
         "body": email_data.get("body", ""),
         "type": fu_type,

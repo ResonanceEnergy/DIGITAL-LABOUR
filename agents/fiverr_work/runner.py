@@ -25,7 +25,7 @@ from pydantic import BaseModel, Field
 
 load_dotenv(PROJECT_ROOT / ".env")
 
-from utils.dl_agent import make_bridge
+from utils.dl_agent import make_bridge, safe_validate
 llm_call = make_bridge("fiverr_work")
 
 
@@ -183,10 +183,10 @@ def _qa_check(output: str, provider: str = "openai") -> QAResult:
         provider=provider,
     )
     try:
-        data = json.loads(response)
-        return QAResult(**data)
-    except (json.JSONDecodeError, Exception):
+        data = json.loads(response, strict=False)
+    except (json.JSONDecodeError, ValueError):
         return QAResult(status="PASS", score=75)
+    return safe_validate(QAResult, data, agent_name="fiverr_work.qa")
 
 
 def run_pipeline(

@@ -21,7 +21,7 @@ from pydantic import BaseModel, Field
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from utils.dl_agent import make_bridge  # noqa: E402
+from utils.dl_agent import make_bridge, safe_validate  # noqa: E402
 call_llm = make_bridge("social_media")
 
 PROMPT_DIR = Path(__file__).resolve().parent
@@ -106,7 +106,8 @@ def strategist_agent(
     )
     raw = call_llm(system_prompt=system, user_prompt=user_msg,
                    provider=provider, json_mode=True, temperature=0.7)
-    return SocialMediaPlan(**json.loads(raw))
+    data = json.loads(raw, strict=False)
+    return safe_validate(SocialMediaPlan, data, agent_name="social_media.strategist")
 
 
 def qa_agent(plan: SocialMediaPlan, provider: str = "openai") -> QAResult:
@@ -115,7 +116,8 @@ def qa_agent(plan: SocialMediaPlan, provider: str = "openai") -> QAResult:
     user_msg = f"Social media plan to validate:\n{json.dumps(plan.model_dump(), indent=2, default=str)}"
     raw = call_llm(system_prompt=system, user_prompt=user_msg,
                    provider=provider, json_mode=True)
-    return QAResult(**json.loads(raw))
+    data = json.loads(raw, strict=False)
+    return safe_validate(QAResult, data, agent_name="social_media.qa")
 
 
 # ── Pipeline ────────────────────────────────────────────────────

@@ -14,6 +14,7 @@ Usage:
 import argparse
 import email
 import imaplib
+import io
 import json
 import os
 import re
@@ -23,6 +24,11 @@ from datetime import datetime, timezone
 from email.header import decode_header
 from email.utils import parseaddr, parsedate_to_datetime
 from pathlib import Path
+
+# ── UTF-8 stdout fix for Windows (prevents charmap crashes) ────
+if sys.stdout and hasattr(sys.stdout, 'encoding') and sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -49,6 +55,7 @@ CATEGORIES = {
     "reply": "Reply to an outreach email we sent",
     "support": "Customer support request or issue",
     "subscription": "Billing / subscription inquiry",
+    "bounce": "Delivery failure — email address invalid or rejected",
     "spam": "Spam, marketing, or irrelevant",
     "internal": "System notification, Stripe alert, etc.",
     "unknown": "Could not classify",
@@ -228,23 +235,29 @@ def classify_email(email_data: dict) -> str:
     from_email = email_data.get("from_email", "").lower()
     body = email_data.get("body", "").lower()
 
-    # Check if it's a reply to our outreach
+    # Check for bounce/delivery failure FIRST (before reply detection)
+    bounce_senders = ["mailer-daemon@", "postmaster@"]
+    bounce_subjects = ["undelivered", "delivery status", "delivery failure",
+                       "returned to sender", "undeliverable", "mail delivery"]
+    if any(s in from_email for s in bounce_senders) or any(s in subject for s in bounce_subjects):
+        return "bounce"
+
+    # Check for common service/notification senders
+    system_senders = ["noreply@", "no-reply@", "notifications@",
+                      "stripe.com", "zoho.com"]
+    if any(s in from_email for s in system_senders):
+        return "internal"
+
+    # Check if it's a reply to our outreach (only from real humans)
     if email_data.get("in_reply_to") or email_data.get("references"):
         return "reply"
 
     # Pattern match on subject
     for pattern, category in SUBJECT_PATTERNS:
         if re.search(pattern, subject, re.IGNORECASE):
-            # "Re:" alone isn't enough — check if it matches something more specific first
             if category == "reply" and not email_data.get("in_reply_to"):
                 continue
             return category
-
-    # Check for common service/notification senders
-    system_senders = ["noreply@", "no-reply@", "notifications@", "mailer-daemon@",
-                      "postmaster@", "stripe.com", "zoho.com"]
-    if any(s in from_email for s in system_senders):
-        return "internal"
 
     # Check body for buying signals
     buy_signals = ["interested in", "looking for", "need help with", "want to try",
@@ -323,7 +336,7 @@ def process_email(email_data: dict) -> dict:
 
 def route_processed(processed: list[dict]) -> dict:
     """Route processed emails to appropriate handlers."""
-    routed = {"leads": [], "demos": [], "replies": [], "support": [], "spam": [], "other": []}
+    routed = {"leads": [], "demos": [], "replies": [], "support": [], "spam": [], "bounces": [], "other": []}
 
     for p in processed:
         cat = p["category"]
@@ -340,10 +353,90 @@ def route_processed(processed: list[dict]) -> dict:
             routed["support"].append(p)
         elif cat == "spam":
             routed["spam"].append(p)
+        elif cat == "bounce":
+            routed["bounces"].append(p)
+            _handle_bounce(p)
+        elif cat == "internal" and _is_bounce(p):
+            routed["bounces"].append(p)
+            _handle_bounce(p)
         else:
             routed["other"].append(p)
 
     return routed
+
+
+def _is_bounce(processed_email: dict) -> bool:
+    """Detect if an email is a bounce/delivery failure notification."""
+    subject = processed_email.get("subject", "").lower()
+    from_email = processed_email.get("from_email", "").lower()
+    bounce_subjects = ["undelivered", "delivery status", "delivery failure",
+                       "mail delivery", "returned to sender", "undeliverable"]
+    bounce_senders = ["mailer-daemon", "postmaster"]
+    return (any(s in subject for s in bounce_subjects) or
+            any(s in from_email for s in bounce_senders))
+
+
+def _extract_bounced_email(processed_email: dict) -> str:
+    """Extract the recipient email that bounced from the bounce message body."""
+    body = processed_email.get("body", "")
+    subject = processed_email.get("subject", "")
+
+    # Pattern 1: "wasn't delivered to user@domain.com"
+    m = re.search(r"wasn't delivered to\s+(\S+@\S+\.\w+)", body)
+    if m:
+        return m.group(1).strip().rstrip(".")
+
+    # Pattern 2: "could not be delivered to" followed by email
+    m = re.search(r"could not be delivered to.*?(\S+@\S+\.\w+)", body)
+    if m:
+        return m.group(1).strip().rstrip(".")
+
+    # Pattern 3: "Final-Recipient: rfc822; user@domain.com"
+    m = re.search(r"Final-Recipient:\s*rfc822;\s*(\S+@\S+\.\w+)", body)
+    if m:
+        return m.group(1).strip()
+
+    # Pattern 4: "Action: failed" + nearby email
+    m = re.search(r"(?:550|553|554|5\.1\.1).*?(\S+@\S+\.\w+)", body)
+    if m:
+        return m.group(1).strip().rstrip(".")
+
+    # Pattern 5: email in subject line (Google style)
+    m = re.search(r"(\S+@\S+\.\w+)", subject)
+    if m:
+        addr = m.group(1).strip().rstrip(".")
+        # Don't return our own address
+        if "digital-labour" not in addr and "bit-rage" not in addr:
+            return addr
+
+    return ""
+
+
+def _handle_bounce(processed_email: dict):
+    """Mark bounced contacts to prevent further follow-ups."""
+    bounced_email = _extract_bounced_email(processed_email)
+    if not bounced_email:
+        return
+
+    # Update followups.json — mark as bounced
+    followup_db = Path(__file__).parent / "followups.json"
+    if followup_db.exists():
+        followups = json.loads(followup_db.read_text(encoding="utf-8"))
+        updated = False
+        for fu in followups:
+            if fu.get("contact_email", "").lower() == bounced_email.lower():
+                fu["bounced"] = True
+                fu["bounce_at"] = datetime.now(timezone.utc).isoformat()
+                # Mark all follow-ups as "sent" to prevent re-sending
+                fu["follow_up_1_sent"] = True
+                fu["follow_up_2_sent"] = True
+                fu["follow_up_3_sent"] = True
+                updated = True
+                print(f"  [BOUNCE] Suppressed: {bounced_email} ({fu.get('company', '?')})")
+                break
+
+        if updated:
+            followup_db.write_text(json.dumps(followups, indent=2), encoding="utf-8")
 
 
 def _save_lead(processed_email: dict):
@@ -435,10 +528,10 @@ def process_inbox() -> dict:
         processed.append(result)
 
         icon = {
-            "lead": "💰", "demo_request": "🎯", "reply": "↩️",
-            "support": "🔧", "spam": "🗑️", "internal": "⚙️", "unknown": "❓",
-            "subscription": "💳",
-        }.get(result["category"], "📧")
+            "lead": "$", "demo_request": ">", "reply": "<-",
+            "support": "#", "spam": "X", "internal": "*", "unknown": "?",
+            "subscription": "$", "bounce": "!",
+        }.get(result["category"], "-")
 
         print(f"  {icon} [{result['category'].upper():12s}] {result['from_email']:30s} — {result['subject'][:50]}")
 

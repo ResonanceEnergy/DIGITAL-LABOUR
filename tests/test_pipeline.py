@@ -229,7 +229,7 @@ def test_delivery():
         client="pipeline_test",
         method="file",
     )
-    assert receipt["status"] == "delivered"
+    assert receipt["delivery_status"] == "complete"
     assert Path(receipt["path"]).exists()
     print(f"  PASS: Delivered to {receipt['path']}")
     # Cleanup

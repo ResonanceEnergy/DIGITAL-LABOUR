@@ -245,7 +245,7 @@ def plan_delivery(project: FreelancerProject, matches: list[dict], provider: str
     raw = call_llm(prompt, user_msg, provider)
     data = parse_llm_json(raw)
     plan_data = data.get("delivery_plan", data)
-    return DeliveryPlan.model_validate(plan_data)
+    return safe_validate(DeliveryPlan, plan_data, agent_name="freelancer_work.delivery")
 
 
 def generate_client_message(

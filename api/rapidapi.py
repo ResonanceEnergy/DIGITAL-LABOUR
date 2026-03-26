@@ -34,7 +34,7 @@ from dotenv import load_dotenv
 load_dotenv(PROJECT_ROOT / ".env")
 
 from datetime import datetime, timezone
-from fastapi import FastAPI, HTTPException, Header, Request
+from fastapi import Depends, FastAPI, HTTPException, Header, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse, Response
 from pydantic import BaseModel, Field, field_validator
@@ -305,12 +305,11 @@ class UnifiedRequest(BaseModel):
 
 
 @rapid_app.post("/v1/run", response_model=AgentResponse)
-async def run_agent(req: UnifiedRequest):
+async def run_agent(req: UnifiedRequest, _auth=Depends(verify_api_key)):
     """Run any of the 24 AI agents. Send the agent name + inputs dict.
 
     This is the universal endpoint — use /agents to see input schemas per agent.
     """
-    await verify_api_key()
     start = time.time()
     try:
         from dispatcher.router import create_event, route_task
@@ -344,16 +343,14 @@ async def run_agent(req: UnifiedRequest):
 
 
 @rapid_app.get("/v1/errors")
-async def get_error_log():
+async def get_error_log(_auth=Depends(verify_api_key)):
     """Return the last 50 API errors captured in the in-memory error buffer."""
-    await verify_api_key()
     return {"errors": list(_error_log), "count": len(_error_log)}
 
 
 @rapid_app.get("/v1/metrics")
-async def agent_metrics():
+async def agent_metrics(_auth=Depends(verify_api_key)):
     """Return per-agent call count and average response time since last restart."""
-    await verify_api_key()
     from dispatcher.router import get_metrics
     return {"metrics": get_metrics(), "timestamp": datetime.now(timezone.utc).isoformat()}
 

@@ -599,3 +599,134 @@ def make_bridge(agent_name: str, default_temperature: float = 0.7,
     bridge.__doc__ = f"Super-agent enhanced LLM call for {agent_name}"
     bridge.__name__ = "call_llm"
     return bridge
+
+
+# ── Safe Pydantic validation with auto-repair ──────────────────────────────
+
+def safe_validate(model_cls, data: dict | str, *, agent_name: str = "unknown") -> Any:
+    """Validate LLM output against a Pydantic model with auto-repair.
+
+    Handles common LLM output issues:
+    1. JSON wrapped in markdown fences or extra nesting
+    2. Misnamed keys (snake_case variants, common synonyms)
+    3. Missing required string fields → filled with "N/A"
+    4. Extra fields silently ignored
+
+    Returns a validated model instance.
+    Raises ValidationError only if repair completely fails.
+    """
+    from pydantic import ValidationError
+
+    # If data is a string, parse it
+    if isinstance(data, str):
+        data = json.loads(_repair_json(data), strict=False)
+
+    # Attempt 1: direct validation
+    try:
+        return model_cls.model_validate(data)
+    except ValidationError:
+        pass
+
+    # Attempt 2: unwrap common LLM nesting patterns
+    # LLMs sometimes wrap output: {"result": {...}}, {"output": {...}}, {"data": {...}}
+    for wrapper_key in ("result", "output", "data", "response"):
+        if wrapper_key in data and isinstance(data[wrapper_key], dict):
+            try:
+                result = model_cls.model_validate(data[wrapper_key])
+                _log(agent_name, "REPAIR", f"Unwrapped nested '{wrapper_key}' key")
+                return result
+            except ValidationError:
+                pass
+
+    # Attempt 3: key coercion — normalize keys to match model fields
+    model_fields = set(model_cls.model_fields.keys())
+    coerced = {}
+    used_keys = set()
+
+    for field_name in model_fields:
+        if field_name in data:
+            coerced[field_name] = data[field_name]
+            used_keys.add(field_name)
+        else:
+            # Try common variations
+            variants = _key_variants(field_name)
+            for v in variants:
+                if v in data:
+                    coerced[field_name] = data[v]
+                    used_keys.add(v)
+                    _log(agent_name, "REPAIR", f"Mapped key '{v}' → '{field_name}'")
+                    break
+
+    # Attempt 4: fill missing required string fields with "N/A"
+    for field_name, field_info in model_cls.model_fields.items():
+        if field_name in coerced:
+            continue
+        if field_info.is_required():
+            annotation = field_info.annotation
+            if annotation is str or (hasattr(annotation, '__origin__') and annotation is str):
+                coerced[field_name] = "N/A"
+                _log(agent_name, "REPAIR", f"Filled missing required field '{field_name}' with 'N/A'")
+
+    try:
+        result = model_cls.model_validate(coerced)
+        _log(agent_name, "REPAIR", "Validation succeeded after key coercion")
+        return result
+    except ValidationError:
+        pass
+
+    # Attempt 5: last resort — construct with all defaults where possible
+    for field_name, field_info in model_cls.model_fields.items():
+        if field_name not in coerced:
+            if not field_info.is_required():
+                continue
+            annotation = field_info.annotation
+            # Fill primitives with sensible defaults
+            if annotation is str:
+                coerced[field_name] = "N/A"
+            elif annotation is int:
+                coerced[field_name] = 0
+            elif annotation is float:
+                coerced[field_name] = 0.0
+            elif annotation is bool:
+                coerced[field_name] = False
+            elif annotation is list or (hasattr(annotation, '__origin__') and getattr(annotation, '__origin__', None) is list):
+                coerced[field_name] = []
+
+    result = model_cls.model_validate(coerced)
+    _log(agent_name, "REPAIR", "Validation succeeded after filling all defaults")
+    return result
+
+
+def _key_variants(field_name: str) -> list[str]:
+    """Generate common key name variants for fuzzy matching."""
+    variants = []
+    # camelCase
+    parts = field_name.split("_")
+    camel = parts[0] + "".join(p.capitalize() for p in parts[1:])
+    variants.append(camel)
+    # No underscores
+    variants.append(field_name.replace("_", ""))
+    # With hyphens
+    variants.append(field_name.replace("_", "-"))
+    # Common synonyms
+    synonyms = {
+        "company_name": ["company", "name", "org", "organization"],
+        "recent_signal": ["signal", "news", "recent_news", "latest_signal"],
+        "personalization_angle": ["angle", "personalization", "hook", "outreach_angle"],
+        "company_website": ["website", "url", "domain", "site"],
+        "company_size_estimate": ["size", "company_size", "employees", "headcount"],
+        "contact_name": ["name", "contact", "person"],
+        "contact_role": ["role", "title", "job_title", "position"],
+        "contact_email_guess": ["email", "email_guess", "contact_email"],
+        "draft_reply": ["reply", "response", "draft_response", "message"],
+        "severity": ["priority", "urgency"],
+        "sentiment": ["tone", "customer_sentiment", "mood"],
+        "category": ["type", "issue_type", "ticket_type", "classification"],
+        "summary": ["description", "overview", "issue_summary"],
+        "signal_source": ["source", "reference"],
+        "role_relevant_pain": ["pain_point", "pain", "challenge"],
+        "linkedin_url": ["linkedin", "profile_url"],
+    }
+    if field_name in synonyms:
+        variants.extend(synonyms[field_name])
+    return variants

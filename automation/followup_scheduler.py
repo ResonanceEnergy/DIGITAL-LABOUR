@@ -46,7 +46,7 @@ SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
 SMTP_USER = os.getenv("SMTP_USER", "")
 SMTP_PASS = os.getenv("SMTP_PASS", "")
 FROM_NAME = os.getenv("FROM_NAME", "DIGITAL LABOUR")
-FROM_EMAIL = os.getenv("SMTP_USER", "sales@bit-rage-labour.com")
+FROM_EMAIL = os.getenv("SMTP_USER", "sales@digital-labour.com")
 
 # ── Timing ─────────────────────────────────────────────────────
 FOLLOWUP_SCHEDULE = [
@@ -217,6 +217,10 @@ def get_due_followups() -> list[dict]:
 
         # Skip if no email
         if not to_email or to_email.startswith("["):
+            continue
+
+        # Skip bounced contacts (marked by inbox_reader)
+        if fu.get("bounced"):
             continue
 
         # Determine original send date

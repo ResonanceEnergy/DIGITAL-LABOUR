@@ -23,7 +23,7 @@ from pydantic import BaseModel, Field
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from utils.dl_agent import make_bridge  # noqa: E402
+from utils.dl_agent import make_bridge, safe_validate  # noqa: E402
 call_llm = make_bridge("lead_gen")
 
 PROMPT_DIR = Path(__file__).resolve().parent
@@ -122,7 +122,8 @@ def research_agent(
     )
     raw = call_llm(system_prompt=system, user_prompt=user_msg,
                    provider=provider, json_mode=True)
-    return ResearchOutput(**json.loads(raw))
+    data = json.loads(raw, strict=False)
+    return safe_validate(ResearchOutput, data, agent_name="lead_gen.research")
 
 
 def scorer_agent(
@@ -139,7 +140,8 @@ def scorer_agent(
     )
     raw = call_llm(system_prompt=system, user_prompt=user_msg,
                    provider=provider, json_mode=True)
-    return ScoringOutput(**json.loads(raw))
+    data = json.loads(raw, strict=False)
+    return safe_validate(ScoringOutput, data, agent_name="lead_gen.scorer")
 
 
 def qa_agent(
@@ -155,7 +157,8 @@ def qa_agent(
     )
     raw = call_llm(system_prompt=system, user_prompt=user_msg,
                    provider=provider, json_mode=True)
-    return QAResult(**json.loads(raw))
+    data = json.loads(raw, strict=False)
+    return safe_validate(QAResult, data, agent_name="lead_gen.qa")
 
 
 # ── Pipeline ────────────────────────────────────────────────────

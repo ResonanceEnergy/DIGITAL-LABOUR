@@ -491,7 +491,7 @@ def run_cycle() -> dict:
             cycle_report["phases"]["openclaw_revenue"] = {"error": str(e)}
 
     # ── Phase 13: Inbox Sales Response (every cycle) ──────────
-    logger.info(f"\n[PHASE 13] Inbox Sales Response (sales@bit-rage-labour.com)...")
+    logger.info(f"\n[PHASE 13] Inbox Sales Response (sales@digital-labour.com)...")
     if not _check_imap_health():
         logger.warning("  IMAP auth broken — skipping inbox processing.")
         logger.warning("  Fix: update IMAP_PASS / SMTP_PASS in .env with a valid Zoho app password.")
@@ -653,8 +653,9 @@ def run_cycle() -> dict:
     logger.info(f"\n[PHASE 19] Followup Scheduler...")
     try:
         from automation.followup_scheduler import run_followups
-        fu_result = run_followups(dry_run=False)
-        sent_count = fu_result.get("sent", 0)
+        fu_results = run_followups(dry_run=False)
+        # run_followups() returns a list of dicts, not a dict
+        sent_count = sum(1 for r in fu_results if r.get("status") == "sent")
         if sent_count:
             logger.info(f"  Sent {sent_count} scheduled follow-ups")
             log_decision(
@@ -666,7 +667,7 @@ def run_cycle() -> dict:
             cycle_report["decisions_made"] += 1
         else:
             logger.info(f"  No follow-ups due this cycle")
-        cycle_report["phases"]["followup_scheduler"] = fu_result
+        cycle_report["phases"]["followup_scheduler"] = {"sent": sent_count, "processed": len(fu_results)}
     except Exception as e:
         logger.error(f"  [ERROR] Followup scheduler failed: {e}")
         cycle_report["phases"]["followup_scheduler"] = {"error": str(e)}

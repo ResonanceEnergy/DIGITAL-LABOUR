@@ -22,7 +22,7 @@ from pydantic import BaseModel, Field
 load_dotenv(PROJECT_ROOT / ".env")
 
 sys.path.insert(0, str(PROJECT_ROOT))
-from utils.dl_agent import make_bridge
+from utils.dl_agent import make_bridge, safe_validate
 llm_call = make_bridge("support", default_temperature=0.4)
 
 
@@ -92,7 +92,7 @@ def resolver_agent(ticket: str, kb: str = "", policies: str = "", provider: str 
         user_msg += f"\n\nPOLICIES:\n{policies}"
     raw = call_llm(prompt, user_msg, provider)
     data = json.loads(raw, strict=False)
-    return SupportOutput.model_validate(data)
+    return safe_validate(SupportOutput, data, agent_name="support.resolver")
 
 
 def qa_agent(ticket: str, output: SupportOutput, provider: str | None = None) -> QAResult:
@@ -104,7 +104,7 @@ def qa_agent(ticket: str, output: SupportOutput, provider: str | None = None) ->
     }, indent=2)
     raw = call_llm(prompt, user_msg, provider)
     data = json.loads(raw, strict=False)
-    return QAResult.model_validate(data)
+    return safe_validate(QAResult, data, agent_name="support.qa")
 
 
 # ── Pipeline ────────────────────────────────────────────────────────────────

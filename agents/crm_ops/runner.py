@@ -22,7 +22,7 @@ from pydantic import BaseModel, Field
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from utils.dl_agent import make_bridge  # noqa: E402
+from utils.dl_agent import make_bridge, safe_validate  # noqa: E402
 call_llm = make_bridge("crm_ops")
 
 PROMPT_DIR = Path(__file__).resolve().parent
@@ -142,7 +142,8 @@ def manager_agent(
     )
     raw = call_llm(system_prompt=system, user_prompt=user_msg,
                    provider=provider, json_mode=True)
-    return CRMManagerOutput(**json.loads(raw))
+    data = json.loads(raw, strict=False)
+    return safe_validate(CRMManagerOutput, data, agent_name="crm_ops.manager")
 
 
 def qa_agent(managed: CRMManagerOutput, provider: str = "openai") -> QAResult:
@@ -151,7 +152,8 @@ def qa_agent(managed: CRMManagerOutput, provider: str = "openai") -> QAResult:
     user_msg = f"CRM output to validate:\n{json.dumps(managed.model_dump(), indent=2)}"
     raw = call_llm(system_prompt=system, user_prompt=user_msg,
                    provider=provider, json_mode=True)
-    return QAResult(**json.loads(raw))
+    data = json.loads(raw, strict=False)
+    return safe_validate(QAResult, data, agent_name="crm_ops.qa")
 
 
 # ── Pipeline ────────────────────────────────────────────────────
