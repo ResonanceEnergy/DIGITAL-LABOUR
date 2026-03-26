@@ -1269,3 +1269,137 @@ def ncc_routes(_auth=Depends(verify_matrix_auth)):
         return {"routes": h.get("routes", []), "adapters": h.get("adapter_names", [])}
     except Exception as e:
         return {"status": "error", "error": str(e)}
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# UNIFIED MATRIX — Per-pillar monitors + displays + cross-pillar aggregation
+# ═══════════════════════════════════════════════════════════════════════════
+
+
+@router.get("/unified")
+def matrix_unified(_auth=Depends(verify_matrix_auth)):
+    """Unified cross-pillar situational picture — all 4 pillars + display.
+
+    Returns monitor data + formatted display cards/panels/alerts in one call.
+    """
+    try:
+        from resonance.matrix_monitor import unified_monitor
+        from resonance.matrix_display import unified_display
+
+        monitor_data = unified_monitor.collect_all()
+        display_data = unified_display.render(monitor_data)
+
+        return {
+            "monitor": monitor_data,
+            "display": display_data,
+        }
+    except Exception as e:
+        return {"status": "error", "error": str(e)}
+
+
+# ── Per-pillar monitor endpoints ────────────────────────────────────────────
+
+@router.get("/brs/monitor")
+def brs_monitor(_auth=Depends(verify_matrix_auth)):
+    """BRS Matrix Monitor — Execution layer health + metrics."""
+    try:
+        from resonance.matrix_monitor import unified_monitor
+        return unified_monitor.brs.collect()
+    except Exception as e:
+        return {"status": "error", "error": str(e)}
+
+
+@router.get("/ncc/monitor")
+def ncc_monitor(_auth=Depends(verify_matrix_auth)):
+    """NCC Matrix Monitor — Governance layer health + metrics."""
+    try:
+        from resonance.matrix_monitor import unified_monitor
+        return unified_monitor.ncc.collect()
+    except Exception as e:
+        return {"status": "error", "error": str(e)}
+
+
+@router.get("/ncl/monitor")
+def ncl_monitor(_auth=Depends(verify_matrix_auth)):
+    """NCL Matrix Monitor — Intelligence layer health + metrics."""
+    try:
+        from resonance.matrix_monitor import unified_monitor
+        return unified_monitor.ncl.collect()
+    except Exception as e:
+        return {"status": "error", "error": str(e)}
+
+
+@router.get("/aac/monitor")
+def aac_monitor(_auth=Depends(verify_matrix_auth)):
+    """AAC Matrix Monitor — Financial layer health + metrics."""
+    try:
+        from resonance.matrix_monitor import unified_monitor
+        return unified_monitor.aac.collect()
+    except Exception as e:
+        return {"status": "error", "error": str(e)}
+
+
+# ── Per-pillar display endpoints ────────────────────────────────────────────
+
+@router.get("/brs/display")
+def brs_display(_auth=Depends(verify_matrix_auth)):
+    """BRS Matrix Display — Formatted card + panel for execution layer."""
+    try:
+        from resonance.matrix_monitor import unified_monitor
+        from resonance.matrix_display import unified_display
+        data = unified_monitor.brs.collect()
+        return {
+            "card": unified_display.brs.render_card(data),
+            "panel": unified_display.brs.render_panel(data),
+            "alerts": unified_display.brs.render_alerts(data),
+        }
+    except Exception as e:
+        return {"status": "error", "error": str(e)}
+
+
+@router.get("/ncc/display")
+def ncc_display(_auth=Depends(verify_matrix_auth)):
+    """NCC Matrix Display — Formatted card + panel for governance layer."""
+    try:
+        from resonance.matrix_monitor import unified_monitor
+        from resonance.matrix_display import unified_display
+        data = unified_monitor.ncc.collect()
+        return {
+            "card": unified_display.ncc.render_card(data),
+            "panel": unified_display.ncc.render_panel(data),
+            "alerts": unified_display.ncc.render_alerts(data),
+        }
+    except Exception as e:
+        return {"status": "error", "error": str(e)}
+
+
+@router.get("/ncl/display")
+def ncl_display(_auth=Depends(verify_matrix_auth)):
+    """NCL Matrix Display — Formatted card + panel for intelligence layer."""
+    try:
+        from resonance.matrix_monitor import unified_monitor
+        from resonance.matrix_display import unified_display
+        data = unified_monitor.ncl.collect()
+        return {
+            "card": unified_display.ncl.render_card(data),
+            "panel": unified_display.ncl.render_panel(data),
+            "alerts": unified_display.ncl.render_alerts(data),
+        }
+    except Exception as e:
+        return {"status": "error", "error": str(e)}
+
+
+@router.get("/aac/display")
+def aac_display(_auth=Depends(verify_matrix_auth)):
+    """AAC Matrix Display — Formatted card + panel for financial layer."""
+    try:
+        from resonance.matrix_monitor import unified_monitor
+        from resonance.matrix_display import unified_display
+        data = unified_monitor.aac.collect()
+        return {
+            "card": unified_display.aac.render_card(data),
+            "panel": unified_display.aac.render_panel(data),
+            "alerts": unified_display.aac.render_alerts(data),
+        }
+    except Exception as e:
+        return {"status": "error", "error": str(e)}
