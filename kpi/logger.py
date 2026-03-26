@@ -40,7 +40,9 @@ def _get_db() -> sqlite3.Connection:
     conn = sqlite3.connect(str(DB_PATH))
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
-    conn.executescript("""
+
+    # 1. Create table (won't modify if already exists)
+    conn.execute("""
         CREATE TABLE IF NOT EXISTS events (
             id              INTEGER PRIMARY KEY AUTOINCREMENT,
             task_id         TEXT NOT NULL,
@@ -59,19 +61,25 @@ def _get_db() -> sqlite3.Connection:
             doctrine_version TEXT DEFAULT '2.0',
             metadata        TEXT DEFAULT '{}',
             timestamp       TEXT NOT NULL
-        );
-        CREATE INDEX IF NOT EXISTS idx_events_lineage ON events(lineage_id);
-        CREATE INDEX IF NOT EXISTS idx_events_time ON events(timestamp);
-        CREATE INDEX IF NOT EXISTS idx_events_client ON events(client);
-        CREATE INDEX IF NOT EXISTS idx_events_type ON events(task_type);
+        )
     """)
-    # Migrate existing DBs: add columns that may be missing
+    conn.commit()
+
+    # 2. Migrate existing DBs: add columns that may be missing (BEFORE indexes)
     for col, dflt in [("lineage_id", "''"), ("doctrine_version", "'2.0'")]:
         try:
             conn.execute(f"ALTER TABLE events ADD COLUMN {col} TEXT DEFAULT {dflt}")
         except sqlite3.OperationalError:
             pass  # column already exists
     conn.commit()
+
+    # 3. Create indexes (safe now — all columns exist)
+    conn.executescript("""
+        CREATE INDEX IF NOT EXISTS idx_events_lineage ON events(lineage_id);
+        CREATE INDEX IF NOT EXISTS idx_events_time ON events(timestamp);
+        CREATE INDEX IF NOT EXISTS idx_events_client ON events(client);
+        CREATE INDEX IF NOT EXISTS idx_events_type ON events(task_type);
+    """)
     return conn
 
 
@@ -221,7 +229,8 @@ def _ensure_qa_table():
     if _QA_FAILURES_DB_INIT:
         return
     conn = _get_db()
-    conn.executescript("""
+    # 1. Create table
+    conn.execute("""
         CREATE TABLE IF NOT EXISTS qa_failures (
             id              INTEGER PRIMARY KEY AUTOINCREMENT,
             task_id         TEXT NOT NULL,
@@ -234,12 +243,10 @@ def _ensure_qa_table():
             issues          TEXT DEFAULT '[]',
             applied_rules   TEXT DEFAULT '[]',
             timestamp       TEXT NOT NULL
-        );
-        CREATE INDEX IF NOT EXISTS idx_qa_fail_rule ON qa_failures(failed_rule_id);
-        CREATE INDEX IF NOT EXISTS idx_qa_fail_agent ON qa_failures(task_type);
-        CREATE INDEX IF NOT EXISTS idx_qa_fail_time ON qa_failures(timestamp);
+        )
     """)
-    # Migrate existing qa_failures table: add columns that may be missing
+    conn.commit()
+    # 2. Migrate existing table: add columns that may be missing (BEFORE indexes)
     for col, dflt in [("lineage_id", "''"), ("confidence", "0.0"), ("issues", "'[]'"), ("applied_rules", "'[]'")]:
         try:
             typ = "REAL" if dflt == "0.0" else "TEXT"
@@ -247,6 +254,12 @@ def _ensure_qa_table():
         except sqlite3.OperationalError:
             pass  # column already exists
     conn.commit()
+    # 3. Create indexes (safe now — all columns exist)
+    conn.executescript("""
+        CREATE INDEX IF NOT EXISTS idx_qa_fail_rule ON qa_failures(failed_rule_id);
+        CREATE INDEX IF NOT EXISTS idx_qa_fail_agent ON qa_failures(task_type);
+        CREATE INDEX IF NOT EXISTS idx_qa_fail_time ON qa_failures(timestamp);
+    """)
     conn.close()
     _QA_FAILURES_DB_INIT = True
 

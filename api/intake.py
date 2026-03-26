@@ -44,6 +44,26 @@ try:
 except Exception:
     pass
 
+# ── .env validation on startup ─────────────────────────────────
+import os as _os
+
+_REQUIRED_ENV = {
+    "core": ["MATRIX_AUTH_TOKEN"],
+    "email": ["SMTP_HOST", "SMTP_USER", "SMTP_PASS"],
+    "billing": ["STRIPE_API_KEY"],
+    "llm": ["OPENAI_API_KEY"],
+}
+_missing = []
+for _cat, _keys in _REQUIRED_ENV.items():
+    for _k in _keys:
+        _v = _os.environ.get(_k, "")
+        if not _v or _v.startswith("your_") or _v == "changeme":
+            _missing.append(f"{_k} ({_cat})")
+if _missing:
+    logger.warning("[STARTUP] Missing required .env keys: %s", ", ".join(_missing))
+else:
+    logger.info("[STARTUP] All required .env keys present")
+
 app = FastAPI(
     title="DIGITAL LABOUR Intake API",
     version="1.0.0",
