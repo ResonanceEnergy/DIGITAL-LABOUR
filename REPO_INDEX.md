@@ -1,6 +1,6 @@
 # ResonanceEnergy • Public Repositories
 
-_Total: 6_
+_Total: 7_
 
 ## Core / Command / Brain
 
@@ -16,3 +16,4 @@ _Total: 6_
 - [ResonanceEnergy/ARCHIVE-OF-ECHOES](https://github.com/ResonanceEnergy/ARCHIVE-OF-ECHOES) — ARCHIVE OF ECHOES
 - [ResonanceEnergy/DUBFORGE](https://github.com/ResonanceEnergy/DUBFORGE) — DUBFORGE
 - [ResonanceEnergy/MAN-UP-MAN-DOWN](https://github.com/ResonanceEnergy/MAN-UP-MAN-DOWN) — MAN UP MAN DOWN
+- [ResonanceEnergy/resonanceenergymedia](https://github.com/ResonanceEnergy/resonanceenergymedia) — Resonance Energy Media
