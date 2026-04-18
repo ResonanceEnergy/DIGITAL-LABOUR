@@ -1,1 +1,1 @@
-web: uvicorn api.intake:app --host 0.0.0.0 --port $PORT
+web: sh -c "uvicorn api.intake:app --host 0.0.0.0 --port ${PORT:-8000}"
