@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0a0f">
+<title>BRL COMMAND CENTER â Task Management</title>
+<style>
+:root {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --card: #1a1a28;
+  --border: #2a2a3a;
+  --text: #e0e0e8;
+  --dim: #888899;
+  --green: #00ff88;
+  --red: #ff4466;
+  --amber: #ffaa22;
+  --blue: #4488ff;
+  --purple: #aa66ff;
+  --cyan: #00ccdd;
+  --glow-green: 0 0 20px rgba(0,255,136,0.3);
+  --glow-red: 0 0 20px rgba(255,68,102,0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'SF Mono','Fira Code','Cascadia Code',monospace;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ââ Header ââ */
+.header {
+  background: linear-gradient(135deg, #0d0d18 0%, #1a0a2e 100%);
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+}
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.logo {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--cyan);
+  text-transform: uppercase;
+}
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+.btn {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 11px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn:hover { border-color: var(--cyan); color: var(--cyan); }
+.btn-primary { border-color: var(--cyan); color: var(--cyan); }
+.btn-primary:hover { background: rgba(0,204,221,0.15); }
+.btn-danger { border-color: var(--red); color: var(--red); }
+
+/* ââ Nav Tabs ââ */
+.nav-tabs {
+  display: flex;
+  gap: 0;
+  padding: 0 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+.nav-tab {
+  padding: 10px 16px;
+  font-size: 11px;
+  color: var(--dim);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+.nav-tab:hover { color: var(--text); }
+.nav-tab.active { color: var(--cyan); border-bottom-color: var(--cyan); }
+
+/* ââ Stats Bar ââ */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--surface);
+}
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  text-align: center;
+}
+.stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 9px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+.stat-green .stat-value { color: var(--green); }
+.stat-amber .stat-value { color: var(--amber); }
+.stat-red .stat-value { color: var(--red); }
+.stat-blue .stat-value { color: var(--blue); }
+.stat-purple .stat-value { color: var(--purple); }
+.stat-cyan .stat-value { color: var(--cyan); }
+
+/* ââ Main Content ââ */
+.main { padding: 12px 16px; }
+
+/* ââ Task List ââ */
+.task-list { display: flex; flex-direction: column; gap: 6px; }
+
+.task-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-left: 3px solid var(--border);
+}
+.task-card:hover { border-color: var(--cyan); }
+.task-card.priority-high { border-left-color: var(--red); }
+.task-card.priority-med { border-left-color: var(--amber); }
+.task-card.priority-low { border-left-color: var(--green); }
+.task-card.status-completed { opacity: 0.6; }
+
+.task-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+.task-title {
+  font-size: 12px;
+  font-weight: 600;
+  flex: 1;
+}
+.task-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  align-items: center;
+}
+.badge {
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+.badge-status {
+  background: rgba(0,255,136,0.15);
+  color: var(--green);
+}
+.badge-status.pending { background: rgba(136,136,153,0.15); color: var(--dim); }
+.badge-status.in_progress { background: rgba(0,204,221,0.15); color: var(--cyan); }
+.badge-status.completed { background: rgba(0,255,136,0.15); color: var(--green); }
+.badge-status.blocked { background: rgba(255,68,102,0.15); color: var(--red); }
+.badge-status.cancelled { background: rgba(136,136,153,0.1); color: #666; }
+
+.badge-cat {
+  background: rgba(170,102,255,0.15);
+  color: var(--purple);
+}
+.badge-owner {
+  background: rgba(68,136,255,0.15);
+  color: var(--blue);
+}
+.badge-source {
+  background: rgba(255,170,34,0.15);
+  color: var(--amber);
+}
+.badge-due {
+  background: rgba(255,68,102,0.15);
+  color: var(--red);
+}
+.badge-client {
+  background: rgba(0,204,221,0.15);
+  color: var(--cyan);
+}
+
+/* ââ Filters ââ */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.filter-bar select, .filter-bar input {
+  padding: 6px 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 11px;
+  border-radius: 4px;
+}
+.filter-bar select:focus, .filter-bar input:focus {
+  outline: none;
+  border-color: var(--cyan);
+}
+
+/* ââ Modal ââ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.modal-overlay.active { display: flex; }
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 20px;
+}
+.modal h3 {
+  font-size: 14px;
+  color: var(--cyan);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.form-group {
+  margin-bottom: 12px;
+}
+.form-group label {
+  display: block;
+  font-size: 10px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 8px 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 12px;
+  border-radius: 4px;
+}
+.form-group textarea { min-height: 60px; resize: vertical; }
+.form-row { display: flex; gap: 12px; }
+.form-row .form-group { flex: 1; }
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+/* ââ Detail Panel ââ */
+.detail-panel {
+  display: none;
+}
+.detail-panel.active { display: block; }
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.detail-title { font-size: 16px; font-weight: 700; }
+.detail-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+.detail-section h4 {
+  font-size: 10px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(42,42,58,0.5);
+}
+.detail-row:last-child { border-bottom: none; }
+.detail-row .label { color: var(--dim); }
+
+.history-item {
+  font-size: 10px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(42,42,58,0.3);
+  color: var(--dim);
+}
+.history-item .action { color: var(--cyan); }
+.history-item .time { color: #555; }
+
+.note-item {
+  font-size: 11px;
+  padding: 6px 8px;
+  background: rgba(42,42,58,0.3);
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+.note-author { color: var(--cyan); font-size: 9px; }
+.note-time { color: #555; font-size: 9px; }
+
+/* ââ Progress Bar ââ */
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--cyan);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+/* ââ Loading ââ */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: var(--dim);
+  font-size: 12px;
+}
+.pulse { animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* ââ Responsive ââ */
+@media (max-width: 480px) {
+  .stats-bar { grid-template-columns: repeat(3, 1fr); }
+  .form-row { flex-direction: column; gap: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-row">
+    <div class="logo">BRL COMMAND CENTER</div>
+    <div class="header-actions">
+      <button class="btn btn-primary" onclick="openCreateModal()">+ NEW TASK</button>
+      <button class="btn" onclick="runIngestion()">INGEST</button>
+      <button class="btn" onclick="syncDispatcher()">SYNC</button>
+      <button class="btn" onclick="loadData()">REFRESH</button>
+    </div>
+  </div>
+</div>
+
+<!-- Nav Tabs -->
+<div class="nav-tabs">
+  <div class="nav-tab active" data-tab="all" onclick="switchTab('all')">ALL TASKS</div>
+  <div class="nav-tab" data-tab="human" onclick="switchTab('human')">HUMAN OPS</div>
+  <div class="nav-tab" data-tab="ai" onclick="switchTab('ai')">AI FLEET</div>
+  <div class="nav-tab" data-tab="overdue" onclick="switchTab('overdue')">OVERDUE</div>
+  <div class="nav-tab" data-tab="client" onclick="switchTab('client')">CLIENTS</div>
+  <div class="nav-tab" data-tab="biz" onclick="switchTab('biz')">BIZ DEV</div>
+  <div class="nav-tab" data-tab="outreach" onclick="switchTab('outreach')">OUTREACH</div>
+</div>
+
+<!-- Stats Bar -->
+<div class="stats-bar" id="stats-bar">
+  <div class="stat-card stat-cyan"><div class="stat-value" id="stat-total">-</div><div class="stat-label">Total</div></div>
+  <div class="stat-card"><div class="stat-value" id="stat-pending">-</div><div class="stat-label">Pending</div></div>
+  <div class="stat-card stat-blue"><div class="stat-value" id="stat-progress">-</div><div class="stat-label">In Progress</div></div>
+  <div class="stat-card stat-green"><div class="stat-value" id="stat-done">-</div><div class="stat-label">Done</div></div>
+  <div class="stat-card stat-red"><div class="stat-value" id="stat-overdue">-</div><div class="stat-label">Overdue</div></div>
+  <div class="stat-card stat-purple"><div class="stat-value" id="stat-human">-</div><div class="stat-label">Human</div></div>
+</div>
+
+<!-- Main Content -->
+<div class="main">
+  <!-- Filters -->
+  <div class="filter-bar">
+    <select id="filter-status" onchange="applyFilters()">
+      <option value="">All Status</option>
+      <option value="pending">Pending</option>
+      <option value="in_progress">In Progress</option>
+      <option value="completed">Completed</option>
+      <option value="blocked">Blocked</option>
+    </select>
+    <select id="filter-category" onchange="applyFilters()">
+      <option value="">All Categories</option>
+      <option value="client_work">Client Work</option>
+      <option value="internal">Internal</option>
+      <option value="biz_dev">Biz Dev</option>
+      <option value="outreach">Outreach</option>
+    </select>
+    <select id="filter-source" onchange="applyFilters()">
+      <option value="">All Sources</option>
+      <option value="manual">Manual</option>
+      <option value="ncl">NCL</option>
+      <option value="c_suite">C-Suite</option>
+      <option value="nerve">NERVE</option>
+      <option value="scheduler">Scheduler</option>
+    </select>
+    <input type="text" id="filter-search" placeholder="Search..." oninput="debounceSearch()">
+  </div>
+
+  <!-- Task List -->
+  <div id="task-list" class="task-list">
+    <div class="loading pulse">Loading tasks...</div>
+  </div>
+
+  <!-- Detail Panel (shown when task is clicked) -->
+  <div id="detail-panel" class="detail-panel"></div>
+</div>
+
+<!-- Create Task Modal -->
+<div id="create-modal" class="modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <h3>New Task</h3>
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" id="new-title" placeholder="What needs to be done?">
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea id="new-desc" placeholder="Details, context, links..."></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Category</label>
+        <select id="new-category">
+          <option value="internal">Internal</option>
+          <option value="client_work">Client Work</option>
+          <option value="biz_dev">Biz Dev</option>
+          <option value="outreach">Outreach</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Priority (0-10)</label>
+        <input type="number" id="new-priority" value="5" min="0" max="10">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Owner Type</label>
+        <select id="new-owner-type">
+          <option value="human">Human</option>
+          <option value="ai">AI Agent</option>
+          <option value="hybrid">Hybrid</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Owner Name / Agent</label>
+        <input type="text" id="new-owner" placeholder="e.g. Nate, or seo_content">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Client</label>
+        <input type="text" id="new-client" placeholder="Client ID (optional)">
+      </div>
+      <div class="form-group">
+        <label>Due Date</label>
+        <input type="date" id="new-due">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Tags (comma-separated)</label>
+      <input type="text" id="new-tags" placeholder="e.g. urgent, revenue, q2">
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="submitNewTask()">Create Task</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const API = window.location.origin;
+let allTasks = [];
+let currentTab = 'all';
+let searchTimeout = null;
+
+// ââ Data Loading ââââââââââââââââââââââââââââââââââââââââââââââ
+
+async function loadData() {
+  await Promise.all([loadStats(), loadTasks()]);
+}
+
+async function loadStats() {
+  try {
+    const res = await fetch(`${API}/ops/tasks/stats`);
+    const s = await res.json();
+    document.getElementById('stat-total').textContent = s.total_active || 0;
+    document.getElementById('stat-pending').textContent = s.by_status?.pending || 0;
+    document.getElementById('stat-progress').textContent = s.by_status?.in_progress || 0;
+    document.getElementById('stat-done').textContent = s.by_status?.completed || 0;
+    document.getElementById('stat-overdue').textContent = s.overdue || 0;
+    document.getElementById('stat-human').textContent = s.human_active_tasks || 0;
+  } catch(e) {
+    console.error('Stats load failed:', e);
+  }
+}
+
+async function loadTasks() {
+  const list = document.getElementById('task-list');
+  try {
+    let url = `${API}/ops/tasks?limit=200`;
+
+    // Apply tab filters
+    if (currentTab === 'human') url += '&owner_type=human';
+    else if (currentTab === 'ai') url += '&owner_type=ai';
+    else if (currentTab === 'client') url += '&category=client_work';
+    else if (currentTab === 'biz') url += '&category=biz_dev';
+    else if (currentTab === 'outreach') url += '&category=outreach';
+
+    // Apply dropdown filters
+    const status = document.getElementById('filter-status').value;
+    const category = document.getElementById('filter-category').value;
+    const source = document.getElementById('filter-source').value;
+    if (status) url += `&status=${status}`;
+    if (category && !['client', 'biz', 'outreach'].includes(currentTab)) url += `&category=${category}`;
+    if (source) url += `&source=${source}`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+    allTasks = data.tasks || [];
+
+    // Handle search
+    const search = document.getElementById('filter-search').value.trim().toLowerCase();
+    let filtered = allTasks;
+    if (search) {
+      filtered = allTasks.filter(t =>
+        t.title.toLowerCase().includes(search) ||
+        (t.description||'').toLowerCase().includes(search) ||
+        (t.client||'').toLowerCase().includes(search)
+      );
+    }
+
+    // Handle overdue tab
+    if (currentTab === 'overdue') {
+      const today = new Date().toISOString().slice(0, 10);
+      filtered = filtered.filter(t =>
+        t.due_date && t.due_date < today && !['completed','cancelled'].includes(t.status)
+      );
+    }
+
+    renderTasks(filtered);
+  } catch(e) {
+    list.innerHTML = '<div class="loading">Failed to load tasks</div>';
+    console.error('Task load failed:', e);
+  }
+}
+
+function renderTasks(tasks) {
+  const list = document.getElementById('task-list');
+  if (!tasks.length) {
+    list.innerHTML = '<div class="loading">No tasks found</div>';
+    return;
+  }
+
+  list.innerHTML = tasks.map(t => {
+    const pClass = t.priority >= 8 ? 'priority-high' : t.priority >= 5 ? 'priority-med' : 'priority-low';
+    const sClass = t.status === 'completed' ? 'status-completed' : '';
+    const today = new Date().toISOString().slice(0, 10);
+    const isOverdue = t.due_date && t.due_date < today && !['completed','cancelled'].includes(t.status);
+
+    return `
+      <div class="task-card ${pClass} ${sClass}" onclick="showDetail('${t.task_id}')">
+        <div class="task-top">
+          <div class="task-title">${esc(t.title)}</div>
+          <span style="font-size:10px;color:var(--dim)">#${t.priority}</span>
+        </div>
+        ${t.progress_pct > 0 ? `<div class="progress-bar"><div class="progress-fill" style="width:${t.progress_pct}%"></div></div>` : ''}
+        <div class="task-meta">
+          <span class="badge badge-status ${t.status}">${t.status}</span>
+          <span class="badge badge-cat">${t.category}</span>
+          <span class="badge badge-owner">${t.owner_type}${t.owner_name ? ': '+esc(t.owner_name) : ''}${t.assigned_agent ? ': '+esc(t.assigned_agent) : ''}</span>
+          ${t.source !== 'manual' ? `<span class="badge badge-source">${t.source}</span>` : ''}
+          ${t.client ? `<span class="badge badge-client">${esc(t.client)}</span>` : ''}
+          ${isOverdue ? `<span class="badge badge-due">OVERDUE ${t.due_date}</span>` : t.due_date ? `<span style="font-size:9px;color:var(--dim)">Due: ${t.due_date}</span>` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ââ Task Detail âââââââââââââââââââââââââââââââââââââââââââââââ
+
+async function showDetail(taskId) {
+  const panel = document.getElementById('detail-panel');
+  const list = document.getElementById('task-list');
+
+  try {
+    const res = await fetch(`${API}/ops/tasks/${taskId}`);
+    const t = await res.json();
+
+    const notes = (t.notes || []).map(n =>
+      `<div class="note-item">
+        <div>${esc(n.text || n)}</div>
+        <span class="note-author">${esc(n.author || 'system')}</span>
+        <span class="note-time">${n.timestamp ? new Date(n.timestamp).toLocaleString() : ''}</span>
+      </div>`
+    ).join('') || '<div style="color:var(--dim);font-size:11px">No notes yet</div>';
+
+    const history = (t.history || []).map(h =>
+      `<div class="history-item">
+        <span class="action">${esc(h.action)}</span>
+        ${h.new_value ? ': ' + esc(h.new_value.slice(0, 60)) : ''}
+        <span class="time">${h.timestamp ? new Date(h.timestamp).toLocaleString() : ''}</span>
+      </div>`
+    ).join('') || '<div style="color:var(--dim);font-size:11px">No history</div>';
+
+    panel.innerHTML = `
+      <div class="detail-header">
+        <div class="detail-title">${esc(t.title)}</div>
+        <button class="btn" onclick="closeDetail()">BACK</button>
+      </div>
+
+      <div class="detail-section">
+        <h4>Details</h4>
+        <div class="detail-row"><span class="label">ID</span><span>${t.task_id}</span></div>
+        <div class="detail-row"><span class="label">Status</span>
+          <select id="detail-status" onchange="updateField('${t.task_id}','status',this.value)">
+            ${['pending','in_progress','completed','blocked','cancelled'].map(s =>
+              `<option value="${s}" ${t.status===s?'selected':''}>${s}</option>`
+            ).join('')}
+          </select>
+        </div>
+        <div class="detail-row"><span class="label">Category</span><span>${t.category}</span></div>
+        <div class="detail-row"><span class="label">Priority</span><span>${t.priority}/10</span></div>
+        <div class="detail-row"><span class="label">Owner</span><span>${t.owner_type}: ${t.owner_name || t.assigned_agent || '(unassigned)'}</span></div>
+        <div class="detail-row"><span class="label">Client</span><span>${t.client || '-'}</span></div>
+        <div class="detail-row"><span class="label">Source</span><span>${t.source} ${t.source_ref ? '('+t.source_ref+')' : ''}</span></div>
+        <div class="detail-row"><span class="label">Due</span><span>${t.due_date || '-'}</span></div>
+        <div class="detail-row"><span class="label">Progress</span><span>${t.progress_pct}%</span></div>
+        <div class="detail-row"><span class="label">Created</span><span>${new Date(t.created_at).toLocaleString()}</span></div>
+        ${t.completed_at ? `<div class="detail-row"><span class="label">Completed</span><span>${new Date(t.completed_at).toLocaleString()}</span></div>` : ''}
+      </div>
+
+      ${t.description ? `<div class="detail-section"><h4>Description</h4><div style="font-size:11px;white-space:pre-wrap">${esc(t.description)}</div></div>` : ''}
+
+      <div class="detail-section">
+        <h4>Notes</h4>
+        ${notes}
+        <div style="display:flex;gap:6px;margin-top:8px">
+          <input type="text" id="new-note-input" placeholder="Add a note..." style="flex:1;padding:6px 8px;background:var(--card);border:1px solid var(--border);color:var(--text);font-family:inherit;font-size:11px;border-radius:4px">
+          <button class="btn btn-primary" onclick="addNote('${t.task_id}')">Add</button>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h4>History</h4>
+        ${history}
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <button class="btn btn-danger" onclick="archiveTask('${t.task_id}')">Archive</button>
+      </div>
+    `;
+
+    list.style.display = 'none';
+    document.querySelector('.filter-bar').style.display = 'none';
+    panel.classList.add('active');
+  } catch(e) {
+    console.error('Detail load failed:', e);
+  }
+}
+
+function closeDetail() {
+  document.getElementById('detail-panel').classList.remove('active');
+  document.getElementById('detail-panel').innerHTML = '';
+  document.getElementById('task-list').style.display = '';
+  document.querySelector('.filter-bar').style.display = '';
+}
+
+// ââ Actions âââââââââââââââââââââââââââââââââââââââââââââââââââ
+
+async function updateField(taskId, field, value) {
+  try {
+    const body = {};
+    body[field] = value;
+    await fetch(`${API}/ops/tasks/${taskId}`, {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(body)
+    });
+    showDetail(taskId);  // Refresh detail
+    loadStats();
+  } catch(e) {
+    console.error('Update failed:', e);
+  }
+}
+
+async function addNote(taskId) {
+  const input = document.getElementById('new-note-input');
+  const note = input.value.trim();
+  if (!note) return;
+  try {
+    await fetch(`${API}/ops/tasks/${taskId}/note`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({note, author: 'human'})
+    });
+    input.value = '';
+    showDetail(taskId);
+  } catch(e) { console.error('Note failed:', e); }
+}
+
+async function archiveTask(taskId) {
+  if (!confirm('Archive this task?')) return;
+  try {
+    await fetch(`${API}/ops/tasks/${taskId}`, {method: 'DELETE'});
+    closeDetail();
+    loadData();
+  } catch(e) { console.error('Archive failed:', e); }
+}
+
+async function submitNewTask() {
+  const title = document.getElementById('new-title').value.trim();
+  if (!title) { alert('Title is required'); return; }
+
+  const tags = document.getElementById('new-tags').value.split(',').map(s=>s.trim()).filter(Boolean);
+  const ownerType = document.getElementById('new-owner-type').value;
+  const ownerField = document.getElementById('new-owner').value.trim();
+
+  const body = {
+    title,
+    description: document.getElementById('new-desc').value,
+    category: document.getElementById('new-category').value,
+    priority: parseInt(document.getElementById('new-priority').value) || 5,
+    owner_type: ownerType,
+    owner_name: ownerType === 'human' ? ownerField : '',
+    assigned_agent: ownerType === 'ai' ? ownerField : '',
+    client: document.getElementById('new-client').value.trim(),
+    due_date: document.getElementById('new-due').value,
+    tags
+  };
+
+  try {
+    const res = await fetch(`${API}/ops/tasks`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(body)
+    });
+    if (res.ok) {
+      closeModal();
+      loadData();
+    } else {
+      const err = await res.json();
+      alert('Error: ' + (err.detail || 'Failed to create'));
+    }
+  } catch(e) {
+    console.error('Create failed:', e);
+    alert('Network error');
+  }
+}
+
+async function runIngestion() {
+  try {
+    const res = await fetch(`${API}/ops/tasks/ingest`, {method: 'POST'});
+    const data = await res.json();
+    alert(data.message || 'Ingestion complete');
+    loadData();
+  } catch(e) { alert('Ingestion failed'); }
+}
+
+async function syncDispatcher() {
+  try {
+    const res = await fetch(`${API}/ops/tasks/sync`, {method: 'POST'});
+    const data = await res.json();
+    alert(`Sync: pushed ${data.details?.pushed||0}, pulled ${data.details?.pulled||0}`);
+    loadData();
+  } catch(e) { alert('Sync failed'); }
+}
+
+// ââ Tab Navigation ââââââââââââââââââââââââââââââââââââââââââââ
+
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.nav-tab[data-tab="${tab}"]`).classList.add('active');
+  closeDetail();
+  loadTasks();
+}
+
+// ââ Filters âââââââââââââââââââââââââââââââââââââââââââââââââââ
+
+function applyFilters() { loadTasks(); }
+
+function debounceSearch() {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => loadTasks(), 300);
+}
+
+// ââ Modal âââââââââââââââââââââââââââââââââââââââââââââââââââââ
+
+function openCreateModal() { document.getElementById('create-modal').classList.add('active'); }
+function closeModal() {
+  document.getElementById('create-modal').classList.remove('active');
+  document.getElementById('new-title').value = '';
+  document.getElementById('new-desc').value = '';
+  document.getElementById('new-tags').value = '';
+  document.getElementById('new-client').value = '';
+}
+
+// ââ Helpers âââââââââââââââââââââââââââââââââââââââââââââââââââ
+
+function esc(s) {
+  if (!s) return '';
+  const d = document.createElement('div');
+  d.textContent = String(s);
+  return d.innerHTML;
+}
+
+// ââ Init ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+
+loadData();
+setInterval(loadData, 30000);  // Auto-refresh every 30s
+</script>
+</body>
+</html>
