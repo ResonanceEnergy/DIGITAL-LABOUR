@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Powered Resume Writing — DIGITAL LABOUR</title>
+<meta name="description" content="Professional AI-powered resumes and cover letters. Resume $49-$99, Cover Letter $29, Bundle $119. ATS-optimized, fast turnaround, keyword targeted.">
+<meta name="keywords" content="AI resume writing, professional resume, cover letter, ATS-optimized resume, resume service, DIGITAL LABOUR">
+<meta property="og:title" content="AI-Powered Resume Writing — DIGITAL LABOUR">
+<meta property="og:description" content="Professional resumes and cover letters with AI precision. ATS-optimized, keyword targeted, fast turnaround.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bit-rage-labour.com/services/resume">
+<meta property="og:image" content="https://bit-rage-labour.com/logo.png">
+<link rel="canonical" href="https://bit-rage-labour.com/services/resume">
+<link rel="icon" type="image/png" href="/logo.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0a;--card:#141414;--card2:#1a1a1a;--border:#2a2a2a;
+  --red:#e01b24;--red-bright:#ff2d38;--red-glow:rgba(224,27,36,0.25);--red-dark:#8b1118;
+  --orange:#ff6b35;--orange-glow:rgba(255,107,53,0.2);
+  --text:#e8e8e8;--muted:#999;--white:#fff;--black:#000;
+  --gradient:linear-gradient(135deg,#e01b24,#ff6b35);
+  --gradient-dark:linear-gradient(135deg,#8b1118,#e01b24);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--red-bright);text-decoration:none;transition:color .2s}
+a:hover{color:var(--orange)}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);background:rgba(10,10,10,0.9);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-brand{display:flex;align-items:center;gap:10px;font-size:1.2rem;font-weight:800;letter-spacing:-0.5px;color:var(--white);text-transform:uppercase}
+.nav-brand img{width:38px;height:38px;border-radius:50%}
+.nav-brand span{color:var(--red)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:0.9rem;color:var(--muted);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--red-bright)}
+.nav-links a.active{color:var(--red-bright)}
+.nav-cta{background:var(--red) !important;color:#fff !important;padding:9px 22px;border-radius:6px;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.5px}
+.nav-cta:hover{background:var(--red-bright) !important;color:#fff !important;box-shadow:0 4px 20px var(--red-glow)}
+.mobile-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:rgba(10,10,10,0.97);padding:20px 24px;gap:16px;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .mobile-toggle{display:block}
+}
+.rage-stripe{height:4px;background:var(--gradient);width:100%}
+.page-header{padding:140px 0 60px;text-align:center;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;top:-300px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,var(--red-glow) 0%,transparent 65%);pointer-events:none;opacity:0.5}
+.page-header .breadcrumb{font-size:0.85rem;color:var(--muted);margin-bottom:16px}
+.page-header .breadcrumb a{color:var(--muted)}
+.page-header .breadcrumb a:hover{color:var(--red-bright)}
+.page-header h1{font-size:2.8rem;font-weight:900;letter-spacing:-2px;line-height:1.1;margin-bottom:16px;text-transform:uppercase}
+.page-header h1 em{font-style:normal;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-header p{font-size:1.1rem;color:var(--muted);max-width:640px;margin:0 auto;line-height:1.6}
+section{padding:60px 0}
+.section-tag{font-size:0.75rem;text-transform:uppercase;letter-spacing:3px;color:var(--red);font-weight:700;margin-bottom:12px;text-align:center}
+section h2{font-size:2rem;font-weight:800;letter-spacing:-1px;margin-bottom:12px;text-align:center;text-transform:uppercase}
+.subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-size:1.05rem;max-width:600px;margin-left:auto;margin-right:auto}
+.section-dark{background:var(--card)}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+@media(max-width:768px){.features-grid{grid-template-columns:1fr}}
+.feature{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;text-align:center;transition:all .3s}
+.feature:hover{border-color:var(--red);transform:translateY(-3px);box-shadow:0 8px 30px rgba(224,27,36,0.06)}
+.feature-icon{font-size:2rem;margin-bottom:12px;display:block}
+.feature h3{font-size:1rem;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px}
+.feature p{font-size:0.9rem;color:var(--muted);line-height:1.5}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:768px){.grid-3{grid-template-columns:1fr}}
+
+/* Pricing - different layout for resume tiers */
+.price-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:36px;text-align:center;transition:all .3s;position:relative}
+.price-card:hover{border-color:var(--red);transform:translateY(-4px)}
+.price-card.featured{border-color:var(--red);box-shadow:0 0 40px var(--red-glow)}
+.price-card.featured::before{content:"BEST VALUE";position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gradient);color:#fff;font-size:0.7rem;font-weight:800;padding:5px 16px;border-radius:20px;letter-spacing:1px}
+.price-card h3{font-size:1.15rem;margin-bottom:8px;font-weight:700;text-transform:uppercase}
+.price-card .price{font-size:2.8rem;font-weight:900;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+.price-card .price-range-text{font-size:1.6rem;font-weight:900;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+.price-card .unit{font-size:0.85rem;color:var(--muted);margin-bottom:20px}
+.price-card ul{list-style:none;text-align:left;padding:0;margin-bottom:24px}
+.price-card ul li{padding:6px 0;font-size:0.9rem;color:var(--muted)}
+.price-card ul li::before{content:"\2713 ";color:var(--red);font-weight:700}
+.btn{display:inline-block;padding:14px 32px;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;border:none;transition:all .25s;text-align:center;text-transform:uppercase;letter-spacing:0.5px}
+.btn-primary{background:var(--gradient);color:#fff;box-shadow:0 4px 24px var(--red-glow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 36px var(--red-glow);color:#fff}
+.btn-outline{background:transparent;border:2px solid var(--border);color:var(--text)}
+.btn-outline:hover{border-color:var(--red);color:var(--red-bright)}
+.btn-ghost{background:rgba(224,27,36,0.1);border:1px solid var(--red);color:var(--red-bright)}
+.btn-ghost:hover{background:var(--red);color:#fff}
+.btn-sm{padding:10px 22px;font-size:0.9rem}
+.w-100{width:100%}
+.contact-form{max-width:560px;margin:0 auto;padding:40px;background:var(--card);border:1px solid var(--border);border-radius:16px}
+.contact-form h3{font-size:1.3rem;font-weight:800;text-transform:uppercase;margin-bottom:8px;text-align:center}
+.contact-form .form-subtitle{text-align:center;color:var(--muted);font-size:0.9rem;margin-bottom:24px}
+.form-row{display:flex;gap:12px;margin-bottom:12px}
+@media(max-width:768px){.form-row{flex-direction:column}}
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:14px 16px;background:var(--card2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.95rem;font-family:inherit;transition:border .2s}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:none;border-color:var(--red)}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--muted)}
+.contact-form select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.contact-form select option{background:var(--card);color:var(--text)}
+.contact-form .btn{width:100%;margin-top:8px}
+.form-note{text-align:center;color:var(--muted);font-size:0.8rem;margin-top:12px}
+.form-success{display:none;text-align:center;padding:24px;background:var(--card);border:1px solid var(--red);border-radius:12px;margin-top:16px}
+.form-success h4{color:var(--red-bright);margin-bottom:8px;font-size:1.1rem}
+.form-success p{color:var(--muted);font-size:0.9rem}
+.footer{padding:48px 0 32px;border-top:2px solid var(--red-dark)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer p{font-size:0.85rem;color:var(--muted)}
+.footer a{font-size:0.85rem;color:var(--muted)}
+.footer a:hover{color:var(--red-bright)}
+.footer-links{display:flex;gap:24px}
+
+/* Stats bar */
+.stats-bar{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;padding:40px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:60px}
+.stat{text-align:center}
+.stat .num{font-size:2rem;font-weight:900;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat .label{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-top:4px}
+</style>
+</head>
+<body>
+
+<div class="rage-stripe"></div>
+
+<nav class="nav">
+<div class="container nav-inner">
+  <a href="/" class="nav-brand"><img src="/logo.png" alt="DIGITAL LABOUR Logo">Digital <span>Labour</span></a>
+  <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/services" class="active">Services</a>
+    <a href="/blog">Blog</a>
+    <a href="/subscribe">Subscribe</a>
+    <a href="/subscribe" class="nav-cta">Get Started</a>
+  </div>
+</div>
+</nav>
+
+<header class="page-header">
+<div class="container">
+  <div class="breadcrumb"><a href="/">Home</a> / <a href="/services">Services</a> / Resume</div>
+  <h1>AI-Powered <em>Resume Writing</em></h1>
+  <p>Professional resumes and cover letters that get past ATS filters and onto hiring managers' desks. Fast turnaround, industry-specific language, and keyword optimization built in.</p>
+</div>
+</header>
+
+<!-- STATS -->
+<div class="container">
+  <div class="stats-bar">
+    <div class="stat"><div class="num">24-48hr</div><div class="label">Turnaround</div></div>
+    <div class="stat"><div class="num">ATS</div><div class="label">Optimized</div></div>
+    <div class="stat"><div class="num">100+</div><div class="label">Industries</div></div>
+    <div class="stat"><div class="num">QA</div><div class="label">Verified</div></div>
+  </div>
+</div>
+
+<!-- WHY IT WORKS -->
+<section>
+<div class="container">
+  <div class="section-tag">Why It Works</div>
+  <h2>Not Just a Template Fill</h2>
+  <p class="subtitle">Our AI agents analyze your experience, target role, and industry to craft a resume that actually lands interviews.</p>
+  <div class="features-grid">
+    <div class="feature">
+      <span class="feature-icon">&#129302;</span>
+      <h3>ATS Optimization</h3>
+      <p>Formatted and keyword-optimized to pass Applicant Tracking Systems used by 99% of large employers.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">&#127919;</span>
+      <h3>Targeted Keywords</h3>
+      <p>We analyze the job description and industry to embed the right keywords naturally throughout your resume.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">&#128200;</span>
+      <h3>Achievement-Focused</h3>
+      <p>Quantified accomplishments and impact statements that show what you did, not just what you were responsible for.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">&#128221;</span>
+      <h3>Professional Summary</h3>
+      <p>A compelling professional summary that positions you as the ideal candidate for your target role.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">&#9889;</span>
+      <h3>Fast Turnaround</h3>
+      <p>Receive your polished resume within 24-48 hours. Rush service available for urgent applications.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">&#10004;</span>
+      <h3>QA Reviewed</h3>
+      <p>Every resume passes through our QA agent for grammar, formatting, consistency, and keyword density.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section-dark">
+<div class="container">
+  <div class="section-tag">Pricing</div>
+  <h2>Simple, Transparent Pricing</h2>
+  <p class="subtitle">No hidden fees. No subscriptions required. Pay once, get your documents.</p>
+  <div class="grid-3">
+    <div class="price-card">
+      <h3>Resume</h3>
+      <div class="price-range-text">$49 - $99</div>
+      <div class="unit">one-time</div>
+      <ul>
+        <li>Professional resume writing</li>
+        <li>ATS-optimized formatting</li>
+        <li>Keyword targeting</li>
+        <li>Achievement quantification</li>
+        <li>Professional summary</li>
+        <li>1 revision round</li>
+        <li>PDF + DOCX delivery</li>
+        <li>$49 entry-level / $99 senior+</li>
+      </ul>
+      <a class="btn btn-outline btn-sm w-100" href="#contact">Order Resume</a>
+    </div>
+    <div class="price-card featured">
+      <h3>Bundle</h3>
+      <div class="price">$119</div>
+      <div class="unit">resume + cover letter</div>
+      <ul>
+        <li>Everything in Resume tier</li>
+        <li>Matching cover letter</li>
+        <li>Tailored to specific job posting</li>
+        <li>Consistent personal branding</li>
+        <li>2 revision rounds</li>
+        <li>Priority 24-hour turnaround</li>
+        <li>LinkedIn summary bonus</li>
+        <li>Save $9 vs. separate orders</li>
+      </ul>
+      <a class="btn btn-primary btn-sm w-100" href="#contact">Order Bundle</a>
+    </div>
+    <div class="price-card">
+      <h3>Cover Letter</h3>
+      <div class="price">$29</div>
+      <div class="unit">one-time</div>
+      <ul>
+        <li>Custom cover letter</li>
+        <li>Tailored to job posting</li>
+        <li>Company research included</li>
+        <li>Compelling opening hook</li>
+        <li>Clear value proposition</li>
+        <li>1 revision round</li>
+        <li>PDF + DOCX delivery</li>
+      </ul>
+      <a class="btn btn-outline btn-sm w-100" href="#contact">Order Cover Letter</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact">
+<div class="container">
+  <div class="contact-form" id="contactForm">
+    <h3>Get Your Resume</h3>
+    <p class="form-subtitle">Tell us about yourself and your target role. We will get started within 24 hours.</p>
+    <div class="form-row">
+      <input type="text" id="formName" placeholder="Your name" required>
+      <input type="email" id="formEmail" placeholder="you@email.com" required>
+    </div>
+    <div class="form-row">
+      <input type="text" id="formRole" placeholder="Target job title (e.g., Senior Software Engineer)">
+    </div>
+    <div class="form-row">
+      <input type="text" id="formIndustry" placeholder="Industry (e.g., Tech, Healthcare, Finance)">
+    </div>
+    <div class="form-row">
+      <select id="formPackage" title="Select a package">
+        <option value="resume_basic">Resume — $49 (Entry-level)</option>
+        <option value="resume_senior">Resume — $99 (Senior+)</option>
+        <option value="cover_letter">Cover Letter — $29</option>
+        <option value="bundle" selected>Bundle (Resume + Cover Letter) — $119</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <textarea id="formMessage" rows="4" placeholder="Paste the job posting URL or description, and briefly describe your experience level and career goals..."></textarea>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="submitForm()">Start My Resume</button>
+    <p class="form-note">You can attach your current resume via email after submitting.</p>
+    <div class="form-success" id="formSuccess">
+      <h4>Order Received</h4>
+      <p>We will email <strong id="confirmEmail"></strong> within 24 hours with next steps and your draft.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+  <div class="footer-inner">
+    <p>&copy; 2026 DIGITAL LABOUR. A Resonance Energy company. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/blog">Blog</a>
+      <a href="mailto:sales@bit-rage-labour.com">Contact</a>
+    </div>
+  </div>
+</div>
+</footer>
+
+<div class="rage-stripe"></div>
+
+<script>
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+
+function submitForm() {
+  var email = document.getElementById('formEmail');
+  if (!email.value || !email.value.includes('@') || !email.value.includes('.')) {
+    email.style.borderColor = 'var(--red)';
+    email.focus();
+    return;
+  }
+  email.style.borderColor = '';
+
+  var data = {
+    email: email.value,
+    name: document.getElementById('formName').value,
+    company: '',
+    service: 'resume_writing',
+    message: 'Package: ' + document.getElementById('formPackage').value + ' | Target Role: ' + (document.getElementById('formRole').value || 'N/A') + ' | Industry: ' + (document.getElementById('formIndustry').value || 'N/A') + ' | ' + document.getElementById('formMessage').value
+  };
+
+  fetch('/lead/capture', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(data)
+  }).then(function(res) { return res.json(); }).then(function(json) {
+    document.getElementById('confirmEmail').textContent = data.email;
+    document.getElementById('formSuccess').style.display = 'block';
+    document.querySelector('.contact-form .btn').textContent = 'Submitted!';
+    document.querySelector('.contact-form .btn').disabled = true;
+    document.querySelector('.contact-form .btn').style.opacity = '0.6';
+  }).catch(function() {
+    window.location.href = 'mailto:sales@bit-rage-labour.com?subject=' +
+      encodeURIComponent('Resume Writing Order — ' + data.email) +
+      '&body=' + encodeURIComponent('Name: ' + data.name + '\nEmail: ' + data.email + '\nTarget Role: ' + (document.getElementById('formRole').value || 'N/A') + '\nIndustry: ' + (document.getElementById('formIndustry').value || 'N/A') + '\nPackage: ' + document.getElementById('formPackage').value + '\nMessage: ' + document.getElementById('formMessage').value);
+  });
+}
+</script>
+</body>
+</html>

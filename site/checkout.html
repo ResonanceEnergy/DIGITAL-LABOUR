@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - DIGITAL LABOUR</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px}
+.checkout-container{max-width:560px;width:100%;background:#111;border:1px solid #222;border-radius:16px;padding:40px}
+.logo{text-align:center;margin-bottom:32px}
+.logo h1{font-size:1.2em;color:#00ff88;letter-spacing:2px;text-transform:uppercase}
+.logo p{color:#555;font-size:0.8em;margin-top:4px}
+h2{font-size:1.5em;margin-bottom:24px;color:#fff}
+.order-summary{background:#0a0a0a;border:1px solid #1a1a1a;border-radius:12px;padding:24px;margin-bottom:28px}
+.order-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #1a1a1a}
+.order-row:last-child{border-bottom:none}
+.order-row .label{color:#999;font-size:0.9em}
+.order-row .value{color:#e0e0e0;font-weight:600}
+.order-total{display:flex;justify-content:space-between;align-items:center;padding:16px 0 0;margin-top:8px;border-top:2px solid #222}
+.order-total .label{color:#fff;font-size:1.1em;font-weight:700}
+.order-total .value{color:#00ff88;font-size:1.4em;font-weight:700}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:0.85em;color:#999;margin-bottom:6px}
+.form-group input,.form-group textarea{width:100%;padding:12px 16px;background:#0a0a0a;border:1px solid #333;border-radius:8px;color:#e0e0e0;font-size:1em;font-family:inherit}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:#00ff88}
+.form-group textarea{resize:vertical;min-height:80px}
+.pay-btn{width:100%;padding:16px;background:#00ff88;color:#0a0a0a;border:none;border-radius:10px;font-size:1.1em;font-weight:700;cursor:pointer;transition:all 0.2s;margin-top:8px}
+.pay-btn:hover{background:#00cc66;transform:translateY(-1px)}
+.pay-btn:disabled{background:#333;color:#666;cursor:not-allowed;transform:none}
+.pay-btn .spinner{display:none;width:20px;height:20px;border:3px solid transparent;border-top-color:#0a0a0a;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto}
+.pay-btn.loading .spinner{display:block}
+.pay-btn.loading .btn-text{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.secure-note{text-align:center;margin-top:16px;font-size:0.8em;color:#555}
+.secure-note span{color:#00ff88}
+.error-msg{background:#2a1010;border:1px solid #441111;color:#ff6644;padding:12px 16px;border-radius:8px;margin-bottom:20px;font-size:0.9em;display:none}
+.back-link{display:block;text-align:center;margin-top:20px;color:#555;font-size:0.85em;text-decoration:none}
+.back-link:hover{color:#999}
+.service-select{margin-bottom:28px}
+.service-select label{display:block;font-size:0.85em;color:#999;margin-bottom:6px}
+.service-select select{width:100%;padding:12px 16px;background:#0a0a0a;border:1px solid #333;border-radius:8px;color:#e0e0e0;font-size:1em;appearance:none;cursor:pointer}
+.tier-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:24px}
+.tier-card{background:#0a0a0a;border:2px solid #222;border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all 0.2s}
+.tier-card:hover{border-color:#444}
+.tier-card.selected{border-color:#00ff88;background:#0a1a0f}
+.tier-card .tier-name{font-weight:700;color:#fff;margin-bottom:4px;text-transform:capitalize}
+.tier-card .tier-price{color:#00ff88;font-size:1.2em;font-weight:700}
+.tier-card .tier-desc{color:#666;font-size:0.75em;margin-top:4px}
+</style>
+</head>
+<body>
+
+<div class="checkout-container">
+    <div class="logo">
+        <h1>Digital Labour</h1>
+        <p>AI-Powered Business Services</p>
+    </div>
+
+    <h2>Checkout</h2>
+
+    <div class="error-msg" id="errorMsg"></div>
+
+    <!-- Service Selection (shown if no query params) -->
+    <div class="service-select" id="serviceSelect">
+        <label>Service</label>
+        <select id="serviceType" onchange="loadTiers()">
+            <option value="">Select a service...</option>
+            <option value="product_desc">Product Descriptions</option>
+            <option value="seo_content">SEO Content</option>
+            <option value="resume">Resume Writing</option>
+            <option value="ad_copy">Ad Copy</option>
+            <option value="email_sequence">Email Sequences</option>
+        </select>
+    </div>
+
+    <div class="tier-cards" id="tierCards" style="display:none"></div>
+
+    <div class="order-summary" id="orderSummary" style="display:none">
+        <div class="order-row">
+            <span class="label">Service</span>
+            <span class="value" id="summaryService">--</span>
+        </div>
+        <div class="order-row">
+            <span class="label">Package</span>
+            <span class="value" id="summaryTier">--</span>
+        </div>
+        <div class="order-row">
+            <span class="label">Description</span>
+            <span class="value" id="summaryLabel">--</span>
+        </div>
+        <div class="order-total">
+            <span class="label">Total</span>
+            <span class="value" id="summaryPrice">--</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="customerEmail" placeholder="you@company.com" required>
+    </div>
+
+    <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="customerName" placeholder="Jane Smith">
+    </div>
+
+    <div class="form-group">
+        <label>Requirements / Notes (optional)</label>
+        <textarea id="requirements" placeholder="Any specific requirements, brand guidelines, target audience, etc."></textarea>
+    </div>
+
+    <button class="pay-btn" id="payBtn" onclick="startCheckout()" disabled>
+        <span class="btn-text">Pay with Stripe</span>
+        <div class="spinner"></div>
+    </button>
+
+    <p class="secure-note"><span>&#9650;</span> Secure payment via Stripe. Your card is never stored on our servers.</p>
+
+    <a href="/services" class="back-link">Back to Services</a>
+</div>
+
+<script>
+// Price table (mirrors server-side)
+const PRICES = {
+    product_desc: {
+        basic:    {price: 500.00, label: "50 Product Descriptions"},
+        standard: {price: 1500.00, label: "200 Product Descriptions"},
+        premium:  {price: 3000.00, label: "500 Product Descriptions"}
+    },
+    seo_content: {
+        starter: {price: 800.00, label: "SEO Content — 4 posts/mo"},
+        growth:  {price: 2000.00, label: "SEO Content — 12 posts/mo"},
+        scale:   {price: 4500.00, label: "SEO Content — 30 posts/mo"}
+    },
+    resume: {
+        basic:    {price: 49.00, label: "Resume Only"},
+        standard: {price: 99.00, label: "Resume + Cover Letter"},
+        premium:  {price: 119.00, label: "Resume + Cover + LinkedIn"}
+    },
+    ad_copy: {
+        basic:    {price: 150.00, label: "Ad Copy — 1 Platform"},
+        standard: {price: 350.00, label: "Ad Copy — 3 Platforms"},
+        premium:  {price: 600.00, label: "Ad Copy — All Platforms"}
+    },
+    email_sequence: {
+        basic:    {price: 800.00, label: "Email Sequence — 3 Emails"},
+        standard: {price: 1500.00, label: "Email Sequence — 5 Emails"},
+        premium:  {price: 2500.00, label: "Email Sequence — 7 Emails + A/B"}
+    }
+};
+
+const SERVICE_NAMES = {
+    product_desc: "Product Descriptions",
+    seo_content: "SEO Content",
+    resume: "Resume Writing",
+    ad_copy: "Ad Copy",
+    email_sequence: "Email Sequences"
+};
+
+let selectedService = "";
+let selectedTier = "";
+let selectedPrice = 0;
+let selectedLabel = "";
+
+// Parse query params
+const params = new URLSearchParams(window.location.search);
+const qService = params.get("service") || "";
+const qTier = params.get("tier") || "";
+const qEmail = params.get("email") || "";
+const qName = params.get("name") || "";
+
+// Pre-fill from query params
+if (qEmail) document.getElementById("customerEmail").value = qEmail;
+if (qName) document.getElementById("customerName").value = qName;
+
+if (qService && PRICES[qService]) {
+    document.getElementById("serviceType").value = qService;
+    loadTiers();
+    if (qTier && PRICES[qService][qTier]) {
+        selectTier(qTier);
+    }
+}
+
+function loadTiers() {
+    const service = document.getElementById("serviceType").value;
+    const tierContainer = document.getElementById("tierCards");
+
+    if (!service || !PRICES[service]) {
+        tierContainer.style.display = "none";
+        document.getElementById("orderSummary").style.display = "none";
+        document.getElementById("payBtn").disabled = true;
+        selectedService = "";
+        selectedTier = "";
+        return;
+    }
+
+    selectedService = service;
+    const tiers = PRICES[service];
+    let html = "";
+
+    for (const [key, info] of Object.entries(tiers)) {
+        html += `<div class="tier-card" id="tier-${key}" onclick="selectTier('${key}')">
+            <div class="tier-name">${key}</div>
+            <div class="tier-price">$${info.price.toLocaleString()}</div>
+            <div class="tier-desc">${info.label}</div>
+        </div>`;
+    }
+
+    tierContainer.innerHTML = html;
+    tierContainer.style.display = "grid";
+
+    // Clear selection
+    selectedTier = "";
+    document.getElementById("orderSummary").style.display = "none";
+    document.getElementById("payBtn").disabled = true;
+}
+
+function selectTier(tier) {
+    if (!selectedService || !PRICES[selectedService][tier]) return;
+
+    selectedTier = tier;
+    const info = PRICES[selectedService][tier];
+    selectedPrice = info.price;
+    selectedLabel = info.label;
+
+    // Highlight selected
+    document.querySelectorAll(".tier-card").forEach(c => c.classList.remove("selected"));
+    document.getElementById("tier-" + tier).classList.add("selected");
+
+    // Update summary
+    document.getElementById("summaryService").textContent = SERVICE_NAMES[selectedService] || selectedService;
+    document.getElementById("summaryTier").textContent = tier.charAt(0).toUpperCase() + tier.slice(1);
+    document.getElementById("summaryLabel").textContent = selectedLabel;
+    document.getElementById("summaryPrice").textContent = "$" + selectedPrice.toLocaleString(undefined, {minimumFractionDigits: 2});
+    document.getElementById("orderSummary").style.display = "block";
+
+    // Enable pay button
+    document.getElementById("payBtn").disabled = false;
+
+    // Update button text
+    document.querySelector("#payBtn .btn-text").textContent = `Pay $${selectedPrice.toLocaleString(undefined, {minimumFractionDigits: 2})} with Stripe`;
+}
+
+async function startCheckout() {
+    const email = document.getElementById("customerEmail").value.trim();
+    const name = document.getElementById("customerName").value.trim();
+    const reqs = document.getElementById("requirements").value.trim();
+    const errorEl = document.getElementById("errorMsg");
+
+    // Validate
+    if (!selectedService || !selectedTier) {
+        showError("Please select a service and package.");
+        return;
+    }
+    if (!email || !email.includes("@")) {
+        showError("Please enter a valid email address.");
+        return;
+    }
+
+    // Disable button, show spinner
+    const btn = document.getElementById("payBtn");
+    btn.disabled = true;
+    btn.classList.add("loading");
+    errorEl.style.display = "none";
+
+    const payload = {
+        service_type: selectedService,
+        package_tier: selectedTier,
+        customer_email: email,
+        customer_name: name,
+        requirements: reqs ? {notes: reqs} : {}
+    };
+
+    try {
+        const resp = await fetch("/checkout/create-session", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(payload)
+        });
+
+        if (!resp.ok) {
+            const err = await resp.json().catch(() => ({detail: "Server error"}));
+            throw new Error(err.detail || `HTTP ${resp.status}`);
+        }
+
+        const data = await resp.json();
+
+        if (data.checkout_url) {
+            // Redirect to Stripe Checkout
+            window.location.href = data.checkout_url;
+        } else {
+            throw new Error("No checkout URL returned");
+        }
+    } catch (err) {
+        showError(err.message || "Something went wrong. Please try again.");
+        btn.disabled = false;
+        btn.classList.remove("loading");
+    }
+}
+
+function showError(msg) {
+    const el = document.getElementById("errorMsg");
+    el.textContent = msg;
+    el.style.display = "block";
+}
+</script>
+
+</body>
+</html>

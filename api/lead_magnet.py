@@ -26,6 +26,13 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel, Field
 
+# Zoho CRM integration — sync inbound leads
+try:
+    from utils.zoho_client import zoho as _zoho_client
+    ZOHO_AVAILABLE = _zoho_client.configured
+except ImportError:
+    ZOHO_AVAILABLE = False
+
 router = APIRouter(prefix="/lead", tags=["Lead Magnet"])
 
 STATE_FILE = PROJECT_ROOT / "data" / "lead_magnet_state.json"
@@ -164,6 +171,20 @@ async def capture_lead(lead: LeadCapture):
     except Exception:
         pass
 
+    # Sync to Zoho CRM as inbound lead
+    if ZOHO_AVAILABLE:
+        try:
+            await _zoho_client.sync_inbound_lead("lead_magnet", {
+                "first_name": lead.name.split()[0] if lead.name else "",
+                "last_name": lead.name.split()[-1] if lead.name and len(lead.name.split()) > 1 else lead.name or "Inbound",
+                "company": lead.company or lead.email.split("@")[1],
+                "email": lead.email,
+                "service": lead.service,
+                "message": lead.message,
+            })
+        except Exception:
+            pass  # CRM sync is non-blocking
+
     return JSONResponse({"status": "captured", "message": "Thanks! We'll be in touch."})
 
 
@@ -242,6 +263,19 @@ async def run_demo(req: DemoRequest):
         log_interaction(cid, "demo", "inbound", f"Free {service['label']} demo", "Demo delivered via lead magnet")
     except Exception:
         pass
+
+    # Sync to Zoho CRM as inbound lead (demo = higher intent)
+    if ZOHO_AVAILABLE:
+        try:
+            await _zoho_client.sync_inbound_lead("lead_magnet", {
+                "email": req.email,
+                "company": req.email.split("@")[1],
+                "name": "Demo Lead",
+                "service": req.task_type,
+                "demo_used": True,
+            })
+        except Exception:
+            pass
 
     # Email the demo result to the lead
     try:

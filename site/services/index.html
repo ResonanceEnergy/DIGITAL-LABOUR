@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — DIGITAL LABOUR</title>
+<meta name="description" content="DIGITAL LABOUR services: white-label content, SEO blog posts, e-commerce product descriptions, and AI-powered resume writing. Scale your output with AI agents.">
+<meta name="keywords" content="AI content services, white-label content, SEO blog writing, e-commerce copywriting, AI resume writing, DIGITAL LABOUR">
+<meta property="og:title" content="Services — DIGITAL LABOUR">
+<meta property="og:description" content="AI-powered content services: white-label blogs, SEO articles, product descriptions, resumes. Pay per deliverable. No contracts.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bit-rage-labour.com/services">
+<meta property="og:image" content="https://bit-rage-labour.com/logo.png">
+<link rel="canonical" href="https://bit-rage-labour.com/services">
+<link rel="icon" type="image/png" href="/logo.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0a;--card:#141414;--card2:#1a1a1a;--border:#2a2a2a;
+  --red:#e01b24;--red-bright:#ff2d38;--red-glow:rgba(224,27,36,0.25);--red-dark:#8b1118;
+  --orange:#ff6b35;--orange-glow:rgba(255,107,53,0.2);
+  --text:#e8e8e8;--muted:#999;--white:#fff;--black:#000;
+  --gradient:linear-gradient(135deg,#e01b24,#ff6b35);
+  --gradient-dark:linear-gradient(135deg,#8b1118,#e01b24);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--red-bright);text-decoration:none;transition:color .2s}
+a:hover{color:var(--orange)}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);background:rgba(10,10,10,0.9);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-brand{display:flex;align-items:center;gap:10px;font-size:1.2rem;font-weight:800;letter-spacing:-0.5px;color:var(--white);text-transform:uppercase}
+.nav-brand img{width:38px;height:38px;border-radius:50%}
+.nav-brand span{color:var(--red)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:0.9rem;color:var(--muted);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--red-bright)}
+.nav-links a.active{color:var(--red-bright)}
+.nav-cta{background:var(--red) !important;color:#fff !important;padding:9px 22px;border-radius:6px;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.5px}
+.nav-cta:hover{background:var(--red-bright) !important;color:#fff !important;box-shadow:0 4px 20px var(--red-glow)}
+.mobile-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:rgba(10,10,10,0.97);padding:20px 24px;gap:16px;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .mobile-toggle{display:block}
+}
+
+/* Rage stripe */
+.rage-stripe{height:4px;background:var(--gradient);width:100%}
+
+/* Page header */
+.page-header{padding:140px 0 60px;text-align:center;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;top:-300px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,var(--red-glow) 0%,transparent 65%);pointer-events:none;opacity:0.5}
+.page-header h1{font-size:2.8rem;font-weight:900;letter-spacing:-2px;line-height:1.1;margin-bottom:16px;text-transform:uppercase}
+.page-header h1 em{font-style:normal;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-header p{font-size:1.1rem;color:var(--muted);max-width:600px;margin:0 auto;line-height:1.6}
+
+/* Services grid */
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;padding:60px 0 100px}
+@media(max-width:768px){.services-grid{grid-template-columns:1fr}}
+
+.service-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:40px;transition:all .3s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient);opacity:0;transition:opacity .3s}
+.service-card:hover{border-color:var(--red);transform:translateY(-4px);box-shadow:0 12px 40px rgba(224,27,36,0.08)}
+.service-card:hover::before{opacity:1}
+.service-card .badge{display:inline-block;font-size:0.7rem;background:var(--red);color:#fff;padding:3px 12px;border-radius:20px;font-weight:700;letter-spacing:1px;margin-bottom:16px;text-transform:uppercase;width:fit-content}
+.service-card h3{font-size:1.4rem;margin-bottom:10px;font-weight:800;text-transform:uppercase;letter-spacing:-0.5px}
+.service-card p{color:var(--muted);font-size:0.95rem;margin-bottom:16px;line-height:1.6;flex:1}
+.service-card .price-range{font-size:1.1rem;font-weight:700;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px}
+.service-card ul{list-style:none;padding:0;margin-bottom:20px}
+.service-card ul li{padding:4px 0;color:var(--muted);font-size:0.9rem}
+.service-card ul li::before{content:"\2713 ";color:var(--red);font-weight:700}
+
+.btn{display:inline-block;padding:14px 32px;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;border:none;transition:all .25s;text-align:center;text-transform:uppercase;letter-spacing:0.5px}
+.btn-primary{background:var(--gradient);color:#fff;box-shadow:0 4px 24px var(--red-glow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 36px var(--red-glow);color:#fff}
+.btn-ghost{background:rgba(224,27,36,0.1);border:1px solid var(--red);color:var(--red-bright)}
+.btn-ghost:hover{background:var(--red);color:#fff}
+.btn-sm{padding:10px 22px;font-size:0.9rem}
+.w-100{width:100%}
+
+/* Footer */
+.footer{padding:48px 0 32px;border-top:2px solid var(--red-dark)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer p{font-size:0.85rem;color:var(--muted)}
+.footer a{font-size:0.85rem;color:var(--muted)}
+.footer a:hover{color:var(--red-bright)}
+.footer-links{display:flex;gap:24px}
+</style>
+</head>
+<body>
+
+<div class="rage-stripe"></div>
+
+<nav class="nav">
+<div class="container nav-inner">
+  <a href="/" class="nav-brand"><img src="/logo.png" alt="DIGITAL LABOUR Logo">Digital <span>Labour</span></a>
+  <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/services" class="active">Services</a>
+    <a href="/blog">Blog</a>
+    <a href="/subscribe">Subscribe</a>
+    <a href="/subscribe" class="nav-cta">Get Started</a>
+  </div>
+</div>
+</nav>
+
+<header class="page-header">
+<div class="container">
+  <h1>Our <em>Services</em></h1>
+  <p>AI-powered content production at scale. From white-label blog posts to product descriptions, SEO articles, and professional resumes. Pick a service and let our agents deliver.</p>
+</div>
+</header>
+
+<section>
+<div class="container">
+  <div class="services-grid">
+
+    <a href="/services/content" style="text-decoration:none;color:inherit">
+    <div class="service-card">
+      <span class="badge">Agencies</span>
+      <h3>White-Label Content Engine</h3>
+      <p>Submit briefs, get branded blog posts, social media content, and email campaigns back. Your brand, our AI agents. Perfect for agencies that need to scale content delivery without hiring writers.</p>
+      <div class="price-range">From $800/mo</div>
+      <ul>
+        <li>Branded blog posts and articles</li>
+        <li>Social media content packs</li>
+        <li>Email marketing campaigns</li>
+        <li>White-label delivery (your brand)</li>
+      </ul>
+      <span class="btn btn-ghost btn-sm w-100">Learn More</span>
+    </div>
+    </a>
+
+    <a href="/services/seo" style="text-decoration:none;color:inherit">
+    <div class="service-card">
+      <span class="badge">SEO</span>
+      <h3>SEO Content Factory</h3>
+      <p>AI-powered SEO blog posts with built-in keyword research and on-page optimization. Rank higher, publish faster, spend less. Every article is optimized for search from the ground up.</p>
+      <div class="price-range">From $800/mo</div>
+      <ul>
+        <li>Keyword research included</li>
+        <li>On-page SEO optimization</li>
+        <li>Meta descriptions and title tags</li>
+        <li>Internal linking suggestions</li>
+      </ul>
+      <span class="btn btn-ghost btn-sm w-100">Learn More</span>
+    </div>
+    </a>
+
+    <a href="/services/ecommerce" style="text-decoration:none;color:inherit">
+    <div class="service-card">
+      <span class="badge">E-commerce</span>
+      <h3>E-commerce Copy at Scale</h3>
+      <p>Product descriptions for Amazon, Shopify, Etsy, eBay, and WooCommerce. Conversion-focused copy that sells. Upload your catalog and get polished descriptions back in hours, not weeks.</p>
+      <div class="price-range">From $500 / 50 descriptions</div>
+      <ul>
+        <li>Amazon, Shopify, Etsy, eBay, WooCommerce</li>
+        <li>SEO-optimized product titles</li>
+        <li>Bullet points and feature highlights</li>
+        <li>Bulk processing available</li>
+      </ul>
+      <span class="btn btn-ghost btn-sm w-100">Learn More</span>
+    </div>
+    </a>
+
+    <a href="/services/resume" style="text-decoration:none;color:inherit">
+    <div class="service-card">
+      <span class="badge">Careers</span>
+      <h3>AI-Powered Resume Writing</h3>
+      <p>Professional resumes and cover letters with fast turnaround. ATS-optimized formatting, keyword targeting, and industry-specific language. Stand out from the pile.</p>
+      <div class="price-range">From $49</div>
+      <ul>
+        <li>ATS-optimized formatting</li>
+        <li>Cover letter writing</li>
+        <li>Keyword targeting for your industry</li>
+        <li>24-48 hour turnaround</li>
+      </ul>
+      <span class="btn btn-ghost btn-sm w-100">Learn More</span>
+    </div>
+    </a>
+
+  </div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+  <div class="footer-inner">
+    <p>&copy; 2026 DIGITAL LABOUR. A Resonance Energy company. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/blog">Blog</a>
+      <a href="mailto:sales@bit-rage-labour.com">Contact</a>
+    </div>
+  </div>
+</div>
+</footer>
+
+<div class="rage-stripe"></div>
+
+<script>
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>

@@ -98,11 +98,29 @@ def check_stripe_revenue() -> dict:
         except Exception as e:
             print(f"  [WARN] Could not update income tracker: {e}")
 
+        # Sync new charges to Zoho CRM as Won deals
+        try:
+            from utils.zoho_client import sync_stripe_payment
+            for c in new_charges:
+                try:
+                    sync_stripe_payment({
+                        "id": c["id"],
+                        "amount": int(c["amount"] * 100),  # Back to cents for Zoho client
+                        "description": c.get("description", ""),
+                        "customer": "",
+                        "receipt_email": c.get("customer_email", ""),
+                    })
+                    print(f"  [ZOHO] Synced ${c['amount']:.2f} to CRM as Won deal")
+                except Exception:
+                    pass
+        except ImportError:
+            pass  # Zoho client not available
+
     state["last_check"] = datetime.now(timezone.utc).isoformat()
     _save_state(state)
 
     total = sum(c["amount"] for c in state.get("charges", []))
-    return {"total": total, "new_charges": len(new_charges), "charges": new_charges}
+    return {"total": total, "new_charges": len(new_charges), "charge_details": new_charges}
 
 
 def check_all_revenue() -> dict:

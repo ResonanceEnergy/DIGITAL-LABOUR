@@ -1,0 +1,86 @@
+{
+  "department": "insurance_operations",
+  "name": "Insurance Operations Division",
+  "head": "Insurance Operations Director",
+  "authority_level": "HIGH",
+  "division_code": "INS-OPS",
+  "autonomy_tier": "semi-autonomous",
+  "description": "Autonomous division for insurance appeal letters, prior authorization requests, denial overturn documentation, and external review packages. HIPAA-compliant document production with clinical justification.",
+  "subdepartments": {
+    "appeals_production": {
+      "name": "Appeals Production Unit",
+      "description": "Generates insurance appeal letters with medical necessity arguments and regulatory citations",
+      "agents": [
+        "insurance_appeals",
+        "insurance_qa"
+      ],
+      "responsibilities": [
+        "Prior authorization request letters",
+        "First-level appeal drafting",
+        "Second-level appeal with peer-to-peer prep",
+        "External review package assembly",
+        "Expedited/urgent appeal generation"
+      ]
+    },
+    "compliance_verification": {
+      "name": "Compliance Verification Unit",
+      "description": "Ensures HIPAA compliance, proper citation of CMS guidelines, and ERISA rights",
+      "agents": [
+        "insurance_compliance_checker"
+      ],
+      "responsibilities": [
+        "HIPAA compliance verification",
+        "CMS guideline citation accuracy",
+        "ERISA rights language validation",
+        "State-specific regulation checks",
+        "Clinical evidence completeness audit"
+      ]
+    }
+  },
+  "key_performance_indicators": [
+    "appeals_completed_per_week",
+    "qa_pass_rate",
+    "hipaa_compliance_rate",
+    "average_turnaround_hours",
+    "revenue_per_appeal",
+    "client_satisfaction_score",
+    "clinical_accuracy_score"
+  ],
+  "reporting_structure": {
+    "reports_to": "executive_council",
+    "c_suite_liaison": "axiom_ceo",
+    "report_frequency": "daily",
+    "escalation_triggers": [
+      "hipaa_violation_detected",
+      "qa_pass_rate_below_85",
+      "clinical_fabrication_flagged",
+      "delivery_sla_breach",
+      "cost_ceiling_exceeded"
+    ]
+  },
+  "autonomy_controls": {
+    "max_daily_tasks": 25,
+    "max_cost_per_task_usd": 0.40,
+    "daily_token_budget": 400000,
+    "auto_deliver_threshold_qa_score": 85,
+    "human_review_required_below_qa": 80,
+    "auto_reject_below_qa": 60,
+    "max_retries_per_task": 2,
+    "cooldown_on_3_consecutive_failures_minutes": 30,
+    "hipaa_hard_gate": true
+  },
+  "pricing_tiers": {
+    "basic": {"price_usd": 47, "scope": "Single appeal letter (first-level)", "token_budget": 25000},
+    "standard": {"price_usd": 127, "scope": "Full appeal package with supporting docs", "token_budget": 50000},
+    "premium": {"price_usd": 297, "scope": "External review package with peer-to-peer prep", "token_budget": 80000}
+  },
+  "nerve_integration": {
+    "health_check_interval_minutes": 15,
+    "auto_heal_actions": [
+      "retry_failed_appeals",
+      "refresh_cms_guideline_cache",
+      "clear_stale_queue_items"
+    ],
+    "status_bus_topic": "bit_rage_labour.division.ins_ops.status"
+  }
+}

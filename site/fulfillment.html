@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIGITAL LABOUR — Fiverr Order Fulfillment</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0a;--card:#141414;--card2:#1a1a1a;--border:#2a2a2a;
+  --red:#e01b24;--red-bright:#ff2d38;--red-glow:rgba(224,27,36,0.25);
+  --orange:#ff6b35;--green:#2ec27e;--yellow:#f5c211;--blue:#3584e4;
+  --text:#e8e8e8;--muted:#999;--white:#fff;
+}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+
+.header{background:var(--card);border-bottom:1px solid var(--border);padding:20px 32px;display:flex;justify-content:space-between;align-items:center}
+.header h1{font-size:1.5rem;font-weight:800;text-transform:uppercase;letter-spacing:-0.5px}
+.header h1 span{background:linear-gradient(135deg,#e01b24,#ff6b35);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header .nav-links{display:flex;gap:16px}
+.header .nav-links a{color:var(--muted);font-size:0.85rem;text-decoration:none}
+.header .nav-links a:hover{color:var(--red-bright)}
+
+.container{max-width:960px;margin:0 auto;padding:32px 24px}
+
+h2{font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;color:var(--orange)}
+
+.form-section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:24px}
+.form-section h3{font-size:0.95rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:16px;color:var(--text)}
+
+.form-row{margin-bottom:16px}
+.form-row label{display:block;font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:6px;font-weight:600}
+
+select,input[type="text"],input[type="number"],textarea{
+  width:100%;padding:12px 14px;background:var(--card2);border:1px solid var(--border);
+  border-radius:8px;color:var(--text);font-size:0.9rem;font-family:inherit;
+  transition:border-color .2s;outline:none;
+}
+select:focus,input:focus,textarea:focus{border-color:var(--red)}
+textarea{resize:vertical;min-height:120px}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+
+.btn{padding:14px 28px;border:none;border-radius:8px;font-size:0.95rem;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:all .2s}
+.btn-primary{background:linear-gradient(135deg,var(--red),var(--orange));color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 20px var(--red-glow)}
+.btn-primary:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-secondary{background:var(--card2);border:1px solid var(--border);color:var(--text)}
+.btn-secondary:hover{border-color:var(--red)}
+
+.btn-row{display:flex;gap:12px;align-items:center;margin-top:8px}
+
+/* Progress */
+.progress-section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:24px;display:none}
+.progress-bar{height:8px;background:var(--card2);border-radius:4px;overflow:hidden;margin:12px 0}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--orange));border-radius:4px;width:0%;transition:width .4s}
+.progress-label{font-size:0.85rem;color:var(--muted)}
+
+.status-line{display:flex;align-items:center;gap:8px;font-size:0.85rem;margin-top:8px}
+.status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.status-dot.active{background:var(--yellow);animation:pulse 1.5s infinite}
+.status-dot.done{background:var(--green)}
+.status-dot.error{background:var(--red)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+
+/* Result */
+.result-section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:24px;display:none}
+.result-section.visible{display:block}
+.result-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.result-badge{font-size:0.7rem;padding:4px 12px;border-radius:4px;font-weight:700;text-transform:uppercase}
+.badge-pass{background:rgba(46,194,126,0.15);color:var(--green);border:1px solid rgba(46,194,126,0.3)}
+.badge-fail{background:rgba(224,27,36,0.15);color:var(--red);border:1px solid rgba(224,27,36,0.3)}
+
+.result-content{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:16px;font-family:'Cascadia Code','Fira Code',monospace;font-size:0.82rem;line-height:1.7;white-space:pre-wrap;max-height:600px;overflow-y:auto;color:var(--text)}
+
+.result-meta{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:16px}
+.meta-item{background:var(--card2);border:1px solid var(--border);border-radius:6px;padding:10px 12px}
+.meta-item .label{font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.meta-item .value{font-size:0.95rem;font-weight:700;color:var(--white);margin-top:2px}
+
+/* History */
+.history-section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:24px}
+.history-table{width:100%;border-collapse:collapse;font-size:0.82rem}
+.history-table th{text-align:left;padding:8px 12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-size:0.7rem;border-bottom:1px solid var(--border)}
+.history-table td{padding:10px 12px;border-bottom:1px solid var(--border)}
+.history-table tr:hover td{background:var(--card2)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1><span>Digital Labour</span> — Fulfillment</h1>
+  <div class="nav-links">
+    <a href="/ops">Ops</a>
+    <a href="/matrix">Matrix</a>
+    <a href="/monitor/overview">Monitor</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2>Fiverr Order Fulfillment</h2>
+
+  <!-- Order Form -->
+  <form id="fulfillmentForm" class="form-section">
+    <h3>New Order</h3>
+
+    <div class="form-row">
+      <label for="gigType">Gig Type</label>
+      <select id="gigType" name="gig_type" required>
+        <option value="">-- Select Gig --</option>
+        <option value="product_desc">Product Descriptions</option>
+        <option value="seo_content">SEO Blog Post</option>
+        <option value="resume">Resume Writing</option>
+        <option value="ad_copy">Ad Copy</option>
+        <option value="email_sequence">Email Sequence</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label for="requirements">Order Requirements (paste from Fiverr message)</label>
+      <textarea id="requirements" name="requirements" rows="6" required placeholder="Paste the buyer's requirements, product specs, career history, or campaign brief here..."></textarea>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-row">
+        <label for="platform">Platform (optional)</label>
+        <input type="text" id="platform" name="platform" placeholder="e.g., amazon, shopify, google_search">
+      </div>
+      <div class="form-row">
+        <label for="audience">Target Audience (optional)</label>
+        <input type="text" id="audience" name="audience" placeholder="e.g., small business owners, job seekers">
+      </div>
+      <div class="form-row">
+        <label for="tone">Tone (optional)</label>
+        <input type="text" id="tone" name="tone" placeholder="e.g., professional, casual, luxury">
+      </div>
+      <div class="form-row">
+        <label for="keywords">Keywords (optional)</label>
+        <input type="text" id="keywords" name="keywords" placeholder="e.g., AI automation, water bottle, Python developer">
+      </div>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-row">
+        <label for="wordCount">Word Count (SEO only)</label>
+        <input type="number" id="wordCount" name="word_count" placeholder="e.g., 1500" min="300" max="5000">
+      </div>
+      <div class="form-row">
+        <label for="role">Target Role (Resume only)</label>
+        <input type="text" id="role" name="role" placeholder="e.g., Senior Software Engineer">
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button type="submit" class="btn btn-primary" id="submitBtn">Process Order</button>
+      <span class="progress-label" id="submitLabel"></span>
+    </div>
+  </form>
+
+  <!-- Progress -->
+  <div class="progress-section" id="progressSection">
+    <h3>Processing</h3>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div id="statusLines"></div>
+  </div>
+
+  <!-- Result -->
+  <div class="result-section" id="resultSection">
+    <div class="result-header">
+      <h3>Deliverable</h3>
+      <div>
+        <span class="result-badge" id="qaBadge"></span>
+      </div>
+    </div>
+    <div class="result-content" id="resultContent"></div>
+    <div class="result-meta" id="resultMeta"></div>
+    <div class="btn-row" style="margin-top:16px">
+      <button class="btn btn-primary" id="downloadBtn" onclick="downloadResult()">Download</button>
+      <button class="btn btn-secondary" onclick="resetForm()">New Order</button>
+    </div>
+  </div>
+
+  <!-- Recent History -->
+  <div class="history-section">
+    <h3>Recent Fulfillments</h3>
+    <table class="history-table">
+      <thead>
+        <tr><th>Time</th><th>Gig</th><th>QA</th><th>Revenue</th><th>Status</th></tr>
+      </thead>
+      <tbody id="historyBody">
+        <tr><td colspan="5" style="color:var(--muted);text-align:center;padding:24px">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+const GIG_LABELS = {
+  product_desc: 'Product Descriptions',
+  seo_content: 'SEO Blog Post',
+  resume: 'Resume Writing',
+  ad_copy: 'Ad Copy',
+  email_sequence: 'Email Sequence'
+};
+
+let currentResult = null;
+
+// Form submit
+document.getElementById('fulfillmentForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const label = document.getElementById('submitLabel');
+  const progress = document.getElementById('progressSection');
+  const result = document.getElementById('resultSection');
+
+  btn.disabled = true;
+  label.textContent = 'Submitting...';
+  progress.style.display = 'block';
+  result.style.display = 'none';
+  result.classList.remove('visible');
+
+  const fill = document.getElementById('progressFill');
+  const lines = document.getElementById('statusLines');
+  fill.style.width = '10%';
+  lines.innerHTML = statusLine('active', 'Dispatching to agent pipeline...');
+
+  const payload = {
+    gig_type: document.getElementById('gigType').value,
+    requirements: document.getElementById('requirements').value,
+    platform: document.getElementById('platform').value || undefined,
+    audience: document.getElementById('audience').value || undefined,
+    tone: document.getElementById('tone').value || undefined,
+    keywords: document.getElementById('keywords').value || undefined,
+    word_count: parseInt(document.getElementById('wordCount').value) || undefined,
+    role: document.getElementById('role').value || undefined,
+  };
+
+  // Remove undefined keys
+  Object.keys(payload).forEach(k => payload[k] === undefined && delete payload[k]);
+
+  try {
+    fill.style.width = '30%';
+    lines.innerHTML = statusLine('active', 'Agent processing order...');
+
+    const resp = await fetch('/fulfillment/process', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    });
+
+    fill.style.width = '80%';
+    lines.innerHTML = statusLine('active', 'Receiving results...');
+
+    if (!resp.ok) {
+      const err = await resp.json();
+      throw new Error(err.detail || 'Processing failed');
+    }
+
+    const data = await resp.json();
+    currentResult = data;
+
+    fill.style.width = '100%';
+    lines.innerHTML = statusLine('done', 'Order fulfilled successfully');
+
+    // Show result
+    showResult(data);
+    loadHistory();
+
+    label.textContent = 'Done';
+  } catch (err) {
+    fill.style.width = '100%';
+    fill.style.background = 'var(--red)';
+    lines.innerHTML = statusLine('error', 'Error: ' + err.message);
+    label.textContent = 'Failed';
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+function statusLine(type, text) {
+  return `<div class="status-line"><span class="status-dot ${type}"></span>${text}</div>`;
+}
+
+function showResult(data) {
+  const section = document.getElementById('resultSection');
+  const badge = document.getElementById('qaBadge');
+  const content = document.getElementById('resultContent');
+  const meta = document.getElementById('resultMeta');
+
+  const qaStatus = data.qa_status || 'N/A';
+  badge.textContent = 'QA: ' + qaStatus;
+  badge.className = 'result-badge ' + (qaStatus === 'PASS' ? 'badge-pass' : 'badge-fail');
+
+  // Display deliverable text
+  content.textContent = data.deliverable_text || JSON.stringify(data.result, null, 2);
+
+  // Meta info
+  let metaHTML = '';
+  if (data.gig_type) metaHTML += metaItem('Gig', GIG_LABELS[data.gig_type] || data.gig_type);
+  if (data.fulfillment_id) metaHTML += metaItem('ID', data.fulfillment_id);
+  if (data.revenue_usd) metaHTML += metaItem('Revenue', '$' + data.revenue_usd.toFixed(2));
+  if (data.processing_time) metaHTML += metaItem('Time', data.processing_time + 's');
+  meta.innerHTML = metaHTML;
+
+  section.style.display = 'block';
+  section.classList.add('visible');
+}
+
+function metaItem(label, value) {
+  return `<div class="meta-item"><div class="label">${label}</div><div class="value">${value}</div></div>`;
+}
+
+function downloadResult() {
+  if (!currentResult) return;
+  const text = currentResult.deliverable_text || JSON.stringify(currentResult.result, null, 2);
+  const gig = currentResult.gig_type || 'deliverable';
+  const id = currentResult.fulfillment_id || 'output';
+  const blob = new Blob([text], {type: 'text/plain'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${gig}_${id}.txt`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function resetForm() {
+  document.getElementById('fulfillmentForm').reset();
+  document.getElementById('progressSection').style.display = 'none';
+  document.getElementById('resultSection').style.display = 'none';
+  document.getElementById('resultSection').classList.remove('visible');
+  document.getElementById('submitLabel').textContent = '';
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('progressFill').style.background = '';
+  currentResult = null;
+}
+
+// Load history
+async function loadHistory() {
+  try {
+    const resp = await fetch('/fulfillment/history');
+    if (!resp.ok) return;
+    const data = await resp.json();
+    const tbody = document.getElementById('historyBody');
+    if (!data.history || data.history.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="5" style="color:var(--muted);text-align:center;padding:24px">No fulfillments yet</td></tr>';
+      return;
+    }
+    tbody.innerHTML = data.history.map(h => `
+      <tr>
+        <td>${new Date(h.timestamp).toLocaleString()}</td>
+        <td>${GIG_LABELS[h.gig_type] || h.gig_type}</td>
+        <td><span class="result-badge ${h.qa_status === 'PASS' ? 'badge-pass' : 'badge-fail'}">${h.qa_status}</span></td>
+        <td style="color:var(--green);font-weight:700">$${(h.revenue_usd || 0).toFixed(2)}</td>
+        <td>${h.status}</td>
+      </tr>
+    `).join('');
+  } catch(e) {
+    // silent fail
+  }
+}
+
+// Conditional field visibility
+document.getElementById('gigType').addEventListener('change', function() {
+  const v = this.value;
+  document.getElementById('wordCount').closest('.form-row').style.opacity = v === 'seo_content' ? '1' : '0.4';
+  document.getElementById('role').closest('.form-row').style.opacity = v === 'resume' ? '1' : '0.4';
+});
+
+// Load history on page load
+loadHistory();
+</script>
+</body>
+</html>

@@ -33,6 +33,13 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from dotenv import load_dotenv
 load_dotenv(PROJECT_ROOT / ".env")
 
+# Zoho CRM integration — sync prospects as Leads
+try:
+    from utils.zoho_client import sync_cold_email_prospect
+    ZOHO_AVAILABLE = True
+except ImportError:
+    ZOHO_AVAILABLE = False
+
 PROSPECTS_FILE = Path(__file__).parent / "prospects.csv"
 SENT_LOG = Path(__file__).parent / "sent_log.json"
 FOLLOWUP_DB = Path(__file__).parent / "followups.json"
@@ -323,6 +330,22 @@ def run_spray(
             })
 
             print(f"  [SENT] {company:30s} → {email_addr} (score={prospect.get('_score', '?')})")
+
+            # Sync prospect to Zoho CRM as a Lead
+            if ZOHO_AVAILABLE:
+                try:
+                    sync_cold_email_prospect({
+                        "first_name": prospect.get("contact_name", prospect.get("name", "")).split()[0] if prospect.get("contact_name", prospect.get("name", "")) else "",
+                        "last_name": prospect.get("contact_name", prospect.get("name", "Unknown")).split()[-1] if prospect.get("contact_name", prospect.get("name", "")) else "Unknown",
+                        "company": company,
+                        "email": email_addr,
+                        "phone": prospect.get("phone", ""),
+                        "score": prospect.get("_score", 50),
+                        "industry": prospect.get("industry", ""),
+                        "source": "cold_email_spray",
+                    })
+                except Exception:
+                    pass  # CRM sync is non-blocking
         else:
             results["failed"] += 1
             print(f"  [FAIL] {company:30s} → {result.get('reason', 'unknown')}")

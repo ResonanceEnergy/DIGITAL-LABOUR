@@ -439,6 +439,189 @@
       "authority_scope": "platform_guru",
       "disabled": false,
       "billing_surface_verified": true
+    },
+
+    "grant_writer": {
+      "one_liner": "Produces SBIR/STTR grant proposals, RFP responses, and federal funding narratives with budget justification",
+      "cost_ceiling_usd": 0.50,
+      "max_execution_seconds": 120,
+      "max_retries": 2,
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail",
+        "compliance_flag",
+        "empty_project_data"
+      ],
+      "authority_scope": "grant_production",
+      "division": "grant_operations",
+      "disabled": false,
+      "billing_surface_verified": true
+    },
+    "grant_qa": {
+      "one_liner": "Validates grant proposal completeness, compliance matrix, and budget accuracy",
+      "cost_ceiling_usd": 0.10,
+      "max_execution_seconds": 30,
+      "max_retries": 2,
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation"
+      ],
+      "authority_scope": "grant_qa",
+      "division": "grant_operations",
+      "disabled": false,
+      "billing_surface_verified": true
+    },
+    "grant_researcher": {
+      "one_liner": "Identifies funding opportunities and aligns client capabilities to grant requirements",
+      "cost_ceiling_usd": 0.25,
+      "max_execution_seconds": 60,
+      "max_retries": 2,
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "empty_search"
+      ],
+      "authority_scope": "grant_research",
+      "division": "grant_operations",
+      "disabled": false,
+      "billing_surface_verified": true
+    },
+
+    "insurance_appeals": {
+      "one_liner": "Generates insurance appeal letters with medical necessity arguments, CMS citations, and ERISA rights",
+      "cost_ceiling_usd": 0.40,
+      "max_execution_seconds": 90,
+      "max_retries": 2,
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail",
+        "hipaa_violation",
+        "clinical_fabrication"
+      ],
+      "authority_scope": "insurance_production",
+      "division": "insurance_operations",
+      "disabled": false,
+      "billing_surface_verified": true
+    },
+    "insurance_qa": {
+      "one_liner": "Validates appeal letter HIPAA compliance, clinical accuracy, and regulatory citations",
+      "cost_ceiling_usd": 0.10,
+      "max_execution_seconds": 30,
+      "max_retries": 2,
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation"
+      ],
+      "authority_scope": "insurance_qa",
+      "division": "insurance_operations",
+      "disabled": false,
+      "billing_surface_verified": true
+    },
+    "insurance_compliance_checker": {
+      "one_liner": "Deep HIPAA/ERISA/CMS compliance verification for insurance documents",
+      "cost_ceiling_usd": 0.12,
+      "max_execution_seconds": 30,
+      "max_retries": 2,
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation"
+      ],
+      "authority_scope": "insurance_compliance",
+      "division": "insurance_operations",
+      "disabled": false,
+      "billing_surface_verified": true
+    },
+
+    "contractor_doc_writer": {
+      "one_liner": "Produces contractor paperwork: permits, inspection reports, proposals, lien waivers, safety plans",
+      "cost_ceiling_usd": 0.35,
+      "max_execution_seconds": 75,
+      "max_retries": 2,
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail",
+        "jurisdiction_mismatch"
+      ],
+      "authority_scope": "contractor_production",
+      "division": "contractor_services",
+      "disabled": false,
+      "billing_surface_verified": true
+    },
+    "contractor_qa": {
+      "one_liner": "Validates contractor documents for building code compliance and formatting standards",
+      "cost_ceiling_usd": 0.08,
+      "max_execution_seconds": 30,
+      "max_retries": 2,
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation"
+      ],
+      "authority_scope": "contractor_qa",
+      "division": "contractor_services",
+      "disabled": false,
+      "billing_surface_verified": true
+    },
+    "contractor_compliance": {
+      "one_liner": "Verifies jurisdiction-specific building codes, OSHA standards, and licensing requirements",
+      "cost_ceiling_usd": 0.10,
+      "max_execution_seconds": 30,
+      "max_retries": 2,
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation"
+      ],
+      "authority_scope": "contractor_compliance",
+      "division": "contractor_services",
+      "disabled": false,
+      "billing_surface_verified": true
+    },
+
+    "municipal_doc_writer": {
+      "one_liner": "Produces municipal documents: meeting minutes, public notices, ordinances, grant applications, budget reports",
+      "cost_ceiling_usd": 0.30,
+      "max_execution_seconds": 75,
+      "max_retries": 2,
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation",
+        "qa_fail",
+        "formatting_standard_mismatch"
+      ],
+      "authority_scope": "municipal_production",
+      "division": "municipal_services",
+      "disabled": false,
+      "billing_surface_verified": true
+    },
+    "municipal_qa": {
+      "one_liner": "Validates municipal documents for open meeting law compliance and formatting standards",
+      "cost_ceiling_usd": 0.08,
+      "max_execution_seconds": 30,
+      "max_retries": 2,
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation"
+      ],
+      "authority_scope": "municipal_qa",
+      "division": "municipal_services",
+      "disabled": false,
+      "billing_surface_verified": true
+    },
+    "municipal_compliance": {
+      "one_liner": "Verifies open meeting laws, public records requirements, and ADA accessibility",
+      "cost_ceiling_usd": 0.10,
+      "max_execution_seconds": 30,
+      "max_retries": 2,
+      "failure_modes": [
+        "llm_timeout",
+        "schema_violation"
+      ],
+      "authority_scope": "municipal_compliance",
+      "division": "municipal_services",
+      "disabled": false,
+      "billing_surface_verified": true
     }
   }
 }

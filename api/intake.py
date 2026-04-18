@@ -37,6 +37,10 @@ from api.matrix_monitor import router as matrix_router
 from api.openclaw import router as openclaw_router
 from api.lead_magnet import router as lead_router
 from api.freelance import router as freelance_router
+from api.marketplace import router as marketplace_router
+from api.revenue import router as revenue_router
+from api.checkout import router as checkout_router
+from api.fulfillment import router as fulfillment_router
 
 # P6.3 — Credential TTL check on startup
 try:
@@ -102,10 +106,11 @@ async def security_headers(request: Request, call_next):
     )
     response.headers["Content-Security-Policy"] = (
         "default-src 'self'; "
-        "script-src 'self' 'unsafe-inline'; "
+        "script-src 'self' 'unsafe-inline' https://js.stripe.com; "
         "style-src 'self' 'unsafe-inline'; "
         "img-src 'self' data:; "
-        "connect-src 'self'; "
+        "connect-src 'self' https://api.stripe.com; "
+        "frame-src https://js.stripe.com https://checkout.stripe.com; "
         "frame-ancestors 'none'; "
         "base-uri 'self'"
     )
@@ -128,6 +133,18 @@ app.include_router(lead_router)
 
 # Freelance Engine — Job hunt, bidding, delivery automation
 app.include_router(freelance_router)
+
+# API Marketplace — Top 8 agents as clean API products (RapidAPI / Zyla)
+app.include_router(marketplace_router)
+
+# Revenue Dashboard — Revenue tracking, agent economics, client LTV
+app.include_router(revenue_router)
+
+# Stripe Checkout — Service landing pages → payment → agent fulfillment
+app.include_router(checkout_router)
+
+# Fiverr Fulfillment — Order intake, agent dispatch, deliverable packaging
+app.include_router(fulfillment_router)
 
 
 @app.get("/ops", response_class=HTMLResponse)
@@ -161,10 +178,49 @@ def matrix_manifest():
     })
 
 
+@app.get("/checkout", response_class=HTMLResponse)
+def checkout_page():
+    """Serve the Stripe Checkout landing page."""
+    html_path = PROJECT_ROOT / "site" / "checkout.html"
+    return HTMLResponse(html_path.read_text(encoding="utf-8"))
+
+
 @app.get("/subscribe", response_class=HTMLResponse)
 def subscribe_page():
     """Serve the subscription pricing page."""
     html_path = Path(__file__).resolve().parent.parent / "site" / "subscribe.html"
+    return HTMLResponse(html_path.read_text(encoding="utf-8"))
+
+
+# ── Services landing pages ─────────────────────────────────────────────────
+
+SERVICE_SLUGS = {
+    "content",
+    "seo",
+    "ecommerce",
+    "resume",
+    "grant-proposal",
+    "compliance",
+    "insurance-appeal",
+    "data-report",
+}
+
+
+@app.get("/services", response_class=HTMLResponse)
+def services_index():
+    """Serve the services overview page."""
+    html_path = PROJECT_ROOT / "site" / "services" / "index.html"
+    return HTMLResponse(html_path.read_text(encoding="utf-8"))
+
+
+@app.get("/services/{service}", response_class=HTMLResponse)
+def service_page(service: str):
+    """Serve an individual service landing page."""
+    if service not in SERVICE_SLUGS:
+        raise HTTPException(status_code=404, detail="Service not found")
+    html_path = PROJECT_ROOT / "site" / "services" / f"{service}.html"
+    if not html_path.is_file():
+        raise HTTPException(status_code=404, detail="Service not found")
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
 

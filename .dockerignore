@@ -1,15 +1,58 @@
-.venv
+# Version control
+.git
+.gitignore
+.github
+
+# Python caches
 __pycache__
 *.pyc
-.git
+*.pyo
+*.pyd
+.pytest_cache
+.mypy_cache
+
+# Virtual environments
+.venv
+venv
+env
+
+# Secrets — never bake into image
+.env
+.env.*
+
+# Node (if any frontend tooling)
+node_modules
+
+# Output / generated files
+output/
+
+# Build artifacts
+dist/
+build/
+*.spec
+*.egg-info
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# IDE
 .vscode
-.github
+.idea
+
+# State / caches (ephemeral data)
 .ralphy
-output
-tests/results
 data/platform_browser
 data/nerve_logs
 data/csuite_feed
 data/upwork_jobs
-*.log
-.env
+tests/results
+
+# Deployment configs (not needed inside container)
+fly.toml
+railway.json
+railway.toml
+Procfile

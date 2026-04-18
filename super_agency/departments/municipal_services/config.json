@@ -1,0 +1,87 @@
+{
+  "department": "municipal_services",
+  "name": "Municipal Services Division",
+  "head": "Municipal Services Director",
+  "authority_level": "HIGH",
+  "division_code": "MUN-SVC",
+  "autonomy_tier": "semi-autonomous",
+  "description": "Autonomous division for municipal and government documentation: meeting minutes, public notices, ordinances, grant applications, budget summaries, and compliance reports. Targets small/mid-size municipalities, townships, and county offices with limited staff.",
+  "subdepartments": {
+    "document_production": {
+      "name": "Municipal Document Production Unit",
+      "description": "Generates municipal governance documents from raw meeting recordings, notes, and data",
+      "agents": [
+        "municipal_doc_writer",
+        "municipal_qa"
+      ],
+      "responsibilities": [
+        "Meeting minutes transcription and formatting",
+        "Public notice drafting (hearings, zoning, elections)",
+        "Ordinance and resolution drafting",
+        "Municipal grant application preparation",
+        "Budget summary and fiscal year reports",
+        "Annual report compilation",
+        "RFP/RFQ document preparation"
+      ]
+    },
+    "compliance_unit": {
+      "name": "Municipal Compliance Unit",
+      "description": "Ensures open meeting laws, public records requirements, and municipal formatting standards",
+      "agents": [
+        "municipal_compliance"
+      ],
+      "responsibilities": [
+        "Open meeting law compliance verification",
+        "Public records act adherence",
+        "State-specific municipal formatting standards",
+        "ADA accessibility compliance",
+        "Sunshine law requirements"
+      ]
+    }
+  },
+  "key_performance_indicators": [
+    "documents_completed_per_week",
+    "qa_pass_rate",
+    "average_turnaround_hours",
+    "revenue_per_document",
+    "formatting_accuracy_rate",
+    "client_retention_rate",
+    "monthly_recurring_revenue"
+  ],
+  "reporting_structure": {
+    "reports_to": "executive_council",
+    "c_suite_liaison": "vectis_coo",
+    "report_frequency": "daily",
+    "escalation_triggers": [
+      "open_meeting_law_violation_flagged",
+      "qa_pass_rate_below_80",
+      "delivery_sla_breach",
+      "cost_ceiling_exceeded",
+      "formatting_standard_mismatch"
+    ]
+  },
+  "autonomy_controls": {
+    "max_daily_tasks": 35,
+    "max_cost_per_task_usd": 0.30,
+    "daily_token_budget": 500000,
+    "auto_deliver_threshold_qa_score": 80,
+    "human_review_required_below_qa": 70,
+    "auto_reject_below_qa": 50,
+    "max_retries_per_task": 2,
+    "cooldown_on_3_consecutive_failures_minutes": 20
+  },
+  "pricing_tiers": {
+    "basic": {"price_usd": 19, "scope": "Single document (public notice, resolution)", "token_budget": 15000},
+    "standard": {"price_usd": 47, "scope": "Meeting minutes package or grant application", "token_budget": 35000},
+    "premium": {"price_usd": 127, "scope": "Full municipal document suite (annual report, budget)", "token_budget": 70000}
+  },
+  "nerve_integration": {
+    "health_check_interval_minutes": 15,
+    "auto_heal_actions": [
+      "retry_failed_documents",
+      "refresh_municipal_template_cache",
+      "clear_stale_queue_items"
+    ],
+    "status_bus_topic": "bit_rage_labour.division.mun_svc.status"
+  }
+}

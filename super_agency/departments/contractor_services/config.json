@@ -1,0 +1,87 @@
+{
+  "department": "contractor_services",
+  "name": "Contractor Services Division",
+  "head": "Contractor Services Director",
+  "authority_level": "HIGH",
+  "division_code": "CTR-SVC",
+  "autonomy_tier": "semi-autonomous",
+  "description": "Autonomous division for contractor documentation: permits, inspection reports, project proposals, lien waivers, safety plans, and compliance paperwork. Targets construction, trades, and general contracting firms drowning in paperwork.",
+  "subdepartments": {
+    "document_production": {
+      "name": "Document Production Unit",
+      "description": "Generates contractor-specific documents from structured intake data",
+      "agents": [
+        "contractor_doc_writer",
+        "contractor_qa"
+      ],
+      "responsibilities": [
+        "Permit application preparation",
+        "Inspection report generation",
+        "Project proposal and bid documents",
+        "Lien waiver and release forms",
+        "Safety plan (OSHA-compliant) drafting",
+        "Change order documentation",
+        "Progress report generation"
+      ]
+    },
+    "compliance_unit": {
+      "name": "Regulatory Compliance Unit",
+      "description": "Ensures jurisdiction-specific building codes, OSHA standards, and licensing requirements",
+      "agents": [
+        "contractor_compliance"
+      ],
+      "responsibilities": [
+        "Building code reference verification",
+        "OSHA safety standard compliance",
+        "State licensing requirement checks",
+        "Insurance certificate verification",
+        "Bonding requirement validation"
+      ]
+    }
+  },
+  "key_performance_indicators": [
+    "documents_completed_per_week",
+    "qa_pass_rate",
+    "average_turnaround_hours",
+    "revenue_per_document",
+    "compliance_accuracy_rate",
+    "client_revision_rate",
+    "repeat_client_rate"
+  ],
+  "reporting_structure": {
+    "reports_to": "executive_council",
+    "c_suite_liaison": "vectis_coo",
+    "report_frequency": "daily",
+    "escalation_triggers": [
+      "compliance_error_detected",
+      "qa_pass_rate_below_80",
+      "delivery_sla_breach",
+      "cost_ceiling_exceeded",
+      "jurisdiction_mismatch_flagged"
+    ]
+  },
+  "autonomy_controls": {
+    "max_daily_tasks": 30,
+    "max_cost_per_task_usd": 0.35,
+    "daily_token_budget": 450000,
+    "auto_deliver_threshold_qa_score": 80,
+    "human_review_required_below_qa": 70,
+    "auto_reject_below_qa": 50,
+    "max_retries_per_task": 2,
+    "cooldown_on_3_consecutive_failures_minutes": 20
+  },
+  "pricing_tiers": {
+    "basic": {"price_usd": 19, "scope": "Single document (lien waiver, change order)", "token_budget": 15000},
+    "standard": {"price_usd": 47, "scope": "Multi-document package (permit + safety plan)", "token_budget": 35000},
+    "premium": {"price_usd": 127, "scope": "Full project documentation suite", "token_budget": 70000}
+  },
+  "nerve_integration": {
+    "health_check_interval_minutes": 15,
+    "auto_heal_actions": [
+      "retry_failed_documents",
+      "refresh_building_code_cache",
+      "clear_stale_queue_items"
+    ],
+    "status_bus_topic": "bit_rage_labour.division.ctr_svc.status"
+  }
+}

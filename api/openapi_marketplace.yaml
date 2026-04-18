@@ -1,0 +1,1544 @@
+openapi: "3.1.0"
+info:
+  title: "DIGITAL LABOUR AI Agents Marketplace API"
+  version: "1.0.0"
+  description: |
+    Production-grade AI agents for business automation. Each endpoint wraps a
+    specialized multi-step agent pipeline with built-in QA verification, cost
+    control, and structured output.
+
+    **12 flagship agents** available as individual API products:
+    - Product Description Generator (e-commerce optimized)
+    - SEO Content Writer (blog posts, pillar pages)
+    - Resume Builder (ATS-optimized professional resumes)
+    - Ad Copy Generator (Google, Meta, LinkedIn)
+    - Email Sequence Builder (drip campaigns)
+    - Press Release Writer (AP-style)
+    - Technical Documentation Generator (API docs, READMEs)
+    - Data Extractor (invoices, contracts, resumes)
+    - Grant Proposal Writer (SBIR, STTR, NIH, NSF)
+    - Compliance Document Generator (HIPAA, GDPR, SOX)
+    - Insurance Appeal Writer (denied claims)
+    - Data Report Generator (performance, KPI, executive)
+
+    **Authentication:** Pass your API key via the `X-API-Key` header.
+
+    **Rate Limits:**
+    - Free tier: 100 requests/day
+    - Paid tier: 1,000 requests/day
+
+    Rate limit headers are returned on every response:
+    `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset`
+  contact:
+    name: "DIGITAL LABOUR"
+    email: "api@bit-rage-labour.com"
+    url: "https://bit-rage-labour.com"
+  license:
+    name: "Proprietary"
+  x-rapidapi-host: "bit-rage-labour.p.rapidapi.com"
+  x-logo:
+    url: "https://bit-rage-labour.com/logo.png"
+
+servers:
+  - url: "https://bitrage-labour-api-production.up.railway.app"
+    description: "Production"
+  - url: "http://localhost:8000"
+    description: "Local development"
+
+security:
+  - ApiKeyAuth: []
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: "API key for authentication. Obtain from the developer portal or RapidAPI."
+
+  schemas:
+    # ── Shared ────────────────────────────────────────────────
+    ErrorResponse:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: "Human-readable error message"
+      required: [detail]
+
+    QAInfo:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [PASS, FAIL]
+          description: "Quality assurance verdict"
+        confidence:
+          type: number
+          format: float
+          description: "QA confidence score 0.0-1.0"
+        issues:
+          type: array
+          items:
+            type: string
+          description: "List of QA issues found, if any"
+
+    # ── Product Description ───────────────────────────────────
+    ProductDescriptionRequest:
+      type: object
+      required: [product_specs]
+      properties:
+        product_specs:
+          type: string
+          description: "Raw product specifications, features, and details"
+          example: "Wireless noise-cancelling headphones, 40hr battery, Bluetooth 5.3, ANC, 30mm drivers, foldable design, USB-C charging"
+        platform:
+          type: string
+          enum: [amazon, shopify, ebay, etsy, walmart, general]
+          default: general
+          description: "Target e-commerce platform for formatting optimization"
+        audience:
+          type: string
+          default: ""
+          description: "Target customer persona or demographic"
+          example: "remote workers and commuters aged 25-40"
+        tone:
+          type: string
+          enum: [persuasive, professional, casual, luxury, technical]
+          default: persuasive
+          description: "Writing tone"
+        keywords:
+          type: string
+          default: ""
+          description: "Comma-separated SEO keywords to incorporate"
+          example: "wireless headphones, noise cancelling, Bluetooth headphones"
+        provider:
+          type: string
+          enum: [openai, anthropic, gemini, grok, ""]
+          default: ""
+          description: "LLM provider preference (empty for auto-select)"
+
+    ProductDescriptionResponse:
+      type: object
+      properties:
+        task_id:
+          type: string
+          description: "Unique task identifier"
+        title:
+          type: string
+          description: "Optimized product title"
+        description:
+          type: string
+          description: "Full product description"
+        bullet_points:
+          type: array
+          items:
+            type: string
+          description: "Key feature bullet points"
+        seo_keywords:
+          type: array
+          items:
+            type: string
+          description: "Extracted/suggested SEO keywords"
+        platform:
+          type: string
+          description: "Platform the description was optimized for"
+        qa:
+          $ref: "#/components/schemas/QAInfo"
+        processing_time_ms:
+          type: integer
+          description: "Processing time in milliseconds"
+
+    # ── SEO Content ───────────────────────────────────────────
+    SEOContentRequest:
+      type: object
+      required: [topic]
+      properties:
+        topic:
+          type: string
+          description: "Blog post topic or target keyword cluster"
+          example: "How to implement CI/CD pipelines for microservices"
+        content_type:
+          type: string
+          enum: [blog_post, pillar_page, landing_page, listicle, how_to]
+          default: blog_post
+          description: "Type of SEO content to generate"
+        tone:
+          type: string
+          enum: [professional, conversational, authoritative, casual]
+          default: professional
+          description: "Writing tone"
+        audience:
+          type: string
+          default: ""
+          description: "Target audience description"
+          example: "DevOps engineers and platform teams"
+        word_count:
+          type: integer
+          default: 1500
+          description: "Approximate target word count"
+        provider:
+          type: string
+          enum: [openai, anthropic, gemini, grok, ""]
+          default: ""
+
+    SEOContentResponse:
+      type: object
+      properties:
+        task_id:
+          type: string
+        article:
+          type: string
+          description: "Full article/blog post in Markdown"
+        meta_title:
+          type: string
+          description: "SEO-optimized meta title (under 60 chars)"
+        meta_description:
+          type: string
+          description: "SEO meta description (under 160 chars)"
+        keyword_analysis:
+          type: object
+          description: "Primary and secondary keywords with density"
+        headings:
+          type: array
+          items:
+            type: string
+          description: "H2/H3 heading structure"
+        qa:
+          $ref: "#/components/schemas/QAInfo"
+        processing_time_ms:
+          type: integer
+
+    # ── Resume ────────────────────────────────────────────────
+    ResumeRequest:
+      type: object
+      required: [career_data]
+      properties:
+        career_data:
+          type: string
+          description: "Career history, skills, education, and achievements in any format"
+          example: "10 years software engineering. Python, Go, AWS. Led team of 8 at Acme Corp. Built payment system processing $2M/month."
+        target_role:
+          type: string
+          default: ""
+          description: "Job title being targeted"
+          example: "Senior Backend Engineer"
+        target_industry:
+          type: string
+          default: ""
+          description: "Target industry"
+          example: "fintech"
+        style:
+          type: string
+          enum: [chronological, functional, combination, modern]
+          default: combination
+          description: "Resume format style"
+        level:
+          type: string
+          enum: [entry, mid, senior, executive]
+          default: mid
+          description: "Career level"
+        provider:
+          type: string
+          enum: [openai, anthropic, gemini, grok, ""]
+          default: ""
+
+    ResumeResponse:
+      type: object
+      properties:
+        task_id:
+          type: string
+        resume_text:
+          type: string
+          description: "Formatted resume content in Markdown"
+        summary:
+          type: string
+          description: "Professional summary/objective"
+        skills:
+          type: array
+          items:
+            type: string
+          description: "Extracted and organized skills"
+        experience:
+          type: array
+          items:
+            type: object
+          description: "Structured work experience entries"
+        qa:
+          $ref: "#/components/schemas/QAInfo"
+        processing_time_ms:
+          type: integer
+
+    # ── Ad Copy ───────────────────────────────────────────────
+    AdCopyRequest:
+      type: object
+      required: [product]
+      properties:
+        product:
+          type: string
+          description: "Product or service description / brief"
+          example: "AI-powered project management tool that predicts delays before they happen"
+        platform:
+          type: string
+          enum: [google_search, google_display, facebook, instagram, linkedin, twitter, tiktok]
+          default: google_search
+          description: "Advertising platform"
+        audience:
+          type: string
+          default: ""
+          description: "Target audience"
+          example: "project managers at mid-size SaaS companies"
+        goal:
+          type: string
+          enum: [conversions, awareness, traffic, engagement, leads]
+          default: conversions
+          description: "Campaign objective"
+        provider:
+          type: string
+          enum: [openai, anthropic, gemini, grok, ""]
+          default: ""
+
+    AdCopyResponse:
+      type: object
+      properties:
+        task_id:
+          type: string
+        headlines:
+          type: array
+          items:
+            type: string
+          description: "Ad headlines (platform-appropriate character limits)"
+        descriptions:
+          type: array
+          items:
+            type: string
+          description: "Ad descriptions/body text variations"
+        call_to_action:
+          type: string
+          description: "Recommended CTA"
+        platform:
+          type: string
+        qa:
+          $ref: "#/components/schemas/QAInfo"
+        processing_time_ms:
+          type: integer
+
+    # ── Email Sequence ────────────────────────────────────────
+    EmailSequenceRequest:
+      type: object
+      required: [business]
+      properties:
+        business:
+          type: string
+          description: "Business or product description"
+          example: "B2B SaaS analytics platform for e-commerce brands"
+        audience:
+          type: string
+          default: ""
+          description: "Target audience"
+          example: "e-commerce marketing managers"
+        goal:
+          type: string
+          enum: [nurture, onboarding, re-engagement, upsell, launch, webinar]
+          default: nurture
+          description: "Email sequence goal"
+        tone:
+          type: string
+          enum: [professional, friendly, urgent, casual, authoritative]
+          default: professional
+          description: "Email tone"
+        email_count:
+          type: integer
+          default: 5
+          minimum: 2
+          maximum: 10
+          description: "Number of emails in the sequence"
+        provider:
+          type: string
+          enum: [openai, anthropic, gemini, grok, ""]
+          default: ""
+
+    EmailSequenceResponse:
+      type: object
+      properties:
+        task_id:
+          type: string
+        emails:
+          type: array
+          items:
+            type: object
+            properties:
+              sequence_number:
+                type: integer
+              subject_line:
+                type: string
+              preview_text:
+                type: string
+              body:
+                type: string
+              send_delay_days:
+                type: integer
+          description: "Ordered email sequence"
+        schedule:
+          type: object
+          description: "Recommended send schedule"
+        qa:
+          $ref: "#/components/schemas/QAInfo"
+        processing_time_ms:
+          type: integer
+
+    # ── Press Release ─────────────────────────────────────────
+    PressReleaseRequest:
+      type: object
+      required: [announcement]
+      properties:
+        announcement:
+          type: string
+          description: "The news or announcement to write about"
+          example: "Acme Corp launches AI-powered supply chain optimization platform, reducing logistics costs by 30%"
+        company_name:
+          type: string
+          default: ""
+          description: "Company issuing the press release"
+          example: "Acme Corp"
+        release_type:
+          type: string
+          enum: [product_launch, funding, partnership, milestone, executive_hire, event, general]
+          default: product_launch
+          description: "Type of press release"
+        tone:
+          type: string
+          enum: [professional, exciting, formal, conversational]
+          default: professional
+          description: "Writing tone"
+        provider:
+          type: string
+          enum: [openai, anthropic, gemini, grok, ""]
+          default: ""
+
+    PressReleaseResponse:
+      type: object
+      properties:
+        task_id:
+          type: string
+        headline:
+          type: string
+          description: "Press release headline"
+        subheadline:
+          type: string
+          description: "Press release subheadline"
+        body:
+          type: string
+          description: "Full press release body (AP-style)"
+        boilerplate:
+          type: string
+          description: "Company boilerplate paragraph"
+        quotes:
+          type: array
+          items:
+            type: string
+          description: "Suggested executive quotes"
+        qa:
+          $ref: "#/components/schemas/QAInfo"
+        processing_time_ms:
+          type: integer
+
+    # ── Tech Docs ─────────────────────────────────────────────
+    TechDocsRequest:
+      type: object
+      required: [content]
+      properties:
+        content:
+          type: string
+          description: "Source code, API specification, or technical content to document"
+          example: "def calculate_roi(investment: float, returns: float) -> dict: ..."
+        doc_type:
+          type: string
+          enum: [api_reference, readme, tutorial, architecture, changelog, runbook]
+          default: api_reference
+          description: "Type of technical documentation"
+        audience:
+          type: string
+          enum: [developers, devops, end_users, managers, general]
+          default: developers
+          description: "Target audience"
+        framework:
+          type: string
+          default: ""
+          description: "Framework or technology context"
+          example: "FastAPI"
+        provider:
+          type: string
+          enum: [openai, anthropic, gemini, grok, ""]
+          default: ""
+
+    TechDocsResponse:
+      type: object
+      properties:
+        task_id:
+          type: string
+        documentation:
+          type: string
+          description: "Generated documentation in Markdown"
+        sections:
+          type: array
+          items:
+            type: string
+          description: "Documentation section titles"
+        code_examples:
+          type: array
+          items:
+            type: string
+          description: "Extracted or generated code examples"
+        qa:
+          $ref: "#/components/schemas/QAInfo"
+        processing_time_ms:
+          type: integer
+
+    # ── Data Extract ──────────────────────────────────────────
+    DataExtractRequest:
+      type: object
+      required: [document_text]
+      properties:
+        document_text:
+          type: string
+          description: "Plain text content of the document to extract data from"
+          example: "Invoice #12345\nDate: 2026-03-15\nBill To: Acme Corp\nItem: Consulting Services - $5,000.00\nTax: $400.00\nTotal: $5,400.00"
+        doc_type:
+          type: string
+          enum: [invoice, contract, resume, receipt, report, auto]
+          default: auto
+          description: "Document type (auto for automatic detection)"
+        provider:
+          type: string
+          enum: [openai, anthropic, gemini, grok, ""]
+          default: ""
+
+    DataExtractResponse:
+      type: object
+      properties:
+        task_id:
+          type: string
+        extracted_data:
+          type: object
+          description: "Structured data extracted from the document"
+        doc_type_detected:
+          type: string
+          description: "Detected or confirmed document type"
+        entities:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              value:
+                type: string
+              confidence:
+                type: number
+          description: "Named entities extracted with confidence scores"
+        qa:
+          $ref: "#/components/schemas/QAInfo"
+        processing_time_ms:
+          type: integer
+
+    # ── Grant Proposal ───────────────────────────────────────
+    GrantProposalRequest:
+      type: object
+      required: [content]
+      properties:
+        content:
+          type: string
+          description: "Project description and objectives for the grant proposal"
+          example: "Developing an AI-powered early detection system for crop diseases using satellite imagery and machine learning"
+        grant_type:
+          type: string
+          enum: [sbir_phase1, sbir_phase2, sttr, r01, nsf_seed, general]
+          default: sbir_phase1
+          description: "Grant program type"
+        agency:
+          type: string
+          enum: [sba, nsf, nih, doe, dod, usda, general]
+          default: sba
+          description: "Target funding agency"
+        provider:
+          type: string
+          enum: [openai, anthropic, gemini, grok, ""]
+          default: ""
+
+    GrantProposalResponse:
+      type: object
+      properties:
+        task_id:
+          type: string
+        proposal:
+          type: string
+          description: "Full grant proposal narrative"
+        specific_aims:
+          type: array
+          items:
+            type: string
+          description: "Specific aims / objectives"
+        budget_justification:
+          type: string
+          description: "Budget justification section"
+        compliance_sections:
+          type: array
+          items:
+            type: string
+          description: "Required compliance sections"
+        qa:
+          $ref: "#/components/schemas/QAInfo"
+        processing_time_ms:
+          type: integer
+
+    # ── Compliance Document ──────────────────────────────────
+    ComplianceDocRequest:
+      type: object
+      required: [content]
+      properties:
+        content:
+          type: string
+          description: "Company details and compliance requirements"
+          example: "50-employee SaaS company handling healthcare data, needs HIPAA-compliant employee handbook"
+        doc_type:
+          type: string
+          enum: [employee_handbook, privacy_policy, terms_of_service, hipaa, gdpr, sox, general]
+          default: employee_handbook
+          description: "Compliance document type"
+        company:
+          type: string
+          default: ""
+          description: "Company name"
+          example: "Acme Health Tech"
+        jurisdiction:
+          type: string
+          enum: [us_federal, us_state, eu, uk, canada, australia, general]
+          default: us_federal
+          description: "Legal jurisdiction"
+        provider:
+          type: string
+          enum: [openai, anthropic, gemini, grok, ""]
+          default: ""
+
+    ComplianceDocResponse:
+      type: object
+      properties:
+        task_id:
+          type: string
+        document:
+          type: string
+          description: "Full compliance document in Markdown"
+        sections:
+          type: array
+          items:
+            type: string
+          description: "Document section titles"
+        jurisdiction:
+          type: string
+          description: "Jurisdiction the document was drafted for"
+        disclaimers:
+          type: array
+          items:
+            type: string
+          description: "Legal disclaimers and caveats"
+        qa:
+          $ref: "#/components/schemas/QAInfo"
+        processing_time_ms:
+          type: integer
+
+    # ── Insurance Appeal ─────────────────────────────────────
+    InsuranceAppealRequest:
+      type: object
+      required: [content]
+      properties:
+        content:
+          type: string
+          description: "Claim details and denial information"
+          example: "Claim #A12345 denied for MRI of lumbar spine. Diagnosis: L4-L5 herniated disc. Reason: not medically necessary. Patient has failed 6 weeks of physical therapy."
+        letter_type:
+          type: string
+          enum: [first_level_appeal, second_level_appeal, external_review, expedited, general]
+          default: first_level_appeal
+          description: "Appeal letter type"
+        urgency:
+          type: string
+          enum: [routine, urgent, expedited, emergency]
+          default: routine
+          description: "Urgency level"
+        provider:
+          type: string
+          enum: [openai, anthropic, gemini, grok, ""]
+          default: ""
+
+    InsuranceAppealResponse:
+      type: object
+      properties:
+        task_id:
+          type: string
+        appeal_letter:
+          type: string
+          description: "Full appeal letter text"
+        arguments:
+          type: array
+          items:
+            type: string
+          description: "Key medical necessity arguments"
+        policy_references:
+          type: array
+          items:
+            type: string
+          description: "Referenced policy sections"
+        supporting_docs:
+          type: array
+          items:
+            type: string
+          description: "Recommended supporting documentation"
+        qa:
+          $ref: "#/components/schemas/QAInfo"
+        processing_time_ms:
+          type: integer
+
+    # ── Data Report ──────────────────────────────────────────
+    DataReportRequest:
+      type: object
+      required: [content]
+      properties:
+        content:
+          type: string
+          description: "Raw data or data description to report on"
+          example: "Q1 2026 sales data: Jan $120K, Feb $145K, Mar $160K. Customer churn 3.2%. NPS score 72. Team headcount 15."
+        report_type:
+          type: string
+          enum: [monthly_performance, quarterly_review, annual_summary, kpi_dashboard, ad_hoc, general]
+          default: monthly_performance
+          description: "Report type"
+        period:
+          type: string
+          default: ""
+          description: "Reporting period"
+          example: "Q1 2026"
+        audience:
+          type: string
+          enum: [executive, board, team, stakeholders, technical, general]
+          default: executive
+          description: "Target audience"
+        provider:
+          type: string
+          enum: [openai, anthropic, gemini, grok, ""]
+          default: ""
+
+    DataReportResponse:
+      type: object
+      properties:
+        task_id:
+          type: string
+        report:
+          type: string
+          description: "Full report in Markdown"
+        executive_summary:
+          type: string
+          description: "Executive summary paragraph"
+        key_metrics:
+          type: array
+          items:
+            type: object
+            properties:
+              metric:
+                type: string
+              value:
+                type: string
+              trend:
+                type: string
+          description: "Key metrics with trends"
+        recommendations:
+          type: array
+          items:
+            type: string
+          description: "Actionable recommendations"
+        qa:
+          $ref: "#/components/schemas/QAInfo"
+        processing_time_ms:
+          type: integer
+
+  headers:
+    X-RateLimit-Limit:
+      description: "Maximum requests allowed in the current window"
+      schema:
+        type: integer
+    X-RateLimit-Remaining:
+      description: "Requests remaining in the current window"
+      schema:
+        type: integer
+    X-RateLimit-Reset:
+      description: "UTC epoch timestamp when the rate limit resets"
+      schema:
+        type: integer
+
+paths:
+  /api/v1/product-description:
+    post:
+      operationId: generateProductDescription
+      summary: "Generate e-commerce product descriptions"
+      description: |
+        Takes raw product specs and generates a platform-optimized product listing
+        with title, description, bullet points, and SEO keywords. Supports Amazon,
+        Shopify, eBay, Etsy, and Walmart formatting.
+
+        **Avg. processing time:** 8-12 seconds
+        **Pricing:** $1.50/request (free tier: 5/day)
+      tags: [Content Generation]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductDescriptionRequest"
+      responses:
+        "200":
+          description: "Product description generated successfully"
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductDescriptionResponse"
+        "400":
+          description: "Invalid request — missing or malformed fields"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: "Missing API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: "Invalid API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: "Rate limit exceeded"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: "Internal processing error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/seo-content:
+    post:
+      operationId: generateSEOContent
+      summary: "Generate SEO-optimized blog posts"
+      description: |
+        Generates long-form SEO content with keyword analysis, meta tags, and
+        optimized heading structure. Supports blog posts, pillar pages, listicles,
+        and how-to guides.
+
+        **Avg. processing time:** 15-25 seconds
+        **Pricing:** $4.00/request (free tier: 3/day)
+      tags: [Content Generation]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SEOContentRequest"
+      responses:
+        "200":
+          description: "SEO content generated successfully"
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SEOContentResponse"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: "Missing API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: "Invalid API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: "Rate limit exceeded"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: "Internal processing error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/resume:
+    post:
+      operationId: generateResume
+      summary: "Generate professional resumes"
+      description: |
+        Transforms raw career data into a polished, ATS-optimized resume with
+        professional summary, structured experience, and skills sections.
+        Supports chronological, functional, and combination formats.
+
+        **Avg. processing time:** 10-15 seconds
+        **Pricing:** $3.00/request (free tier: 3/day)
+      tags: [Professional Services]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ResumeRequest"
+      responses:
+        "200":
+          description: "Resume generated successfully"
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeResponse"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: "Missing API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: "Invalid API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: "Rate limit exceeded"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: "Internal processing error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/ad-copy:
+    post:
+      operationId: generateAdCopy
+      summary: "Generate advertising copy"
+      description: |
+        Generates platform-specific ad copy with headlines, descriptions, and CTAs
+        optimized for the target platform's character limits and best practices.
+        Supports Google Ads, Facebook, Instagram, LinkedIn, Twitter, and TikTok.
+
+        **Avg. processing time:** 8-12 seconds
+        **Pricing:** $2.00/request (free tier: 5/day)
+      tags: [Marketing]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdCopyRequest"
+      responses:
+        "200":
+          description: "Ad copy generated successfully"
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdCopyResponse"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: "Missing API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: "Invalid API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: "Rate limit exceeded"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: "Internal processing error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/email-sequence:
+    post:
+      operationId: generateEmailSequence
+      summary: "Generate email marketing sequences"
+      description: |
+        Creates a multi-email drip sequence with subject lines, preview text,
+        body content, and recommended send timing. Supports nurture, onboarding,
+        re-engagement, upsell, launch, and webinar sequences.
+
+        **Avg. processing time:** 12-20 seconds
+        **Pricing:** $2.00/request (free tier: 3/day)
+      tags: [Marketing]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EmailSequenceRequest"
+      responses:
+        "200":
+          description: "Email sequence generated successfully"
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmailSequenceResponse"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: "Missing API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: "Invalid API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: "Rate limit exceeded"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: "Internal processing error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/press-release:
+    post:
+      operationId: generatePressRelease
+      summary: "Generate press releases"
+      description: |
+        Generates AP-style press releases with headline, body, boilerplate,
+        and executive quotes. Supports product launches, funding announcements,
+        partnerships, milestones, and executive hires.
+
+        **Avg. processing time:** 10-15 seconds
+        **Pricing:** $4.00/request (free tier: 3/day)
+      tags: [Professional Services]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PressReleaseRequest"
+      responses:
+        "200":
+          description: "Press release generated successfully"
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PressReleaseResponse"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: "Missing API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: "Invalid API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: "Rate limit exceeded"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: "Internal processing error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/tech-docs:
+    post:
+      operationId: generateTechDocs
+      summary: "Generate technical documentation"
+      description: |
+        Generates structured technical documentation from source code or specs.
+        Supports API references, READMEs, tutorials, architecture docs,
+        changelogs, and runbooks.
+
+        **Avg. processing time:** 12-20 seconds
+        **Pricing:** $3.50/request (free tier: 3/day)
+      tags: [Professional Services]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TechDocsRequest"
+      responses:
+        "200":
+          description: "Technical documentation generated successfully"
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TechDocsResponse"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: "Missing API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: "Invalid API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: "Rate limit exceeded"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: "Internal processing error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/data-extract:
+    post:
+      operationId: extractData
+      summary: "Extract data from documents"
+      description: |
+        Extracts structured data from unstructured document text. Automatically
+        detects document type (invoice, contract, resume, receipt) and returns
+        entities, amounts, dates, and other fields with confidence scores.
+
+        **Avg. processing time:** 8-10 seconds
+        **Pricing:** $1.50/request (free tier: 5/day)
+      tags: [Data Processing]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataExtractRequest"
+      responses:
+        "200":
+          description: "Data extracted successfully"
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DataExtractResponse"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: "Missing API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: "Invalid API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: "Rate limit exceeded"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: "Internal processing error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/grant-proposal:
+    post:
+      operationId: generateGrantProposal
+      summary: "Generate grant proposals"
+      description: |
+        Generates structured grant proposals tailored to the target agency and
+        program type. Includes project narrative, specific aims, budget
+        justification, and compliance sections for SBIR, STTR, NIH, NSF, and more.
+
+        **Avg. processing time:** 20-30 seconds
+        **Pricing:** $5.00/request (free tier: 2/day)
+      tags: [Professional Services]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GrantProposalRequest"
+      responses:
+        "200":
+          description: "Grant proposal generated successfully"
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GrantProposalResponse"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: "Missing API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: "Invalid API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: "Rate limit exceeded"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: "Internal processing error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/compliance-doc:
+    post:
+      operationId: generateComplianceDoc
+      summary: "Generate compliance documents"
+      description: |
+        Generates compliance documents tailored to the specified jurisdiction and
+        document type. Supports employee handbooks, privacy policies, terms of
+        service, and regulatory documents for HIPAA, GDPR, SOX, and more.
+
+        **Avg. processing time:** 15-25 seconds
+        **Pricing:** $4.50/request (free tier: 2/day)
+      tags: [Professional Services]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ComplianceDocRequest"
+      responses:
+        "200":
+          description: "Compliance document generated successfully"
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ComplianceDocResponse"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: "Missing API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: "Invalid API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: "Rate limit exceeded"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: "Internal processing error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/insurance-appeal:
+    post:
+      operationId: generateInsuranceAppeal
+      summary: "Generate insurance appeal letters"
+      description: |
+        Generates structured insurance appeal letters for denied claims with
+        medical necessity arguments, policy references, and supporting
+        documentation guidance. Supports first-level, second-level, and
+        external review appeals.
+
+        **Avg. processing time:** 12-18 seconds
+        **Pricing:** $3.50/request (free tier: 3/day)
+      tags: [Professional Services]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InsuranceAppealRequest"
+      responses:
+        "200":
+          description: "Insurance appeal letter generated successfully"
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InsuranceAppealResponse"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: "Missing API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: "Invalid API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: "Rate limit exceeded"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: "Internal processing error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/v1/data-report:
+    post:
+      operationId: generateDataReport
+      summary: "Generate data-driven reports"
+      description: |
+        Generates executive summaries, KPI dashboards, monthly/quarterly
+        performance reports, and ad-hoc analyses with tables, charts, and
+        actionable recommendations tailored to the target audience.
+
+        **Avg. processing time:** 15-22 seconds
+        **Pricing:** $3.00/request (free tier: 3/day)
+      tags: [Data Processing]
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataReportRequest"
+      responses:
+        "200":
+          description: "Data report generated successfully"
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DataReportResponse"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: "Missing API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: "Invalid API key"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: "Rate limit exceeded"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: "Internal processing error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+tags:
+  - name: Content Generation
+    description: "AI-powered content creation for e-commerce and SEO"
+  - name: Marketing
+    description: "Ad copy, email sequences, and marketing automation"
+  - name: Professional Services
+    description: "Resumes, press releases, and technical documentation"
+  - name: Data Processing
+    description: "Document data extraction and structured output"

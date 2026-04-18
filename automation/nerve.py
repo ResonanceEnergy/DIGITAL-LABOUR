@@ -771,6 +771,53 @@ def run_cycle() -> dict:
         logger.error(f"  [ERROR] LinkedIn poster failed: {e}")
         cycle_report["phases"]["linkedin_poster"] = {"error": str(e)}
 
+    # ── Phase 23: Division Health Checks (every cycle) ─────────
+    logger.info(f"\n[PHASE 23] Division Health Checks...")
+    try:
+        from super_agency.division_hub import DivisionHub
+        hub = DivisionHub()
+        div_health = hub.health_report()
+        div_status = div_health.get("overall_status", "UNKNOWN")
+        logger.info(f"  Division Hub: {div_status}")
+        for div_key, div_report in div_health.get("divisions", {}).items():
+            status = div_report.get("status", "UNKNOWN")
+            code = div_report.get("division_code", div_key)
+            tracker = div_report.get("tracker", {})
+            tasks_today = tracker.get("tasks_today", 0)
+            logger.info(f"    [{code}] {status} — {tasks_today} tasks today")
+
+        # Auto-heal: reset circuit breakers on degraded divisions
+        degraded = [k for k, v in div_health.get("divisions", {}).items() if v.get("status") == "DEGRADED" and v.get("breaker_open")]
+        if degraded:
+            logger.info(f"  Auto-healing {len(degraded)} degraded divisions: {degraded}")
+            hub.reset_all_breakers()
+            log_decision(
+                actor="NERVE",
+                action="division_auto_heal",
+                reasoning=f"Cycle #{cycle_num} — {len(degraded)} divisions in circuit-breaker cooldown",
+                outcome=f"Reset breakers for: {', '.join(degraded)}",
+            )
+            cycle_report["decisions_made"] += 1
+            cycle_report["issues_healed"] += len(degraded)
+
+        if div_status != "GREEN":
+            log_escalation(
+                source="NERVE",
+                issue=f"Cycle #{cycle_num} — Division hub status: {div_status}",
+                severity="HIGH",
+                recommended_action=f"Check degraded divisions: {degraded}",
+            )
+            cycle_report["escalations"] += 1
+
+        cycle_report["phases"]["division_health"] = {
+            "overall": div_status,
+            "divisions": {k: v.get("status", "UNKNOWN") for k, v in div_health.get("divisions", {}).items()},
+            "auto_healed": degraded,
+        }
+    except Exception as e:
+        logger.error(f"  [ERROR] Division health check failed: {e}")
+        cycle_report["phases"]["division_health"] = {"error": str(e)}
+
     # ── Finalize ───────────────────────────────────────────────
     cycle_report["finished"] = datetime.now(timezone.utc).isoformat()
     elapsed = (datetime.now(timezone.utc) - now).total_seconds()

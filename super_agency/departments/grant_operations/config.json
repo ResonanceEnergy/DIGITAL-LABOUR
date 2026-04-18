@@ -1,0 +1,84 @@
+{
+  "department": "grant_operations",
+  "name": "Grant Operations Division",
+  "head": "Grant Operations Director",
+  "authority_level": "HIGH",
+  "division_code": "GRANT-OPS",
+  "autonomy_tier": "semi-autonomous",
+  "description": "Autonomous division for grant proposals, SBIR/STTR applications, RFP responses, and federal/state funding documents. High-value structured document production with compliance verification.",
+  "subdepartments": {
+    "proposal_production": {
+      "name": "Proposal Production Unit",
+      "description": "End-to-end grant proposal generation: narrative, budget, compliance, formatting",
+      "agents": [
+        "grant_writer",
+        "grant_qa"
+      ],
+      "responsibilities": [
+        "SBIR Phase I/II proposal drafting",
+        "Federal grant narrative composition",
+        "Budget justification and cost analysis",
+        "Compliance matrix completion",
+        "RFP response assembly"
+      ]
+    },
+    "research_alignment": {
+      "name": "Research Alignment Unit",
+      "description": "Matches client capabilities to funding opportunities and ensures technical accuracy",
+      "agents": [
+        "grant_researcher"
+      ],
+      "responsibilities": [
+        "Funding opportunity identification",
+        "Technical approach alignment",
+        "Commercialization pathway analysis",
+        "Prior art and literature synthesis"
+      ]
+    }
+  },
+  "key_performance_indicators": [
+    "proposals_completed_per_week",
+    "qa_pass_rate",
+    "average_proposal_score",
+    "revenue_per_proposal",
+    "client_revision_rate",
+    "delivery_time_hours",
+    "repeat_client_rate"
+  ],
+  "reporting_structure": {
+    "reports_to": "executive_council",
+    "c_suite_liaison": "axiom_ceo",
+    "report_frequency": "daily",
+    "escalation_triggers": [
+      "qa_pass_rate_below_80",
+      "delivery_sla_breach",
+      "compliance_flag_detected",
+      "cost_ceiling_exceeded",
+      "client_complaint_received"
+    ]
+  },
+  "autonomy_controls": {
+    "max_daily_tasks": 20,
+    "max_cost_per_task_usd": 0.50,
+    "daily_token_budget": 500000,
+    "auto_deliver_threshold_qa_score": 85,
+    "human_review_required_below_qa": 75,
+    "auto_reject_below_qa": 50,
+    "max_retries_per_task": 2,
+    "cooldown_on_3_consecutive_failures_minutes": 30
+  },
+  "pricing_tiers": {
+    "basic": {"price_usd": 97, "scope": "Single section or executive summary", "token_budget": 30000},
+    "standard": {"price_usd": 297, "scope": "Full SBIR Phase I proposal (all sections)", "token_budget": 60000},
+    "premium": {"price_usd": 497, "scope": "Complete federal grant package with budget narrative", "token_budget": 100000}
+  },
+  "nerve_integration": {
+    "health_check_interval_minutes": 15,
+    "auto_heal_actions": [
+      "retry_failed_proposals",
+      "replenish_template_cache",
+      "clear_stale_queue_items"
+    ],
+    "status_bus_topic": "bit_rage_labour.division.grant_ops.status"
+  }
+}

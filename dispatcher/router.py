@@ -97,6 +97,22 @@ DAILY_LIMITS = {
     "fiverr_work": 30,
     "pph_work": 30,
     "guru_work": 30,
+    # Division agents — Grant Operations
+    "grant_writer": 20,
+    "grant_qa": 40,
+    "grant_researcher": 15,
+    # Division agents — Insurance Operations
+    "insurance_appeals": 25,
+    "insurance_qa": 50,
+    "insurance_compliance_checker": 50,
+    # Division agents — Contractor Services
+    "contractor_doc_writer": 30,
+    "contractor_qa": 60,
+    "contractor_compliance": 60,
+    # Division agents — Municipal Services
+    "municipal_doc_writer": 35,
+    "municipal_qa": 70,
+    "municipal_compliance": 70,
 }
 
 TOKEN_BUDGETS = {
@@ -132,6 +148,22 @@ TOKEN_BUDGETS = {
     "fiverr_work": 30000,
     "pph_work": 30000,
     "guru_work": 30000,
+    # Division agents — Grant Operations
+    "grant_writer": 60000,
+    "grant_qa": 20000,
+    "grant_researcher": 35000,
+    # Division agents — Insurance Operations
+    "insurance_appeals": 50000,
+    "insurance_qa": 20000,
+    "insurance_compliance_checker": 15000,
+    # Division agents — Contractor Services
+    "contractor_doc_writer": 40000,
+    "contractor_qa": 15000,
+    "contractor_compliance": 15000,
+    # Division agents — Municipal Services
+    "municipal_doc_writer": 40000,
+    "municipal_qa": 15000,
+    "municipal_compliance": 15000,
 }
 
 

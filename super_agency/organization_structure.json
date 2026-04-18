@@ -313,6 +313,142 @@
         }
       }
     },
+    "grant_operations": {
+      "name": "Grant Operations Division",
+      "description": "Autonomous division for grant proposals, SBIR/STTR applications, RFP responses, and federal/state funding documents",
+      "authority_level": "HIGH",
+      "head": "Grant Operations Director",
+      "division_code": "GRANT-OPS",
+      "primary_focus": "High-value structured grant document production with compliance verification",
+      "dl_mandate": "Produce revenue through grant writing services — SBIR, federal grants, RFP responses",
+      "subdepartments": {
+        "proposal_production": {
+          "name": "Proposal Production Unit",
+          "agents": [
+            {"id": "grant_writer", "name": "Grant Writer", "role": "SBIR/Grant Proposal Drafting", "specializations": ["sbir_proposals", "federal_grants", "budget_justification", "compliance_matrix"]},
+            {"id": "grant_qa", "name": "Grant QA", "role": "Proposal Quality Verification", "specializations": ["compliance_check", "completeness_audit", "score_prediction"]}
+          ]
+        },
+        "research_alignment": {
+          "name": "Research Alignment Unit",
+          "agents": [
+            {"id": "grant_researcher", "name": "Grant Researcher", "role": "Funding Opportunity Matching", "specializations": ["opportunity_identification", "technical_alignment", "commercialization_analysis"]}
+          ]
+        }
+      },
+      "nerve_integration": {
+        "orchestrator": "super_agency/departments/grant_operations/orchestrator.py",
+        "health_check_interval_minutes": 15,
+        "bus_topic": "bit_rage_labour.division.grant_ops.*"
+      },
+      "reporting_structure": {
+        "reports_to": "executive_council",
+        "c_suite_liaison": "axiom_ceo",
+        "report_frequency": "daily"
+      }
+    },
+    "insurance_operations": {
+      "name": "Insurance Operations Division",
+      "description": "Autonomous division for insurance appeals, prior auth requests, denial overturn docs, and external review packages",
+      "authority_level": "HIGH",
+      "head": "Insurance Operations Director",
+      "division_code": "INS-OPS",
+      "primary_focus": "HIPAA-compliant insurance document production with clinical accuracy verification",
+      "dl_mandate": "Produce revenue through insurance appeal services — prior auth, denial letters, external reviews",
+      "subdepartments": {
+        "appeals_production": {
+          "name": "Appeals Production Unit",
+          "agents": [
+            {"id": "insurance_appeals", "name": "Insurance Appeals Writer", "role": "Appeal Letter Generation", "specializations": ["prior_auth", "denial_appeals", "external_reviews", "medical_necessity"]},
+            {"id": "insurance_qa", "name": "Insurance QA", "role": "Appeal Quality & HIPAA Verification", "specializations": ["hipaa_compliance", "clinical_accuracy", "regulatory_citations"]}
+          ]
+        },
+        "compliance_verification": {
+          "name": "Compliance Verification Unit",
+          "agents": [
+            {"id": "insurance_compliance_checker", "name": "Insurance Compliance Checker", "role": "Deep HIPAA/ERISA/CMS Compliance", "specializations": ["hipaa_audit", "erisa_rights", "cms_guidelines", "state_regulations"]}
+          ]
+        }
+      },
+      "nerve_integration": {
+        "orchestrator": "super_agency/departments/insurance_operations/orchestrator.py",
+        "health_check_interval_minutes": 15,
+        "bus_topic": "bit_rage_labour.division.ins_ops.*"
+      },
+      "reporting_structure": {
+        "reports_to": "executive_council",
+        "c_suite_liaison": "axiom_ceo",
+        "report_frequency": "daily"
+      }
+    },
+    "contractor_services": {
+      "name": "Contractor Services Division",
+      "description": "Autonomous division for contractor documentation: permits, inspection reports, proposals, lien waivers, safety plans",
+      "authority_level": "HIGH",
+      "head": "Contractor Services Director",
+      "division_code": "CTR-SVC",
+      "primary_focus": "Construction and trades paperwork automation for general contractors",
+      "dl_mandate": "Produce revenue through contractor document services — permits, safety plans, bid documents",
+      "subdepartments": {
+        "document_production": {
+          "name": "Document Production Unit",
+          "agents": [
+            {"id": "contractor_doc_writer", "name": "Contractor Doc Writer", "role": "Contractor Paperwork Generation", "specializations": ["permits", "inspection_reports", "lien_waivers", "safety_plans", "change_orders"]},
+            {"id": "contractor_qa", "name": "Contractor QA", "role": "Document Quality & Code Compliance", "specializations": ["building_code_check", "osha_compliance", "formatting_standards"]}
+          ]
+        },
+        "compliance_unit": {
+          "name": "Regulatory Compliance Unit",
+          "agents": [
+            {"id": "contractor_compliance", "name": "Contractor Compliance", "role": "Building Code & OSHA Verification", "specializations": ["building_codes", "osha_standards", "licensing", "bonding"]}
+          ]
+        }
+      },
+      "nerve_integration": {
+        "orchestrator": "super_agency/departments/contractor_services/orchestrator.py",
+        "health_check_interval_minutes": 15,
+        "bus_topic": "bit_rage_labour.division.ctr_svc.*"
+      },
+      "reporting_structure": {
+        "reports_to": "executive_council",
+        "c_suite_liaison": "vectis_coo",
+        "report_frequency": "daily"
+      }
+    },
+    "municipal_services": {
+      "name": "Municipal Services Division",
+      "description": "Autonomous division for municipal docs: meeting minutes, public notices, ordinances, grant applications, budget reports",
+      "authority_level": "HIGH",
+      "head": "Municipal Services Director",
+      "division_code": "MUN-SVC",
+      "primary_focus": "Municipal governance document automation for small/mid-size local governments",
+      "dl_mandate": "Produce revenue through municipal document services — minutes, notices, ordinances, grants",
+      "subdepartments": {
+        "document_production": {
+          "name": "Municipal Document Production Unit",
+          "agents": [
+            {"id": "municipal_doc_writer", "name": "Municipal Doc Writer", "role": "Municipal Document Generation", "specializations": ["meeting_minutes", "public_notices", "ordinances", "resolutions", "budget_reports"]},
+            {"id": "municipal_qa", "name": "Municipal QA", "role": "Document Quality & Legal Compliance", "specializations": ["open_meeting_law", "public_records", "formatting_standards"]}
+          ]
+        },
+        "compliance_unit": {
+          "name": "Municipal Compliance Unit",
+          "agents": [
+            {"id": "municipal_compliance", "name": "Municipal Compliance", "role": "Open Meeting Law & Public Records Verification", "specializations": ["sunshine_law", "ada_compliance", "state_requirements"]}
+          ]
+        }
+      },
+      "nerve_integration": {
+        "orchestrator": "super_agency/departments/municipal_services/orchestrator.py",
+        "health_check_interval_minutes": 15,
+        "bus_topic": "bit_rage_labour.division.mun_svc.*"
+      },
+      "reporting_structure": {
+        "reports_to": "executive_council",
+        "c_suite_liaison": "vectis_coo",
+        "report_frequency": "daily"
+      }
+    },
     "technology_infrastructure": {
       "name": "Technology Infrastructure Department",
       "description": "Platform engineering — keeps DL systems, APIs, and monitoring operational",
@@ -363,7 +499,11 @@
       "dl_nerve_cycle": "bit_rage_labour.nerve.*",
       "dl_csuite_report": "bit_rage_labour.csuite.report",
       "dl_qa_alert": "bit_rage_labour.qa.alert",
-      "dl_client_event": "bit_rage_labour.client.*"
+      "dl_client_event": "bit_rage_labour.client.*",
+      "dl_division_grant": "bit_rage_labour.division.grant_ops.*",
+      "dl_division_insurance": "bit_rage_labour.division.ins_ops.*",
+      "dl_division_contractor": "bit_rage_labour.division.ctr_svc.*",
+      "dl_division_municipal": "bit_rage_labour.division.mun_svc.*"
     },
     "naming_resolution": {
       "context_manager": "SA: agents/context_manager.py | DL: agents/context_manager/ — prefix DL as dl_context_manager",

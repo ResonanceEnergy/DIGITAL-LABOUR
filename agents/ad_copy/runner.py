@@ -23,7 +23,7 @@ from pydantic import BaseModel, Field
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from utils.dl_agent import make_bridge  # noqa: E402
+from utils.dl_agent import make_bridge, safe_validate  # noqa: E402
 call_llm = make_bridge("ad_copy")
 
 PROMPT_DIR = Path(__file__).resolve().parent
@@ -103,7 +103,8 @@ def writer_agent(product: str, platform: str = "google_search",
     user_msg += f"\nProduct/Service:\n{product}"
     raw = call_llm(system_prompt=system, user_prompt=user_msg,
                    provider=provider, json_mode=True)
-    return parse_llm_json(raw, WriterOutput)
+    data = json.loads(raw, strict=False)
+    return safe_validate(WriterOutput, data, agent_name="ad_copy.writer")
 
 
 def qa_agent(ads: WriterOutput, provider: str = "openai") -> QAResult:
@@ -111,7 +112,8 @@ def qa_agent(ads: WriterOutput, provider: str = "openai") -> QAResult:
     user_msg = f"Ad copy to validate:\n{json.dumps(ads.model_dump(), indent=2)}"
     raw = call_llm(system_prompt=system, user_prompt=user_msg,
                    provider=provider, json_mode=True)
-    return parse_llm_json(raw, QAResult)
+    data = json.loads(raw, strict=False)
+    return safe_validate(QAResult, data, agent_name="ad_copy.qa")
 
 
 def run_pipeline(product: str, platform: str = "google_search",

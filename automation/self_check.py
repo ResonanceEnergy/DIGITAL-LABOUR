@@ -54,6 +54,9 @@ def run_full_check() -> dict:
     # 6. Financial state
     report["checks"]["financials"] = _check_financials()
 
+    # 7. Division health
+    report["checks"]["divisions"] = _check_divisions()
+
     # Determine overall status
     critical = [i for i in report["issues"] if i["severity"] == "CRITICAL"]
     warnings = [i for i in report["issues"] if i["severity"] == "WARNING"]
@@ -214,6 +217,31 @@ def _check_financials() -> dict:
     except Exception:
         result["details"] = {"total_revenue": 0}
         result["status"] = "no_data"
+    return result
+
+
+def _check_divisions() -> dict:
+    """Check health of all 4 autonomous divisions."""
+    result = {"status": "ok", "divisions": {}}
+    try:
+        from super_agency.division_hub import DivisionHub
+        hub = DivisionHub()
+        health = hub.health_report()
+        result["divisions"] = {
+            k: v.get("status", "UNKNOWN")
+            for k, v in health.get("divisions", {}).items()
+        }
+        overall = health.get("overall_status", "UNKNOWN")
+        if overall == "DEGRADED":
+            result["status"] = "warning"
+        elif overall == "ERROR":
+            result["status"] = "critical"
+    except ImportError:
+        result["status"] = "not_installed"
+        result["note"] = "Division hub not yet deployed"
+    except Exception as e:
+        result["status"] = "error"
+        result["error"] = str(e)
     return result
 
 

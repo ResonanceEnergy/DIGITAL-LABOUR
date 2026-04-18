@@ -506,7 +506,11 @@ def _init_decisions_db():
     conn.close()
 
 
-_init_decisions_db()
+try:
+    _init_decisions_db()
+except Exception as _exc:
+    import logging as _lg
+    _lg.getLogger(__name__).warning("[MATRIX] Deferred decisions DB init: %s", _exc)
 
 
 def _recent_decisions(limit: int = 10) -> list[dict]:

@@ -37,6 +37,13 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from dotenv import load_dotenv
 load_dotenv(PROJECT_ROOT / ".env")
 
+# Zoho CRM integration (sync wrappers for pipeline events)
+try:
+    from utils.zoho_client import sync_freelance_job, sync_stripe_payment
+    ZOHO_AVAILABLE = True
+except ImportError:
+    ZOHO_AVAILABLE = False
+
 PIPELINES_FILE = PROJECT_ROOT / "openclaw" / "bit-rage-labour" / "workflows" / "pipelines.json"
 STATE_FILE = PROJECT_ROOT / "data" / "openclaw_state.json"
 LOG_DIR = PROJECT_ROOT / "data" / "openclaw_logs"
@@ -311,6 +318,29 @@ class OpenClawEngine:
                 report["phases"]["bidding"] = {"error": str(e)}
                 print(f"      ERROR: {e}")
 
+        # ── Phase 2b: Sync unbid opportunities to Zoho CRM ─────────────────
+        if ZOHO_AVAILABLE and unbid:
+            zoho_synced = 0
+            for job in unbid[:10]:  # Sync top-10 opportunities
+                try:
+                    sync_freelance_job(
+                        platform=job.get("platform", "unknown"),
+                        job_data={
+                            "title": job.get("title", ""),
+                            "id": job.get("id", ""),
+                            "url": job.get("url", ""),
+                            "skills": job.get("skills", []),
+                            "budget": job.get("budget_max", 0),
+                            "client_name": job.get("client", ""),
+                        },
+                        stage="Hunt",
+                    )
+                    zoho_synced += 1
+                except Exception:
+                    pass
+            if zoho_synced:
+                print(f"      Zoho CRM: {zoho_synced} opportunities synced as Hunt deals")
+
         # ── Phase 3: Delivery Check ─────────────────────────────────────────
         print(f"\n  [3/4] Delivery Status...")
         delivery_report: dict[str, Any] = {}
@@ -378,6 +408,14 @@ class OpenClawEngine:
                 "new_charges": stripe_rev.get("new_charges", 0),
             }
             revenue["total"] += stripe_rev.get("total", 0)
+
+            # Sync new Stripe charges to Zoho CRM as Won deals
+            if ZOHO_AVAILABLE and stripe_rev.get("new_charges", 0) > 0:
+                for charge in stripe_rev.get("charge_details", []):
+                    try:
+                        sync_stripe_payment(charge)
+                    except Exception:
+                        pass
         except Exception as e:
             revenue["sources"]["stripe"] = {"error": str(e)}
 

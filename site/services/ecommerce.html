@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-commerce Copy at Scale — DIGITAL LABOUR</title>
+<meta name="description" content="AI-powered product descriptions for Amazon, Shopify, Etsy, eBay, WooCommerce. 50 descriptions $500, 200 for $1,500, 500 for $3,000. Bulk e-commerce copywriting.">
+<meta name="keywords" content="product descriptions, e-commerce copy, Amazon listings, Shopify copy, Etsy descriptions, AI copywriting, DIGITAL LABOUR">
+<meta property="og:title" content="E-commerce Copy at Scale — DIGITAL LABOUR">
+<meta property="og:description" content="Product descriptions for Amazon, Shopify, Etsy, eBay, WooCommerce. Conversion-focused copy at scale.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bit-rage-labour.com/services/ecommerce">
+<meta property="og:image" content="https://bit-rage-labour.com/logo.png">
+<link rel="canonical" href="https://bit-rage-labour.com/services/ecommerce">
+<link rel="icon" type="image/png" href="/logo.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0a;--card:#141414;--card2:#1a1a1a;--border:#2a2a2a;
+  --red:#e01b24;--red-bright:#ff2d38;--red-glow:rgba(224,27,36,0.25);--red-dark:#8b1118;
+  --orange:#ff6b35;--orange-glow:rgba(255,107,53,0.2);
+  --text:#e8e8e8;--muted:#999;--white:#fff;--black:#000;
+  --gradient:linear-gradient(135deg,#e01b24,#ff6b35);
+  --gradient-dark:linear-gradient(135deg,#8b1118,#e01b24);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--red-bright);text-decoration:none;transition:color .2s}
+a:hover{color:var(--orange)}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);background:rgba(10,10,10,0.9);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-brand{display:flex;align-items:center;gap:10px;font-size:1.2rem;font-weight:800;letter-spacing:-0.5px;color:var(--white);text-transform:uppercase}
+.nav-brand img{width:38px;height:38px;border-radius:50%}
+.nav-brand span{color:var(--red)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:0.9rem;color:var(--muted);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--red-bright)}
+.nav-links a.active{color:var(--red-bright)}
+.nav-cta{background:var(--red) !important;color:#fff !important;padding:9px 22px;border-radius:6px;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.5px}
+.nav-cta:hover{background:var(--red-bright) !important;color:#fff !important;box-shadow:0 4px 20px var(--red-glow)}
+.mobile-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:rgba(10,10,10,0.97);padding:20px 24px;gap:16px;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .mobile-toggle{display:block}
+}
+.rage-stripe{height:4px;background:var(--gradient);width:100%}
+.page-header{padding:140px 0 60px;text-align:center;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;top:-300px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,var(--red-glow) 0%,transparent 65%);pointer-events:none;opacity:0.5}
+.page-header .breadcrumb{font-size:0.85rem;color:var(--muted);margin-bottom:16px}
+.page-header .breadcrumb a{color:var(--muted)}
+.page-header .breadcrumb a:hover{color:var(--red-bright)}
+.page-header h1{font-size:2.8rem;font-weight:900;letter-spacing:-2px;line-height:1.1;margin-bottom:16px;text-transform:uppercase}
+.page-header h1 em{font-style:normal;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-header p{font-size:1.1rem;color:var(--muted);max-width:640px;margin:0 auto;line-height:1.6}
+section{padding:60px 0}
+.section-tag{font-size:0.75rem;text-transform:uppercase;letter-spacing:3px;color:var(--red);font-weight:700;margin-bottom:12px;text-align:center}
+section h2{font-size:2rem;font-weight:800;letter-spacing:-1px;margin-bottom:12px;text-align:center;text-transform:uppercase}
+.subtitle{text-align:center;color:var(--muted);margin-bottom:48px;font-size:1.05rem;max-width:600px;margin-left:auto;margin-right:auto}
+.section-dark{background:var(--card)}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+@media(max-width:768px){.features-grid{grid-template-columns:1fr}}
+.feature{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;text-align:center;transition:all .3s}
+.feature:hover{border-color:var(--red);transform:translateY(-3px);box-shadow:0 8px 30px rgba(224,27,36,0.06)}
+.feature-icon{font-size:2rem;margin-bottom:12px;display:block}
+.feature h3{font-size:1rem;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px}
+.feature p{font-size:0.9rem;color:var(--muted);line-height:1.5}
+
+/* Platform badges */
+.platforms{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.platform-badge{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:12px 24px;font-size:0.95rem;font-weight:700;color:var(--white);transition:all .3s}
+.platform-badge:hover{border-color:var(--red);box-shadow:0 4px 16px rgba(224,27,36,0.1)}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:768px){.grid-3{grid-template-columns:1fr}}
+.price-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:36px;text-align:center;transition:all .3s;position:relative}
+.price-card:hover{border-color:var(--red);transform:translateY(-4px)}
+.price-card.featured{border-color:var(--red);box-shadow:0 0 40px var(--red-glow)}
+.price-card.featured::before{content:"BEST VALUE";position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gradient);color:#fff;font-size:0.7rem;font-weight:800;padding:5px 16px;border-radius:20px;letter-spacing:1px}
+.price-card h3{font-size:1.15rem;margin-bottom:8px;font-weight:700;text-transform:uppercase}
+.price-card .price{font-size:2.8rem;font-weight:900;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+.price-card .unit{font-size:0.85rem;color:var(--muted);margin-bottom:20px}
+.price-card .per-unit{font-size:0.8rem;color:var(--orange);font-weight:600;margin-bottom:16px}
+.price-card ul{list-style:none;text-align:left;padding:0;margin-bottom:24px}
+.price-card ul li{padding:6px 0;font-size:0.9rem;color:var(--muted)}
+.price-card ul li::before{content:"\2713 ";color:var(--red);font-weight:700}
+.btn{display:inline-block;padding:14px 32px;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;border:none;transition:all .25s;text-align:center;text-transform:uppercase;letter-spacing:0.5px}
+.btn-primary{background:var(--gradient);color:#fff;box-shadow:0 4px 24px var(--red-glow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 36px var(--red-glow);color:#fff}
+.btn-outline{background:transparent;border:2px solid var(--border);color:var(--text)}
+.btn-outline:hover{border-color:var(--red);color:var(--red-bright)}
+.btn-ghost{background:rgba(224,27,36,0.1);border:1px solid var(--red);color:var(--red-bright)}
+.btn-ghost:hover{background:var(--red);color:#fff}
+.btn-sm{padding:10px 22px;font-size:0.9rem}
+.w-100{width:100%}
+.contact-form{max-width:560px;margin:0 auto;padding:40px;background:var(--card);border:1px solid var(--border);border-radius:16px}
+.contact-form h3{font-size:1.3rem;font-weight:800;text-transform:uppercase;margin-bottom:8px;text-align:center}
+.contact-form .form-subtitle{text-align:center;color:var(--muted);font-size:0.9rem;margin-bottom:24px}
+.form-row{display:flex;gap:12px;margin-bottom:12px}
+@media(max-width:768px){.form-row{flex-direction:column}}
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:14px 16px;background:var(--card2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.95rem;font-family:inherit;transition:border .2s}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:none;border-color:var(--red)}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--muted)}
+.contact-form select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.contact-form select option{background:var(--card);color:var(--text)}
+.contact-form .btn{width:100%;margin-top:8px}
+.form-note{text-align:center;color:var(--muted);font-size:0.8rem;margin-top:12px}
+.form-success{display:none;text-align:center;padding:24px;background:var(--card);border:1px solid var(--red);border-radius:12px;margin-top:16px}
+.form-success h4{color:var(--red-bright);margin-bottom:8px;font-size:1.1rem}
+.form-success p{color:var(--muted);font-size:0.9rem}
+.footer{padding:48px 0 32px;border-top:2px solid var(--red-dark)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer p{font-size:0.85rem;color:var(--muted)}
+.footer a{font-size:0.85rem;color:var(--muted)}
+.footer a:hover{color:var(--red-bright)}
+.footer-links{display:flex;gap:24px}
+</style>
+</head>
+<body>
+
+<div class="rage-stripe"></div>
+
+<nav class="nav">
+<div class="container nav-inner">
+  <a href="/" class="nav-brand"><img src="/logo.png" alt="DIGITAL LABOUR Logo">Digital <span>Labour</span></a>
+  <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/services" class="active">Services</a>
+    <a href="/blog">Blog</a>
+    <a href="/subscribe">Subscribe</a>
+    <a href="/subscribe" class="nav-cta">Get Started</a>
+  </div>
+</div>
+</nav>
+
+<header class="page-header">
+<div class="container">
+  <div class="breadcrumb"><a href="/">Home</a> / <a href="/services">Services</a> / E-commerce</div>
+  <h1>E-commerce <em>Copy at Scale</em></h1>
+  <p>Product descriptions that convert. Optimized for every major marketplace. Upload your catalog, get polished descriptions back in hours. Not weeks. Not months.</p>
+</div>
+</header>
+
+<!-- PLATFORMS -->
+<section>
+<div class="container">
+  <div class="section-tag">Platforms</div>
+  <h2>Every Marketplace Covered</h2>
+  <p class="subtitle">Platform-specific formatting, character limits, and SEO optimization built in.</p>
+  <div class="platforms">
+    <div class="platform-badge">Amazon</div>
+    <div class="platform-badge">Shopify</div>
+    <div class="platform-badge">Etsy</div>
+    <div class="platform-badge">eBay</div>
+    <div class="platform-badge">WooCommerce</div>
+  </div>
+  <div class="features-grid">
+    <div class="feature">
+      <span class="feature-icon">&#128176;</span>
+      <h3>Conversion-Focused</h3>
+      <p>Every description is written to sell. Benefit-driven copy, feature highlights, and clear CTAs.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">&#128269;</span>
+      <h3>SEO Optimized</h3>
+      <p>Keyword-rich titles, bullet points, and descriptions that rank in marketplace search results.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">&#9889;</span>
+      <h3>Bulk Processing</h3>
+      <p>Upload a CSV with product data, get descriptions back for your entire catalog. Fast.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="section-dark">
+<div class="container">
+  <div class="section-tag">Per Product</div>
+  <h2>Every Description Includes</h2>
+  <p class="subtitle">A complete product listing package, not just body copy.</p>
+  <div class="features-grid">
+    <div class="feature">
+      <span class="feature-icon">&#127991;</span>
+      <h3>Optimized Title</h3>
+      <p>SEO-optimized product title with primary keywords, brand name, and key specs.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">&#128221;</span>
+      <h3>Bullet Points</h3>
+      <p>5 feature/benefit bullet points formatted for the target marketplace.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">&#128196;</span>
+      <h3>Full Description</h3>
+      <p>150-300 word product description with benefits, use cases, and persuasive language.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+<div class="container">
+  <div class="section-tag">Pricing</div>
+  <h2>Volume-Based Pricing</h2>
+  <p class="subtitle">The more you order, the less you pay per description. Bulk discounts built in.</p>
+  <div class="grid-3">
+    <div class="price-card">
+      <h3>Starter</h3>
+      <div class="price">$500</div>
+      <div class="unit">50 descriptions</div>
+      <div class="per-unit">$10.00 per description</div>
+      <ul>
+        <li>50 product descriptions</li>
+        <li>Optimized titles</li>
+        <li>5 bullet points each</li>
+        <li>150-300 word descriptions</li>
+        <li>1 marketplace format</li>
+        <li>CSV upload supported</li>
+        <li>5-day turnaround</li>
+      </ul>
+      <a class="btn btn-outline btn-sm w-100" href="#contact">Order Now</a>
+    </div>
+    <div class="price-card featured">
+      <h3>Professional</h3>
+      <div class="price">$1,500</div>
+      <div class="unit">200 descriptions</div>
+      <div class="per-unit">$7.50 per description</div>
+      <ul>
+        <li>200 product descriptions</li>
+        <li>Optimized titles + bullets</li>
+        <li>300+ word descriptions</li>
+        <li>Multi-marketplace formatting</li>
+        <li>Keyword research included</li>
+        <li>1 revision round</li>
+        <li>3-day turnaround</li>
+      </ul>
+      <a class="btn btn-primary btn-sm w-100" href="#contact">Order Now</a>
+    </div>
+    <div class="price-card">
+      <h3>Enterprise</h3>
+      <div class="price">$3,000</div>
+      <div class="unit">500 descriptions</div>
+      <div class="per-unit">$6.00 per description</div>
+      <ul>
+        <li>500 product descriptions</li>
+        <li>Full listing optimization</li>
+        <li>All marketplace formats</li>
+        <li>A+ / Enhanced content</li>
+        <li>Keyword research + competitor analysis</li>
+        <li>Unlimited revisions</li>
+        <li>Priority 48-hour turnaround</li>
+        <li>Dedicated account manager</li>
+      </ul>
+      <a class="btn btn-outline btn-sm w-100" href="#contact">Order Now</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact" class="section-dark">
+<div class="container">
+  <div class="contact-form" id="contactForm">
+    <h3>Get Your Product Copy</h3>
+    <p class="form-subtitle">Tell us about your catalog and we will send a custom quote.</p>
+    <div class="form-row">
+      <input type="text" id="formName" placeholder="Your name" required>
+      <input type="email" id="formEmail" placeholder="you@store.com" required>
+    </div>
+    <div class="form-row">
+      <input type="text" id="formCompany" placeholder="Store / Brand name">
+      <input type="text" id="formWebsite" placeholder="Store URL">
+    </div>
+    <div class="form-row">
+      <select id="formPackage" title="Select a package">
+        <option value="50_descriptions">50 Descriptions — $500</option>
+        <option value="200_descriptions" selected>200 Descriptions — $1,500</option>
+        <option value="500_descriptions">500 Descriptions — $3,000</option>
+        <option value="custom">Custom volume</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <select id="formPlatform" title="Primary platform">
+        <option value="amazon">Amazon</option>
+        <option value="shopify">Shopify</option>
+        <option value="etsy">Etsy</option>
+        <option value="ebay">eBay</option>
+        <option value="woocommerce">WooCommerce</option>
+        <option value="multiple">Multiple platforms</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <textarea id="formMessage" rows="3" placeholder="What products do you sell? Any specific requirements or style guidelines?"></textarea>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="submitForm()">Get Quote</button>
+    <p class="form-note">Free sample description included with every quote.</p>
+    <div class="form-success" id="formSuccess">
+      <h4>Request Received</h4>
+      <p>We will send your quote and free sample to <strong id="confirmEmail"></strong> within 24 hours.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+  <div class="footer-inner">
+    <p>&copy; 2026 DIGITAL LABOUR. A Resonance Energy company. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/blog">Blog</a>
+      <a href="mailto:sales@bit-rage-labour.com">Contact</a>
+    </div>
+  </div>
+</div>
+</footer>
+
+<div class="rage-stripe"></div>
+
+<script>
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+
+function submitForm() {
+  var email = document.getElementById('formEmail');
+  if (!email.value || !email.value.includes('@') || !email.value.includes('.')) {
+    email.style.borderColor = 'var(--red)';
+    email.focus();
+    return;
+  }
+  email.style.borderColor = '';
+
+  var data = {
+    email: email.value,
+    name: document.getElementById('formName').value,
+    company: document.getElementById('formCompany').value,
+    service: 'ecommerce_copy',
+    message: 'Package: ' + document.getElementById('formPackage').value + ' | Platform: ' + document.getElementById('formPlatform').value + ' | Store: ' + (document.getElementById('formWebsite').value || 'N/A') + ' | ' + document.getElementById('formMessage').value
+  };
+
+  fetch('/lead/capture', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(data)
+  }).then(function(res) { return res.json(); }).then(function(json) {
+    document.getElementById('confirmEmail').textContent = data.email;
+    document.getElementById('formSuccess').style.display = 'block';
+    document.querySelector('.contact-form .btn').textContent = 'Submitted!';
+    document.querySelector('.contact-form .btn').disabled = true;
+    document.querySelector('.contact-form .btn').style.opacity = '0.6';
+  }).catch(function() {
+    window.location.href = 'mailto:sales@bit-rage-labour.com?subject=' +
+      encodeURIComponent('E-commerce Copy Inquiry — ' + data.email) +
+      '&body=' + encodeURIComponent('Name: ' + data.name + '\nEmail: ' + data.email + '\nStore: ' + data.company + '\nPlatform: ' + document.getElementById('formPlatform').value + '\nPackage: ' + document.getElementById('formPackage').value + '\nMessage: ' + document.getElementById('formMessage').value);
+  });
+}
+</script>
+</body>
+</html>
