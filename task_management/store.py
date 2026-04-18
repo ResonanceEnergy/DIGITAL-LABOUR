@@ -191,7 +191,7 @@ class TaskStore:
             params.append(source)
         if tag:
             query += " AND tags LIKE ?"
-            params.append(`%${tag}%`)
+            params.append(f"%{tag}%")
 
         query += " ORDER BY priority DESC, due_date ASC, created_at DESC LIMIT ? OFFSET ?"
         params.extend([limit, offset])
