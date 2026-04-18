@@ -41,15 +41,16 @@ from api.marketplace import router as marketplace_router
 from api.revenue import router as revenue_router
 from api.checkout import router as checkout_router
 from api.fulfillment import router as fulfillment_router
+from api.task_router import router as task_router
 
-# P6.3 — Credential TTL check on startup
+# P6.3 â Credential TTL check on startup
 try:
     from utils.credential_ttl import check_credential_ttl
     check_credential_ttl()
 except Exception:
     pass
 
-# ── .env validation on startup ─────────────────────────────────
+# ââ .env validation on startup âââââââââââââââââââââââââââââââââ
 import os as _os
 
 _REQUIRED_ENV = {
@@ -75,7 +76,7 @@ app = FastAPI(
     description="Submit tasks to the AI workforce. Returns structured outputs.",
 )
 
-# CORS — restrict to known origins
+# CORS â restrict to known origins
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -122,29 +123,32 @@ app.include_router(monitor_router)
 # Payment & signup endpoints
 app.include_router(payment_router)
 
-# DIGITAL LABOUR MATRIX MONITOR — Mobile C2
+# DIGITAL LABOUR MATRIX MONITOR â Mobile C2
 app.include_router(matrix_router)
 
 # OpenClaw Automation Engine
 app.include_router(openclaw_router)
 
-# Lead Magnet — Inbound lead capture + free demo
+# Lead Magnet â Inbound lead capture + free demo
 app.include_router(lead_router)
 
-# Freelance Engine — Job hunt, bidding, delivery automation
+# Freelance Engine â Job hunt, bidding, delivery automation
 app.include_router(freelance_router)
 
-# API Marketplace — Top 8 agents as clean API products (RapidAPI / Zyla)
+# API Marketplace â Top 8 agents as clean API products (RapidAPI / Zyla)
 app.include_router(marketplace_router)
 
-# Revenue Dashboard — Revenue tracking, agent economics, client LTV
+# Revenue Dashboard â Revenue tracking, agent economics, client LTV
 app.include_router(revenue_router)
 
-# Stripe Checkout — Service landing pages → payment → agent fulfillment
+# Stripe Checkout â Service landing pages â payment â agent fulfillment
 app.include_router(checkout_router)
 
-# Fiverr Fulfillment — Order intake, agent dispatch, deliverable packaging
+# Fiverr Fulfillment â Order intake, agent dispatch, deliverable packaging
 app.include_router(fulfillment_router)
+
+# BRL Task Management â Full ops tracking (human + AI)
+app.include_router(task_router)
 
 
 @app.get("/ops", response_class=HTMLResponse)
@@ -154,16 +158,23 @@ def ops_dashboard():
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
 
+@app.get("/command-center", response_class=HTMLResponse)
+def command_center():
+    """Serve the BRL Command Center â Task Management PWA."""
+    html_path = Path(__file__).parent / "task_dashboard.html"
+    return HTMLResponse(html_path.read_text(encoding="utf-8"))
+
+
 @app.get("/matrix", response_class=HTMLResponse)
 def matrix_dashboard():
-    """Serve the DIGITAL LABOUR MATRIX MONITOR — mobile C2 dashboard."""
+    """Serve the DIGITAL LABOUR MATRIX MONITOR â mobile C2 dashboard."""
     html_path = Path(__file__).parent / "matrix_dashboard.html"
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
 
 @app.get("/matrix/manifest.json")
 def matrix_manifest():
-    """PWA manifest for DIGITAL LABOUR MATRIX — Add to Home Screen support."""
+    """PWA manifest for DIGITAL LABOUR MATRIX â Add to Home Screen support."""
     return JSONResponse({
         "name": "DIGITAL LABOUR MATRIX",
         "short_name": "MATRIX",
@@ -192,7 +203,7 @@ def subscribe_page():
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
 
-# ── Services landing pages ─────────────────────────────────────────────────
+# ââ Services landing pages âââââââââââââââââââââââââââââââââââââââââââââââââ
 
 SERVICE_SLUGS = {
     "content",
@@ -224,7 +235,7 @@ def service_page(service: str):
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
 
-# ── Blog routes ─────────────────────────────────────────────────────────────
+# ââ Blog routes âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 BLOG_SLUGS = {
     "building-24-agent-ai-workforce",
@@ -254,7 +265,7 @@ def blog_post(slug: str):
 
 queue = TaskQueue()
 
-# ── Input Sanitization ──────────────────────────────────────────────────────
+# ââ Input Sanitization ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 _MAX_FIELD_LENGTH = 32_000
 _INJECTION_PATTERNS = re.compile(
@@ -299,7 +310,7 @@ def sanitize_input(inputs: dict) -> dict:
     return sanitized
 
 
-# ── Request / Response Models ───────────────────────────────────────────────
+# ââ Request / Response Models âââââââââââââââââââââââââââââââââââââââââââââââ
 
 class TaskRequest(BaseModel):
     task_type: Literal[
@@ -315,7 +326,7 @@ class TaskRequest(BaseModel):
     priority: int = Field(default=0, ge=0, le=10)
     inputs: dict = Field(default_factory=dict)
     sync: bool = Field(default=False, description="If True, process immediately and return result")
-    schema_version: str = Field(default="2.0", description="Schema version — must match current version")
+    schema_version: str = Field(default="2.0", description="Schema version â must match current version")
 
 
 class TaskResponse(BaseModel):
@@ -337,12 +348,12 @@ class TaskStatus(BaseModel):
     error: str = ""
 
 
-# ── Endpoints ───────────────────────────────────────────────────────────────
+# ââ Endpoints âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 @app.post("/tasks", response_model=TaskResponse)
 def submit_task(req: TaskRequest):
     """Submit a new task for processing."""
-    # P1.4: Schema version validation — reject mismatched versions
+    # P1.4: Schema version validation â reject mismatched versions
     if req.schema_version != "2.0":
         raise HTTPException(
             status_code=422,
@@ -489,7 +500,7 @@ def enable_agent(name: str):
 
 @app.get("/dashboard")
 def dashboard_data():
-    """Full dashboard payload (legacy — use /monitor/overview instead)."""
+    """Full dashboard payload (legacy â use /monitor/overview instead)."""
     from dashboard.health import full_dashboard
     return full_dashboard()
 
