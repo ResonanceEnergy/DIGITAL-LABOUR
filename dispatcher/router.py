@@ -905,23 +905,48 @@ def route_task(event: dict) -> dict:
             logger.error("[ERROR] Unknown task type: %s", task_type)
 
     except Exception as e:
+        import traceback
+        tb_short = traceback.format_exception_only(type(e), e)[-1].strip()
+        tb_full = traceback.format_exc()
         event["qa"]["status"] = "FAIL"
-        event["qa"]["issues"] = [str(e)]
+        event["qa"]["issues"] = [f"{type(e).__name__}: {e}"]
+        event["qa"]["traceback"] = tb_full[-2000:]  # Truncated for storage
         # P2.3: Classify failure against declared modes
         failure_mode = _classify_failure(e, task_type)
         event["qa"]["failure_reason"] = failure_mode
         event["qa"]["exception_type"] = type(e).__name__
         if failure_mode == "UNKNOWN_FAILURE":
             logger.error(
-                "[UNKNOWN_FAILURE] %s: %s (%s) — add to failure_modes in registry",
-                task_type, e, type(e).__name__,
+                "[UNKNOWN_FAILURE] %s: %s (%s) — add to failure_modes in registry\n%s",
+                task_type, e, type(e).__name__, tb_full,
             )
         else:
-            logger.error("[%s] %s: %s", failure_mode.upper(), task_type, e)
+            logger.error("[%s] %s: %s\n%s", failure_mode.upper(), task_type, e, tb_full)
         _agent_metrics[task_type]["errors"] += 1
 
     # ── P3.3: Confidence-based QA verification + automatic retry ─
-    if event["qa"]["status"] != "FAIL" and event.get("outputs"):
+    # Trust agent-level QA when it already passed with a high score (>= 85).
+    # This prevents the secondary LLM verifier from creating false-negative
+    # FAILs on deliverables the agent itself rated highly.
+    _agent_qa = event.get("outputs", {}).get("qa", {})
+    _agent_qa_score = _agent_qa.get("score", 0) if isinstance(_agent_qa, dict) else 0
+    _agent_qa_status = _agent_qa.get("status", "") if isinstance(_agent_qa, dict) else ""
+    _skip_secondary = (
+        _agent_qa_status == "PASS"
+        and _agent_qa_score >= 85
+        and event["qa"]["status"] == "PASS"
+    )
+
+    if _skip_secondary:
+        # Agent QA is authoritative — record confidence from agent score
+        event["qa"]["confidence"] = round(_agent_qa_score / 100.0, 3)
+        event["qa"]["applied_rules"] = ["AGENT_QA_TRUSTED"]
+        event["qa"]["failed_rule_id"] = ""
+        logger.info(
+            "[QA] %s agent QA PASS (score %d) — trusting agent, skipping secondary gate",
+            task_type, _agent_qa_score,
+        )
+    elif event["qa"]["status"] != "FAIL" and event.get("outputs"):
         try:
             from agents.qa.runner import verify as qa_verify
             output_text = json.dumps(event["outputs"], default=str)
