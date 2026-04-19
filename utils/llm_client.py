@@ -280,6 +280,14 @@ def parse_llm_json(raw: str, model_class=None, strict: bool = False) -> dict:
     if model_class is None:
         return data
 
+    # Coerce dict issues to strings (LLM sometimes returns {type, description} objects)
+    if "issues" in data and isinstance(data.get("issues"), list):
+        data["issues"] = [
+            f'{i.get("type", i.get("issue", "Issue"))}: {i.get("description", str(i))}'
+            if isinstance(i, dict) else str(i)
+            for i in data["issues"]
+        ]
+
     # Pydantic validation
     try:
         if hasattr(model_class, "model_validate"):
