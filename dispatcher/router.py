@@ -986,7 +986,7 @@ def route_task(event: dict) -> dict:
     _agent_qa_status = _agent_qa.get("status", "") if isinstance(_agent_qa, dict) else ""
     _skip_secondary = (
         _agent_qa_status == "PASS"
-        and _agent_qa_score >= 85
+        and _agent_qa_score >= 75
         and event["qa"]["status"] == "PASS"
     )
 
