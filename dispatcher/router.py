@@ -898,6 +898,59 @@ def route_task(event: dict) -> dict:
                 event["outputs"] = result.model_dump() if hasattr(result, "model_dump") else result
                 event["qa"]["status"] = result.qa.status if result.qa else "PASS"
 
+        # ── Division agents ───────────────────────────────────────────────────
+        elif task_type == "grant_writer":
+            from agents.grant_writer.runner import run_pipeline as grant_pipeline
+            result = grant_pipeline(
+                brief=inputs.get("brief", inputs.get("content", "")),
+                grant_type=inputs.get("grant_type", "sbir_phase1"),
+                agency=inputs.get("agency", "nsf"),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "insurance_appeals":
+            from agents.insurance_appeals.runner import run_pipeline as ins_pipeline
+            result = ins_pipeline(
+                case_text=inputs.get("case_text", inputs.get("content", "")),
+                letter_type=inputs.get("letter_type", "first_level_appeal"),
+                urgency=inputs.get("urgency", "routine"),
+                provider_name=inputs.get("provider_name", ""),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "compliance_docs":
+            from agents.compliance_docs.runner import run_pipeline as comp_pipeline
+            result = comp_pipeline(
+                content=inputs.get("content", ""),
+                doc_type=inputs.get("doc_type", "employee_handbook"),
+                company=inputs.get("company", ""),
+                jurisdiction=inputs.get("jurisdiction", "us_federal"),
+                framework=inputs.get("framework", ""),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "data_reporter":
+            from agents.data_reporter.runner import run_pipeline as data_rpt_pipeline
+            result = data_rpt_pipeline(
+                raw_data=inputs.get("raw_data", inputs.get("content", "")),
+                report_type=inputs.get("report_type", "monthly_performance"),
+                period=inputs.get("period", ""),
+                audience=inputs.get("audience", "executive"),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
         else:
             event["qa"]["status"] = "FAIL"
             event["qa"]["issues"] = [f"Unknown task type: {task_type}"]
