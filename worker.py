@@ -189,6 +189,54 @@ def run_resonance_sync(interval_minutes: int = 30):
     update_status(name, "stopped")
 
 
+
+
+def run_queue_processor(poll_interval: int = 10):
+    """Queue Processor daemon — polls DB for queued tasks and processes them."""
+    name = "QueueProc"
+    update_status(name, "starting")
+    while not SHUTDOWN.is_set():
+        try:
+            from dispatcher.queue import TaskQueue
+            from dispatcher.router import create_event, route_task
+            queue = TaskQueue()
+            task = queue.dequeue()
+            if task:
+                update_status(name, "running", f"processing {task.get('task_type', '?')}")
+                logger.info(f"[{name}] Processing queued task {task['task_id']} ({task.get('task_type', '?')})")
+                try:
+                    inputs = json.loads(task.get("inputs", "{}")) if isinstance(task.get("inputs"), str) else task.get("inputs", {})
+                    event = create_event(
+                        task_type=task["task_type"],
+                        inputs=inputs,
+                        client_id=task.get("client", "direct"),
+                    )
+                    result = route_task(event)
+                    qa_data = result.get("qa", {})
+                    qa_status = qa_data.get("status", "")
+                    outputs = result.get("outputs", {})
+                    cost = result.get("billing", {}).get("amount", 0.0)
+                    queue.complete(task["task_id"], outputs=outputs, qa_status=qa_status, cost_usd=cost)
+                    logger.info(f"[{name}] Task {task['task_id']} completed: QA={qa_status}")
+                except Exception as e:
+                    queue.fail(task["task_id"], error=str(e)[:500])
+                    logger.error(f"[{name}] Task {task['task_id']} failed: {e}")
+            else:
+                update_status(name, "idle", "no queued tasks")
+        except ImportError as e:
+            update_status(name, "error", f"import failed: {e}")
+            logger.error(f"[{name}] Import error: {e}")
+            SHUTDOWN.wait(60)
+            continue
+        except Exception as e:
+            update_status(name, "error", str(e)[:200])
+            logger.error(f"[{name}] Error: {e}\n{traceback.format_exc()}")
+        for _ in range(poll_interval):
+            if SHUTDOWN.is_set():
+                break
+            time.sleep(1)
+    update_status(name, "stopped")
+
 # ââ Health Check Server ââââââââââââââââââââââââââââââââââââââââ
 
 class HealthHandler(BaseHTTPRequestHandler):
@@ -265,6 +313,7 @@ def main():
         ("TaskSched", run_task_scheduler, {"interval_minutes": 5}),
         ("Revenue", run_revenue_daemon, {"interval_minutes": 30}),
         ("Resonance", run_resonance_sync, {"interval_minutes": 30}),
+        ("QueueProc", run_queue_processor, {"poll_interval": 10}),
     ]
 
     threads = []
