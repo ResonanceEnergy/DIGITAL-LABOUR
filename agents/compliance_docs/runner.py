@@ -122,6 +122,12 @@ def qa_agent(docs: WriterOutput, provider: str = "openai") -> QAResult:
     raw = call_llm(system_prompt=system, user_prompt=user_msg,
                    provider=provider, json_mode=True)
     data = json.loads(raw, strict=False)
+    # Coerce dict issues to strings (LLM sometimes returns {type, description} objects)
+    if "issues" in data and isinstance(data["issues"], list):
+        data["issues"] = [
+            f'{i.get("type", "Issue")}: {i.get("description", str(i))}' if isinstance(i, dict) else str(i)
+            for i in data["issues"]
+        ]
     return safe_validate(QAResult, data, agent_name="compliance_docs.qa")
 
 
