@@ -756,8 +756,17 @@ def route_task(event: dict) -> dict:
 
         elif task_type == "business_plan":
             from agents.business_plan.runner import run_pipeline as bizplan_pipeline
+            # Compose business_idea from payload fields if not explicitly provided
+            _biz_idea = inputs.get("business_idea", "")
+            if not _biz_idea:
+                _parts = []
+                for _k in ("focus", "scope", "deliverable", "description", "idea", "text"):
+                    _v = inputs.get(_k, "")
+                    if _v:
+                        _parts.append(f"{_k}: {_v}")
+                _biz_idea = "\n".join(_parts) if _parts else "Generate a generic startup business plan."
             result = bizplan_pipeline(
-                business_idea=inputs.get("business_idea", ""),
+                business_idea=_biz_idea,
                 plan_type=inputs.get("plan_type", "startup"),
                 industry=inputs.get("industry", ""),
                 funding_goal=inputs.get("funding_goal", ""),
