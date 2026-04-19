@@ -320,6 +320,7 @@ class TaskRequest(BaseModel):
         "proposal_writer", "product_desc", "resume_writer", "ad_copy",
         "market_research", "business_plan", "press_release", "tech_docs",
         "context_manager", "qa_manager", "production_manager", "automation_manager",
+        "grant_writer", "insurance_appeals", "compliance_docs", "data_reporter",
     ]
     client: str = ""
     provider: str = ""
@@ -396,10 +397,20 @@ def submit_task(req: TaskRequest):
                     client_id=req.client or "direct",
                 )
                 result = route_task(event)
-                qa = result.get("qa", {}).get("status", "")
+                qa_data = result.get("qa", {})
+                qa = qa_data.get("status", "")
+                failure_reason = qa_data.get("failure_reason", "")
+                qa_issues = qa_data.get("issues", [])
                 outputs = result.get("outputs", {})
                 cost = result.get("billing", {}).get("amount", 0.0)
+                error_detail = ""
+                if qa == "FAIL" and (failure_reason or qa_issues):
+                    error_detail = f"{failure_reason}: {'; '.join(qa_issues)}" if qa_issues else failure_reason
                 queue.complete(task_id, outputs=outputs, qa_status=qa, cost_usd=cost)
+                if error_detail:
+                    conn = queue._get_conn()
+                    conn.execute("UPDATE tasks SET error = ? WHERE task_id = ?", (error_detail, task_id))
+                    conn.commit()
                 return TaskResponse(task_id=task_id, status="completed", message=f"QA: {qa}")
             except Exception as e:
                 logger.exception("Task %s failed", task_id)
