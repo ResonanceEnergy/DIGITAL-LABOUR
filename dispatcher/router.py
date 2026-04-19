@@ -113,6 +113,9 @@ DAILY_LIMITS = {
     "municipal_doc_writer": 35,
     "municipal_qa": 70,
     "municipal_compliance": 70,
+    # Division agents — Compliance & Data
+    "compliance_docs": 20,
+    "data_reporter": 25,
 }
 
 TOKEN_BUDGETS = {
@@ -164,6 +167,8 @@ TOKEN_BUDGETS = {
     "municipal_doc_writer": 40000,
     "municipal_qa": 15000,
     "municipal_compliance": 15000,
+    "compliance_docs": 30000,
+    "data_reporter": 25000,
 }
 
 
