@@ -122,6 +122,47 @@ DIVISIONS = {
     },
 }
 
+# Map division service types to router-compatible task_types
+SERVICE_TO_TASKTYPE = {
+    # INS-OPS
+    "insurance_appeal": "insurance_appeals",
+    "prior_auth": "insurance_appeals",
+    "denial_overturn": "insurance_appeals",
+    "external_review": "insurance_appeals",
+    "medical_necessity": "insurance_qa",
+    "erisa_appeal": "insurance_compliance",
+    "state_insurance_complaint": "insurance_compliance",
+    # GRANT-OPS
+    "grant_proposal": "grant_writer",
+    "sbir_proposal": "grant_writer",
+    "rfa_response": "grant_writer",
+    "budget_justification": "grant_writer",
+    "compliance_matrix": "grant_compliance",
+    "technical_narrative": "grant_writer",
+    "commercialization_plan": "grant_writer",
+    "grant_amendment": "grant_writer",
+    # CTR-SVC — these are directly routable
+    "permit_application": "permit_application",
+    "inspection_report": "inspection_report",
+    "contractor_proposal": "contractor_proposal",
+    "lien_waiver": "lien_waiver",
+    "safety_plan": "safety_plan",
+    "change_order": "change_order",
+    "progress_report": "progress_report",
+    "bid_document": "bid_document",
+    # MUN-SVC — these are directly routable
+    "meeting_minutes": "meeting_minutes",
+    "public_notice": "public_notice",
+    "ordinance": "ordinance",
+    "resolution": "resolution",
+    "municipal_grant": "municipal_grant",
+    "budget_summary": "budget_summary",
+    "annual_report": "annual_report",
+    "municipal_rfp": "municipal_rfp",
+    "agenda": "agenda",
+    "staff_report": "staff_report",
+}
+
 
 # ── State Management ──────────────────────────────────────────────
 
@@ -470,14 +511,31 @@ def daily_ops_push() -> dict:
     dispatched = _auto_dispatch_division_tasks(div_health)
     report["dispatched"] = dispatched
 
-    # Phase 8: Weekly goals check (if due)
+    # Phase 8: Internal Ops Engine — Self-building tasks
+    print("\n[PHASE 8] Internal Operations Engine")
+    internal_ops_result = {}
+    try:
+        from automation.internal_ops import generate_daily_tasks, generate_weekly_tasks
+        internal_ops_result["daily"] = generate_daily_tasks()
+        # Weekly tasks on Mondays or if never run
+        from datetime import date
+        if date.today().weekday() == 0 or not state.get("last_weekly_internal"):
+            internal_ops_result["weekly"] = generate_weekly_tasks(force=True)
+            state["last_weekly_internal"] = datetime.now(timezone.utc).isoformat()
+        print(f"  Internal ops: {internal_ops_result.get('daily', {}).get('dispatched', 0)} daily tasks fired")
+    except Exception as e:
+        print(f"  [INTERNAL OPS ERROR] {e}")
+        internal_ops_result["error"] = str(e)
+    report["internal_ops"] = internal_ops_result
+
+    # Phase 9: Weekly goals check (if due)
     if _hours_since(state.get("last_weekly_goals")) > 144:  # > 6 days
-        print("\n[PHASE 8] Weekly Goals Due — Generating...")
+        print("\n[PHASE 9] Weekly Goals Due — Generating...")
         generate_weekly_goals(force=True)
 
     # Save state
     state["last_daily_push"] = datetime.now(timezone.utc).isoformat()
-    state["tasks_fired_today"] = dispatched.get("total_fired", 0)
+    state["tasks_fired_today"] = dispatched.get("total_fired", 0) + internal_ops_result.get("daily", {}).get("dispatched", 0)
     _save_state(state)
 
     # Summary notification
@@ -589,7 +647,8 @@ def _auto_dispatch_division_tasks(div_health: dict) -> dict:
         status = div_health.get(div_id, "UNKNOWN")
         if status in ("GREEN", "UNKNOWN"):
             # Fire a lightweight test task using the division's first service type
-            task_type = div_info["services"][0]  # Lead service
+            service_name = div_info["services"][0]  # Lead service
+            task_type = SERVICE_TO_TASKTYPE.get(service_name, service_name)
             lead_agent = div_info["agents"][0]    # Lead agent
             print(f"  Dispatching warm-up task to {div_info['name']} [{div_info['code']}] ({task_type} → {lead_agent})")
             try:
@@ -601,15 +660,15 @@ def _auto_dispatch_division_tasks(div_health: dict) -> dict:
                     "priority": 3,
                     "division": div_info["code"],
                     "inputs": {
-                        "topic": f"Weekly operations report for {div_info['name']} [{div_info['code']}]",
-                        "depth": "brief",
+                        "content": f"Generate a weekly operations report for {div_info['name']} [{div_info['code']}]. Cover current status, recent deliverables, upcoming priorities, and resource utilization. Division TAM: {div_info['tam']}. Max daily tasks: {div_info.get('max_daily', 'N/A')}.",
+                        "doc_type": service_name,
                     },
                     "sync": False,
                     "schema_version": "2.0",
                 }).encode()
 
                 req = urllib.request.Request(
-                    "http://localhost:8000/tasks",
+                    f"http://localhost:{os.environ.get('PORT', '8000')}/tasks",
                     data=payload,
                     headers={"Content-Type": "application/json"},
                     method="POST",

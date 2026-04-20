@@ -78,6 +78,81 @@ app = FastAPI(
     description="Submit tasks to the AI workforce. Returns structured outputs.",
 )
 
+import threading
+
+
+@app.on_event("startup")
+async def startup_background_daemons():
+    """Start critical background daemons if worker.py is not running separately."""
+    import os
+    if os.environ.get("DISABLE_EMBEDDED_WORKER") == "true":
+        logger.info("[STARTUP] Embedded worker disabled via DISABLE_EMBEDDED_WORKER")
+        return
+
+    try:
+        # Check if worker is already running on a separate port
+        import urllib.request
+        worker_port = int(os.environ.get("WORKER_HEALTH_PORT", "9090"))
+        urllib.request.urlopen(f"http://localhost:{worker_port}/health", timeout=2)
+        logger.info("[STARTUP] External worker detected on port %d — skipping embedded daemons", worker_port)
+        return
+    except Exception:
+        logger.info("[STARTUP] No external worker detected — starting embedded daemons")
+
+    def _run_queue_processor():
+        """Embedded queue processor that dequeues and routes tasks."""
+        import time as _time
+        while True:
+            try:
+                task = queue.dequeue()
+                if task:
+                    event = create_event(task["task_type"], task.get("inputs", {}),
+                                        task.get("client", ""), task.get("provider", "openai"))
+                    result = route_task(event)
+                    if result.get("qa", {}).get("status") == "PASS":
+                        queue.complete(task["task_id"], result.get("outputs", {}))
+                    else:
+                        queue.fail(task["task_id"], str(result.get("qa", {}).get("issues", [])))
+                else:
+                    _time.sleep(10)
+            except Exception as e:
+                logger.error("[QUEUE_PROC] Error: %s", e)
+                _time.sleep(30)
+
+    def _run_nerve_lite():
+        """Lightweight NERVE cycle — runs NCL daily push every 60 minutes."""
+        import time as _time
+        _time.sleep(30)  # Wait for app to fully start
+        while True:
+            try:
+                from NCL.ncl_operations_commander import daily_ops_push
+                logger.info("[NERVE-LITE] Running daily ops push...")
+                daily_ops_push()
+                logger.info("[NERVE-LITE] Daily ops push complete")
+            except Exception as e:
+                logger.error("[NERVE-LITE] Error: %s", e)
+            _time.sleep(3600)  # Every hour
+
+    queue_thread = threading.Thread(target=_run_queue_processor, name="EmbeddedQueueProc", daemon=True)
+    queue_thread.start()
+    logger.info("[STARTUP] Embedded QueueProc started")
+
+    nerve_thread = threading.Thread(target=_run_nerve_lite, name="EmbeddedNERVE", daemon=True)
+    nerve_thread.start()
+    logger.info("[STARTUP] Embedded NERVE-lite started")
+
+    # Verify at least one LLM provider is available
+    try:
+        from utils.llm_client import list_available_providers
+        providers = list_available_providers()
+        if providers:
+            logger.info("[STARTUP] Available LLM providers: %s", ", ".join(providers))
+        else:
+            logger.warning("[STARTUP] WARNING: No LLM providers available! Agents will fail.")
+    except Exception as e:
+        logger.warning("[STARTUP] Could not check LLM providers: %s", e)
+
+
 # CORS — restrict to known origins
 app.add_middleware(
     CORSMiddleware,
@@ -343,6 +418,19 @@ class TaskRequest(BaseModel):
         "market_research", "business_plan", "press_release", "tech_docs",
         "context_manager", "qa_manager", "production_manager", "automation_manager",
         "grant_writer", "insurance_appeals", "compliance_docs", "data_reporter",
+        # ── CTR-SVC division ──
+        "contractor_doc_writer", "contractor_qa", "contractor_compliance",
+        "permit_application", "inspection_report", "contractor_proposal",
+        "lien_waiver", "safety_plan", "change_order", "progress_report", "bid_document",
+        # ── MUN-SVC division ──
+        "municipal_doc_writer", "municipal_qa", "municipal_compliance",
+        "meeting_minutes", "public_notice", "ordinance", "resolution",
+        "municipal_grant", "budget_summary", "annual_report", "municipal_rfp",
+        "agenda", "staff_report",
+        # ── INS-OPS division (QA + compliance) ──
+        "insurance_qa", "insurance_compliance",
+        # ── GRANT-OPS division (QA + compliance) ──
+        "grant_qa", "grant_compliance",
     ]
     client: str = ""
     provider: str = ""

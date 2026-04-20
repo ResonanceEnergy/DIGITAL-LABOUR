@@ -232,7 +232,14 @@ async def ncl_dispatch_division(division: str, req: DispatchRequest):
         raise HTTPException(status_code=404, detail=f"Division '{division}' not found. Valid: {list(divisions.keys())}")
 
     div_info = divisions[division]
-    task_type = div_info["services"][0]
+    service_name = div_info["services"][0]
+
+    # Resolve service name to router-compatible task_type
+    try:
+        from NCL.ncl_operations_commander import SERVICE_TO_TASKTYPE
+        task_type = SERVICE_TO_TASKTYPE.get(service_name, service_name)
+    except ImportError:
+        task_type = service_name
 
     try:
         import urllib.request
@@ -244,15 +251,15 @@ async def ncl_dispatch_division(division: str, req: DispatchRequest):
             "priority": req.priority,
             "division": div_info["code"],
             "inputs": {
-                "topic": req.topic,
-                "depth": "brief",
+                "content": req.topic,
+                "doc_type": service_name,
             },
             "sync": False,
             "schema_version": "2.0",
         }).encode()
 
         api_req = urllib.request.Request(
-            "http://localhost:8000/tasks",
+            f"http://localhost:{os.environ.get('PORT', '8000')}/tasks",
             data=payload,
             headers={"Content-Type": "application/json"},
             method="POST",
@@ -266,5 +273,30 @@ async def ncl_dispatch_division(division: str, req: DispatchRequest):
                 "task_id": result.get("task_id"),
                 "message": result.get("message", "queued"),
             }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ── POST /internal-ops ──────────────────────────────────────────
+
+@router.post("/internal-ops")
+async def ncl_internal_ops(mode: str = "daily"):
+    """Trigger internal operations engine — makes Bit Rage build itself."""
+    try:
+        from automation.internal_ops import generate_daily_tasks, generate_weekly_tasks, get_status
+        if mode == "daily":
+            result = generate_daily_tasks()
+        elif mode == "weekly":
+            result = generate_weekly_tasks(force=True)
+        elif mode == "full":
+            daily = generate_daily_tasks()
+            weekly = generate_weekly_tasks(force=True)
+            result = {"daily": daily, "weekly": weekly}
+        elif mode == "status":
+            result = get_status()
+        else:
+            raise HTTPException(status_code=400, detail=f"Invalid mode: {mode}. Use: daily, weekly, full, status")
+        return {"status": "ok", "mode": mode, "result": result,
+                "timestamp": datetime.now(timezone.utc).isoformat()}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
