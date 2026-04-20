@@ -244,10 +244,37 @@ a { color:var(--cyan); text-decoration:none; }
         <select id="fs-type" class="task-select">
           <option value="business_plan">Business Plan</option>
           <option value="market_research">Market Research</option>
-          <option value="insurance_appeals">Insurance Appeals</option>
-          <option value="grant_writer">Grant Writer</option>
-          <option value="compliance_docs">Compliance Docs</option>
-          <option value="data_reporter">Data Reporter</option>
+          <optgroup label="Insurance Operations (INS-OPS)">
+          <option value="insurance_appeals">Insurance Appeal</option>
+          <option value="prior_auth">Prior Authorization</option>
+          <option value="denial_overturn">Denial Overturn</option>
+          <option value="external_review">External Review</option>
+          </optgroup>
+          <optgroup label="Grant Operations (GRANT-OPS)">
+          <option value="grant_writer">Grant Proposal</option>
+          <option value="sbir_proposal">SBIR Proposal</option>
+          <option value="rfa_response">RFA Response</option>
+          </optgroup>
+          <optgroup label="Contractor Services (CTR-SVC)">
+          <option value="permit_application">Permit Application</option>
+          <option value="inspection_report">Inspection Report</option>
+          <option value="safety_plan">Safety Plan</option>
+          <option value="lien_waiver">Lien Waiver</option>
+          <option value="change_order">Change Order</option>
+          <option value="bid_document">Bid Document</option>
+          <option value="progress_report">Progress Report</option>
+          </optgroup>
+          <optgroup label="Municipal Services (MUN-SVC)">
+          <option value="meeting_minutes">Meeting Minutes</option>
+          <option value="public_notice">Public Notice</option>
+          <option value="ordinance">Ordinance</option>
+          <option value="resolution">Resolution</option>
+          <option value="municipal_grant">Municipal Grant</option>
+          <option value="budget_summary">Budget Summary</option>
+          <option value="annual_report">Annual Report</option>
+          <option value="agenda">Agenda</option>
+          <option value="staff_report">Staff Report</option>
+          </optgroup>
           <option value="content_repurpose">Content Repurpose</option>
           <option value="doc_extract">Doc Extract</option>
           <option value="cold_email">Cold Email</option>
@@ -451,7 +478,7 @@ async function fetchNotifications() {
     notifications = [
       {id:'d1',type:'DECISION_NEEDED',title:'Domain Registration Required',message:'bitrage.ai is available ($12/yr). Register it or use bit-rage-labour.com? Decision needed to proceed with website launch.',priority:'HIGH',status:'UNREAD',source:'build-agent',action_label:'Decide',created_at:new Date().toISOString()},
       {id:'d2',type:'PAYMENT_REQUIRED',title:'Stripe Account Setup',message:'Connect Stripe to accept client payments. Required before launching to customers. ~15 min setup.',priority:'HIGH',status:'UNREAD',source:'billing',action_label:'Set Up',action_url:'https://dashboard.stripe.com/register',created_at:new Date(Date.now()-1800000).toISOString()},
-      {id:'d3',type:'MILESTONE',title:'All 4 Division Agents Operational',message:'Insurance Appeals, Grant Writer, Compliance Docs, Data Reporter — all passing QA (87-90). Pipeline production-ready.',priority:'MEDIUM',status:'UNREAD',source:'qa-system',created_at:new Date(Date.now()-3600000).toISOString()},
+      {id:'d3',type:'MILESTONE',title:'All 4 Division Agents Operational',message:'INS-OPS (Insurance), GRANT-OPS (Grants), CTR-SVC (Contractor), MUN-SVC (Municipal) — 12 specialized agents passing QA (85+). Full mandate operational.',priority:'MEDIUM',status:'UNREAD',source:'ncl-ops-commander',created_at:new Date(Date.now()-3600000).toISOString()},
       {id:'d4',type:'DECISION_NEEDED',title:'HIPAA Compliance Plan',message:'Need BAA (Business Associate Agreement) before handling real patient data. Options: self-certify ($0, risky) or use compliance platform ($200/mo, recommended).',priority:'HIGH',status:'UNREAD',source:'compliance',action_label:'Review Options',created_at:new Date(Date.now()-5400000).toISOString()},
       {id:'d5',type:'CLIENT_ACTION',title:'First Lead Identified',message:'Medical billing company "PrecisionBill Health" (50 providers, ~200 appeals/mo) matches ideal customer profile. Cold outreach template ready for review.',priority:'MEDIUM',status:'UNREAD',source:'lead-gen',action_label:'Review Lead',created_at:new Date(Date.now()-7200000).toISOString()},
     ];
@@ -554,10 +581,10 @@ function renderLatencyChart(data) {
 
 // ── Divisions ──
 const DIVISIONS = [
-  {id:'insurance_appeals',name:'Insurance Appeals',icon:'&#128657;',color:'#dc2626',gradient:'linear-gradient(135deg,#dc2626,#ea580c)',status:'LEAD',readiness:9,revenue:'HIGH',market:'$500B TAM',desc:'Prior auth appeals, denial letters, compliance docs',agents:['insurance_appeals','compliance_docs','business_plan']},
-  {id:'grant_writer',name:'Grant Writer',icon:'&#128220;',color:'#3b82f6',gradient:'linear-gradient(135deg,#3b82f6,#06b6d4)',status:'READY',readiness:7,revenue:'HIGH',market:'$150B TAM',desc:'SBIR grants, federal RFPs, nonprofit funding',agents:['grant_writer','business_plan','market_research']},
-  {id:'compliance_docs',name:'Compliance Docs',icon:'&#128737;',color:'#22c55e',gradient:'linear-gradient(135deg,#22c55e,#10b981)',status:'READY',readiness:7,revenue:'MEDIUM',market:'$50B TAM',desc:'Handbooks, policies, terms of service',agents:['compliance_docs','doc_extract','business_plan']},
-  {id:'data_reporter',name:'Data Reporter',icon:'&#128202;',color:'#a855f7',gradient:'linear-gradient(135deg,#a855f7,#ec4899)',status:'READY',readiness:6,revenue:'MEDIUM',market:'$30B TAM',desc:'Data-to-document conversion, analytics reports',agents:['data_reporter','doc_extract','business_plan']},
+  {id:'insurance_appeals',name:'Insurance Operations',icon:'&#128657;',color:'#dc2626',gradient:'linear-gradient(135deg,#dc2626,#ea580c)',status:'LEAD',readiness:9,revenue:'HIGH',market:'$500B TAM',code:'INS-OPS',head:'AXIOM CEO',desc:'Prior auth appeals, denial overturn, external review packages — HIPAA compliant',agents:['insurance_appeals','insurance_qa','insurance_compliance_checker'],services:['insurance_appeal','prior_auth','denial_overturn','external_review'],maxDaily:25,costCeiling:'$0.40'},
+  {id:'grant_writer',name:'Grant Operations',icon:'&#128220;',color:'#3b82f6',gradient:'linear-gradient(135deg,#3b82f6,#06b6d4)',status:'READY',readiness:7,revenue:'HIGH',market:'$150B TAM',code:'GRANT-OPS',head:'AXIOM CEO',desc:'SBIR proposals, federal grants, RFP responses, budget justification',agents:['grant_writer','grant_qa','grant_researcher'],services:['grant_proposal','sbir_proposal','rfa_response','rfp_response_grant'],maxDaily:20,costCeiling:'$0.50'},
+  {id:'contractor_services',name:'Contractor Services',icon:'&#127959;',color:'#22c55e',gradient:'linear-gradient(135deg,#22c55e,#10b981)',status:'READY',readiness:7,revenue:'HIGH',market:'$2T TAM',code:'CTR-SVC',head:'VECTIS COO',desc:'Permits, inspection reports, safety plans, lien waivers, bid docs, change orders',agents:['contractor_doc_writer','contractor_qa','contractor_compliance'],services:['permit_application','inspection_report','contractor_proposal','lien_waiver','safety_plan','change_order','progress_report','bid_document'],maxDaily:30,costCeiling:'$0.35'},
+  {id:'municipal_services',name:'Municipal Services',icon:'&#127963;',color:'#a855f7',gradient:'linear-gradient(135deg,#a855f7,#ec4899)',status:'READY',readiness:7,revenue:'HIGH',market:'$400B TAM',code:'MUN-SVC',head:'VECTIS COO',desc:'Meeting minutes, public notices, ordinances, resolutions, grants, budget reports',agents:['municipal_doc_writer','municipal_qa','municipal_compliance'],services:['meeting_minutes','public_notice','ordinance','resolution','municipal_grant','budget_summary','annual_report','municipal_rfp','agenda','staff_report'],maxDaily:35,costCeiling:'$0.30'},
 ];
 
 function renderDivisions() {
@@ -577,15 +604,24 @@ function renderDivisions() {
         '<div class="div-icon" style="background:' + d.gradient + ';font-size:20px">' + d.icon + '</div>' +
         '<div><div class="div-name">' + d.name + '</div><span class="div-status" style="background:' + (d.status==='LEAD' ? 'rgba(0,255,136,.15)' : 'rgba(68,136,255,.15)') + ';color:' + (d.status==='LEAD' ? 'var(--green)' : 'var(--blue)') + '">' + d.status + '</span></div>' +
       '</div>' +
+      '<div style="display:flex;gap:8px;margin:6px 0;font-size:9px">' +
+        '<span style="padding:2px 6px;background:rgba(0,204,221,.1);color:var(--cyan);border-radius:4px;font-weight:700">' + (d.code||'') + '</span>' +
+        '<span style="color:var(--dim)">Head: ' + (d.head||'') + '</span>' +
+        '<span style="color:var(--dim)">Max ' + (d.maxDaily||'?') + '/day</span>' +
+        '<span style="color:var(--dim)">Ceiling ' + (d.costCeiling||'') + '/task</span>' +
+      '</div>' +
       '<div class="div-desc">' + d.desc + '</div>' +
-      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:10px;margin-bottom:8px">' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:10px;margin-bottom:8px">' +
         '<div><span style="color:var(--dim)">Readiness</span><div style="font-weight:700">' + d.readiness + '/10</div></div>' +
         '<div><span style="color:var(--dim)">Revenue</span><div style="font-weight:700">' + d.revenue + '</div></div>' +
         '<div><span style="color:var(--dim)">Market</span><div style="font-weight:700">' + d.market + '</div></div>' +
-        '<div><span style="color:var(--dim)">Agents</span><div style="font-weight:700">' + d.agents.length + ' active</div></div>' +
+        '<div><span style="color:var(--dim)">Agents</span><div style="font-weight:700">' + d.agents.length + ' specialized</div></div>' +
+        '<div><span style="color:var(--dim)">Services</span><div style="font-weight:700">' + (d.services ? d.services.length : 0) + ' types</div></div>' +
+        '<div><span style="color:var(--dim)">QA Gate</span><div style="font-weight:700">85%+</div></div>' +
       '</div>' +
       '<div class="progress-bar"><div class="progress-fill" style="width:' + (d.readiness*10) + '%;background:' + d.gradient + '"></div></div>' +
-      '<div style="margin-top:8px;display:flex;gap:4px;flex-wrap:wrap">' + d.agents.map(a => '<span style="font-size:9px;padding:2px 6px;background:var(--surface);border-radius:4px;color:var(--dim)">' + a + '</span>').join('') + '</div>' +
+      '<div style="margin-top:8px"><div style="font-size:9px;color:var(--dim);margin-bottom:4px">AGENTS:</div><div style="display:flex;gap:4px;flex-wrap:wrap">' + d.agents.map(a => '<span style="font-size:9px;padding:2px 6px;background:var(--surface);border-radius:4px;color:var(--cyan)">' + a + '</span>').join('') + '</div></div>' +
+      (d.services ? '<div style="margin-top:6px"><div style="font-size:9px;color:var(--dim);margin-bottom:4px">SERVICES:</div><div style="display:flex;gap:4px;flex-wrap:wrap">' + d.services.map(s => '<span style="font-size:8px;padding:2px 5px;background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.15);border-radius:3px;color:var(--green)">' + s + '</span>').join('') + '</div></div>' : '') +
       '<button class="btn-sm btn-action" style="margin-top:10px;width:100%" onclick="fireForDivision(\'' + d.id + '\',\'' + d.name + '\')">&#128640; Fire Task for ' + d.name + '</button>' +
     '</div>'
   ).join('');

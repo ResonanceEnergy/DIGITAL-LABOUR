@@ -53,40 +53,72 @@ ESCALATION_THRESHOLDS = {
 # ── Division Definitions ──────────────────────────────────────────
 DIVISIONS = {
     "ins_ops": {
-        "name": "Insurance Appeals Division",
+        "name": "Insurance Operations Division",
         "head": "AXIOM",
         "code": "INS-OPS",
-        "agents": ["insurance_appeals", "compliance_docs", "business_plan"],
-        "services": ["insurance_appeal", "prior_auth", "denial_overturn", "external_review"],
+        "agents": ["insurance_appeals", "insurance_qa", "insurance_compliance_checker"],
+        "services": [
+            "insurance_appeal", "prior_auth", "denial_overturn",
+            "external_review", "medical_necessity", "erisa_appeal",
+            "state_insurance_complaint",
+        ],
         "tam": "$500B",
         "priority": 1,
+        "max_daily": 25,
+        "cost_ceiling": 0.40,
+        "qa_gate": True,
+        "bus_topic": "bit_rage_labour.division.ins_ops.*",
     },
     "grant_ops": {
         "name": "Grant Operations Division",
         "head": "AXIOM",
         "code": "GRANT-OPS",
-        "agents": ["grant_writer", "business_plan", "market_research"],
-        "services": ["grant_proposal", "sbir_proposal", "rfa_response"],
+        "agents": ["grant_writer", "grant_qa", "grant_researcher"],
+        "services": [
+            "grant_proposal", "sbir_proposal", "rfa_response",
+            "budget_justification", "compliance_matrix", "technical_narrative",
+            "commercialization_plan", "grant_amendment",
+        ],
         "tam": "$150B",
         "priority": 2,
+        "max_daily": 20,
+        "cost_ceiling": 0.50,
+        "qa_gate": True,
+        "bus_topic": "bit_rage_labour.division.grant_ops.*",
     },
-    "compliance_svc": {
-        "name": "Compliance Documents Division",
+    "ctr_svc": {
+        "name": "Contractor Services Division",
         "head": "VECTIS",
         "code": "CTR-SVC",
-        "agents": ["compliance_docs", "doc_extract", "business_plan"],
-        "services": ["compliance_docs", "policy_handbook", "terms_of_service"],
-        "tam": "$50B",
+        "agents": ["contractor_doc_writer", "contractor_qa", "contractor_compliance"],
+        "services": [
+            "permit_application", "inspection_report", "contractor_proposal",
+            "lien_waiver", "safety_plan", "change_order",
+            "progress_report", "bid_document",
+        ],
+        "tam": "$2T",
         "priority": 3,
+        "max_daily": 30,
+        "cost_ceiling": 0.35,
+        "qa_gate": True,
+        "bus_topic": "bit_rage_labour.division.ctr_svc.*",
     },
-    "data_ops": {
-        "name": "Data Reporter Division",
+    "mun_svc": {
+        "name": "Municipal Services Division",
         "head": "VECTIS",
         "code": "MUN-SVC",
-        "agents": ["data_reporter", "doc_extract", "business_plan"],
-        "services": ["data_report", "analytics_summary", "executive_brief"],
-        "tam": "$30B",
+        "agents": ["municipal_doc_writer", "municipal_qa", "municipal_compliance"],
+        "services": [
+            "meeting_minutes", "public_notice", "ordinance", "resolution",
+            "municipal_grant", "budget_summary", "annual_report",
+            "municipal_rfp", "agenda", "staff_report",
+        ],
+        "tam": "$400B",
         "priority": 4,
+        "max_daily": 30,
+        "cost_ceiling": 0.30,
+        "qa_gate": True,
+        "bus_topic": "bit_rage_labour.division.mun_svc.*",
     },
 }
 
@@ -284,13 +316,17 @@ def _generate_division_goals(div_id: str, div_info: dict, week_id: str) -> dict:
 
         head = div_info["head"]
         division_name = div_info["name"]
+        div_code = div_info["code"]
         agents = div_info["agents"]
         services = div_info["services"]
         tam = div_info["tam"]
+        max_daily = div_info.get("max_daily", 20)
+        cost_ceiling = div_info.get("cost_ceiling", 0.40)
 
-        prompt = f"""You are {head}, the executive head of the {division_name} at Bit Rage Labour.
+        prompt = f"""You are {head}, the executive head of the {division_name} ({div_code}) at Bit Rage Labour.
 
-Your division has TAM of {tam} and the following agents: {', '.join(agents)}.
+Your division has TAM of {tam}, max {max_daily} tasks/day, cost ceiling ${cost_ceiling}/task.
+Your agents: {', '.join(agents)} (all have QA gate enforcement).
 Your services: {', '.join(services)}.
 
 It is {week_id}. As division head, produce your WEEKLY OPERATIONS PLAN:
@@ -552,9 +588,10 @@ def _auto_dispatch_division_tasks(div_health: dict) -> dict:
     for div_id, div_info in DIVISIONS.items():
         status = div_health.get(div_id, "UNKNOWN")
         if status in ("GREEN", "UNKNOWN"):
-            # Fire a lightweight test task to keep the division warm
-            task_type = div_info["agents"][0]  # Lead agent
-            print(f"  Dispatching warm-up task to {div_info['name']} ({task_type})")
+            # Fire a lightweight test task using the division's first service type
+            task_type = div_info["services"][0]  # Lead service
+            lead_agent = div_info["agents"][0]    # Lead agent
+            print(f"  Dispatching warm-up task to {div_info['name']} [{div_info['code']}] ({task_type} → {lead_agent})")
             try:
                 import urllib.request
                 payload = json.dumps({
@@ -562,8 +599,9 @@ def _auto_dispatch_division_tasks(div_health: dict) -> dict:
                     "client": "ncl-ops-commander",
                     "provider": os.environ.get("DEFAULT_PROVIDER", "openai"),
                     "priority": 3,
+                    "division": div_info["code"],
                     "inputs": {
-                        "topic": f"Weekly operations report for {div_info['name']}",
+                        "topic": f"Weekly operations report for {div_info['name']} [{div_info['code']}]",
                         "depth": "brief",
                     },
                     "sync": False,
@@ -609,7 +647,15 @@ def ops_status() -> dict:
     print("  DIVISION STATUS:")
     for div_id, div_info in DIVISIONS.items():
         status = state.get("divisions_status", {}).get(div_id, "UNKNOWN")
-        print(f"    {div_info['name']:30s} [{status}]  Head: {div_info['head']}")
+        code = div_info["code"]
+        agents = ", ".join(div_info["agents"])
+        svc_count = len(div_info["services"])
+        print(f"    {div_info['name']:35s} [{code}] [{status}]")
+        print(f"      Head: {div_info['head']}  TAM: {div_info['tam']}  "
+              f"Max: {div_info.get('max_daily', 'N/A')}/day  "
+              f"Ceiling: ${div_info.get('cost_ceiling', 'N/A')}/task")
+        print(f"      Agents: {agents}")
+        print(f"      Services: {svc_count} types  QA Gate: {'ON' if div_info.get('qa_gate') else 'OFF'}")
 
     # Weekly goals files
     print(f"\n  WEEKLY GOALS: {len(list(WEEKLY_GOALS_DIR.glob('*.json')))} files")
