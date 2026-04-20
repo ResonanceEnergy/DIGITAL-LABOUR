@@ -1348,6 +1348,25 @@ def _finalize_event(event: dict, start: float, task_type: str, elapsed_ms: int |
         logger.error("[BILLING_SURFACE_GAP] %s task %s — billing record failed: %s",
                      task_type, event.get("event_id", ""), exc)
 
+    # ── Persistent output store — capture every PASS for retrieval ──
+    if event.get("qa", {}).get("status") == "PASS" and event.get("outputs"):
+        try:
+            from utils.output_store import store_output
+            store_output(
+                task_id=event.get("event_id", ""),
+                task_type=task_type,
+                division=event.get("division", ""),
+                client=event.get("client_id", ""),
+                provider=provider,
+                qa_status="PASS",
+                qa_score=event.get("qa", {}).get("score", 0),
+                duration_s=elapsed_ms / 1000,
+                cost_usd=event.get("billing", {}).get("amount", 0.0),
+                outputs=event.get("outputs", {}),
+            )
+        except Exception as e:
+            logger.warning("[OUTPUT_STORE] Failed to store: %s", e)
+
     return event
 
 

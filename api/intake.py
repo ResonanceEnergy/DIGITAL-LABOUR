@@ -44,6 +44,7 @@ from api.fulfillment import router as fulfillment_router
 from api.task_router import router as task_router
 from api.notifications_router import router as notifications_router
 from api.ncl_router import router as ncl_router
+from api.outputs_router import router as outputs_router
 
 # P6.3 — Credential TTL check on startup
 try:
@@ -289,6 +290,9 @@ app.include_router(notifications_router)
 
 # NCL Operations Commander
 app.include_router(ncl_router)
+
+# Persistent Output Store — query/search/retrieve completed outputs
+app.include_router(outputs_router)
 
 
 @app.get("/ops", response_class=HTMLResponse)
