@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-03-22T17:24:07.798244+00:00",
+  "generated_at": "2026-04-18T09:04:58.869745+00:00",
   "funnel": {
     "total_emails_sent": 182,
     "unique_companies": 175,
-    "followups_sent": 134,
+    "followups_sent": 150,
     "replies_received": 0,
     "reply_rate_pct": 0.0,
-    "stale_leads": 0,
-    "dead_leads": 0,
-    "active_followups": 74
+    "stale_leads": 107,
+    "dead_leads": 68,
+    "active_followups": 0
   },
   "companies": [
     {
@@ -21,8 +21,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Apollo.io",
@@ -34,8 +34,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Brex",
@@ -47,8 +47,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Calendly",
@@ -60,8 +60,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Clearbit",
@@ -73,8 +73,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Close",
@@ -86,8 +86,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Convertkit",
@@ -99,8 +99,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Deel",
@@ -112,8 +112,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Directive",
@@ -125,8 +125,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Drift",
@@ -138,8 +138,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Foundation Marketing",
@@ -151,8 +151,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Freshdesk",
@@ -164,8 +164,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Front",
@@ -177,8 +177,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Gorgias",
@@ -190,8 +190,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Grow and Convert",
@@ -203,8 +203,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Gusto",
@@ -216,8 +216,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Help Scout",
@@ -229,8 +229,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Hunter.io",
@@ -242,8 +242,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Intercom",
@@ -255,8 +255,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Lattice",
@@ -268,8 +268,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Lemlist",
@@ -281,8 +281,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Linear",
@@ -294,8 +294,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Loom",
@@ -307,8 +307,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Lusha",
@@ -320,8 +320,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Mailshake",
@@ -333,8 +333,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Mixmax",
@@ -346,8 +346,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Notion",
@@ -359,8 +359,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Omniscient Digital",
@@ -372,8 +372,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Outreach",
@@ -385,8 +385,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Pipedrive",
@@ -398,8 +398,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Ramp",
@@ -411,8 +411,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Reply.io",
@@ -424,8 +424,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Rippling",
@@ -437,8 +437,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Salesloft",
@@ -450,8 +450,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Seamless.AI",
@@ -463,8 +463,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Siege Media",
@@ -476,8 +476,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Single Grain",
@@ -489,8 +489,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Snov.io",
@@ -502,8 +502,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Soapbox",
@@ -515,8 +515,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Supabase",
@@ -528,8 +528,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Typeform",
@@ -541,8 +541,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Unbounce",
@@ -554,8 +554,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Velocity Partners",
@@ -567,8 +567,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Vercel",
@@ -580,8 +580,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Vidyard",
@@ -593,8 +593,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "WebFX",
@@ -606,8 +606,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Woodpecker",
@@ -619,8 +619,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Yesware",
@@ -632,8 +632,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Zendesk",
@@ -645,8 +645,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "ZoomInfo",
@@ -658,8 +658,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 11
+      "status": "dead",
+      "days_since_first": 37
     },
     {
       "company": "Amplitude",
@@ -671,8 +671,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 9
+      "status": "dead",
+      "days_since_first": 36
     },
     {
       "company": "Flexport",
@@ -684,8 +684,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 9
+      "status": "dead",
+      "days_since_first": 36
     },
     {
       "company": "Shipbob",
@@ -697,8 +697,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 9
+      "status": "dead",
+      "days_since_first": 36
     },
     {
       "company": "Thrasio",
@@ -710,8 +710,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 9
+      "status": "dead",
+      "days_since_first": 36
     },
     {
       "company": "VaynerMedia",
@@ -723,8 +723,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 9
+      "status": "dead",
+      "days_since_first": 36
     },
     {
       "company": "Jungle Scout",
@@ -736,8 +736,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 9
+      "status": "dead",
+      "days_since_first": 36
     },
     {
       "company": "Pattern",
@@ -749,8 +749,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 9
+      "status": "dead",
+      "days_since_first": 36
     },
     {
       "company": "PlanetScale",
@@ -762,8 +762,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 9
+      "status": "dead",
+      "days_since_first": 36
     },
     {
       "company": "Segment",
@@ -775,8 +775,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 9
+      "status": "dead",
+      "days_since_first": 36
     },
     {
       "company": "Stord",
@@ -788,8 +788,8 @@
       "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 9
+      "status": "dead",
+      "days_since_first": 36
     },
     {
       "company": "Airtable",
@@ -801,8 +801,8 @@
       "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 7
+      "status": "stale",
+      "days_since_first": 33
     },
     {
       "company": "Retool",
@@ -814,8 +814,8 @@
       "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 7
+      "status": "stale",
+      "days_since_first": 33
     },
     {
       "company": "ShipHero",
@@ -827,8 +827,8 @@
       "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 7
+      "status": "stale",
+      "days_since_first": 33
     },
     {
       "company": "Helium 10",
@@ -840,8 +840,8 @@
       "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 7
+      "status": "stale",
+      "days_since_first": 33
     },
     {
       "company": "Bain & Company",
@@ -853,8 +853,8 @@
       "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 7
+      "status": "stale",
+      "days_since_first": 33
     },
     {
       "company": "McKinsey Implementation",
@@ -866,8 +866,8 @@
       "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 7
+      "status": "stale",
+      "days_since_first": 33
     },
     {
       "company": "Oliver Wyman",
@@ -879,8 +879,8 @@
       "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 7
+      "status": "stale",
+      "days_since_first": 33
     },
     {
       "company": "Wieden+Kennedy",
@@ -892,8 +892,8 @@
       "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 7
+      "status": "stale",
+      "days_since_first": 33
     },
     {
       "company": "72andSunny",
@@ -905,8 +905,8 @@
       "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 7
+      "status": "stale",
+      "days_since_first": 33
     },
     {
       "company": "Easyship",
@@ -918,8 +918,8 @@
       "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 7
+      "status": "stale",
+      "days_since_first": 33
     },
     {
       "company": "Kearney",
@@ -931,8 +931,8 @@
       "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 7
+      "status": "stale",
+      "days_since_first": 33
     },
     {
       "company": "Sellics",
@@ -944,8 +944,8 @@
       "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 7
+      "status": "stale",
+      "days_since_first": 33
     },
     {
       "company": "Havas",
@@ -957,8 +957,8 @@
       "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 6
+      "status": "stale",
+      "days_since_first": 33
     },
     {
       "company": "L.E.K. Consulting",
@@ -970,8 +970,8 @@
       "followups_sent": 1,
       "replied": false,
       "reply_at": null,
-      "status": "following_up",
-      "days_since_first": 6
+      "status": "stale",
+      "days_since_first": 33
     },
     {
       "company": "HubSpot",
@@ -983,8 +983,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Pendo.io",
@@ -996,8 +996,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "R/GA",
@@ -1009,8 +1009,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Sendoso",
@@ -1022,8 +1022,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "ClickUp",
@@ -1035,8 +1035,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Faire",
@@ -1045,11 +1045,11 @@
       "role": "Director of Sales",
       "first_sent": "2026-03-17T11:09:55.209824+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "dead",
+      "days_since_first": 31
     },
     {
       "company": "Monday.com",
@@ -1061,8 +1061,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Carta",
@@ -1071,11 +1071,11 @@
       "role": "Head of Customer Success",
       "first_sent": "2026-03-17T12:01:26.767809+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "dead",
+      "days_since_first": 31
     },
     {
       "company": "Coda",
@@ -1087,8 +1087,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Greenhouse",
@@ -1100,8 +1100,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Notarize",
@@ -1113,8 +1113,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Figma",
@@ -1126,8 +1126,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Gong.io",
@@ -1139,8 +1139,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Handshake",
@@ -1152,8 +1152,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Loopio",
@@ -1165,8 +1165,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 5
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Appfolio",
@@ -1175,11 +1175,11 @@
       "role": "VP of Customer Support",
       "first_sent": "2026-03-17T17:29:13.391482+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "dead",
+      "days_since_first": 31
     },
     {
       "company": "BambooHR",
@@ -1188,11 +1188,11 @@
       "role": "Head of Operations",
       "first_sent": "2026-03-17T17:29:15.147864+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "dead",
+      "days_since_first": 31
     },
     {
       "company": "Guru",
@@ -1204,8 +1204,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Turing",
@@ -1217,8 +1217,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Wealthsimple",
@@ -1230,8 +1230,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "BigCommerce",
@@ -1243,8 +1243,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Compass",
@@ -1256,8 +1256,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Opendoor",
@@ -1269,8 +1269,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Shopify Plus",
@@ -1282,8 +1282,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Zapier",
@@ -1295,8 +1295,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Affirm",
@@ -1308,8 +1308,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Canva",
@@ -1318,11 +1318,11 @@
       "role": "Head of Enterprise Sales",
       "first_sent": "2026-03-17T19:43:21.527421+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "dead",
+      "days_since_first": 31
     },
     {
       "company": "Chime",
@@ -1334,8 +1334,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Robinhood",
@@ -1347,8 +1347,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Stripe",
@@ -1360,8 +1360,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Miro",
@@ -1373,8 +1373,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Webflow",
@@ -1386,8 +1386,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Benchling",
@@ -1396,11 +1396,11 @@
       "role": "Head of Customer Support",
       "first_sent": "2026-03-17T20:55:08.524016+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "dead",
+      "days_since_first": 31
     },
     {
       "company": "Docusign",
@@ -1412,8 +1412,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Fetch Rewards",
@@ -1422,11 +1422,11 @@
       "role": "VP of Sales",
       "first_sent": "2026-03-17T20:55:24.043545+00:00",
       "emails_sent": 1,
-      "followups_sent": 0,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "dead",
+      "days_since_first": 31
     },
     {
       "company": "Klaviyo",
@@ -1438,8 +1438,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 4
+      "status": "stale",
+      "days_since_first": 31
     },
     {
       "company": "Airtame",
@@ -1451,8 +1451,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 29
     },
     {
       "company": "AKQA",
@@ -1464,8 +1464,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 29
     },
     {
       "company": "Divvy Homes",
@@ -1474,11 +1474,11 @@
       "role": "Head of Sales",
       "first_sent": "2026-03-20T08:45:08.941655+00:00",
       "emails_sent": 2,
-      "followups_sent": 0,
+      "followups_sent": 2,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "dead",
+      "days_since_first": 29
     },
     {
       "company": "Huge",
@@ -1490,8 +1490,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 29
     },
     {
       "company": "Lattice Engines",
@@ -1503,8 +1503,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 29
     },
     {
       "company": "Plaid",
@@ -1516,8 +1516,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 29
     },
     {
       "company": "Razorfish",
@@ -1529,8 +1529,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 29
     },
     {
       "company": "Rent the Runway",
@@ -1542,8 +1542,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 29
     },
     {
       "company": "Rentberry",
@@ -1555,8 +1555,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 29
     },
     {
       "company": "Vanta",
@@ -1568,8 +1568,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 29
     },
     {
       "company": "Wunderman Thompson",
@@ -1581,8 +1581,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 29
     },
     {
       "company": "Chili Piper",
@@ -1594,8 +1594,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "KlientBoost",
@@ -1607,8 +1607,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Mutiny",
@@ -1620,8 +1620,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "SmartBug Media",
@@ -1633,8 +1633,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "UserGems",
@@ -1646,8 +1646,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Metadata.io",
@@ -1659,8 +1659,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "NexHealth",
@@ -1672,8 +1672,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Osmind",
@@ -1685,8 +1685,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Pilot",
@@ -1698,8 +1698,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Qualified",
@@ -1711,8 +1711,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Bench Accounting",
@@ -1724,8 +1724,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Connor Group",
@@ -1737,8 +1737,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "MadKudu",
@@ -1750,8 +1750,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Reachdesk",
@@ -1763,8 +1763,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Walker Sands",
@@ -1776,8 +1776,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Lawmatics",
@@ -1789,8 +1789,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "LeadIQ",
@@ -1802,8 +1802,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Lexion",
@@ -1815,8 +1815,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Podia",
@@ -1828,8 +1828,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "PracticePanther",
@@ -1841,8 +1841,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "360Learning",
@@ -1854,8 +1854,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Gem",
@@ -1867,8 +1867,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Loop Returns",
@@ -1880,8 +1880,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Maven",
@@ -1893,8 +1893,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Secureframe",
@@ -1906,8 +1906,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Postscript",
@@ -1919,8 +1919,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Clearview Group",
@@ -1932,8 +1932,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Healthie",
@@ -1945,8 +1945,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Kruze Consulting",
@@ -1958,8 +1958,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Vivaldi Partners",
@@ -1971,8 +1971,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "WebMechanix",
@@ -1984,8 +1984,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 2
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Capchase",
@@ -1997,8 +1997,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 1
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Everlaw",
@@ -2010,8 +2010,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 1
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "LinkSquares",
@@ -2023,8 +2023,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 1
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Modern Treasury",
@@ -2036,8 +2036,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 1
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "SpotDraft",
@@ -2049,8 +2049,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 1
+      "status": "stale",
+      "days_since_first": 28
     },
     {
       "company": "Orum",
@@ -2062,8 +2062,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 27
     },
     {
       "company": "Paro",
@@ -2075,8 +2075,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 27
     },
     {
       "company": "Ribbon Health",
@@ -2088,8 +2088,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 27
     },
     {
       "company": "Tegus",
@@ -2101,8 +2101,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 27
     },
     {
       "company": "HealthJoy",
@@ -2114,8 +2114,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 26
     },
     {
       "company": "Mend",
@@ -2127,8 +2127,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 26
     },
     {
       "company": "Spruce Health",
@@ -2140,8 +2140,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 26
     },
     {
       "company": "TeachFX",
@@ -2153,8 +2153,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 26
     },
     {
       "company": "Betts Recruiting",
@@ -2166,8 +2166,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 26
     },
     {
       "company": "Italic",
@@ -2179,8 +2179,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 26
     },
     {
       "company": "JumpCrew",
@@ -2192,8 +2192,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 26
     },
     {
       "company": "Skaled",
@@ -2205,8 +2205,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 26
     },
     {
       "company": "Winning by Design",
@@ -2218,8 +2218,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 26
     },
     {
       "company": "CloserIQ",
@@ -2231,8 +2231,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 26
     },
     {
       "company": "Flowspace",
@@ -2244,8 +2244,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 26
     },
     {
       "company": "Hunt Club",
@@ -2257,8 +2257,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 26
     },
     {
       "company": "Sendle",
@@ -2270,8 +2270,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 26
     },
     {
       "company": "Springboard",
@@ -2283,8 +2283,8 @@
       "followups_sent": 0,
       "replied": false,
       "reply_at": null,
-      "status": "sent",
-      "days_since_first": 0
+      "status": "stale",
+      "days_since_first": 26
     }
   ]
 }

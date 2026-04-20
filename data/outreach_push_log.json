@@ -18,5 +18,16 @@
     "sent": 0,
     "failed_gen": 1,
     "provider": "openai"
+  },
+  {
+    "mode": "live",
+    "timestamp": "2026-04-18T09:07:00.002096+00:00",
+    "targets": 31,
+    "generated": 0,
+    "passed_qa": 0,
+    "sent": 0,
+    "failed_gen": 31,
+    "total_sent_ever": 182,
+    "provider": "openai"
   }
 ]

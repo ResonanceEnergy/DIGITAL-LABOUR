@@ -200,6 +200,48 @@
     "already_contacted": true
   },
   {
+    "company": "Skaled",
+    "role": "CEO",
+    "email": null,
+    "score": 95,
+    "grade": "A",
+    "reasons": [
+      "high-value vertical: consulting",
+      "decision-maker role: ceo",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860521+00:00",
+    "already_contacted": true
+  },
+  {
+    "company": "Workato",
+    "role": "Head of Sales",
+    "email": null,
+    "score": 95,
+    "grade": "A",
+    "reasons": [
+      "high-value vertical: saas",
+      "decision-maker role: head of sales",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860603+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "Databricks",
+    "role": "Head of Sales",
+    "email": null,
+    "score": 95,
+    "grade": "A",
+    "reasons": [
+      "high-value vertical: saas",
+      "decision-maker role: head of sales",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860678+00:00",
+    "already_contacted": false
+  },
+  {
     "company": "Drift",
     "role": "Head of Growth",
     "email": "justin.keller@drift.com",
@@ -921,6 +963,110 @@
     "already_contacted": true
   },
   {
+    "company": "Italic",
+    "role": "VP of Customer Experience",
+    "email": null,
+    "score": 80,
+    "grade": "A",
+    "reasons": [
+      "high-value vertical: e-commerce",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860472+00:00",
+    "already_contacted": true
+  },
+  {
+    "company": "JumpCrew",
+    "role": "VP of Sales",
+    "email": null,
+    "score": 80,
+    "grade": "A",
+    "reasons": [
+      "high-value vertical: consulting",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860515+00:00",
+    "already_contacted": true
+  },
+  {
+    "company": "Winning by Design",
+    "role": "Managing Director",
+    "email": null,
+    "score": 80,
+    "grade": "A",
+    "reasons": [
+      "high-value vertical: consulting",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860528+00:00",
+    "already_contacted": true
+  },
+  {
+    "company": "Springboard",
+    "role": "Director of Admissions",
+    "email": null,
+    "score": 80,
+    "grade": "A",
+    "reasons": [
+      "high-value vertical: edtech",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860567+00:00",
+    "already_contacted": true
+  },
+  {
+    "company": "Flowspace",
+    "role": "VP of Sales",
+    "email": null,
+    "score": 80,
+    "grade": "A",
+    "reasons": [
+      "high-value vertical: logistics",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860581+00:00",
+    "already_contacted": true
+  },
+  {
+    "company": "Sendle",
+    "role": "Head of Customer Support",
+    "email": null,
+    "score": 80,
+    "grade": "A",
+    "reasons": [
+      "high-value vertical: logistics",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860587+00:00",
+    "already_contacted": true
+  },
+  {
+    "company": "Mixpanel",
+    "role": "VP of Sales",
+    "email": null,
+    "score": 80,
+    "grade": "A",
+    "reasons": [
+      "high-value vertical: saas",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860598+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "Snowflake",
+    "role": "VP of Sales",
+    "email": null,
+    "score": 80,
+    "grade": "A",
+    "reasons": [
+      "high-value vertical: saas",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860672+00:00",
+    "already_contacted": false
+  },
+  {
     "company": "Intercom",
     "role": "VP of Support",
     "email": "sharon@intercom.com",
@@ -1196,6 +1342,58 @@
     ],
     "scored_at": "2026-03-22T15:14:17.698270+00:00",
     "already_contacted": true
+  },
+  {
+    "company": "CloserIQ",
+    "role": "Head of Sales",
+    "email": null,
+    "score": 75,
+    "grade": "B",
+    "reasons": [
+      "decision-maker role: head of sales",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860555+00:00",
+    "already_contacted": true
+  },
+  {
+    "company": "SmartRecruiters",
+    "role": "Director of Sales",
+    "email": null,
+    "score": 75,
+    "grade": "B",
+    "reasons": [
+      "decision-maker role: director of sales",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860614+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "VTS",
+    "role": "Head of Sales",
+    "email": null,
+    "score": 75,
+    "grade": "B",
+    "reasons": [
+      "decision-maker role: head of sales",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860625+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "Mailchimp",
+    "role": "Director of Sales",
+    "email": null,
+    "score": 75,
+    "grade": "B",
+    "reasons": [
+      "decision-maker role: director of sales",
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860648+00:00",
+    "already_contacted": false
   },
   {
     "company": "Animalz",
@@ -1480,6 +1678,78 @@
     "already_contacted": false
   },
   {
+    "company": "Brooklinen",
+    "role": "Director of Customer Support",
+    "email": null,
+    "score": 70,
+    "grade": "B",
+    "reasons": [
+      "high-value vertical: e-commerce"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860494+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "MeUndies",
+    "role": "Head of Customer Experience",
+    "email": null,
+    "score": 70,
+    "grade": "B",
+    "reasons": [
+      "high-value vertical: e-commerce"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860502+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "Cotopaxi",
+    "role": "VP of E-commerce",
+    "email": null,
+    "score": 70,
+    "grade": "B",
+    "reasons": [
+      "high-value vertical: e-commerce"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860508+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "Reforge",
+    "role": "VP of Marketing",
+    "email": null,
+    "score": 70,
+    "grade": "B",
+    "reasons": [
+      "high-value vertical: edtech"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860561+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "Thinkific",
+    "role": "VP of Customer Success",
+    "email": null,
+    "score": 70,
+    "grade": "B",
+    "reasons": [
+      "high-value vertical: edtech"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860575+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "Shippo",
+    "role": "VP of Sales",
+    "email": null,
+    "score": 70,
+    "grade": "B",
+    "reasons": [
+      "high-value vertical: logistics"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860592+00:00",
+    "already_contacted": false
+  },
+  {
     "company": "Siege Media",
     "role": "Head of Content",
     "email": "caroline@siegemedia.com",
@@ -1642,6 +1912,42 @@
       "decision-maker role: head of growth"
     ],
     "scored_at": "2026-03-22T15:14:17.698270+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "Riviera Partners",
+    "role": "Director of Operations",
+    "email": null,
+    "score": 65,
+    "grade": "B",
+    "reasons": [
+      "decision-maker role: director of operations"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860549+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "Buildium",
+    "role": "Director of Sales",
+    "email": null,
+    "score": 65,
+    "grade": "B",
+    "reasons": [
+      "decision-maker role: director of sales"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860636+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "Slalom",
+    "role": "Director of Sales",
+    "email": null,
+    "score": 65,
+    "grade": "B",
+    "reasons": [
+      "decision-maker role: director of sales"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860667+00:00",
     "already_contacted": false
   },
   {
@@ -1964,6 +2270,78 @@
     "already_contacted": true
   },
   {
+    "company": "Betts Recruiting",
+    "role": "VP of Operations",
+    "email": null,
+    "score": 60,
+    "grade": "C",
+    "reasons": [
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860535+00:00",
+    "already_contacted": true
+  },
+  {
+    "company": "Hunt Club",
+    "role": "Head of Talent",
+    "email": null,
+    "score": 60,
+    "grade": "C",
+    "reasons": [
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860542+00:00",
+    "already_contacted": true
+  },
+  {
+    "company": "Lever",
+    "role": "VP of Sales",
+    "email": null,
+    "score": 60,
+    "grade": "C",
+    "reasons": [
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860608+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "Optimizely",
+    "role": "VP of Sales",
+    "email": null,
+    "score": 60,
+    "grade": "C",
+    "reasons": [
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860642+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "Deloitte Digital",
+    "role": "Partner",
+    "email": null,
+    "score": 60,
+    "grade": "C",
+    "reasons": [
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860655+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "EY Digital",
+    "role": "Principal",
+    "email": null,
+    "score": 60,
+    "grade": "C",
+    "reasons": [
+      "marked high priority"
+    ],
+    "scored_at": "2026-04-18T09:04:58.860661+00:00",
+    "already_contacted": false
+  },
+  {
     "company": "Velocity Partners",
     "role": "Managing Director",
     "email": "ryan.murtagh@velocitypartners.com",
@@ -2208,6 +2586,26 @@
     "grade": "C",
     "reasons": [],
     "scored_at": "2026-03-22T15:14:17.698270+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "JazzHR",
+    "role": "VP of Sales",
+    "email": null,
+    "score": 50,
+    "grade": "C",
+    "reasons": [],
+    "scored_at": "2026-04-18T09:04:58.860620+00:00",
+    "already_contacted": false
+  },
+  {
+    "company": "Reonomy",
+    "role": "VP of Sales",
+    "email": null,
+    "score": 50,
+    "grade": "C",
+    "reasons": [],
+    "scored_at": "2026-04-18T09:04:58.860631+00:00",
     "already_contacted": false
   }
 ]

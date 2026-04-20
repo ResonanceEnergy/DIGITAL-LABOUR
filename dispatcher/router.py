@@ -113,9 +113,6 @@ DAILY_LIMITS = {
     "municipal_doc_writer": 35,
     "municipal_qa": 70,
     "municipal_compliance": 70,
-    # Division agents — Compliance & Data
-    "compliance_docs": 20,
-    "data_reporter": 25,
 }
 
 TOKEN_BUDGETS = {
@@ -167,8 +164,6 @@ TOKEN_BUDGETS = {
     "municipal_doc_writer": 40000,
     "municipal_qa": 15000,
     "municipal_compliance": 15000,
-    "compliance_docs": 30000,
-    "data_reporter": 25000,
 }
 
 
@@ -756,17 +751,8 @@ def route_task(event: dict) -> dict:
 
         elif task_type == "business_plan":
             from agents.business_plan.runner import run_pipeline as bizplan_pipeline
-            # Compose business_idea from payload fields if not explicitly provided
-            _biz_idea = inputs.get("business_idea", "")
-            if not _biz_idea:
-                _parts = []
-                for _k in ("focus", "scope", "deliverable", "description", "idea", "text"):
-                    _v = inputs.get(_k, "")
-                    if _v:
-                        _parts.append(f"{_k}: {_v}")
-                _biz_idea = "\n".join(_parts) if _parts else "Generate a generic startup business plan."
             result = bizplan_pipeline(
-                business_idea=_biz_idea,
+                business_idea=inputs.get("business_idea", ""),
                 plan_type=inputs.get("plan_type", "startup"),
                 industry=inputs.get("industry", ""),
                 funding_goal=inputs.get("funding_goal", ""),
@@ -912,7 +898,7 @@ def route_task(event: dict) -> dict:
                 event["outputs"] = result.model_dump() if hasattr(result, "model_dump") else result
                 event["qa"]["status"] = result.qa.status if result.qa else "PASS"
 
-        # ── Division agents ───────────────────────────────────────────────────
+        # ── Division agents ───────────────────────────────────────
         elif task_type == "grant_writer":
             from agents.grant_writer.runner import run_pipeline as grant_pipeline
             result = grant_pipeline(
@@ -1000,7 +986,7 @@ def route_task(event: dict) -> dict:
     _agent_qa_status = _agent_qa.get("status", "") if isinstance(_agent_qa, dict) else ""
     _skip_secondary = (
         _agent_qa_status == "PASS"
-        and _agent_qa_score >= 75
+        and _agent_qa_score >= 85
         and event["qa"]["status"] == "PASS"
     )
 
