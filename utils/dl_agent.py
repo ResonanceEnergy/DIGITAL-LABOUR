@@ -621,6 +621,23 @@ def safe_validate(model_cls, data: dict | str, *, agent_name: str = "unknown") -
     if isinstance(data, str):
         data = json.loads(_repair_json(data), strict=False)
 
+    # Pre-repair: coerce dict items in list[str] fields (LLMs return {issue, description} objects)
+    for field_name, field_info in model_cls.model_fields.items():
+        if field_name not in data:
+            continue
+        annotation = field_info.annotation
+        origin = getattr(annotation, '__origin__', None)
+        args = getattr(annotation, '__args__', ())
+        if origin is list and args and args[0] is str:
+            val = data[field_name]
+            if isinstance(val, list) and any(isinstance(item, dict) for item in val):
+                data[field_name] = [
+                    (f"{item.get('issue', item.get('type', 'Issue'))}: {item.get('description', item.get('detail', str(item)))}"
+                     if isinstance(item, dict) else str(item))
+                    for item in val
+                ]
+                _log(agent_name, "REPAIR", f"Coerced dict items to strings in '{field_name}'")
+
     # Attempt 1: direct validation
     try:
         return model_cls.model_validate(data)
@@ -656,6 +673,24 @@ def safe_validate(model_cls, data: dict | str, *, agent_name: str = "unknown") -
                     used_keys.add(v)
                     _log(agent_name, "REPAIR", f"Mapped key '{v}' → '{field_name}'")
                     break
+
+    # Attempt 3b: coerce list[str] items — LLMs often return dicts instead of strings
+    for field_name, field_info in model_cls.model_fields.items():
+        if field_name not in coerced:
+            continue
+        annotation = field_info.annotation
+        # Check if field is list[str]
+        origin = getattr(annotation, '__origin__', None)
+        args = getattr(annotation, '__args__', ())
+        if origin is list and args and args[0] is str:
+            val = coerced[field_name]
+            if isinstance(val, list) and any(isinstance(item, dict) for item in val):
+                coerced[field_name] = [
+                    (f"{item.get('issue', item.get('type', 'Issue'))}: {item.get('description', item.get('detail', str(item)))}"
+                     if isinstance(item, dict) else str(item))
+                    for item in val
+                ]
+                _log(agent_name, "REPAIR", f"Coerced dict items to strings in '{field_name}'")
 
     # Attempt 4: fill missing required string fields with "N/A"
     for field_name, field_info in model_cls.model_fields.items():
