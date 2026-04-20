@@ -173,6 +173,7 @@ a { color:var(--cyan); text-decoration:none; }
     <button class="nav-tab" onclick="switchTab('agents')">AGENTS</button>
     <button class="nav-tab" onclick="switchTab('revenue')">REVENUE</button>
     <button class="nav-tab" onclick="switchTab('pipeline')">PIPELINE</button>
+    <button class="nav-tab" onclick="switchTab('outputs')">OUTPUTS</button>
   </div>
   <div class="header-right">
     <span id="meta-time" style="font-size:10px;color:var(--dim)"></span>
@@ -432,6 +433,53 @@ a { color:var(--cyan); text-decoration:none; }
     </div>
   </div>
 
+  <!-- ============ OUTPUTS TAB ============ -->
+  <div id="tab-outputs" class="tab-content">
+    <!-- Output Store Stats -->
+    <div class="grid grid-4" style="margin-bottom:12px">
+      <div class="card"><div class="card-title">&#128230; TOTAL OUTPUTS</div><div id="out-total" class="metric-big c-green">--</div><div class="metric-sub">stored in output store</div></div>
+      <div class="card"><div class="card-title">&#9889; LAST 6 HOURS</div><div id="out-recent-6h" class="metric-big c-cyan">--</div><div class="metric-sub">recently completed</div></div>
+      <div class="card"><div class="card-title">&#128200; BY DIVISION</div><div id="out-div-count" class="metric-big c-purple">--</div><div class="metric-sub">divisions producing</div></div>
+      <div class="card"><div class="card-title">&#9888;&#65039; GAPS</div><div id="out-gap-count" class="metric-big c-amber">--</div><div class="metric-sub">agents with no outputs</div></div>
+    </div>
+
+    <div class="grid grid-2" style="margin-bottom:12px">
+      <!-- Output by Division -->
+      <div class="card">
+        <div class="card-title">&#127970; OUTPUTS BY DIVISION</div>
+        <div id="out-by-division" style="max-height:300px;overflow-y:auto">
+          <div style="text-align:center;padding:20px;color:var(--dim);font-size:11px">Loading...</div>
+        </div>
+      </div>
+      <!-- Output by Category -->
+      <div class="card">
+        <div class="card-title">&#127991;&#65039; OUTPUTS BY CATEGORY</div>
+        <div id="out-by-category" style="max-height:300px;overflow-y:auto">
+          <div style="text-align:center;padding:20px;color:var(--dim);font-size:11px">Loading...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coverage Gaps -->
+    <div class="card" style="margin-bottom:12px">
+      <div class="card-title" style="color:var(--amber)">&#9888;&#65039; COVERAGE GAPS (Agents with zero completed outputs)</div>
+      <div id="out-gaps">
+        <div style="text-align:center;padding:20px;color:var(--dim);font-size:11px">Analyzing...</div>
+      </div>
+    </div>
+
+    <!-- Recent Completed Outputs -->
+    <div class="card">
+      <div class="card-title">&#128203; RECENT COMPLETED OUTPUTS</div>
+      <div id="out-recent-list" style="max-height:400px;overflow-y:auto">
+        <table class="tbl">
+          <thead><tr><th>Title</th><th>Division</th><th>Type</th><th>QA</th><th>Time</th></tr></thead>
+          <tbody id="out-recent-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- C2 Command Bar -->
@@ -578,16 +626,20 @@ let cachedFeed = null;
 let cachedProviders = null;
 let cachedDivisions = null;
 let cachedKpi = null;
+let cachedOutputBrief = null;
+let cachedOutputLatest = null;
 
 async function refreshAll() {
-  const [sitrep, overview, agents, feed, providers, divisions, kpi] = await Promise.all([
+  const [sitrep, overview, agents, feed, providers, divisions, kpi, outputBrief, outputLatest] = await Promise.all([
     api('/matrix/sitrep'),
     api('/monitor/overview'),
     api('/monitor/agents'),
     api('/monitor/feed'),
     api('/monitor/providers'),
     api('/api/v1/ncl/divisions'),
-    api('/monitor/kpi/trend')
+    api('/monitor/kpi/trend'),
+    api('/api/v1/ncl/output-brief'),
+    api('/api/v1/outputs/latest?limit=20')
   ]);
 
   cachedSitrep = sitrep;
@@ -597,12 +649,15 @@ async function refreshAll() {
   cachedProviders = providers;
   cachedDivisions = divisions;
   cachedKpi = kpi;
+  cachedOutputBrief = outputBrief;
+  cachedOutputLatest = outputLatest;
 
   renderDashboard();
   renderDivisions();
   renderAgents();
   renderRevenue();
   renderPipeline();
+  renderOutputs();
 
   // Update system status pill
   const pill = document.getElementById('status-pill');
@@ -1199,6 +1254,110 @@ async function c2(cmd) {
 
   // Refresh after command
   setTimeout(refreshAll, 2000);
+}
+
+// ============================================================
+// OUTPUTS RENDER
+// ============================================================
+function renderOutputs() {
+  const brief = cachedOutputBrief || {};
+  const latest = cachedOutputLatest || {};
+
+  // Stats
+  document.getElementById('out-total').textContent = brief.total_outputs ?? 0;
+  document.getElementById('out-recent-6h').textContent = brief.recent_6h ?? 0;
+
+  const byDiv = brief.by_division || {};
+  const activeDivs = Object.keys(byDiv).filter(k => byDiv[k] > 0).length;
+  document.getElementById('out-div-count').textContent = activeDivs + '/4';
+
+  const gaps = brief.gaps || {};
+  const gapCount = Object.values(gaps).reduce((sum, g) => sum + (g.missing_agent_outputs || []).length, 0);
+  document.getElementById('out-gap-count').textContent = gapCount;
+
+  // By Division breakdown
+  const divContainer = document.getElementById('out-by-division');
+  if (Object.keys(byDiv).length === 0) {
+    divContainer.innerHTML = '<div style="text-align:center;padding:20px;color:var(--dim);font-size:11px">No outputs yet — agents are working...</div>';
+  } else {
+    let divHtml = '';
+    const total = brief.total_outputs || 1;
+    for (const [code, count] of Object.entries(byDiv)) {
+      const pct = Math.round(count / total * 100);
+      const div = DIVISIONS.find(d => d.code === code);
+      const color = div ? div.color : 'var(--dim)';
+      divHtml += `<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(42,42,58,.3)">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="color:${color}">${div ? div.icon : '&#128203;'}</span>
+          <span style="font-size:11px;font-weight:600">${code}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="progress-bar" style="width:100px;height:6px">
+            <div class="progress-fill" style="width:${pct}%;background:${color}"></div>
+          </div>
+          <span style="font-size:12px;font-weight:700;color:var(--text)">${count}</span>
+          <span style="font-size:9px;color:var(--dim)">(${pct}%)</span>
+        </div>
+      </div>`;
+    }
+    divContainer.innerHTML = divHtml;
+  }
+
+  // By Category
+  const catContainer = document.getElementById('out-by-category');
+  const byCat = brief.by_category || {};
+  if (Object.keys(byCat).length === 0) {
+    catContainer.innerHTML = '<div style="text-align:center;padding:20px;color:var(--dim);font-size:11px">No categorized outputs yet</div>';
+  } else {
+    let catHtml = '';
+    const sortedCats = Object.entries(byCat).sort((a, b) => b[1] - a[1]);
+    for (const [cat, count] of sortedCats) {
+      catHtml += `<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(42,42,58,.3);font-size:11px">
+        <span style="color:var(--dim)">${cat.replace(/_/g, ' ')}</span>
+        <span style="font-weight:700">${count}</span>
+      </div>`;
+    }
+    catContainer.innerHTML = catHtml;
+  }
+
+  // Gaps
+  const gapContainer = document.getElementById('out-gaps');
+  if (Object.keys(gaps).length === 0) {
+    gapContainer.innerHTML = '<div style="text-align:center;padding:20px;color:var(--green);font-size:11px">&#9989; All agents have completed outputs — no coverage gaps</div>';
+  } else {
+    let gapHtml = '<div class="grid grid-2" style="gap:8px">';
+    for (const [divId, gapInfo] of Object.entries(gaps)) {
+      const div = DIVISIONS.find(d => d.code === gapInfo.code);
+      const color = div ? div.color : 'var(--amber)';
+      gapHtml += `<div class="card" style="border-left:3px solid ${color};padding:12px">
+        <div style="font-size:11px;font-weight:700;color:${color};margin-bottom:4px">${gapInfo.code}</div>
+        <div style="font-size:10px;color:var(--dim);margin-bottom:6px">${gapInfo.total_outputs} total outputs</div>
+        <div style="font-size:10px;color:var(--amber)">Missing: ${(gapInfo.missing_agent_outputs || []).map(a => '<strong>' + a + '</strong>').join(', ')}</div>
+      </div>`;
+    }
+    gapHtml += '</div>';
+    gapContainer.innerHTML = gapHtml;
+  }
+
+  // Recent outputs table
+  const body = document.getElementById('out-recent-body');
+  const outputs = (latest.outputs || []);
+  if (outputs.length === 0) {
+    body.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--dim);padding:20px">No completed outputs yet. Tasks are processing...</td></tr>';
+  } else {
+    body.innerHTML = outputs.map(o => {
+      const qaColor = (o.qa_status || '').toUpperCase() === 'PASS' ? 'var(--green)' : 'var(--amber)';
+      const div = DIVISIONS.find(d => d.code === o.division);
+      const divColor = div ? div.color : 'var(--dim)';
+      return `<tr>
+        <td style="font-weight:500;max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${o.title || o.task_type || '--'}</td>
+        <td style="color:${divColor}">${o.division || '--'}</td>
+        <td style="color:var(--dim)">${(o.task_type || '--').replace(/_/g, ' ')}</td>
+        <td style="color:${qaColor};font-weight:700">${(o.qa_status || '--').toUpperCase()}</td>
+        <td style="color:var(--dim)">${timeAgo(o.created_at)}</td>
+      </tr>`;
+    }).join('');
+  }
 }
 
 // ============================================================

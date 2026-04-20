@@ -357,6 +357,7 @@ a:hover { text-decoration:underline; }
     <button class="nav-tab" data-tab="intelligence">INTELLIGENCE</button>
     <button class="nav-tab" data-tab="weekly-goals">WEEKLY GOALS</button>
     <button class="nav-tab" data-tab="escalations">ESCALATIONS</button>
+    <button class="nav-tab" data-tab="outputs">OUTPUTS</button>
   </div>
   <div class="header-right">
     <div id="refresh-dot" class="refresh-indicator" title="Auto-refresh active"></div>
@@ -765,6 +766,50 @@ a:hover { text-decoration:underline; }
         <div class="icon">&#128680;</div>
         <div>Loading escalations...</div>
       </div>
+    </div>
+  </div>
+
+  <!-- ==================== OUTPUTS TAB ==================== -->
+  <div id="tab-outputs" class="tab-content">
+
+    <!-- Output Intelligence Brief -->
+    <div class="grid grid-4 mb-12">
+      <div class="card" style="text-align:center">
+        <div class="card-title" style="justify-content:center">TOTAL OUTPUTS</div>
+        <div id="ncl-out-total" class="metric-big c-green">--</div>
+        <div class="metric-sub">stored in output DB</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div class="card-title" style="justify-content:center">LAST 6 HOURS</div>
+        <div id="ncl-out-recent" class="metric-big c-cyan">--</div>
+        <div class="metric-sub">recently completed</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div class="card-title" style="justify-content:center">DIVISIONS ACTIVE</div>
+        <div id="ncl-out-divs" class="metric-big c-purple">--</div>
+        <div class="metric-sub">producing outputs</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div class="card-title" style="justify-content:center">COVERAGE GAPS</div>
+        <div id="ncl-out-gaps" class="metric-big c-amber">--</div>
+        <div class="metric-sub">agents missing outputs</div>
+      </div>
+    </div>
+
+    <div class="grid grid-2 mb-12">
+      <div class="card">
+        <div class="card-title">BY DIVISION</div>
+        <div id="ncl-out-by-div"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">COVERAGE GAPS</div>
+        <div id="ncl-out-gap-detail"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">RECENT COMPLETED OUTPUTS</div>
+      <div id="ncl-out-latest" style="max-height:400px;overflow-y:auto"></div>
     </div>
   </div>
 
@@ -1536,6 +1581,7 @@ a:hover { text-decoration:underline; }
         loadCSuiteStatus(),
         loadEscalations(),
         loadWeeklyGoals(),
+        loadOutputBrief(),
       ]);
       state.lastRefresh = new Date();
       addOpsLog('FULL REFRESH', 'All systems polled', true);
@@ -1637,6 +1683,70 @@ a:hover { text-decoration:underline; }
     }
   }
 
+  // ── Output Brief ──
+  async function loadOutputBrief() {
+    try {
+      const [brief, latest] = await Promise.all([
+        apiGet('/api/v1/ncl/output-brief'),
+        apiGet('/api/v1/outputs/latest?limit=15'),
+      ]);
+
+      // Stats
+      $('ncl-out-total').textContent = brief.total_outputs || 0;
+      $('ncl-out-recent').textContent = brief.recent_6h || 0;
+      const byDiv = brief.by_division || {};
+      const activeDivs = Object.keys(byDiv).filter(k => byDiv[k] > 0).length;
+      $('ncl-out-divs').textContent = activeDivs + '/4';
+      const gaps = brief.gaps || {};
+      const gapCount = Object.values(gaps).reduce((s, g) => s + (g.missing_agent_outputs || []).length, 0);
+      $('ncl-out-gaps').textContent = gapCount;
+
+      // By division
+      let divHtml = '';
+      if (Object.keys(byDiv).length === 0) {
+        divHtml = '<div style="color:var(--dim);font-size:11px;padding:16px;text-align:center">No outputs yet</div>';
+      } else {
+        const total = brief.total_outputs || 1;
+        for (const [code, count] of Object.entries(byDiv)) {
+          const pct = Math.round(count / total * 100);
+          divHtml += '<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px"><span style="font-weight:600">' + sanitize(code) + '</span><span>' + count + ' (' + pct + '%)</span></div>';
+        }
+      }
+      $('ncl-out-by-div').innerHTML = divHtml;
+
+      // Gaps
+      let gapHtml = '';
+      if (Object.keys(gaps).length === 0) {
+        gapHtml = '<div style="color:var(--green);font-size:11px;padding:16px;text-align:center">No coverage gaps</div>';
+      } else {
+        for (const [divId, gapInfo] of Object.entries(gaps)) {
+          gapHtml += '<div style="padding:8px 0;border-bottom:1px solid var(--border);font-size:11px"><span style="color:var(--amber);font-weight:700">[' + sanitize(gapInfo.code) + ']</span> Missing: <span style="color:var(--red)">' + (gapInfo.missing_agent_outputs || []).map(sanitize).join(', ') + '</span> <span style="color:var(--dim)">(' + gapInfo.total_outputs + ' outputs)</span></div>';
+        }
+      }
+      $('ncl-out-gap-detail').innerHTML = gapHtml;
+
+      // Recent outputs
+      const outputs = (latest && latest.outputs) || [];
+      let outHtml = '';
+      if (outputs.length === 0) {
+        outHtml = '<div style="color:var(--dim);font-size:11px;padding:16px;text-align:center">No completed outputs yet</div>';
+      } else {
+        outHtml = '<table style="width:100%;border-collapse:collapse;font-size:10px"><thead><tr style="color:var(--dim);text-align:left"><th style="padding:6px">Title</th><th style="padding:6px">Division</th><th style="padding:6px">Type</th><th style="padding:6px">QA</th><th style="padding:6px">Time</th></tr></thead><tbody>';
+        for (const o of outputs) {
+          const qaColor = (o.qa_status || '').toUpperCase() === 'PASS' ? 'var(--green)' : 'var(--amber)';
+          outHtml += '<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px;font-weight:500">' + sanitize(o.title || o.task_type || '--') + '</td><td style="padding:6px;color:var(--cyan)">' + sanitize(o.division || '--') + '</td><td style="padding:6px;color:var(--dim)">' + sanitize(o.task_type || '--') + '</td><td style="padding:6px;color:' + qaColor + ';font-weight:700">' + sanitize((o.qa_status || '--').toUpperCase()) + '</td><td style="padding:6px;color:var(--dim)">' + relativeTime(o.created_at) + '</td></tr>';
+        }
+        outHtml += '</tbody></table>';
+      }
+      $('ncl-out-latest').innerHTML = outHtml;
+
+      addOpsLog('OUTPUT BRIEF', brief.total_outputs + ' total, ' + (brief.recent_6h || 0) + ' recent, ' + gapCount + ' gaps');
+    } catch (e) {
+      console.error('Output brief error:', e);
+      $('ncl-out-total').textContent = 'ERR';
+    }
+  }
+
   // ── Initial Load ──
   async function init() {
     $('status-pill').textContent = 'CONNECTING';
@@ -1650,6 +1760,7 @@ a:hover { text-decoration:underline; }
         loadCSuiteStatus(),
         loadEscalations(),
         loadWeeklyGoals(),
+        loadOutputBrief(),
       ]);
       state.lastRefresh = new Date();
       addOpsLog('INIT', 'Dashboard initialized', true);

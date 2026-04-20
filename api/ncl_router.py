@@ -300,3 +300,17 @@ async def ncl_internal_ops(mode: str = "daily"):
                 "timestamp": datetime.now(timezone.utc).isoformat()}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# ── GET /output-brief ──────────────────────────────────────────
+
+@router.get("/output-brief")
+async def ncl_output_brief():
+    """Intelligence brief from the output store — what's been produced."""
+    try:
+        from utils.output_awareness import get_intelligence_brief, get_output_gaps
+        brief = get_intelligence_brief()
+        brief["gaps"] = get_output_gaps(_get_divisions())
+        return brief
+    except Exception as e:
+        return {"error": str(e), "total_outputs": 0}

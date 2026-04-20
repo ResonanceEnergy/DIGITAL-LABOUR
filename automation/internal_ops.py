@@ -493,8 +493,10 @@ def dispatch_internal_task(task_template: dict, dry_run: bool = False) -> dict:
 def _select_tasks(frequency: str, state: dict) -> list[dict]:
     """Select tasks from the catalog matching the given frequency.
 
-    Applies deduplication logic: skips tasks already run today (daily)
-    or this week (weekly).
+    Applies TWO layers of deduplication:
+    1. Dispatch history — skips tasks already dispatched today/this week
+    2. Output store — skips tasks that already have recent completed outputs
+       (closes the feedback loop so agents don't redo finished work)
     """
     today = _today_str()
     now = datetime.now(timezone.utc)
@@ -506,6 +508,18 @@ def _select_tasks(frequency: str, state: dict) -> list[dict]:
         if entry.get("dispatched_at", "").startswith(today):
             dispatched_today.add((entry.get("task_type"), entry.get("division")))
 
+    # Output store awareness — check what's already been completed
+    try:
+        from utils.output_awareness import should_dispatch as _should_dispatch
+        output_aware = True
+    except ImportError:
+        output_aware = False
+        logger.debug("Output awareness not available — skipping output dedup")
+
+    # Cooldown windows: daily tasks 20h, weekly 6 days, monthly 25 days
+    cooldown_map = {"daily": 20, "weekly": 144, "monthly": 600}
+    cooldown_hours = cooldown_map.get(frequency, 20)
+
     for division, tasks in INTERNAL_TASK_CATALOG.items():
         for task in tasks:
             if task["frequency"] != frequency:
@@ -513,7 +527,7 @@ def _select_tasks(frequency: str, state: dict) -> list[dict]:
 
             task_key = (task["task_type"], task.get("division", division))
 
-            # Daily tasks: skip if already dispatched today
+            # Layer 1: Dispatch history dedup
             if frequency == "daily" and task_key in dispatched_today:
                 logger.debug("Skipping %s/%s — already dispatched today", *task_key)
                 continue
@@ -525,6 +539,21 @@ def _select_tasks(frequency: str, state: dict) -> list[dict]:
             # Monthly tasks: only on 1st of month unless forced
             if frequency == "monthly" and now.day != 1:
                 continue
+
+            # Layer 2: Output store dedup — skip if recent output exists
+            if output_aware:
+                try:
+                    ok, reason = _should_dispatch(
+                        task["task_type"],
+                        division=task.get("division", division),
+                        cooldown_hours=cooldown_hours,
+                    )
+                    if not ok:
+                        logger.info("Skipping %s/%s — output store: %s",
+                                    task["task_type"], division, reason)
+                        continue
+                except Exception as e:
+                    logger.debug("Output check failed for %s: %s (proceeding)", task["task_type"], e)
 
             selected.append(task)
 

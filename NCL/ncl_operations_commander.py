@@ -506,13 +506,33 @@ def daily_ops_push() -> dict:
     revenue = _check_revenue()
     report["revenue"] = revenue
 
-    # Phase 7: Fire tasks to divisions that need activity
-    print("\n[PHASE 7] Division Task Dispatch")
+    # Phase 7: Output Intelligence Brief — check what's already been produced
+    print("\n[PHASE 7] Output Intelligence Brief")
+    output_brief = {}
+    try:
+        from utils.output_awareness import get_intelligence_brief, get_output_gaps
+        output_brief = get_intelligence_brief()
+        gaps = get_output_gaps(DIVISIONS)
+        output_brief["gaps"] = gaps
+        print(f"  Total outputs in store: {output_brief.get('total_outputs', 0)}")
+        print(f"  Completions last 6h: {output_brief.get('recent_6h', 0)}")
+        if gaps:
+            for div_id, gap_info in gaps.items():
+                print(f"  GAP [{gap_info['code']}]: Missing outputs from {gap_info['missing_agent_outputs']}")
+        else:
+            print("  All divisions have agent outputs — no gaps detected.")
+    except Exception as e:
+        print(f"  [OUTPUT BRIEF ERROR] {e}")
+        output_brief["error"] = str(e)
+    report["output_brief"] = output_brief
+
+    # Phase 8: Fire tasks to divisions that need activity
+    print("\n[PHASE 8] Division Task Dispatch")
     dispatched = _auto_dispatch_division_tasks(div_health)
     report["dispatched"] = dispatched
 
-    # Phase 8: Internal Ops Engine — Self-building tasks
-    print("\n[PHASE 8] Internal Operations Engine")
+    # Phase 9: Internal Ops Engine — Self-building tasks
+    print("\n[PHASE 9] Internal Operations Engine")
     internal_ops_result = {}
     try:
         from automation.internal_ops import generate_daily_tasks, generate_weekly_tasks
@@ -528,9 +548,9 @@ def daily_ops_push() -> dict:
         internal_ops_result["error"] = str(e)
     report["internal_ops"] = internal_ops_result
 
-    # Phase 9: Weekly goals check (if due)
+    # Phase 10: Weekly goals check (if due)
     if _hours_since(state.get("last_weekly_goals")) > 144:  # > 6 days
-        print("\n[PHASE 9] Weekly Goals Due — Generating...")
+        print("\n[PHASE 10] Weekly Goals Due — Generating...")
         generate_weekly_goals(force=True)
 
     # Save state
