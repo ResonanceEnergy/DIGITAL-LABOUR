@@ -110,16 +110,26 @@ async def startup_background_daemons():
 
         def _process_task(t):
             try:
-                event = create_event(t["task_type"], t.get("inputs", {}),
-                                    t.get("client", ""), t.get("provider", "openai"))
+                task_inputs = t.get("inputs", {})
+                if isinstance(task_inputs, str):
+                    import json as _json
+                    task_inputs = _json.loads(task_inputs)
+                # Inject provider into inputs so route_task can pick it up
+                if t.get("provider"):
+                    task_inputs["provider"] = t["provider"]
+                event = create_event(t["task_type"], task_inputs, t.get("client", "direct"))
                 result = route_task(event)
-                if result.get("qa", {}).get("status") == "PASS":
-                    queue.complete(t["task_id"], result.get("outputs", {}))
-                    logger.info("[QUEUE] Completed: %s (%s)", t["task_id"][:8], t["task_type"])
+                qa_data = result.get("qa", {})
+                qa_status = qa_data.get("status", "")
+                outputs = result.get("outputs", {})
+                cost = result.get("billing", {}).get("amount", 0.0)
+                if qa_status == "PASS":
+                    queue.complete(t["task_id"], outputs=outputs, qa_status=qa_status, cost_usd=cost)
+                    logger.info("[QUEUE] Completed: %s (%s) QA=PASS", t["task_id"][:8], t["task_type"])
                 else:
-                    issues = result.get("qa", {}).get("issues", [])
-                    queue.fail(t["task_id"], str(issues))
-                    logger.warning("[QUEUE] Failed: %s (%s) — %s", t["task_id"][:8], t["task_type"], issues[:1])
+                    issues = qa_data.get("issues", [])
+                    queue.fail(t["task_id"], str(issues)[:500])
+                    logger.warning("[QUEUE] QA Failed: %s (%s) — %s", t["task_id"][:8], t["task_type"], issues[:1])
             except Exception as e:
                 queue.fail(t["task_id"], str(e))
                 logger.error("[QUEUE] Error processing %s: %s", t["task_id"][:8], e)

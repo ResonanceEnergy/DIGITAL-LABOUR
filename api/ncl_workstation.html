@@ -1235,12 +1235,20 @@ a:hover { text-decoration:underline; }
     }).join('');
   }
 
-  // NERVE Status
+  // NERVE Status — uses /health + /queue/stats + /api/v1/ncl/status (no auth required)
   async function loadNerveStatus() {
     try {
-      const data = await apiGet('/matrix/sitrep');
-      state.nerveStatus = data;
-      renderNerveStatus(data);
+      const [health, queue, ncl] = await Promise.allSettled([
+        apiGet('/health'),
+        apiGet('/queue/stats'),
+        apiGet('/api/v1/ncl/status'),
+      ]);
+      const h = health.status === 'fulfilled' ? health.value : null;
+      const q = queue.status === 'fulfilled' ? queue.value : null;
+      const n = ncl.status === 'fulfilled' ? ncl.value : null;
+      const merged = { health: h, queue: q, ncl: n, _ok: !!h };
+      state.nerveStatus = merged;
+      renderNerveStatus(merged);
     } catch (e) {
       renderNerveStatus(null);
     }
@@ -1251,50 +1259,48 @@ a:hover { text-decoration:underline; }
     const label = $('nerve-label');
     const details = $('nerve-details');
 
-    if (!data) {
+    if (!data || !data._ok) {
       dot.className = 'nerve-dot dead';
       label.textContent = 'NOT RUNNING';
       label.style.color = 'var(--red)';
-      details.innerHTML = 'Unable to reach NERVE daemon. The matrix/sitrep endpoint did not respond.';
+      details.innerHTML = 'Unable to reach DIGITAL LABOUR API. The service may be deploying.';
       return;
     }
 
-    const nerveState = data.nerve_status || data.status || data.state || 'unknown';
-    const isActive = ['active','running','ok','operational','online'].includes(nerveState.toLowerCase());
-    const isStale = ['stale','degraded','warning'].includes(nerveState.toLowerCase());
+    const healthOk = data.health && data.health.status === 'ok';
+    const queueData = data.queue || {};
+    const nclData = data.ncl || {};
+    const totalTasks = (queueData.completed || 0) + (queueData.queued || 0) + (queueData.running || 0);
+    const hasActivity = totalTasks > 0 || (nclData.cycle_count || 0) > 0 || (nclData.tasks_fired_today || 0) > 0;
 
-    if (isActive) {
+    if (healthOk) {
       dot.className = 'nerve-dot active';
-      label.textContent = 'ACTIVE';
+      label.textContent = 'OPERATIONAL';
       label.style.color = 'var(--green)';
-    } else if (isStale) {
-      dot.className = 'nerve-dot stale';
-      label.textContent = 'STALE';
-      label.style.color = 'var(--amber)';
     } else {
-      dot.className = 'nerve-dot dead';
-      label.textContent = nerveState.toUpperCase();
-      label.style.color = 'var(--red)';
+      dot.className = 'nerve-dot stale';
+      label.textContent = 'DEGRADED';
+      label.style.color = 'var(--amber)';
     }
 
     const lines = [];
-    if (data.uptime) lines.push(`Uptime: ${data.uptime}`);
-    if (data.last_heartbeat) lines.push(`Last heartbeat: ${ts(data.last_heartbeat)}`);
-    if (data.active_daemons !== undefined) lines.push(`Active daemons: ${data.active_daemons}`);
-    if (data.queue_depth !== undefined) lines.push(`Queue depth: ${data.queue_depth}`);
-    if (data.agents_online !== undefined) lines.push(`Agents online: ${data.agents_online}`);
-    if (data.version) lines.push(`Version: ${data.version}`);
-    if (data.cycle_count !== undefined) lines.push(`Cycle count: ${data.cycle_count}`);
-    details.innerHTML = lines.length > 0 ? lines.join('<br>') : jsonPretty(data).substring(0, 500);
+    lines.push('API: <span style="color:var(--green)">&#10004; Online</span>');
+    if (queueData.queued !== undefined) lines.push('Queue: ' + queueData.queued + ' queued, ' + (queueData.running || 0) + ' running');
+    if (queueData.completed !== undefined) lines.push('Completed: ' + queueData.completed + ' | Failed: ' + (queueData.failed || 0));
+    if (nclData.cycle_count !== undefined) lines.push('NCL Cycles: ' + nclData.cycle_count);
+    if (nclData.tasks_fired_today !== undefined) lines.push('Tasks today: ' + nclData.tasks_fired_today);
+    if (nclData.escalations_sent !== undefined) lines.push('Escalations: ' + nclData.escalations_sent);
+    if (nclData.timestamp) lines.push('Last check: ' + ts(nclData.timestamp));
+    details.innerHTML = lines.join('<br>');
   }
 
-  // C-Suite Status
+  // C-Suite Status — uses /api/v1/ncl/status to show division + ops cadence
   async function loadCSuiteStatus() {
     try {
-      const data = await apiPost('/matrix/command', { command: 'nerve_status' });
+      const data = await apiGet('/api/v1/ncl/status');
       renderCSuiteStatus(data);
     } catch (e) {
-      $('csuite-status').innerHTML = '<span style="color:var(--dim)">C-Suite status unavailable. Run C-SUITE RUN to initialize.</span>';
+      $('csuite-status').innerHTML = '<span style="color:var(--dim)">C-Suite status unavailable. NCL endpoint unreachable.</span>';
     }
   }
 
@@ -1305,25 +1311,28 @@ a:hover { text-decoration:underline; }
       return;
     }
 
-    const csuite = data.csuite || data.executives || data;
-    if (typeof csuite === 'object' && !Array.isArray(csuite)) {
-      const entries = Object.entries(csuite);
-      if (entries.length > 0) {
-        container.innerHTML = entries.map(([role, info]) => {
-          const status = typeof info === 'object' ? (info.status || info.state || 'unknown') : String(info);
-          const isOk = ['active','ok','running','operational'].includes(status.toLowerCase());
-          return `
-            <div style="display:flex;align-items:center;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(42,42,74,.2)">
-              <span style="font-weight:600">${sanitize(role)}</span>
-              <span class="status-badge ${isOk ? 'status-GREEN' : 'status-YELLOW'}">${sanitize(status.toUpperCase())}</span>
-            </div>
-          `;
-        }).join('');
-        return;
-      }
+    const lines = [];
+    const divs = data.divisions || {};
+    const divEntries = Object.entries(divs);
+
+    if (divEntries.length > 0) {
+      lines.push('<div style="font-weight:700;font-size:10px;color:var(--cyan);margin-bottom:6px;letter-spacing:1px">DIVISION STATUS</div>');
+      divEntries.forEach(([id, div]) => {
+        const st = div.status || 'UNKNOWN';
+        const cls = st === 'GREEN' ? 'status-GREEN' : st === 'RED' ? 'status-RED' : 'status-YELLOW';
+        lines.push('<div style="display:flex;align-items:center;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(42,42,74,.2)">' +
+          '<span style="font-weight:600;font-size:10px">' + sanitize(div.code || id) + '</span>' +
+          '<span style="color:var(--dim);font-size:9px;flex:1;margin-left:8px">' + sanitize(div.name || '') + '</span>' +
+          '<span class="status-badge ' + cls + '">' + sanitize(st) + '</span></div>');
+      });
     }
 
-    container.innerHTML = `<pre style="font-size:10px;color:var(--dim);white-space:pre-wrap;max-height:200px;overflow-y:auto">${sanitize(jsonPretty(data)).substring(0, 1000)}</pre>`;
+    lines.push('<div style="margin-top:8px;font-size:10px;color:var(--dim)">');
+    lines.push('Last push: ' + (data.last_daily_push ? ts(data.last_daily_push) : 'Never'));
+    lines.push(' | Goals: ' + (data.last_weekly_goals ? ts(data.last_weekly_goals) : 'Never'));
+    lines.push('</div>');
+
+    container.innerHTML = lines.join('');
   }
 
   // Escalations
@@ -1595,18 +1604,17 @@ a:hover { text-decoration:underline; }
 
   async function checkNerveStatus() {
     setC2Status('CHECKING NERVE...', 'var(--cyan)');
-    toast('Checking NERVE daemon status...', 'info');
+    toast('Checking system status...', 'info');
 
     try {
-      const data = await apiGet('/matrix/sitrep');
-      showResult(data);
-      addOpsLog('NERVE STATUS', data.status || 'Retrieved', true);
-      toast('NERVE status retrieved', 'success');
-      renderNerveStatus(data);
+      await loadNerveStatus();
+      showResult(state.nerveStatus);
+      addOpsLog('NERVE STATUS', 'System status retrieved', true);
+      toast('System status retrieved', 'success');
     } catch (e) {
       showResult({ error: e.message });
       addOpsLog('NERVE STATUS', e.message, false);
-      toast('NERVE check failed: ' + e.message, 'error');
+      toast('Status check failed: ' + e.message, 'error');
       renderNerveStatus(null);
     } finally {
       setC2Status('IDLE', 'var(--dim)');
@@ -1615,18 +1623,18 @@ a:hover { text-decoration:underline; }
 
   async function runCSuite() {
     setC2Status('RUNNING C-SUITE...', 'var(--purple)');
-    toast('Executing C-Suite cadence...', 'info');
+    toast('Refreshing C-Suite cadence...', 'info');
 
     try {
-      const data = await apiPost('/matrix/command', { command: 'csuite_run' });
-      showResult(data);
-      addOpsLog('C-SUITE RUN', data.message || 'Executed', true);
-      toast('C-Suite cadence completed', 'success');
-      renderCSuiteStatus(data);
+      await loadCSuiteStatus();
+      await loadDivisionHealth();
+      showResult({ message: 'C-Suite cadence refreshed', divisions: state.nerveStatus });
+      addOpsLog('C-SUITE RUN', 'Cadence refreshed', true);
+      toast('C-Suite cadence refreshed', 'success');
     } catch (e) {
       showResult({ error: e.message });
       addOpsLog('C-SUITE RUN', e.message, false);
-      toast('C-Suite run failed: ' + e.message, 'error');
+      toast('C-Suite refresh failed: ' + e.message, 'error');
     } finally {
       setC2Status('IDLE', 'var(--dim)');
     }
