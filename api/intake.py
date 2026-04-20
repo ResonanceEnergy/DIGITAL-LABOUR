@@ -43,6 +43,7 @@ from api.checkout import router as checkout_router
 from api.fulfillment import router as fulfillment_router
 from api.task_router import router as task_router
 from api.notifications_router import router as notifications_router
+from api.ncl_router import router as ncl_router
 
 # P6.3 — Credential TTL check on startup
 try:
@@ -153,6 +154,9 @@ app.include_router(task_router)
 
 # Notification System — Real-time alerts for workstation
 app.include_router(notifications_router)
+
+# NCL Operations Commander
+app.include_router(ncl_router)
 
 
 @app.get("/ops", response_class=HTMLResponse)

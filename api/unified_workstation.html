@@ -152,6 +152,7 @@ a { color:var(--cyan); text-decoration:none; }
   </div>
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="switchTab('overview')">OVERVIEW</button>
+    <button class="nav-tab" onclick="switchTab('ncl')">NCL COMMAND</button>
     <button class="nav-tab" onclick="switchTab('divisions')">DIVISIONS</button>
     <button class="nav-tab" onclick="switchTab('pipeline')">PIPELINE</button>
     <button class="nav-tab" onclick="switchTab('firestrike')">FIRST STRIKE</button>
@@ -215,6 +216,60 @@ a { color:var(--cyan); text-decoration:none; }
     <div class="grid grid-2" style="margin-top:12px">
       <div class="card"><div class="card-title">&#128200; TASK VOLUME (14D)</div><canvas id="chart-volume" height="120"></canvas></div>
       <div class="card"><div class="card-title">&#9201; LATENCY (14D)</div><canvas id="chart-latency" height="120"></canvas></div>
+    </div>
+  </div>
+
+  <!-- NCL COMMAND TAB -->
+  <div id="tab-ncl" class="tab-content">
+    <!-- NCL Status Header -->
+    <div class="card" style="background:linear-gradient(135deg,rgba(0,255,136,.06),rgba(0,204,221,.06));border:1px solid rgba(0,255,136,.2)">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div>
+          <div style="font-size:16px;font-weight:800;color:var(--green)">&#129504; NCL OPERATIONS COMMANDER</div>
+          <div style="font-size:10px;color:var(--dim);margin-top:2px">Nerve Command Layer &mdash; Strategic Operations Lead</div>
+        </div>
+        <div id="ncl-status-badge" style="padding:4px 12px;border-radius:10px;font-size:10px;font-weight:700;background:rgba(0,255,136,.15);color:var(--green)">LOADING</div>
+      </div>
+      <div class="grid grid-4" style="gap:8px">
+        <div class="stat-card"><div class="stat-value" id="ncl-cycles">--</div><div class="stat-label">OPS CYCLES</div></div>
+        <div class="stat-card"><div class="stat-value" id="ncl-fired">--</div><div class="stat-label">TASKS FIRED TODAY</div></div>
+        <div class="stat-card"><div class="stat-value" id="ncl-escalations">--</div><div class="stat-label">ESCALATIONS</div></div>
+        <div class="stat-card"><div class="stat-value" id="ncl-goals">--</div><div class="stat-label">WEEKLY PLANS</div></div>
+      </div>
+      <div style="display:flex;gap:6px;margin-top:8px;font-size:9px;color:var(--dim)">
+        <span>Last Daily Push: <strong id="ncl-last-push" style="color:var(--text)">--</strong></span>
+        <span>&bull;</span>
+        <span>Last Weekly Goals: <strong id="ncl-last-goals" style="color:var(--text)">--</strong></span>
+      </div>
+    </div>
+
+    <!-- NCL Action Buttons -->
+    <div class="card" style="margin-top:8px">
+      <div class="card-title">&#9889; NCL OPERATIONS</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px">
+        <button class="c2-btn success" onclick="nclAction('daily-push')" style="padding:12px;font-size:11px">&#128260; DAILY OPS PUSH</button>
+        <button class="c2-btn" onclick="nclAction('weekly-goals')" style="padding:12px;font-size:11px;background:rgba(168,85,247,.15);color:#a855f7">&#128203; GENERATE WEEKLY GOALS</button>
+        <button class="c2-btn" onclick="nclAction('health')" style="padding:12px;font-size:11px;background:rgba(0,204,221,.15);color:var(--cyan)">&#128154; DIVISION HEALTH CHECK</button>
+      </div>
+      <div id="ncl-action-result" style="margin-top:8px;display:none;padding:10px;background:rgba(0,0,0,.3);border-radius:8px;font-size:11px;font-family:monospace;white-space:pre-wrap;max-height:300px;overflow-y:auto"></div>
+    </div>
+
+    <!-- Division Status Grid -->
+    <div class="card" style="margin-top:8px">
+      <div class="card-title">&#127961; DIVISION STATUS (LIVE)</div>
+      <div id="ncl-div-grid" class="grid grid-2" style="gap:8px;margin-top:8px"></div>
+    </div>
+
+    <!-- Weekly Goals Display -->
+    <div class="card" style="margin-top:8px">
+      <div class="card-title">&#127919; LATEST WEEKLY GOALS</div>
+      <div id="ncl-weekly-goals" style="margin-top:8px;font-size:11px;color:var(--dim)">Click "Generate Weekly Goals" or wait for auto-refresh...</div>
+    </div>
+
+    <!-- Escalation Log -->
+    <div class="card" style="margin-top:8px">
+      <div class="card-title">&#128680; ESCALATION LOG</div>
+      <div id="ncl-escalation-log" style="margin-top:8px;font-size:11px;color:var(--dim)">No recent escalations</div>
     </div>
   </div>
 
@@ -317,6 +372,9 @@ a { color:var(--cyan); text-decoration:none; }
     <button class="c2-btn" onclick="c2('csuite_run')">&#128081; C-SUITE</button>
     <button class="c2-btn danger" onclick="c2('blitz_50')">&#128293; BLITZ 50</button>
     <button class="c2-btn" onclick="c2('full_status')">&#128203; FULL STATUS</button>
+    <button class="c2-btn" onclick="nclAction('daily-push')" style="background:rgba(0,255,136,.12);color:var(--green)">&#129504; NCL PUSH</button>
+    <button class="c2-btn" onclick="nclAction('weekly-goals')" style="background:rgba(168,85,247,.12);color:#a855f7">&#127919; NCL GOALS</button>
+    <button class="c2-btn" onclick="nclAction('health')" style="background:rgba(0,204,221,.12);color:var(--cyan)">&#128154; NCL HEALTH</button>
   </div>
 </div>
 
@@ -428,7 +486,7 @@ function dismissNotif(id) {
 // ── Data Fetching ──
 async function fetchAll() {
   updateTime();
-  await Promise.all([fetchSitrep(), fetchMonitor(), fetchNotifications()]);
+  await Promise.all([fetchSitrep(), fetchMonitor(), fetchNotifications(), fetchNclStatus(), fetchNclGoals(), fetchNclEscalations()]);
 }
 
 async function fetchSitrep() {
@@ -640,6 +698,151 @@ async function c2(action) {
     showToast(action + ': ' + (r.output ? r.output.substring(0,200) : r.status || 'done'));
     setTimeout(fetchAll, 2000);
   } catch(e) { showToast('Error: ' + e.message); }
+}
+
+// ── NCL Operations Commander ──
+async function fetchNclStatus() {
+  try {
+    const res = await fetch(BASE + '/api/v1/ncl/status');
+    const data = await res.json();
+    document.getElementById('ncl-cycles').textContent = data.cycle_count || 0;
+    document.getElementById('ncl-fired').textContent = data.tasks_fired_today || 0;
+    document.getElementById('ncl-escalations').textContent = data.escalations_sent || 0;
+    document.getElementById('ncl-goals').textContent = data.weekly_goal_plans || 0;
+    document.getElementById('ncl-last-push').textContent = data.last_daily_push ? new Date(data.last_daily_push).toLocaleString() : 'Never';
+    document.getElementById('ncl-last-goals').textContent = data.last_weekly_goals ? new Date(data.last_weekly_goals).toLocaleString() : 'Never';
+    document.getElementById('ncl-status-badge').textContent = data.cycle_count > 0 ? 'ACTIVE' : 'STANDBY';
+    document.getElementById('ncl-status-badge').style.background = data.cycle_count > 0 ? 'rgba(0,255,136,.15)' : 'rgba(255,183,0,.15)';
+    document.getElementById('ncl-status-badge').style.color = data.cycle_count > 0 ? 'var(--green)' : 'var(--amber)';
+
+    // Render division status cards
+    if (data.divisions) {
+      const divGrid = document.getElementById('ncl-div-grid');
+      const colors = {'INS-OPS':'#dc2626','GRANT-OPS':'#3b82f6','CTR-SVC':'#22c55e','MUN-SVC':'#a855f7'};
+      const icons = {'INS-OPS':'&#128657;','GRANT-OPS':'&#128220;','CTR-SVC':'&#127959;','MUN-SVC':'&#127963;'};
+      divGrid.innerHTML = Object.entries(data.divisions).map(([id, d]) => {
+        const statusColor = d.status === 'GREEN' ? 'var(--green)' : d.status === 'UNKNOWN' ? 'var(--amber)' : 'var(--red)';
+        return '<div style="background:rgba(42,42,58,.5);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px">' +
+          '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">' +
+            '<div style="display:flex;align-items:center;gap:8px">' +
+              '<span style="font-size:18px">' + (icons[d.code]||'&#128736;') + '</span>' +
+              '<div><div style="font-size:12px;font-weight:700;color:var(--text)">' + d.name + '</div>' +
+              '<span style="font-size:9px;padding:2px 6px;border-radius:4px;background:rgba(0,204,221,.1);color:var(--cyan);font-weight:700">' + d.code + '</span></div>' +
+            '</div>' +
+            '<span style="font-size:10px;font-weight:700;color:' + statusColor + '">' + (d.status||'UNKNOWN') + '</span>' +
+          '</div>' +
+          '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:9px;color:var(--dim);margin-bottom:8px">' +
+            '<div>Head: <strong style="color:var(--text)">' + d.head + '</strong></div>' +
+            '<div>TAM: <strong style="color:var(--text)">' + d.tam + '</strong></div>' +
+            '<div>Agents: <strong style="color:var(--text)">' + d.agents.length + '</strong> (' + d.agents.join(', ') + ')</div>' +
+            '<div>Services: <strong style="color:var(--text)">' + d.services.length + '</strong> types</div>' +
+            '<div>Max Daily: <strong style="color:var(--text)">' + (d.max_daily||'N/A') + '</strong></div>' +
+            '<div>Cost Ceil: <strong style="color:var(--text)">$' + (d.cost_ceiling||'N/A') + '</strong>/task</div>' +
+            '<div>QA Gate: <strong style="color:' + (d.qa_gate ? 'var(--green)' : 'var(--red)') + '">' + (d.qa_gate ? 'ON' : 'OFF') + '</strong></div>' +
+          '</div>' +
+          '<button class="c2-btn" onclick="nclDispatch(\'' + id + '\',\'' + esc(d.name) + '\')" style="width:100%;padding:6px;font-size:10px">&#128640; Dispatch to ' + d.code + '</button>' +
+        '</div>';
+      }).join('');
+    }
+  } catch(e) {
+    document.getElementById('ncl-status-badge').textContent = 'OFFLINE';
+    document.getElementById('ncl-status-badge').style.background = 'rgba(220,38,38,.15)';
+    document.getElementById('ncl-status-badge').style.color = 'var(--red)';
+  }
+}
+
+async function nclAction(action) {
+  const result = document.getElementById('ncl-action-result');
+  result.style.display = 'block';
+  result.textContent = 'Executing ' + action + '...';
+  result.style.color = 'var(--amber)';
+  showToast('NCL: ' + action + ' running...');
+
+  try {
+    const method = action === 'health' ? 'GET' : 'POST';
+    const endpoint = action === 'weekly-goals' ? '/api/v1/ncl/weekly-goals' :
+                     action === 'daily-push'   ? '/api/v1/ncl/daily-push' :
+                                                  '/api/v1/ncl/health';
+    const res = await fetch(BASE + endpoint, {method});
+    const data = await res.json();
+    result.style.color = 'var(--green)';
+    result.textContent = JSON.stringify(data, null, 2);
+    showToast('NCL ' + action + ': complete');
+    setTimeout(fetchNclStatus, 1000);
+  } catch(e) {
+    result.style.color = 'var(--red)';
+    result.textContent = 'ERROR: ' + e.message;
+    showToast('NCL error: ' + e.message);
+  }
+}
+
+async function nclDispatch(divId, divName) {
+  const topic = prompt('Task topic for ' + divName + ':', 'Operations report for ' + divName);
+  if (!topic) return;
+  showToast('Dispatching to ' + divId + '...');
+  try {
+    const res = await fetch(BASE + '/api/v1/ncl/dispatch/' + divId, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({topic, priority: 3})
+    });
+    const data = await res.json();
+    showToast(data.division + ': ' + (data.message||'dispatched') + ' (ID: ' + (data.task_id||'N/A') + ')');
+    setTimeout(fetchNclStatus, 1000);
+  } catch(e) { showToast('Dispatch error: ' + e.message); }
+}
+
+async function fetchNclGoals() {
+  try {
+    const res = await fetch(BASE + '/api/v1/ncl/weekly-goals');
+    const data = await res.json();
+    const el = document.getElementById('ncl-weekly-goals');
+    if (data.status === 'ok' && data.plan) {
+      const p = data.plan;
+      let html = '<div style="margin-bottom:6px"><strong style="color:var(--cyan)">Week: ' + (p.week||'') + '</strong> &mdash; Generated: ' + (p.generated_at ? new Date(p.generated_at).toLocaleString() : 'N/A') + '</div>';
+      if (p.divisions) {
+        Object.entries(p.divisions).forEach(([divId, goals]) => {
+          html += '<div style="margin-top:10px;padding:8px;background:rgba(0,0,0,.2);border-radius:6px;border-left:3px solid var(--cyan)">';
+          html += '<div style="font-weight:700;color:var(--text);font-size:11px">' + (goals.division||divId) + ' (' + (goals.head||'') + ')</div>';
+          if (goals.weekly_goals) {
+            html += '<div style="margin-top:4px">';
+            goals.weekly_goals.forEach(function(g) {
+              html += '<div style="padding:2px 0;color:var(--dim)">&#8226; ' + esc(g.goal||g) + (g.metric ? ' <span style="color:var(--green)">[' + esc(g.metric) + ']</span>' : '') + '</div>';
+            });
+            html += '</div>';
+          }
+          if (goals.revenue_target) {
+            const rt = goals.revenue_target;
+            html += '<div style="margin-top:4px;color:var(--amber);font-size:10px">Revenue Target: $' + (rt.weekly_goal_usd||'--') + '/wk | ' + (rt.deliverables||'--') + ' deliverables | ' + (rt.new_clients||'--') + ' new clients</div>';
+          }
+          html += '</div>';
+        });
+      }
+      el.innerHTML = html;
+    } else {
+      el.innerHTML = '<div style="color:var(--amber)">No weekly goals generated yet. Click "Generate Weekly Goals" to create them.</div>';
+    }
+  } catch(e) {
+    document.getElementById('ncl-weekly-goals').innerHTML = '<div style="color:var(--red)">Error loading goals: ' + esc(e.message) + '</div>';
+  }
+}
+
+async function fetchNclEscalations() {
+  try {
+    const res = await fetch(BASE + '/api/v1/ncl/escalations');
+    const data = await res.json();
+    const el = document.getElementById('ncl-escalation-log');
+    if (data.escalations && data.escalations.length > 0) {
+      el.innerHTML = data.escalations.map(function(e) {
+        return '<div style="padding:6px;margin-bottom:4px;background:rgba(220,38,38,.08);border-radius:6px;border-left:3px solid var(--red)">' +
+          '<div style="font-weight:700;color:var(--text);font-size:10px">' + esc(e.issue||'Escalation') + '</div>' +
+          '<div style="color:var(--dim);font-size:9px;margin-top:2px">' + esc(e.details||'') + '</div>' +
+          '<div style="color:var(--dim);font-size:8px;margin-top:2px">' + (e.timestamp ? new Date(e.timestamp).toLocaleString() : '') + '</div>' +
+        '</div>';
+      }).join('');
+    } else {
+      el.innerHTML = '<div style="color:var(--green);font-size:11px">&#10004; No recent escalations. All clear.</div>';
+    }
+  } catch(e) { /* silent */ }
 }
 
 // ── First Strike ──
