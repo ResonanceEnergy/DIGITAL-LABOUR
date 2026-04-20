@@ -1,22 +1,33 @@
 {
   "python.terminal.activateEnvironment": false,
+  "python.defaultInterpreterPath": "python3",
+  "python.analysis.typeCheckingMode": "basic",
   "diffEditor.maxComputationTime": 0,
   "files.watcherExclude": {
     "**/data/**": true,
     "**/.mypy_cache/**": true,
     "**/output/**": true,
-    "**/__pycache__/**": true
+    "**/__pycache__/**": true,
+    "**/node_modules/**": true,
+    "**/.git/objects/**": true
   },
   "files.exclude": {
     "data/nerve_logs": true,
     "data/openclaw_logs": true,
     "data/*.log": true,
     "data/nerve_cycle_*.json": true,
-    ".mypy_cache": true
+    ".mypy_cache": true,
+    "**/__pycache__": true
   },
   "search.exclude": {
     "**/data/**": true,
-    "**/.mypy_cache/**": true
+    "**/.mypy_cache/**": true,
+    "**/archive/**": true
+  },
+  "editor.formatOnSave": true,
+  "editor.rulers": [100],
+  "terminal.integrated.env.osx": {
+    "PYTHONPATH": "${workspaceFolder}"
   },
   "mcp": {
     "servers": {
@@ -26,5 +37,9 @@
         "args": ["mcp"]
       }
     }
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
   }
 }

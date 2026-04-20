@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "DIGITAL LABOUR: API Server",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["api.intake:app", "--host", "0.0.0.0", "--port", "8000", "--reload"],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "DIGITAL LABOUR: Route Single Task",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/firststrike_dispatch.py",
+      "args": ["--task-type", "market_research", "--target", "local"],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "DIGITAL LABOUR: NERVE Daemon",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/nerve/daemon.py",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "DIGITAL LABOUR: SASP Hub",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/sasp_send.py",
+      "args": ["--mode", "hub"],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal"
+    }
+  ]
+}

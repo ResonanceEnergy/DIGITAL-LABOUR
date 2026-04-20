@@ -1,0 +1,222 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🚀 DIGITAL LABOUR: Start API Server",
+      "type": "shell",
+      "command": "cd ${workspaceFolder} && uvicorn api.intake:app --host 0.0.0.0 --port 8000 --reload",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "group": "servers"
+      }
+    },
+    {
+      "label": "🧪 DIGITAL LABOUR: Run All Tests",
+      "type": "shell",
+      "command": "cd ${workspaceFolder} && python -m pytest tests/ -v --tb=short 2>/dev/null || python -m pytest -v --tb=short",
+      "group": "test",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🔍 DIGITAL LABOUR: Syntax Check All Python",
+      "type": "shell",
+      "command": "cd ${workspaceFolder} && python -m py_compile api/intake.py && python -m py_compile dispatcher/router.py && python -m py_compile dispatcher/queue.py && echo '✅ All core files compile clean'",
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "📡 DIGITAL LABOUR: Health Check (Production)",
+      "type": "shell",
+      "command": "curl -s https://bitrage-labour-api-production.up.railway.app/health | python3 -m json.tool",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "📡 DIGITAL LABOUR: Health Check (Local)",
+      "type": "shell",
+      "command": "curl -s http://localhost:8000/health | python3 -m json.tool",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🎯 FirstStrike: Dispatch Task",
+      "type": "shell",
+      "command": "cd ${workspaceFolder} && python3 scripts/firststrike_dispatch.py --task-type ${input:taskType} --target ${input:dispatchTarget}",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🔄 Git: Push to Railway",
+      "type": "shell",
+      "command": "cd ${workspaceFolder} && git add -A && git commit -m \"${input:commitMsg}\" && git push origin main",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🧹 Git: Clean Lock Files",
+      "type": "shell",
+      "command": "rm -f ${workspaceFolder}/.git/index.lock ${workspaceFolder}/.git/ORIG_HEAD.lock && echo '✅ Git lock files cleared'",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "📊 DIGITAL LABOUR: Queue Stats",
+      "type": "shell",
+      "command": "curl -s https://bitrage-labour-api-production.up.railway.app/queue/stats | python3 -m json.tool",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🔔 Notifications: Test Endpoint",
+      "type": "shell",
+      "command": "curl -s -X POST https://bitrage-labour-api-production.up.railway.app/api/v1/notifications -H 'Content-Type: application/json' -H 'Authorization: Bearer ${input:authToken}' -d '{\"type\":\"status_update\",\"title\":\"Test Notification\",\"message\":\"FirstStrike dispatch test from VS Code\",\"priority\":\"medium\",\"source\":\"vscode-firststrike\"}' | python3 -m json.tool",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🖥️ SASP: Ping Windows Node",
+      "type": "shell",
+      "command": "curl -sf http://${input:windowsIP}:9090/sasp/health 2>/dev/null && echo '✅ Windows node reachable' || echo '❌ Windows node unreachable'",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🖥️ SASP: Send Command to Windows",
+      "type": "shell",
+      "command": "cd ${workspaceFolder} && python3 scripts/sasp_send.py --target ${input:windowsIP} --command ${input:saspCommand}",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "📦 Install Dependencies",
+      "type": "shell",
+      "command": "cd ${workspaceFolder} && pip install -r requirements.txt",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🌐 Open Workstation (Production)",
+      "type": "shell",
+      "command": "open https://bitrage-labour-api-production.up.railway.app/workstation",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "never"
+      }
+    },
+    {
+      "label": "🌐 Open Workstation (Local)",
+      "type": "shell",
+      "command": "open http://localhost:8000/workstation",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "never"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "taskType",
+      "type": "pickString",
+      "description": "Select task type to dispatch",
+      "options": [
+        "sales_outreach",
+        "lead_gen",
+        "market_research",
+        "business_plan",
+        "tech_docs",
+        "grant_writer",
+        "insurance_appeals",
+        "compliance_docs",
+        "data_reporter",
+        "content_repurpose",
+        "seo_content",
+        "social_media",
+        "proposal_writer",
+        "press_release"
+      ]
+    },
+    {
+      "id": "dispatchTarget",
+      "type": "pickString",
+      "description": "Dispatch target",
+      "options": ["local", "production", "windows"]
+    },
+    {
+      "id": "commitMsg",
+      "type": "promptString",
+      "description": "Git commit message",
+      "default": "Update DIGITAL LABOUR"
+    },
+    {
+      "id": "authToken",
+      "type": "promptString",
+      "description": "Bearer auth token",
+      "default": ""
+    },
+    {
+      "id": "windowsIP",
+      "type": "promptString",
+      "description": "Windows node IP address",
+      "default": "192.168.1.100"
+    },
+    {
+      "id": "saspCommand",
+      "type": "pickString",
+      "description": "SASP command to send",
+      "options": [
+        "deploy_agents_heavy",
+        "health_check",
+        "sync_data",
+        "restart_services",
+        "run_diagnostics"
+      ]
+    }
+  ]
+}

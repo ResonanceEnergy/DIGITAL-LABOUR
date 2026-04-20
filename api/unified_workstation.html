@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0a0a0f">
+<title>BIT RAGE | Unified Command</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<style>
+:root {
+  --bg: #0a0a0f; --surface: #12121a; --card: #1a1a28; --border: #2a2a3a;
+  --text: #e0e0e8; --dim: #888899; --green: #00ff88; --red: #ff4466;
+  --amber: #ffaa22; --blue: #4488ff; --purple: #aa66ff; --cyan: #00ccdd;
+  --orange: #ff6622;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'SF Mono','Fira Code','Cascadia Code',monospace; background:var(--bg); color:var(--text); min-height:100vh; }
+a { color:var(--cyan); text-decoration:none; }
+
+/* Header */
+.header { background:linear-gradient(135deg,#0d0d18,#1a0a2e); padding:12px 20px; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; backdrop-filter:blur(20px); display:flex; align-items:center; justify-content:space-between; }
+.logo-area { display:flex; align-items:center; gap:12px; }
+.logo-icon { width:36px; height:36px; background:linear-gradient(135deg,#dc2626,#ea580c); border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:13px; color:white; }
+.logo-text { font-size:15px; font-weight:700; letter-spacing:2px; color:var(--cyan); }
+.logo-sub { font-size:9px; color:var(--dim); letter-spacing:1px; }
+.status-pill { font-size:10px; padding:4px 12px; border-radius:20px; font-weight:700; letter-spacing:1px; }
+.pill-green { background:rgba(0,255,136,0.15); color:var(--green); }
+.pill-red { background:rgba(255,68,102,0.15); color:var(--red); animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.6} }
+
+/* Nav Tabs */
+.nav-tabs { display:flex; gap:2px; background:var(--surface); padding:2px; border-radius:8px; }
+.nav-tab { padding:6px 14px; font-size:10px; font-weight:600; letter-spacing:1px; border-radius:6px; cursor:pointer; color:var(--dim); border:none; background:none; transition:all .2s; }
+.nav-tab:hover { color:var(--text); }
+.nav-tab.active { background:var(--card); color:var(--cyan); }
+
+/* Header Right */
+.header-right { display:flex; align-items:center; gap:12px; }
+.notif-btn { position:relative; background:none; border:none; color:var(--dim); cursor:pointer; padding:6px; border-radius:6px; }
+.notif-btn:hover { background:var(--card); color:var(--text); }
+.notif-badge { position:absolute; top:0; right:0; background:var(--red); color:white; font-size:9px; font-weight:700; width:16px; height:16px; border-radius:50%; display:flex; align-items:center; justify-content:center; animation:pulse 2s infinite; }
+.auth-btn { font-size:10px; padding:4px 10px; background:var(--card); border:1px solid var(--border); color:var(--dim); border-radius:6px; cursor:pointer; }
+.auth-btn:hover { border-color:var(--cyan); color:var(--cyan); }
+
+/* Content */
+.content { max-width:1400px; margin:0 auto; padding:16px 20px; }
+.tab-content { display:none; }
+.tab-content.active { display:block; }
+
+/* Cards */
+.grid { display:grid; gap:12px; }
+.grid-4 { grid-template-columns:repeat(4,1fr); }
+.grid-3 { grid-template-columns:repeat(3,1fr); }
+.grid-2 { grid-template-columns:repeat(2,1fr); }
+.card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px; }
+.card-title { font-size:10px; color:var(--dim); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+.metric-big { font-size:28px; font-weight:900; }
+.metric-sub { font-size:10px; color:var(--dim); margin-top:2px; }
+.c-green { color:var(--green); } .c-red { color:var(--red); } .c-amber { color:var(--amber); }
+.c-blue { color:var(--blue); } .c-purple { color:var(--purple); } .c-cyan { color:var(--cyan); }
+.c-orange { color:var(--orange); }
+
+/* Alerts Panel */
+.alerts-panel { position:fixed; right:0; top:50px; width:380px; max-height:calc(100vh - 60px); background:var(--surface); border-left:1px solid var(--border); z-index:99; overflow-y:auto; transform:translateX(100%); transition:transform .3s; }
+.alerts-panel.open { transform:translateX(0); }
+.alert-header { padding:12px 16px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+.alert-item { padding:12px 16px; border-bottom:1px solid rgba(42,42,58,.5); cursor:pointer; }
+.alert-item:hover { background:rgba(255,255,255,.02); }
+.alert-type { font-size:9px; padding:2px 6px; border-radius:4px; font-weight:700; display:inline-block; }
+.type-DECISION { background:rgba(255,170,34,.15); color:var(--amber); }
+.type-PAYMENT { background:rgba(255,68,102,.15); color:var(--red); }
+.type-STATUS { background:rgba(68,136,255,.15); color:var(--blue); }
+.type-MILESTONE { background:rgba(0,255,136,.15); color:var(--green); }
+.type-ERROR { background:rgba(255,68,102,.15); color:var(--red); }
+.type-CLIENT { background:rgba(170,102,255,.15); color:var(--purple); }
+.priority-dot { width:6px; height:6px; border-radius:50%; display:inline-block; margin-left:6px; }
+.p-CRITICAL { background:var(--red); } .p-HIGH { background:var(--amber); }
+.p-MEDIUM { background:var(--blue); } .p-LOW { background:var(--dim); }
+.alert-title { font-size:12px; font-weight:600; color:var(--text); margin:4px 0 2px; }
+.alert-msg { font-size:10px; color:var(--dim); line-height:1.4; }
+.alert-actions { margin-top:8px; display:flex; gap:6px; }
+.btn-sm { font-size:10px; padding:4px 10px; border-radius:4px; border:none; cursor:pointer; font-weight:600; font-family:inherit; }
+.btn-action { background:var(--cyan); color:#000; }
+.btn-action:hover { background:#00eeff; }
+.btn-dismiss { background:var(--card); color:var(--dim); border:1px solid var(--border); }
+.btn-dismiss:hover { color:var(--text); }
+.close-btn { background:none; border:none; color:var(--dim); cursor:pointer; font-size:16px; }
+
+/* Daemons */
+.daemon-row { display:flex; align-items:center; justify-content:space-between; padding:6px 0; border-bottom:1px solid rgba(42,42,58,.3); font-size:11px; }
+.daemon-dot { width:8px; height:8px; border-radius:50%; margin-right:8px; flex-shrink:0; }
+.daemon-dot.alive { background:var(--green); box-shadow:0 0 6px rgba(0,255,136,.4); }
+.daemon-dot.dead { background:var(--red); box-shadow:0 0 6px rgba(255,68,102,.4); }
+
+/* Division Cards */
+.div-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px; position:relative; overflow:hidden; cursor:pointer; transition:all .2s; }
+.div-card:hover { border-color:var(--cyan); transform:translateY(-2px); }
+.div-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.div-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:18px; }
+.div-name { font-size:13px; font-weight:700; }
+.div-status { font-size:9px; padding:2px 8px; border-radius:10px; font-weight:700; }
+.div-desc { font-size:10px; color:var(--dim); line-height:1.4; margin-bottom:8px; }
+.progress-bar { height:4px; background:var(--border); border-radius:2px; overflow:hidden; margin:4px 0; }
+.progress-fill { height:100%; border-radius:2px; transition:width .5s; }
+
+/* C2 Command Palette */
+.c2-bar { position:fixed; bottom:0; left:0; right:0; background:var(--surface); border-top:1px solid var(--border); padding:8px 16px; z-index:90; }
+.c2-grid { display:flex; gap:6px; overflow-x:auto; max-width:1400px; margin:0 auto; padding-bottom:4px; }
+.c2-btn { flex-shrink:0; padding:8px 14px; font-size:10px; font-weight:700; border:1px solid var(--border); border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; letter-spacing:.5px; white-space:nowrap; transition:all .15s; }
+.c2-btn:hover { border-color:var(--cyan); color:var(--cyan); background:rgba(0,204,221,.05); }
+.c2-btn:active { transform:scale(.95); }
+.c2-btn.danger { border-color:rgba(255,68,102,.3); }
+.c2-btn.danger:hover { border-color:var(--red); color:var(--red); }
+.c2-btn.success { border-color:rgba(0,255,136,.3); }
+.c2-btn.success:hover { border-color:var(--green); color:var(--green); }
+
+/* Task Fire */
+.task-form { display:flex; gap:8px; flex-wrap:wrap; }
+.task-input { background:var(--surface); border:1px solid var(--border); color:var(--text); padding:8px 12px; border-radius:6px; font-size:11px; font-family:inherit; flex:1; min-width:200px; }
+.task-input:focus { outline:none; border-color:var(--cyan); }
+.task-select { background:var(--surface); border:1px solid var(--border); color:var(--text); padding:8px 12px; border-radius:6px; font-size:11px; font-family:inherit; }
+.fire-btn { background:linear-gradient(135deg,#dc2626,#ea580c); color:white; border:none; padding:8px 20px; border-radius:6px; font-size:11px; font-weight:700; cursor:pointer; font-family:inherit; letter-spacing:.5px; }
+.fire-btn:hover { background:linear-gradient(135deg,#ef4444,#f97316); }
+.fire-btn:disabled { opacity:.5; cursor:not-allowed; }
+
+/* Toast */
+.toast { position:fixed; bottom:60px; left:50%; transform:translateX(-50%) translateY(100px); background:var(--card); border:1px solid var(--border); color:var(--text); padding:10px 20px; border-radius:8px; font-size:11px; z-index:200; opacity:0; transition:all .3s; white-space:pre-line; max-width:400px; }
+.toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
+
+/* Feed */
+.feed-item { display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px solid rgba(42,42,58,.3); font-size:11px; }
+.feed-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+.feed-time { color:var(--dim); font-size:9px; margin-left:auto; flex-shrink:0; }
+
+/* Responsive */
+@media (max-width:900px) { .grid-4 { grid-template-columns:repeat(2,1fr); } .grid-3 { grid-template-columns:1fr 1fr; } }
+@media (max-width:600px) { .grid-4,.grid-3,.grid-2 { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="logo-area">
+    <div class="logo-icon">BR</div>
+    <div>
+      <div class="logo-text">BIT RAGE</div>
+      <div class="logo-sub">UNIFIED COMMAND &bull; NCL + DIGITAL LABOUR</div>
+    </div>
+    <span id="status-pill" class="status-pill pill-green">CONNECTING</span>
+  </div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="switchTab('overview')">OVERVIEW</button>
+    <button class="nav-tab" onclick="switchTab('divisions')">DIVISIONS</button>
+    <button class="nav-tab" onclick="switchTab('pipeline')">PIPELINE</button>
+    <button class="nav-tab" onclick="switchTab('firestrike')">FIRST STRIKE</button>
+    <button class="nav-tab" onclick="switchTab('alerts')">ALERTS</button>
+  </div>
+  <div class="header-right">
+    <button class="notif-btn" onclick="toggleAlerts()" title="Notifications">
+      &#128276;<span id="notif-badge" class="notif-badge" style="display:none">0</span>
+    </button>
+    <button class="auth-btn" onclick="promptAuth()">&#128273; AUTH</button>
+    <span id="meta-time" style="font-size:10px;color:var(--dim)"></span>
+  </div>
+</div>
+
+<!-- Alerts Panel -->
+<div id="alerts-panel" class="alerts-panel">
+  <div class="alert-header">
+    <span style="font-size:12px;font-weight:700;color:var(--text)">&#128276; Notifications</span>
+    <button class="close-btn" onclick="toggleAlerts()">&times;</button>
+  </div>
+  <div id="alerts-list"></div>
+</div>
+
+<!-- Content -->
+<div class="content" style="padding-bottom:60px">
+
+  <!-- OVERVIEW TAB -->
+  <div id="tab-overview" class="tab-content active">
+    <div class="grid grid-4" style="margin-bottom:12px">
+      <div class="card"><div class="card-title">&#9889; REVENUE (7D)</div><div id="ov-revenue" class="metric-big c-green">$--</div><div class="metric-sub">Stripe + billing</div></div>
+      <div class="card"><div class="card-title">&#128202; TASKS (7D)</div><div id="ov-tasks" class="metric-big c-cyan">--</div><div class="metric-sub" id="ov-pass-rate">--% pass rate</div></div>
+      <div class="card"><div class="card-title">&#128640; AGENTS</div><div id="ov-agents" class="metric-big c-purple">--</div><div class="metric-sub">operational fleet</div></div>
+      <div class="card"><div class="card-title">&#128276; ALERTS</div><div id="ov-alerts" class="metric-big c-amber">--</div><div class="metric-sub" id="ov-alerts-sub">-- action required</div></div>
+    </div>
+
+    <!-- Action Required Banner -->
+    <div id="action-banner" class="card" style="border-color:rgba(255,170,34,.3);background:rgba(255,170,34,.05);margin-bottom:12px;display:none">
+      <div class="card-title" style="color:var(--amber)">&#9888;&#65039; ACTION REQUIRED</div>
+      <div id="action-items" style="font-size:11px"></div>
+    </div>
+
+    <div class="grid grid-3">
+      <!-- Daemons -->
+      <div class="card">
+        <div class="card-title">&#9881;&#65039; DAEMONS</div>
+        <div id="daemons-list"></div>
+      </div>
+      <!-- Divisions Quick -->
+      <div class="card">
+        <div class="card-title">&#127970; DIVISIONS</div>
+        <div id="div-quick"></div>
+      </div>
+      <!-- Activity Feed -->
+      <div class="card">
+        <div class="card-title">&#128196; ACTIVITY FEED</div>
+        <div id="feed-list" style="max-height:250px;overflow-y:auto"></div>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="grid grid-2" style="margin-top:12px">
+      <div class="card"><div class="card-title">&#128200; TASK VOLUME (14D)</div><canvas id="chart-volume" height="120"></canvas></div>
+      <div class="card"><div class="card-title">&#9201; LATENCY (14D)</div><canvas id="chart-latency" height="120"></canvas></div>
+    </div>
+  </div>
+
+  <!-- DIVISIONS TAB -->
+  <div id="tab-divisions" class="tab-content">
+    <div class="grid grid-2" id="divisions-grid"></div>
+  </div>
+
+  <!-- PIPELINE TAB -->
+  <div id="tab-pipeline" class="tab-content">
+    <div class="grid grid-3">
+      <div class="card"><div class="card-title">&#9881;&#65039; DAEMON STATUS</div><div id="pipe-daemons"></div></div>
+      <div class="card"><div class="card-title">&#129302; AGENT FLEET</div><div id="pipe-agents" style="max-height:300px;overflow-y:auto;font-size:10px"></div></div>
+      <div class="card"><div class="card-title">&#127760; PROVIDER HEALTH</div><div id="pipe-providers"></div></div>
+    </div>
+    <div class="grid grid-2" style="margin-top:12px">
+      <div class="card"><div class="card-title">&#128202; QUEUE STATUS</div><div id="pipe-queue"></div></div>
+      <div class="card"><div class="card-title">&#128176; C-SUITE EXECUTIVES</div><div id="pipe-csuite"></div></div>
+    </div>
+  </div>
+
+  <!-- FIRST STRIKE TAB -->
+  <div id="tab-firestrike" class="tab-content">
+    <div class="card" style="margin-bottom:12px">
+      <div class="card-title">&#128640; FIRST STRIKE — Fire a Task</div>
+      <div class="task-form">
+        <select id="fs-type" class="task-select">
+          <option value="business_plan">Business Plan</option>
+          <option value="market_research">Market Research</option>
+          <option value="insurance_appeals">Insurance Appeals</option>
+          <option value="grant_writer">Grant Writer</option>
+          <option value="compliance_docs">Compliance Docs</option>
+          <option value="data_reporter">Data Reporter</option>
+          <option value="content_repurpose">Content Repurpose</option>
+          <option value="doc_extract">Doc Extract</option>
+          <option value="cold_email">Cold Email</option>
+          <option value="sales_outreach">Sales Outreach</option>
+        </select>
+        <input id="fs-focus" class="task-input" placeholder="Focus / business idea / topic...">
+        <label style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--dim)">
+          <input id="fs-sync" type="checkbox" checked> Sync
+        </label>
+        <button id="fs-fire" class="fire-btn" onclick="fireTask()">&#9889; FIRE</button>
+      </div>
+      <div id="fs-status" style="margin-top:8px;font-size:10px;color:var(--dim)"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">&#128196; RECENT RESULTS</div>
+      <div id="fs-results" style="font-size:11px;max-height:400px;overflow-y:auto"></div>
+    </div>
+  </div>
+
+  <!-- ALERTS TAB -->
+  <div id="tab-alerts" class="tab-content">
+    <div id="alerts-full-list"></div>
+  </div>
+
+</div>
+
+<!-- C2 Command Bar -->
+<div class="c2-bar">
+  <div class="c2-grid">
+    <button class="c2-btn success" onclick="c2('system_check')">&#128994; SYS CHECK</button>
+    <button class="c2-btn" onclick="c2('nerve_status')">&#129504; NERVE</button>
+    <button class="c2-btn" onclick="c2('watchdog_status')">&#128021; WATCHDOG</button>
+    <button class="c2-btn" onclick="c2('daily_cycle')">&#128260; DAILY CYCLE</button>
+    <button class="c2-btn" onclick="c2('revenue_summary')">&#128176; REVENUE</button>
+    <button class="c2-btn" onclick="c2('restart_daemons')">&#9889; RESTART</button>
+    <button class="c2-btn" onclick="c2('check_inbox')">&#128235; INBOX</button>
+    <button class="c2-btn" onclick="c2('send_followups')">&#128232; FOLLOW UP</button>
+    <button class="c2-btn" onclick="c2('openclaw_cycle')">&#129409; OPENCLAW</button>
+    <button class="c2-btn" onclick="c2('scan_jobs')">&#128270; SCAN JOBS</button>
+    <button class="c2-btn" onclick="c2('csuite_run')">&#128081; C-SUITE</button>
+    <button class="c2-btn danger" onclick="c2('blitz_50')">&#128293; BLITZ 50</button>
+    <button class="c2-btn" onclick="c2('full_status')">&#128203; FULL STATUS</button>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+const BASE = 'https://bitrage-labour-api-production.up.railway.app';
+let alertsOpen = false;
+let notifications = [];
+let sitrep = null;
+let volumeChart = null, latencyChart = null;
+const firedTasks = [];
+
+// ── Auth ──
+function getToken() { return localStorage.getItem('matrix_auth_token') || ''; }
+function authHeaders() { return {'Content-Type':'application/json','Authorization':'Bearer ' + getToken()}; }
+function promptAuth() {
+  const t = prompt('Enter Matrix Auth Token:', getToken());
+  if (t !== null) { localStorage.setItem('matrix_auth_token', t.trim()); showToast('Token saved'); fetchAll(); }
+}
+
+// ── Tabs ──
+function switchTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── Notifications ──
+function toggleAlerts() { alertsOpen = !alertsOpen; document.getElementById('alerts-panel').classList.toggle('open', alertsOpen); }
+
+function renderNotifications() {
+  const unread = notifications.filter(n => n.status === 'UNREAD');
+  const badge = document.getElementById('notif-badge');
+  badge.textContent = unread.length;
+  badge.style.display = unread.length > 0 ? 'flex' : 'none';
+  document.getElementById('ov-alerts').textContent = unread.length;
+  const actionReq = unread.filter(n => n.priority === 'HIGH' || n.priority === 'CRITICAL');
+  document.getElementById('ov-alerts-sub').textContent = actionReq.length + ' action required';
+
+  // Action banner
+  const banner = document.getElementById('action-banner');
+  if (actionReq.length > 0) {
+    banner.style.display = 'block';
+    banner.querySelector('#action-items').innerHTML = actionReq.map(n =>
+      '<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(42,42,58,.3)">' +
+        '<span class="alert-type type-' + typeClass(n.type) + '">' + shortType(n.type) + '</span>' +
+        '<span style="flex:1">' + esc(n.title) + '</span>' +
+        (n.action_label ? '<button class="btn-sm btn-action" onclick="actionNotif(\'' + n.id + '\')">' + esc(n.action_label) + '</button>' : '') +
+        '<button class="btn-sm btn-dismiss" onclick="dismissNotif(\'' + n.id + '\')">Dismiss</button>' +
+      '</div>'
+    ).join('');
+  } else { banner.style.display = 'none'; }
+
+  // Alerts panel
+  const active = notifications.filter(n => n.status !== 'DISMISSED');
+  document.getElementById('alerts-list').innerHTML = active.length === 0
+    ? '<div style="padding:20px;text-align:center;color:var(--dim);font-size:11px">No notifications</div>'
+    : active.map(n =>
+      '<div class="alert-item">' +
+        '<div><span class="alert-type type-' + typeClass(n.type) + '">' + shortType(n.type) + '</span><span class="priority-dot p-' + n.priority + '"></span></div>' +
+        '<div class="alert-title">' + esc(n.title) + '</div>' +
+        '<div class="alert-msg">' + esc(n.message) + '</div>' +
+        '<div class="alert-actions">' +
+          (n.action_label ? '<button class="btn-sm btn-action" onclick="actionNotif(\'' + n.id + '\')">' + esc(n.action_label) + '</button>' : '') +
+          '<button class="btn-sm btn-dismiss" onclick="dismissNotif(\'' + n.id + '\')">Dismiss</button>' +
+          '<span style="margin-left:auto;font-size:9px;color:var(--dim)">' + timeAgo(n.created_at) + '</span>' +
+        '</div>' +
+      '</div>'
+    ).join('');
+
+  // Full alerts tab
+  document.getElementById('alerts-full-list').innerHTML = active.map(n =>
+    '<div class="card" style="margin-bottom:8px;border-color:' + typeBorder(n.type) + '">' +
+      '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">' +
+        '<span class="alert-type type-' + typeClass(n.type) + '">' + shortType(n.type) + '</span>' +
+        '<span class="priority-dot p-' + n.priority + '"></span>' +
+        '<span style="font-size:9px;color:var(--dim)">' + esc(n.source || 'system') + '</span>' +
+        '<span style="font-size:9px;color:var(--dim);margin-left:auto">' + timeAgo(n.created_at) + '</span>' +
+      '</div>' +
+      '<div style="font-size:13px;font-weight:700;margin-bottom:4px">' + esc(n.title) + '</div>' +
+      '<div style="font-size:11px;color:var(--dim);line-height:1.5">' + esc(n.message) + '</div>' +
+      '<div style="margin-top:8px;display:flex;gap:6px">' +
+        (n.action_label ? '<button class="btn-sm btn-action" onclick="actionNotif(\'' + n.id + '\')">' + esc(n.action_label) + '</button>' : '') +
+        '<button class="btn-sm btn-dismiss" onclick="dismissNotif(\'' + n.id + '\')">Dismiss</button>' +
+      '</div>' +
+    '</div>'
+  ).join('') || '<div style="text-align:center;color:var(--dim);padding:40px;font-size:12px">All clear — no notifications</div>';
+}
+
+function actionNotif(id) {
+  const n = notifications.find(x => x.id === id);
+  if (!n) return;
+  n.status = 'ACTIONED';
+  if (n.action_url) window.open(n.action_url, '_blank');
+  showToast('Actioned: ' + n.title);
+  renderNotifications();
+  // Also PATCH the API if we have a real notification backend
+  fetch(BASE + '/api/v1/notifications/' + id + '/action', {method:'PATCH',headers:authHeaders()}).catch(()=>{});
+}
+
+function dismissNotif(id) {
+  const n = notifications.find(x => x.id === id);
+  if (n) { n.status = 'DISMISSED'; renderNotifications(); showToast('Dismissed'); }
+  fetch(BASE + '/api/v1/notifications/' + id + '/dismiss', {method:'PATCH',headers:authHeaders()}).catch(()=>{});
+}
+
+// ── Data Fetching ──
+async function fetchAll() {
+  updateTime();
+  await Promise.all([fetchSitrep(), fetchMonitor(), fetchNotifications()]);
+}
+
+async function fetchSitrep() {
+  try {
+    const res = await fetch(BASE + '/matrix/sitrep', {headers: authHeaders()});
+    if (res.status === 401 || res.status === 403) { document.getElementById('status-pill').textContent = 'NO AUTH'; document.getElementById('status-pill').className = 'status-pill pill-red'; return; }
+    if (!res.ok) throw new Error(res.status);
+    sitrep = await res.json();
+    document.getElementById('status-pill').textContent = sitrep.status || 'ONLINE';
+    document.getElementById('status-pill').className = 'status-pill pill-green';
+    renderSitrep(sitrep);
+  } catch(e) {
+    document.getElementById('status-pill').textContent = 'OFFLINE';
+    document.getElementById('status-pill').className = 'status-pill pill-red';
+  }
+}
+
+async function fetchMonitor() {
+  try {
+    const [overview, trend, latency, agents, providers, feed] = await Promise.all([
+      fetch(BASE + '/monitor/overview').then(r => r.json()).catch(() => null),
+      fetch(BASE + '/monitor/kpi/trend?days=14').then(r => r.json()).catch(() => null),
+      fetch(BASE + '/monitor/kpi/latency?days=14').then(r => r.json()).catch(() => null),
+      fetch(BASE + '/monitor/agents').then(r => r.json()).catch(() => null),
+      fetch(BASE + '/monitor/providers').then(r => r.json()).catch(() => null),
+      fetch(BASE + '/monitor/feed?limit=15').then(r => r.json()).catch(() => null),
+    ]);
+    if (overview) renderOverview(overview);
+    if (trend) renderVolumeChart(trend);
+    if (latency) renderLatencyChart(latency);
+    if (agents) renderAgents(agents);
+    if (providers) renderProviders(providers);
+    if (feed) renderFeed(feed);
+  } catch(e) { console.error('Monitor fetch error', e); }
+}
+
+async function fetchNotifications() {
+  try {
+    const res = await fetch(BASE + '/api/v1/notifications?status=UNREAD&limit=50');
+    if (res.ok) {
+      const data = await res.json();
+      if (data.notifications) { notifications = data.notifications; renderNotifications(); return; }
+    }
+  } catch(e) {}
+  // Fallback: use built-in demo notifications if API not available
+  if (notifications.length === 0) {
+    notifications = [
+      {id:'d1',type:'DECISION_NEEDED',title:'Domain Registration Required',message:'bitrage.ai is available ($12/yr). Register it or use bit-rage-labour.com? Decision needed to proceed with website launch.',priority:'HIGH',status:'UNREAD',source:'build-agent',action_label:'Decide',created_at:new Date().toISOString()},
+      {id:'d2',type:'PAYMENT_REQUIRED',title:'Stripe Account Setup',message:'Connect Stripe to accept client payments. Required before launching to customers. ~15 min setup.',priority:'HIGH',status:'UNREAD',source:'billing',action_label:'Set Up',action_url:'https://dashboard.stripe.com/register',created_at:new Date(Date.now()-1800000).toISOString()},
+      {id:'d3',type:'MILESTONE',title:'All 4 Division Agents Operational',message:'Insurance Appeals, Grant Writer, Compliance Docs, Data Reporter — all passing QA (87-90). Pipeline production-ready.',priority:'MEDIUM',status:'UNREAD',source:'qa-system',created_at:new Date(Date.now()-3600000).toISOString()},
+      {id:'d4',type:'DECISION_NEEDED',title:'HIPAA Compliance Plan',message:'Need BAA (Business Associate Agreement) before handling real patient data. Options: self-certify ($0, risky) or use compliance platform ($200/mo, recommended).',priority:'HIGH',status:'UNREAD',source:'compliance',action_label:'Review Options',created_at:new Date(Date.now()-5400000).toISOString()},
+      {id:'d5',type:'CLIENT_ACTION',title:'First Lead Identified',message:'Medical billing company "PrecisionBill Health" (50 providers, ~200 appeals/mo) matches ideal customer profile. Cold outreach template ready for review.',priority:'MEDIUM',status:'UNREAD',source:'lead-gen',action_label:'Review Lead',created_at:new Date(Date.now()-7200000).toISOString()},
+    ];
+    renderNotifications();
+  }
+}
+
+// ── Renderers ──
+function renderSitrep(d) {
+  // Revenue
+  const rev = d.revenue?.total_revenue || 0;
+  document.getElementById('ov-revenue').textContent = '$' + rev.toFixed(0);
+
+  // Tasks
+  document.getElementById('ov-tasks').textContent = d.kpi_7d?.total_tasks || '--';
+  document.getElementById('ov-pass-rate').textContent = (d.kpi_7d?.pass_rate || '--') + '% pass rate';
+
+  // Agents
+  const fleet = d.fleet || [];
+  document.getElementById('ov-agents').textContent = fleet.filter(a => a.operational).length;
+
+  // Daemons
+  const daemons = d.daemons || {};
+  document.getElementById('daemons-list').innerHTML = Object.entries(daemons).map(([name, alive]) =>
+    '<div class="daemon-row"><span><span class="daemon-dot ' + (alive ? 'alive' : 'dead') + '"></span>' + name + '</span><span style="color:' + (alive ? 'var(--green)' : 'var(--red)') + '">' + (alive ? 'ALIVE' : 'DEAD') + '</span></div>'
+  ).join('');
+  document.getElementById('pipe-daemons').innerHTML = document.getElementById('daemons-list').innerHTML;
+}
+
+function renderOverview(d) {
+  // Queue
+  const q = d.queue || {};
+  document.getElementById('pipe-queue').innerHTML =
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">' +
+    ['queued','running','completed','failed'].map(s =>
+      '<div style="padding:8px;background:var(--surface);border-radius:6px"><span style="font-size:9px;color:var(--dim);text-transform:uppercase">' + s + '</span><div style="font-size:20px;font-weight:900;color:' + ({queued:'var(--amber)',running:'var(--cyan)',completed:'var(--green)',failed:'var(--red)'}[s]) + '">' + (q[s] || 0) + '</div></div>'
+    ).join('') + '</div>';
+
+  // C-Suite
+  const cs = d.csuite_verdicts || [];
+  document.getElementById('pipe-csuite').innerHTML = cs.length === 0
+    ? '<div style="font-size:11px;color:var(--dim)">No recent verdicts</div>'
+    : cs.slice(0,5).map(v => '<div style="padding:4px 0;border-bottom:1px solid rgba(42,42,58,.3);font-size:10px"><span style="color:var(--cyan)">' + esc(v.executive || '') + '</span> ' + esc(v.verdict || v.summary || '') + '</div>').join('');
+}
+
+function renderAgents(data) {
+  const agents = data.agents || data || [];
+  document.getElementById('pipe-agents').innerHTML = agents.map(a =>
+    '<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(42,42,58,.2)">' +
+      '<span>' + esc(a.name || a.agent || '') + '</span>' +
+      '<span style="color:' + (a.pass_rate >= 80 ? 'var(--green)' : a.pass_rate >= 50 ? 'var(--amber)' : 'var(--red)') + '">' + (a.pass_rate || 0) + '% (' + (a.grade || '?') + ')</span>' +
+    '</div>'
+  ).join('') || '<div style="color:var(--dim)">No agent data</div>';
+}
+
+function renderProviders(data) {
+  const providers = data.providers || data || [];
+  document.getElementById('pipe-providers').innerHTML = providers.map(p =>
+    '<div class="daemon-row"><span><span class="daemon-dot ' + (p.pass_rate >= 70 ? 'alive' : 'dead') + '"></span>' + esc(p.name || p.provider || '') + '</span><span>' + (p.pass_rate || 0) + '%</span></div>'
+  ).join('') || '<div style="color:var(--dim)">No provider data</div>';
+}
+
+function renderFeed(data) {
+  const items = data.feed || data || [];
+  document.getElementById('feed-list').innerHTML = items.map(f =>
+    '<div class="feed-item"><span class="feed-dot" style="background:' + (f.qa_status === 'PASS' ? 'var(--green)' : f.qa_status === 'FAIL' ? 'var(--red)' : 'var(--dim)') + '"></span>' +
+    '<span>' + esc(f.task_type || '') + ' — ' + esc(f.qa_status || f.status || '') + '</span>' +
+    '<span class="feed-time">' + timeAgo(f.completed_at || f.created_at) + '</span></div>'
+  ).join('') || '<div style="color:var(--dim);font-size:11px">No recent activity</div>';
+}
+
+// ── Charts ──
+function renderVolumeChart(data) {
+  const days = data.trend || data || [];
+  const labels = days.map(d => d.date ? d.date.slice(5) : '');
+  const passed = days.map(d => d.passed || 0);
+  const failed = days.map(d => d.failed || 0);
+  if (volumeChart) volumeChart.destroy();
+  volumeChart = new Chart(document.getElementById('chart-volume'), {
+    type:'bar', data:{labels,datasets:[
+      {label:'Passed',data:passed,backgroundColor:'rgba(0,255,136,.6)',borderRadius:2},
+      {label:'Failed',data:failed,backgroundColor:'rgba(255,68,102,.6)',borderRadius:2},
+    ]}, options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#666',font:{size:9}}},y:{grid:{color:'#222'},ticks:{color:'#666',font:{size:9}}}}}
+  });
+}
+
+function renderLatencyChart(data) {
+  const days = data.latency || data || [];
+  const labels = days.map(d => d.date ? d.date.slice(5) : '');
+  const avg = days.map(d => d.avg || 0);
+  const p95 = days.map(d => d.p95 || 0);
+  if (latencyChart) latencyChart.destroy();
+  latencyChart = new Chart(document.getElementById('chart-latency'), {
+    type:'line', data:{labels,datasets:[
+      {label:'Avg',data:avg,borderColor:'var(--cyan)',borderWidth:2,pointRadius:0,tension:.3},
+      {label:'P95',data:p95,borderColor:'var(--amber)',borderWidth:1,borderDash:[4,2],pointRadius:0,tension:.3},
+    ]}, options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#666',font:{size:9}}},y:{grid:{color:'#222'},ticks:{color:'#666',font:{size:9}}}}}
+  });
+}
+
+// ── Divisions ──
+const DIVISIONS = [
+  {id:'insurance_appeals',name:'Insurance Appeals',icon:'&#128657;',color:'#dc2626',gradient:'linear-gradient(135deg,#dc2626,#ea580c)',status:'LEAD',readiness:9,revenue:'HIGH',market:'$500B TAM',desc:'Prior auth appeals, denial letters, compliance docs',agents:['insurance_appeals','compliance_docs','business_plan']},
+  {id:'grant_writer',name:'Grant Writer',icon:'&#128220;',color:'#3b82f6',gradient:'linear-gradient(135deg,#3b82f6,#06b6d4)',status:'READY',readiness:7,revenue:'HIGH',market:'$150B TAM',desc:'SBIR grants, federal RFPs, nonprofit funding',agents:['grant_writer','business_plan','market_research']},
+  {id:'compliance_docs',name:'Compliance Docs',icon:'&#128737;',color:'#22c55e',gradient:'linear-gradient(135deg,#22c55e,#10b981)',status:'READY',readiness:7,revenue:'MEDIUM',market:'$50B TAM',desc:'Handbooks, policies, terms of service',agents:['compliance_docs','doc_extract','business_plan']},
+  {id:'data_reporter',name:'Data Reporter',icon:'&#128202;',color:'#a855f7',gradient:'linear-gradient(135deg,#a855f7,#ec4899)',status:'READY',readiness:6,revenue:'MEDIUM',market:'$30B TAM',desc:'Data-to-document conversion, analytics reports',agents:['data_reporter','doc_extract','business_plan']},
+];
+
+function renderDivisions() {
+  // Quick view on overview
+  document.getElementById('div-quick').innerHTML = DIVISIONS.map(d =>
+    '<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(42,42,58,.3);cursor:pointer" onclick="switchTab(\'divisions\')">' +
+      '<div style="width:28px;height:28px;border-radius:6px;background:' + d.gradient + ';display:flex;align-items:center;justify-content:center;font-size:14px">' + d.icon + '</div>' +
+      '<div style="flex:1"><div style="font-size:11px;font-weight:700">' + d.name + '</div><div style="font-size:9px;color:var(--dim)">' + d.market + '</div></div>' +
+      '<span style="font-size:9px;padding:2px 8px;border-radius:10px;background:' + (d.status==='LEAD' ? 'rgba(0,255,136,.15)' : 'rgba(68,136,255,.15)') + ';color:' + (d.status==='LEAD' ? 'var(--green)' : 'var(--blue)') + ';font-weight:700">' + d.status + '</span>' +
+    '</div>'
+  ).join('');
+
+  // Full division cards
+  document.getElementById('divisions-grid').innerHTML = DIVISIONS.map(d =>
+    '<div class="div-card">' +
+      '<div class="div-header">' +
+        '<div class="div-icon" style="background:' + d.gradient + ';font-size:20px">' + d.icon + '</div>' +
+        '<div><div class="div-name">' + d.name + '</div><span class="div-status" style="background:' + (d.status==='LEAD' ? 'rgba(0,255,136,.15)' : 'rgba(68,136,255,.15)') + ';color:' + (d.status==='LEAD' ? 'var(--green)' : 'var(--blue)') + '">' + d.status + '</span></div>' +
+      '</div>' +
+      '<div class="div-desc">' + d.desc + '</div>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:10px;margin-bottom:8px">' +
+        '<div><span style="color:var(--dim)">Readiness</span><div style="font-weight:700">' + d.readiness + '/10</div></div>' +
+        '<div><span style="color:var(--dim)">Revenue</span><div style="font-weight:700">' + d.revenue + '</div></div>' +
+        '<div><span style="color:var(--dim)">Market</span><div style="font-weight:700">' + d.market + '</div></div>' +
+        '<div><span style="color:var(--dim)">Agents</span><div style="font-weight:700">' + d.agents.length + ' active</div></div>' +
+      '</div>' +
+      '<div class="progress-bar"><div class="progress-fill" style="width:' + (d.readiness*10) + '%;background:' + d.gradient + '"></div></div>' +
+      '<div style="margin-top:8px;display:flex;gap:4px;flex-wrap:wrap">' + d.agents.map(a => '<span style="font-size:9px;padding:2px 6px;background:var(--surface);border-radius:4px;color:var(--dim)">' + a + '</span>').join('') + '</div>' +
+      '<button class="btn-sm btn-action" style="margin-top:10px;width:100%" onclick="fireForDivision(\'' + d.id + '\',\'' + d.name + '\')">&#128640; Fire Task for ' + d.name + '</button>' +
+    '</div>'
+  ).join('');
+}
+
+// ── C2 Commands ──
+async function c2(action) {
+  showToast('Executing ' + action + '...');
+  try {
+    const res = await fetch(BASE + '/matrix/command', {
+      method:'POST', headers:authHeaders(),
+      body:JSON.stringify({action, target:'', reason:'', operator:'workstation'})
+    });
+    const data = await res.json();
+    const r = data.result || {};
+    showToast(action + ': ' + (r.output ? r.output.substring(0,200) : r.status || 'done'));
+    setTimeout(fetchAll, 2000);
+  } catch(e) { showToast('Error: ' + e.message); }
+}
+
+// ── First Strike ──
+async function fireTask() {
+  const type = document.getElementById('fs-type').value;
+  const focus = document.getElementById('fs-focus').value.trim();
+  const sync = document.getElementById('fs-sync').checked;
+  if (!focus) { showToast('Enter a focus/topic'); return; }
+
+  const btn = document.getElementById('fs-fire');
+  const status = document.getElementById('fs-status');
+  btn.disabled = true;
+  status.textContent = '&#9889; Firing ' + type + '...';
+  status.style.color = 'var(--amber)';
+
+  try {
+    const payload = {task_type: type, inputs: {focus, scope: focus, deliverable: 'Complete analysis and deliverable', plan_type: 'startup'}, sync};
+    const res = await fetch(BASE + '/tasks', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
+    const data = await res.json();
+    firedTasks.unshift({type, focus, ...data, fired_at: new Date().toISOString()});
+    status.textContent = '&#10004; ' + type + ' — ' + (data.status || 'queued') + (data.message ? ' (' + data.message + ')' : '');
+    status.style.color = data.status === 'completed' ? 'var(--green)' : 'var(--cyan)';
+    renderFiredTasks();
+    showToast(type + ': ' + (data.message || data.status));
+  } catch(e) {
+    status.textContent = '&#10008; Error: ' + e.message;
+    status.style.color = 'var(--red)';
+  }
+  btn.disabled = false;
+}
+
+function fireForDivision(divId, divName) {
+  document.getElementById('fs-type').value = divId;
+  document.getElementById('fs-focus').value = 'Business development plan and roadmap for ' + divName + ' division';
+  switchTab('firestrike');
+  document.querySelectorAll('.nav-tab').forEach(t => { t.classList.remove('active'); if (t.textContent === 'FIRST STRIKE') t.classList.add('active'); });
+}
+
+function renderFiredTasks() {
+  document.getElementById('fs-results').innerHTML = firedTasks.map(t =>
+    '<div style="padding:8px 0;border-bottom:1px solid rgba(42,42,58,.3);display:flex;align-items:center;gap:8px">' +
+      '<span class="feed-dot" style="background:' + (t.status==='completed' ? 'var(--green)' : t.status==='queued' ? 'var(--amber)' : 'var(--cyan)') + '"></span>' +
+      '<span style="font-weight:700">' + esc(t.type) + '</span>' +
+      '<span style="color:var(--dim);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(t.focus) + '</span>' +
+      '<span style="color:' + (t.status==='completed' ? 'var(--green)' : 'var(--amber)') + ';font-weight:700">' + (t.message || t.status || '?') + '</span>' +
+      '<span class="feed-time">' + timeAgo(t.fired_at) + '</span>' +
+    '</div>'
+  ).join('') || '<div style="color:var(--dim)">No tasks fired yet. Use the form above or click a division.</div>';
+}
+
+// ── Helpers ──
+function esc(s) { const d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+function timeAgo(ts) {
+  if (!ts) return '';
+  const s = Math.floor((Date.now() - new Date(ts).getTime()) / 1000);
+  if (s < 60) return s + 's ago';
+  if (s < 3600) return Math.floor(s/60) + 'm ago';
+  if (s < 86400) return Math.floor(s/3600) + 'h ago';
+  return Math.floor(s/86400) + 'd ago';
+}
+function typeClass(t) { return ({DECISION_NEEDED:'DECISION',PAYMENT_REQUIRED:'PAYMENT',STATUS_UPDATE:'STATUS',MILESTONE:'MILESTONE',ERROR:'ERROR',CLIENT_ACTION:'CLIENT'})[t] || 'STATUS'; }
+function shortType(t) { return ({DECISION_NEEDED:'DECIDE',PAYMENT_REQUIRED:'PAY',STATUS_UPDATE:'UPDATE',MILESTONE:'MILESTONE',ERROR:'ERROR',CLIENT_ACTION:'CLIENT'})[t] || t; }
+function typeBorder(t) { return ({DECISION_NEEDED:'rgba(255,170,34,.3)',PAYMENT_REQUIRED:'rgba(255,68,102,.3)',MILESTONE:'rgba(0,255,136,.3)',ERROR:'rgba(255,68,102,.3)',CLIENT_ACTION:'rgba(170,102,255,.3)'})[t] || 'var(--border)'; }
+function updateTime() { document.getElementById('meta-time').textContent = new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}); }
+function showToast(msg) { const t = document.getElementById('toast'); t.innerHTML = msg; t.classList.add('show'); clearTimeout(t._timer); t._timer = setTimeout(() => t.classList.remove('show'), 4000); }
+
+// ── Init ──
+renderDivisions();
+renderFiredTasks();
+fetchAll();
+setInterval(fetchAll, 30000);  // Poll every 30s
+</script>
+</body>
+</html>
