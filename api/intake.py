@@ -191,6 +191,55 @@ async def startup_background_daemons():
 
             _time.sleep(60)  # Check every 60 seconds, act based on intervals
 
+    def _run_galactia():
+        """Galactia Unified Intelligence Engine — runs full pipeline autonomously.
+
+        Phase 1: PARALLEL ingestion (Reddit + YouTube + X in separate threads)
+        Phase 2a: VERITAS truth scoring via LLM
+        Phase 2b: ML statistical scoring (anomaly + trend + TF-IDF)
+        Phase 2c: Context governance (TTL + freshness + cleanup)
+        Phase 3: Correlation analysis (every 3rd cycle)
+        Phase 4: Research generation (every 6th cycle)
+        Phase 5: Unified memory status
+        """
+        import time as _time
+        import os
+        galactia_interval = int(os.environ.get("GALACTIA_INTERVAL_SECONDS", "1800"))  # 30 min default
+        _time.sleep(45)  # Wait for app + NERVE to stabilize first
+
+        cycle = 0
+        consecutive_failures = 0
+
+        while True:
+            cycle += 1
+            try:
+                logger.info("[GALACTIA] Unified cycle %d — parallel ingest + VERITAS + ML + Governor...", cycle)
+                from galactia.galactia import run_cycle
+                report = run_cycle()
+                ingestion = report.get("phases", {}).get("ingestion", {})
+                scoring = report.get("phases", {}).get("scoring", {})
+                ingested = ingestion.get("total_new", 0)
+                veritas = scoring.get("veritas", {}).get("scored", 0)
+                ml = scoring.get("ml", {}).get("scored", 0)
+                elapsed = report.get("elapsed_seconds", "?")
+                logger.info("[GALACTIA] Cycle %d complete — %d ingested (parallel), %d VERITAS, %d ML scored in %ss",
+                           cycle, ingested, veritas, ml, elapsed)
+                consecutive_failures = 0
+            except ImportError as e:
+                logger.error("[GALACTIA] Import error: %s — will retry in 5 min", e)
+                _time.sleep(300)
+                continue
+            except Exception as e:
+                consecutive_failures += 1
+                logger.error("[GALACTIA] Cycle %d error: %s", cycle, e)
+                if consecutive_failures >= 5:
+                    logger.error("[GALACTIA] 5 consecutive failures — backing off 10 min")
+                    _time.sleep(600)
+                    consecutive_failures = 0
+                    continue
+
+            _time.sleep(galactia_interval)
+
     queue_thread = threading.Thread(target=_run_queue_processor, name="EmbeddedQueueProc", daemon=True)
     queue_thread.start()
     logger.info("[STARTUP] Embedded QueueProc started")
@@ -198,6 +247,10 @@ async def startup_background_daemons():
     nerve_thread = threading.Thread(target=_run_nerve_lite, name="EmbeddedNERVE", daemon=True)
     nerve_thread.start()
     logger.info("[STARTUP] Embedded NERVE-lite started")
+
+    galactia_thread = threading.Thread(target=_run_galactia, name="EmbeddedGalactia", daemon=True)
+    galactia_thread.start()
+    logger.info("[STARTUP] Embedded Galactia intelligence daemon started (30-min cycles)")
 
     # Verify at least one LLM provider is available
     try:

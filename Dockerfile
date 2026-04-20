@@ -21,8 +21,8 @@ WORKDIR /app
 # Copy installed packages from builder
 COPY --from=builder /install /usr/local
 
-# Create data directory for SQLite databases
-RUN mkdir -p /app/data
+# Create data directories for SQLite databases and Galactia intelligence
+RUN mkdir -p /app/data /app/galactia/data/cycle_logs /app/galactia/data/clusters
 
 # Copy project files
 COPY . .

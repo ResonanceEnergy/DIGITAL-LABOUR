@@ -503,210 +503,136 @@ a:hover { text-decoration:underline; }
   <!-- ==================== INTELLIGENCE TAB ==================== -->
   <div id="tab-intelligence" class="tab-content">
 
-    <!-- AI News Monitoring -->
-    <div class="section-header">&#129302; AI NEWS MONITORING</div>
+    <!-- Unified Engine Header -->
+    <div class="flex-between mb-12">
+      <div class="section-header" style="margin:0;border:none;padding:0">&#129504; GALACTIA UNIFIED INTELLIGENCE ENGINE</div>
+      <div style="display:flex;gap:6px">
+        <button class="action-btn sm primary" onclick="galactiaIngest('all')">&#128640; INGEST ALL</button>
+        <button class="action-btn sm info" onclick="galactiaIngest('reddit')">&#128172; REDDIT</button>
+        <button class="action-btn sm info" onclick="galactiaIngest('youtube')">&#127909; YOUTUBE</button>
+        <button class="action-btn sm info" onclick="galactiaIngest('x')">&#120143; X</button>
+      </div>
+    </div>
+
+    <!-- Row 1: Core Metrics (6 cards) -->
+    <div class="grid grid-3 mb-12" style="grid-template-columns:repeat(6,1fr)">
+      <div class="card">
+        <div class="card-title">CYCLES</div>
+        <div class="metric-big c-purple" id="gal-cycles">--</div>
+        <div class="metric-sub">Last: <span id="gal-last-cycle">--</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">INGESTED</div>
+        <div class="metric-big c-green" id="gal-total-ingested">--</div>
+        <div class="metric-sub">Parallel mode</div>
+      </div>
+      <div class="card">
+        <div class="card-title">VERITAS</div>
+        <div class="metric-big c-cyan" id="gal-total-scored">--</div>
+        <div class="metric-sub">Avg: <span id="gal-avg-score">--</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">ML SCORED</div>
+        <div class="metric-big c-blue" id="gal-ml-scored">--</div>
+        <div class="metric-sub">Anomalies: <span id="gal-ml-anomalies">0</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">KNOWLEDGE</div>
+        <div class="metric-big c-amber" id="gal-topics">--</div>
+        <div class="metric-sub"><span id="gal-claims">--</span> claims</div>
+      </div>
+      <div class="card">
+        <div class="card-title">RESEARCH</div>
+        <div class="metric-big c-red" id="gal-research-active">--</div>
+        <div class="metric-sub"><span id="gal-correlations">--</span> correlations</div>
+      </div>
+    </div>
+
+    <!-- Row 2: Source Pipelines + Context Health -->
+    <div class="section-header">&#128225; SOURCE PIPELINES + CONTEXT HEALTH</div>
     <div class="grid grid-4 mb-12">
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title c-purple">&#9889; Anthropic Updates</div>
-          <button class="refresh-btn" onclick="refreshIntel('anthropic')">&#8635;</button>
+      <div class="card" style="border-left:3px solid var(--blue)">
+        <div class="card-title">&#120143; X / TWITTER <span class="badge" style="background:var(--dark-cyan);color:var(--cyan)" id="x-mode-badge">--</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;margin-bottom:6px">
+          <span id="x-archive-count" class="c-blue">--</span>
+          <span style="font-size:10px;color:var(--dim)">posts archived</span>
         </div>
-        <div class="intel-card-meta">Last updated: <span id="intel-anthropic-ts">--</span></div>
-        <div class="intel-card-body" id="intel-anthropic">
-          <div class="item">Claude model releases & API changes</div>
-          <div class="item">Pricing tier adjustments</div>
-          <div class="item">New capability announcements</div>
+        <div class="metric-sub">Last: <span id="x-last-ingest">--</span></div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--orange)">
+        <div class="card-title">&#128172; REDDIT <span class="badge" style="background:rgba(255,102,34,.1);color:var(--orange)" id="reddit-mode-badge">PUBLIC JSON</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;margin-bottom:6px">
+          <span id="reddit-archive-count" class="c-orange">--</span>
+          <span style="font-size:10px;color:var(--dim)">posts archived</span>
+        </div>
+        <div class="metric-sub">Subs: <span id="reddit-subs-count">--</span> | Last: <span id="reddit-last-ingest">--</span></div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--red)">
+        <div class="card-title">&#127909; YOUTUBE <span class="badge" style="background:rgba(255,68,102,.1);color:var(--red)" id="yt-mode-badge">--</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;margin-bottom:6px">
+          <span id="yt-archive-count" class="c-red">--</span>
+          <span style="font-size:10px;color:var(--dim)">videos archived</span>
+        </div>
+        <div class="metric-sub">Ch: <span id="yt-channels-count">--</span> | Last: <span id="yt-last-ingest">--</span></div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--purple)" id="ctx-health-card">
+        <div class="card-title">&#128737; CONTEXT GOVERNOR <span class="badge" id="ctx-health-badge" style="background:rgba(153,102,255,.1);color:var(--purple)">--</span></div>
+        <div style="font-size:12px;font-weight:700;margin-bottom:4px">
+          Storage: <span id="ctx-storage-mb" class="c-purple">--</span> MB
+        </div>
+        <div class="metric-sub">Gov actions: <span id="ctx-gov-actions">--</span> | <span id="ctx-issues-count">0</span> issues</div>
+      </div>
+    </div>
+
+    <!-- Row 3: ML Intelligence Panel -->
+    <div class="section-header">&#129302; ML INTELLIGENCE <span style="font-size:9px;color:var(--dim);margin-left:8px">anomaly detection + trend forecasting + keyword extraction</span></div>
+    <div class="grid grid-3 mb-12">
+      <div class="card" style="border-left:3px solid var(--cyan)">
+        <div class="card-title">&#128200; TREND SIGNALS</div>
+        <div id="ml-trends" style="font-size:11px;padding:4px 0">
+          <span style="color:var(--dim)">Loading...</span>
         </div>
       </div>
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title c-green">&#128161; OpenAI Updates</div>
-          <button class="refresh-btn" onclick="refreshIntel('openai')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last updated: <span id="intel-openai-ts">--</span></div>
-        <div class="intel-card-body" id="intel-openai">
-          <div class="item">GPT model updates & deprecations</div>
-          <div class="item">API pricing changes</div>
-          <div class="item">Feature releases & partnerships</div>
+      <div class="card" style="border-left:3px solid var(--amber)">
+        <div class="card-title">&#128161; TOP KEYWORDS (TF-IDF)</div>
+        <div id="ml-keywords" style="font-size:11px;padding:4px 0">
+          <span style="color:var(--dim)">Loading...</span>
         </div>
       </div>
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title c-blue">&#127758; Google AI</div>
-          <button class="refresh-btn" onclick="refreshIntel('google')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last updated: <span id="intel-google-ts">--</span></div>
-        <div class="intel-card-body" id="intel-google">
-          <div class="item">Gemini model updates</div>
-          <div class="item">Vertex AI platform changes</div>
-          <div class="item">Google Cloud AI integrations</div>
-        </div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title c-amber">&#128176; LLM Pricing</div>
-          <button class="refresh-btn" onclick="refreshIntel('pricing')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last updated: <span id="intel-pricing-ts">--</span></div>
-        <div class="intel-card-body" id="intel-pricing">
-          <div class="item">Cost-per-token comparisons</div>
-          <div class="item">New model cost efficiency</div>
-          <div class="item">Rate limit changes</div>
+      <div class="card" style="border-left:3px solid var(--red)">
+        <div class="card-title">&#9888; ANOMALY ALERTS</div>
+        <div id="ml-anomalies" style="font-size:11px;padding:4px 0">
+          <span style="color:var(--dim)">Loading...</span>
         </div>
       </div>
     </div>
 
-    <!-- Market Trend Monitoring -->
-    <div class="section-header">&#128200; MARKET TREND MONITORING</div>
-    <div class="grid grid-4 mb-12">
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title c-green">&#128176; Grant Opportunities</div>
-          <button class="refresh-btn" onclick="refreshIntel('grants')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last updated: <span id="intel-grants-ts">--</span></div>
-        <div class="intel-card-body" id="intel-grants">
-          <div class="item">Federal / state tech grants</div>
-          <div class="item">Small business innovation grants</div>
-          <div class="item">AI/automation pilot programs</div>
-        </div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title c-red">&#128220; Insurance Regulatory</div>
-          <button class="refresh-btn" onclick="refreshIntel('insurance')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last updated: <span id="intel-insurance-ts">--</span></div>
-        <div class="intel-card-body" id="intel-insurance">
-          <div class="item">State regulatory changes</div>
-          <div class="item">Compliance deadline updates</div>
-          <div class="item">Market rate adjustments</div>
-        </div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title c-orange">&#127959; Construction Permits</div>
-          <button class="refresh-btn" onclick="refreshIntel('construction')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last updated: <span id="intel-construction-ts">--</span></div>
-        <div class="intel-card-body" id="intel-construction">
-          <div class="item">Regional permit volume trends</div>
-          <div class="item">New development hotspots</div>
-          <div class="item">Building code changes</div>
-        </div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title c-cyan">&#127970; Municipal RFPs</div>
-          <button class="refresh-btn" onclick="refreshIntel('rfps')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last updated: <span id="intel-rfps-ts">--</span></div>
-        <div class="intel-card-body" id="intel-rfps">
-          <div class="item">Active RFP listings</div>
-          <div class="item">Upcoming bid deadlines</div>
-          <div class="item">Technology procurement trends</div>
-        </div>
-      </div>
+    <!-- Row 4: Knowledge Topics -->
+    <div class="section-header">&#128218; TOP KNOWLEDGE TOPICS</div>
+    <div id="gal-top-topics" class="mb-12" style="font-size:11px">
+      <div class="empty-state"><div class="icon">&#128218;</div><div>Loading knowledge graph...</div></div>
     </div>
 
-    <!-- Competitive Intelligence -->
-    <div class="section-header">&#127919; COMPETITIVE INTELLIGENCE</div>
+    <!-- Row 5: Research Projects + Correlations side by side -->
     <div class="grid grid-2 mb-12">
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title c-green">&#128101; Fiverr Tracking</div>
-          <button class="refresh-btn" onclick="refreshIntel('fiverr')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last updated: <span id="intel-fiverr-ts">--</span></div>
-        <div class="intel-card-body" id="intel-fiverr">
-          <div class="item"><span>AI automation gigs</span><span class="c-dim">--</span></div>
-          <div class="item"><span>Avg. price point</span><span class="c-dim">--</span></div>
-          <div class="item"><span>New competitor listings</span><span class="c-dim">--</span></div>
-          <div class="item"><span>Top seller analysis</span><span class="c-dim">--</span></div>
+      <div>
+        <div class="section-header">&#128279; CORRELATIONS</div>
+        <div id="gal-correlations-list" style="font-size:11px">
+          <div style="color:var(--dim);text-align:center;padding:12px">No correlations yet</div>
         </div>
       </div>
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title c-blue">&#128101; Upwork Tracking</div>
-          <button class="refresh-btn" onclick="refreshIntel('upwork')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last updated: <span id="intel-upwork-ts">--</span></div>
-        <div class="intel-card-body" id="intel-upwork">
-          <div class="item"><span>AI/ML project postings</span><span class="c-dim">--</span></div>
-          <div class="item"><span>Avg. hourly rate</span><span class="c-dim">--</span></div>
-          <div class="item"><span>Enterprise RFPs</span><span class="c-dim">--</span></div>
-          <div class="item"><span>Competitor win rate</span><span class="c-dim">--</span></div>
+      <div>
+        <div class="section-header">&#128300; RESEARCH PROJECTS</div>
+        <div id="gal-research-list" style="font-size:11px">
+          <div style="color:var(--dim);text-align:center;padding:12px">No research projects yet</div>
         </div>
       </div>
     </div>
 
-    <!-- YouTube Intelligence -->
-    <div class="section-header">&#127909; YOUTUBE INTELLIGENCE FEED</div>
-    <div class="grid grid-4" id="youtube-feed-grid">
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title" style="font-size:10px">AI Explained</div>
-          <button class="refresh-btn" onclick="refreshIntel('yt-0')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
-        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title" style="font-size:10px">Two Minute Papers</div>
-          <button class="refresh-btn" onclick="refreshIntel('yt-1')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
-        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title" style="font-size:10px">Fireship</div>
-          <button class="refresh-btn" onclick="refreshIntel('yt-2')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
-        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title" style="font-size:10px">Matt Wolfe</div>
-          <button class="refresh-btn" onclick="refreshIntel('yt-3')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
-        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title" style="font-size:10px">Yannic Kilcher</div>
-          <button class="refresh-btn" onclick="refreshIntel('yt-4')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
-        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title" style="font-size:10px">The AI Advantage</div>
-          <button class="refresh-btn" onclick="refreshIntel('yt-5')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
-        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title" style="font-size:10px">Matthew Berman</div>
-          <button class="refresh-btn" onclick="refreshIntel('yt-6')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
-        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
-      </div>
-      <div class="intel-card">
-        <div class="intel-card-header">
-          <div class="intel-card-title" style="font-size:10px">AI Jason</div>
-          <button class="refresh-btn" onclick="refreshIntel('yt-7')">&#8635;</button>
-        </div>
-        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
-        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
-      </div>
+    <!-- Row 6: Live Intelligence Feed -->
+    <div class="section-header">&#128240; LIVE INTELLIGENCE FEED <span style="font-size:9px;color:var(--dim);margin-left:8px">scored posts from all sources — VERITAS + ML</span></div>
+    <div id="gal-feed" style="font-size:11px">
+      <div class="empty-state"><div class="icon">&#128240;</div><div>Loading intelligence feed...</div></div>
     </div>
   </div>
 
@@ -1582,6 +1508,11 @@ a:hover { text-decoration:underline; }
         loadEscalations(),
         loadWeeklyGoals(),
         loadOutputBrief(),
+        loadGalactiaStatus(),
+        loadGalactiaML(),
+        loadGalactiaKnowledge(),
+        loadGalactiaResearch(),
+        loadGalactiaFeed(),
       ]);
       state.lastRefresh = new Date();
       addOpsLog('FULL REFRESH', 'All systems polled', true);
@@ -1646,12 +1577,266 @@ a:hover { text-decoration:underline; }
     }
   };
 
-  // Intel refresh (placeholder - these would connect to actual intel APIs)
-  function refreshIntel(source) {
-    const tsEl = document.getElementById('intel-' + source + '-ts');
-    if (tsEl) tsEl.textContent = ts(new Date());
-    toast('Intelligence feed refreshed: ' + source, 'success');
-    addOpsLog('INTEL REFRESH', source, true);
+  // ── Galactia Intelligence ──
+
+  async function loadGalactiaStatus() {
+    try {
+      const data = await apiGet('/api/v1/ncl/galactia/unified');
+
+      // Daemon state
+      const st = data.state || {};
+      $('gal-cycles').textContent = st.cycles_run || 0;
+      $('gal-last-cycle').textContent = relativeTime(st.last_cycle) || 'never';
+      $('gal-total-ingested').textContent = st.total_ingested || 0;
+      $('gal-total-scored').textContent = st.total_scored || 0;
+      $('gal-ml-scored').textContent = st.total_ml_scored || 0;
+
+      // Scoring stats
+      const sc = data.scoring || {};
+      $('gal-avg-score').textContent = sc.avg_overall ? sc.avg_overall.toFixed(1) : '--';
+
+      // Knowledge stats
+      const k = data.knowledge || {};
+      $('gal-topics').textContent = k.total_topics || 0;
+      $('gal-claims').textContent = k.total_claims || 0;
+      $('gal-correlations').textContent = k.total_correlations || 0;
+
+      // Research
+      const r = data.research || {};
+      $('gal-research-active').textContent = r.active || 0;
+
+      // ML insights
+      const ml = data.ml || {};
+      $('gal-ml-anomalies').textContent = ml.total_anomaly_alerts || 0;
+
+      // X pipeline
+      const xs = data.pipelines?.x || {};
+      $('x-archive-count').textContent = xs.archive_count || 0;
+      $('x-last-ingest').textContent = relativeTime(xs.last_ingest) || 'never';
+      $('x-mode-badge').textContent = xs.error ? 'ERROR' : (xs.archive_count > 0 ? 'ACTIVE' : 'IDLE');
+
+      // Reddit pipeline
+      const rs = data.pipelines?.reddit || {};
+      $('reddit-archive-count').textContent = rs.archive_count || 0;
+      $('reddit-subs-count').textContent = rs.subreddits_configured || '--';
+      $('reddit-last-ingest').textContent = relativeTime(rs.last_ingest) || 'never';
+
+      // YouTube pipeline
+      const ys = data.pipelines?.youtube || {};
+      $('yt-archive-count').textContent = ys.archive_count || 0;
+      $('yt-channels-count').textContent = ys.channels_configured || '--';
+      $('yt-last-ingest').textContent = relativeTime(ys.last_ingest) || 'never';
+      $('yt-mode-badge').textContent = ys.api_mode ? 'API v3' : 'RSS';
+
+      // Context health
+      const ctx = data.context || {};
+      $('ctx-health-badge').textContent = (ctx.status || 'UNKNOWN').toUpperCase();
+      const ctxColor = ctx.status === 'healthy' ? 'var(--green)' : ctx.status === 'degraded' ? 'var(--amber)' : 'var(--red)';
+      $('ctx-health-badge').style.color = ctxColor;
+      const ctxMetrics = ctx.metrics || {};
+      $('ctx-storage-mb').textContent = ctxMetrics.storage_mb || 0;
+      $('ctx-gov-actions').textContent = ctxMetrics.governance_actions || 0;
+      $('ctx-issues-count').textContent = (ctx.issues || []).length;
+
+      // Top topics
+      const topics = k.top_topics || [];
+      if (topics.length > 0) {
+        $('gal-top-topics').innerHTML = '<div class="grid grid-4" style="gap:8px">' + topics.map(t => {
+          const score = t.avg_score || 0;
+          const color = score >= 70 ? 'var(--green)' : score >= 50 ? 'var(--amber)' : 'var(--red)';
+          return '<div class="card" style="padding:10px;border-left:3px solid ' + color + '">' +
+            '<div style="font-weight:700;font-size:11px;margin-bottom:4px">' + sanitize(t.name || 'Unknown') + '</div>' +
+            '<div style="display:flex;justify-content:space-between;font-size:10px;color:var(--dim)">' +
+            '<span>Score: <strong style="color:' + color + '">' + score.toFixed(0) + '</strong></span>' +
+            '<span>' + (t.count || 0) + ' posts</span></div></div>';
+        }).join('') + '</div>';
+      } else {
+        $('gal-top-topics').innerHTML = '<div style="color:var(--dim);font-size:11px;text-align:center;padding:12px">No topics yet</div>';
+      }
+
+      addOpsLog('GALACTIA UNIFIED', (st.cycles_run || 0) + ' cycles, ' + (st.total_ingested || 0) + ' ingested, ML:' + (st.total_ml_scored || 0), true);
+    } catch (e) {
+      console.error('Galactia status error:', e);
+      $('gal-cycles').textContent = 'ERR';
+    }
+  }
+
+  async function loadGalactiaML() {
+    try {
+      const data = await apiGet('/api/v1/ncl/galactia/ml-insights');
+      const insights = data.insights || {};
+      const stats = data.stats || {};
+
+      // Trends
+      const trends = insights.trends || {};
+      const trendEntries = Object.entries(trends);
+      if (trendEntries.length > 0) {
+        $('ml-trends').innerHTML = trendEntries.map(function(entry) {
+          var src = entry[0]; var t = entry[1];
+          var dir = t.direction || 'flat';
+          var arrow = dir === 'up' ? '&#9650;' : dir === 'down' ? '&#9660;' : '&#9679;';
+          var color = dir === 'up' ? 'var(--green)' : dir === 'down' ? 'var(--red)' : 'var(--dim)';
+          var fc = (t.forecast || []).slice(0, 3).map(function(v) { return v.toFixed(0); }).join(' > ');
+          return '<div style="display:flex;justify-content:space-between;padding:2px 0">' +
+            '<span style="font-weight:700">' + sanitize(src.toUpperCase()) + '</span>' +
+            '<span style="color:' + color + '">' + arrow + ' ' + dir.toUpperCase() +
+            (fc ? ' <span style="color:var(--dim);font-size:9px">' + fc + '</span>' : '') +
+            '</span></div>';
+        }).join('');
+      } else {
+        $('ml-trends').innerHTML = '<span style="color:var(--dim)">No trend data yet</span>';
+      }
+
+      // Keywords
+      var kw = insights.top_keywords || [];
+      if (kw.length > 0) {
+        $('ml-keywords').innerHTML = '<div style="display:flex;flex-wrap:wrap;gap:4px">' +
+          kw.slice(0, 20).map(function(k) {
+            var size = Math.min(13, 9 + Math.log(k.count + 1));
+            return '<span style="background:var(--dark-purple);color:var(--purple);padding:2px 6px;border-radius:3px;font-size:' + size + 'px">' +
+              sanitize(k.word) + '<span style="color:var(--dim);font-size:8px;margin-left:2px">' + k.count + '</span></span>';
+          }).join('') + '</div>';
+      } else {
+        $('ml-keywords').innerHTML = '<span style="color:var(--dim)">No keywords extracted yet</span>';
+      }
+
+      // Anomalies
+      var anomalies = insights.anomalies || {};
+      var anomalyEntries = Object.entries(anomalies);
+      if (anomalyEntries.length > 0) {
+        $('ml-anomalies').innerHTML = anomalyEntries.map(function(entry) {
+          var src = entry[0]; var a = entry[1];
+          var count = a.recent_alerts || 0;
+          var color = count > 5 ? 'var(--red)' : count > 0 ? 'var(--amber)' : 'var(--green)';
+          return '<div style="display:flex;justify-content:space-between;padding:2px 0">' +
+            '<span>' + sanitize(src.toUpperCase()) + '</span>' +
+            '<span style="color:' + color + ';font-weight:700">' + count + ' alerts</span></div>';
+        }).join('');
+      } else {
+        $('ml-anomalies').innerHTML = '<span style="color:var(--dim)">No anomalies detected</span>';
+      }
+    } catch (e) {
+      console.error('ML insights error:', e);
+    }
+  }
+
+  async function loadGalactiaKnowledge() {
+    try {
+      const data = await apiGet('/api/v1/ncl/galactia/knowledge');
+
+      // Correlations
+      var corr = data.recent_correlations || [];
+      if (corr.length > 0) {
+        $('gal-correlations-list').innerHTML = corr.map(function(c) {
+          var topics = (c.topics || []).map(sanitize).join(' &#8596; ');
+          var score = c.research_worthy || 0;
+          var conf = c.confidence || 'LOW';
+          var confColor = conf === 'HIGH' ? 'var(--green)' : conf === 'MEDIUM' ? 'var(--amber)' : 'var(--dim)';
+          return '<div class="card" style="padding:10px;margin-bottom:6px">' +
+            '<div style="display:flex;justify-content:space-between;margin-bottom:4px">' +
+            '<span style="font-weight:700;color:var(--cyan)">' + topics + '</span>' +
+            '<span style="font-size:9px"><span style="color:' + confColor + '">' + conf + '</span> | <strong class="c-purple">' + score + '</strong></span></div>' +
+            '<div style="color:var(--dim);font-size:10px">' + sanitize((c.explanation || '').substring(0, 150)) + '</div></div>';
+        }).join('');
+      } else {
+        $('gal-correlations-list').innerHTML = '<div style="color:var(--dim);text-align:center;padding:12px">No correlations yet</div>';
+      }
+    } catch (e) {
+      console.error('Galactia knowledge error:', e);
+    }
+  }
+
+  async function loadGalactiaResearch() {
+    try {
+      const data = await apiGet('/api/v1/ncl/galactia/research');
+      var projects = data.projects || [];
+      if (projects.length > 0) {
+        $('gal-research-list').innerHTML = projects.slice(0, 8).map(function(p) {
+          var status = p.status || 'unknown';
+          var statusColor = status === 'active' ? 'var(--green)' : status === 'completed' ? 'var(--cyan)' : 'var(--dim)';
+          var topics = (p.topics || []).map(sanitize).join(', ');
+          return '<div class="card" style="padding:8px;margin-bottom:4px;border-left:3px solid ' + statusColor + '">' +
+            '<div style="display:flex;justify-content:space-between">' +
+            '<span style="font-weight:700;color:var(--cyan)">' + sanitize(p.codename || '?') + '</span>' +
+            '<span class="badge" style="background:rgba(0,255,0,.05);color:' + statusColor + '">' + status.toUpperCase() + '</span></div>' +
+            (topics ? '<div style="color:var(--dim);font-size:9px;margin-top:2px">' + topics + '</div>' : '') +
+            '</div>';
+        }).join('');
+      } else {
+        $('gal-research-list').innerHTML = '<div style="color:var(--dim);text-align:center;padding:12px">No research projects yet</div>';
+      }
+    } catch (e) {
+      console.error('Research load error:', e);
+    }
+  }
+
+  async function loadGalactiaFeed() {
+    try {
+      const data = await apiGet('/api/v1/ncl/galactia/feed?limit=20');
+      var posts = data.posts || [];
+      if (posts.length > 0) {
+        var platformIcons = { x: '&#120143;', reddit: '&#128172;', youtube: '&#127909;' };
+        var platformColors = { x: 'var(--blue)', reddit: 'var(--orange)', youtube: 'var(--red)' };
+
+        $('gal-feed').innerHTML = '<table style="width:100%;border-collapse:collapse;font-size:10px">' +
+          '<thead><tr style="color:var(--dim);text-align:left">' +
+          '<th style="padding:6px">Source</th><th style="padding:6px">Content</th><th style="padding:6px">Author</th>' +
+          '<th style="padding:6px">VERITAS</th><th style="padding:6px">ML</th><th style="padding:6px">Topics</th><th style="padding:6px">Time</th></tr></thead><tbody>' +
+          posts.map(function(p) {
+            var platform = p._source_pipeline || p.platform || 'unknown';
+            var icon = platformIcons[platform] || '&#128196;';
+            var pColor = platformColors[platform] || 'var(--dim)';
+            var score = p.overall_score;
+            var scoreColor = score === null || score === undefined ? 'var(--dim)' : score >= 70 ? 'var(--green)' : score >= 50 ? 'var(--amber)' : 'var(--red)';
+            var scoreText = score !== null && score !== undefined ? score : '--';
+            var mlNovelty = p.ml_novelty_score;
+            var mlColor = mlNovelty === null || mlNovelty === undefined ? 'var(--dim)' : mlNovelty >= 60 ? 'var(--red)' : mlNovelty >= 30 ? 'var(--amber)' : 'var(--green)';
+            var mlText = mlNovelty !== null && mlNovelty !== undefined ? mlNovelty : '--';
+            var topics = (p.topics || []).slice(0, 2).map(sanitize).join(', ') || '--';
+            var text = sanitize((p.clean_text || p.text || '').substring(0, 70));
+            var url = p.url ? '<a href="' + sanitize(p.url) + '" target="_blank" style="color:inherit">' + text + '</a>' : text;
+
+            return '<tr style="border-bottom:1px solid var(--border)">' +
+              '<td style="padding:6px;color:' + pColor + ';font-weight:700">' + icon + ' ' + sanitize(platform.toUpperCase()) + '</td>' +
+              '<td style="padding:6px">' + url + '</td>' +
+              '<td style="padding:6px;color:var(--dim)">' + sanitize((p.author || '--').substring(0, 18)) + '</td>' +
+              '<td style="padding:6px;color:' + scoreColor + ';font-weight:700">' + scoreText + '</td>' +
+              '<td style="padding:6px;color:' + mlColor + ';font-weight:700">' + mlText + '</td>' +
+              '<td style="padding:6px;color:var(--purple);font-size:9px">' + topics + '</td>' +
+              '<td style="padding:6px;color:var(--dim)">' + relativeTime(p.ingested_at || p.timestamp) + '</td></tr>';
+          }).join('') +
+          '</tbody></table>' +
+          '<div style="margin-top:8px;font-size:9px;color:var(--dim);text-align:right">Showing ' + posts.length + ' of ' + (data.count || posts.length) + ' | Sources: ' + Object.entries(data.source_breakdown || {}).map(function(e) { return e[0] + ':' + e[1]; }).join(' | ') + '</div>';
+      } else {
+        $('gal-feed').innerHTML = '<div style="color:var(--dim);text-align:center;padding:20px">No intelligence posts yet. Click INGEST ALL to start.</div>';
+      }
+    } catch (e) {
+      console.error('Galactia feed error:', e);
+      $('gal-feed').innerHTML = '<div style="color:var(--red);text-align:center;padding:12px">Failed to load feed: ' + sanitize(e.message) + '</div>';
+    }
+  }
+
+  async function galactiaIngest(source) {
+    setC2Status('INGESTING ' + source.toUpperCase() + '...', 'var(--green)');
+    toast('Triggering ' + source + ' intelligence ingestion...', 'info');
+
+    try {
+      const data = await apiPost('/api/v1/ncl/galactia/ingest?source=' + source);
+      showResult(data);
+      addOpsLog('GALACTIA INGEST', source + ': ' + (data.total_ingested || 0) + ' new posts', true);
+      toast('Ingestion complete: ' + (data.total_ingested || 0) + ' new posts', 'success');
+      setTimeout(function() {
+        loadGalactiaStatus();
+        loadGalactiaML();
+        loadGalactiaFeed();
+      }, 2000);
+    } catch (e) {
+      showResult({ error: e.message });
+      addOpsLog('GALACTIA INGEST', e.message, false);
+      toast('Ingestion failed: ' + e.message, 'error');
+    } finally {
+      setC2Status('IDLE', 'var(--dim)');
+    }
   }
 
   // ── Clock ──
@@ -1761,6 +1946,11 @@ a:hover { text-decoration:underline; }
         loadEscalations(),
         loadWeeklyGoals(),
         loadOutputBrief(),
+        loadGalactiaStatus(),
+        loadGalactiaML(),
+        loadGalactiaKnowledge(),
+        loadGalactiaResearch(),
+        loadGalactiaFeed(),
       ]);
       state.lastRefresh = new Date();
       addOpsLog('INIT', 'Dashboard initialized', true);
@@ -1781,7 +1971,7 @@ a:hover { text-decoration:underline; }
   window.runCSuite = runCSuite;
   window.fullStatusRefresh = fullStatusRefresh;
   window.filterEscalations = filterEscalations;
-  window.refreshIntel = refreshIntel;
+  window.galactiaIngest = galactiaIngest;
   window.clearResult = clearResult;
   window.clearOpsLog = clearOpsLog;
   window.switchTab = switchTab;

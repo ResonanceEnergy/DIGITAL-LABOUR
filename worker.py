@@ -191,6 +191,50 @@ def run_resonance_sync(interval_minutes: int = 30):
 
 
 
+def run_galactia(interval_minutes: int = 30):
+    """Galactia Unified Intelligence Engine — parallel ingest + VERITAS + ML + Governor."""
+    name = "Galactia"
+    update_status(name, "starting")
+    time.sleep(30)  # Let other daemons stabilize first
+    consecutive_failures = 0
+
+    while not SHUTDOWN.is_set():
+        try:
+            logger.info(f"[{name}] Starting unified cycle (parallel ingest + VERITAS + ML + Governor)...")
+            update_status(name, "running", "unified: parallel ingest + scoring + governance")
+            from galactia.galactia import run_cycle
+            report = run_cycle()
+            ingestion = report.get("phases", {}).get("ingestion", {})
+            scoring = report.get("phases", {}).get("scoring", {})
+            ingested = ingestion.get("total_new", 0)
+            veritas = scoring.get("veritas", {}).get("scored", 0)
+            ml = scoring.get("ml", {}).get("scored", 0)
+            elapsed = report.get("elapsed_seconds", "?")
+            detail = f"{ingested} ingested, {veritas} VERITAS, {ml} ML in {elapsed}s, next in {interval_minutes}m"
+            update_status(name, "idle", detail)
+            logger.info(f"[{name}] Cycle complete — {detail}")
+            consecutive_failures = 0
+        except ImportError as e:
+            update_status(name, "error", f"import failed: {e}")
+            logger.error(f"[{name}] Import error: {e}")
+            SHUTDOWN.wait(300)
+            continue
+        except Exception as e:
+            consecutive_failures += 1
+            update_status(name, "error", str(e)[:200])
+            logger.error(f"[{name}] Cycle error: {e}\n{traceback.format_exc()}")
+            if consecutive_failures >= 5:
+                logger.error(f"[{name}] 5 consecutive failures — backing off 10 min")
+                SHUTDOWN.wait(600)
+                consecutive_failures = 0
+                continue
+        for _ in range(interval_minutes * 60):
+            if SHUTDOWN.is_set():
+                break
+            time.sleep(1)
+    update_status(name, "stopped")
+
+
 def run_queue_processor(poll_interval: int = 10):
     """Queue Processor daemon — polls DB for queued tasks and processes them."""
     name = "QueueProc"
@@ -305,6 +349,8 @@ def main():
     # Ensure data directories exist
     (PROJECT_ROOT / "data").mkdir(exist_ok=True)
     (PROJECT_ROOT / "data" / "nerve_logs").mkdir(exist_ok=True)
+    (PROJECT_ROOT / "galactia" / "data").mkdir(parents=True, exist_ok=True)
+    (PROJECT_ROOT / "galactia" / "data" / "cycle_logs").mkdir(parents=True, exist_ok=True)
 
     # Start all daemon threads
     daemons = [
@@ -313,6 +359,7 @@ def main():
         ("TaskSched", run_task_scheduler, {"interval_minutes": 5}),
         ("Revenue", run_revenue_daemon, {"interval_minutes": 30}),
         ("Resonance", run_resonance_sync, {"interval_minutes": 30}),
+        ("Galactia", run_galactia, {"interval_minutes": 30}),
         ("QueueProc", run_queue_processor, {"poll_interval": 10}),
     ]
 
