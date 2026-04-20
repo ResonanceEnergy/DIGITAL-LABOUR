@@ -100,38 +100,95 @@ async def startup_background_daemons():
         logger.info("[STARTUP] No external worker detected — starting embedded daemons")
 
     def _run_queue_processor():
-        """Embedded queue processor that dequeues and routes tasks."""
+        """Embedded queue processor — runs tasks as fast as LLMs can handle them."""
         import time as _time
+        import os
+        max_concurrent = int(os.environ.get("QUEUE_MAX_CONCURRENT", "3"))
+        idle_poll = int(os.environ.get("QUEUE_IDLE_POLL_SECONDS", "5"))
+        active_threads = []
+
+        def _process_task(t):
+            try:
+                event = create_event(t["task_type"], t.get("inputs", {}),
+                                    t.get("client", ""), t.get("provider", "openai"))
+                result = route_task(event)
+                if result.get("qa", {}).get("status") == "PASS":
+                    queue.complete(t["task_id"], result.get("outputs", {}))
+                    logger.info("[QUEUE] Completed: %s (%s)", t["task_id"][:8], t["task_type"])
+                else:
+                    issues = result.get("qa", {}).get("issues", [])
+                    queue.fail(t["task_id"], str(issues))
+                    logger.warning("[QUEUE] Failed: %s (%s) — %s", t["task_id"][:8], t["task_type"], issues[:1])
+            except Exception as e:
+                queue.fail(t["task_id"], str(e))
+                logger.error("[QUEUE] Error processing %s: %s", t["task_id"][:8], e)
+
         while True:
             try:
-                task = queue.dequeue()
-                if task:
-                    event = create_event(task["task_type"], task.get("inputs", {}),
-                                        task.get("client", ""), task.get("provider", "openai"))
-                    result = route_task(event)
-                    if result.get("qa", {}).get("status") == "PASS":
-                        queue.complete(task["task_id"], result.get("outputs", {}))
+                # Clean up finished threads
+                active_threads[:] = [t for t in active_threads if t.is_alive()]
+
+                # If we have capacity, grab more tasks
+                if len(active_threads) < max_concurrent:
+                    task = queue.dequeue()
+                    if task:
+                        t = threading.Thread(target=_process_task, args=(task,),
+                                           name=f"QP-{task['task_id'][:8]}", daemon=True)
+                        t.start()
+                        active_threads.append(t)
+                        continue  # Immediately try to grab another
                     else:
-                        queue.fail(task["task_id"], str(result.get("qa", {}).get("issues", [])))
+                        _time.sleep(idle_poll)  # Nothing queued, wait
                 else:
-                    _time.sleep(10)
+                    _time.sleep(2)  # At capacity, brief pause
             except Exception as e:
                 logger.error("[QUEUE_PROC] Error: %s", e)
-                _time.sleep(30)
+                _time.sleep(10)
 
     def _run_nerve_lite():
-        """Lightweight NERVE cycle — runs NCL daily push every 60 minutes."""
+        """NERVE cycle — full NCL daily push every 30 min, internal ops every 15 min."""
         import time as _time
-        _time.sleep(30)  # Wait for app to fully start
+        import os
+        nerve_interval = int(os.environ.get("NERVE_INTERVAL_SECONDS", "1800"))  # 30 min default
+        ops_interval = int(os.environ.get("OPS_INTERVAL_SECONDS", "900"))       # 15 min default
+        _time.sleep(20)  # Wait for app to fully start
+
+        last_full_push = 0
+        last_ops_gen = 0
+        cycle = 0
+
         while True:
             try:
-                from NCL.ncl_operations_commander import daily_ops_push
-                logger.info("[NERVE-LITE] Running daily ops push...")
-                daily_ops_push()
-                logger.info("[NERVE-LITE] Daily ops push complete")
+                now = _time.time()
+                cycle += 1
+
+                # Internal ops generation — every 15 min (lightweight, just queues tasks)
+                if now - last_ops_gen >= ops_interval:
+                    try:
+                        from automation.internal_ops import generate_daily_tasks
+                        logger.info("[NERVE] Cycle %d — generating internal ops tasks...", cycle)
+                        result = generate_daily_tasks()
+                        dispatched = result.get("dispatched", 0)
+                        logger.info("[NERVE] Internal ops: %d tasks dispatched", dispatched)
+                        last_ops_gen = now
+                    except Exception as e:
+                        logger.error("[NERVE] Internal ops error: %s", e)
+
+                # Full NCL daily push — every 30 min (health checks, escalations, revenue)
+                if now - last_full_push >= nerve_interval:
+                    try:
+                        from NCL.ncl_operations_commander import daily_ops_push
+                        logger.info("[NERVE] Cycle %d — full NCL daily push...", cycle)
+                        daily_ops_push()
+                        logger.info("[NERVE] Full push complete")
+                        last_full_push = now
+                    except Exception as e:
+                        logger.error("[NERVE] Daily push error: %s", e)
+
             except Exception as e:
-                logger.error("[NERVE-LITE] Error: %s", e)
-            _time.sleep(3600)  # Every hour
+                logger.error("[NERVE] Cycle error: %s", e)
+
+            _time.sleep(60)  # Check every 60 seconds, act based on intervals
 
     queue_thread = threading.Thread(target=_run_queue_processor, name="EmbeddedQueueProc", daemon=True)
     queue_thread.start()
