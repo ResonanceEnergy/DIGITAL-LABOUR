@@ -358,6 +358,7 @@ a:hover { text-decoration:underline; }
     <button class="nav-tab" data-tab="weekly-goals">WEEKLY GOALS</button>
     <button class="nav-tab" data-tab="escalations">ESCALATIONS</button>
     <button class="nav-tab" data-tab="outputs">OUTPUTS</button>
+    <button class="nav-tab" data-tab="firststrike">FIRST STRIKE</button>
   </div>
   <div class="header-right">
     <div id="refresh-dot" class="refresh-indicator" title="Auto-refresh active"></div>
@@ -739,6 +740,140 @@ a:hover { text-decoration:underline; }
     </div>
   </div>
 
+  <!-- ==================== FIRST STRIKE TAB ==================== -->
+  <div id="tab-firststrike" class="tab-content">
+
+    <!-- Strike Header -->
+    <div class="card" style="background:linear-gradient(135deg,rgba(255,68,102,.06),rgba(255,170,34,.06));border-color:rgba(255,68,102,.25);margin-bottom:12px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="font-size:32px">&#9889;</div>
+        <div>
+          <div style="font-size:18px;font-weight:900;color:var(--red);letter-spacing:2px">FIRST STRIKE</div>
+          <div style="font-size:10px;color:var(--dim);margin-top:3px">Task Dispatch Console &mdash; Fire autonomous tasks into the DIGITAL LABOUR pipeline</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+          <span id="fs-queue-badge" class="status-badge status-GREEN">QUEUE: 0</span>
+          <span id="fs-active-badge" class="status-badge status-UNKNOWN">ACTIVE: --</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fire Controls -->
+    <div class="grid grid-2 mb-12">
+      <div class="card">
+        <div class="card-title">&#127919; TASK CONFIGURATION</div>
+
+        <div class="dispatch-row">
+          <span class="dispatch-label" style="width:80px">TYPE</span>
+          <select id="fs-type" style="flex:1;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-family:inherit;font-size:11px">
+            <optgroup label="Revenue &amp; Sales">
+              <option value="sales_outreach">Sales Outreach</option>
+              <option value="lead_gen">Lead Generation</option>
+              <option value="proposal_writer">Proposal Writer</option>
+            </optgroup>
+            <optgroup label="Research &amp; Strategy">
+              <option value="market_research" selected>Market Research</option>
+              <option value="business_plan">Business Plan</option>
+              <option value="data_reporter">Data Reporter</option>
+            </optgroup>
+            <optgroup label="Content &amp; Marketing">
+              <option value="seo_content">SEO Content</option>
+              <option value="social_media">Social Media</option>
+              <option value="content_repurpose">Content Repurpose</option>
+              <option value="press_release">Press Release</option>
+            </optgroup>
+            <optgroup label="Technical &amp; Legal">
+              <option value="tech_docs">Tech Documentation</option>
+              <option value="compliance_docs">Compliance Docs</option>
+              <option value="grant_writer">Grant Writer</option>
+              <option value="insurance_appeals">Insurance Appeals</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="dispatch-row">
+          <span class="dispatch-label" style="width:80px">FOCUS</span>
+          <input id="fs-focus" type="text" placeholder="Enter focus topic, target, or objective..."
+            style="flex:1;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-family:inherit;font-size:11px"
+          >
+        </div>
+
+        <div class="dispatch-row">
+          <span class="dispatch-label" style="width:80px">PRIORITY</span>
+          <select id="fs-priority" style="background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:8px 10px;font-family:inherit;font-size:11px">
+            <option value="1">P1 &mdash; Critical</option>
+            <option value="2">P2 &mdash; High</option>
+            <option value="3" selected>P3 &mdash; Normal</option>
+            <option value="4">P4 &mdash; Low</option>
+            <option value="5">P5 &mdash; Background</option>
+          </select>
+          <label style="display:flex;align-items:center;gap:6px;font-size:10px;color:var(--dim);cursor:pointer">
+            <input id="fs-sync" type="checkbox" style="accent-color:var(--cyan)"> SYNC (wait for result)
+          </label>
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+          <button id="fs-fire" class="action-btn danger" onclick="fireFirstStrike()" style="flex:1">&#9889; FIRE TASK</button>
+          <button class="action-btn info sm" onclick="loadTaskQueue()">&#128260; REFRESH QUEUE</button>
+        </div>
+
+        <div id="fs-status" style="margin-top:10px;font-size:11px;color:var(--dim);min-height:18px"></div>
+      </div>
+
+      <!-- Quick Strike Templates -->
+      <div class="card">
+        <div class="card-title">&#128293; QUICK STRIKE TEMPLATES</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <button class="action-btn sm" onclick="quickStrike('market_research','AI automation market trends 2026')" style="text-align:left;font-size:9px">
+            &#128269; Market Research<br><span style="color:var(--dim)">AI market trends</span>
+          </button>
+          <button class="action-btn sm" onclick="quickStrike('sales_outreach','Enterprise AI workforce deployment outreach')" style="text-align:left;font-size:9px">
+            &#128176; Sales Outreach<br><span style="color:var(--dim)">Enterprise targets</span>
+          </button>
+          <button class="action-btn sm" onclick="quickStrike('business_plan','Bit Rage Labour growth strategy and roadmap')" style="text-align:left;font-size:9px">
+            &#128200; Business Plan<br><span style="color:var(--dim)">Growth roadmap</span>
+          </button>
+          <button class="action-btn sm" onclick="quickStrike('lead_gen','AI services prospects in technology sector')" style="text-align:left;font-size:9px">
+            &#127919; Lead Generation<br><span style="color:var(--dim)">Tech sector leads</span>
+          </button>
+          <button class="action-btn sm" onclick="quickStrike('seo_content','AI workforce automation services blog post')" style="text-align:left;font-size:9px">
+            &#128221; SEO Content<br><span style="color:var(--dim)">Blog post</span>
+          </button>
+          <button class="action-btn sm" onclick="quickStrike('proposal_writer','Full AI workforce deployment proposal')" style="text-align:left;font-size:9px">
+            &#128196; Proposal<br><span style="color:var(--dim)">Service proposal</span>
+          </button>
+          <button class="action-btn sm" onclick="quickStrike('tech_docs','DIGITAL LABOUR API reference documentation')" style="text-align:left;font-size:9px">
+            &#128218; Tech Docs<br><span style="color:var(--dim)">API reference</span>
+          </button>
+          <button class="action-btn sm" onclick="quickStrike('social_media','LinkedIn thought leadership on AI automation')" style="text-align:left;font-size:9px">
+            &#128227; Social Media<br><span style="color:var(--dim)">LinkedIn post</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task Queue + History -->
+    <div class="grid grid-1 mb-12">
+      <div class="card">
+        <div class="card-title">&#128203; TASK QUEUE &amp; HISTORY <span class="badge" style="background:rgba(0,204,221,.15);color:var(--cyan)" id="fs-history-count">0 tasks</span></div>
+        <div id="fs-task-list" style="max-height:500px;overflow-y:auto">
+          <div style="color:var(--dim);font-size:11px;padding:20px;text-align:center">No tasks fired yet. Use the form above or click a Quick Strike template.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Queue from Server -->
+    <div class="grid grid-1">
+      <div class="card">
+        <div class="card-title">&#128225; LIVE QUEUE STATUS <span class="badge" style="background:rgba(255,170,34,.15);color:var(--amber)" id="fs-live-count">--</span></div>
+        <div id="fs-live-queue" style="max-height:400px;overflow-y:auto">
+          <div style="color:var(--dim);font-size:11px;padding:20px;text-align:center">Loading queue status...</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div><!-- /content -->
 
 <!-- ======================== C2 COMMAND BAR ======================== -->
@@ -751,6 +886,8 @@ a:hover { text-decoration:underline; }
     <div class="c2-sep"></div>
     <button class="c2-btn" onclick="checkNerveStatus()" title="Check NERVE daemon status">&#9889; NERVE STATUS</button>
     <button class="c2-btn" onclick="runCSuite()" title="Execute C-Suite cadence">&#128188; C-SUITE RUN</button>
+    <div class="c2-sep"></div>
+    <button class="c2-btn" style="border-color:rgba(255,68,102,.4);color:var(--red)" onclick="switchTab('firststrike')" title="Open First Strike dispatch">&#9889; FIRST STRIKE</button>
     <div class="c2-sep"></div>
     <button class="c2-btn" onclick="fullStatusRefresh()" title="Full system refresh">&#128260; FULL STATUS</button>
     <div class="c2-sep"></div>
@@ -1963,6 +2100,149 @@ a:hover { text-decoration:underline; }
     state.refreshTimer = setInterval(autoRefresh, REFRESH_INTERVAL);
   }
 
+  // ── First Strike ──────────────────────────────────────────────────
+  const firedTasks = [];
+
+  async function fireFirstStrike() {
+    const type = qs('#fs-type').value;
+    const focus = qs('#fs-focus').value.trim();
+    const priority = parseInt(qs('#fs-priority').value) || 3;
+    const sync = qs('#fs-sync').checked;
+    if (!focus) { showToast('Enter a focus/topic before firing', 'warning'); return; }
+
+    const btn = qs('#fs-fire');
+    const statusEl = qs('#fs-status');
+    btn.disabled = true;
+    statusEl.innerHTML = '<span style="color:var(--amber)">&#9889; Firing ' + escH(type) + '...</span>';
+
+    try {
+      const payload = {
+        task_type: type,
+        client: 'firststrike-ncl',
+        provider: 'openai',
+        priority: priority,
+        inputs: { focus: focus, scope: focus, deliverable: 'Complete analysis and deliverable', plan_type: 'startup' },
+        sync: sync,
+        schema_version: '2.0',
+      };
+      const res = await fetch(BASE + '/tasks', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || data.message || 'Request failed');
+
+      firedTasks.unshift({ type, focus, priority, ...data, fired_at: new Date().toISOString() });
+      statusEl.innerHTML = '<span style="color:var(--green)">&#10004; ' + escH(type) + ' &mdash; ' + escH(data.status || 'queued') + (data.task_id ? ' [' + data.task_id.substring(0, 8) + ']' : '') + '</span>';
+      renderFiredTasks();
+      showToast('First Strike: ' + type + ' fired!', 'success');
+      addOpsLog('FIRST STRIKE', type + ' dispatched — ' + (data.status || 'queued'), true);
+      loadTaskQueue();
+    } catch (e) {
+      statusEl.innerHTML = '<span style="color:var(--red)">&#10008; Error: ' + escH(e.message) + '</span>';
+      showToast('Strike failed: ' + e.message, 'error');
+      addOpsLog('FIRST STRIKE', 'FAILED: ' + e.message, false);
+    }
+    btn.disabled = false;
+  }
+
+  function quickStrike(type, focus) {
+    qs('#fs-type').value = type;
+    qs('#fs-focus').value = focus;
+    switchTab('firststrike');
+  }
+
+  function renderFiredTasks() {
+    const el = qs('#fs-task-list');
+    const countEl = qs('#fs-history-count');
+    countEl.textContent = firedTasks.length + ' task' + (firedTasks.length !== 1 ? 's' : '');
+
+    if (firedTasks.length === 0) {
+      el.innerHTML = '<div style="color:var(--dim);font-size:11px;padding:20px;text-align:center">No tasks fired yet. Use the form above or click a Quick Strike template.</div>';
+      return;
+    }
+
+    el.innerHTML = firedTasks.map(function(t) {
+      const statusColor = t.status === 'completed' ? 'var(--green)' : t.status === 'failed' ? 'var(--red)' : t.status === 'processing' ? 'var(--cyan)' : 'var(--amber)';
+      const priorityLabel = ['', 'P1', 'P2', 'P3', 'P4', 'P5'][t.priority] || 'P?';
+      return '<div style="padding:10px 0;border-bottom:1px solid rgba(42,42,58,.3);display:flex;align-items:center;gap:10px">' +
+        '<div style="width:8px;height:8px;border-radius:50%;background:' + statusColor + ';flex-shrink:0"></div>' +
+        '<span style="font-weight:700;font-size:11px;color:var(--text);min-width:120px">' + escH(t.type) + '</span>' +
+        '<span style="font-size:9px;padding:2px 6px;border-radius:8px;background:rgba(170,102,255,.12);color:var(--purple)">' + priorityLabel + '</span>' +
+        '<span style="color:var(--dim);font-size:10px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + escH(t.focus) + '</span>' +
+        '<span style="color:' + statusColor + ';font-weight:700;font-size:10px">' + escH(t.status || t.message || 'queued') + '</span>' +
+        (t.task_id ? '<span style="color:var(--dim);font-size:9px;font-family:monospace">' + t.task_id.substring(0, 8) + '</span>' : '') +
+        '<span style="color:var(--dim);font-size:9px;min-width:50px;text-align:right">' + timeAgo(t.fired_at) + '</span>' +
+        (t.task_id ? '<button class="action-btn sm" style="padding:4px 8px;font-size:8px" onclick="checkTaskStatus(\'' + t.task_id + '\')">STATUS</button>' : '') +
+      '</div>';
+    }).join('');
+  }
+
+  async function checkTaskStatus(taskId) {
+    try {
+      const res = await fetch(BASE + '/tasks/' + taskId);
+      const data = await res.json();
+      const idx = firedTasks.findIndex(function(t) { return t.task_id === taskId; });
+      if (idx >= 0) {
+        firedTasks[idx].status = data.status;
+        renderFiredTasks();
+      }
+      const statusStr = 'Task ' + taskId.substring(0, 8) + ': ' + data.status + (data.qa_status ? ' (QA: ' + data.qa_status + ')' : '');
+      showToast(statusStr, data.status === 'completed' ? 'success' : 'info');
+    } catch (e) {
+      showToast('Could not check task: ' + e.message, 'error');
+    }
+  }
+
+  async function loadTaskQueue() {
+    try {
+      const res = await fetch(BASE + '/queue/stats');
+      if (!res.ok) throw new Error('Queue stats not available');
+      const data = await res.json();
+      const queuedCount = data.queued || 0;
+      const activeCount = data.running || data.processing || data.active || 0;
+
+      const qBadge = qs('#fs-queue-badge');
+      const aBadge = qs('#fs-active-badge');
+      qBadge.textContent = 'QUEUE: ' + queuedCount;
+      qBadge.className = 'status-badge ' + (queuedCount > 5 ? 'status-YELLOW' : 'status-GREEN');
+      aBadge.textContent = 'ACTIVE: ' + activeCount;
+      aBadge.className = 'status-badge ' + (activeCount > 0 ? 'status-YELLOW' : 'status-GREEN');
+
+      // Render live queue
+      const liveEl = qs('#fs-live-queue');
+      const liveCount = qs('#fs-live-count');
+      const tasks = data.recent || data.tasks || [];
+      liveCount.textContent = tasks.length + ' recent';
+
+      if (tasks.length === 0) {
+        liveEl.innerHTML = '<div style="color:var(--dim);font-size:11px;padding:16px;text-align:center">Queue is empty. Fire a task to see it here.</div>';
+      } else {
+        liveEl.innerHTML = tasks.slice(0, 20).map(function(t) {
+          const sc = t.status === 'completed' ? 'var(--green)' : t.status === 'failed' ? 'var(--red)' : t.status === 'processing' ? 'var(--cyan)' : 'var(--amber)';
+          return '<div style="padding:8px 0;border-bottom:1px solid rgba(42,42,58,.2);display:flex;align-items:center;gap:10px;font-size:10px">' +
+            '<div style="width:6px;height:6px;border-radius:50%;background:' + sc + '"></div>' +
+            '<span style="font-weight:700;min-width:100px">' + escH(t.task_type || t.type || '?') + '</span>' +
+            '<span style="color:var(--dim);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + escH(t.client || '') + '</span>' +
+            '<span style="color:' + sc + ';font-weight:600">' + escH(t.status || '?') + '</span>' +
+            '<span style="color:var(--dim);font-size:9px">' + (t.task_id ? t.task_id.substring(0, 8) : '') + '</span>' +
+          '</div>';
+        }).join('');
+      }
+    } catch (e) {
+      qs('#fs-live-queue').innerHTML = '<div style="color:var(--dim);font-size:11px;padding:16px;text-align:center">Queue stats endpoint not available</div>';
+      qs('#fs-live-count').textContent = '--';
+    }
+  }
+
+  function timeAgo(ts) {
+    if (!ts) return '';
+    var s = Math.floor((Date.now() - new Date(ts).getTime()) / 1000);
+    if (s < 60) return s + 's ago';
+    if (s < 3600) return Math.floor(s / 60) + 'm ago';
+    if (s < 86400) return Math.floor(s / 3600) + 'h ago';
+    return Math.floor(s / 86400) + 'd ago';
+  }
+
+  function escH(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+
   // Expose functions globally for onclick handlers
   window.nclDailyPush = nclDailyPush;
   window.nclWeeklyGoals = nclWeeklyGoals;
@@ -1975,9 +2255,14 @@ a:hover { text-decoration:underline; }
   window.clearResult = clearResult;
   window.clearOpsLog = clearOpsLog;
   window.switchTab = switchTab;
+  window.fireFirstStrike = fireFirstStrike;
+  window.quickStrike = quickStrike;
+  window.checkTaskStatus = checkTaskStatus;
+  window.loadTaskQueue = loadTaskQueue;
 
   // Boot
   init();
+  loadTaskQueue();
 
 })();
 </script>
