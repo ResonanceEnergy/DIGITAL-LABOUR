@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0d0d14">
+<title>NCL OPERATIONS COMMANDER</title>
+<style>
+:root {
+  --bg: #0d0d14; --surface: #1a1a2e; --card: #16213e; --border: #2a2a4a;
+  --text: #e0e0e8; --dim: #7a7a99; --green: #00ff88; --red: #ff4466;
+  --amber: #ffaa22; --blue: #4488ff; --purple: #aa66ff; --cyan: #00ccdd;
+  --orange: #ff6622; --dark-green: rgba(0,255,136,.08); --dark-red: rgba(255,68,102,.08);
+  --dark-amber: rgba(255,170,34,.08); --dark-cyan: rgba(0,204,221,.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'SF Mono','Fira Code','Cascadia Code','Consolas',monospace; background:var(--bg); color:var(--text); min-height:100vh; }
+a { color:var(--cyan); text-decoration:none; }
+a:hover { text-decoration:underline; }
+::-webkit-scrollbar { width:6px; height:6px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+::-webkit-scrollbar-thumb:hover { background:#444; }
+
+/* Header */
+.header {
+  background:linear-gradient(135deg,#0d0d18 0%,#0a1628 50%,#1a0a2e 100%);
+  padding:12px 24px; border-bottom:2px solid var(--border);
+  position:sticky; top:0; z-index:100; backdrop-filter:blur(20px);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.logo-area { display:flex; align-items:center; gap:14px; }
+.logo-icon {
+  width:42px; height:42px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  font-size:18px; background:linear-gradient(135deg,#00ff88,#00ccdd); color:#0d0d14; font-weight:900;
+}
+.logo-text { font-size:16px; font-weight:800; letter-spacing:3px; color:var(--green); }
+.logo-sub { font-size:9px; color:var(--dim); letter-spacing:1.5px; margin-top:2px; }
+.status-pill {
+  font-size:10px; padding:4px 14px; border-radius:20px; font-weight:700; letter-spacing:1px;
+}
+.pill-green { background:rgba(0,255,136,0.15); color:var(--green); border:1px solid rgba(0,255,136,.3); }
+.pill-amber { background:rgba(255,170,34,0.15); color:var(--amber); border:1px solid rgba(255,170,34,.3); }
+.pill-red { background:rgba(255,68,102,0.15); color:var(--red); border:1px solid rgba(255,68,102,.3); animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.6} }
+@keyframes slideIn { from{transform:translateX(20px);opacity:0} to{transform:translateX(0);opacity:1} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+/* Nav Tabs */
+.nav-tabs { display:flex; gap:2px; background:var(--surface); padding:3px; border-radius:8px; }
+.nav-tab {
+  padding:7px 16px; font-size:10px; font-weight:600; letter-spacing:1px; border-radius:6px;
+  cursor:pointer; color:var(--dim); border:none; background:none; transition:all .2s; font-family:inherit;
+}
+.nav-tab:hover { color:var(--text); background:rgba(255,255,255,.03); }
+.nav-tab.active { background:var(--card); color:var(--cyan); box-shadow:0 0 12px rgba(0,204,221,.1); }
+
+/* Header Right */
+.header-right { display:flex; align-items:center; gap:12px; }
+.meta-time { font-size:10px; color:var(--dim); }
+.refresh-indicator { width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 6px rgba(0,255,136,.4); }
+.refresh-indicator.stale { background:var(--amber); box-shadow:0 0 6px rgba(255,170,34,.4); }
+
+/* Content */
+.content { max-width:1500px; margin:0 auto; padding:16px 24px 80px; }
+.tab-content { display:none; animation:fadeIn .3s; }
+.tab-content.active { display:block; }
+
+/* Cards */
+.grid { display:grid; gap:12px; }
+.grid-4 { grid-template-columns:repeat(4,1fr); }
+.grid-3 { grid-template-columns:repeat(3,1fr); }
+.grid-2 { grid-template-columns:repeat(2,1fr); }
+.grid-1 { grid-template-columns:1fr; }
+.card {
+  background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px;
+  transition:border-color .2s, transform .2s;
+}
+.card:hover { border-color:rgba(0,204,221,.3); }
+.card-title {
+  font-size:10px; color:var(--dim); letter-spacing:1.5px; text-transform:uppercase;
+  margin-bottom:10px; display:flex; align-items:center; gap:8px;
+}
+.card-title .badge {
+  font-size:9px; padding:2px 8px; border-radius:10px; font-weight:700;
+}
+.metric-big { font-size:28px; font-weight:900; line-height:1.1; }
+.metric-med { font-size:18px; font-weight:700; }
+.metric-sub { font-size:10px; color:var(--dim); margin-top:4px; }
+.c-green { color:var(--green); } .c-red { color:var(--red); } .c-amber { color:var(--amber); }
+.c-blue { color:var(--blue); } .c-purple { color:var(--purple); } .c-cyan { color:var(--cyan); }
+.c-orange { color:var(--orange); }
+
+/* Section Headers */
+.section-header {
+  font-size:12px; font-weight:700; color:var(--text); letter-spacing:1px;
+  margin:20px 0 10px; padding-bottom:6px; border-bottom:1px solid var(--border);
+  display:flex; align-items:center; gap:8px;
+}
+
+/* Status Badge */
+.status-badge {
+  display:inline-block; padding:3px 10px; border-radius:12px; font-size:9px;
+  font-weight:700; letter-spacing:1px;
+}
+.status-GREEN { background:rgba(0,255,136,.15); color:var(--green); }
+.status-YELLOW { background:rgba(255,170,34,.15); color:var(--amber); }
+.status-RED { background:rgba(255,68,102,.15); color:var(--red); }
+.status-UNKNOWN { background:rgba(122,122,153,.15); color:var(--dim); }
+
+/* Division Health Cards */
+.div-health-card {
+  background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px;
+  position:relative; overflow:hidden; transition:all .2s;
+}
+.div-health-card:hover { transform:translateY(-2px); border-color:var(--cyan); }
+.div-health-card .glow {
+  position:absolute; top:-20px; right:-20px; width:80px; height:80px;
+  border-radius:50%; opacity:.08; filter:blur(20px);
+}
+.div-health-card .div-code {
+  font-size:22px; font-weight:900; letter-spacing:2px; margin-bottom:2px;
+}
+.div-health-card .div-head { font-size:10px; color:var(--dim); margin-bottom:10px; }
+.div-health-card .div-stats {
+  display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:10px;
+}
+.div-health-card .stat-item { display:flex; justify-content:space-between; }
+.div-health-card .stat-label { color:var(--dim); }
+.div-health-card .stat-value { font-weight:700; }
+
+/* Action Buttons */
+.action-btn {
+  padding:14px 24px; font-size:12px; font-weight:700; border:2px solid var(--border);
+  border-radius:10px; cursor:pointer; font-family:inherit; letter-spacing:1px;
+  transition:all .15s; text-align:center; background:var(--card); color:var(--text);
+}
+.action-btn:hover { transform:translateY(-1px); }
+.action-btn:active { transform:scale(.97); }
+.action-btn.primary { border-color:rgba(0,255,136,.4); background:rgba(0,255,136,.08); color:var(--green); }
+.action-btn.primary:hover { border-color:var(--green); box-shadow:0 0 20px rgba(0,255,136,.15); }
+.action-btn.secondary { border-color:rgba(170,102,255,.4); background:rgba(170,102,255,.08); color:var(--purple); }
+.action-btn.secondary:hover { border-color:var(--purple); box-shadow:0 0 20px rgba(170,102,255,.15); }
+.action-btn.info { border-color:rgba(0,204,221,.4); background:rgba(0,204,221,.08); color:var(--cyan); }
+.action-btn.info:hover { border-color:var(--cyan); box-shadow:0 0 20px rgba(0,204,221,.15); }
+.action-btn.warning { border-color:rgba(255,170,34,.4); background:rgba(255,170,34,.08); color:var(--amber); }
+.action-btn.warning:hover { border-color:var(--amber); box-shadow:0 0 20px rgba(255,170,34,.15); }
+.action-btn.danger { border-color:rgba(255,68,102,.4); background:rgba(255,68,102,.08); color:var(--red); }
+.action-btn.danger:hover { border-color:var(--red); box-shadow:0 0 20px rgba(255,68,102,.15); }
+.action-btn.sm { padding:8px 14px; font-size:10px; }
+.action-btn:disabled { opacity:.4; cursor:not-allowed; transform:none !important; }
+
+/* Dispatch Controls */
+.dispatch-row {
+  display:flex; align-items:center; gap:10px; padding:10px 0;
+  border-bottom:1px solid rgba(42,42,74,.3); font-size:11px;
+}
+.dispatch-row:last-child { border-bottom:none; }
+.dispatch-label { font-weight:700; width:60px; letter-spacing:1px; }
+.dispatch-name { flex:1; color:var(--dim); }
+
+/* Result Display */
+.result-display {
+  margin-top:12px; padding:14px; background:rgba(0,0,0,.4); border:1px solid var(--border);
+  border-radius:8px; font-size:11px; font-family:'SF Mono','Fira Code',monospace;
+  white-space:pre-wrap; max-height:400px; overflow-y:auto; display:none;
+  line-height:1.5;
+}
+.result-display.visible { display:block; animation:slideIn .3s; }
+
+/* Operations Log */
+.ops-log-item {
+  display:flex; align-items:flex-start; gap:10px; padding:8px 0;
+  border-bottom:1px solid rgba(42,42,74,.2); font-size:11px;
+}
+.ops-log-item:last-child { border-bottom:none; }
+.ops-log-time { color:var(--dim); font-size:9px; flex-shrink:0; width:70px; }
+.ops-log-action { font-weight:600; color:var(--cyan); flex-shrink:0; width:120px; }
+.ops-log-result { color:var(--dim); flex:1; }
+
+/* Intel Cards */
+.intel-card {
+  background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px;
+  transition:all .2s;
+}
+.intel-card:hover { border-color:rgba(0,204,221,.3); }
+.intel-card-header {
+  display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;
+}
+.intel-card-title { font-size:11px; font-weight:700; letter-spacing:.5px; }
+.intel-card-meta { font-size:9px; color:var(--dim); }
+.intel-card-body { font-size:11px; color:var(--dim); line-height:1.6; }
+.intel-card-body .item {
+  padding:6px 0; border-bottom:1px solid rgba(42,42,74,.2);
+  display:flex; justify-content:space-between; align-items:center;
+}
+.intel-card-body .item:last-child { border-bottom:none; }
+.refresh-btn {
+  background:none; border:1px solid var(--border); color:var(--dim); padding:3px 8px;
+  border-radius:4px; font-size:9px; cursor:pointer; font-family:inherit;
+  transition:all .15s;
+}
+.refresh-btn:hover { border-color:var(--cyan); color:var(--cyan); }
+
+/* Weekly Goals */
+.goals-division {
+  background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px;
+  margin-bottom:12px;
+}
+.goals-division-header {
+  display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;
+  padding-bottom:8px; border-bottom:1px solid var(--border);
+}
+.goals-division-code { font-size:16px; font-weight:900; letter-spacing:2px; }
+.goals-list { font-size:11px; line-height:1.8; }
+.goals-list .goal-item { display:flex; align-items:flex-start; gap:8px; padding:4px 0; }
+.goals-list .goal-bullet { color:var(--cyan); flex-shrink:0; margin-top:2px; }
+.goals-list .goal-kpi { font-size:9px; color:var(--amber); margin-left:auto; flex-shrink:0; }
+.roadmap-bar {
+  display:flex; gap:2px; margin:10px 0; height:28px;
+}
+.roadmap-day {
+  flex:1; background:var(--surface); border-radius:4px; display:flex; align-items:center;
+  justify-content:center; font-size:8px; color:var(--dim); transition:all .2s;
+}
+.roadmap-day.active { background:rgba(0,255,136,.15); color:var(--green); }
+.roadmap-day.current { background:rgba(0,204,221,.2); color:var(--cyan); border:1px solid var(--cyan); }
+
+/* Escalation Items */
+.escalation-item {
+  background:var(--surface); border:1px solid var(--border); border-radius:8px;
+  padding:14px; margin-bottom:8px; transition:all .2s; animation:slideIn .3s;
+}
+.escalation-item.severity-critical { border-left:3px solid var(--red); }
+.escalation-item.severity-high { border-left:3px solid var(--amber); }
+.escalation-item.severity-medium { border-left:3px solid var(--blue); }
+.escalation-item.severity-low { border-left:3px solid var(--dim); }
+.escalation-item.acknowledged { opacity:.6; }
+.escalation-header {
+  display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;
+}
+.escalation-severity {
+  font-size:9px; padding:2px 8px; border-radius:4px; font-weight:700; letter-spacing:1px;
+}
+.sev-critical { background:rgba(255,68,102,.15); color:var(--red); }
+.sev-high { background:rgba(255,170,34,.15); color:var(--amber); }
+.sev-medium { background:rgba(68,136,255,.15); color:var(--blue); }
+.sev-low { background:rgba(122,122,153,.15); color:var(--dim); }
+.escalation-title { font-size:12px; font-weight:700; margin-bottom:4px; }
+.escalation-body { font-size:11px; color:var(--dim); line-height:1.5; margin-bottom:8px; }
+.escalation-actions { display:flex; gap:6px; }
+.escalation-time { font-size:9px; color:var(--dim); }
+
+/* Nerve Daemon */
+.nerve-status-card {
+  background:linear-gradient(135deg,rgba(0,255,136,.04),rgba(0,204,221,.04));
+  border:1px solid rgba(0,255,136,.15); border-radius:10px; padding:14px;
+}
+.nerve-dot {
+  width:12px; height:12px; border-radius:50%; display:inline-block; margin-right:8px;
+}
+.nerve-dot.active { background:var(--green); box-shadow:0 0 10px rgba(0,255,136,.5); }
+.nerve-dot.stale { background:var(--amber); box-shadow:0 0 10px rgba(255,170,34,.5); }
+.nerve-dot.dead { background:var(--red); box-shadow:0 0 10px rgba(255,68,102,.5); }
+
+/* C2 Command Bar */
+.c2-bar {
+  position:fixed; bottom:0; left:0; right:0; background:var(--surface);
+  border-top:2px solid var(--border); padding:10px 20px; z-index:90;
+  backdrop-filter:blur(20px);
+}
+.c2-grid {
+  display:flex; gap:6px; overflow-x:auto; max-width:1500px; margin:0 auto;
+  padding-bottom:2px; align-items:center;
+}
+.c2-btn {
+  flex-shrink:0; padding:10px 16px; font-size:10px; font-weight:700;
+  border:1px solid var(--border); border-radius:6px; background:var(--card);
+  color:var(--text); cursor:pointer; font-family:inherit; letter-spacing:.5px;
+  white-space:nowrap; transition:all .15s;
+}
+.c2-btn:hover { border-color:var(--cyan); color:var(--cyan); background:rgba(0,204,221,.05); }
+.c2-btn:active { transform:scale(.95); }
+.c2-btn.c2-primary { border-color:rgba(0,255,136,.4); color:var(--green); }
+.c2-btn.c2-primary:hover { border-color:var(--green); box-shadow:0 0 12px rgba(0,255,136,.1); }
+.c2-btn.c2-danger { border-color:rgba(255,68,102,.3); }
+.c2-btn.c2-danger:hover { border-color:var(--red); color:var(--red); }
+.c2-label { font-size:9px; color:var(--dim); letter-spacing:1px; margin-right:8px; }
+.c2-sep { width:1px; height:24px; background:var(--border); flex-shrink:0; margin:0 4px; }
+
+/* Toast */
+.toast-container { position:fixed; bottom:70px; right:20px; z-index:200; display:flex; flex-direction:column; gap:6px; }
+.toast {
+  background:var(--card); border:1px solid var(--border); color:var(--text); padding:12px 18px;
+  border-radius:8px; font-size:11px; max-width:420px; opacity:0; transform:translateX(40px);
+  transition:all .3s; line-height:1.4; box-shadow:0 4px 20px rgba(0,0,0,.4);
+}
+.toast.show { transform:translateX(0); opacity:1; }
+.toast.success { border-color:rgba(0,255,136,.3); }
+.toast.error { border-color:rgba(255,68,102,.3); }
+.toast.warning { border-color:rgba(255,170,34,.3); }
+
+/* Loading Spinner */
+.spinner {
+  display:inline-block; width:14px; height:14px; border:2px solid var(--border);
+  border-top-color:var(--cyan); border-radius:50%; animation:spin .6s linear infinite;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+
+/* Empty State */
+.empty-state {
+  text-align:center; padding:40px 20px; color:var(--dim); font-size:12px;
+}
+.empty-state .icon { font-size:32px; margin-bottom:10px; opacity:.4; }
+
+/* Responsive */
+@media (max-width:1100px) { .grid-4 { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:800px) {
+  .grid-4,.grid-3 { grid-template-columns:1fr 1fr; }
+  .header { flex-wrap:wrap; gap:8px; }
+  .nav-tabs { order:3; width:100%; overflow-x:auto; }
+}
+@media (max-width:600px) {
+  .grid-4,.grid-3,.grid-2 { grid-template-columns:1fr; }
+  .content { padding:12px 12px 80px; }
+}
+
+/* Tab indicator animation */
+.tab-content.active { animation:fadeIn .25s ease-out; }
+
+/* Utility */
+.flex-between { display:flex; align-items:center; justify-content:space-between; }
+.flex-center { display:flex; align-items:center; gap:8px; }
+.mt-12 { margin-top:12px; }
+.mt-8 { margin-top:8px; }
+.mb-8 { margin-bottom:8px; }
+.mb-12 { margin-bottom:12px; }
+.text-mono { font-family:'SF Mono','Fira Code',monospace; }
+</style>
+</head>
+<body>
+
+<!-- ======================== HEADER ======================== -->
+<div class="header">
+  <div class="logo-area">
+    <div class="logo-icon">NCL</div>
+    <div>
+      <div class="logo-text">NCL OPERATIONS COMMANDER</div>
+      <div class="logo-sub">Nerve Command Layer &mdash; Autonomous Intelligence Hub</div>
+    </div>
+    <span id="status-pill" class="status-pill pill-amber">CONNECTING</span>
+  </div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" data-tab="overview">OVERVIEW</button>
+    <button class="nav-tab" data-tab="operations">OPERATIONS</button>
+    <button class="nav-tab" data-tab="intelligence">INTELLIGENCE</button>
+    <button class="nav-tab" data-tab="weekly-goals">WEEKLY GOALS</button>
+    <button class="nav-tab" data-tab="escalations">ESCALATIONS</button>
+  </div>
+  <div class="header-right">
+    <div id="refresh-dot" class="refresh-indicator" title="Auto-refresh active"></div>
+    <span id="meta-time" class="meta-time"></span>
+  </div>
+</div>
+
+<!-- ======================== CONTENT ======================== -->
+<div class="content">
+
+  <!-- ==================== OVERVIEW TAB ==================== -->
+  <div id="tab-overview" class="tab-content active">
+
+    <!-- NCL Status Header -->
+    <div class="card" style="background:linear-gradient(135deg,rgba(0,255,136,.05),rgba(0,204,221,.05));border-color:rgba(0,255,136,.2);margin-bottom:12px">
+      <div class="flex-between mb-8">
+        <div>
+          <div style="font-size:18px;font-weight:900;color:var(--green);letter-spacing:1px">&#129504; NERVE COMMAND LAYER</div>
+          <div style="font-size:10px;color:var(--dim);margin-top:3px">Strategic Operations Lead &mdash; Autonomous Enterprise Brain</div>
+        </div>
+        <div id="ncl-master-badge" class="status-pill pill-green">OPERATIONAL</div>
+      </div>
+      <div class="grid grid-4" style="gap:10px;margin-bottom:10px">
+        <div style="text-align:center;padding:10px;background:rgba(0,0,0,.2);border-radius:8px">
+          <div id="ov-cycles" class="metric-big c-cyan">--</div>
+          <div class="metric-sub">OPS CYCLES</div>
+        </div>
+        <div style="text-align:center;padding:10px;background:rgba(0,0,0,.2);border-radius:8px">
+          <div id="ov-tasks-fired" class="metric-big c-green">--</div>
+          <div class="metric-sub">TASKS FIRED TODAY</div>
+        </div>
+        <div style="text-align:center;padding:10px;background:rgba(0,0,0,.2);border-radius:8px">
+          <div id="ov-escalations" class="metric-big c-amber">--</div>
+          <div class="metric-sub">ESCALATIONS</div>
+        </div>
+        <div style="text-align:center;padding:10px;background:rgba(0,0,0,.2);border-radius:8px">
+          <div id="ov-weekly-plans" class="metric-big c-purple">--</div>
+          <div class="metric-sub">WEEKLY PLANS</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;font-size:10px;color:var(--dim);flex-wrap:wrap">
+        <span>Last Daily Push: <strong id="ov-last-push" style="color:var(--text)">--</strong></span>
+        <span>|</span>
+        <span>Last Weekly Goals: <strong id="ov-last-goals" style="color:var(--text)">--</strong></span>
+        <span>|</span>
+        <span>Uptime: <strong id="ov-uptime" style="color:var(--text)">--</strong></span>
+      </div>
+    </div>
+
+    <!-- Division Health Cards -->
+    <div class="section-header">&#127961; DIVISION HEALTH</div>
+    <div id="division-health-grid" class="grid grid-4 mb-12">
+      <!-- Populated by JS -->
+      <div class="div-health-card">
+        <div class="glow" style="background:var(--cyan)"></div>
+        <div class="flex-between mb-8">
+          <div class="div-code c-cyan">--</div>
+          <span class="status-badge status-UNKNOWN">LOADING</span>
+        </div>
+        <div class="div-head">Loading division data...</div>
+        <div class="div-stats">
+          <div class="stat-item"><span class="stat-label">Agents</span><span class="stat-value">--</span></div>
+          <div class="stat-item"><span class="stat-label">Services</span><span class="stat-value">--</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Row: NERVE + C-Suite -->
+    <div class="grid grid-2">
+      <!-- NERVE Daemon Status -->
+      <div class="card">
+        <div class="card-title">&#9889; NERVE DAEMON STATUS</div>
+        <div id="nerve-status-area" class="nerve-status-card">
+          <div class="flex-center">
+            <span id="nerve-dot" class="nerve-dot dead"></span>
+            <span id="nerve-label" style="font-size:13px;font-weight:700">Checking...</span>
+          </div>
+          <div id="nerve-details" style="margin-top:10px;font-size:10px;color:var(--dim);line-height:1.6">
+            Connecting to NERVE daemon...
+          </div>
+        </div>
+      </div>
+
+      <!-- C-Suite Cadence -->
+      <div class="card">
+        <div class="card-title">&#128188; C-SUITE CADENCE</div>
+        <div id="csuite-status" style="font-size:11px;color:var(--dim);line-height:1.8">
+          Loading C-Suite status...
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== OPERATIONS TAB ==================== -->
+  <div id="tab-operations" class="tab-content">
+
+    <!-- Primary Action Buttons -->
+    <div class="section-header">&#9889; PRIMARY OPERATIONS</div>
+    <div class="grid grid-3 mb-12">
+      <button class="action-btn primary" onclick="nclDailyPush()" id="btn-daily-push">
+        &#128260; DAILY OPS PUSH<br>
+        <span style="font-size:9px;font-weight:400;opacity:.7">Fire all division warm-ups + daily tasks</span>
+      </button>
+      <button class="action-btn secondary" onclick="nclWeeklyGoals()" id="btn-weekly-goals">
+        &#128203; GENERATE WEEKLY GOALS<br>
+        <span style="font-size:9px;font-weight:400;opacity:.7">AI-generate 7-day plans per division</span>
+      </button>
+      <button class="action-btn info" onclick="nclHealthCheck()" id="btn-health-check">
+        &#128154; DIVISION HEALTH CHECK<br>
+        <span style="font-size:9px;font-weight:400;opacity:.7">Run diagnostics on all divisions</span>
+      </button>
+    </div>
+
+    <!-- Per-Division Dispatch -->
+    <div class="card mb-12">
+      <div class="card-title">&#128640; PER-DIVISION DISPATCH CONTROLS</div>
+      <div id="dispatch-controls">
+        <div class="empty-state"><div class="spinner"></div><br>Loading divisions...</div>
+      </div>
+    </div>
+
+    <!-- Action Result Display -->
+    <div class="card mb-12">
+      <div class="flex-between">
+        <div class="card-title" style="margin-bottom:0">&#128196; ACTION RESULT</div>
+        <button class="refresh-btn" onclick="clearResult()">CLEAR</button>
+      </div>
+      <div id="action-result" class="result-display">No action executed yet.</div>
+    </div>
+
+    <!-- Recent Operations Log -->
+    <div class="card">
+      <div class="flex-between">
+        <div class="card-title" style="margin-bottom:0">&#128203; RECENT OPERATIONS LOG</div>
+        <button class="refresh-btn" onclick="clearOpsLog()">CLEAR</button>
+      </div>
+      <div id="ops-log" style="margin-top:10px;max-height:300px;overflow-y:auto">
+        <div class="empty-state">No operations logged yet this session.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== INTELLIGENCE TAB ==================== -->
+  <div id="tab-intelligence" class="tab-content">
+
+    <!-- AI News Monitoring -->
+    <div class="section-header">&#129302; AI NEWS MONITORING</div>
+    <div class="grid grid-4 mb-12">
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title c-purple">&#9889; Anthropic Updates</div>
+          <button class="refresh-btn" onclick="refreshIntel('anthropic')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last updated: <span id="intel-anthropic-ts">--</span></div>
+        <div class="intel-card-body" id="intel-anthropic">
+          <div class="item">Claude model releases & API changes</div>
+          <div class="item">Pricing tier adjustments</div>
+          <div class="item">New capability announcements</div>
+        </div>
+      </div>
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title c-green">&#128161; OpenAI Updates</div>
+          <button class="refresh-btn" onclick="refreshIntel('openai')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last updated: <span id="intel-openai-ts">--</span></div>
+        <div class="intel-card-body" id="intel-openai">
+          <div class="item">GPT model updates & deprecations</div>
+          <div class="item">API pricing changes</div>
+          <div class="item">Feature releases & partnerships</div>
+        </div>
+      </div>
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title c-blue">&#127758; Google AI</div>
+          <button class="refresh-btn" onclick="refreshIntel('google')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last updated: <span id="intel-google-ts">--</span></div>
+        <div class="intel-card-body" id="intel-google">
+          <div class="item">Gemini model updates</div>
+          <div class="item">Vertex AI platform changes</div>
+          <div class="item">Google Cloud AI integrations</div>
+        </div>
+      </div>
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title c-amber">&#128176; LLM Pricing</div>
+          <button class="refresh-btn" onclick="refreshIntel('pricing')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last updated: <span id="intel-pricing-ts">--</span></div>
+        <div class="intel-card-body" id="intel-pricing">
+          <div class="item">Cost-per-token comparisons</div>
+          <div class="item">New model cost efficiency</div>
+          <div class="item">Rate limit changes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Market Trend Monitoring -->
+    <div class="section-header">&#128200; MARKET TREND MONITORING</div>
+    <div class="grid grid-4 mb-12">
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title c-green">&#128176; Grant Opportunities</div>
+          <button class="refresh-btn" onclick="refreshIntel('grants')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last updated: <span id="intel-grants-ts">--</span></div>
+        <div class="intel-card-body" id="intel-grants">
+          <div class="item">Federal / state tech grants</div>
+          <div class="item">Small business innovation grants</div>
+          <div class="item">AI/automation pilot programs</div>
+        </div>
+      </div>
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title c-red">&#128220; Insurance Regulatory</div>
+          <button class="refresh-btn" onclick="refreshIntel('insurance')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last updated: <span id="intel-insurance-ts">--</span></div>
+        <div class="intel-card-body" id="intel-insurance">
+          <div class="item">State regulatory changes</div>
+          <div class="item">Compliance deadline updates</div>
+          <div class="item">Market rate adjustments</div>
+        </div>
+      </div>
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title c-orange">&#127959; Construction Permits</div>
+          <button class="refresh-btn" onclick="refreshIntel('construction')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last updated: <span id="intel-construction-ts">--</span></div>
+        <div class="intel-card-body" id="intel-construction">
+          <div class="item">Regional permit volume trends</div>
+          <div class="item">New development hotspots</div>
+          <div class="item">Building code changes</div>
+        </div>
+      </div>
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title c-cyan">&#127970; Municipal RFPs</div>
+          <button class="refresh-btn" onclick="refreshIntel('rfps')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last updated: <span id="intel-rfps-ts">--</span></div>
+        <div class="intel-card-body" id="intel-rfps">
+          <div class="item">Active RFP listings</div>
+          <div class="item">Upcoming bid deadlines</div>
+          <div class="item">Technology procurement trends</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Competitive Intelligence -->
+    <div class="section-header">&#127919; COMPETITIVE INTELLIGENCE</div>
+    <div class="grid grid-2 mb-12">
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title c-green">&#128101; Fiverr Tracking</div>
+          <button class="refresh-btn" onclick="refreshIntel('fiverr')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last updated: <span id="intel-fiverr-ts">--</span></div>
+        <div class="intel-card-body" id="intel-fiverr">
+          <div class="item"><span>AI automation gigs</span><span class="c-dim">--</span></div>
+          <div class="item"><span>Avg. price point</span><span class="c-dim">--</span></div>
+          <div class="item"><span>New competitor listings</span><span class="c-dim">--</span></div>
+          <div class="item"><span>Top seller analysis</span><span class="c-dim">--</span></div>
+        </div>
+      </div>
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title c-blue">&#128101; Upwork Tracking</div>
+          <button class="refresh-btn" onclick="refreshIntel('upwork')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last updated: <span id="intel-upwork-ts">--</span></div>
+        <div class="intel-card-body" id="intel-upwork">
+          <div class="item"><span>AI/ML project postings</span><span class="c-dim">--</span></div>
+          <div class="item"><span>Avg. hourly rate</span><span class="c-dim">--</span></div>
+          <div class="item"><span>Enterprise RFPs</span><span class="c-dim">--</span></div>
+          <div class="item"><span>Competitor win rate</span><span class="c-dim">--</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YouTube Intelligence -->
+    <div class="section-header">&#127909; YOUTUBE INTELLIGENCE FEED</div>
+    <div class="grid grid-4" id="youtube-feed-grid">
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title" style="font-size:10px">AI Explained</div>
+          <button class="refresh-btn" onclick="refreshIntel('yt-0')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
+        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
+      </div>
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title" style="font-size:10px">Two Minute Papers</div>
+          <button class="refresh-btn" onclick="refreshIntel('yt-1')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
+        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
+      </div>
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title" style="font-size:10px">Fireship</div>
+          <button class="refresh-btn" onclick="refreshIntel('yt-2')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
+        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
+      </div>
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title" style="font-size:10px">Matt Wolfe</div>
+          <button class="refresh-btn" onclick="refreshIntel('yt-3')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
+        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
+      </div>
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title" style="font-size:10px">Yannic Kilcher</div>
+          <button class="refresh-btn" onclick="refreshIntel('yt-4')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
+        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
+      </div>
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title" style="font-size:10px">The AI Advantage</div>
+          <button class="refresh-btn" onclick="refreshIntel('yt-5')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
+        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
+      </div>
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title" style="font-size:10px">Matthew Berman</div>
+          <button class="refresh-btn" onclick="refreshIntel('yt-6')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
+        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
+      </div>
+      <div class="intel-card">
+        <div class="intel-card-header">
+          <div class="intel-card-title" style="font-size:10px">AI Jason</div>
+          <button class="refresh-btn" onclick="refreshIntel('yt-7')">&#8635;</button>
+        </div>
+        <div class="intel-card-meta">Last checked: <span class="yt-ts">--</span></div>
+        <div class="intel-card-body"><div class="item">Monitoring latest uploads...</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WEEKLY GOALS TAB ==================== -->
+  <div id="tab-weekly-goals" class="tab-content">
+    <div class="flex-between mb-12">
+      <div class="section-header" style="margin:0;border:none;padding:0">&#127919; WEEKLY GOALS BY DIVISION</div>
+      <button class="action-btn secondary sm" onclick="nclWeeklyGoals()" id="btn-regen-goals">&#128260; FORCE REGENERATE</button>
+    </div>
+    <div id="weekly-goals-container">
+      <div class="empty-state">
+        <div class="icon">&#127919;</div>
+        <div>Loading weekly goals...</div>
+        <div style="margin-top:6px;font-size:10px">Goals are generated weekly or on-demand via NCL</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ESCALATIONS TAB ==================== -->
+  <div id="tab-escalations" class="tab-content">
+
+    <!-- Escalation Summary -->
+    <div class="grid grid-4 mb-12">
+      <div class="card" style="text-align:center">
+        <div class="card-title" style="justify-content:center">TOTAL</div>
+        <div id="esc-total" class="metric-big c-cyan">--</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div class="card-title" style="justify-content:center">&#128308; CRITICAL</div>
+        <div id="esc-critical" class="metric-big c-red">--</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div class="card-title" style="justify-content:center">&#128993; PENDING</div>
+        <div id="esc-pending" class="metric-big c-amber">--</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div class="card-title" style="justify-content:center">&#9989; ACKNOWLEDGED</div>
+        <div id="esc-acked" class="metric-big c-green">--</div>
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="card mb-12" style="padding:10px 16px">
+      <div class="flex-center" style="flex-wrap:wrap;gap:8px">
+        <span style="font-size:10px;color:var(--dim);letter-spacing:1px;margin-right:4px">FILTER:</span>
+        <button class="action-btn sm esc-filter active" data-filter="all" onclick="filterEscalations('all')">ALL</button>
+        <button class="action-btn sm esc-filter" data-filter="critical" onclick="filterEscalations('critical')">CRITICAL</button>
+        <button class="action-btn sm esc-filter" data-filter="high" onclick="filterEscalations('high')">HIGH</button>
+        <button class="action-btn sm esc-filter" data-filter="pending" onclick="filterEscalations('pending')">PENDING</button>
+        <button class="action-btn sm esc-filter" data-filter="acknowledged" onclick="filterEscalations('acknowledged')">ACKNOWLEDGED</button>
+      </div>
+    </div>
+
+    <!-- Escalation List -->
+    <div id="escalation-list">
+      <div class="empty-state">
+        <div class="icon">&#128680;</div>
+        <div>Loading escalations...</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /content -->
+
+<!-- ======================== C2 COMMAND BAR ======================== -->
+<div class="c2-bar">
+  <div class="c2-grid">
+    <span class="c2-label">C2 COMMANDS</span>
+    <button class="c2-btn c2-primary" onclick="nclDailyPush()" title="Execute daily operations push">&#128260; NCL DAILY PUSH</button>
+    <button class="c2-btn" onclick="nclWeeklyGoals()" title="Generate weekly goals">&#128203; NCL GOALS</button>
+    <button class="c2-btn" onclick="nclHealthCheck()" title="Run division health check">&#128154; NCL HEALTH</button>
+    <div class="c2-sep"></div>
+    <button class="c2-btn" onclick="checkNerveStatus()" title="Check NERVE daemon status">&#9889; NERVE STATUS</button>
+    <button class="c2-btn" onclick="runCSuite()" title="Execute C-Suite cadence">&#128188; C-SUITE RUN</button>
+    <div class="c2-sep"></div>
+    <button class="c2-btn" onclick="fullStatusRefresh()" title="Full system refresh">&#128260; FULL STATUS</button>
+    <div class="c2-sep"></div>
+    <span id="c2-status" style="font-size:9px;color:var(--dim);margin-left:auto">IDLE</span>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div id="toast-container" class="toast-container"></div>
+
+<!-- ======================== JAVASCRIPT ======================== -->
+<script>
+(function() {
+  'use strict';
+
+  // ── Configuration ──
+  const BASE = 'https://bitrage-labour-api-production.up.railway.app';
+  const REFRESH_INTERVAL = 30000; // 30 seconds
+  const TOAST_DURATION = 5000;
+
+  // ── State ──
+  let state = {
+    divisions: [],
+    escalations: [],
+    weeklyGoals: null,
+    nclStatus: null,
+    nerveStatus: null,
+    opsLog: [],
+    currentFilter: 'all',
+    refreshTimer: null,
+    lastRefresh: null,
+  };
+
+  // ── Utility Functions ──
+  function $(id) { return document.getElementById(id); }
+  function qs(sel) { return document.querySelector(sel); }
+  function qsa(sel) { return document.querySelectorAll(sel); }
+
+  function ts(date) {
+    if (!date) return '--';
+    const d = new Date(date);
+    if (isNaN(d)) return String(date).substring(0, 19);
+    return d.toLocaleString('en-US', { month:'short', day:'numeric', hour:'2-digit', minute:'2-digit', second:'2-digit' });
+  }
+
+  function relativeTime(date) {
+    if (!date) return '--';
+    const d = new Date(date);
+    if (isNaN(d)) return '--';
+    const diff = (Date.now() - d.getTime()) / 1000;
+    if (diff < 60) return Math.floor(diff) + 's ago';
+    if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+    if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+    return Math.floor(diff / 86400) + 'd ago';
+  }
+
+  function sanitize(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function jsonPretty(obj) {
+    try { return JSON.stringify(obj, null, 2); } catch { return String(obj); }
+  }
+
+  // ── Toast Notifications ──
+  function toast(msg, type = 'info') {
+    const container = $('toast-container');
+    const el = document.createElement('div');
+    el.className = 'toast ' + type;
+    el.textContent = msg;
+    container.appendChild(el);
+    requestAnimationFrame(() => el.classList.add('show'));
+    setTimeout(() => {
+      el.classList.remove('show');
+      setTimeout(() => el.remove(), 300);
+    }, TOAST_DURATION);
+  }
+
+  // ── API Helpers ──
+  async function apiGet(path) {
+    try {
+      const resp = await fetch(BASE + path, { headers: { 'Accept': 'application/json' } });
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}: ${resp.statusText}`);
+      return await resp.json();
+    } catch (e) {
+      console.error('API GET error:', path, e);
+      throw e;
+    }
+  }
+
+  async function apiPost(path, body = {}) {
+    try {
+      const resp = await fetch(BASE + path, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}: ${resp.statusText}`);
+      return await resp.json();
+    } catch (e) {
+      console.error('API POST error:', path, e);
+      throw e;
+    }
+  }
+
+  function setC2Status(text, color) {
+    const el = $('c2-status');
+    el.textContent = text;
+    el.style.color = color || 'var(--dim)';
+  }
+
+  // ── Operations Log ──
+  function addOpsLog(action, result, success = true) {
+    state.opsLog.unshift({
+      time: new Date(),
+      action: action,
+      result: typeof result === 'string' ? result : (result?.message || result?.status || 'OK'),
+      success: success,
+    });
+    if (state.opsLog.length > 50) state.opsLog = state.opsLog.slice(0, 50);
+    renderOpsLog();
+  }
+
+  function renderOpsLog() {
+    const container = $('ops-log');
+    if (state.opsLog.length === 0) {
+      container.innerHTML = '<div class="empty-state">No operations logged yet this session.</div>';
+      return;
+    }
+    container.innerHTML = state.opsLog.map(item => `
+      <div class="ops-log-item">
+        <div class="ops-log-time">${ts(item.time).split(',').pop().trim()}</div>
+        <div class="ops-log-action" style="color:${item.success ? 'var(--green)' : 'var(--red)'}">${sanitize(item.action)}</div>
+        <div class="ops-log-result">${sanitize(item.result)}</div>
+      </div>
+    `).join('');
+  }
+
+  function showResult(data) {
+    const el = $('action-result');
+    el.textContent = typeof data === 'string' ? data : jsonPretty(data);
+    el.classList.add('visible');
+  }
+
+  function clearResult() {
+    const el = $('action-result');
+    el.textContent = 'No action executed yet.';
+    el.classList.remove('visible');
+  }
+
+  function clearOpsLog() {
+    state.opsLog = [];
+    renderOpsLog();
+    toast('Operations log cleared', 'success');
+  }
+
+  // ── Tab Navigation ──
+  function switchTab(tabName) {
+    qsa('.tab-content').forEach(el => el.classList.remove('active'));
+    qsa('.nav-tab').forEach(el => el.classList.remove('active'));
+    const tab = $('tab-' + tabName);
+    if (tab) tab.classList.add('active');
+    const btn = qs(`.nav-tab[data-tab="${tabName}"]`);
+    if (btn) btn.classList.add('active');
+  }
+
+  qsa('.nav-tab').forEach(btn => {
+    btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+  });
+
+  // ── Data Loading Functions ──
+
+  // NCL Status
+  async function loadNCLStatus() {
+    try {
+      const data = await apiGet('/api/v1/ncl/status');
+      state.nclStatus = data;
+      renderNCLStatus(data);
+    } catch (e) {
+      $('ncl-master-badge').textContent = 'ERROR';
+      $('ncl-master-badge').className = 'status-pill pill-red';
+      $('status-pill').textContent = 'DEGRADED';
+      $('status-pill').className = 'status-pill pill-red';
+    }
+  }
+
+  function renderNCLStatus(data) {
+    const s = data || {};
+    const status = s.status || s.state || 'UNKNOWN';
+
+    // Main pill
+    const pill = $('status-pill');
+    if (status === 'OPERATIONAL' || status === 'ok' || status === 'active') {
+      pill.textContent = 'OPERATIONAL'; pill.className = 'status-pill pill-green';
+      $('ncl-master-badge').textContent = 'OPERATIONAL'; $('ncl-master-badge').className = 'status-pill pill-green';
+    } else if (status === 'DEGRADED' || status === 'warning') {
+      pill.textContent = 'DEGRADED'; pill.className = 'status-pill pill-amber';
+      $('ncl-master-badge').textContent = 'DEGRADED'; $('ncl-master-badge').className = 'status-pill pill-amber';
+    } else {
+      pill.textContent = status.toUpperCase(); pill.className = 'status-pill pill-amber';
+      $('ncl-master-badge').textContent = status.toUpperCase(); $('ncl-master-badge').className = 'status-pill pill-amber';
+    }
+
+    // Metrics
+    $('ov-cycles').textContent = s.cycle_count ?? s.ops_cycles ?? s.cycles ?? '--';
+    $('ov-tasks-fired').textContent = s.tasks_fired_today ?? s.tasks_today ?? '--';
+    $('ov-escalations').textContent = s.escalation_count ?? s.escalations ?? '--';
+    $('ov-weekly-plans').textContent = s.weekly_plans_count ?? s.weekly_plans ?? '--';
+    $('ov-last-push').textContent = ts(s.last_daily_push || s.last_push);
+    $('ov-last-goals').textContent = ts(s.last_weekly_goals || s.last_goals);
+    $('ov-uptime').textContent = s.uptime || '--';
+  }
+
+  // Division Health
+  async function loadDivisionHealth() {
+    try {
+      const data = await apiGet('/api/v1/ncl/health');
+      renderDivisionHealth(data);
+    } catch (e) {
+      // Try alternate endpoint
+      try {
+        const data = await apiGet('/api/v1/ncl/divisions');
+        renderDivisionHealth(data);
+      } catch (e2) {
+        renderDivisionHealthFallback();
+      }
+    }
+  }
+
+  function renderDivisionHealth(data) {
+    const container = $('division-health-grid');
+    let divisions = [];
+
+    if (Array.isArray(data)) {
+      divisions = data;
+    } else if (data?.divisions) {
+      divisions = Array.isArray(data.divisions) ? data.divisions : Object.values(data.divisions);
+    } else if (data?.health) {
+      divisions = Array.isArray(data.health) ? data.health : Object.values(data.health);
+    } else if (typeof data === 'object') {
+      // Try to extract division-like keys
+      divisions = Object.entries(data).filter(([k,v]) => typeof v === 'object' && v !== null).map(([k,v]) => ({ code: k, ...v }));
+    }
+
+    state.divisions = divisions;
+
+    if (divisions.length === 0) {
+      renderDivisionHealthFallback();
+      return;
+    }
+
+    const colorMap = { GREEN: 'var(--green)', YELLOW: 'var(--amber)', RED: 'var(--red)' };
+
+    container.innerHTML = divisions.map(div => {
+      const code = div.code || div.division_code || div.name || 'UNK';
+      const head = div.head || div.division_head || div.leader || '--';
+      const status = (div.status || div.health || 'UNKNOWN').toUpperCase();
+      const agents = div.agent_count ?? div.agents ?? '--';
+      const services = div.service_count ?? div.services ?? '--';
+      const tam = div.tam ?? div.total_addressable ?? '--';
+      const maxDaily = div.max_daily ?? div.daily_max ?? '--';
+      const costCeiling = div.cost_ceiling ?? div.cost_cap ?? '--';
+      const qaGate = div.qa_gate ?? div.qa ?? '--';
+      const glowColor = colorMap[status] || 'var(--dim)';
+      const statusClass = ['GREEN','YELLOW','RED'].includes(status) ? status : 'UNKNOWN';
+
+      return `
+        <div class="div-health-card">
+          <div class="glow" style="background:${glowColor}"></div>
+          <div class="flex-between mb-8">
+            <div class="div-code" style="color:${glowColor}">${sanitize(code)}</div>
+            <span class="status-badge status-${statusClass}">${status}</span>
+          </div>
+          <div class="div-head">${sanitize(String(head))}</div>
+          <div class="div-stats">
+            <div class="stat-item"><span class="stat-label">Agents</span><span class="stat-value">${agents}</span></div>
+            <div class="stat-item"><span class="stat-label">Services</span><span class="stat-value">${services}</span></div>
+            <div class="stat-item"><span class="stat-label">TAM</span><span class="stat-value">${tam}</span></div>
+            <div class="stat-item"><span class="stat-label">Max Daily</span><span class="stat-value">${maxDaily}</span></div>
+            <div class="stat-item"><span class="stat-label">Cost Cap</span><span class="stat-value">${costCeiling}</span></div>
+            <div class="stat-item"><span class="stat-label">QA Gate</span><span class="stat-value">${qaGate}</span></div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Also render dispatch controls
+    renderDispatchControls(divisions);
+  }
+
+  function renderDivisionHealthFallback() {
+    const container = $('division-health-grid');
+    const fallback = [
+      { code: 'ALPHA', head: 'Digital Labour', color: 'var(--cyan)' },
+      { code: 'BRAVO', head: 'Insurance Ops', color: 'var(--green)' },
+      { code: 'CHARLIE', head: 'Construction', color: 'var(--orange)' },
+      { code: 'DELTA', head: 'Municipal', color: 'var(--purple)' },
+    ];
+    container.innerHTML = fallback.map(d => `
+      <div class="div-health-card">
+        <div class="glow" style="background:${d.color}"></div>
+        <div class="flex-between mb-8">
+          <div class="div-code" style="color:${d.color}">${d.code}</div>
+          <span class="status-badge status-UNKNOWN">AWAITING DATA</span>
+        </div>
+        <div class="div-head">${d.head}</div>
+        <div class="div-stats">
+          <div class="stat-item"><span class="stat-label">Agents</span><span class="stat-value">--</span></div>
+          <div class="stat-item"><span class="stat-label">Services</span><span class="stat-value">--</span></div>
+          <div class="stat-item"><span class="stat-label">TAM</span><span class="stat-value">--</span></div>
+          <div class="stat-item"><span class="stat-label">Max Daily</span><span class="stat-value">--</span></div>
+          <div class="stat-item"><span class="stat-label">Cost Cap</span><span class="stat-value">--</span></div>
+          <div class="stat-item"><span class="stat-label">QA Gate</span><span class="stat-value">--</span></div>
+        </div>
+      </div>
+    `).join('');
+
+    renderDispatchControls(fallback.map(d => ({ code: d.code, head: d.head })));
+  }
+
+  // Dispatch Controls
+  function renderDispatchControls(divisions) {
+    const container = $('dispatch-controls');
+    if (!divisions || divisions.length === 0) {
+      container.innerHTML = '<div class="empty-state">No divisions available</div>';
+      return;
+    }
+    container.innerHTML = divisions.map(div => {
+      const code = (div.code || div.division_code || div.name || 'UNK').toUpperCase();
+      const head = div.head || div.division_head || div.leader || '';
+      return `
+        <div class="dispatch-row">
+          <div class="dispatch-label c-cyan">${sanitize(code)}</div>
+          <div class="dispatch-name">${sanitize(String(head))}</div>
+          <button class="action-btn sm primary" onclick="window._dispatch('${sanitize(code.toLowerCase())}')">
+            &#128640; FIRE WARM-UP
+          </button>
+          <button class="action-btn sm info" onclick="window._dispatch('${sanitize(code.toLowerCase())}', 'full')">
+            &#9889; FULL DISPATCH
+          </button>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // NERVE Status
+  async function loadNerveStatus() {
+    try {
+      const data = await apiGet('/matrix/sitrep');
+      state.nerveStatus = data;
+      renderNerveStatus(data);
+    } catch (e) {
+      renderNerveStatus(null);
+    }
+  }
+
+  function renderNerveStatus(data) {
+    const dot = $('nerve-dot');
+    const label = $('nerve-label');
+    const details = $('nerve-details');
+
+    if (!data) {
+      dot.className = 'nerve-dot dead';
+      label.textContent = 'NOT RUNNING';
+      label.style.color = 'var(--red)';
+      details.innerHTML = 'Unable to reach NERVE daemon. The matrix/sitrep endpoint did not respond.';
+      return;
+    }
+
+    const nerveState = data.nerve_status || data.status || data.state || 'unknown';
+    const isActive = ['active','running','ok','operational','online'].includes(nerveState.toLowerCase());
+    const isStale = ['stale','degraded','warning'].includes(nerveState.toLowerCase());
+
+    if (isActive) {
+      dot.className = 'nerve-dot active';
+      label.textContent = 'ACTIVE';
+      label.style.color = 'var(--green)';
+    } else if (isStale) {
+      dot.className = 'nerve-dot stale';
+      label.textContent = 'STALE';
+      label.style.color = 'var(--amber)';
+    } else {
+      dot.className = 'nerve-dot dead';
+      label.textContent = nerveState.toUpperCase();
+      label.style.color = 'var(--red)';
+    }
+
+    const lines = [];
+    if (data.uptime) lines.push(`Uptime: ${data.uptime}`);
+    if (data.last_heartbeat) lines.push(`Last heartbeat: ${ts(data.last_heartbeat)}`);
+    if (data.active_daemons !== undefined) lines.push(`Active daemons: ${data.active_daemons}`);
+    if (data.queue_depth !== undefined) lines.push(`Queue depth: ${data.queue_depth}`);
+    if (data.agents_online !== undefined) lines.push(`Agents online: ${data.agents_online}`);
+    if (data.version) lines.push(`Version: ${data.version}`);
+    if (data.cycle_count !== undefined) lines.push(`Cycle count: ${data.cycle_count}`);
+    details.innerHTML = lines.length > 0 ? lines.join('<br>') : jsonPretty(data).substring(0, 500);
+  }
+
+  // C-Suite Status
+  async function loadCSuiteStatus() {
+    try {
+      const data = await apiPost('/matrix/command', { command: 'nerve_status' });
+      renderCSuiteStatus(data);
+    } catch (e) {
+      $('csuite-status').innerHTML = '<span style="color:var(--dim)">C-Suite status unavailable. Run C-SUITE RUN to initialize.</span>';
+    }
+  }
+
+  function renderCSuiteStatus(data) {
+    const container = $('csuite-status');
+    if (!data) {
+      container.innerHTML = '<span style="color:var(--dim)">No C-Suite data available</span>';
+      return;
+    }
+
+    const csuite = data.csuite || data.executives || data;
+    if (typeof csuite === 'object' && !Array.isArray(csuite)) {
+      const entries = Object.entries(csuite);
+      if (entries.length > 0) {
+        container.innerHTML = entries.map(([role, info]) => {
+          const status = typeof info === 'object' ? (info.status || info.state || 'unknown') : String(info);
+          const isOk = ['active','ok','running','operational'].includes(status.toLowerCase());
+          return `
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(42,42,74,.2)">
+              <span style="font-weight:600">${sanitize(role)}</span>
+              <span class="status-badge ${isOk ? 'status-GREEN' : 'status-YELLOW'}">${sanitize(status.toUpperCase())}</span>
+            </div>
+          `;
+        }).join('');
+        return;
+      }
+    }
+
+    container.innerHTML = `<pre style="font-size:10px;color:var(--dim);white-space:pre-wrap;max-height:200px;overflow-y:auto">${sanitize(jsonPretty(data)).substring(0, 1000)}</pre>`;
+  }
+
+  // Escalations
+  async function loadEscalations() {
+    try {
+      const data = await apiGet('/api/v1/ncl/escalations');
+      const list = Array.isArray(data) ? data : (data?.escalations || data?.items || []);
+      state.escalations = list;
+      renderEscalations();
+      renderEscalationSummary();
+    } catch (e) {
+      state.escalations = [];
+      renderEscalations();
+      renderEscalationSummary();
+    }
+  }
+
+  function renderEscalationSummary() {
+    const esc = state.escalations;
+    $('esc-total').textContent = esc.length;
+    $('esc-critical').textContent = esc.filter(e => (e.severity || e.level || '').toLowerCase() === 'critical').length;
+    $('esc-pending').textContent = esc.filter(e => !e.acknowledged).length;
+    $('esc-acked').textContent = esc.filter(e => e.acknowledged).length;
+  }
+
+  function renderEscalations() {
+    const container = $('escalation-list');
+    let filtered = state.escalations;
+
+    if (state.currentFilter === 'critical') {
+      filtered = filtered.filter(e => (e.severity || e.level || '').toLowerCase() === 'critical');
+    } else if (state.currentFilter === 'high') {
+      filtered = filtered.filter(e => (e.severity || e.level || '').toLowerCase() === 'high');
+    } else if (state.currentFilter === 'pending') {
+      filtered = filtered.filter(e => !e.acknowledged);
+    } else if (state.currentFilter === 'acknowledged') {
+      filtered = filtered.filter(e => e.acknowledged);
+    }
+
+    if (filtered.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <div class="icon">&#9989;</div>
+          <div>${state.escalations.length === 0 ? 'No escalations recorded' : 'No escalations match current filter'}</div>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = filtered.map((esc, i) => {
+      const severity = (esc.severity || esc.level || 'medium').toLowerCase();
+      const sevClass = ['critical','high','medium','low'].includes(severity) ? severity : 'medium';
+      const title = esc.title || esc.message || esc.type || 'Escalation';
+      const body = esc.body || esc.details || esc.description || '';
+      const time = esc.created_at || esc.timestamp || esc.time;
+      const acked = esc.acknowledged;
+
+      return `
+        <div class="escalation-item severity-${sevClass} ${acked ? 'acknowledged' : ''}" data-index="${i}">
+          <div class="escalation-header">
+            <div class="flex-center">
+              <span class="escalation-severity sev-${sevClass}">${sevClass.toUpperCase()}</span>
+              ${acked ? '<span class="status-badge status-GREEN" style="margin-left:6px">ACKNOWLEDGED</span>' : '<span class="status-badge status-YELLOW" style="margin-left:6px">PENDING</span>'}
+            </div>
+            <span class="escalation-time">${ts(time)}</span>
+          </div>
+          <div class="escalation-title">${sanitize(String(title))}</div>
+          ${body ? `<div class="escalation-body">${sanitize(String(body))}</div>` : ''}
+          <div class="escalation-actions">
+            ${!acked ? `<button class="action-btn sm primary" onclick="window._ackEscalation(${i})">&#9989; ACKNOWLEDGE</button>` : ''}
+            <button class="action-btn sm warning" onclick="window._escalateFurther(${i})">&#128680; ESCALATE</button>
+            <button class="action-btn sm" onclick="window._dismissEscalation(${i})">DISMISS</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function filterEscalations(filter) {
+    state.currentFilter = filter;
+    qsa('.esc-filter').forEach(btn => btn.classList.toggle('active', btn.dataset.filter === filter));
+    renderEscalations();
+  }
+
+  // Weekly Goals
+  async function loadWeeklyGoals() {
+    try {
+      const data = await apiGet('/api/v1/ncl/weekly-goals');
+      state.weeklyGoals = data;
+      renderWeeklyGoals(data);
+    } catch (e) {
+      $('weekly-goals-container').innerHTML = `
+        <div class="empty-state">
+          <div class="icon">&#127919;</div>
+          <div>Weekly goals not yet generated</div>
+          <div style="margin-top:8px">
+            <button class="action-btn sm secondary" onclick="nclWeeklyGoals()">&#128203; GENERATE NOW</button>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  function renderWeeklyGoals(data) {
+    const container = $('weekly-goals-container');
+    if (!data) {
+      container.innerHTML = '<div class="empty-state"><div class="icon">&#127919;</div><div>No weekly goals data</div></div>';
+      return;
+    }
+
+    let goals = [];
+    if (Array.isArray(data)) {
+      goals = data;
+    } else if (data?.goals) {
+      goals = Array.isArray(data.goals) ? data.goals : Object.entries(data.goals).map(([k,v]) => ({ division: k, ...v }));
+    } else if (data?.divisions) {
+      goals = Array.isArray(data.divisions) ? data.divisions : Object.entries(data.divisions).map(([k,v]) => ({ division: k, ...v }));
+    } else if (typeof data === 'object') {
+      goals = Object.entries(data).filter(([k,v]) => typeof v === 'object').map(([k,v]) => ({ division: k, ...v }));
+    }
+
+    if (goals.length === 0) {
+      // Show raw data if we can't parse
+      container.innerHTML = `
+        <div class="card">
+          <div class="card-title">RAW GOALS DATA</div>
+          <pre style="font-size:10px;color:var(--dim);white-space:pre-wrap;max-height:500px;overflow-y:auto">${sanitize(jsonPretty(data))}</pre>
+        </div>
+      `;
+      return;
+    }
+
+    const dayNames = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+    const today = new Date().getDay(); // 0=Sun
+    const todayIndex = today === 0 ? 6 : today - 1; // Convert to Mon=0
+
+    container.innerHTML = goals.map(div => {
+      const divName = div.division || div.code || div.name || 'Division';
+      const divGoals = div.goals || div.objectives || div.targets || [];
+      const roadmap = div.roadmap || div.seven_day || div.plan || [];
+      const agents = div.agent_tasks || div.agents || [];
+      const revenue = div.revenue_target || div.revenue || div.target || '--';
+      const kpis = div.kpis || div.metrics || [];
+
+      const goalItems = Array.isArray(divGoals) ? divGoals : (typeof divGoals === 'string' ? [divGoals] : Object.entries(divGoals).map(([k,v]) => `${k}: ${v}`));
+      const kpiItems = Array.isArray(kpis) ? kpis : (typeof kpis === 'string' ? [kpis] : Object.entries(kpis).map(([k,v]) => `${k}: ${v}`));
+
+      return `
+        <div class="goals-division">
+          <div class="goals-division-header">
+            <div class="flex-center">
+              <div class="goals-division-code c-cyan">${sanitize(String(divName).toUpperCase())}</div>
+              <span style="font-size:10px;color:var(--dim)">Revenue Target: <strong class="c-green">${sanitize(String(revenue))}</strong></span>
+            </div>
+          </div>
+
+          ${goalItems.length > 0 ? `
+            <div style="margin-bottom:10px">
+              <div style="font-size:10px;color:var(--dim);letter-spacing:1px;margin-bottom:6px">GOALS</div>
+              <div class="goals-list">
+                ${goalItems.map((g, idx) => {
+                  const goalText = typeof g === 'object' ? (g.goal || g.title || g.description || JSON.stringify(g)) : String(g);
+                  const kpi = typeof g === 'object' ? (g.kpi || g.metric || '') : (kpiItems[idx] || '');
+                  return `<div class="goal-item"><span class="goal-bullet">&#9654;</span><span>${sanitize(goalText)}</span>${kpi ? `<span class="goal-kpi">${sanitize(String(kpi))}</span>` : ''}</div>`;
+                }).join('')}
+              </div>
+            </div>
+          ` : ''}
+
+          <div style="margin-bottom:10px">
+            <div style="font-size:10px;color:var(--dim);letter-spacing:1px;margin-bottom:6px">7-DAY ROADMAP</div>
+            <div class="roadmap-bar">
+              ${dayNames.map((d, i) => {
+                const isToday = i === todayIndex;
+                const hasTask = Array.isArray(roadmap) && roadmap[i];
+                return `<div class="roadmap-day ${isToday ? 'current' : ''} ${hasTask ? 'active' : ''}" title="${hasTask ? (typeof roadmap[i] === 'string' ? roadmap[i] : JSON.stringify(roadmap[i])) : d}">${d}</div>`;
+              }).join('')}
+            </div>
+          </div>
+
+          ${agents.length > 0 ? `
+            <div>
+              <div style="font-size:10px;color:var(--dim);letter-spacing:1px;margin-bottom:6px">AGENT TASKS</div>
+              <div style="font-size:10px;line-height:1.6">
+                ${(Array.isArray(agents) ? agents : Object.entries(agents).map(([k,v]) => `${k}: ${v}`)).map(a => {
+                  const txt = typeof a === 'object' ? (a.agent || a.name || '') + ': ' + (a.task || a.action || JSON.stringify(a)) : String(a);
+                  return `<div style="padding:2px 0;border-bottom:1px solid rgba(42,42,74,.15)">&#8226; ${sanitize(txt)}</div>`;
+                }).join('')}
+              </div>
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ── Action Handlers ──
+
+  async function nclDailyPush() {
+    const btn = $('btn-daily-push');
+    if (btn) btn.disabled = true;
+    setC2Status('EXECUTING DAILY PUSH...', 'var(--green)');
+    toast('Executing daily operations push...', 'info');
+
+    try {
+      const data = await apiPost('/api/v1/ncl/daily-push');
+      showResult(data);
+      addOpsLog('DAILY PUSH', data.message || 'Completed', true);
+      toast('Daily push completed successfully', 'success');
+      // Refresh data
+      setTimeout(() => { loadNCLStatus(); loadDivisionHealth(); }, 2000);
+    } catch (e) {
+      showResult({ error: e.message });
+      addOpsLog('DAILY PUSH', e.message, false);
+      toast('Daily push failed: ' + e.message, 'error');
+    } finally {
+      if (btn) btn.disabled = false;
+      setC2Status('IDLE', 'var(--dim)');
+    }
+  }
+
+  async function nclWeeklyGoals() {
+    const btn = $('btn-weekly-goals');
+    const btn2 = $('btn-regen-goals');
+    if (btn) btn.disabled = true;
+    if (btn2) btn2.disabled = true;
+    setC2Status('GENERATING WEEKLY GOALS...', 'var(--purple)');
+    toast('Generating weekly goals...', 'info');
+
+    try {
+      const data = await apiPost('/api/v1/ncl/weekly-goals');
+      showResult(data);
+      addOpsLog('WEEKLY GOALS', data.message || 'Generated', true);
+      toast('Weekly goals generated successfully', 'success');
+      state.weeklyGoals = data;
+      renderWeeklyGoals(data);
+    } catch (e) {
+      showResult({ error: e.message });
+      addOpsLog('WEEKLY GOALS', e.message, false);
+      toast('Weekly goals generation failed: ' + e.message, 'error');
+    } finally {
+      if (btn) btn.disabled = false;
+      if (btn2) btn2.disabled = false;
+      setC2Status('IDLE', 'var(--dim)');
+    }
+  }
+
+  async function nclHealthCheck() {
+    const btn = $('btn-health-check');
+    if (btn) btn.disabled = true;
+    setC2Status('RUNNING HEALTH CHECK...', 'var(--cyan)');
+    toast('Running division health check...', 'info');
+
+    try {
+      const data = await apiGet('/api/v1/ncl/health');
+      showResult(data);
+      addOpsLog('HEALTH CHECK', 'Completed', true);
+      toast('Health check completed', 'success');
+      renderDivisionHealth(data);
+    } catch (e) {
+      showResult({ error: e.message });
+      addOpsLog('HEALTH CHECK', e.message, false);
+      toast('Health check failed: ' + e.message, 'error');
+    } finally {
+      if (btn) btn.disabled = false;
+      setC2Status('IDLE', 'var(--dim)');
+    }
+  }
+
+  async function checkNerveStatus() {
+    setC2Status('CHECKING NERVE...', 'var(--cyan)');
+    toast('Checking NERVE daemon status...', 'info');
+
+    try {
+      const data = await apiGet('/matrix/sitrep');
+      showResult(data);
+      addOpsLog('NERVE STATUS', data.status || 'Retrieved', true);
+      toast('NERVE status retrieved', 'success');
+      renderNerveStatus(data);
+    } catch (e) {
+      showResult({ error: e.message });
+      addOpsLog('NERVE STATUS', e.message, false);
+      toast('NERVE check failed: ' + e.message, 'error');
+      renderNerveStatus(null);
+    } finally {
+      setC2Status('IDLE', 'var(--dim)');
+    }
+  }
+
+  async function runCSuite() {
+    setC2Status('RUNNING C-SUITE...', 'var(--purple)');
+    toast('Executing C-Suite cadence...', 'info');
+
+    try {
+      const data = await apiPost('/matrix/command', { command: 'csuite_run' });
+      showResult(data);
+      addOpsLog('C-SUITE RUN', data.message || 'Executed', true);
+      toast('C-Suite cadence completed', 'success');
+      renderCSuiteStatus(data);
+    } catch (e) {
+      showResult({ error: e.message });
+      addOpsLog('C-SUITE RUN', e.message, false);
+      toast('C-Suite run failed: ' + e.message, 'error');
+    } finally {
+      setC2Status('IDLE', 'var(--dim)');
+    }
+  }
+
+  async function fullStatusRefresh() {
+    setC2Status('FULL REFRESH...', 'var(--amber)');
+    toast('Running full system status refresh...', 'info');
+
+    try {
+      await Promise.allSettled([
+        loadNCLStatus(),
+        loadDivisionHealth(),
+        loadNerveStatus(),
+        loadCSuiteStatus(),
+        loadEscalations(),
+        loadWeeklyGoals(),
+      ]);
+      state.lastRefresh = new Date();
+      addOpsLog('FULL REFRESH', 'All systems polled', true);
+      toast('Full status refresh completed', 'success');
+    } catch (e) {
+      addOpsLog('FULL REFRESH', e.message, false);
+      toast('Some refreshes failed', 'warning');
+    } finally {
+      setC2Status('IDLE', 'var(--dim)');
+    }
+  }
+
+  // Dispatch handler
+  window._dispatch = async function(division, mode) {
+    const label = division.toUpperCase() + (mode === 'full' ? ' FULL' : ' WARM-UP');
+    setC2Status('DISPATCHING ' + label + '...', 'var(--green)');
+    toast('Dispatching to ' + division.toUpperCase() + '...', 'info');
+
+    try {
+      const data = await apiPost(`/api/v1/ncl/dispatch/${division}`, { mode: mode || 'warmup' });
+      showResult(data);
+      addOpsLog('DISPATCH ' + label, data.message || 'Fired', true);
+      toast('Dispatch to ' + division.toUpperCase() + ' completed', 'success');
+    } catch (e) {
+      showResult({ error: e.message });
+      addOpsLog('DISPATCH ' + label, e.message, false);
+      toast('Dispatch failed: ' + e.message, 'error');
+    } finally {
+      setC2Status('IDLE', 'var(--dim)');
+    }
+  };
+
+  // Escalation action handlers
+  window._ackEscalation = function(index) {
+    if (state.escalations[index]) {
+      state.escalations[index].acknowledged = true;
+      renderEscalations();
+      renderEscalationSummary();
+      addOpsLog('ACK ESCALATION', state.escalations[index].title || 'Escalation #' + index, true);
+      toast('Escalation acknowledged', 'success');
+    }
+  };
+
+  window._dismissEscalation = function(index) {
+    if (state.escalations[index]) {
+      const title = state.escalations[index].title || 'Escalation #' + index;
+      state.escalations.splice(index, 1);
+      renderEscalations();
+      renderEscalationSummary();
+      addOpsLog('DISMISS ESCALATION', title, true);
+      toast('Escalation dismissed', 'success');
+    }
+  };
+
+  window._escalateFurther = function(index) {
+    if (state.escalations[index]) {
+      state.escalations[index].severity = 'critical';
+      renderEscalations();
+      renderEscalationSummary();
+      addOpsLog('ESCALATE FURTHER', state.escalations[index].title || 'Escalation #' + index, true);
+      toast('Escalation severity raised to CRITICAL', 'warning');
+    }
+  };
+
+  // Intel refresh (placeholder - these would connect to actual intel APIs)
+  function refreshIntel(source) {
+    const tsEl = document.getElementById('intel-' + source + '-ts');
+    if (tsEl) tsEl.textContent = ts(new Date());
+    toast('Intelligence feed refreshed: ' + source, 'success');
+    addOpsLog('INTEL REFRESH', source, true);
+  }
+
+  // ── Clock ──
+  function updateClock() {
+    $('meta-time').textContent = new Date().toLocaleString('en-US', {
+      weekday: 'short', month: 'short', day: 'numeric',
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+    });
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+
+  // ── Auto-Refresh ──
+  async function autoRefresh() {
+    const dot = $('refresh-dot');
+    dot.classList.add('stale');
+
+    try {
+      await Promise.allSettled([
+        loadNCLStatus(),
+        loadDivisionHealth(),
+        loadNerveStatus(),
+        loadEscalations(),
+      ]);
+      state.lastRefresh = new Date();
+      dot.classList.remove('stale');
+    } catch (e) {
+      console.error('Auto-refresh error:', e);
+    }
+  }
+
+  // ── Initial Load ──
+  async function init() {
+    $('status-pill').textContent = 'CONNECTING';
+    $('status-pill').className = 'status-pill pill-amber';
+
+    try {
+      await Promise.allSettled([
+        loadNCLStatus(),
+        loadDivisionHealth(),
+        loadNerveStatus(),
+        loadCSuiteStatus(),
+        loadEscalations(),
+        loadWeeklyGoals(),
+      ]);
+      state.lastRefresh = new Date();
+      addOpsLog('INIT', 'Dashboard initialized', true);
+    } catch (e) {
+      console.error('Init error:', e);
+      addOpsLog('INIT', 'Initialization had errors', false);
+    }
+
+    // Start auto-refresh
+    state.refreshTimer = setInterval(autoRefresh, REFRESH_INTERVAL);
+  }
+
+  // Expose functions globally for onclick handlers
+  window.nclDailyPush = nclDailyPush;
+  window.nclWeeklyGoals = nclWeeklyGoals;
+  window.nclHealthCheck = nclHealthCheck;
+  window.checkNerveStatus = checkNerveStatus;
+  window.runCSuite = runCSuite;
+  window.fullStatusRefresh = fullStatusRefresh;
+  window.filterEscalations = filterEscalations;
+  window.refreshIntel = refreshIntel;
+  window.clearResult = clearResult;
+  window.clearOpsLog = clearOpsLog;
+  window.switchTab = switchTab;
+
+  // Boot
+  init();
+
+})();
+</script>
+</body>
+</html>

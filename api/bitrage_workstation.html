@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0a0a0f">
+<title>BIT RAGE | Labour Workstation</title>
+<style>
+:root {
+  --bg: #0a0a0f; --surface: #12121a; --card: #1a1a28; --border: #2a2a3a;
+  --text: #e0e0e8; --dim: #888899; --green: #00ff88; --red: #ff4466;
+  --amber: #ffaa22; --blue: #4488ff; --purple: #aa66ff; --cyan: #00ccdd;
+  --orange: #ff6622;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'SF Mono','Fira Code','Cascadia Code',monospace; background:var(--bg); color:var(--text); min-height:100vh; }
+a { color:var(--cyan); text-decoration:none; }
+::-webkit-scrollbar { width:6px; height:6px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+
+/* Header */
+.header { background:linear-gradient(135deg,#0d0d18,#1a0a2e); padding:12px 20px; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; backdrop-filter:blur(20px); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+.logo-area { display:flex; align-items:center; gap:12px; }
+.logo-icon { width:36px; height:36px; background:linear-gradient(135deg,#dc2626,#ea580c); border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:13px; color:white; }
+.logo-text { font-size:15px; font-weight:700; letter-spacing:2px; color:var(--cyan); }
+.logo-sub { font-size:9px; color:var(--dim); letter-spacing:1px; }
+.status-pill { font-size:10px; padding:4px 12px; border-radius:20px; font-weight:700; letter-spacing:1px; }
+.pill-green { background:rgba(0,255,136,0.15); color:var(--green); }
+.pill-red { background:rgba(255,68,102,0.15); color:var(--red); animation:pulse 2s infinite; }
+.pill-amber { background:rgba(255,170,34,0.15); color:var(--amber); }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.6} }
+
+/* Nav Tabs */
+.nav-tabs { display:flex; gap:2px; background:var(--surface); padding:2px; border-radius:8px; flex-wrap:wrap; }
+.nav-tab { padding:6px 14px; font-size:10px; font-weight:600; letter-spacing:1px; border-radius:6px; cursor:pointer; color:var(--dim); border:none; background:none; transition:all .2s; font-family:inherit; }
+.nav-tab:hover { color:var(--text); }
+.nav-tab.active { background:var(--card); color:var(--cyan); }
+
+.header-right { display:flex; align-items:center; gap:12px; }
+
+/* Content */
+.content { max-width:1440px; margin:0 auto; padding:16px 20px 70px; }
+.tab-content { display:none; }
+.tab-content.active { display:block; }
+
+/* Grids */
+.grid { display:grid; gap:12px; }
+.grid-5 { grid-template-columns:repeat(5,1fr); }
+.grid-4 { grid-template-columns:repeat(4,1fr); }
+.grid-3 { grid-template-columns:repeat(3,1fr); }
+.grid-2 { grid-template-columns:repeat(2,1fr); }
+.card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px; }
+.card-title { font-size:10px; color:var(--dim); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+.metric-big { font-size:28px; font-weight:900; }
+.metric-mid { font-size:20px; font-weight:800; }
+.metric-sub { font-size:10px; color:var(--dim); margin-top:2px; }
+.c-green { color:var(--green); } .c-red { color:var(--red); } .c-amber { color:var(--amber); }
+.c-blue { color:var(--blue); } .c-purple { color:var(--purple); } .c-cyan { color:var(--cyan); }
+.c-orange { color:var(--orange); }
+
+/* Division Cards */
+.div-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px; transition:all .2s; }
+.div-card:hover { border-color:var(--cyan); transform:translateY(-2px); }
+.div-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.div-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:18px; }
+.div-name { font-size:13px; font-weight:700; }
+.div-code { font-size:9px; color:var(--dim); font-weight:600; letter-spacing:1px; }
+.div-status { font-size:9px; padding:2px 8px; border-radius:10px; font-weight:700; }
+
+/* Progress bar */
+.progress-bar { height:4px; background:var(--border); border-radius:2px; overflow:hidden; margin:4px 0; }
+.progress-fill { height:100%; border-radius:2px; transition:width .5s; }
+
+/* Agent grid */
+.agent-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:12px; cursor:pointer; transition:all .2s; }
+.agent-card:hover { border-color:var(--cyan); }
+.agent-dot { width:8px; height:8px; border-radius:50%; display:inline-block; }
+.agent-dot.active { background:var(--green); box-shadow:0 0 6px rgba(0,255,136,.4); }
+.agent-dot.paused { background:var(--amber); box-shadow:0 0 6px rgba(255,170,34,.4); }
+.agent-dot.error { background:var(--red); box-shadow:0 0 6px rgba(255,68,102,.4); }
+
+/* Feed */
+.feed-item { display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px solid rgba(42,42,58,.3); font-size:11px; }
+.feed-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+.feed-time { color:var(--dim); font-size:9px; margin-left:auto; flex-shrink:0; }
+
+/* Task form */
+.task-input { background:var(--surface); border:1px solid var(--border); color:var(--text); padding:10px 14px; border-radius:6px; font-size:11px; font-family:inherit; width:100%; }
+.task-input:focus { outline:none; border-color:var(--cyan); }
+.task-select { background:var(--surface); border:1px solid var(--border); color:var(--text); padding:10px 14px; border-radius:6px; font-size:11px; font-family:inherit; width:100%; }
+.task-select:focus { outline:none; border-color:var(--cyan); }
+.task-select option { background:var(--surface); color:var(--text); }
+.task-select optgroup { color:var(--cyan); font-weight:700; }
+.fire-btn { background:linear-gradient(135deg,#dc2626,#ea580c); color:white; border:none; padding:12px 30px; border-radius:6px; font-size:12px; font-weight:700; cursor:pointer; font-family:inherit; letter-spacing:1px; transition:all .2s; }
+.fire-btn:hover { background:linear-gradient(135deg,#ef4444,#f97316); transform:scale(1.02); }
+.fire-btn:disabled { opacity:.5; cursor:not-allowed; transform:none; }
+
+/* Toggle */
+.toggle-wrap { display:flex; align-items:center; gap:8px; }
+.toggle { position:relative; width:40px; height:20px; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle-slider { position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background:var(--border); border-radius:20px; transition:.3s; }
+.toggle-slider:before { position:absolute; content:''; height:14px; width:14px; left:3px; bottom:3px; background:var(--dim); border-radius:50%; transition:.3s; }
+.toggle input:checked+.toggle-slider { background:var(--cyan); }
+.toggle input:checked+.toggle-slider:before { transform:translateX(20px); background:white; }
+
+/* Buttons */
+.btn { padding:8px 16px; font-size:10px; font-weight:700; border-radius:6px; border:1px solid var(--border); background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; letter-spacing:.5px; transition:all .15s; }
+.btn:hover { border-color:var(--cyan); color:var(--cyan); }
+.btn-sm { padding:4px 10px; font-size:9px; }
+.btn-fire { background:linear-gradient(135deg,#dc2626,#ea580c); color:white; border:none; }
+.btn-fire:hover { background:linear-gradient(135deg,#ef4444,#f97316); }
+.btn-pause { border-color:rgba(255,170,34,.3); }
+.btn-pause:hover { border-color:var(--amber); color:var(--amber); }
+
+/* C2 Command Bar */
+.c2-bar { position:fixed; bottom:0; left:0; right:0; background:var(--surface); border-top:1px solid var(--border); padding:8px 16px; z-index:90; }
+.c2-grid { display:flex; gap:6px; overflow-x:auto; max-width:1440px; margin:0 auto; padding-bottom:4px; }
+.c2-btn { flex-shrink:0; padding:8px 14px; font-size:10px; font-weight:700; border:1px solid var(--border); border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font-family:inherit; letter-spacing:.5px; white-space:nowrap; transition:all .15s; }
+.c2-btn:hover { border-color:var(--cyan); color:var(--cyan); background:rgba(0,204,221,.05); }
+.c2-btn:active { transform:scale(.95); }
+.c2-btn.danger { border-color:rgba(255,68,102,.3); }
+.c2-btn.danger:hover { border-color:var(--red); color:var(--red); }
+.c2-btn.success { border-color:rgba(0,255,136,.3); }
+.c2-btn.success:hover { border-color:var(--green); color:var(--green); }
+
+/* Toast */
+.toast-container { position:fixed; bottom:60px; right:20px; z-index:200; display:flex; flex-direction:column; gap:6px; }
+.toast { background:var(--card); border:1px solid var(--border); color:var(--text); padding:10px 16px; border-radius:8px; font-size:11px; opacity:0; transform:translateX(60px); transition:all .3s; max-width:400px; }
+.toast.show { opacity:1; transform:translateX(0); }
+.toast.success { border-color:rgba(0,255,136,.4); }
+.toast.error { border-color:rgba(255,68,102,.4); }
+
+/* Modal */
+.modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:150; align-items:center; justify-content:center; }
+.modal-overlay.open { display:flex; }
+.modal { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:24px; max-width:600px; width:90%; max-height:80vh; overflow-y:auto; }
+.modal-close { float:right; background:none; border:none; color:var(--dim); cursor:pointer; font-size:18px; }
+.modal-close:hover { color:var(--text); }
+
+/* Table */
+.tbl { width:100%; border-collapse:collapse; font-size:11px; }
+.tbl th { text-align:left; padding:6px 8px; font-size:9px; color:var(--dim); letter-spacing:1px; text-transform:uppercase; border-bottom:1px solid var(--border); }
+.tbl td { padding:6px 8px; border-bottom:1px solid rgba(42,42,58,.3); }
+.tbl tr:hover td { background:rgba(255,255,255,.02); }
+
+/* Result area */
+.result-area { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:16px; font-size:11px; line-height:1.6; min-height:100px; max-height:400px; overflow-y:auto; white-space:pre-wrap; word-break:break-word; }
+
+/* Responsive */
+@media (max-width:1100px) { .grid-5 { grid-template-columns:repeat(3,1fr); } .grid-4 { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:768px) { .grid-5,.grid-4,.grid-3,.grid-2 { grid-template-columns:1fr; } .header { flex-direction:column; align-items:flex-start; } }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="logo-area">
+    <div class="logo-icon">BR</div>
+    <div>
+      <div class="logo-text">BIT RAGE LABOUR</div>
+      <div class="logo-sub">Digital Labour Operations &mdash; Task Execution Engine</div>
+    </div>
+    <span id="status-pill" class="status-pill pill-amber">CONNECTING</span>
+  </div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="switchTab('dashboard')">DASHBOARD</button>
+    <button class="nav-tab" onclick="switchTab('divisions')">DIVISIONS</button>
+    <button class="nav-tab" onclick="switchTab('firetask')">FIRE TASK</button>
+    <button class="nav-tab" onclick="switchTab('agents')">AGENTS</button>
+    <button class="nav-tab" onclick="switchTab('revenue')">REVENUE</button>
+    <button class="nav-tab" onclick="switchTab('pipeline')">PIPELINE</button>
+  </div>
+  <div class="header-right">
+    <span id="meta-time" style="font-size:10px;color:var(--dim)"></span>
+    <span id="refresh-indicator" style="font-size:9px;color:var(--dim)">&#8635; 30s</span>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div id="toast-container" class="toast-container"></div>
+
+<!-- Agent Detail Modal -->
+<div id="agent-modal" class="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div id="agent-modal-content"></div>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- ============ DASHBOARD TAB ============ -->
+  <div id="tab-dashboard" class="tab-content active">
+    <!-- System Status -->
+    <div class="card" style="margin-bottom:12px;background:linear-gradient(135deg,rgba(0,204,221,.04),rgba(0,255,136,.04));border-color:rgba(0,204,221,.2)">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <span style="font-size:14px;font-weight:800;color:var(--cyan)">&#9889; SYSTEM STATUS</span>
+          <span id="sys-status-text" style="font-size:10px;color:var(--dim);margin-left:12px">Initializing...</span>
+        </div>
+        <div id="sys-uptime" style="font-size:10px;color:var(--dim)">Uptime: --</div>
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="grid grid-5" style="margin-bottom:12px">
+      <div class="card"><div class="card-title">&#129302; AGENTS ACTIVE</div><div id="qs-agents" class="metric-big c-purple">--</div><div class="metric-sub">operational fleet</div></div>
+      <div class="card"><div class="card-title">&#128203; TASKS QUEUED</div><div id="qs-queued" class="metric-big c-amber">--</div><div class="metric-sub">in queue</div></div>
+      <div class="card"><div class="card-title">&#9989; COMPLETED TODAY</div><div id="qs-completed" class="metric-big c-green">--</div><div class="metric-sub">tasks done</div></div>
+      <div class="card"><div class="card-title">&#128176; REVENUE TODAY</div><div id="qs-revenue" class="metric-big c-green">$--</div><div class="metric-sub">gross revenue</div></div>
+      <div class="card"><div class="card-title">&#127942; QA PASS RATE</div><div id="qs-qa" class="metric-big c-cyan">--%</div><div class="metric-sub">quality score</div></div>
+    </div>
+
+    <!-- Division Cards -->
+    <div style="margin-bottom:8px;font-size:10px;color:var(--dim);letter-spacing:1px">&#127970; DIVISIONS</div>
+    <div class="grid grid-4" style="margin-bottom:12px" id="dash-divisions">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Live Task Feed -->
+    <div class="card">
+      <div class="card-title">&#128196; LIVE TASK FEED (LAST 15)</div>
+      <div id="dash-feed" style="max-height:360px;overflow-y:auto">
+        <table class="tbl">
+          <thead><tr><th>Status</th><th>Type</th><th>Division</th><th>Duration</th><th>Cost</th><th>Time</th></tr></thead>
+          <tbody id="dash-feed-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ DIVISIONS TAB ============ -->
+  <div id="tab-divisions" class="tab-content">
+    <div id="divisions-detail"></div>
+  </div>
+
+  <!-- ============ FIRE TASK TAB ============ -->
+  <div id="tab-firetask" class="tab-content">
+    <div class="card" style="margin-bottom:12px;background:linear-gradient(135deg,rgba(220,38,38,.06),rgba(234,88,12,.06));border-color:rgba(220,38,38,.3)">
+      <div style="font-size:14px;font-weight:800;color:var(--orange)">&#128293; FIRE TASK</div>
+      <div style="font-size:10px;color:var(--dim);margin-top:2px">Execute a task through the Digital Labour pipeline</div>
+    </div>
+
+    <div class="grid grid-2" style="margin-bottom:12px">
+      <div class="card">
+        <div class="card-title">Task Configuration</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div>
+            <label style="font-size:9px;color:var(--dim);letter-spacing:1px;display:block;margin-bottom:4px">TASK TYPE</label>
+            <select id="fire-type" class="task-select">
+              <option value="">-- Select Task Type --</option>
+              <optgroup label="INS-OPS | Insurance Operations">
+                <option value="insurance_appeal">Insurance Appeal</option>
+                <option value="prior_auth">Prior Authorization</option>
+                <option value="denial_overturn">Denial Overturn</option>
+                <option value="external_review">External Review</option>
+                <option value="medical_necessity">Medical Necessity</option>
+                <option value="erisa_appeal">ERISA Appeal</option>
+                <option value="state_insurance_complaint">State Insurance Complaint</option>
+              </optgroup>
+              <optgroup label="GRANT-OPS | Grant Operations">
+                <option value="grant_proposal">Grant Proposal</option>
+                <option value="sbir_proposal">SBIR Proposal</option>
+                <option value="rfa_response">RFA Response</option>
+                <option value="budget_justification">Budget Justification</option>
+                <option value="compliance_matrix">Compliance Matrix</option>
+                <option value="technical_narrative">Technical Narrative</option>
+                <option value="commercialization_plan">Commercialization Plan</option>
+                <option value="grant_amendment">Grant Amendment</option>
+              </optgroup>
+              <optgroup label="CTR-SVC | Contractor Services">
+                <option value="permit_application">Permit Application</option>
+                <option value="inspection_report">Inspection Report</option>
+                <option value="contractor_proposal">Contractor Proposal</option>
+                <option value="lien_waiver">Lien Waiver</option>
+                <option value="safety_plan">Safety Plan</option>
+                <option value="change_order">Change Order</option>
+                <option value="progress_report">Progress Report</option>
+                <option value="bid_document">Bid Document</option>
+              </optgroup>
+              <optgroup label="MUN-SVC | Municipal Services">
+                <option value="meeting_minutes">Meeting Minutes</option>
+                <option value="public_notice">Public Notice</option>
+                <option value="ordinance">Ordinance</option>
+                <option value="resolution">Resolution</option>
+                <option value="municipal_grant">Municipal Grant</option>
+                <option value="budget_summary">Budget Summary</option>
+                <option value="annual_report">Annual Report</option>
+                <option value="municipal_rfp">Municipal RFP</option>
+                <option value="agenda">Agenda</option>
+                <option value="staff_report">Staff Report</option>
+              </optgroup>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:9px;color:var(--dim);letter-spacing:1px;display:block;margin-bottom:4px">FOCUS / TOPIC</label>
+            <input id="fire-focus" class="task-input" placeholder="Enter task focus, client name, or topic..." />
+          </div>
+          <div style="display:flex;gap:16px;align-items:center">
+            <div>
+              <label style="font-size:9px;color:var(--dim);letter-spacing:1px;display:block;margin-bottom:4px">MODE</label>
+              <div class="toggle-wrap">
+                <span style="font-size:10px;color:var(--dim)">SYNC</span>
+                <label class="toggle"><input type="checkbox" id="fire-async"><span class="toggle-slider"></span></label>
+                <span style="font-size:10px;color:var(--dim)">ASYNC</span>
+              </div>
+            </div>
+            <div style="flex:1">
+              <label style="font-size:9px;color:var(--dim);letter-spacing:1px;display:block;margin-bottom:4px">PROVIDER</label>
+              <select id="fire-provider" class="task-select">
+                <option value="anthropic">Anthropic</option>
+                <option value="openai">OpenAI</option>
+                <option value="groq">Groq</option>
+                <option value="gemini">Gemini</option>
+              </select>
+            </div>
+          </div>
+          <button id="fire-btn" class="fire-btn" onclick="fireTask()">&#128293; FIRE TASK</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Task Result</div>
+        <div id="fire-result" class="result-area" style="color:var(--dim)">No task fired yet. Select a task type and click FIRE.</div>
+      </div>
+    </div>
+
+    <!-- Recent Fired Tasks -->
+    <div class="card">
+      <div class="card-title">&#128337; RECENTLY FIRED TASKS</div>
+      <table class="tbl">
+        <thead><tr><th>Time</th><th>Type</th><th>Focus</th><th>Provider</th><th>Mode</th><th>Status</th><th>Duration</th></tr></thead>
+        <tbody id="fire-history"></tbody>
+      </table>
+      <div id="fire-history-empty" style="text-align:center;padding:20px;color:var(--dim);font-size:11px">No tasks fired this session</div>
+    </div>
+  </div>
+
+  <!-- ============ AGENTS TAB ============ -->
+  <div id="tab-agents" class="tab-content">
+    <div style="margin-bottom:12px;font-size:10px;color:var(--dim);letter-spacing:1px">&#129302; AGENT FLEET</div>
+    <div class="grid grid-4" id="agents-grid">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+  <!-- ============ REVENUE TAB ============ -->
+  <div id="tab-revenue" class="tab-content">
+    <!-- Revenue summary -->
+    <div class="grid grid-3" style="margin-bottom:12px">
+      <div class="card"><div class="card-title">&#128176; REVENUE TODAY</div><div id="rev-today" class="metric-big c-green">$--</div><div class="metric-sub">gross today</div></div>
+      <div class="card"><div class="card-title">&#128200; REVENUE THIS WEEK</div><div id="rev-week" class="metric-big c-green">$--</div><div class="metric-sub">weekly total</div></div>
+      <div class="card"><div class="card-title">&#128202; REVENUE THIS MONTH</div><div id="rev-month" class="metric-big c-green">$--</div><div class="metric-sub">monthly total</div></div>
+    </div>
+
+    <div class="grid grid-2" style="margin-bottom:12px">
+      <!-- Revenue by Division -->
+      <div class="card">
+        <div class="card-title">&#127970; REVENUE BY DIVISION</div>
+        <div id="rev-by-div"></div>
+      </div>
+      <!-- Margin -->
+      <div class="card">
+        <div class="card-title">&#128181; COST VS REVENUE (TODAY)</div>
+        <div id="rev-margin"></div>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+      <!-- Revenue by Service -->
+      <div class="card">
+        <div class="card-title">&#128203; REVENUE BY SERVICE TYPE</div>
+        <div id="rev-by-svc" style="max-height:300px;overflow-y:auto"></div>
+      </div>
+      <!-- Client LTV -->
+      <div class="card">
+        <div class="card-title">&#128101; CLIENT LIST (LTV)</div>
+        <div id="rev-clients" style="max-height:300px;overflow-y:auto">
+          <table class="tbl">
+            <thead><tr><th>Client</th><th>Tasks</th><th>LTV</th><th>Last Active</th></tr></thead>
+            <tbody id="rev-clients-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PIPELINE TAB ============ -->
+  <div id="tab-pipeline" class="tab-content">
+    <!-- Pipeline Counts -->
+    <div class="grid grid-4" style="margin-bottom:12px">
+      <div class="card"><div class="card-title">&#128203; QUEUED</div><div id="pipe-queued" class="metric-big c-amber">--</div></div>
+      <div class="card"><div class="card-title">&#9889; RUNNING</div><div id="pipe-running" class="metric-big c-cyan">--</div></div>
+      <div class="card"><div class="card-title">&#9989; COMPLETED</div><div id="pipe-completed" class="metric-big c-green">--</div></div>
+      <div class="card"><div class="card-title">&#10060; FAILED</div><div id="pipe-failed" class="metric-big c-red">--</div></div>
+    </div>
+
+    <div class="grid grid-2" style="margin-bottom:12px">
+      <!-- Live processing -->
+      <div class="card">
+        <div class="card-title">&#128260; LIVE TASK PROCESSING</div>
+        <div id="pipe-live" style="max-height:300px;overflow-y:auto">
+          <div style="text-align:center;padding:20px;color:var(--dim);font-size:11px">Waiting for data...</div>
+        </div>
+      </div>
+      <!-- Agent utilization -->
+      <div class="card">
+        <div class="card-title">&#128202; AGENT UTILIZATION</div>
+        <div id="pipe-util">
+          <div style="text-align:center;padding:40px 20px;color:var(--dim);font-size:11px">
+            <div style="font-size:32px;margin-bottom:8px">&#128202;</div>
+            Agent utilization metrics<br>Updated in real-time
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error Log -->
+    <div class="card">
+      <div class="card-title" style="color:var(--red)">&#128680; ERROR LOG (RECENT FAILURES)</div>
+      <div id="pipe-errors" style="max-height:250px;overflow-y:auto">
+        <table class="tbl">
+          <thead><tr><th>Time</th><th>Task</th><th>Agent</th><th>Error</th></tr></thead>
+          <tbody id="pipe-errors-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- C2 Command Bar -->
+<div class="c2-bar">
+  <div class="c2-grid">
+    <button class="c2-btn success" onclick="c2('sys_check')">&#9889; SYS CHECK</button>
+    <button class="c2-btn" onclick="c2('nerve')">&#129504; NERVE</button>
+    <button class="c2-btn" onclick="c2('daily_cycle')">&#128260; DAILY CYCLE</button>
+    <button class="c2-btn success" onclick="c2('revenue')">&#128176; REVENUE</button>
+    <button class="c2-btn danger" onclick="c2('restart')">&#128683; RESTART</button>
+    <button class="c2-btn" onclick="c2('openclaw')">&#129430; OPENCLAW</button>
+    <button class="c2-btn" onclick="c2('scan_jobs')">&#128269; SCAN JOBS</button>
+    <button class="c2-btn" onclick="c2('c_suite')">&#128188; C-SUITE</button>
+    <button class="c2-btn danger" onclick="c2('blitz_50')">&#128165; BLITZ 50</button>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// BIT RAGE LABOUR WORKSTATION
+// ============================================================
+const BASE = 'https://bitrage-labour-api-production.up.railway.app';
+let refreshTimer = null;
+const REFRESH_MS = 30000;
+let firedTasks = [];
+
+// Division definitions
+const DIVISIONS = [
+  { code:'INS-OPS', name:'Insurance Operations', icon:'&#128203;', color:'var(--blue)', gradient:'linear-gradient(135deg,rgba(68,136,255,.2),rgba(68,136,255,.05))',
+    agents:['INS-APPEAL-01','INS-AUTH-01','INS-REVIEW-01'],
+    services:['insurance_appeal','prior_auth','denial_overturn','external_review','medical_necessity','erisa_appeal','state_insurance_complaint'] },
+  { code:'GRANT-OPS', name:'Grant Operations', icon:'&#127942;', color:'var(--green)', gradient:'linear-gradient(135deg,rgba(0,255,136,.2),rgba(0,255,136,.05))',
+    agents:['GRANT-PROP-01','GRANT-SBIR-01','GRANT-COMP-01'],
+    services:['grant_proposal','sbir_proposal','rfa_response','budget_justification','compliance_matrix','technical_narrative','commercialization_plan','grant_amendment'] },
+  { code:'CTR-SVC', name:'Contractor Services', icon:'&#128295;', color:'var(--orange)', gradient:'linear-gradient(135deg,rgba(255,102,34,.2),rgba(255,102,34,.05))',
+    agents:['CTR-PERMIT-01','CTR-INSPECT-01','CTR-BID-01'],
+    services:['permit_application','inspection_report','contractor_proposal','lien_waiver','safety_plan','change_order','progress_report','bid_document'] },
+  { code:'MUN-SVC', name:'Municipal Services', icon:'&#127963;', color:'var(--purple)', gradient:'linear-gradient(135deg,rgba(170,102,255,.2),rgba(170,102,255,.05))',
+    agents:['MUN-MINUTES-01','MUN-NOTICE-01','MUN-REPORT-01'],
+    services:['meeting_minutes','public_notice','ordinance','resolution','municipal_grant','budget_summary','annual_report','municipal_rfp','agenda','staff_report'] }
+];
+
+// ============================================================
+// TAB SWITCHING
+// ============================================================
+function switchTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ============================================================
+// API HELPERS
+// ============================================================
+async function api(path, opts = {}) {
+  try {
+    const url = path.startsWith('http') ? path : BASE + path;
+    const res = await fetch(url, { ...opts, headers: { 'Content-Type':'application/json', ...opts.headers } });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.json();
+  } catch(e) {
+    console.warn('API error:', path, e.message);
+    return null;
+  }
+}
+
+// ============================================================
+// TOAST NOTIFICATIONS
+// ============================================================
+function toast(msg, type='info') {
+  const c = document.getElementById('toast-container');
+  const t = document.createElement('div');
+  t.className = 'toast ' + (type === 'error' ? 'error' : type === 'success' ? 'success' : '');
+  t.textContent = msg;
+  c.appendChild(t);
+  requestAnimationFrame(() => t.classList.add('show'));
+  setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 4000);
+}
+
+// ============================================================
+// TIME HELPERS
+// ============================================================
+function updateClock() {
+  const now = new Date();
+  document.getElementById('meta-time').textContent = now.toLocaleTimeString('en-US', { hour12:false }) + ' UTC' + (now.getTimezoneOffset() > 0 ? '-' : '+') + Math.abs(now.getTimezoneOffset()/60);
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+function timeAgo(ts) {
+  if (!ts) return '--';
+  const d = new Date(ts);
+  const s = Math.floor((Date.now() - d.getTime()) / 1000);
+  if (s < 60) return s + 's ago';
+  if (s < 3600) return Math.floor(s/60) + 'm ago';
+  if (s < 86400) return Math.floor(s/3600) + 'h ago';
+  return Math.floor(s/86400) + 'd ago';
+}
+
+function fmtDuration(ms) {
+  if (!ms && ms !== 0) return '--';
+  if (ms < 1000) return ms + 'ms';
+  return (ms/1000).toFixed(1) + 's';
+}
+
+function fmtCurrency(v) {
+  if (v === null || v === undefined) return '$--';
+  return '$' + Number(v).toLocaleString('en-US', { minimumFractionDigits:2, maximumFractionDigits:2 });
+}
+
+// ============================================================
+// STATUS DOT HTML
+// ============================================================
+function statusDot(status) {
+  const s = (status || '').toLowerCase();
+  if (s === 'active' || s === 'online' || s === 'operational' || s === 'completed' || s === 'success') return '<span class="agent-dot active"></span>';
+  if (s === 'paused' || s === 'idle' || s === 'queued' || s === 'pending') return '<span class="agent-dot paused"></span>';
+  return '<span class="agent-dot error"></span>';
+}
+
+function statusColor(status) {
+  const s = (status || '').toLowerCase();
+  if (s === 'active' || s === 'online' || s === 'operational' || s === 'completed' || s === 'success') return 'var(--green)';
+  if (s === 'paused' || s === 'idle' || s === 'queued' || s === 'pending') return 'var(--amber)';
+  return 'var(--red)';
+}
+
+function pillHtml(status) {
+  const s = (status || 'unknown').toLowerCase();
+  let cls = 'pill-amber';
+  if (s === 'active' || s === 'online' || s === 'operational') cls = 'pill-green';
+  else if (s === 'error' || s === 'failed' || s === 'offline') cls = 'pill-red';
+  return `<span class="status-pill ${cls}">${(status||'UNKNOWN').toUpperCase()}</span>`;
+}
+
+// ============================================================
+// DATA FETCH & RENDER
+// ============================================================
+let cachedSitrep = null;
+let cachedOverview = null;
+let cachedAgents = null;
+let cachedFeed = null;
+let cachedProviders = null;
+let cachedDivisions = null;
+let cachedKpi = null;
+
+async function refreshAll() {
+  const [sitrep, overview, agents, feed, providers, divisions, kpi] = await Promise.all([
+    api('/matrix/sitrep'),
+    api('/monitor/overview'),
+    api('/monitor/agents'),
+    api('/monitor/feed'),
+    api('/monitor/providers'),
+    api('/api/v1/ncl/divisions'),
+    api('/monitor/kpi/trend')
+  ]);
+
+  cachedSitrep = sitrep;
+  cachedOverview = overview;
+  cachedAgents = agents;
+  cachedFeed = feed;
+  cachedProviders = providers;
+  cachedDivisions = divisions;
+  cachedKpi = kpi;
+
+  renderDashboard();
+  renderDivisions();
+  renderAgents();
+  renderRevenue();
+  renderPipeline();
+
+  // Update system status pill
+  const pill = document.getElementById('status-pill');
+  const online = sitrep && (sitrep.status === 'online' || sitrep.status === 'operational' || sitrep.ok);
+  pill.className = 'status-pill ' + (online ? 'pill-green' : sitrep ? 'pill-amber' : 'pill-red');
+  pill.textContent = online ? 'ONLINE' : sitrep ? (sitrep.status || 'DEGRADED').toUpperCase() : 'OFFLINE';
+  document.getElementById('sys-status-text').textContent = online ? 'All systems operational' : sitrep ? 'System status: ' + (sitrep.status || 'unknown') : 'Cannot reach API';
+}
+
+// ============================================================
+// DASHBOARD RENDER
+// ============================================================
+function renderDashboard() {
+  const ov = cachedOverview || {};
+  const sr = cachedSitrep || {};
+  const fd = cachedFeed;
+
+  // Quick stats
+  const stats = ov.stats || ov.summary || ov;
+  document.getElementById('qs-agents').textContent = stats.agents_active ?? stats.total_agents ?? sr.agents ?? '--';
+  document.getElementById('qs-queued').textContent = stats.tasks_queued ?? stats.queue_depth ?? '--';
+  document.getElementById('qs-completed').textContent = stats.tasks_completed_today ?? stats.tasks_today ?? '--';
+  document.getElementById('qs-revenue').textContent = fmtCurrency(stats.revenue_today ?? sr.revenue_today);
+  const qa = stats.qa_pass_rate ?? stats.pass_rate;
+  document.getElementById('qs-qa').textContent = qa !== undefined && qa !== null ? (qa > 1 ? qa.toFixed(0) : (qa*100).toFixed(0)) + '%' : '--%';
+
+  // Uptime
+  document.getElementById('sys-uptime').textContent = 'Uptime: ' + (sr.uptime || stats.uptime || '--');
+
+  // Division cards on dashboard
+  const divContainer = document.getElementById('dash-divisions');
+  let divHtml = '';
+  DIVISIONS.forEach((d, i) => {
+    const dd = getDivisionData(d.code);
+    divHtml += `
+      <div class="div-card" style="border-left:3px solid ${d.color}">
+        <div class="div-header">
+          <div class="div-icon" style="background:${d.gradient}">${d.icon}</div>
+          <div>
+            <div class="div-name">${d.name}</div>
+            <div class="div-code">${d.code}</div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;margin-top:6px">
+          <span style="color:var(--dim)">Status</span>
+          <span style="color:${statusColor(dd.status)}">${(dd.status||'ACTIVE').toUpperCase()}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;margin-top:4px">
+          <span style="color:var(--dim)">Tasks Today</span>
+          <span>${dd.tasks_today ?? '--'}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;margin-top:4px">
+          <span style="color:var(--dim)">This Week</span>
+          <span>${dd.tasks_week ?? '--'}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;margin-top:4px">
+          <span style="color:var(--dim)">Revenue Today</span>
+          <span style="color:var(--green)">${fmtCurrency(dd.revenue_today)}</span>
+        </div>
+      </div>`;
+  });
+  divContainer.innerHTML = divHtml;
+
+  // Feed
+  renderFeed();
+}
+
+function getDivisionData(code) {
+  if (cachedDivisions) {
+    const divs = cachedDivisions.divisions || cachedDivisions;
+    if (Array.isArray(divs)) {
+      const found = divs.find(d => d.code === code || d.id === code || d.name === code);
+      if (found) return found;
+    } else if (typeof divs === 'object') {
+      return divs[code] || {};
+    }
+  }
+  // Fallback from overview
+  if (cachedOverview && cachedOverview.divisions) {
+    const d = cachedOverview.divisions;
+    if (Array.isArray(d)) return d.find(x => x.code === code) || {};
+    return d[code] || {};
+  }
+  return {};
+}
+
+function renderFeed() {
+  const body = document.getElementById('dash-feed-body');
+  const fd = cachedFeed;
+  if (!fd) { body.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--dim);padding:20px">Loading feed...</td></tr>'; return; }
+
+  const items = Array.isArray(fd) ? fd : fd.tasks || fd.feed || fd.items || [];
+  const recent = items.slice(0, 15);
+
+  if (recent.length === 0) {
+    body.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--dim);padding:20px">No recent tasks</td></tr>';
+    return;
+  }
+
+  body.innerHTML = recent.map(t => {
+    const st = (t.status || 'unknown').toLowerCase();
+    const dotColor = st === 'completed' || st === 'success' ? 'var(--green)' : st === 'running' || st === 'processing' ? 'var(--cyan)' : st === 'failed' || st === 'error' ? 'var(--red)' : 'var(--amber)';
+    return `<tr>
+      <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${dotColor}"></span> ${(t.status||'--').toUpperCase()}</td>
+      <td>${t.task_type || t.type || '--'}</td>
+      <td style="color:var(--dim)">${t.division || '--'}</td>
+      <td>${fmtDuration(t.duration_ms || t.duration)}</td>
+      <td style="color:var(--green)">${t.cost !== undefined ? fmtCurrency(t.cost) : '--'}</td>
+      <td style="color:var(--dim)">${timeAgo(t.completed_at || t.created_at || t.timestamp)}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ============================================================
+// DIVISIONS RENDER
+// ============================================================
+function renderDivisions() {
+  const container = document.getElementById('divisions-detail');
+  let html = '';
+
+  DIVISIONS.forEach(div => {
+    const dd = getDivisionData(div.code);
+    const agents = getAgentsForDivision(div.code);
+
+    html += `
+    <div class="card" style="margin-bottom:16px;border-left:3px solid ${div.color}">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="div-icon" style="background:${div.gradient};font-size:24px">${div.icon}</div>
+          <div>
+            <div style="font-size:16px;font-weight:800;color:${div.color}">${div.name}</div>
+            <div style="font-size:10px;color:var(--dim);letter-spacing:1px">${div.code}</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px">
+          ${pillHtml(dd.status || 'active')}
+          <span style="font-size:9px;color:var(--dim)">Health: <strong style="color:${div.color}">${dd.health || dd.health_score || 'OK'}</strong></span>
+          <button class="btn btn-fire btn-sm" onclick="quickFireDiv('${div.code}')">&#128293; FIRE TASK</button>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+        ${div.services.map(s => `<span style="font-size:9px;padding:2px 8px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:4px;color:var(--dim)">${s.replace(/_/g,' ')}</span>`).join('')}
+      </div>
+
+      <div style="font-size:10px;color:var(--dim);letter-spacing:1px;margin-bottom:8px">AGENTS</div>
+      <div class="grid grid-3">
+        ${div.agents.map(agentName => {
+          const ag = agents.find(a => a.name === agentName || a.id === agentName) || {};
+          return `
+          <div class="agent-card" style="cursor:default">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+              ${statusDot(ag.status || 'active')}
+              <span style="font-size:11px;font-weight:700">${agentName}</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--dim)">
+              <span>Tasks</span><span style="color:var(--text)">${ag.tasks_completed ?? ag.tasks_today ?? '--'}</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--dim)">
+              <span>QA Score</span><span style="color:var(--cyan)">${ag.qa_score !== undefined ? (ag.qa_score > 1 ? ag.qa_score+'%' : (ag.qa_score*100).toFixed(0)+'%') : '--%'}</span>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+function getAgentsForDivision(code) {
+  if (!cachedAgents) return [];
+  const agents = Array.isArray(cachedAgents) ? cachedAgents : cachedAgents.agents || [];
+  return agents.filter(a => a.division === code || (a.name && a.name.startsWith(code.split('-')[0])));
+}
+
+function quickFireDiv(divCode) {
+  switchTab('firetask');
+  document.querySelectorAll('.nav-tab').forEach(t => { t.classList.remove('active'); if (t.textContent === 'FIRE TASK') t.classList.add('active'); });
+  const div = DIVISIONS.find(d => d.code === divCode);
+  if (div && div.services.length > 0) {
+    document.getElementById('fire-type').value = div.services[0];
+  }
+}
+
+// ============================================================
+// AGENTS RENDER
+// ============================================================
+function renderAgents() {
+  const container = document.getElementById('agents-grid');
+  let allAgents = [];
+
+  if (cachedAgents) {
+    allAgents = Array.isArray(cachedAgents) ? cachedAgents : cachedAgents.agents || [];
+  }
+
+  // If API returned no agents, show all from definitions
+  if (allAgents.length === 0) {
+    DIVISIONS.forEach(div => {
+      div.agents.forEach(name => {
+        allAgents.push({ name, id: name, division: div.code, status: 'active', tasks_today: 0, qa_score: 0.95, cost_ceiling: 50, last_active: null });
+      });
+    });
+  }
+
+  container.innerHTML = allAgents.map(ag => {
+    const div = DIVISIONS.find(d => d.code === ag.division || (ag.name && ag.name.startsWith(d.code.split('-')[0])));
+    const divColor = div ? div.color : 'var(--dim)';
+    const divCode = ag.division || (div ? div.code : '--');
+    const statusStr = (ag.status || 'active').toLowerCase();
+    const isPaused = statusStr === 'paused';
+
+    return `
+    <div class="agent-card" onclick="showAgentDetail('${ag.name || ag.id}')">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div style="display:flex;align-items:center;gap:8px">
+          ${statusDot(ag.status || 'active')}
+          <span style="font-size:11px;font-weight:700">${ag.name || ag.id}</span>
+        </div>
+        <button class="btn btn-sm ${isPaused ? '' : 'btn-pause'}" onclick="event.stopPropagation();toggleAgent('${ag.name || ag.id}','${statusStr}')" title="${isPaused ? 'Resume' : 'Pause'}">
+          ${isPaused ? '&#9654;' : '&#9208;'}
+        </button>
+      </div>
+      <div style="font-size:9px;color:${divColor};font-weight:600;letter-spacing:1px;margin-bottom:6px">${divCode}</div>
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--dim)">
+        <span>Tasks Today</span><span style="color:var(--text)">${ag.tasks_today ?? '--'}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--dim)">
+        <span>QA Score</span><span style="color:var(--cyan)">${ag.qa_score !== undefined ? (ag.qa_score > 1 ? ag.qa_score+'%' : (ag.qa_score*100).toFixed(0)+'%') : '--%'}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--dim)">
+        <span>Cost Ceiling</span><span>${ag.cost_ceiling ? fmtCurrency(ag.cost_ceiling) : '--'}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--dim)">
+        <span>Last Active</span><span>${timeAgo(ag.last_active)}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function showAgentDetail(agentId) {
+  const allAgents = cachedAgents ? (Array.isArray(cachedAgents) ? cachedAgents : cachedAgents.agents || []) : [];
+  let ag = allAgents.find(a => a.name === agentId || a.id === agentId);
+  if (!ag) ag = { name: agentId, status: 'active' };
+
+  const div = DIVISIONS.find(d => d.code === ag.division || (ag.name && ag.name.startsWith(d.code.split('-')[0])));
+
+  document.getElementById('agent-modal-content').innerHTML = `
+    <div style="font-size:16px;font-weight:800;margin-bottom:4px">${ag.name || ag.id}</div>
+    <div style="font-size:10px;color:var(--dim);margin-bottom:16px">${div ? div.name + ' (' + div.code + ')' : ag.division || '--'}</div>
+    <div class="grid grid-3" style="margin-bottom:16px">
+      <div class="card"><div class="card-title">STATUS</div><div style="font-size:14px;font-weight:700;color:${statusColor(ag.status)}">${(ag.status||'ACTIVE').toUpperCase()}</div></div>
+      <div class="card"><div class="card-title">TASKS TODAY</div><div style="font-size:14px;font-weight:700">${ag.tasks_today ?? '--'}</div></div>
+      <div class="card"><div class="card-title">QA SCORE</div><div style="font-size:14px;font-weight:700;color:var(--cyan)">${ag.qa_score !== undefined ? (ag.qa_score > 1 ? ag.qa_score+'%' : (ag.qa_score*100).toFixed(0)+'%') : '--%'}</div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;font-size:11px">
+      <div style="display:flex;justify-content:space-between"><span style="color:var(--dim)">Cost Ceiling</span><span>${ag.cost_ceiling ? fmtCurrency(ag.cost_ceiling) : '--'}</span></div>
+      <div style="display:flex;justify-content:space-between"><span style="color:var(--dim)">Total Tasks</span><span>${ag.tasks_completed ?? ag.total_tasks ?? '--'}</span></div>
+      <div style="display:flex;justify-content:space-between"><span style="color:var(--dim)">Last Active</span><span>${timeAgo(ag.last_active)}</span></div>
+      <div style="display:flex;justify-content:space-between"><span style="color:var(--dim)">Provider</span><span>${ag.provider || 'anthropic'}</span></div>
+      <div style="display:flex;justify-content:space-between"><span style="color:var(--dim)">Model</span><span>${ag.model || '--'}</span></div>
+      <div style="display:flex;justify-content:space-between"><span style="color:var(--dim)">Avg Latency</span><span>${ag.avg_latency ? fmtDuration(ag.avg_latency) : '--'}</span></div>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:8px">
+      <button class="btn" onclick="toggleAgent('${ag.name||ag.id}','${(ag.status||'active').toLowerCase()}');closeModal()">
+        ${(ag.status||'active').toLowerCase() === 'paused' ? '&#9654; RESUME' : '&#9208; PAUSE'}
+      </button>
+    </div>
+  `;
+  document.getElementById('agent-modal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('agent-modal').classList.remove('open');
+}
+
+async function toggleAgent(agentId, currentStatus) {
+  const newStatus = currentStatus === 'paused' ? 'resume' : 'pause';
+  toast(`${newStatus === 'pause' ? 'Pausing' : 'Resuming'} agent ${agentId}...`);
+  const res = await api('/matrix/command', {
+    method: 'POST',
+    body: JSON.stringify({ command: `agent_${newStatus}`, target: agentId })
+  });
+  if (res) {
+    toast(`Agent ${agentId} ${newStatus}d`, 'success');
+    setTimeout(refreshAll, 1000);
+  } else {
+    toast(`Failed to ${newStatus} agent ${agentId}`, 'error');
+  }
+}
+
+// ============================================================
+// REVENUE RENDER
+// ============================================================
+function renderRevenue() {
+  const ov = cachedOverview || {};
+  const sr = cachedSitrep || {};
+  const stats = ov.stats || ov.summary || ov;
+  const prov = cachedProviders;
+
+  // Revenue totals
+  document.getElementById('rev-today').textContent = fmtCurrency(stats.revenue_today ?? sr.revenue_today);
+  document.getElementById('rev-week').textContent = fmtCurrency(stats.revenue_week ?? sr.revenue_week);
+  document.getElementById('rev-month').textContent = fmtCurrency(stats.revenue_month ?? sr.revenue_month);
+
+  // Revenue by division
+  const divRevContainer = document.getElementById('rev-by-div');
+  let divRevHtml = '';
+  DIVISIONS.forEach(div => {
+    const dd = getDivisionData(div.code);
+    const rev = dd.revenue_today ?? 0;
+    divRevHtml += `
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(42,42,58,.3)">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="color:${div.color}">${div.icon}</span>
+          <span style="font-size:11px;font-weight:600">${div.code}</span>
+        </div>
+        <span style="font-size:12px;font-weight:700;color:var(--green)">${fmtCurrency(rev)}</span>
+      </div>`;
+  });
+  divRevContainer.innerHTML = divRevHtml;
+
+  // Margin
+  const revToday = parseFloat(stats.revenue_today ?? sr.revenue_today ?? 0);
+  const costToday = parseFloat(stats.llm_cost_today ?? sr.cost_today ?? 0);
+  const margin = revToday > 0 ? ((revToday - costToday) / revToday * 100).toFixed(1) : 0;
+  const marginColor = margin >= 50 ? 'var(--green)' : margin >= 20 ? 'var(--amber)' : 'var(--red)';
+
+  document.getElementById('rev-margin').innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <div>
+        <div style="font-size:10px;color:var(--dim)">LLM COST TODAY</div>
+        <div style="font-size:22px;font-weight:800;color:var(--red)">${fmtCurrency(costToday)}</div>
+      </div>
+      <div style="font-size:32px;color:var(--dim)">&#8594;</div>
+      <div>
+        <div style="font-size:10px;color:var(--dim)">REVENUE TODAY</div>
+        <div style="font-size:22px;font-weight:800;color:var(--green)">${fmtCurrency(revToday)}</div>
+      </div>
+    </div>
+    <div style="text-align:center">
+      <div style="font-size:10px;color:var(--dim);margin-bottom:4px">MARGIN</div>
+      <div style="font-size:36px;font-weight:900;color:${marginColor}">${margin}%</div>
+    </div>
+    <div class="progress-bar" style="height:8px;margin-top:12px">
+      <div class="progress-fill" style="width:${Math.min(margin,100)}%;background:${marginColor}"></div>
+    </div>
+  `;
+
+  // Revenue by service type
+  const revSvcContainer = document.getElementById('rev-by-svc');
+  if (stats.revenue_by_service || sr.revenue_by_service) {
+    const svcRev = stats.revenue_by_service || sr.revenue_by_service;
+    let svcHtml = '<table class="tbl"><thead><tr><th>Service</th><th>Revenue</th><th>Count</th></tr></thead><tbody>';
+    Object.entries(svcRev).forEach(([svc, data]) => {
+      const rev = typeof data === 'object' ? data.revenue : data;
+      const count = typeof data === 'object' ? data.count : '--';
+      svcHtml += `<tr><td>${svc.replace(/_/g,' ')}</td><td style="color:var(--green)">${fmtCurrency(rev)}</td><td>${count}</td></tr>`;
+    });
+    svcHtml += '</tbody></table>';
+    revSvcContainer.innerHTML = svcHtml;
+  } else {
+    revSvcContainer.innerHTML = '<div style="text-align:center;padding:20px;color:var(--dim);font-size:11px">Service revenue data loading...</div>';
+  }
+
+  // Client LTV
+  const clientBody = document.getElementById('rev-clients-body');
+  if (stats.clients || sr.clients) {
+    const clients = stats.clients || sr.clients;
+    const clientArr = Array.isArray(clients) ? clients : Object.entries(clients).map(([k,v]) => ({ name:k, ...v }));
+    clientBody.innerHTML = clientArr.map(c => `
+      <tr>
+        <td style="font-weight:600">${c.name || c.client || '--'}</td>
+        <td>${c.tasks ?? c.task_count ?? '--'}</td>
+        <td style="color:var(--green)">${fmtCurrency(c.ltv ?? c.total_revenue ?? c.revenue)}</td>
+        <td style="color:var(--dim)">${timeAgo(c.last_active)}</td>
+      </tr>`).join('');
+  } else {
+    clientBody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--dim);padding:20px">Loading client data...</td></tr>';
+  }
+}
+
+// ============================================================
+// PIPELINE RENDER
+// ============================================================
+function renderPipeline() {
+  const ov = cachedOverview || {};
+  const stats = ov.stats || ov.summary || ov;
+  const fd = cachedFeed;
+
+  document.getElementById('pipe-queued').textContent = stats.tasks_queued ?? stats.queue_depth ?? '--';
+  document.getElementById('pipe-running').textContent = stats.tasks_running ?? '--';
+  document.getElementById('pipe-completed').textContent = stats.tasks_completed_today ?? stats.tasks_today ?? '--';
+  document.getElementById('pipe-failed').textContent = stats.tasks_failed_today ?? stats.failures ?? '--';
+
+  // Live processing
+  const liveContainer = document.getElementById('pipe-live');
+  const items = fd ? (Array.isArray(fd) ? fd : fd.tasks || fd.feed || fd.items || []) : [];
+  const running = items.filter(t => {
+    const s = (t.status || '').toLowerCase();
+    return s === 'running' || s === 'processing' || s === 'queued' || s === 'pending';
+  });
+
+  if (running.length > 0) {
+    liveContainer.innerHTML = running.map(t => `
+      <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(42,42,58,.3)">
+        <div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);animation:pulse 1.5s infinite"></div>
+        <div style="flex:1">
+          <div style="font-size:11px;font-weight:600">${t.task_type || t.type || '--'}</div>
+          <div style="font-size:9px;color:var(--dim)">${t.division || '--'} &bull; ${t.agent || '--'}</div>
+        </div>
+        <span style="font-size:9px;color:var(--amber)">${(t.status||'').toUpperCase()}</span>
+      </div>`).join('');
+  } else {
+    liveContainer.innerHTML = '<div style="text-align:center;padding:20px;color:var(--dim);font-size:11px">No tasks currently processing</div>';
+  }
+
+  // Agent utilization
+  const utilContainer = document.getElementById('pipe-util');
+  const allAgents = cachedAgents ? (Array.isArray(cachedAgents) ? cachedAgents : cachedAgents.agents || []) : [];
+  if (allAgents.length > 0) {
+    utilContainer.innerHTML = allAgents.slice(0, 12).map(ag => {
+      const util = ag.utilization ?? (ag.tasks_today ? Math.min(ag.tasks_today * 10, 100) : 0);
+      const barColor = util > 80 ? 'var(--red)' : util > 50 ? 'var(--amber)' : 'var(--green)';
+      return `
+        <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:10px">
+          <span style="width:120px;color:var(--dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${ag.name || ag.id}</span>
+          <div class="progress-bar" style="flex:1;height:6px">
+            <div class="progress-fill" style="width:${util}%;background:${barColor}"></div>
+          </div>
+          <span style="width:30px;text-align:right;color:var(--dim)">${util}%</span>
+        </div>`;
+    }).join('');
+  }
+
+  // Error log
+  const errBody = document.getElementById('pipe-errors-body');
+  const errors = items.filter(t => {
+    const s = (t.status || '').toLowerCase();
+    return s === 'failed' || s === 'error';
+  }).slice(0, 20);
+
+  if (errors.length > 0) {
+    errBody.innerHTML = errors.map(t => `
+      <tr>
+        <td style="color:var(--dim)">${timeAgo(t.completed_at || t.created_at || t.timestamp)}</td>
+        <td>${t.task_type || t.type || '--'}</td>
+        <td style="color:var(--dim)">${t.agent || '--'}</td>
+        <td style="color:var(--red)">${t.error || t.error_message || 'Unknown error'}</td>
+      </tr>`).join('');
+  } else {
+    errBody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--dim);padding:20px">No recent errors</td></tr>';
+  }
+}
+
+// ============================================================
+// FIRE TASK
+// ============================================================
+async function fireTask() {
+  const type = document.getElementById('fire-type').value;
+  const focus = document.getElementById('fire-focus').value;
+  const async = document.getElementById('fire-async').checked;
+  const provider = document.getElementById('fire-provider').value;
+  const resultEl = document.getElementById('fire-result');
+  const btn = document.getElementById('fire-btn');
+
+  if (!type) { toast('Select a task type', 'error'); return; }
+  if (!focus.trim()) { toast('Enter a focus/topic', 'error'); return; }
+
+  btn.disabled = true;
+  btn.textContent = 'FIRING...';
+  resultEl.style.color = 'var(--cyan)';
+  resultEl.textContent = 'Executing task... please wait.';
+
+  const startTime = Date.now();
+  const taskRecord = {
+    time: new Date().toLocaleTimeString('en-US', { hour12:false }),
+    type, focus, provider,
+    mode: async ? 'ASYNC' : 'SYNC',
+    status: 'running',
+    duration: '--'
+  };
+  firedTasks.unshift(taskRecord);
+  renderFireHistory();
+
+  try {
+    const payload = {
+      task_type: type,
+      focus: focus,
+      sync: !async,
+      provider: provider
+    };
+
+    const res = await api('/tasks', {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    });
+
+    const duration = Date.now() - startTime;
+    taskRecord.duration = fmtDuration(duration);
+
+    if (res) {
+      taskRecord.status = 'completed';
+      resultEl.style.color = 'var(--green)';
+
+      if (res.result || res.output || res.content) {
+        const output = res.result || res.output || res.content;
+        resultEl.textContent = typeof output === 'string' ? output : JSON.stringify(output, null, 2);
+      } else {
+        resultEl.textContent = JSON.stringify(res, null, 2);
+      }
+      toast(`Task ${type} completed in ${fmtDuration(duration)}`, 'success');
+    } else {
+      taskRecord.status = 'failed';
+      resultEl.style.color = 'var(--red)';
+      resultEl.textContent = 'Task failed - no response from API';
+      toast('Task failed', 'error');
+    }
+  } catch(e) {
+    const duration = Date.now() - startTime;
+    taskRecord.duration = fmtDuration(duration);
+    taskRecord.status = 'error';
+    resultEl.style.color = 'var(--red)';
+    resultEl.textContent = 'Error: ' + e.message;
+    toast('Task error: ' + e.message, 'error');
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '&#128293; FIRE TASK';
+  renderFireHistory();
+}
+
+function renderFireHistory() {
+  const body = document.getElementById('fire-history');
+  const empty = document.getElementById('fire-history-empty');
+
+  if (firedTasks.length === 0) {
+    empty.style.display = 'block';
+    body.innerHTML = '';
+    return;
+  }
+  empty.style.display = 'none';
+
+  body.innerHTML = firedTasks.slice(0, 20).map(t => {
+    const stColor = t.status === 'completed' ? 'var(--green)' : t.status === 'running' ? 'var(--cyan)' : 'var(--red)';
+    return `<tr>
+      <td style="color:var(--dim)">${t.time}</td>
+      <td>${t.type.replace(/_/g,' ')}</td>
+      <td style="color:var(--dim)">${t.focus.substring(0,40)}${t.focus.length > 40 ? '...' : ''}</td>
+      <td>${t.provider}</td>
+      <td><span style="font-size:9px;padding:2px 6px;border-radius:4px;background:rgba(255,255,255,.05)">${t.mode}</span></td>
+      <td style="color:${stColor};font-weight:600">${t.status.toUpperCase()}</td>
+      <td style="color:var(--dim)">${t.duration}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ============================================================
+// C2 COMMANDS
+// ============================================================
+async function c2(cmd) {
+  const cmdMap = {
+    'sys_check': { command:'sys_check', label:'System Check' },
+    'nerve': { command:'nerve_pulse', label:'NERVE Pulse' },
+    'daily_cycle': { command:'daily_cycle', label:'Daily Cycle' },
+    'revenue': { command:'revenue_report', label:'Revenue Report' },
+    'restart': { command:'restart', label:'System Restart' },
+    'openclaw': { command:'openclaw_scan', label:'OpenClaw Scan' },
+    'scan_jobs': { command:'scan_jobs', label:'Job Scanner' },
+    'c_suite': { command:'c_suite_briefing', label:'C-Suite Briefing' },
+    'blitz_50': { command:'blitz_50', label:'Blitz 50 Tasks' }
+  };
+
+  const c = cmdMap[cmd];
+  if (!c) return;
+
+  if (cmd === 'restart' || cmd === 'blitz_50') {
+    if (!confirm(`Execute ${c.label}? This is a high-impact operation.`)) return;
+  }
+
+  toast(`Executing: ${c.label}...`);
+
+  const res = await api('/matrix/command', {
+    method: 'POST',
+    body: JSON.stringify({ command: c.command })
+  });
+
+  if (res) {
+    const msg = res.message || res.result || res.status || JSON.stringify(res);
+    toast(`${c.label}: ${typeof msg === 'string' ? msg.substring(0,100) : 'Done'}`, 'success');
+  } else {
+    toast(`${c.label} failed - no response`, 'error');
+  }
+
+  // Refresh after command
+  setTimeout(refreshAll, 2000);
+}
+
+// ============================================================
+// INIT & AUTO-REFRESH
+// ============================================================
+async function init() {
+  toast('Connecting to Bit Rage Labour API...');
+  await refreshAll();
+  toast('Workstation online', 'success');
+
+  // Auto-refresh every 30s
+  refreshTimer = setInterval(refreshAll, REFRESH_MS);
+}
+
+// Click outside modal to close
+document.getElementById('agent-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// Keyboard shortcut: ESC to close modal
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// Start
+init();
+</script>
+</body>
+</html>

@@ -181,9 +181,16 @@ def matrix_dashboard():
 
 
 @app.get("/workstation", response_class=HTMLResponse)
-def unified_workstation():
-    """Serve the Bit Rage Unified Workstation — all divisions, notifications, C2."""
-    html_path = Path(__file__).parent / "unified_workstation.html"
+def bitrage_workstation():
+    """Serve the Bit Rage Labour Workstation — task execution engine."""
+    html_path = Path(__file__).parent / "bitrage_workstation.html"
+    return HTMLResponse(html_path.read_text(encoding="utf-8"))
+
+
+@app.get("/ncl-workstation", response_class=HTMLResponse)
+def ncl_workstation():
+    """Serve the NCL Operations Commander — autonomous intelligence hub."""
+    html_path = Path(__file__).parent / "ncl_workstation.html"
     return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
 

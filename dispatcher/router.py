@@ -951,6 +951,159 @@ def route_task(event: dict) -> dict:
                 event["outputs"] = result.model_dump()
                 event["qa"]["status"] = result.qa.status
 
+        # ── Contractor Services (CTR-SVC) ──────────────────────────
+        elif task_type == "contractor_doc_writer":
+            from agents.contractor_doc_writer.runner import run_pipeline as ctr_doc_pipeline
+            result = ctr_doc_pipeline(
+                content=inputs.get("content", ""),
+                doc_type=inputs.get("doc_type", "contractor_proposal"),
+                project_name=inputs.get("project_name", ""),
+                contractor_name=inputs.get("contractor_name", ""),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type in ("permit_application", "inspection_report", "contractor_proposal",
+                           "lien_waiver", "safety_plan", "change_order", "progress_report",
+                           "bid_document"):
+            from agents.contractor_doc_writer.runner import run_pipeline as ctr_doc_pipeline
+            result = ctr_doc_pipeline(
+                content=inputs.get("content", ""),
+                doc_type=task_type,
+                project_name=inputs.get("project_name", ""),
+                contractor_name=inputs.get("contractor_name", ""),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "contractor_qa":
+            from agents.contractor_qa.runner import run_pipeline as ctr_qa_pipeline
+            result = ctr_qa_pipeline(
+                document_content=inputs.get("content", inputs.get("document_content", "")),
+                review_type=inputs.get("review_type", "general"),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "contractor_compliance":
+            from agents.contractor_compliance.runner import run_pipeline as ctr_comp_pipeline
+            result = ctr_comp_pipeline(
+                document_content=inputs.get("content", inputs.get("document_content", "")),
+                compliance_type=inputs.get("compliance_type", "general"),
+                jurisdiction=inputs.get("jurisdiction", "us_federal"),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        # ── Municipal Services (MUN-SVC) ─────────────────────────
+        elif task_type == "municipal_doc_writer":
+            from agents.municipal_doc_writer.runner import run_pipeline as mun_doc_pipeline
+            result = mun_doc_pipeline(
+                content=inputs.get("content", ""),
+                doc_type=inputs.get("doc_type", "meeting_minutes"),
+                municipality_name=inputs.get("municipality_name", ""),
+                department=inputs.get("department", ""),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type in ("meeting_minutes", "public_notice", "ordinance", "resolution",
+                           "municipal_grant", "budget_summary", "annual_report",
+                           "municipal_rfp", "agenda", "staff_report"):
+            from agents.municipal_doc_writer.runner import run_pipeline as mun_doc_pipeline
+            result = mun_doc_pipeline(
+                content=inputs.get("content", ""),
+                doc_type=task_type,
+                municipality_name=inputs.get("municipality_name", ""),
+                department=inputs.get("department", ""),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "municipal_qa":
+            from agents.municipal_qa.runner import run_pipeline as mun_qa_pipeline
+            result = mun_qa_pipeline(
+                document_content=inputs.get("content", inputs.get("document_content", "")),
+                review_type=inputs.get("review_type", "general"),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "municipal_compliance":
+            from agents.municipal_compliance.runner import run_pipeline as mun_comp_pipeline
+            result = mun_comp_pipeline(
+                document_content=inputs.get("content", inputs.get("document_content", "")),
+                compliance_type=inputs.get("compliance_type", "open_meeting"),
+                jurisdiction=inputs.get("jurisdiction", "us_general"),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        # ── Insurance Operations (INS-OPS) — QA + Compliance ────
+        elif task_type == "insurance_qa":
+            from agents.insurance_qa.runner import run_pipeline as ins_qa_pipeline
+            result = ins_qa_pipeline(
+                document_content=inputs.get("content", inputs.get("document_content", "")),
+                review_type=inputs.get("review_type", "appeal_review"),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "insurance_compliance":
+            from agents.insurance_compliance.runner import run_pipeline as ins_comp_pipeline
+            result = ins_comp_pipeline(
+                document_content=inputs.get("content", inputs.get("document_content", "")),
+                compliance_type=inputs.get("compliance_type", "hipaa_review"),
+                jurisdiction=inputs.get("jurisdiction", "us_federal"),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        # ── Grant Operations (GRANT-OPS) — QA + Compliance ──────
+        elif task_type == "grant_qa":
+            from agents.grant_qa.runner import run_pipeline as grant_qa_pipeline
+            result = grant_qa_pipeline(
+                document_content=inputs.get("content", inputs.get("document_content", "")),
+                review_type=inputs.get("review_type", "full_review"),
+                grant_type=inputs.get("grant_type", "sbir_proposal"),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
+        elif task_type == "grant_compliance":
+            from agents.grant_compliance.runner import run_pipeline as grant_comp_pipeline
+            result = grant_comp_pipeline(
+                document_content=inputs.get("content", inputs.get("document_content", "")),
+                compliance_type=inputs.get("compliance_type", "agency_requirements"),
+                agency=inputs.get("agency", "nsf"),
+                provider=provider or "openai",
+            )
+            if result:
+                event["outputs"] = result.model_dump()
+                event["qa"]["status"] = result.qa.status
+
         else:
             event["qa"]["status"] = "FAIL"
             event["qa"]["issues"] = [f"Unknown task type: {task_type}"]
