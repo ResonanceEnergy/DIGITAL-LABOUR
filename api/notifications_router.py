@@ -15,6 +15,7 @@ from typing import Any, Dict, List, Optional
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
 
+# ── Store ─────────────────────────────────────────────────────────────────────
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DB_PATH = os.environ.get(
@@ -22,6 +23,7 @@ DB_PATH = os.environ.get(
     str(PROJECT_ROOT / "data" / "notifications.db"),
 )
 
+# Import the existing notification models
 try:
     from notifications.models import (
         NotificationPriority,
@@ -31,11 +33,14 @@ try:
     )
     _store = NotificationStore(db_path=DB_PATH)
 except Exception:
+    # Fallback: create a minimal in-memory store if notifications module not yet deployed
     _store = None
 
 
 router = APIRouter(prefix="/api/v1", tags=["notifications"])
 
+
+# ── Pydantic models ──────────────────────────────────────────────────────────
 
 class NotificationCreate(BaseModel):
     type: str
@@ -64,7 +69,10 @@ class UnreadCountResponse(BaseModel):
 class DeletedCountResponse(BaseModel):
     deleted_count: int
 
-def _validate_enum(value, enum_cls, field_name):
+
+# ── Helper ───────────────────────────────────────────────────────────────────
+
+def _validate_enum(value: str, enum_cls, field_name: str):
     upper = value.upper()
     try:
         return enum_cls(upper)
@@ -87,6 +95,8 @@ def _get_store():
     return _store
 
 
+# ── Endpoints ────────────────────────────────────────────────────────────────
+
 @router.get("/notifications", response_model=NotificationListResponse)
 def list_notifications(
     status: Optional[str] = Query(None),
@@ -103,9 +113,13 @@ def list_notifications(
         _validate_enum(type, NotificationType, "type")
     if priority:
         _validate_enum(priority, NotificationPriority, "priority")
+
     results = store.list_notifications(
-        status=status, notification_type=type,
-        priority=priority, limit=limit, offset=offset,
+        status=status,
+        notification_type=type,
+        priority=priority,
+        limit=limit,
+        offset=offset,
     )
     return {"notifications": results, "count": len(results)}
 
@@ -121,14 +135,21 @@ def unread_count():
 def create_notification(body: NotificationCreate):
     """Create a new notification."""
     store = _get_store()
+
     ntype = _validate_enum(body.type, NotificationType, "type")
     priority = None
     if body.priority:
         priority = _validate_enum(body.priority, NotificationPriority, "priority")
+
     notif = store.create(
-        notification_type=ntype, title=body.title, message=body.message,
-        priority=priority, source=body.source, action_url=body.action_url,
-        action_label=body.action_label, metadata=body.metadata,
+        notification_type=ntype,
+        title=body.title,
+        message=body.message,
+        priority=priority,
+        source=body.source,
+        action_url=body.action_url,
+        action_label=body.action_label,
+        metadata=body.metadata,
     )
     return {"notification": notif}
 
