@@ -1,8 +1,9 @@
 """Reddit Pipeline — Live ingestion from Reddit into NCL Galactia.
 
-Pulls posts from configured subreddits using Reddit's public JSON API
-(no authentication required) and normalizes them into Galactia's standard
-post format for truth-scoring, correlation, and research.
+Multi-source architecture — no Reddit API keys required:
+  1. PullPush.io  — Free archive API, no auth, no IP blocks, near-realtime
+  2. Arctic Shift — Free archive API, no auth, good for historical + search
+  3. Reddit API   — Official OAuth2 (fallback if keys configured)
 
 Subreddits are grouped by NCL division relevance:
   ALPHA  — AI, automation, SaaS, digital labour
@@ -21,8 +22,11 @@ import re
 import sys
 import hashlib
 import time
+import logging
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+
+logger = logging.getLogger("galactia.reddit_pipeline")
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -73,9 +77,258 @@ SUBREDDITS = {
     "LocalGovernment": {"division": "DELTA", "priority": "medium"},
 }
 
-# Rate limit: Reddit allows ~1 req/sec for unauthenticated
-REQUEST_DELAY = 1.5  # seconds between subreddit fetches
+# Rate limits per source
+REQUEST_DELAY_PULLPUSH = 0.5   # PullPush is generous
+REQUEST_DELAY_ARCTIC = 0.5     # Arctic Shift is generous
+REQUEST_DELAY_REDDIT = 1.5     # Reddit unauthenticated
+REQUEST_DELAY_REDDIT_AUTH = 0.8  # Reddit authenticated
 
+# ── Source selection ─────────────────────────────────────────
+# REDDIT_SOURCE env var: "pullpush", "arctic", "reddit", or "auto" (default)
+# "auto" tries PullPush → Arctic Shift → Reddit API in order
+REDDIT_SOURCE = os.environ.get("REDDIT_SOURCE", "auto").lower()
+
+# Reddit OAuth2 (optional fallback)
+REDDIT_CLIENT_ID = os.environ.get("REDDIT_CLIENT_ID", "")
+REDDIT_CLIENT_SECRET = os.environ.get("REDDIT_CLIENT_SECRET", "")
+REDDIT_USERNAME = os.environ.get("REDDIT_USERNAME", "")
+REDDIT_PASSWORD = os.environ.get("REDDIT_PASSWORD", "")
+
+_oauth_token: str = ""
+_oauth_expires: float = 0.0
+
+
+# ═══════════════════════════════════════════════════════════════
+#  SOURCE 1: PullPush.io — No auth, no IP blocks, near-realtime
+# ═══════════════════════════════════════════════════════════════
+
+def _fetch_pullpush(subreddit: str, limit: int = 25) -> list[dict]:
+    """Fetch recent submissions from PullPush.io archive API.
+
+    Free, no API key, works from any IP including cloud/datacenter.
+    Returns posts sorted by newest first.
+    """
+    import urllib.request
+    import urllib.error
+
+    # PullPush returns newest posts; 'after' filters by epoch timestamp
+    # Get posts from last 7 days
+    after_epoch = int((datetime.now(timezone.utc) - timedelta(days=7)).timestamp())
+    url = (
+        f"https://api.pullpush.io/reddit/search/submission/"
+        f"?subreddit={subreddit}"
+        f"&size={limit}"
+        f"&sort=desc"
+        f"&sort_type=created_utc"
+        f"&after={after_epoch}"
+    )
+
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "NCL-Galactia/1.0 (intelligence pipeline)",
+        "Accept": "application/json",
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            posts = data.get("data", [])
+            if posts:
+                logger.info("[PULLPUSH] r/%s: %d posts", subreddit, len(posts))
+            return posts
+    except urllib.error.HTTPError as e:
+        if e.code == 429:
+            logger.warning("[PULLPUSH] Rate limited on r/%s — backing off", subreddit)
+            time.sleep(3)
+        else:
+            logger.warning("[PULLPUSH] HTTP %d on r/%s: %s", e.code, subreddit, e.reason)
+        return []
+    except Exception as e:
+        logger.warning("[PULLPUSH] Failed r/%s: %s", subreddit, e)
+        return []
+
+
+# ═══════════════════════════════════════════════════════════════
+#  SOURCE 2: Arctic Shift — No auth, good historical + search
+# ═══════════════════════════════════════════════════════════════
+
+def _fetch_arctic(subreddit: str, limit: int = 25) -> list[dict]:
+    """Fetch recent submissions from Arctic Shift API.
+
+    Free, no API key, works from any IP. Good for historical data
+    and subreddit-specific searches.
+    """
+    import urllib.request
+    import urllib.error
+
+    after_epoch = int((datetime.now(timezone.utc) - timedelta(days=7)).timestamp())
+    url = (
+        f"https://arctic-shift.photon-reddit.com/api/posts/search"
+        f"?subreddit={subreddit}"
+        f"&limit={limit}"
+        f"&after={after_epoch}"
+    )
+
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "NCL-Galactia/1.0 (intelligence pipeline)",
+        "Accept": "application/json",
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            posts = data.get("data", [])
+            if posts:
+                logger.info("[ARCTIC] r/%s: %d posts", subreddit, len(posts))
+            return posts
+    except urllib.error.HTTPError as e:
+        if e.code == 429:
+            logger.warning("[ARCTIC] Rate limited on r/%s — backing off", subreddit)
+            time.sleep(3)
+        else:
+            logger.warning("[ARCTIC] HTTP %d on r/%s: %s", e.code, subreddit, e.reason)
+        return []
+    except Exception as e:
+        logger.warning("[ARCTIC] Failed r/%s: %s", subreddit, e)
+        return []
+
+
+# ═══════════════════════════════════════════════════════════════
+#  SOURCE 3: Reddit Official API (OAuth2 fallback)
+# ═══════════════════════════════════════════════════════════════
+
+def _get_oauth_token() -> str:
+    """Obtain or reuse a Reddit OAuth2 bearer token (script app flow)."""
+    global _oauth_token, _oauth_expires
+    if _oauth_token and time.time() < _oauth_expires - 60:
+        return _oauth_token
+
+    if not REDDIT_CLIENT_ID or not REDDIT_CLIENT_SECRET:
+        return ""
+
+    import urllib.request
+    import urllib.error
+    import base64
+
+    creds = base64.b64encode(
+        f"{REDDIT_CLIENT_ID}:{REDDIT_CLIENT_SECRET}".encode()
+    ).decode()
+
+    if REDDIT_USERNAME and REDDIT_PASSWORD:
+        body = (
+            f"grant_type=password&username={REDDIT_USERNAME}"
+            f"&password={REDDIT_PASSWORD}"
+        ).encode()
+    else:
+        body = b"grant_type=client_credentials"
+
+    req = urllib.request.Request(
+        "https://www.reddit.com/api/v1/access_token",
+        data=body,
+        headers={
+            "Authorization": f"Basic {creds}",
+            "User-Agent": "NCL-Galactia/1.0 (by /u/BitRageLabour)",
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read().decode())
+            _oauth_token = data.get("access_token", "")
+            _oauth_expires = time.time() + data.get("expires_in", 3600)
+            if _oauth_token:
+                logger.info("[REDDIT] OAuth2 token acquired")
+            return _oauth_token
+    except Exception as e:
+        logger.warning("[REDDIT] OAuth2 token failed: %s", e)
+        return ""
+
+
+def _fetch_reddit_api(subreddit: str, sort: str = "hot", limit: int = 25) -> list[dict]:
+    """Fetch from Reddit's official API (OAuth2 or public JSON)."""
+    import urllib.request
+    import urllib.error
+
+    user_agent = "NCL-Galactia/1.0 (by /u/BitRageLabour)"
+    token = _get_oauth_token()
+
+    if token:
+        url = f"https://oauth.reddit.com/r/{subreddit}/{sort}?limit={limit}&raw_json=1"
+        headers = {"User-Agent": user_agent, "Authorization": f"Bearer {token}"}
+    else:
+        url = f"https://www.reddit.com/r/{subreddit}/{sort}.json?limit={limit}&raw_json=1"
+        headers = {"User-Agent": user_agent}
+
+    req = urllib.request.Request(url, headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            children = data.get("data", {}).get("children", [])
+            posts = [c.get("data", {}) for c in children if c.get("kind") == "t3"]
+            if posts:
+                logger.info("[REDDIT-API] r/%s: %d posts", subreddit, len(posts))
+            return posts
+    except urllib.error.HTTPError as e:
+        if e.code == 429:
+            logger.warning("[REDDIT-API] Rate limited on r/%s", subreddit)
+            time.sleep(5)
+        elif e.code == 403:
+            logger.warning("[REDDIT-API] 403 on r/%s — IP blocked or auth issue", subreddit)
+        else:
+            logger.warning("[REDDIT-API] HTTP %d on r/%s: %s", e.code, subreddit, e.reason)
+        return []
+    except Exception as e:
+        logger.warning("[REDDIT-API] Failed r/%s: %s", subreddit, e)
+        return []
+
+
+# ═══════════════════════════════════════════════════════════════
+#  UNIFIED FETCH — cascading fallback
+# ═══════════════════════════════════════════════════════════════
+
+def _fetch_subreddit(subreddit: str, sort: str = "hot", limit: int = 25) -> tuple[list[dict], str]:
+    """Fetch posts using cascading source strategy.
+
+    Returns (posts, source_name) tuple.
+    Strategy based on REDDIT_SOURCE env var:
+      "auto"     → PullPush → Arctic Shift → Reddit API
+      "pullpush" → PullPush only
+      "arctic"   → Arctic Shift only
+      "reddit"   → Reddit API only
+    """
+    if REDDIT_SOURCE == "pullpush":
+        return _fetch_pullpush(subreddit, limit), "pullpush"
+    elif REDDIT_SOURCE == "arctic":
+        return _fetch_arctic(subreddit, limit), "arctic"
+    elif REDDIT_SOURCE == "reddit":
+        return _fetch_reddit_api(subreddit, sort, limit), "reddit"
+
+    # Auto mode: cascade through sources
+    posts = _fetch_pullpush(subreddit, limit)
+    if posts:
+        return posts, "pullpush"
+
+    posts = _fetch_arctic(subreddit, limit)
+    if posts:
+        return posts, "arctic"
+
+    posts = _fetch_reddit_api(subreddit, sort, limit)
+    if posts:
+        return posts, "reddit"
+
+    return [], "none"
+
+
+def _get_delay_for_source(source: str) -> float:
+    """Get appropriate rate-limit delay for the data source."""
+    if source == "pullpush":
+        return REQUEST_DELAY_PULLPUSH
+    elif source == "arctic":
+        return REQUEST_DELAY_ARCTIC
+    elif source == "reddit" and _oauth_token:
+        return REQUEST_DELAY_REDDIT_AUTH
+    return REQUEST_DELAY_REDDIT
+
+
+# ── Helpers ──────────────────────────────────────────────────
 
 def _post_id(text: str, author: str, timestamp: str) -> str:
     """Generate deterministic ID for a post to prevent duplicates."""
@@ -99,35 +352,59 @@ def _save_ingest_state(state: dict):
     INGEST_STATE.write_text(json.dumps(state, indent=2), encoding="utf-8")
 
 
-# ── Reddit Public JSON API ────────────────────────────────────
+def _extract_post_fields(rp: dict, source: str) -> dict:
+    """Extract normalized fields from a raw post dict regardless of source.
 
-def _fetch_subreddit(subreddit: str, sort: str = "hot", limit: int = 25) -> list[dict]:
-    """Fetch posts from a subreddit using Reddit's public JSON endpoint."""
-    import urllib.request
-    import urllib.error
+    PullPush and Arctic Shift return similar field names to Reddit's API,
+    but some fields may be missing or named differently.
+    """
+    title = rp.get("title", "")
+    selftext = rp.get("selftext", rp.get("body", ""))
+    text = f"{title}\n\n{selftext}".strip() if selftext else title
 
-    url = f"https://www.reddit.com/r/{subreddit}/{sort}.json?limit={limit}&raw_json=1"
-    headers = {
-        "User-Agent": "NCL-Galactia/1.0 (intelligence pipeline; contact: admin@bitrage.labour)",
+    author = rp.get("author", rp.get("author_name", "deleted"))
+    created = rp.get("created_utc", 0)
+    if isinstance(created, str):
+        try:
+            created = int(float(created))
+        except (ValueError, TypeError):
+            created = 0
+
+    if created:
+        ts_str = datetime.fromtimestamp(created, tz=timezone.utc).isoformat()
+    else:
+        ts_str = datetime.now(timezone.utc).isoformat()
+
+    reddit_id = rp.get("id", "")
+    pid = f"reddit_{reddit_id}" if reddit_id else _post_id(text, author, ts_str)
+
+    permalink = rp.get("permalink", "")
+    if permalink and not permalink.startswith("http"):
+        permalink = f"https://reddit.com{permalink}"
+
+    subreddit = rp.get("subreddit", rp.get("subreddit_name", ""))
+
+    return {
+        "text": text,
+        "author": author,
+        "timestamp": ts_str,
+        "post_id": pid,
+        "url": permalink,
+        "subreddit": subreddit,
+        "score": rp.get("score", 0),
+        "upvote_ratio": rp.get("upvote_ratio", 0),
+        "num_comments": rp.get("num_comments", 0),
+        "awards": rp.get("total_awards_received", 0),
+        "flair": rp.get("link_flair_text", ""),
+        "is_self": rp.get("is_self", True),
+        "domain": rp.get("domain", ""),
+        "source_api": source,
     }
 
-    req = urllib.request.Request(url, headers=headers)
-    try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-            children = data.get("data", {}).get("children", [])
-            return [c.get("data", {}) for c in children if c.get("kind") == "t3"]
-    except urllib.error.HTTPError as e:
-        if e.code == 429:
-            print(f"  [REDDIT] Rate limited on r/{subreddit}. Backing off.")
-            time.sleep(5)
-        else:
-            print(f"  [REDDIT] HTTP {e.code} on r/{subreddit}: {e.reason}")
-        return []
-    except Exception as e:
-        print(f"  [REDDIT] Failed to fetch r/{subreddit}: {e}")
-        return []
 
+# ═══════════════════════════════════════════════════════════════
+#  INGESTION
+# ═══════════════════════════════════════════════════════════════
 
 def ingest_feed(
     max_posts: int = 100,
@@ -137,10 +414,16 @@ def ingest_feed(
 ) -> list[dict]:
     """Pull recent posts from configured subreddits.
 
+    Uses cascading multi-source strategy:
+      PullPush.io → Arctic Shift → Reddit API
+
+    No API keys required for PullPush or Arctic Shift.
+    Works from cloud/datacenter IPs without blocks.
+
     Args:
         max_posts: Maximum total posts to ingest across all subreddits.
         subreddits: Override subreddit config. Defaults to SUBREDDITS.
-        sort: Reddit sort order (hot, new, rising, top).
+        sort: Reddit sort order (used for Reddit API fallback only).
         per_sub_limit: Max posts per subreddit fetch.
 
     Returns:
@@ -150,8 +433,9 @@ def ingest_feed(
     state = _load_ingest_state()
     seen = set(state.get("seen_ids", []))
     ingested = []
+    source_stats = {"pullpush": 0, "arctic": 0, "reddit": 0, "none": 0}
 
-    print(f"[REDDIT PIPELINE] Scanning {len(subs)} subreddits ({sort})...")
+    print(f"[REDDIT PIPELINE] Scanning {len(subs)} subreddits (source: {REDDIT_SOURCE})...")
 
     for sub_name, sub_config in subs.items():
         if len(ingested) >= max_posts:
@@ -160,82 +444,76 @@ def ingest_feed(
         division = sub_config.get("division", "ALPHA")
         priority = sub_config.get("priority", "medium")
 
-        raw_posts = _fetch_subreddit(sub_name, sort=sort, limit=per_sub_limit)
+        raw_posts, source = _fetch_subreddit(sub_name, sort=sort, limit=per_sub_limit)
+        source_stats[source] = source_stats.get(source, 0) + 1
 
         sub_count = 0
         for rp in raw_posts:
             if len(ingested) >= max_posts:
                 break
 
-            # Build text from title + selftext
-            title = rp.get("title", "")
-            selftext = rp.get("selftext", "")
-            text = f"{title}\n\n{selftext}".strip() if selftext else title
+            fields = _extract_post_fields(rp, source)
 
-            if not text or len(text) < 10:
+            if not fields["text"] or len(fields["text"]) < 10:
                 continue
 
-            author = rp.get("author", "deleted")
-            created = rp.get("created_utc", 0)
-            ts_str = datetime.fromtimestamp(created, tz=timezone.utc).isoformat() if created else datetime.now(timezone.utc).isoformat()
-
-            # Use Reddit's native ID for dedup
-            reddit_id = rp.get("id", "")
-            pid = f"reddit_{reddit_id}" if reddit_id else _post_id(text, author, ts_str)
-
-            if pid in seen:
+            if fields["post_id"] in seen:
                 continue
 
             record = _normalize_post(
-                text=text,
-                author=f"u/{author}",
-                timestamp=ts_str,
+                text=fields["text"],
+                author=f"u/{fields['author']}" if not fields["author"].startswith("u/") else fields["author"],
+                timestamp=fields["timestamp"],
                 source=f"reddit:r/{sub_name}",
-                post_id=pid,
-                url=f"https://reddit.com{rp.get('permalink', '')}",
+                post_id=fields["post_id"],
+                url=fields["url"],
                 metrics={
-                    "score": rp.get("score", 0),
-                    "upvote_ratio": rp.get("upvote_ratio", 0),
-                    "num_comments": rp.get("num_comments", 0),
-                    "awards": rp.get("total_awards_received", 0),
+                    "score": fields["score"],
+                    "upvote_ratio": fields["upvote_ratio"],
+                    "num_comments": fields["num_comments"],
+                    "awards": fields["awards"],
                 },
                 subreddit=sub_name,
                 division=division,
                 priority=priority,
-                flair=rp.get("link_flair_text", ""),
-                is_self=rp.get("is_self", True),
-                domain=rp.get("domain", ""),
+                flair=fields["flair"],
+                is_self=fields["is_self"],
+                domain=fields["domain"],
+                context=f"source_api:{fields['source_api']}",
             )
 
             # Archive
             with open(FEED_ARCHIVE, "a", encoding="utf-8") as f:
                 f.write(json.dumps(record) + "\n")
 
-            seen.add(pid)
+            seen.add(fields["post_id"])
             ingested.append(record)
             sub_count += 1
 
         if sub_count > 0:
-            print(f"  r/{sub_name}: {sub_count} new posts [{division}]")
+            print(f"  r/{sub_name}: {sub_count} new posts [{division}] via {source}")
 
         # Update per-subreddit state
         state.setdefault("subreddit_state", {})[sub_name] = {
             "last_fetch": datetime.now(timezone.utc).isoformat(),
             "posts_fetched": len(raw_posts),
             "new_ingested": sub_count,
+            "source": source,
         }
 
         # Rate limit between subreddits
         if len(ingested) < max_posts:
-            time.sleep(REQUEST_DELAY)
+            time.sleep(_get_delay_for_source(source))
 
     # Update global state
     state["last_ingest"] = datetime.now(timezone.utc).isoformat()
     state["total_ingested"] = state.get("total_ingested", 0) + len(ingested)
     state["seen_ids"] = list(seen)
+    state["source_stats"] = source_stats
     _save_ingest_state(state)
 
     print(f"[REDDIT PIPELINE] Ingested {len(ingested)} new posts from {len(subs)} subreddits")
+    print(f"  Sources used: {source_stats}")
     return ingested
 
 
@@ -309,25 +587,18 @@ def _normalize_post(
     context: str = "",
 ) -> dict:
     """Normalize a Reddit post into Galactia's standard format."""
-    # Extract URLs from text
     urls = re.findall(r'https?://\S+', text)
-
-    # Extract hashtags (rare on Reddit but some posts have them)
     hashtags = re.findall(r'#(\w+)', text)
-
-    # Extract mentions (u/username pattern)
     mentions = re.findall(r'u/(\w+)', text)
 
-    # Clean text for analysis
     clean_text = re.sub(r'https?://\S+', '', text).strip()
     clean_text = re.sub(r'\s+', ' ', clean_text)
-    # Truncate very long selftext posts
     if len(clean_text) > 2000:
         clean_text = clean_text[:2000] + "..."
 
     return {
         "id": post_id or _post_id(text, author, timestamp),
-        "text": text[:3000],  # Bound raw text
+        "text": text[:3000],
         "clean_text": clean_text,
         "author": author,
         "timestamp": timestamp,
@@ -347,7 +618,6 @@ def _normalize_post(
         "domain": domain,
         "topic_hint": topic_hint or flair,
         "context": context,
-        # Placeholders — filled by truth engine
         "truth_score": None,
         "credibility_score": None,
         "accountability_score": None,
@@ -386,6 +656,8 @@ def feed_stats() -> dict:
         "subreddits_configured": len(SUBREDDITS),
         "subreddit_counts": source_counts,
         "subreddit_state": state.get("subreddit_state", {}),
+        "source_stats": state.get("source_stats", {}),
+        "active_source": REDDIT_SOURCE,
     }
 
 
@@ -414,16 +686,31 @@ def get_unscored_posts(limit: int = 50) -> list[dict]:
 
 if __name__ == "__main__":
     import argparse
-    parser = argparse.ArgumentParser(description="Reddit Pipeline — Feed ingestion for Galactia")
+    parser = argparse.ArgumentParser(description="Reddit Pipeline — Multi-source feed ingestion for Galactia")
     parser.add_argument("--ingest", action="store_true", help="Ingest from Reddit")
     parser.add_argument("--sort", type=str, default="hot", choices=["hot", "new", "rising", "top"],
-                        help="Reddit sort order")
+                        help="Reddit sort order (Reddit API fallback only)")
+    parser.add_argument("--source", type=str, default="auto",
+                        choices=["auto", "pullpush", "arctic", "reddit"],
+                        help="Data source: auto (cascade), pullpush, arctic, or reddit")
     parser.add_argument("--stats", action="store_true", help="Show feed stats")
     parser.add_argument("--max", type=int, default=100, help="Max posts to ingest")
     parser.add_argument("--division", type=str, help="Only scan subreddits for this division")
+    parser.add_argument("--test", type=str, help="Test fetch from a single subreddit")
     args = parser.parse_args()
 
-    if args.stats:
+    # Override source from CLI
+    if args.source != "auto":
+        REDDIT_SOURCE = args.source
+
+    if args.test:
+        print(f"[TEST] Fetching from r/{args.test} via {REDDIT_SOURCE}...")
+        posts, src = _fetch_subreddit(args.test, limit=5)
+        print(f"  Source: {src}, Posts: {len(posts)}")
+        for p in posts[:3]:
+            fields = _extract_post_fields(p, src)
+            print(f"  - [{fields['score']}] {fields['text'][:80]}...")
+    elif args.stats:
         stats = feed_stats()
         for k, v in stats.items():
             print(f"  {k}: {v}")

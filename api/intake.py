@@ -43,7 +43,8 @@ from api.checkout import router as checkout_router
 from api.fulfillment import router as fulfillment_router
 from api.task_router import router as task_router
 from api.notifications_router import router as notifications_router
-from api.ncl_router import router as ncl_router
+from api.ops_router import router as ops_router
+from api.intel_router import router as intel_router
 from api.outputs_router import router as outputs_router
 
 # P6.3 — Credential TTL check on startup
@@ -185,11 +186,11 @@ async def startup_background_daemons():
                     except Exception as e:
                         logger.error("[NERVE] Internal ops error: %s", e)
 
-                # Full NCL daily push — every 30 min (health checks, escalations, revenue)
+                # Full BRL ops push — every 30 min (health checks, escalations, revenue)
                 if now - last_full_push >= nerve_interval:
                     try:
-                        from NCL.ncl_operations_commander import daily_ops_push
-                        logger.info("[NERVE] Cycle %d — full NCL daily push...", cycle)
+                        from dispatcher.ops_commander import daily_ops_push
+                        logger.info("[NERVE] Cycle %d — full BRL ops push...", cycle)
                         daily_ops_push()
                         logger.info("[NERVE] Full push complete")
                         last_full_push = now
@@ -351,8 +352,11 @@ app.include_router(task_router)
 # Notification System — Real-time alerts for workstation
 app.include_router(notifications_router)
 
-# NCL Operations Commander
-app.include_router(ncl_router)
+# Bit Rage Operations Commander
+app.include_router(ops_router)
+
+# Intelligence Engine (Galactia — NCL-bound, see SOT)
+app.include_router(intel_router)
 
 # Persistent Output Store — query/search/retrieve completed outputs
 app.include_router(outputs_router)

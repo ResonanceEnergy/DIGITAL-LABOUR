@@ -1,11 +1,12 @@
-# NCC AI LABOR OPERATIONS (ALOPS) — Division Doctrine v2
+# BIT RAGE LABOUR — Operations Doctrine v2
 
 ## Classification
-**Division**: AI Labor Operations (ALOPS)  
-**Parent**: NCC — Natrix Command & Control  
+**System**: Bit Rage Labour (BRL) — Autonomous AI Labor Platform  
+**Governance**: BRS 2.0 Framework (self-governing)  
+**Monitored By**: NCL (via API — see RESONANCE_ENERGY_SOT.md)  
 **Status**: ACTIVE — OPERATIONAL  
 **Effective**: March 7, 2026  
-**Last Updated**: With real operational data  
+**Last Updated**: April 20, 2026 — Separated from NCC governance  
 
 ---
 

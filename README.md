@@ -1,31 +1,36 @@
-# DIGITAL LABOUR LABOUR
+# BIT RAGE LABOUR
 ## AI Labor Operations — Autonomous Agents That Earn
 
 This is not a chatbot. This is not a SaaS product.  
 This is **digital labor** — autonomous agents that complete real tasks for real companies and get paid.
 
+**Part of the Resonance Energy portfolio. Monitored by NCL (separate repo).**  
+See `RESONANCE_ENERGY_SOT.md` for system boundaries and architecture.
+
 ## Structure
 
 ```
-00_COMMAND/          — NCC doctrine, war plan, governance
-agents/              — Individual agent modules
-  sales_ops/         — Lead enrichment + cold outreach
-  support/           — Ticket triage + resolution
-  ops_brief/         — Daily executive briefings
-  doc_extract/       — Document → structured data
-  qa/                — Verifier / QA agent (shared)
-api/                 — Intake webhook (FastAPI)
-billing/             — Invoice + payment tracking
-config/              — LLM config, banned phrases, env
-delivery/            — Output delivery (email, file export)
-demos/               — Demo output packs (sales proof)
-dispatcher/          — Task routing + queue + budget enforcement
+00_COMMAND/          — BRL doctrine, operations framework, governance
+agents/              — 46 agent modules across 4 divisions
+api/                 — Intake webhook (FastAPI) + routers
+automation/          — NERVE daemon, email tracking, job discovery
+billing/             — Invoice + payment tracking (Stripe)
+c_suite/             — Executive AI (AXIOM CEO, VECTIS COO, LEDGR CFO)
+config/              — LLM config, agent registry, banned phrases
+delivery/            — Output delivery (email, file export, webhooks)
+dispatcher/          — Task routing + queue + budget + ops commander
+galactia/            — Intelligence engine (NCL-bound, temporary — see SOT)
 kpi/                 — Metrics logging + weekly reports
-listings/            — Marketplace listing copy + DM templates
-offers/              — Retainer offers + onboarding docs
-schemas/             — JSON schemas for all agent I/O
-utils/               — Shared utilities (export, validation)
 ```
+
+## 4 Divisions
+
+| Division | Code | Head | TAM | Agents |
+|----------|------|------|-----|--------|
+| Insurance Operations | INS-OPS | AXIOM | $500B | insurance_appeals, insurance_qa, insurance_compliance |
+| Grant Operations | GRANT-OPS | AXIOM | $150B | grant_writer, grant_qa, grant_researcher |
+| Contractor Services | CTR-SVC | VECTIS | $2T | contractor_doc_writer, contractor_qa, contractor_compliance |
+| Municipal Services | MUN-SVC | VECTIS | $400B | municipal_doc_writer, municipal_qa, municipal_compliance |
 
 ## Quick Start
 
@@ -36,23 +41,32 @@ cd DIGITAL-LABOUR
 
 # 2. Setup
 python -m venv .venv
-.venv\Scripts\activate  # Windows
+source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env    # Add your API keys
 
-# 3. Run Sales Ops Agent (single lead)
+# 3. Run single agent
 python agents/sales_ops/runner.py --company "Acme Corp" --role "Head of Growth"
 
-# 4. Run full pipeline
-python dispatcher/router.py
+# 4. Run full API
+python bitrage.py start
+
+# 5. Master launcher
+python bitrage.py          # Interactive menu
+python bitrage.py status   # System status
+python bitrage.py health   # Health dashboard
 ```
 
-## Income Targets
-- **Day 5**: First paid task
-- **Day 12**: First retainer ($750+/mo)
-- **Day 30**: $3,000/mo run rate
-- **Month 2**: $5,000+/mo
+## Deployment
+
+Production: Railway — `bitrage-labour-api-production.up.railway.app`
+
+```bash
+git push origin main    # Auto-deploys via Railway
+```
 
 ## Doctrine
-This project operates under **NCC AI LABOR OPERATIONS (ALOPS)**.  
-See `00_COMMAND/` for governance, war plan, and doctrine.
+
+This project governs itself under **BRS 2.0 Framework**.  
+See `00_COMMAND/` for operations doctrine and action plans.  
+See `RESONANCE_ENERGY_SOT.md` for how this fits into the broader Resonance Energy portfolio.

@@ -14,6 +14,7 @@ import sys
 import time
 import threading
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
 from pathlib import Path
 from uuid import uuid4
 from datetime import datetime, timezone, timedelta
@@ -530,7 +531,15 @@ def route_task(event: dict) -> dict:
         )
         return _finalize_event(event, start, task_type)
 
-    try:
+    # ── P1.2: Real execution timeout (preemptive) ──────────────
+    # Wrap agent dispatch in a thread with a hard timeout so hung LLM
+    # calls don't block the queue processor indefinitely.
+    _timeout_s = _registry_get(task_type, "max_execution_seconds", 45)
+    _timeout_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix=f"agent-{task_type}")
+
+    def _run_agent():
+        """Execute the agent pipeline — runs inside timeout-guarded thread."""
+        nonlocal event
         if task_type == "sales_outreach":
             from agents.sales_ops.runner import run_pipeline as sales_pipeline
             result = sales_pipeline(
@@ -1110,6 +1119,22 @@ def route_task(event: dict) -> dict:
             event["qa"]["failure_reason"] = "UNKNOWN_TASK_TYPE"
             logger.error("[ERROR] Unknown task type: %s", task_type)
 
+    # ── Submit _run_agent to timeout-guarded executor ─────────
+    try:
+        future = _timeout_executor.submit(_run_agent)
+        future.result(timeout=_timeout_s)
+    except FuturesTimeoutError:
+        event["qa"]["status"] = "FAIL"
+        event["qa"]["issues"] = [
+            f"EXECUTION_TIMEOUT: agent exceeded {_timeout_s}s hard limit — killed"
+        ]
+        event["qa"]["failure_reason"] = "EXECUTION_TIMEOUT"
+        event["qa"]["exception_type"] = "TimeoutError"
+        logger.error(
+            "[EXECUTION_TIMEOUT] %s exceeded %ss hard timeout — task killed",
+            task_type, _timeout_s,
+        )
+        _agent_metrics[task_type]["errors"] += 1
     except Exception as e:
         import traceback
         tb_short = traceback.format_exception_only(type(e), e)[-1].strip()
@@ -1129,6 +1154,8 @@ def route_task(event: dict) -> dict:
         else:
             logger.error("[%s] %s: %s\n%s", failure_mode.upper(), task_type, e, tb_full)
         _agent_metrics[task_type]["errors"] += 1
+    finally:
+        _timeout_executor.shutdown(wait=False)
 
     # ── P3.3: Confidence-based QA verification + automatic retry ─
     # Trust agent-level QA when it already passed with a high score (>= 85).
@@ -1199,17 +1226,19 @@ def route_task(event: dict) -> dict:
             logger.warning("[QA] Confidence check failed for %s: %s (non-blocking)", task_type, qa_exc)
 
     # ── P1.2: Hard execution termination (time) ─────────────────
+    # NOTE: Real preemptive timeout is now handled by _timeout_executor
+    # above. This post-hoc check catches edge cases (e.g. QA verification
+    # pushing total time over the limit after the agent itself returned).
     elapsed_s = time.time() - start
-    ceiling = _registry_get(task_type, "max_execution_seconds", 45)
-    if elapsed_s > ceiling:
+    if elapsed_s > _timeout_s * 1.5:  # 50% grace for QA overhead
         logger.error(
-            "[HARD_TIMEOUT] %s exceeded max_execution_seconds (%ss > %ss) — task FAILED",
-            task_type, round(elapsed_s, 1), ceiling,
+            "[HARD_TIMEOUT] %s total time %ss exceeded %ss limit (incl. QA) — task FAILED",
+            task_type, round(elapsed_s, 1), _timeout_s,
         )
         event["qa"]["status"] = "FAIL"
         event["qa"]["failure_reason"] = "HARD_TIMEOUT"
         event["qa"]["issues"].append(
-            f"HARD_TIMEOUT: {round(elapsed_s, 1)}s > {ceiling}s limit — terminated"
+            f"HARD_TIMEOUT: {round(elapsed_s, 1)}s > {_timeout_s}s limit — terminated"
         )
         event["metrics"]["ceiling_breached"] = True
         _agent_metrics[task_type]["errors"] += 1
