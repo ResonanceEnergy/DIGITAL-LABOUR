@@ -1,6 +1,6 @@
 # ResonanceEnergy • Public Repositories
 
-_Total: 10_
+_Total: 11_
 
 ## Core / Command / Brain
 
@@ -20,3 +20,4 @@ _Total: 10_
 - [ResonanceEnergy/ENTERPRISE-EXCELERATION](https://github.com/ResonanceEnergy/ENTERPRISE-EXCELERATION) — ENTERPRISE-EXCELERATION
 - [ResonanceEnergy/MAN-UP-MAN-DOWN](https://github.com/ResonanceEnergy/MAN-UP-MAN-DOWN) — MAN UP MAN DOWN
 - [ResonanceEnergy/resonanceenergymedia](https://github.com/ResonanceEnergy/resonanceenergymedia) — Resonance Energy Media
+- [ResonanceEnergy/TARTARIA](https://github.com/ResonanceEnergy/TARTARIA) — TARTARIA
