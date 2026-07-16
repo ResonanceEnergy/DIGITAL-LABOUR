@@ -1,6 +1,6 @@
 # ResonanceEnergy • Public Repositories
 
-_Total: 11_
+_Total: 12_
 
 ## Core / Command / Brain
 
@@ -19,5 +19,6 @@ _Total: 11_
 - [ResonanceEnergy/DUBFORGE](https://github.com/ResonanceEnergy/DUBFORGE) — DUBFORGE
 - [ResonanceEnergy/ENTERPRISE-EXCELERATION](https://github.com/ResonanceEnergy/ENTERPRISE-EXCELERATION) — ENTERPRISE-EXCELERATION
 - [ResonanceEnergy/MAN-UP-MAN-DOWN](https://github.com/ResonanceEnergy/MAN-UP-MAN-DOWN) — MAN UP MAN DOWN
+- [ResonanceEnergy/MircoHydro](https://github.com/ResonanceEnergy/MircoHydro) — Micro Hydro
 - [ResonanceEnergy/resonanceenergymedia](https://github.com/ResonanceEnergy/resonanceenergymedia) — Resonance Energy Media
 - [ResonanceEnergy/TARTARIA](https://github.com/ResonanceEnergy/TARTARIA) — TARTARIA
